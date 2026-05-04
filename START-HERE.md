@@ -40,6 +40,7 @@ This page is for:
 ```text
 AI idea
 → 3-minute Quick Check
+→ Mini-Workshop / Discovery Session
 → Responsible AI Pilot Canvas
 → AI Pilot Decision Report
 → Pilot / Preparation / Rejection / More information
@@ -53,7 +54,7 @@ The goal is to turn a vague AI idea into a clear decision and next step.
 
 Start with the short lead magnet:
 
-[AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md)
+[AI Readiness Quick Check](QUICK-CHECK.md)
 
 It gives a fast answer to the question:
 
@@ -176,7 +177,8 @@ If you have a real business process where AI could help, this project can help s
 
 Start with:
 
-[Pilot Partners Wanted](PILOT-PARTNERS.md)
+- [Pilot Partners Wanted](PILOT-PARTNERS.md)
+- [Pilot Partner Call](offers/pilot-partner-call.md)
 
 Good first pilot candidates are usually:
 
@@ -238,6 +240,7 @@ Start with:
 
 - [AI Readiness Mini-Workshop](workshops/ai-readiness-mini-workshop.md)
 - [Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md)
+- [Pilot Partner Call](offers/pilot-partner-call.md)
 
 These tools help a team move from a vague AI idea to a clearer pilot candidate, responsibility model, and next action.
 
@@ -288,6 +291,6 @@ Join the discussion:
 
 Choose one business process and answer the 7 questions:
 
-[AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md)
+[AI Readiness Quick Check](QUICK-CHECK.md)
 
 That is the fastest way to understand the value of the framework.
