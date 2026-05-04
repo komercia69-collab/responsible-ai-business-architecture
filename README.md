@@ -57,9 +57,13 @@ If you are new to this project, start with these documents:
 2. [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) — a practical tool for finding where AI may create business value and where it may create risk.
 3. [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) — a checklist for understanding a business process before introducing AI.
 4. [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) — an architecture pattern for preventing AI from executing critical actions without human approval.
-5. [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) — a compliance-oriented matrix connecting AI roles, data sensitivity, decision risk, human control, audit requirements, and responsibility.
-6. [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) — a practical example showing how the framework can be applied to invoice processing.
-7. [Disclaimer](DISCLAIMER.md) — important limitations: this project is not legal advice, not a certification standard, and not a compliance guarantee.
+5. [Agent Permission Boundary Pattern](architecture-patterns/agent-permission-boundary.md) — an architecture pattern for defining what AI agents may access, prepare, recommend, or execute.
+6. [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) — a compliance-oriented matrix connecting AI roles, data sensitivity, decision risk, human control, audit requirements, and responsibility.
+7. [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) — a practical example showing how the framework can be applied to invoice processing.
+8. [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) — a practical example showing how AI can assist customer communication without autonomous sending.
+9. [Contributing Guidelines](CONTRIBUTING.md) — how to propose feedback, examples, patterns, and improvements.
+10. [License Decision](LICENSE-DECISION.md) — current temporary licensing position and possible future directions.
+11. [Disclaimer](DISCLAIMER.md) — important limitations: this project is not legal advice, not a certification standard, and not a compliance guarantee.
 
 ## Practical Toolkit
 
@@ -70,8 +74,10 @@ The current practical toolkit includes:
 | [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) | Identify AI opportunities and risks before selecting tools |
 | [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) | Understand the process, data, decisions, and responsibility structure |
 | [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) | Define where AI must stop and human approval must happen |
+| [Agent Permission Boundary Pattern](architecture-patterns/agent-permission-boundary.md) | Define what AI agents may access, prepare, recommend, or execute |
 | [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) | Define AI role, risk level, human control, audit, and accountable owner |
-| [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) | Show how the framework works in a concrete business process |
+| [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) | Show how the framework works in invoice processing |
+| [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) | Show how the framework works in customer email support |
 
 ## Main Principle
 
@@ -102,6 +108,10 @@ Critical decisions should remain under human control. AI can prepare, recommend,
 
 A confirmation gate is an architectural pattern where AI prepares an action but cannot execute it until a responsible human approves it.
 
+### Agent Permission Boundary
+
+An agent permission boundary defines what an AI agent may access, prepare, recommend, or execute. Permissions should be granted from responsibility, not from technical capability.
+
 ### Deterministic Responsibility Zone
 
 Even if an AI system behaves probabilistically, the surrounding business process must define deterministic responsibility: who checks, who approves, who can override, and who is accountable.
@@ -127,7 +137,9 @@ responsible-ai-business-architecture/
 │
 ├── README.md
 ├── AUTHORS.md
+├── CONTRIBUTING.md
 ├── USAGE.md
+├── LICENSE-DECISION.md
 ├── DISCLAIMER.md
 ├── ROADMAP.md
 │
@@ -138,13 +150,15 @@ responsible-ai-business-architecture/
 │   └── ai-integration-responsibility-matrix.md
 │
 ├── architecture-patterns/
-│   └── confirmation-gate.md
+│   ├── confirmation-gate.md
+│   └── agent-permission-boundary.md
 │
 ├── business-diagnosis/
 │   ├── ai-opportunity-map.md
 │   └── process-diagnosis-checklist.md
 └── examples/
-    └── invoice-processing-ai-pilot.md
+    ├── invoice-processing-ai-pilot.md
+    └── customer-email-triage-ai-pilot.md
 ```
 
 ## Open Discussion
@@ -177,10 +191,13 @@ The first public version includes:
 - a project manifesto;
 - a usage policy;
 - a disclaimer;
+- contribution guidelines;
+- a license decision note;
 - an AI opportunity map;
 - a process diagnosis checklist;
 - a confirmation gate architecture pattern;
+- an agent permission boundary architecture pattern;
 - an AI integration responsibility matrix;
-- a practical invoice processing pilot example.
+- practical pilot examples for invoice processing and customer email triage.
 
-The next goal is to collect feedback and improve the framework through real-world review.
+The next goal is to collect feedback, improve the framework through real-world review, and add more practical patterns and examples.
