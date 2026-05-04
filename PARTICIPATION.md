@@ -73,7 +73,7 @@ Reviewers may gain:
 
 Start with:
 
-- [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md)
+- [AI Readiness Quick Check](QUICK-CHECK.md)
 - [Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md)
 - [AI Pilot Decision Report](templates/ai-pilot-decision-report.md)
 
@@ -132,13 +132,14 @@ Pilot partners may gain:
 
 ### Suggested First Action
 
-Open an issue using:
+Start with:
+
+- [AI Readiness Quick Check](QUICK-CHECK.md)
+- [Pilot Partner Call](offers/pilot-partner-call.md)
+
+Or open an issue using:
 
 [AI Use Case Review](.github/ISSUE_TEMPLATE/ai-use-case-review.md)
-
-Or start with:
-
-[AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md)
 
 ---
 
