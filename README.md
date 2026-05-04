@@ -5,6 +5,22 @@
 
 This project proposes a practical framework for responsible AI integration into business processes, with a focus on business architecture, human oversight, risk management, and compliance-by-design.
 
+## Quick Start: AI Readiness Quick Check
+
+Not sure where to begin?
+
+Start with the [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md).
+
+It is a practical 15-minute self-assessment that helps a person, team, or organization understand whether a business process is ready for a responsible AI pilot.
+
+It helps answer:
+
+- where AI may create value;
+- whether the process is clear enough;
+- where human control is required;
+- what risks should be clarified before automation;
+- whether the idea is ready for a limited pilot.
+
 ## Purpose
 
 Many organizations want to adopt AI, but they face a critical question:
@@ -53,17 +69,18 @@ It helps answer:
 
 If you are new to this project, start with these documents:
 
-1. [Executive Manifesto](executive/manifesto.md) — a short explanation of the project for leaders, CTOs, DPOs, consultants, and business architects.
-2. [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) — a practical tool for finding where AI may create business value and where it may create risk.
-3. [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) — a checklist for understanding a business process before introducing AI.
-4. [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) — an architecture pattern for preventing AI from executing critical actions without human approval.
-5. [Agent Permission Boundary Pattern](architecture-patterns/agent-permission-boundary.md) — an architecture pattern for defining what AI agents may access, prepare, recommend, or execute.
-6. [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) — a compliance-oriented matrix connecting AI roles, data sensitivity, decision risk, human control, audit requirements, and responsibility.
-7. [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) — a practical example showing how the framework can be applied to invoice processing.
-8. [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) — a practical example showing how AI can assist customer communication without autonomous sending.
-9. [Contributing Guidelines](CONTRIBUTING.md) — how to propose feedback, examples, patterns, and improvements.
-10. [License Decision](LICENSE-DECISION.md) — current temporary licensing position and possible future directions.
-11. [Disclaimer](DISCLAIMER.md) — important limitations: this project is not legal advice, not a certification standard, and not a compliance guarantee.
+1. [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md) — a practical 15-minute self-assessment for choosing a responsible first AI pilot.
+2. [Executive Manifesto](executive/manifesto.md) — a short explanation of the project for leaders, CTOs, DPOs, consultants, and business architects.
+3. [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) — a practical tool for finding where AI may create business value and where it may create risk.
+4. [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) — a checklist for understanding a business process before introducing AI.
+5. [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) — an architecture pattern for preventing AI from executing critical actions without human approval.
+6. [Agent Permission Boundary Pattern](architecture-patterns/agent-permission-boundary.md) — an architecture pattern for defining what AI agents may access, prepare, recommend, or execute.
+7. [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) — a compliance-oriented matrix connecting AI roles, data sensitivity, decision risk, human control, audit requirements, and responsibility.
+8. [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) — a practical example showing how the framework can be applied to invoice processing.
+9. [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) — a practical example showing how AI can assist customer communication without autonomous sending.
+10. [Contributing Guidelines](CONTRIBUTING.md) — how to propose feedback, examples, patterns, and improvements.
+11. [License Decision](LICENSE-DECISION.md) — current temporary licensing position and possible future directions.
+12. [Disclaimer](DISCLAIMER.md) — important limitations: this project is not legal advice, not a certification standard, and not a compliance guarantee.
 
 ## Practical Toolkit
 
@@ -71,6 +88,7 @@ The current practical toolkit includes:
 
 | Tool / Pattern | Purpose |
 |---|---|
+| [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md) | Evaluate in 15 minutes whether a process is ready for a responsible AI pilot |
 | [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) | Identify AI opportunities and risks before selecting tools |
 | [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) | Understand the process, data, decisions, and responsibility structure |
 | [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) | Define where AI must stop and human approval must happen |
@@ -143,6 +161,10 @@ responsible-ai-business-architecture/
 ├── DISCLAIMER.md
 ├── ROADMAP.md
 │
+├── lead-magnet/
+│   ├── README.md
+│   └── ai-readiness-quick-check.md
+│
 ├── executive/
 │   └── manifesto.md
 │
@@ -193,6 +215,7 @@ The first public version includes:
 - a disclaimer;
 - contribution guidelines;
 - a license decision note;
+- an AI readiness quick check;
 - an AI opportunity map;
 - a process diagnosis checklist;
 - a confirmation gate architecture pattern;
