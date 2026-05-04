@@ -19,7 +19,8 @@ The project helps organizations answer:
 - where human approval must be mandatory;
 - which data and permission boundaries are required;
 - how to design a safe first AI pilot;
-- how to avoid uncontrolled automation.
+- how to avoid uncontrolled automation;
+- how to avoid missing valuable AI opportunities because no safe pilot path exists.
 
 ## Who Should Start Here
 
@@ -31,9 +32,22 @@ This page is for:
 - AI consultants and implementation partners;
 - business owners and operations leaders;
 - teams looking for a safe first AI pilot;
+- pilot partners willing to test the framework on a real process;
 - investors or partners interested in responsible AI implementation and scaling.
 
-## The 5-Step Path
+## The Product Path
+
+```text
+AI idea
+→ 3-minute Quick Check
+→ Responsible AI Pilot Canvas
+→ AI Pilot Decision Report
+→ Pilot / Preparation / Rejection / More information
+```
+
+The goal is to turn a vague AI idea into a clear decision and next step.
+
+## The 7-Step Path
 
 ### Step 1 — Do the 3-Minute Quick Check
 
@@ -54,9 +68,45 @@ Examples:
 - internal knowledge search;
 - reporting;
 - document review;
-- support ticket triage.
+- support ticket triage;
+- service request routing.
 
-### Step 2 — If the Score Looks Promising, Go Deeper
+### Step 2 — If the Score Looks Promising, Use the Pilot Canvas
+
+Use:
+
+[Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md)
+
+This helps structure the AI idea into:
+
+- business process;
+- current pain;
+- expected value;
+- AI role;
+- data and risk;
+- human control;
+- permission boundary;
+- confirmation gate;
+- audit log;
+- pilot scope;
+- success metrics;
+- decision;
+- next step.
+
+### Step 3 — Create a Decision Report
+
+Use:
+
+[AI Pilot Decision Report](templates/ai-pilot-decision-report.md)
+
+This turns discussion into a clear result:
+
+- Green — good candidate for a controlled AI pilot;
+- Yellow — promising, but preparation is required;
+- Red — not suitable as a first AI pilot;
+- Grey — not enough information yet.
+
+### Step 4 — Go Deeper if Needed
 
 Use the detailed scorecard:
 
@@ -70,7 +120,7 @@ This helps evaluate:
 - human control;
 - pilot readiness.
 
-### Step 3 — Map the Opportunity and Risk
+### Step 5 — Map the Opportunity and Risk
 
 Use:
 
@@ -78,7 +128,7 @@ Use:
 
 This helps identify where AI may create value and where it may create unacceptable risk.
 
-### Step 4 — Design Control Boundaries
+### Step 6 — Design Control Boundaries
 
 Use these patterns:
 
@@ -92,7 +142,7 @@ These help define:
 - what an AI agent may access;
 - what an AI agent may prepare, recommend, or execute.
 
-### Step 5 — Define Responsibility and Auditability
+### Step 7 — Define Responsibility and Auditability
 
 Use:
 
@@ -108,9 +158,25 @@ This helps define:
 - allowed autonomy;
 - responsible owner.
 
+## If You Want a Structured Session
+
+Use:
+
+[Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md)
+
+This is a 45-minute format for evaluating one business process and producing a first pilot decision.
+
+For teams, use:
+
+[AI Readiness Mini-Workshop](workshops/ai-readiness-mini-workshop.md)
+
 ## For Organizations That May Provide a Pilot Environment
 
 If you have a real business process where AI could help, this project can help structure a safe pilot.
+
+Start with:
+
+[Pilot Partners Wanted](PILOT-PARTNERS.md)
 
 Good first pilot candidates are usually:
 
@@ -128,7 +194,8 @@ Examples:
 - invoice data extraction;
 - internal knowledge search;
 - support ticket classification;
-- management reporting drafts.
+- management reporting drafts;
+- rehab equipment service request triage.
 
 You can propose a use case using the issue template:
 
@@ -159,15 +226,20 @@ Implementation partners can contribute:
 - case studies;
 - lessons learned from real deployments.
 
+Read:
+
+[Participation](PARTICIPATION.md)
+
 ## For Consultants and Advisors
 
-The framework can be used as a structured workshop tool.
+The framework can be used as a structured workshop and discovery tool.
 
 Start with:
 
-[AI Readiness Mini-Workshop](workshops/ai-readiness-mini-workshop.md)
+- [AI Readiness Mini-Workshop](workshops/ai-readiness-mini-workshop.md)
+- [Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md)
 
-This helps a team move from a vague AI idea to a clearer pilot candidate, responsibility model, and next action.
+These tools help a team move from a vague AI idea to a clearer pilot candidate, responsibility model, and next action.
 
 ## For Investors and Scaling Partners
 
@@ -186,7 +258,11 @@ Potential value areas include:
 - training and certification materials in the future;
 - scalable templates for small and medium-sized businesses.
 
-The project is currently in an early public framework stage and is open to feedback, validation, implementation partnerships, and strategic discussion.
+Read:
+
+- [Value Proposition](VALUE-PROPOSITION.md)
+- [Participation](PARTICIPATION.md)
+- [Framework Flow](diagrams/framework-flow.md)
 
 ## How to Participate
 
