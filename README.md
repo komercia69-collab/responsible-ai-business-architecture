@@ -143,10 +143,22 @@ responsible-ai-business-architecture/
 ├── business-diagnosis/
 │   ├── ai-opportunity-map.md
 │   └── process-diagnosis-checklist.md
-│
 └── examples/
     └── invoice-processing-ai-pilot.md
 ```
+
+## Open Discussion
+
+The project has an open discussion for feedback, questions, and practical examples:
+
+[How can organizations integrate AI responsibly without losing control?](https://github.com/komercia69-collab/responsible-ai-business-architecture/discussions/2)
+
+Use this discussion to share thoughts about:
+
+- where AI should be allowed to act autonomously;
+- where AI should only recommend;
+- where human confirmation must be mandatory;
+- how organizations can keep responsibility, transparency, and control while using AI.
 
 ## Feedback
 
