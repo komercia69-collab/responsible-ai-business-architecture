@@ -22,6 +22,7 @@ Goal: provide simple tools that consultants, CTOs, DPOs, transformation leaders,
 
 Current documents:
 
+- [x] `QUICK-CHECK.md`
 - [x] `lead-magnet/ai-readiness-quick-check.md`
 - [x] `templates/ai-pilot-readiness-scorecard.md`
 - [x] `templates/responsible-ai-pilot-canvas.md`
@@ -63,6 +64,7 @@ Current documents:
 - [x] `VALUE-PROPOSITION.md`
 - [x] `PARTICIPATION.md`
 - [x] `PILOT-PARTNERS.md`
+- [x] `offers/pilot-partner-call.md`
 - [x] `offers/responsible-ai-pilot-discovery-session.md`
 - [x] `workshops/ai-readiness-mini-workshop.md`
 - [x] `.github/ISSUE_TEMPLATE/ai-use-case-review.md`
@@ -72,7 +74,6 @@ Current documents:
 
 Planned documents:
 
-- [ ] `offers/pilot-partner-call.md`
 - [ ] `offers/implementation-partner-call.md`
 - [ ] `offers/investor-strategic-partner-brief.md`
 - [ ] `templates/pilot-partner-intake-form.md`
@@ -133,6 +134,7 @@ Planned actions:
 - [x] Open a public GitHub discussion
 - [x] Prepare public introduction posts
 - [x] Create pilot partner invitation
+- [x] Create pilot partner call offer
 - [x] Create discovery session offer
 - [ ] Invite review from people working with business processes, AI, compliance, and architecture
 - [ ] Invite pilot partners to test the framework on real business processes
