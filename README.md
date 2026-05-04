@@ -49,6 +49,30 @@ It helps answer:
 - how business processes should be diagnosed before AI implementation;
 - how compliance and risk control should be designed into the architecture.
 
+## Start Here
+
+If you are new to this project, start with these documents:
+
+1. [Executive Manifesto](executive/manifesto.md) — a short explanation of the project for leaders, CTOs, DPOs, consultants, and business architects.
+2. [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) — a practical tool for finding where AI may create business value and where it may create risk.
+3. [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) — a checklist for understanding a business process before introducing AI.
+4. [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) — an architecture pattern for preventing AI from executing critical actions without human approval.
+5. [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) — a compliance-oriented matrix connecting AI roles, data sensitivity, decision risk, human control, audit requirements, and responsibility.
+6. [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) — a practical example showing how the framework can be applied to invoice processing.
+7. [Disclaimer](DISCLAIMER.md) — important limitations: this project is not legal advice, not a certification standard, and not a compliance guarantee.
+
+## Practical Toolkit
+
+The current practical toolkit includes:
+
+| Tool / Pattern | Purpose |
+|---|---|
+| [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) | Identify AI opportunities and risks before selecting tools |
+| [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) | Understand the process, data, decisions, and responsibility structure |
+| [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) | Define where AI must stop and human approval must happen |
+| [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) | Define AI role, risk level, human control, audit, and accountable owner |
+| [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) | Show how the framework works in a concrete business process |
+
 ## Main Principle
 
 **Responsible AI integration begins with business process diagnosis.**
@@ -104,37 +128,47 @@ responsible-ai-business-architecture/
 ├── README.md
 ├── AUTHORS.md
 ├── USAGE.md
+├── DISCLAIMER.md
 ├── ROADMAP.md
 │
 ├── executive/
 │   └── manifesto.md
 │
 ├── compliance/
-│   ├── ai-integration-responsibility-matrix.md
-│   ├── risk-classification-matrix.md
-│   └── human-oversight-checklist.md
+│   └── ai-integration-responsibility-matrix.md
 │
 ├── architecture-patterns/
-│   ├── confirmation-gate.md
-│   ├── human-in-the-loop.md
-│   ├── agent-permission-boundary.md
-│   └── audit-log-pattern.md
+│   └── confirmation-gate.md
 │
 ├── business-diagnosis/
 │   ├── ai-opportunity-map.md
-│   ├── process-diagnosis-checklist.md
-│   └── stakeholder-interview-questions.md
+│   └── process-diagnosis-checklist.md
 │
-└── theory/
-    ├── system-subsystem-supersystem.md
-    ├── ai-as-probabilistic-agent.md
-    └── dynamic-feedback-loops.md
+└── examples/
+    └── invoice-processing-ai-pilot.md
 ```
+
+## Feedback
+
+This project is in the early conceptual and practical stage.
+
+Feedback is welcome, especially from CTOs, consultants, architects, DPOs, business owners, transformation teams, and people working with AI adoption in real organizations.
+
+Please use this issue for structured feedback:
+
+[Feedback wanted: Is this framework useful for CTOs, DPOs and business architects?](https://github.com/komercia69-collab/responsible-ai-business-architecture/issues/1)
 
 ## Current Status
 
-This project is in the early conceptual stage.
+The first public version includes:
 
-The first goal is to create a clear language and practical structure for responsible AI integration in real organizations.
+- a project manifesto;
+- a usage policy;
+- a disclaimer;
+- an AI opportunity map;
+- a process diagnosis checklist;
+- a confirmation gate architecture pattern;
+- an AI integration responsibility matrix;
+- a practical invoice processing pilot example.
 
-Feedback from CTOs, consultants, architects, DPOs, business owners, and transformation teams is welcome.
+The next goal is to collect feedback and improve the framework through real-world review.
