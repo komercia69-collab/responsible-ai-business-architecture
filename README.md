@@ -9,7 +9,7 @@ This project proposes a practical framework for responsible AI integration into 
 
 Not sure where to begin?
 
-Start with the [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md).
+Start with the [AI Readiness Quick Check](QUICK-CHECK.md).
 
 It is a practical 3-minute, 7-question self-check that helps a person, team, or organization understand whether a business process is a promising candidate for a responsible AI pilot.
 
@@ -70,15 +70,16 @@ It helps answer:
 If you are new to this project, start with these documents:
 
 1. [Start Here](START-HERE.md) — a simple path through the project for readers, pilot partners, implementers, and scaling partners.
-2. [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md) — a 3-minute self-check for choosing a responsible first AI pilot.
+2. [AI Readiness Quick Check](QUICK-CHECK.md) — a 3-minute self-check for choosing a responsible first AI pilot.
 3. [Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md) — a one-page working canvas for designing a controlled AI pilot.
 4. [AI Pilot Decision Report](templates/ai-pilot-decision-report.md) — a concise final report that turns discussion into a Green / Yellow / Red / Grey decision.
 5. [Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md) — a 45-minute session format for organizations and pilot partners.
-6. [Pilot Partners Wanted](PILOT-PARTNERS.md) — how organizations can bring one real process for structured review.
-7. [Participation](PARTICIPATION.md) — how reviewers, pilot partners, implementers, and strategic partners can participate.
-8. [Framework Flow](diagrams/framework-flow.md) — a visual overview of the framework path.
-9. [Executive Manifesto](executive/manifesto.md) — a short explanation of the project for leaders, CTOs, DPOs, consultants, and business architects.
-10. [What Not to Automate First](guides/what-not-to-automate-first.md) — a practical guide for avoiding risky first pilots.
+6. [Pilot Partner Call](offers/pilot-partner-call.md) — a practical entry point for organizations that may provide one real process for analysis.
+7. [Pilot Partners Wanted](PILOT-PARTNERS.md) — how organizations can bring one real process for structured review.
+8. [Participation](PARTICIPATION.md) — how reviewers, pilot partners, implementers, and strategic partners can participate.
+9. [Framework Flow](diagrams/framework-flow.md) — a visual overview of the framework path.
+10. [Executive Manifesto](executive/manifesto.md) — a short explanation of the project for leaders, CTOs, DPOs, consultants, and business architects.
+11. [What Not to Automate First](guides/what-not-to-automate-first.md) — a practical guide for avoiding risky first pilots.
 
 ## Practical Toolkit
 
@@ -86,12 +87,13 @@ The current practical toolkit includes:
 
 | Tool / Pattern | Purpose |
 |---|---|
-| [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md) | Evaluate in 3 minutes whether a process is a promising AI pilot candidate |
+| [AI Readiness Quick Check](QUICK-CHECK.md) | Evaluate in 3 minutes whether a process is a promising AI pilot candidate |
 | [AI Pilot Readiness Scorecard](templates/ai-pilot-readiness-scorecard.md) | Run a more detailed readiness assessment |
 | [Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md) | Design one controlled AI pilot on one page |
 | [AI Pilot Decision Report](templates/ai-pilot-decision-report.md) | Convert assessment into a clear decision and next step |
 | [AI Readiness Mini-Workshop](workshops/ai-readiness-mini-workshop.md) | Run a 30–45 minute team workshop |
 | [Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md) | Offer a structured 45-minute discovery session |
+| [Pilot Partner Call](offers/pilot-partner-call.md) | Invite organizations to bring one real process for structured review |
 | [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) | Identify AI opportunities and risks before selecting tools |
 | [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) | Understand the process, data, decisions, and responsibility structure |
 | [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) | Define where AI must stop and human approval must happen |
@@ -176,6 +178,7 @@ responsible-ai-business-architecture/
 ├── LICENSE-DECISION.md
 ├── DISCLAIMER.md
 ├── ROADMAP.md
+├── QUICK-CHECK.md
 │
 ├── lead-magnet/
 │   ├── README.md
@@ -183,7 +186,8 @@ responsible-ai-business-architecture/
 │   └── public-introduction-post.md
 │
 ├── offers/
-│   └── responsible-ai-pilot-discovery-session.md
+│   ├── responsible-ai-pilot-discovery-session.md
+│   └── pilot-partner-call.md
 │
 ├── workshops/
 │   └── ai-readiness-mini-workshop.md
@@ -242,6 +246,7 @@ Start with:
 
 - [Participation](PARTICIPATION.md)
 - [Pilot Partners Wanted](PILOT-PARTNERS.md)
+- [Pilot Partner Call](offers/pilot-partner-call.md)
 - [AI Use Case Review Issue Template](.github/ISSUE_TEMPLATE/ai-use-case-review.md)
 
 ## Current Status
@@ -260,6 +265,7 @@ The current public version includes:
 - a responsible AI pilot canvas;
 - an AI pilot decision report;
 - a mini-workshop and discovery session offer;
+- a pilot partner call offer;
 - a framework flow diagram;
 - a guide on what not to automate first;
 - an AI opportunity map;
