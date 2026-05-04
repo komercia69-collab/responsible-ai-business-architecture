@@ -11,7 +11,7 @@ Not sure where to begin?
 
 Start with the [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md).
 
-It is a practical 15-minute self-assessment that helps a person, team, or organization understand whether a business process is ready for a responsible AI pilot.
+It is a practical 3-minute, 7-question self-check that helps a person, team, or organization understand whether a business process is a promising candidate for a responsible AI pilot.
 
 It helps answer:
 
@@ -69,18 +69,16 @@ It helps answer:
 
 If you are new to this project, start with these documents:
 
-1. [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md) — a practical 15-minute self-assessment for choosing a responsible first AI pilot.
-2. [Executive Manifesto](executive/manifesto.md) — a short explanation of the project for leaders, CTOs, DPOs, consultants, and business architects.
-3. [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) — a practical tool for finding where AI may create business value and where it may create risk.
-4. [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) — a checklist for understanding a business process before introducing AI.
-5. [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) — an architecture pattern for preventing AI from executing critical actions without human approval.
-6. [Agent Permission Boundary Pattern](architecture-patterns/agent-permission-boundary.md) — an architecture pattern for defining what AI agents may access, prepare, recommend, or execute.
-7. [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) — a compliance-oriented matrix connecting AI roles, data sensitivity, decision risk, human control, audit requirements, and responsibility.
-8. [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) — a practical example showing how the framework can be applied to invoice processing.
-9. [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) — a practical example showing how AI can assist customer communication without autonomous sending.
-10. [Contributing Guidelines](CONTRIBUTING.md) — how to propose feedback, examples, patterns, and improvements.
-11. [License Decision](LICENSE-DECISION.md) — current temporary licensing position and possible future directions.
-12. [Disclaimer](DISCLAIMER.md) — important limitations: this project is not legal advice, not a certification standard, and not a compliance guarantee.
+1. [Start Here](START-HERE.md) — a simple path through the project for readers, pilot partners, implementers, and scaling partners.
+2. [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md) — a 3-minute self-check for choosing a responsible first AI pilot.
+3. [Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md) — a one-page working canvas for designing a controlled AI pilot.
+4. [AI Pilot Decision Report](templates/ai-pilot-decision-report.md) — a concise final report that turns discussion into a Green / Yellow / Red / Grey decision.
+5. [Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md) — a 45-minute session format for organizations and pilot partners.
+6. [Pilot Partners Wanted](PILOT-PARTNERS.md) — how organizations can bring one real process for structured review.
+7. [Participation](PARTICIPATION.md) — how reviewers, pilot partners, implementers, and strategic partners can participate.
+8. [Framework Flow](diagrams/framework-flow.md) — a visual overview of the framework path.
+9. [Executive Manifesto](executive/manifesto.md) — a short explanation of the project for leaders, CTOs, DPOs, consultants, and business architects.
+10. [What Not to Automate First](guides/what-not-to-automate-first.md) — a practical guide for avoiding risky first pilots.
 
 ## Practical Toolkit
 
@@ -88,14 +86,25 @@ The current practical toolkit includes:
 
 | Tool / Pattern | Purpose |
 |---|---|
-| [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md) | Evaluate in 15 minutes whether a process is ready for a responsible AI pilot |
+| [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md) | Evaluate in 3 minutes whether a process is a promising AI pilot candidate |
+| [AI Pilot Readiness Scorecard](templates/ai-pilot-readiness-scorecard.md) | Run a more detailed readiness assessment |
+| [Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md) | Design one controlled AI pilot on one page |
+| [AI Pilot Decision Report](templates/ai-pilot-decision-report.md) | Convert assessment into a clear decision and next step |
+| [AI Readiness Mini-Workshop](workshops/ai-readiness-mini-workshop.md) | Run a 30–45 minute team workshop |
+| [Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md) | Offer a structured 45-minute discovery session |
 | [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) | Identify AI opportunities and risks before selecting tools |
 | [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) | Understand the process, data, decisions, and responsibility structure |
 | [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) | Define where AI must stop and human approval must happen |
 | [Agent Permission Boundary Pattern](architecture-patterns/agent-permission-boundary.md) | Define what AI agents may access, prepare, recommend, or execute |
 | [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) | Define AI role, risk level, human control, audit, and accountable owner |
+
+## Practical Examples
+
+| Example | Purpose |
+|---|---|
 | [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) | Show how the framework works in invoice processing |
 | [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) | Show how the framework works in customer email support |
+| [Rehab Equipment Service Request Triage](examples/rehab-equipment-service-request-triage.md) | Show how the framework works in assistive-device service and repair request routing |
 
 ## Main Principle
 
@@ -146,6 +155,9 @@ This project is intended for:
 - risk managers
 - AI consultants
 - founders
+- implementation partners
+- pilot partner organizations
+- strategic and investor partners
 - medium and large organizations planning AI adoption
 
 ## Repository Structure
@@ -154,6 +166,10 @@ This project is intended for:
 responsible-ai-business-architecture/
 │
 ├── README.md
+├── START-HERE.md
+├── VALUE-PROPOSITION.md
+├── PARTICIPATION.md
+├── PILOT-PARTNERS.md
 ├── AUTHORS.md
 ├── CONTRIBUTING.md
 ├── USAGE.md
@@ -163,7 +179,25 @@ responsible-ai-business-architecture/
 │
 ├── lead-magnet/
 │   ├── README.md
-│   └── ai-readiness-quick-check.md
+│   ├── ai-readiness-quick-check.md
+│   └── public-introduction-post.md
+│
+├── offers/
+│   └── responsible-ai-pilot-discovery-session.md
+│
+├── workshops/
+│   └── ai-readiness-mini-workshop.md
+│
+├── templates/
+│   ├── ai-pilot-readiness-scorecard.md
+│   ├── responsible-ai-pilot-canvas.md
+│   └── ai-pilot-decision-report.md
+│
+├── diagrams/
+│   └── framework-flow.md
+│
+├── guides/
+│   └── what-not-to-automate-first.md
 │
 ├── executive/
 │   └── manifesto.md
@@ -178,9 +212,11 @@ responsible-ai-business-architecture/
 ├── business-diagnosis/
 │   ├── ai-opportunity-map.md
 │   └── process-diagnosis-checklist.md
+│
 └── examples/
     ├── invoice-processing-ai-pilot.md
-    └── customer-email-triage-ai-pilot.md
+    ├── customer-email-triage-ai-pilot.md
+    └── rehab-equipment-service-request-triage.md
 ```
 
 ## Open Discussion
@@ -196,31 +232,41 @@ Use this discussion to share thoughts about:
 - where human confirmation must be mandatory;
 - how organizations can keep responsibility, transparency, and control while using AI.
 
-## Feedback
+## Feedback and Participation
 
 This project is in the early conceptual and practical stage.
 
-Feedback is welcome, especially from CTOs, consultants, architects, DPOs, business owners, transformation teams, and people working with AI adoption in real organizations.
+Feedback is welcome, especially from CTOs, consultants, architects, DPOs, business owners, transformation teams, implementation partners, pilot partners, and people working with AI adoption in real organizations.
 
-Please use this issue for structured feedback:
+Start with:
 
-[Feedback wanted: Is this framework useful for CTOs, DPOs and business architects?](https://github.com/komercia69-collab/responsible-ai-business-architecture/issues/1)
+- [Participation](PARTICIPATION.md)
+- [Pilot Partners Wanted](PILOT-PARTNERS.md)
+- [AI Use Case Review Issue Template](.github/ISSUE_TEMPLATE/ai-use-case-review.md)
 
 ## Current Status
 
-The first public version includes:
+The current public version includes:
 
 - a project manifesto;
 - a usage policy;
 - a disclaimer;
 - contribution guidelines;
 - a license decision note;
+- a value proposition;
+- participation and pilot partner pages;
 - an AI readiness quick check;
+- an AI pilot readiness scorecard;
+- a responsible AI pilot canvas;
+- an AI pilot decision report;
+- a mini-workshop and discovery session offer;
+- a framework flow diagram;
+- a guide on what not to automate first;
 - an AI opportunity map;
 - a process diagnosis checklist;
 - a confirmation gate architecture pattern;
 - an agent permission boundary architecture pattern;
 - an AI integration responsibility matrix;
-- practical pilot examples for invoice processing and customer email triage.
+- practical pilot examples for invoice processing, customer email triage, and rehab equipment service request triage.
 
-The next goal is to collect feedback, improve the framework through real-world review, and add more practical patterns and examples.
+The next goal is to collect feedback, test the framework on real business processes, attract pilot partners, and improve the framework through real-world validation.
