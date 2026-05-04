@@ -6,7 +6,7 @@ This folder contains a practical entry point for people and organizations who wa
 
 [AI Readiness Quick Check](ai-readiness-quick-check.md)
 
-A 15-minute self-assessment that helps a person, team, or organization evaluate whether a business process is ready for a responsible AI pilot.
+A fast 3-minute, 7-question self-check that helps a person, team, or organization evaluate whether a business process is a promising candidate for a responsible AI pilot.
 
 ## Why This Works as a Lead Magnet
 
@@ -38,6 +38,7 @@ This lead magnet is designed for:
 
 After completing the quick check, the reader can continue with the full framework:
 
+- [AI Pilot Readiness Scorecard](../templates/ai-pilot-readiness-scorecard.md)
 - [AI Opportunity Map](../business-diagnosis/ai-opportunity-map.md)
 - [Process Diagnosis Checklist](../business-diagnosis/process-diagnosis-checklist.md)
 - [Confirmation Gate Pattern](../architecture-patterns/confirmation-gate.md)
@@ -56,4 +57,4 @@ It is a useful first tool.
 
 The value proposition is simple:
 
-> In 15 minutes, you can understand whether your AI idea is a good pilot candidate or a risk that needs more preparation.
+> In 3 minutes, you can understand whether your AI idea is a promising pilot candidate or a risk that needs more preparation.
