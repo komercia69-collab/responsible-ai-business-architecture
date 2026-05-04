@@ -27,6 +27,7 @@ A pilot partner brings one real business process.
 The framework helps evaluate that process through:
 
 - a 3-minute AI Readiness Quick Check;
+- a Pilot Partner Call;
 - a structured AI Pilot Canvas;
 - risk and data sensitivity review;
 - agent permission boundary design;
@@ -137,7 +138,9 @@ Use anonymized or generalized descriptions when needed.
 
 The framework provides structured tools:
 
-- [AI Readiness Quick Check](lead-magnet/ai-readiness-quick-check.md)
+- [AI Readiness Quick Check](QUICK-CHECK.md)
+- [Pilot Partner Call](offers/pilot-partner-call.md)
+- [Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md)
 - [Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md)
 - [AI Pilot Decision Report](templates/ai-pilot-decision-report.md)
 - [Agent Permission Boundary Pattern](architecture-patterns/agent-permission-boundary.md)
@@ -149,11 +152,12 @@ The framework provides structured tools:
 ```text
 1. Choose one business process
 2. Complete the AI Readiness Quick Check
-3. Fill the Responsible AI Pilot Canvas
-4. Identify risk, data, and human control needs
-5. Define AI role and permission boundaries
-6. Create an AI Pilot Decision Report
-7. Decide: pilot, prepare, reject, or choose another process
+3. Use the Pilot Partner Call or Discovery Session to clarify the use case
+4. Fill the Responsible AI Pilot Canvas
+5. Identify risk, data, and human control needs
+6. Define AI role and permission boundaries
+7. Create an AI Pilot Decision Report
+8. Decide: pilot, prepare, reject, or choose another process
 ```
 
 ## Possible Pilot Decision Outcomes
@@ -167,7 +171,12 @@ A pilot assessment may result in:
 
 ## How to Propose a Use Case
 
-Open an issue using:
+Start with:
+
+- [AI Readiness Quick Check](QUICK-CHECK.md)
+- [Pilot Partner Call](offers/pilot-partner-call.md)
+
+Or open an issue using:
 
 [AI Use Case Review](.github/ISSUE_TEMPLATE/ai-use-case-review.md)
 
