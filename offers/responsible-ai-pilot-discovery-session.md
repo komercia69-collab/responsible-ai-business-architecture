@@ -86,7 +86,7 @@ Expected improvement:
 
 Use:
 
-[AI Readiness Quick Check](../lead-magnet/ai-readiness-quick-check.md)
+[AI Readiness Quick Check](../QUICK-CHECK.md)
 
 Output:
 
@@ -293,6 +293,12 @@ Choose a safer process and review:
 ### Grey
 
 Collect missing information and repeat the assessment.
+
+## Related Offer
+
+For organizations that may provide one real process as a pilot environment, see:
+
+[Pilot Partner Call](pilot-partner-call.md)
 
 ## Key Statement
 
