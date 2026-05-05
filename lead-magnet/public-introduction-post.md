@@ -4,15 +4,20 @@ This file contains ready-to-use public posts for introducing the Responsible AI 
 
 The goal is to attract:
 
-- people who can implement responsible AI pilots;
+- people who can review and improve the framework;
 - organizations that can provide real pilot environments;
-- consultants and advisors who can use or improve the framework;
+- consultants and advisors who can use or improve the methodology;
 - CTOs, DPOs, architects, and business leaders who can review the approach;
-- investors or strategic partners interested in scaling responsible AI implementation.
+- implementation partners who can help translate the framework into real workflows;
+- strategic partners interested in scaling responsible AI adoption.
+
+Core principle:
+
+> AI may be probabilistic. Responsibility must not be.
 
 ---
 
-## Version 1 — LinkedIn / Professional Network
+## Version 1 — Recommended First LinkedIn / Professional Network Post
 
 **Before you integrate AI into a business process, answer these 7 questions.**
 
@@ -26,9 +31,9 @@ A better first question is:
 
 > Is this business process ready for responsible AI support?
 
-I am developing an open framework called **Responsible AI Business Architecture**.
+I am developing an open practical framework called **Responsible AI Business Architecture**.
 
-The idea is simple:
+The core idea is simple:
 
 > AI may be probabilistic. Responsibility must not be.
 
@@ -37,16 +42,20 @@ The framework helps organizations think about AI integration before implementati
 - where AI can create measurable business value;
 - where AI should only recommend or prepare;
 - where human approval must be mandatory;
-- what data boundaries are needed;
+- what data and permission boundaries are needed;
 - what an AI agent should not be allowed to do;
 - how to design a safe first AI pilot;
-- what should be logged for accountability.
+- what should be documented for accountability and auditability.
 
-As a first entry point, I created a short **AI Readiness Quick Check**:
+The current toolkit includes:
 
-**7 questions. 3 minutes. One business process.**
-
-It helps a team understand whether an AI idea is a promising pilot candidate or a risk that needs more preparation.
+- an AI Readiness Quick Check;
+- a lightweight browser-based Pilot Decision Assistant;
+- a Pilot Partner Intake Form;
+- a Responsible AI Pilot Canvas;
+- an AI Pilot Decision Report;
+- Confirmation Gate and Agent Permission Boundary patterns;
+- practical pilot examples.
 
 This project is especially relevant for:
 
@@ -55,9 +64,9 @@ This project is especially relevant for:
 - AI consultants and implementation partners;
 - business owners and operations leaders;
 - organizations willing to test a responsible AI pilot;
-- investors or partners interested in scalable responsible AI adoption.
+- people interested in responsible AI adoption and governance.
 
-I am looking for feedback, real use cases, pilot environments, implementation partners, and people who want to help develop this into a practical framework for responsible AI adoption.
+I am looking for feedback, real use cases, pilot environments, implementation partners, and people who want to help turn this into a practical framework for responsible AI adoption.
 
 Start here:
 
@@ -65,7 +74,7 @@ https://github.com/komercia69-collab/responsible-ai-business-architecture
 
 ---
 
-## Version 2 — Short GitHub / X Post
+## Version 2 — Short GitHub / X / Mastodon Post
 
 Before integrating AI into a business process, answer 7 questions:
 
@@ -77,7 +86,16 @@ Before integrating AI into a business process, answer 7 questions:
 - Is human approval clear?
 - Who is accountable?
 
-I am building **Responsible AI Business Architecture** — a practical framework for integrating AI without losing responsibility, auditability, or control.
+I am building **Responsible AI Business Architecture** — a practical framework for integrating AI without losing responsibility, auditability, or operational control.
+
+It now includes:
+
+- Quick Check;
+- interactive pilot decision demo;
+- pilot partner intake form;
+- pilot canvas;
+- decision report;
+- confirmation gate and permission boundary patterns.
 
 Core principle:
 
@@ -89,7 +107,7 @@ https://github.com/komercia69-collab/responsible-ai-business-architecture
 
 ---
 
-## Version 3 — Invitation for Organizations
+## Version 3 — Invitation for Organizations / Pilot Partners
 
 Are you considering AI adoption in your organization but unsure where to start safely?
 
@@ -103,24 +121,31 @@ It helps answer:
 - Where must a human approve?
 - What data should AI access?
 - What should an AI agent never be allowed to do?
-- What must be logged for responsibility and auditability?
+- What must be documented for responsibility and auditability?
 
-The first tool is a fast **AI Readiness Quick Check**:
+The framework now includes a practical pilot partner path:
 
-**7 questions. 3 minutes. One business process.**
+```text
+Quick Check
+→ Pilot Partner Intake Form
+→ Pilot Partner Call / Discovery Session
+→ Responsible AI Pilot Canvas
+→ AI Pilot Decision Report
+```
 
-The goal is not to block AI adoption.
-
-The goal is to make AI adoption safe enough to scale.
-
-I am looking for organizations, teams, and partners who may be interested in testing the framework on real business processes such as:
+Good first pilot processes may include:
 
 - customer email triage;
 - invoice processing;
 - internal knowledge search;
 - support ticket routing;
-- reporting;
-- document review.
+- reporting drafts;
+- document review;
+- service request routing.
+
+The goal is not to block AI adoption.
+
+The goal is to make AI adoption safe enough to test, learn, and scale responsibly.
 
 Project link:
 
@@ -168,11 +193,11 @@ https://github.com/komercia69-collab/responsible-ai-business-architecture
 
 ---
 
-## Version 5 — Investor / Strategic Partner Angle
+## Version 5 — Strategic Partner Angle
 
 AI adoption is accelerating, but many organizations still lack a practical bridge between business process diagnosis, compliance concerns, and technical implementation.
 
-That gap creates a major opportunity.
+That gap creates an important opportunity.
 
 I am developing **Responsible AI Business Architecture** — a framework for helping organizations choose and design responsible AI pilots before investing in tools or automation.
 
@@ -205,8 +230,48 @@ I am open to feedback, pilot opportunities, implementation collaboration, and st
 
 ---
 
-## Recommended First Post
+## Version 6 — Personal Founder Post
+
+I am building a project called **Responsible AI Business Architecture**.
+
+It started from one practical concern:
+
+AI tools are becoming more powerful, but many organizations still do not know how to use them without losing responsibility, control, and transparency.
+
+My core principle is:
+
+> AI may be probabilistic. Responsibility must not be.
+
+The project is not about stopping AI.
+
+It is about helping organizations ask better questions before implementation:
+
+- What process are we improving?
+- Who is responsible for the final result?
+- What data is involved?
+- Where must a human approve?
+- What should AI never be allowed to do?
+- How do we make the pilot measurable and auditable?
+
+The repository now includes a Quick Check, Pilot Canvas, Decision Report, demo assistant, intake form, and architecture patterns for Confirmation Gates and Agent Permission Boundaries.
+
+I am looking for thoughtful feedback and real use cases.
+
+Project link:
+
+https://github.com/komercia69-collab/responsible-ai-business-architecture
+
+---
+
+## Recommended First Action
 
 For the first public publication, use **Version 1**.
 
-It is the most balanced version because it explains the problem, the framework, the quick check, and the invitation to participate.
+It is the most balanced version because it explains:
+
+- the problem;
+- the framework;
+- the practical toolkit;
+- the invitation to participate.
+
+For a more personal post, use **Version 6**.
