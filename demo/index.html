@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsible AI Pilot Decision Assistant</title>
+<style>
+:root {
+  --green: #2ecc71;
+  --yellow: #f1c40f;
+  --red: #e74c3c;
+  --grey: #95a5a6;
+  --dark: #263445;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #334155;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 820px; margin: 40px auto; padding: 0 20px; }
+.card { background: var(--card); border-radius: 14px; padding: 32px; margin-bottom: 24px; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06); border: 1px solid var(--border); }
+h1 { font-size: 2rem; margin-bottom: 8px; color: #0f172a; }
+h2 { font-size: 1.35rem; margin-bottom: 16px; color: #1e293b; }
+h3 { margin: 20px 0 8px; color: #1e293b; }
+p, label { margin-bottom: 12px; }
+label { display: block; font-weight: 600; color: #334155; margin-bottom: 6px; }
+.help { color: #64748b; font-size: 0.92rem; margin-bottom: 10px; }
+select, textarea, input[type="text"] { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background: #fff; }
+textarea { resize: vertical; min-height: 82px; }
+.btn { background: var(--dark); color: white; border: none; padding: 12px 22px; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
+.btn:hover { background: #111827; }
+.btn-secondary { background: white; color: var(--dark); border: 1px solid var(--border); margin-right: 12px; }
+.progress { margin: 16px 0 4px; height: 7px; background: var(--border); border-radius: 7px; }
+.progress-fill { height: 100%; background: var(--dark); border-radius: 7px; transition: width 0.3s; }
+.section { display: none; }
+.section.active { display: block; }
+.quick-check-item { margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid #f1f5f9; }
+.decision { font-size: 1.8rem; font-weight: 800; text-align: center; padding: 24px; border-radius: 12px; margin-bottom: 18px; }
+.green { background: #dcfce7; color: #166534; }
+.yellow { background: #fef9c3; color: #854d0e; }
+.red { background: #fee2e2; color: #991b1b; }
+.grey { background: #e5e7eb; color: #374151; }
+.summary { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-top: 16px; }
+ul { margin-left: 20px; }
+.small { font-size: 0.9rem; color: #64748b; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h1>Responsible AI Pilot Decision Assistant</h1>
+    <p>Use this lightweight demo to assess one concrete business process before starting an AI pilot.</p>
+    <p><strong>AI may be probabilistic. Responsibility must not be.</strong></p>
+    <div class="progress"><div class="progress-fill" id="progressBar" style="width: 33%;"></div></div>
+    <p class="small">This demo is a practical companion to the Responsible AI Business Architecture framework. It is not legal, compliance, security, or implementation advice.</p>
+  </div>
+
+  <div id="step1" class="section active">
+    <div class="card">
+      <h2>Step 1/3 — AI Readiness Quick Check</h2>
+      <p>Score one business process using the project’s 7-question Quick Check.</p>
+      <p class="help">0 = no / unclear, 1 = partly, 2 = yes / clear</p>
+      <div id="quickCheckQuestions"></div>
+      <button class="btn" onclick="goToStep2()">Next →</button>
+    </div>
+  </div>
+
+  <div id="step2" class="section">
+    <div class="card">
+      <h2>Step 2/3 — Pilot Context</h2>
+      <p>Describe the pilot enough to produce a preliminary Green / Yellow / Red / Grey signal.</p>
+
+      <label>Use Case Name</label>
+      <input type="text" id="useCaseName" placeholder="e.g., Customer Email Triage">
+
+      <label>Business Process and Current Pain</label>
+      <textarea id="processPain" placeholder="What process should AI support, and what problem should it reduce?"></textarea>
+
+      <label>Expected AI Role</label>
+      <textarea id="aiRole" placeholder="Should AI summarize, classify, extract, search, draft, recommend, or prepare for approval?"></textarea>
+
+      <label>Data Involved</label>
+      <textarea id="data" placeholder="What data would AI need? Describe categories only. Do not enter confidential or personal data."></textarea>
+
+      <label>Risks and Consequences</label>
+      <textarea id="risks" placeholder="What could go wrong if AI makes a mistake? Mention sensitive data, payments, legal, HR, health, safety, or customer impact if relevant."></textarea>
+
+      <label>Human Control / Confirmation Gate</label>
+      <textarea id="human" placeholder="Who reviews AI output? Where must a human approve before action?"></textarea>
+
+      <label>Success Metric</label>
+      <textarea id="success" placeholder="How would you know this pilot was useful and safe enough to continue?"></textarea>
+
+      <div style="margin-top:16px;">
+        <button class="btn btn-secondary" onclick="goToStep1()">← Back</button>
+        <button class="btn" onclick="generateReport()">Generate Decision Signal</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="step3" class="section">
+    <div class="card">
+      <h2>Step 3/3 — Preliminary AI Pilot Decision Report</h2>
+      <div id="reportResult"></div>
+      <button class="btn" style="margin-top:24px;" onclick="resetAssistant()">Assess Another Process</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const quickCheckQuestions = [
+  "Is the business process clearly understood by the team?",
+  "Is there a visible business pain AI could reduce?",
+  "Is the process limited enough for a safe first pilot?",
+  "Is the required data clearly identified?",
+  "Could mistakes be detected and corrected by humans?",
+  "Is it clear where human approval is required?",
+  "Is someone accountable for the final result?"
+];
+
+let selectedQuickScores = new Array(quickCheckQuestions.length).fill(1);
+
+function renderQuickCheck() {
+  const container = document.getElementById('quickCheckQuestions');
+  container.innerHTML = '';
+  quickCheckQuestions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'quick-check-item';
+    div.innerHTML = `
+      <label>${i + 1}. ${q}</label>
+      <select onchange="selectedQuickScores[${i}]=parseInt(this.value)">
+        <option value="0" ${selectedQuickScores[i]===0?'selected':''}>0 — No / unclear</option>
+        <option value="1" ${selectedQuickScores[i]===1?'selected':''}>1 — Partly</option>
+        <option value="2" ${selectedQuickScores[i]===2?'selected':''}>2 — Yes / clear</option>
+      </select>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function updateProgress(step) {
+  document.getElementById('progressBar').style.width = ((step / 3) * 100) + '%';
+}
+
+function showStep(step) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + step).classList.add('active');
+  updateProgress(step);
+}
+
+function goToStep1() { showStep(1); }
+function goToStep2() { showStep(2); }
+
+function hasEnoughText(id, minLength = 20) {
+  return document.getElementById(id).value.trim().length >= minLength;
+}
+
+function containsHighRisk(text) {
+  const riskWords = [
+    'payment', 'payments', 'legal', 'law', 'lawsuit', 'health', 'medical', 'patient',
+    'employment', 'hiring', 'firing', 'salary', 'safety', 'critical', 'sensitive',
+    'personal data', 'customer data', 'hr', 'financial', 'credit', 'autonomous',
+    'without review', 'no review'
+  ];
+  const lower = text.toLowerCase();
+  return riskWords.some(word => lower.includes(word));
+}
+
+function generateReport() {
+  const score = selectedQuickScores.reduce((a, b) => a + b, 0);
+  const useCase = document.getElementById('useCaseName').value.trim() || 'Unnamed Use Case';
+  const processPain = hasEnoughText('processPain');
+  const aiRole = hasEnoughText('aiRole');
+  const data = hasEnoughText('data');
+  const risksText = document.getElementById('risks').value.trim();
+  const risksAssessed = risksText.length >= 10;
+  const highRisk = containsHighRisk(risksText);
+  const human = hasEnoughText('human');
+  const success = hasEnoughText('success');
+
+  let decision = 'Grey';
+  let explanation = '';
+  let nextStep = '';
+
+  if (highRisk) {
+    decision = 'Red';
+    explanation = 'High-risk indicators are present. This may not be suitable as a first AI pilot without deeper legal, compliance, security, and governance review.';
+    nextStep = 'Do not proceed directly. Reduce scope, add mandatory human control, or choose a safer process first.';
+  } else if (score >= 12 && processPain && aiRole && data && risksAssessed && human && success) {
+    decision = 'Green';
+    explanation = 'The process appears to be a promising candidate for a controlled AI pilot.';
+    nextStep = 'Continue with the Responsible AI Pilot Canvas and AI Pilot Decision Report.';
+  } else if (score >= 7 && processPain && (data || human) && risksAssessed) {
+    decision = 'Yellow';
+    explanation = 'The process may have AI potential, but some preparation is still needed before a pilot.';
+    nextStep = 'Clarify missing process, data, risk, human control, or success metric information before implementation.';
+  } else if (score <= 6) {
+    decision = 'Red';
+    explanation = 'The process is probably not ready for AI integration as a first pilot.';
+    nextStep = 'Improve process clarity, ownership, data quality, and human responsibility before considering AI support.';
+  } else {
+    decision = 'Grey';
+    explanation = 'There is not enough structured information to make a responsible pilot decision.';
+    nextStep = 'Collect missing information and repeat the assessment.';
+  }
+
+  document.getElementById('reportResult').innerHTML = `
+    <div class="decision ${decision.toLowerCase()}">${decision}</div>
+    <h3>${useCase}</h3>
+    <p><strong>Quick Check Score:</strong> ${score} / 14</p>
+    <p><strong>Explanation:</strong> ${explanation}</p>
+    <p><strong>Recommended next step:</strong> ${nextStep}</p>
+    <div class="summary">
+      <p><strong>Canvas completeness:</strong></p>
+      <ul>
+        <li>Business process and pain: ${processPain ? 'Yes' : 'Missing or too short'}</li>
+        <li>AI role: ${aiRole ? 'Yes' : 'Missing or too short'}</li>
+        <li>Data involved: ${data ? 'Yes' : 'Missing or too short'}</li>
+        <li>Risks assessed: ${risksAssessed ? 'Yes' : 'Missing'}</li>
+        <li>Human control: ${human ? 'Yes' : 'Missing or too short'}</li>
+        <li>Success metric: ${success ? 'Yes' : 'Missing or too short'}</li>
+      </ul>
+    </div>
+    <p class="small" style="margin-top:16px;">This is a preliminary framework-based signal. It is not legal advice, compliance certification, security review, or technical implementation approval.</p>
+  `;
+  showStep(3);
+}
+
+function resetAssistant() {
+  selectedQuickScores = new Array(quickCheckQuestions.length).fill(1);
+  ['useCaseName','processPain','aiRole','data','risks','human','success'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  renderQuickCheck();
+  showStep(1);
+}
+
+renderQuickCheck();
+updateProgress(1);
+</script>
+</body>
+</html>
