@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsible AI Business Architecture</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --dark: #263445;
+      --blue: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 40px;
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      color: #0f172a;
+    }
+    h2 {
+      margin-top: 36px;
+      color: #0f172a;
+    }
+    p { font-size: 1.05rem; }
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .principle {
+      margin: 24px 0;
+      padding: 18px 20px;
+      background: #f1f5f9;
+      border-left: 5px solid var(--dark);
+      border-radius: 10px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--border);
+    }
+    .primary {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+    }
+    .secondary {
+      background: white;
+      color: var(--dark);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    a { color: var(--blue); }
+    .small { color: var(--muted); font-size: 0.95rem; }
+    ul { padding-left: 22px; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>Responsible AI Business Architecture</h1>
+      <p class="tagline">A practical framework for integrating AI into business processes without losing human responsibility, transparency, auditability, or operational control.</p>
+      <div class="principle">AI may be probabilistic. Responsibility must not be.</div>
+      <p>Start with one real business process. Use the Quick Check, pilot intake form, canvas, and decision report to decide whether the process is ready for responsible AI support.</p>
+      <div class="actions">
+        <a class="button primary" href="demo/">Try the Demo Assistant</a>
+        <a class="button secondary" href="QUICK-CHECK.md">Open Quick Check</a>
+        <a class="button secondary" href="https://github.com/komercia69-collab/responsible-ai-business-architecture">View on GitHub</a>
+      </div>
+    </section>
+
+    <h2>Framework Path</h2>
+    <div class="card">
+      <p><strong>Quick Check → Intake Form → Pilot Partner Call / Discovery Session → Pilot Canvas → Decision Report → Pilot / Preparation / Rejection / More Information</strong></p>
+    </div>
+
+    <h2>Key Tools</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Quick Check</h3>
+        <p>Seven questions to decide whether one process is a promising responsible AI pilot candidate.</p>
+        <a href="QUICK-CHECK.md">Open Quick Check</a>
+      </div>
+      <div class="card">
+        <h3>Demo Assistant</h3>
+        <p>A lightweight browser-based assistant for a preliminary Green / Yellow / Red / Grey signal.</p>
+        <a href="demo/">Try the demo</a>
+      </div>
+      <div class="card">
+        <h3>Pilot Intake Form</h3>
+        <p>A preparation form for organizations that want to bring one real process for review.</p>
+        <a href="templates/pilot-partner-intake-form.md">Open intake form</a>
+      </div>
+      <div class="card">
+        <h3>Methodology Overview</h3>
+        <p>A short explanation of the framework path and its key decisions.</p>
+        <a href="docs/methodology-overview.md">Read overview</a>
+      </div>
+    </div>
+
+    <h2>Important Boundary</h2>
+    <p class="small">This framework is not legal advice, compliance certification, security certification, vendor selection, or implementation approval. It helps organizations ask better questions and make clearer decisions before implementation.</p>
+  </main>
+</body>
+</html>
