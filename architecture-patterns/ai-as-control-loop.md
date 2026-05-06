@@ -1,0 +1,177 @@
+# AI as Control Loop Pattern
+
+## Purpose
+
+This pattern helps identify when an AI system is no longer only a support tool, but starts acting as a control element inside a business process or technical system.
+
+The key question is:
+
+> What can the AI system influence?
+
+A responsible AI assessment should not look only at what the AI produces as output. It should also examine whether the AI can influence routing, prioritization, configuration, access, escalation, execution, or decisions in other systems.
+
+## Core principle
+
+AI may be probabilistic in analysis.
+
+Execution, responsibility, and control must remain deterministic.
+
+A useful short rule:
+
+> Probabilistic intelligence may generate options. Deterministic execution must enforce boundaries.
+
+## Problem
+
+Many AI pilots start as limited assistance tools:
+
+- search this knowledge base;
+- summarize this document;
+- classify this email;
+- suggest a response;
+- recommend a next step.
+
+Over time, these systems may receive more permissions:
+
+- route tickets;
+- assign priorities;
+- trigger workflows;
+- send messages;
+- update records;
+- change process paths;
+- recommend operational changes;
+- influence other systems through APIs.
+
+At that point, the AI system is no longer only producing information. It is influencing the behavior of the wider organization.
+
+This creates a different risk level.
+
+## AI role levels
+
+Use the following levels to describe the architectural role of the AI system.
+
+| Level | AI role | Typical risk question |
+|---|---|---|
+| 1 | AI as information tool | Does the AI only help a human find or understand information? |
+| 2 | AI as subsystem | Does the AI perform a defined function inside a process? |
+| 3 | AI as coordinator | Does the AI route, prioritize, recommend, escalate, or structure work for others? |
+| 4 | AI as control loop | Does the AI observe other systems and influence their behavior, configuration, routing, access, or execution? |
+
+The higher the level, the stronger the required controls.
+
+## Control loop risk signals
+
+Treat the use case as a control-loop risk if the AI system can influence any of the following:
+
+- process routing;
+- task prioritization;
+- system configuration;
+- access permissions;
+- escalation rules;
+- workflow execution;
+- customer or employee communication;
+- financial, HR, legal, safety, or operational actions;
+- automated updates to records, policies, or instructions;
+- behavior of other software systems, agents, or services.
+
+If one or more of these signals are present, the pilot should not be treated as a simple low-risk assistant use case.
+
+## Required controls
+
+When AI has control-loop characteristics, the pilot should define:
+
+- explicit permission boundaries;
+- allowed and prohibited AI actions;
+- human review checkpoints;
+- confirmation gates before execution;
+- audit logs for AI-supported actions;
+- rollback or reversal mechanisms;
+- escalation rules for uncertain cases;
+- monitoring of errors, drift, and unexpected behavior;
+- accountable process owner;
+- clear separation between AI recommendation and deterministic execution.
+
+## Human responsibility rule
+
+The AI system may observe, analyze, summarize, recommend, or prepare actions.
+
+A responsible human or accountable organizational role must remain responsible for:
+
+- approving consequential actions;
+- defining allowed AI autonomy;
+- reviewing exceptions;
+- deciding whether the AI output is usable;
+- stopping or rolling back unsafe automation;
+- explaining responsibility for the process.
+
+AI systems may influence workflows only inside explicitly approved boundaries.
+
+## Responsible design questions
+
+Before allowing AI to influence other systems, ask:
+
+1. What systems, data, users, or workflows can the AI influence?
+2. Can the AI change priorities, routing, access, configuration, or execution?
+3. What happens if the AI is wrong, outdated, biased, incomplete, or overconfident?
+4. Can a human detect and correct the error before harm occurs?
+5. Is there a confirmation gate before consequential action?
+6. Is the action reversible?
+7. Is the AI-supported action logged?
+8. Who owns the process if something goes wrong?
+9. What must the AI never be allowed to do?
+10. Under which conditions must the AI stop and escalate?
+
+## Example: Internal Knowledge Assistant
+
+Low-risk version:
+
+- The AI searches approved internal documents.
+- The AI summarizes information.
+- The AI provides source references where possible.
+- A human decides whether the answer is usable.
+
+Control-loop version:
+
+- The AI updates internal policies.
+- The AI changes onboarding instructions.
+- The AI assigns tasks to teams.
+- The AI routes employee requests.
+- The AI triggers process changes based on its interpretation.
+
+The second version requires stronger controls, even if the user interface looks similar.
+
+## Example: Process Routing Assistant
+
+A routing assistant may start by recommending where a support ticket should go.
+
+If it later automatically assigns tickets, changes priority levels, escalates cases, or triggers customer communication, it becomes part of the process control loop.
+
+That requires:
+
+- controlled permissions;
+- confidence thresholds;
+- human override;
+- audit logging;
+- error review;
+- escalation rules;
+- defined process ownership.
+
+## Implementation checklist
+
+Before moving from AI support to AI control, verify:
+
+- [ ] The AI role level is explicitly defined.
+- [ ] The AI cannot change process behavior outside approved scope.
+- [ ] Consequential actions require human confirmation.
+- [ ] Access permissions are limited to pilot scope.
+- [ ] The system logs AI-supported recommendations and actions.
+- [ ] Human override is available.
+- [ ] Rollback or correction path exists.
+- [ ] Error review is planned.
+- [ ] The accountable owner is named.
+- [ ] The pilot can be stopped without damaging the core process.
+
+## Boundary
+
+This pattern is not a technical implementation standard or legal compliance assessment.
+
+It is a practical architecture pattern for identifying when AI influence requires stronger responsibility, control, auditability, and operational safeguards.
