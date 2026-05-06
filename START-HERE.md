@@ -72,6 +72,8 @@ Examples:
 - support ticket triage;
 - service request routing.
 
+See also the practical example: [Internal Knowledge Assistant](examples/internal-knowledge-assistant/).
+
 ### Step 2 — If the Score Looks Promising, Use the Pilot Canvas
 
 Use:
@@ -198,6 +200,10 @@ Examples:
 - support ticket classification;
 - management reporting drafts;
 - rehab equipment service request triage.
+
+You can review a complete example here:
+
+[Internal Knowledge Assistant Example](examples/internal-knowledge-assistant/)
 
 You can propose a use case using the issue template:
 
