@@ -119,8 +119,11 @@ Useful documentation pages:
 
 ## Practical Examples
 
+See the full examples index: [Practical Examples](examples/README.md).
+
 | Example | Purpose |
 |---|---|
+| [Internal Knowledge Assistant](examples/internal-knowledge-assistant/) | Show how the framework works for internal knowledge search, summarization, permission boundaries, human review, and auditability |
 | [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) | Show how the framework works in invoice processing |
 | [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) | Show how the framework works in customer email support |
 | [Rehab Equipment Service Request Triage](examples/rehab-equipment-service-request-triage.md) | Show how the framework works in assistive-device service and repair request routing |
@@ -246,6 +249,14 @@ responsible-ai-business-architecture/
 │   └── process-diagnosis-checklist.md
 │
 └── examples/
+    ├── README.md
+    ├── internal-knowledge-assistant/
+    │   ├── README.md
+    │   ├── pilot-context.md
+    │   ├── quick-check-result.md
+    │   ├── permission-boundary.md
+    │   ├── human-review-checkpoints.md
+    │   └── preliminary-decision-report.md
     ├── invoice-processing-ai-pilot.md
     ├── customer-email-triage-ai-pilot.md
     └── rehab-equipment-service-request-triage.md
@@ -308,6 +319,6 @@ The current public version includes:
 - a confirmation gate architecture pattern;
 - an agent permission boundary architecture pattern;
 - an AI integration responsibility matrix;
-- practical pilot examples for invoice processing, customer email triage, and rehab equipment service request triage.
+- practical pilot examples for internal knowledge assistance, invoice processing, customer email triage, and rehab equipment service request triage.
 
 The next goal is to collect feedback, test the framework on real business processes, attract pilot partners, and improve the framework through real-world validation.
