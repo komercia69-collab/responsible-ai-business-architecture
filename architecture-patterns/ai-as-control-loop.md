@@ -20,6 +20,10 @@ A useful short rule:
 
 > Probabilistic intelligence may generate options. Deterministic execution must enforce boundaries.
 
+A second practical rule:
+
+> The faster AI can influence a process, the stronger the control architecture must be.
+
 ## Problem
 
 Many AI pilots start as limited assistance tools:
@@ -57,6 +61,57 @@ Use the following levels to describe the architectural role of the AI system.
 | 4 | AI as control loop | Does the AI observe other systems and influence their behavior, configuration, routing, access, or execution? |
 
 The higher the level, the stronger the required controls.
+
+## Frequency of AI influence
+
+AI risk depends not only on impact, but also on how frequently the AI can influence the process.
+
+A low-frequency AI output may be practical to review manually.
+
+A high-frequency AI influence can change the behavior of a process faster than people can notice, understand, or correct.
+
+| Frequency | Example | Risk meaning |
+|---|---|---|
+| Low | AI prepares a weekly report or one draft summary | Human review is usually practical |
+| Medium | AI supports daily routing, prioritization, or internal recommendations | Review checkpoints, logs, and escalation rules are required |
+| High | AI changes routing, priorities, messages, or actions in near real time | Strong monitoring, rate limits, rollback, and human override are required |
+| Continuous | AI autonomously adapts workflows, configurations, or system behavior | Treat as a control-loop architecture risk |
+
+## Impact × frequency risk
+
+Use a simple risk lens:
+
+```text
+AI risk grows when high impact is combined with high frequency.
+```
+
+Examples:
+
+- Low impact + low frequency: AI drafts an internal note once per week.
+- Low impact + high frequency: AI classifies many low-risk internal requests.
+- High impact + low frequency: AI prepares a recommendation for a human decision board.
+- High impact + high frequency: AI continuously changes routing, access, pricing, communication, or operational actions.
+
+High-impact, high-frequency AI influence should not be treated as a normal assistant pilot.
+
+It requires stronger governance, monitoring, rollback, auditability, and accountable ownership.
+
+## High-frequency influence controls
+
+Before allowing high-frequency AI influence, define:
+
+- monitoring of AI-supported actions and errors;
+- rate limits or throttling;
+- human override;
+- rollback or reversal path;
+- audit logs;
+- escalation rules;
+- safe fallback mode;
+- stop conditions;
+- accountable process owner;
+- review rhythm for recurring errors and unexpected behavior.
+
+High-frequency automation without stabilizing controls can create operational instability even when each individual AI action looks small.
 
 ## Control loop risk signals
 
@@ -111,14 +166,15 @@ Before allowing AI to influence other systems, ask:
 
 1. What systems, data, users, or workflows can the AI influence?
 2. Can the AI change priorities, routing, access, configuration, or execution?
-3. What happens if the AI is wrong, outdated, biased, incomplete, or overconfident?
-4. Can a human detect and correct the error before harm occurs?
-5. Is there a confirmation gate before consequential action?
-6. Is the action reversible?
-7. Is the AI-supported action logged?
-8. Who owns the process if something goes wrong?
-9. What must the AI never be allowed to do?
-10. Under which conditions must the AI stop and escalate?
+3. How often can the AI influence the process: rarely, daily, near real time, or continuously?
+4. What happens if the AI is wrong, outdated, biased, incomplete, or overconfident?
+5. Can a human detect and correct the error before harm occurs?
+6. Is there a confirmation gate before consequential action?
+7. Is the action reversible?
+8. Is the AI-supported action logged?
+9. Who owns the process if something goes wrong?
+10. What must the AI never be allowed to do?
+11. Under which conditions must the AI stop and escalate?
 
 ## Example: Internal Knowledge Assistant
 
@@ -160,6 +216,7 @@ That requires:
 Before moving from AI support to AI control, verify:
 
 - [ ] The AI role level is explicitly defined.
+- [ ] The frequency of AI influence is explicitly defined.
 - [ ] The AI cannot change process behavior outside approved scope.
 - [ ] Consequential actions require human confirmation.
 - [ ] Access permissions are limited to pilot scope.
@@ -167,6 +224,7 @@ Before moving from AI support to AI control, verify:
 - [ ] Human override is available.
 - [ ] Rollback or correction path exists.
 - [ ] Error review is planned.
+- [ ] Rate limits, stop conditions, or safe fallback modes exist where needed.
 - [ ] The accountable owner is named.
 - [ ] The pilot can be stopped without damaging the core process.
 
