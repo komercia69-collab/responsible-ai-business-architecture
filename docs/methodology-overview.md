@@ -20,6 +20,12 @@ But the organization must still define:
 - how decisions are documented;
 - when AI must stop.
 
+A second practical principle is:
+
+> AI may be probabilistic in analysis. Execution, responsibility, and control must remain deterministic.
+
+This means that AI may generate options, summaries, classifications, or recommendations, but business execution must remain bounded by defined permissions, review points, confirmation gates, logs, and accountable human ownership.
+
 ## The Framework Path
 
 ```text
@@ -106,6 +112,7 @@ Important patterns:
 
 - [Confirmation Gate Pattern](../architecture-patterns/confirmation-gate.md)
 - [Agent Permission Boundary Pattern](../architecture-patterns/agent-permission-boundary.md)
+- [AI as Control Loop Pattern](../architecture-patterns/ai-as-control-loop.md)
 
 These patterns help define:
 
@@ -114,7 +121,33 @@ These patterns help define:
 - what AI may access;
 - what AI may prepare;
 - what AI may recommend;
-- what AI may never execute autonomously.
+- what AI may never execute autonomously;
+- what AI may influence inside the wider business or technical system.
+
+### AI as subsystem vs AI as control element
+
+Not every AI use case has the same architectural role.
+
+Some AI systems only support a human task, such as searching, summarizing, drafting, or classifying.
+
+Other AI systems influence the behavior of the wider process by routing work, assigning priorities, triggering workflows, changing escalation paths, or affecting other systems through APIs.
+
+The framework therefore assesses AI systems not only by what they output, but also by what they can influence.
+
+A use case should be treated as higher risk when AI can influence:
+
+- process routing;
+- task prioritization;
+- system configuration;
+- access permissions;
+- escalation rules;
+- workflow execution;
+- communication with customers, employees, or partners;
+- financial, legal, HR, safety, or operational actions.
+
+Low-frequency AI support is usually easier to review manually.
+
+High-frequency AI influence or automated process adaptation requires stronger monitoring, permission limits, rollback paths, and governance.
 
 ## 6. AI Pilot Decision Report
 
