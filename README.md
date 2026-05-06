@@ -124,6 +124,7 @@ The current practical toolkit includes:
 | [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) | Understand the process, data, decisions, and responsibility structure |
 | [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) | Define where AI must stop and human approval must happen |
 | [Agent Permission Boundary Pattern](architecture-patterns/agent-permission-boundary.md) | Define what AI agents may access, prepare, recommend, or execute |
+| [AI as Control Loop Pattern](architecture-patterns/ai-as-control-loop.md) | Identify when AI starts influencing routing, prioritization, configuration, access, execution, or other systems |
 | [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) | Define AI role, risk level, human control, audit, and accountable owner |
 
 ## Documentation
@@ -183,6 +184,12 @@ A confirmation gate is an architectural pattern where AI prepares an action but 
 ### Agent Permission Boundary
 
 An agent permission boundary defines what an AI agent may access, prepare, recommend, or execute. Permissions should be granted from responsibility, not from technical capability.
+
+### AI as Control Loop
+
+An AI system becomes a control-loop risk when it can influence the behavior of other systems or processes, such as routing, prioritization, configuration, access, escalation, or execution.
+
+The more AI can influence, the stronger the required boundaries, human review, auditability, rollback, and accountable ownership.
 
 ### Deterministic Responsibility Zone
 
@@ -265,7 +272,8 @@ responsible-ai-business-architecture/
 │
 ├── architecture-patterns/
 │   ├── confirmation-gate.md
-│   └── agent-permission-boundary.md
+│   ├── agent-permission-boundary.md
+│   └── ai-as-control-loop.md
 │
 ├── business-diagnosis/
 │   ├── ai-opportunity-map.md
@@ -341,6 +349,7 @@ The current public version includes:
 - a process diagnosis checklist;
 - a confirmation gate architecture pattern;
 - an agent permission boundary architecture pattern;
+- an AI as control loop architecture pattern;
 - an AI integration responsibility matrix;
 - practical pilot examples for internal knowledge assistance, invoice processing, customer email triage, and rehab equipment service request triage.
 
