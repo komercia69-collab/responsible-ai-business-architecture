@@ -7,6 +7,23 @@ This project proposes a practical framework for responsible AI integration into 
 
 > AI may be probabilistic. Responsibility must not be.
 
+## Value Proposition
+
+Responsible AI Business Architecture helps organizations, CTOs, DPOs, consultants, system architects, and implementation partners design AI-supported business processes without losing human responsibility, control, transparency, auditability, or operational stability.
+
+Use this framework when you need to:
+
+- evaluate whether a business process is suitable for a responsible AI pilot;
+- define where AI may support, recommend, summarize, or prepare actions;
+- define where human review, confirmation, or escalation is required;
+- create permission boundaries for AI assistants and AI agents;
+- document responsibility, risks, decision points, and audit expectations;
+- prepare a controlled pilot for use cases such as an internal knowledge assistant, customer email triage, invoice processing, reporting, or service request routing.
+
+The framework is human-readable for business, legal, compliance, and operational teams, while being structured enough to support future technical implementation.
+
+It is not a legal certification, compliance guarantee, or replacement for professional legal, privacy, security, or regulatory advice.
+
 ## Quick Start: AI Readiness Quick Check
 
 Not sure where to begin?
@@ -123,7 +140,7 @@ See the full examples index: [Practical Examples](examples/README.md).
 
 | Example | Purpose |
 |---|---|
-| [Internal Knowledge Assistant](examples/internal-knowledge-assistant/) | Show how the framework works for internal knowledge search, summarization, permission boundaries, human review, and auditability |
+| [Internal Knowledge Assistant](examples/internal-knowledge-assistant/) | Show how a responsible AI architecture can be applied to an internal knowledge assistant for enterprise knowledge search, summarization, permission boundaries, human review, and auditability |
 | [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) | Show how the framework works in invoice processing |
 | [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) | Show how the framework works in customer email support |
 | [Rehab Equipment Service Request Triage](examples/rehab-equipment-service-request-triage.md) | Show how the framework works in assistive-device service and repair request routing |
@@ -144,6 +161,12 @@ Before selecting tools or models, an organization should understand:
 - where AI can create unacceptable risk.
 
 ## Key Concepts
+
+### Responsible AI Architecture
+
+Responsible AI architecture defines how AI-supported processes remain accountable, controllable, reviewable, and auditable.
+
+It connects AI governance principles with practical business-process design: roles, permissions, review points, escalation paths, documentation, and decision ownership.
 
 ### Socio-Technical Architecture
 
