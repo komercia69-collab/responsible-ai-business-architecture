@@ -27,7 +27,27 @@ The AI assistant must not:
 - update official policies or process documents automatically;
 - create binding instructions without approval from a responsible human.
 
-## 3. Prohibited pilot scope
+## 3. Control authority boundary
+
+During this pilot, the AI assistant must not control or change the behavior of other systems or business processes.
+
+The AI assistant may not autonomously:
+
+- change process routing;
+- assign or reprioritize tasks;
+- change access permissions;
+- update system configuration;
+- modify escalation rules;
+- trigger workflow execution;
+- create or update official records;
+- send external communication;
+- change internal policies, procedures, or instructions.
+
+Any move from information support to process influence must be reviewed as a higher-risk architecture change.
+
+See also: [AI as Control Loop Pattern](../../architecture-patterns/ai-as-control-loop.md).
+
+## 4. Prohibited pilot scope
 
 The pilot should not initially include:
 
@@ -40,7 +60,7 @@ The pilot should not initially include:
 - regulated decision-making workflows;
 - external customer-facing automated responses.
 
-## 4. Required source transparency
+## 5. Required source transparency
 
 Where possible, AI outputs should refer to the source material used.
 
@@ -51,7 +71,7 @@ The user should be able to identify:
 - whether the output is a summary, interpretation, or direct extraction;
 - whether human review is required before action.
 
-## 5. Human responsibility rule
+## 6. Human responsibility rule
 
 The AI assistant may generate possibilities, summaries, and draft explanations.
 
@@ -63,7 +83,7 @@ A human user remains responsible for:
 - communicating final decisions;
 - documenting important AI-supported conclusions.
 
-## 6. Escalation triggers
+## 7. Escalation triggers
 
 The user must escalate the case to a responsible human when:
 
