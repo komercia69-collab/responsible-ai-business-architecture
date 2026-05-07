@@ -89,6 +89,7 @@ Continue with:
 - [AI Pilot Readiness Scorecard](templates/ai-pilot-readiness-scorecard.md)
 - [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md)
 - [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md)
+- [AI Readiness Dimensions](docs/ai-readiness-dimensions.md)
 
 ### 0–6 Points — Not Ready Yet
 
@@ -107,6 +108,7 @@ Continue with:
 
 - [What Not to Automate First](guides/what-not-to-automate-first.md)
 - [Start Here](START-HERE.md)
+- [AI Readiness Dimensions](docs/ai-readiness-dimensions.md)
 
 ## Immediate Red Flags
 
@@ -138,6 +140,7 @@ Depending on the result, choose one path:
 Quick Check
 → Mini-Workshop / Discovery Session
 → Responsible AI Pilot Canvas
+→ Risk & Permission Review
 → AI Pilot Decision Report
 → Pilot Partner / Implementation Partner / Scaling Discussion
 ```
@@ -151,6 +154,7 @@ Useful next documents:
 - [Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md)
 - [Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md)
 - [AI Pilot Decision Report](templates/ai-pilot-decision-report.md)
+- [AI Readiness Dimensions](docs/ai-readiness-dimensions.md)
 
 ## Important Boundary
 
