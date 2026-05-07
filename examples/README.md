@@ -16,8 +16,9 @@ The goal of these examples is to make the framework concrete:
 | Example | Purpose |
 |---|---|
 | [Internal Knowledge Assistant](internal-knowledge-assistant/) | Shows how the framework can be applied to an internal AI assistant for knowledge search, summarization, permission boundaries, human review, and auditability |
+| [Customer Email Triage](customer-email-triage/) | Shows how the framework can support customer communication workflows while preserving human review, escalation visibility, and permission boundaries |
 | [Invoice Processing AI Pilot](invoice-processing-ai-pilot.md) | Shows how the framework works in invoice processing |
-| [Customer Email Triage AI Pilot](customer-email-triage-ai-pilot.md) | Shows how the framework works in customer email support |
+| [Customer Email Triage AI Pilot](customer-email-triage-ai-pilot.md) | Earlier simplified customer email support example |
 | [Rehab Equipment Service Request Triage](rehab-equipment-service-request-triage.md) | Shows how the framework works in assistive-device service and repair request routing |
 
 ## How to use these examples
