@@ -6,7 +6,19 @@
 A practical open-source framework for evaluating and governing AI pilots before implementation.
 
 > AI may be probabilistic. Responsibility must not be.
+## Executive Snapshot
 
+Responsible AI Business Architecture is an open-source socio-technical governance framework for evaluating AI pilots before implementation.
+
+It helps teams decide:
+
+- whether a business process is ready for AI support;
+- what AI should and should not be allowed to do;
+- where human responsibility, confirmation, and escalation are required;
+- which governance controls must exist before a pilot starts;
+- whether the pilot should proceed, be redesigned, downgraded, or rejected.
+
+The framework is designed for early-stage AI pilot evaluation, governance discussions, consulting discovery, and responsible implementation planning.
 ## Visual Overview
 
 ### Responsible AI Blueprint: From Idea to Controlled Pilot
