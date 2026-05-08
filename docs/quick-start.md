@@ -70,7 +70,22 @@ The canvas helps define:
 - success metrics;
 - pilot scope.
 
-## 5. Produce a Decision Report
+## 5. Review Governance Observability
+
+Before allowing AI to influence operational decisions, review:
+
+- where conflicts may appear;
+- how escalation works;
+- where human confirmation is required;
+- which actions must remain blocked;
+- how AI influence becomes observable;
+- how rollback and correction would work.
+
+Recommended document:
+
+- [Conflict Detection & Governance Observability](conflict-detection-and-governance-observability.md)
+
+## 6. Produce a Decision Report
 
 Use the [AI Pilot Decision Report](../templates/ai-pilot-decision-report.md).
 
@@ -81,7 +96,7 @@ Possible outcomes:
 - **Red** — not suitable as a first AI pilot;
 - **Grey** — not enough information yet.
 
-## 6. Decide the Next Step
+## 7. Decide the Next Step
 
 Depending on the decision, the next step may be:
 
