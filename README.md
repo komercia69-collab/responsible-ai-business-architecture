@@ -7,6 +7,38 @@ A practical open-source framework for evaluating and governing AI pilots before 
 
 > AI may be probabilistic. Responsibility must not be.
 
+## Visual Overview
+
+### Responsible AI Blueprint: From Idea to Controlled Pilot
+
+![Responsible AI Blueprint Framework](diagrams/responsible-ai-blueprint-framework.png)
+
+This diagram illustrates:
+
+- AI readiness dimensions;
+- pilot readiness signals;
+- governance architecture patterns;
+- confirmation gates;
+- permission boundaries;
+- AI as control loop principles.
+
+---
+
+### Responsible AI Governance & Control Blueprint
+
+![Responsible AI Governance & Control Blueprint](diagrams/responsible-ai-governance-control-blueprint.png)
+
+This diagram illustrates:
+
+- intake and readiness evaluation flow;
+- operational guardrails;
+- agent permission boundaries;
+- blocked autonomous actions;
+- human confirmation gates;
+- controlled pilot decision paths.
+
+These diagrams provide a visual overview of the framework before diving into the detailed methodology, examples, templates, and governance patterns.
+
 ## Start Here
 
 If you are considering an AI pilot, start with:
@@ -98,99 +130,3 @@ They introduce:
 - new operational risks
 
 Therefore, AI should not be connected directly to critical business systems without architectural boundaries, responsibility matrices, auditability, and confirmation mechanisms.
-
-## Positioning
-
-This is not a coding framework.
-
-It does not compete with tools such as LangGraph, AutoGen, or other agent orchestration platforms.
-
-Instead, this framework sits one level above implementation.
-
-It helps answer:
-
-- where AI should be allowed to act;
-- where AI should only recommend;
-- where human confirmation is mandatory;
-- how responsibilities should be distributed;
-- how business processes should be diagnosed before AI implementation;
-- how compliance and risk control should be designed into the architecture.
-
-## Detailed Project Path
-
-If you are new to this project, start with these documents:
-
-1. [Start Here](START-HERE.md) — a simple path through the project for readers, pilot partners, implementers, and scaling partners.
-2. [Quick Start Guide](docs/quick-start.md) — a concise walkthrough for applying the framework to one AI idea.
-3. [AI Readiness Quick Check](QUICK-CHECK.md) — a 3-minute self-check for choosing a responsible first AI pilot.
-4. [Responsible AI Pilot Decision Assistant](demo/index.html) — a lightweight interactive demo for a preliminary Green / Yellow / Red / Grey signal.
-5. [Pilot Partner Intake Form](templates/pilot-partner-intake-form.md) — a preparation form for organizations that want to bring one real process.
-6. [Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md) — a one-page working canvas for designing a controlled AI pilot.
-7. [AI Pilot Decision Report](templates/ai-pilot-decision-report.md) — a concise final report that turns discussion into a Green / Yellow / Red / Grey decision.
-8. [Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md) — a 45-minute session format for organizations and pilot partners.
-9. [Pilot Partner Call](offers/pilot-partner-call.md) — a practical entry point for organizations that may provide one real process for analysis.
-10. [Pilot Partners Wanted](PILOT-PARTNERS.md) — how organizations can bring one real process for structured review.
-11. [Participation](PARTICIPATION.md) — how reviewers, pilot partners, implementers, and strategic partners can participate.
-12. [Framework Flow](diagrams/framework-flow.md) — a visual overview of the framework path.
-13. [Executive Manifesto](executive/manifesto.md) — a short explanation of the project for leaders, CTOs, DPOs, consultants, and business architects.
-14. [What Not to Automate First](guides/what-not-to-automate-first.md) — a practical guide for avoiding risky first pilots.
-
-## Practical Toolkit
-
-The current practical toolkit includes:
-
-| Tool / Pattern | Purpose |
-|---|---|
-| [AI Readiness Quick Check](QUICK-CHECK.md) | Evaluate in 3 minutes whether a process is a promising AI pilot candidate |
-| [Responsible AI Pilot Decision Assistant](demo/index.html) | Try a lightweight browser-based preliminary decision assistant |
-| [AI Readiness Dimensions](docs/ai-readiness-dimensions.md) | Evaluate readiness across process maturity, data quality, technical infrastructure, and governance |
-| [Pilot Partner Intake Form](templates/pilot-partner-intake-form.md) | Prepare one real process for review before a pilot partner call or discovery session |
-| [AI Pilot Readiness Scorecard](templates/ai-pilot-readiness-scorecard.md) | Run a more detailed readiness assessment |
-| [Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md) | Design one controlled AI pilot on one page |
-| [AI Pilot Decision Report](templates/ai-pilot-decision-report.md) | Convert assessment into a clear decision and next step |
-| [AI Readiness Mini-Workshop](workshops/ai-readiness-mini-workshop.md) | Run a 30–45 minute team workshop |
-| [Responsible AI Pilot Discovery Session](offers/responsible-ai-pilot-discovery-session.md) | Offer a structured 45-minute discovery session |
-| [Pilot Partner Call](offers/pilot-partner-call.md) | Invite organizations to bring one real process for structured review |
-| [AI Opportunity Map](business-diagnosis/ai-opportunity-map.md) | Identify AI opportunities and risks before selecting tools |
-| [Process Diagnosis Checklist](business-diagnosis/process-diagnosis-checklist.md) | Understand the process, data, decisions, and responsibility structure |
-| [Confirmation Gate Pattern](architecture-patterns/confirmation-gate.md) | Define where AI must stop and human approval must happen |
-| [Agent Permission Boundary Pattern](architecture-patterns/agent-permission-boundary.md) | Define what AI agents may access, prepare, recommend, or execute |
-| [AI as Control Loop Pattern](architecture-patterns/ai-as-control-loop.md) | Identify when AI starts influencing routing, prioritization, configuration, access, execution, or other systems |
-| [AI Integration Responsibility Matrix](compliance/ai-integration-responsibility-matrix.md) | Define AI role, risk level, human control, audit, and accountable owner |
-
-## Documentation
-
-Useful documentation pages:
-
-- [Quick Start Guide](docs/quick-start.md)
-- [Methodology Overview](docs/methodology-overview.md)
-- [AI Readiness Dimensions](docs/ai-readiness-dimensions.md)
-- [FAQ](docs/faq.md)
-
-## Practical Examples
-
-See the full examples index: [Practical Examples](examples/README.md).
-
-| Example | Purpose |
-|---|---|
-| [Internal Knowledge Assistant](examples/internal-knowledge-assistant/) | Show how a responsible AI architecture can be applied to an internal knowledge assistant for enterprise knowledge search, summarization, permission boundaries, human review, and auditability |
-| [Customer Email Triage](examples/customer-email-triage/) | Show how the framework can support customer communication workflows while preserving human review, escalation visibility, and permission boundaries |
-| [Red Case: Autonomous Customer Refund Agent](examples/red-case-autonomous-customer-refunds/) | Show when a proposed AI pilot should not start as autonomous because it combines probabilistic analysis with financial execution, customer impact, and insufficient governance maturity |
-| [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) | Show how the framework works in invoice processing |
-| [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) | Earlier simplified customer email support example |
-| [Rehab Equipment Service Request Triage](examples/rehab-equipment-service-request-triage.md) | Show how the framework works in assistive-device service and repair request routing |
-
-## Main Principle
-
-**Responsible AI integration begins with business process diagnosis.**
-
-Before selecting tools or models, an organization should understand:
-
-- which processes are slow or repetitive;
-- where information is lost;
-- where errors occur;
-- where decisions are made;
-- who is responsible;
-- which data is sensitive;
-- where AI can create measurable value;
-- where AI can create unacceptable risk.
