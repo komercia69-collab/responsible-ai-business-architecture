@@ -3,9 +3,39 @@
 **AI integration is not a plugin installation.**  
 **It is a socio-technical architecture change.**
 
-This project proposes a practical framework for responsible AI integration into business processes, with a focus on business architecture, human oversight, risk management, and compliance-by-design.
+A practical open-source framework for evaluating and governing AI pilots before implementation.
 
 > AI may be probabilistic. Responsibility must not be.
+
+## Start Here
+
+If you are considering an AI pilot, start with:
+
+1. [AI Readiness Quick Check](QUICK-CHECK.md) — a 3-minute, 7-question diagnostic for one business process.
+2. [Interactive Demo](https://komercia69-collab.github.io/responsible-ai-business-architecture/demo/) — a lightweight pilot decision assistant.
+3. [Practical Examples](examples/) — real-world use cases such as internal knowledge assistance and customer email triage.
+4. [Pilot Partner Intake Form](templates/pilot-partner-intake-form.md) — a structured form for preparing one real process for review.
+
+## Who This Is For
+
+- AI consultants and implementation partners
+- CTOs and technical leads
+- DPOs, compliance, and governance teams
+- business process owners
+- operations and transformation leaders
+- organizations preparing AI pilots
+
+## Core Question
+
+Not only:
+
+> What can AI do?
+
+But:
+
+> What should AI be allowed to do, under whose responsibility, with which controls, and for which business value?
+
+This project proposes a practical framework for responsible AI integration into business processes, with a focus on business architecture, human oversight, risk management, permission boundaries, auditability, and compliance-by-design.
 
 ## Value Proposition
 
@@ -86,7 +116,7 @@ It helps answer:
 - how business processes should be diagnosed before AI implementation;
 - how compliance and risk control should be designed into the architecture.
 
-## Start Here
+## Detailed Project Path
 
 If you are new to this project, start with these documents:
 
@@ -113,6 +143,7 @@ The current practical toolkit includes:
 |---|---|
 | [AI Readiness Quick Check](QUICK-CHECK.md) | Evaluate in 3 minutes whether a process is a promising AI pilot candidate |
 | [Responsible AI Pilot Decision Assistant](demo/index.html) | Try a lightweight browser-based preliminary decision assistant |
+| [AI Readiness Dimensions](docs/ai-readiness-dimensions.md) | Evaluate readiness across process maturity, data quality, technical infrastructure, and governance |
 | [Pilot Partner Intake Form](templates/pilot-partner-intake-form.md) | Prepare one real process for review before a pilot partner call or discovery session |
 | [AI Pilot Readiness Scorecard](templates/ai-pilot-readiness-scorecard.md) | Run a more detailed readiness assessment |
 | [Responsible AI Pilot Canvas](templates/responsible-ai-pilot-canvas.md) | Design one controlled AI pilot on one page |
@@ -133,6 +164,7 @@ Useful documentation pages:
 
 - [Quick Start Guide](docs/quick-start.md)
 - [Methodology Overview](docs/methodology-overview.md)
+- [AI Readiness Dimensions](docs/ai-readiness-dimensions.md)
 - [FAQ](docs/faq.md)
 
 ## Practical Examples
@@ -142,8 +174,9 @@ See the full examples index: [Practical Examples](examples/README.md).
 | Example | Purpose |
 |---|---|
 | [Internal Knowledge Assistant](examples/internal-knowledge-assistant/) | Show how a responsible AI architecture can be applied to an internal knowledge assistant for enterprise knowledge search, summarization, permission boundaries, human review, and auditability |
+| [Customer Email Triage](examples/customer-email-triage/) | Show how the framework can support customer communication workflows while preserving human review, escalation visibility, and permission boundaries |
 | [Invoice Processing AI Pilot](examples/invoice-processing-ai-pilot.md) | Show how the framework works in invoice processing |
-| [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) | Show how the framework works in customer email support |
+| [Customer Email Triage AI Pilot](examples/customer-email-triage-ai-pilot.md) | Earlier simplified customer email support example |
 | [Rehab Equipment Service Request Triage](examples/rehab-equipment-service-request-triage.md) | Show how the framework works in assistive-device service and repair request routing |
 
 ## Main Principle
@@ -238,6 +271,7 @@ responsible-ai-business-architecture/
 ├── docs/
 │   ├── quick-start.md
 │   ├── methodology-overview.md
+│   ├── ai-readiness-dimensions.md
 │   └── faq.md
 │
 ├── lead-magnet/
@@ -273,6 +307,7 @@ responsible-ai-business-architecture/
 ├── architecture-patterns/
 │   ├── confirmation-gate.md
 │   ├── agent-permission-boundary.md
+│   ├── multi-ai-review-loop.md
 │   └── ai-as-control-loop.md
 │
 ├── business-diagnosis/
@@ -288,6 +323,8 @@ responsible-ai-business-architecture/
     │   ├── permission-boundary.md
     │   ├── human-review-checkpoints.md
     │   └── preliminary-decision-report.md
+    ├── customer-email-triage/
+    │   └── README.md
     ├── invoice-processing-ai-pilot.md
     ├── customer-email-triage-ai-pilot.md
     └── rehab-equipment-service-request-triage.md
@@ -335,6 +372,7 @@ The current public version includes:
 - a value proposition;
 - participation, partners, and pilot partner pages;
 - an AI readiness quick check;
+- AI readiness dimensions;
 - a lightweight interactive decision assistant demo;
 - quick start, methodology overview, and FAQ documentation;
 - a pilot partner intake form;
@@ -349,8 +387,9 @@ The current public version includes:
 - a process diagnosis checklist;
 - a confirmation gate architecture pattern;
 - an agent permission boundary architecture pattern;
+- a multi-AI review loop pattern;
 - an AI as control loop architecture pattern;
 - an AI integration responsibility matrix;
-- practical pilot examples for internal knowledge assistance, invoice processing, customer email triage, and rehab equipment service request triage.
+- practical pilot examples for internal knowledge assistance, customer email triage, invoice processing, and rehab equipment service request triage.
 
 The next goal is to collect feedback, test the framework on real business processes, attract pilot partners, and improve the framework through real-world validation.
