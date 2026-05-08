@@ -56,6 +56,7 @@ These diagrams provide a visual overview of the framework before diving into the
 ## Governance & Informational Alignment
 
 - [EU AI Act & Governance Alignment (Informational Mapping)](compliance/eu-ai-act-mapping.md)
+- [Conflict Detection & Governance Observability](docs/conflict-detection-and-governance-observability.md)
 
 This document is intended for governance discussion and architectural orientation only.  
 It is not a legal certification or compliance guarantee.
