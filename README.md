@@ -38,7 +38,12 @@ This diagram illustrates:
 - controlled pilot decision paths.
 
 These diagrams provide a visual overview of the framework before diving into the detailed methodology, examples, templates, and governance patterns.
+## Governance & Informational Alignment
 
+- [EU AI Act & Governance Alignment (Informational Mapping)](compliance/eu-ai-act-mapping.md)
+
+This document is intended for governance discussion and architectural orientation only.  
+It is not a legal certification or compliance guarantee.
 ## Start Here
 
 If you are considering an AI pilot, start with:
