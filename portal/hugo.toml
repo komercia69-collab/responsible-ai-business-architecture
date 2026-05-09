@@ -1,0 +1,21 @@
+baseURL = "https://komercia69-collab.github.io/responsible-ai-business-architecture/portal/"
+title = "Laboratory of AI Symbiosis"
+defaultContentLanguage = "de"
+enableRobotsTXT = true
+
+[languages]
+  [languages.de]
+    languageName = "Deutsch"
+    weight = 1
+    contentDir = "content/de"
+
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    contentDir = "content/en"
+
+[params]
+  owner = "Aleksandr Shuliak"
+  strategicMode = "STABILIZE → observe → refine → validate"
+  projectRepo = "https://github.com/komercia69-collab/responsible-ai-business-architecture"
+  projectDemo = "https://komercia69-collab.github.io/responsible-ai-business-architecture/demo/"
