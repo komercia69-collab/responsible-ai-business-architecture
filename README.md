@@ -25,9 +25,9 @@ The framework is designed for early-stage AI pilot evaluation, governance discus
 
 ### Responsible AI Blueprint: From Idea to Controlled Pilot
 
-![Responsible AI Blueprint Framework](diagrams/responsible-ai-blueprint-framework.png)
+**Visual placeholder:** blueprint diagram planned.
 
-This diagram illustrates:
+This diagram will illustrate:
 
 - AI readiness dimensions;
 - pilot readiness signals;
@@ -40,9 +40,9 @@ This diagram illustrates:
 
 ### Responsible AI Governance & Control Blueprint
 
-![Responsible AI Governance & Control Blueprint](diagrams/responsible-ai-governance-control-blueprint.png)
+**Visual placeholder:** governance and control diagram planned.
 
-This diagram illustrates:
+This diagram will illustrate:
 
 - intake and readiness evaluation flow;
 - operational guardrails;
@@ -51,7 +51,7 @@ This diagram illustrates:
 - human confirmation gates;
 - controlled pilot decision paths.
 
-These diagrams provide a visual overview of the framework before diving into the detailed methodology, examples, templates, and governance patterns.
+These diagrams will provide a visual overview of the framework before diving into the detailed methodology, examples, templates, and governance patterns.
 
 ## Governance & Informational Alignment
 
