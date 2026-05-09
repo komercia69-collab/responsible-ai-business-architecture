@@ -1,0 +1,33 @@
+name: Build Lab Portal
+
+on:
+  pull_request:
+    paths:
+      - "portal/**"
+      - ".github/workflows/lab-portal-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: latest
+          extended: true
+
+      - name: Build portal
+        run: hugo --source portal --destination public
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lab-portal-public
+          path: portal/public
