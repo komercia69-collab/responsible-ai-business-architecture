@@ -59,6 +59,7 @@ These diagrams provide a visual overview of the framework before diving into the
 - [Conflict Detection & Governance Observability](docs/conflict-detection-and-governance-observability.md)
 - [Governance Metrics](docs/governance-metrics.md)
 - [Governance Failure Modes](docs/governance-failure-modes.md)
+- [AI Memory Governance](docs/ai-memory-governance.md)
 
 This document is intended for governance discussion and architectural orientation only.  
 It is not a legal certification or compliance guarantee.
@@ -68,6 +69,7 @@ It is not a legal certification or compliance guarantee.
 - [Patterns Overview](patterns/README.md)
 - [Recommendation-Execution Collapse](patterns/recommendation-execution-collapse.md)
 - [Invisible AI Influence](patterns/invisible-ai-influence.md)
+- [Context Drift and Memory Contamination](patterns/context-drift-and-memory-contamination.md)
 
 These patterns describe recurring operational and socio-technical governance failures that may emerge during AI adoption.
 
