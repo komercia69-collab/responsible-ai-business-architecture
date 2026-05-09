@@ -1,0 +1,131 @@
+:root {
+  --bg: #070816;
+  --surface: #111327;
+  --text: #f4f7ff;
+  --muted: #aab1d6;
+  --blue: #00a3ff;
+  --orange: #ff8a00;
+  --purple: #8b5cf6;
+  --green: #34d399;
+  --radius: 28px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, rgba(0,163,255,0.18), transparent 35%), var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(18px);
+  background: rgba(7,8,22,0.75);
+}
+
+.logo {
+  font-weight: 800;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-text,
+.mode-card,
+.bento-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95;
+}
+
+.mode-label {
+  color: var(--orange);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.mode-card strong {
+  font-size: 2rem;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.bento-card.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.bento-card.medium {
+  grid-column: span 2;
+}
+
+.bento-card.square {
+  aspect-ratio: 1 / 1;
+}
+
+.card-badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--green);
+  font-size: 0.8rem;
+}
+
+.card-content {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--blue);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
