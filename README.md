@@ -58,9 +58,18 @@ These diagrams provide a visual overview of the framework before diving into the
 - [EU AI Act & Governance Alignment (Informational Mapping)](compliance/eu-ai-act-mapping.md)
 - [Conflict Detection & Governance Observability](docs/conflict-detection-and-governance-observability.md)
 - [Governance Metrics](docs/governance-metrics.md)
+- [Governance Failure Modes](docs/governance-failure-modes.md)
 
 This document is intended for governance discussion and architectural orientation only.  
 It is not a legal certification or compliance guarantee.
+
+## Governance Failure Patterns
+
+- [Patterns Overview](patterns/README.md)
+- [Recommendation-Execution Collapse](patterns/recommendation-execution-collapse.md)
+- [Invisible AI Influence](patterns/invisible-ai-influence.md)
+
+These patterns describe recurring operational and socio-technical governance failures that may emerge during AI adoption.
 
 ## Start Here
 
