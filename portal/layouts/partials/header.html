@@ -1,0 +1,18 @@
+<header class="site-header">
+  <a class="logo" href="{{ .Site.Home.RelPermalink }}">
+    Laboratory of AI Symbiosis
+  </a>
+
+  <nav class="main-nav">
+    <a href="#projects">Projects</a>
+    <a href="#insights">Insights</a>
+    <a href="#art">3D Art</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="lang-switch">
+    {{ range .Site.Languages }}
+      <a href="/{{ .Lang }}/">{{ .Lang | upper }}</a>
+    {{ end }}
+  </div>
+</header>
