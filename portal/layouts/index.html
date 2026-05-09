@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+{{ partial "head.html" . }}
+<body>
+{{ partial "header.html" . }}
+
+<main class="page-shell">
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">Research Lab · Responsible AI Business Architecture</p>
+    <h1>Laboratory of AI Symbiosis</h1>
+    <p>
+      A multilingual research portal by {{ .Site.Params.owner }}.
+      Exploring safe AI-human collaboration, governance systems and socio-technical architecture.
+    </p>
+  </div>
+
+  <div class="mode-card">
+    <span class="mode-label">Current Mode</span>
+    <strong>{{ .Site.Params.strategicMode }}</strong>
+  </div>
+</section>
+
+<section class="bento-grid">
+{{ range sort (where .Site.RegularPages "Section" "cards") "Params.weight" }}
+<article class="bento-card {{ .Params.size }}" id="{{ .Params.anchor }}">
+
+{{ if .Params.badge }}
+<span class="card-badge">{{ .Params.badge }}</span>
+{{ end }}
+
+<h2>{{ .Title }}</h2>
+
+<div class="card-content">
+{{ .Content }}
+</div>
+
+{{ if .Params.link }}
+<a class="card-link" href="{{ .Params.link }}">Open →</a>
+{{ end }}
+
+</article>
+{{ end }}
+</section>
+
+</main>
+
+<footer class="site-footer" id="contact">
+© {{ now.Year }} {{ .Site.Params.owner }} · Laboratory of AI Symbiosis
+</footer>
+
+</body>
+</html>
