@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Control Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 24px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #94a3b8;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.25);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: #38bdf8;
+    }
+
+    .metric {
+      font-size: 2rem;
+      margin: 12px 0;
+      font-weight: bold;
+    }
+
+    .status-good {
+      color: #4ade80;
+    }
+
+    .status-warning {
+      color: #facc15;
+    }
+
+    .status-critical {
+      color: #f87171;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    footer {
+      margin-top: 32px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Owner Control Dashboard</h1>
+  <div class="subtitle">
+    Responsible AI Business Architecture
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h2>Financial Health</h2>
+      <div class="metric status-good">€148,320</div>
+      <p>Current Cash Balance</p>
+      <ul>
+        <li>Revenue Today: €12,480</li>
+        <li>Gross Margin: 42%</li>
+        <li>Runway: 11 months</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>AI Autonomous Actions</h2>
+      <div class="metric status-warning">1,284</div>
+      <p>Actions Executed Today</p>
+      <ul>
+        <li>18 required escalation</li>
+        <li>4 human overrides</li>
+        <li>0 policy violations</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Operational Stability</h2>
+      <div class="metric status-good">97.8%</div>
+      <p>SLA Compliance</p>
+      <ul>
+        <li>Completed Tasks: 542</li>
+        <li>Backlog: 19</li>
+        <li>Downtime: 0 min</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Risk Monitoring</h2>
+      <div class="metric status-critical">3</div>
+      <p>Critical Alerts</p>
+      <ul>
+        <li>Unusual payment request</li>
+        <li>Low-confidence AI decision</li>
+        <li>Security anomaly detected</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Customer Trust</h2>
+      <div class="metric status-good">92%</div>
+      <p>Customer Satisfaction</p>
+      <ul>
+        <li>New Leads: 46</li>
+        <li>Complaints: 2</li>
+        <li>Escalations: 5</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Governance Integrity</h2>
+      <div class="metric status-good">Stable</div>
+      <p>Governance Status</p>
+      <ul>
+        <li>No unauthorized permission changes</li>
+        <li>Audit logging operational</li>
+        <li>Human override available</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    AI may execute operations. Humans remain accountable.
+  </footer>
+
+</body>
+</html>
