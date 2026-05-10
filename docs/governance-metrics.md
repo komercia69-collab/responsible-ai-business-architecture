@@ -1,247 +1,337 @@
-# Governance Metrics
+# Governance Metrics Framework
 
-Responsible AI governance requires more than policies and architectural diagrams.
+## Responsible AI Business Architecture
 
-Organizations also need observable signals that help evaluate whether an AI-supported process remains controllable, understandable, and operationally safe over time.
+> What cannot be monitored cannot remain governable.
 
-This document proposes practical governance-oriented metrics for controlled AI pilots.
+---
 
-> AI may be probabilistic. Responsibility must not be.
+# Purpose
 
-## Purpose
+This framework defines operational and governance metrics for organizations deploying autonomous or semi-autonomous AI systems.
 
-Governance metrics help organizations:
+The objective is not only performance measurement.
 
-- observe AI influence on business processes;
-- detect instability or hidden operational risk;
-- identify weak governance boundaries;
-- measure human oversight effectiveness;
-- evaluate pilot maturity;
-- support escalation and rollback decisions;
-- improve responsible AI operations over time.
-
-These metrics are not intended to measure only model accuracy.
-
-They are intended to measure governance quality.
-
-## Important Principle
-
-A responsible AI pilot should not be evaluated only by:
-
-- speed;
-- cost reduction;
-- automation percentage;
-- throughput.
-
-A pilot should also be evaluated by:
+The objective is preserving:
 
 - controllability;
+- visibility;
+- accountability;
 - auditability;
-- escalation capability;
-- rollback capability;
-- human oversight quality;
-- operational resilience.
-
-## Recommended Governance Metrics
-
-### AI Influence Frequency
-
-Measures how often AI affects operational decisions, recommendations, prioritization, classification, or workflow transitions.
-
-Why it matters:
-
-High influence frequency may indicate growing operational dependence on AI.
-
-Key question:
-
-> Is the organization still able to operate safely if the AI system fails or becomes unreliable?
+- operational stability.
 
 ---
 
-### Human Confirmation Rate
+# Core Principle
 
-Measures how often humans approve AI-prepared outputs or actions.
+Traditional business KPIs are not sufficient for autonomous AI environments.
 
-Examples:
+Organizations must also measure:
 
-- approving drafted responses;
-- confirming workflow actions;
-- validating extracted data;
-- approving recommendations.
-
-Why it matters:
-
-This helps determine whether humans remain meaningfully involved in the decision process.
+- governance integrity;
+- escalation behavior;
+- operational visibility;
+- human override activity;
+- permission stability;
+- audit completeness.
 
 ---
 
-### Human Override Rate
+# Governance Metric Categories
 
-Measures how often humans reject, modify, or reverse AI recommendations.
-
-Why it matters:
-
-A high override rate may indicate:
-
-- weak model quality;
-- poor process fit;
-- unclear business rules;
-- weak data quality;
-- insufficient governance preparation.
-
-A very low override rate may also be risky if humans stop critically reviewing AI outputs.
+| Category | Focus |
+|---|---|
+| Operational Control | Visibility and controllability |
+| Escalation Integrity | Human intervention reliability |
+| AI Reliability | Quality and stability of AI outputs |
+| Permission Governance | Authority boundaries |
+| Auditability | Traceability and explainability |
+| Risk Exposure | Governance and operational risk |
+| Human Oversight | Human control participation |
 
 ---
 
-### Escalation Rate
+# 1. Operational Control Metrics
 
-Measures how often AI-supported cases require escalation to:
+## Operational Visibility Score
 
-- managers;
-- compliance roles;
-- legal teams;
-- process owners;
-- technical support teams.
+Measures whether leadership can understand operational AI activity.
 
-Why it matters:
+### Example Inputs
 
-Escalation patterns reveal hidden operational complexity and governance gaps.
+- percentage of logged AI actions;
+- visibility of autonomous decisions;
+- dashboard completeness;
+- identifiable process ownership.
 
----
+### Warning Signal
 
-### Review Latency
-
-Measures how long it takes for a human to:
-
-- review AI output;
-- approve;
-- reject;
-- escalate;
-- request clarification.
-
-Why it matters:
-
-This helps determine whether the pilot improves operational flow or creates review bottlenecks.
+AI systems operating without observable activity trails.
 
 ---
 
-### Blocked Action Count
+## Autonomous Decision Ratio
 
-Measures how often governance controls prevent AI-supported actions from proceeding.
+Measures how much operational activity occurs without human approval.
 
-Examples:
+### Formula Concept
 
-- permission boundary violations;
+genui{"math_block_widget_always_prefetch_v2":{"content":"Autonomous\ Decision\ Ratio = \\frac{Autonomous\ Actions}{Total\ Actions}"}}
+
+### Warning Signal
+
+Rapid growth without governance scaling.
+
+---
+
+## Workflow Stability Index
+
+Measures operational consistency of AI-supported workflows.
+
+### Example Inputs
+
+- SLA compliance;
+- rollback frequency;
+- process interruptions;
+- repeated automation failures.
+
+---
+
+# 2. Escalation Integrity Metrics
+
+## Escalation Success Rate
+
+Measures whether high-risk situations correctly reach humans.
+
+### Example Inputs
+
+- successful escalations;
+- missed escalation incidents;
+- delayed escalation responses.
+
+### Warning Signal
+
+AI systems continuing execution despite uncertainty.
+
+---
+
+## Human Override Frequency
+
+Measures how often humans intervene in AI behavior.
+
+### Interpretation
+
+- low override rate may indicate stable automation;
+- extremely low override rate may indicate over-trust or invisible failures;
+- high override rate may indicate unstable AI behavior.
+
+---
+
+## Escalation Response Time
+
+Measures how quickly humans respond to critical escalation events.
+
+### Example Inputs
+
+- average response time;
+- unresolved escalation backlog;
+- escalation ownership clarity.
+
+---
+
+# 3. AI Reliability Metrics
+
+## Hallucination Incident Rate
+
+Measures frequency of unsupported or fabricated outputs.
+
+### Example Inputs
+
+- detected hallucinations;
+- unsupported claims;
+- false operational recommendations.
+
+---
+
+## Human Correction Rate
+
+Measures how often AI outputs require correction.
+
+### Formula Concept
+
+genui{"math_block_widget_always_prefetch_v2":{"content":"Human\ Correction\ Rate = \\frac{Corrected\ Outputs}{Total\ AI\ Outputs}"}}
+
+### Warning Signal
+
+Increasing correction rates after scaling deployment.
+
+---
+
+## AI Confidence Integrity
+
+Measures alignment between AI confidence and actual correctness.
+
+### Warning Signal
+
+High-confidence incorrect outputs.
+
+---
+
+# 4. Permission Governance Metrics
+
+## Permission Change Frequency
+
+Measures how often AI permissions are modified.
+
+### Warning Signal
+
+Frequent permission expansion without governance review.
+
+---
+
+## Unauthorized Action Attempts
+
+Measures attempts to bypass governance controls.
+
+### Examples
+
+- blocked high-risk actions;
+- approval bypass attempts;
+- unauthorized access requests.
+
+---
+
+## Governance Drift Score
+
+Measures divergence between approved governance architecture and operational reality.
+
+### Example Inputs
+
+- undocumented workflow changes;
 - missing approvals;
-- policy conflicts;
-- insufficient confidence;
-- missing data.
-
-Why it matters:
-
-Blocked actions are not necessarily failures.
-
-They often demonstrate that governance controls are functioning correctly.
+- inconsistent escalation behavior;
+- shadow automation.
 
 ---
 
-### Rollback Time
+# 5. Auditability Metrics
 
-Measures how quickly the organization can:
+## Audit Trail Completeness
 
-- detect an AI-related issue;
-- stop the process;
-- reverse the outcome;
-- restore a safe operational state.
+Measures how fully AI actions can be reconstructed.
 
-Why it matters:
+### Example Inputs
 
-Rollback capability is critical for operational resilience.
+- percentage of logged actions;
+- traceable decision chains;
+- preserved escalation records.
 
----
+### Warning Signal
 
-### Unresolved Responsibility Cases
-
-Measures how often teams encounter situations where responsibility is unclear.
-
-Examples:
-
-- unclear approval ownership;
-- unclear escalation path;
-- unclear authority to override AI output;
-- unclear accountability after failure.
-
-Why it matters:
-
-This is a serious governance warning signal.
+Critical operational actions without traceable history.
 
 ---
 
-### Governance Drift
+## Explainability Coverage
 
-Measures whether operational behavior gradually diverges from the original pilot design.
+Measures how often AI outputs include understandable reasoning or traceability.
 
-Examples:
+### Warning Signal
 
-- AI influence expands informally;
-- humans stop reviewing outputs carefully;
-- blocked actions become routinely bypassed;
-- escalation rules stop being followed.
+Operational decisions that cannot be explained.
 
-Why it matters:
+---
 
-Governance erosion often happens gradually rather than through one major failure.
+# 6. Risk Exposure Metrics
 
-## Metrics Interpretation
+## High-Risk Action Volume
 
-Metrics should not be interpreted in isolation.
+Measures frequency of sensitive AI-supported operations.
 
-Example:
+### Example Areas
 
-- low escalation rate may indicate maturity;
-- or it may indicate hidden underreporting.
+- finance;
+- HR;
+- legal;
+- security;
+- customer escalation.
 
-Similarly:
+---
 
-- low override rate may indicate strong AI performance;
-- or weak human review discipline.
+## Containment Activation Frequency
 
-Governance metrics therefore require contextual interpretation.
+Measures how often emergency controls or stop-switches activate.
 
-## Recommended Pilot Practice
+### Interpretation
 
-For early-stage pilots:
+- rare activation may indicate stability;
+- zero activation over long periods may indicate invisible monitoring gaps.
 
-- start with a small number of governance metrics;
-- review them regularly;
-- compare trends over time;
-- connect metrics to escalation rules;
-- document interpretation decisions.
+---
 
-Avoid creating overly complex metric systems during initial pilots.
+## Incident Severity Distribution
 
-## Relation to Other Framework Components
+Measures proportion of low, moderate, and critical governance incidents.
 
-This document supports:
+---
 
-- `docs/conflict-detection-and-governance-observability.md`
-- `architecture-patterns/conflict-detection-layer.md`
-- `architecture-patterns/confirmation-gate.md`
-- `architecture-patterns/agent-permission-boundary.md`
-- `templates/ai-pilot-decision-report.md`
-- `examples/red-case-autonomous-customer-refunds/`
+# 7. Human Oversight Metrics
 
-## Summary
+## Human-in-the-Loop Coverage
 
-Governance metrics help organizations evaluate whether AI-supported business processes remain:
+Measures how many critical workflows include mandatory human review.
 
-- observable;
-- controllable;
-- reviewable;
-- auditable;
-- resilient;
-- responsibly governed.
+### Formula Concept
 
-The purpose is not maximum automation.
+genui{"math_block_widget_always_prefetch_v2":{"content":"Human\ Oversight\ Coverage = \\frac{Governed\ Workflows}{Critical\ Workflows}"}}
 
-The purpose is controlled and accountable AI integration into real operational environments.
+---
+
+## Accountability Clarity Score
+
+Measures whether operational ownership is clearly assigned.
+
+### Warning Signal
+
+AI-supported workflows without responsible human owners.
+
+---
+
+# Governance Dashboard Interpretation
+
+Healthy governance environments typically show:
+
+- stable escalation behavior;
+- moderate autonomous execution;
+- low governance drift;
+- strong audit completeness;
+- visible human accountability;
+- controlled permission growth.
+
+---
+
+# Governance Failure Warning Signs
+
+Critical governance risk may exist when:
+
+- autonomy grows faster than oversight;
+- leadership loses operational visibility;
+- escalation is bypassed;
+- audit logs are incomplete;
+- permission expansion becomes frequent;
+- humans stop questioning AI outputs;
+- AI confidence diverges from reality.
+
+---
+
+# Strategic Interpretation
+
+The future competitive advantage of organizations may depend not only on AI capability,
+
+but on measurable governance quality.
+
+---
+
+# Strategic Principle
+
+Autonomous systems require measurable governance.
