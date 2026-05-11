@@ -27,7 +27,7 @@ jobs:
         run: hugo --source portal --destination public
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lab-portal-public
           path: portal/public
