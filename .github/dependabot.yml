@@ -1,6 +1,10 @@
 version: 2
 
 updates:
+  # Minimal governance-focused baseline.
+  # Additional ecosystems (npm, pip, docker) should be enabled
+  # only after confirming they are actively used.
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
