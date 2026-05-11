@@ -1,233 +1,255 @@
 # Responsible AI Business Architecture
 
-> AI may be probabilistic. Responsibility must not be.
+> **AI may be probabilistic. Responsibility must not be.**
 
-A governance-first framework for organizations implementing autonomous or semi-autonomous AI systems.
+**Responsible AI Business Architecture** is an open socio-technical architecture framework for organizations that want to adopt AI agents and autonomous workflows without losing operational control, accountability, auditability, or business trust.
+
+Most AI adoption projects ask: **What can AI automate?**
+
+This project asks a more important business question:
+
+> **How can business owners and leadership teams preserve control when AI systems become operationally autonomous?**
 
 ---
 
-# Executive Snapshot
+## Who This Is For
 
-Most organizations focus on what AI can do.
+This project is designed for:
 
-This project focuses on a more important question:
+- business owners and executive teams;
+- CIOs, CISOs, Heads of Risk and Compliance;
+- enterprise architects and transformation leaders;
+- Responsible AI and AI governance teams;
+- consultants and system integrators;
+- AI adoption / AI enablement teams;
+- researchers working on socio-technical AI governance.
 
-> How can a business owner remain in control after AI becomes operationally autonomous?
+---
 
-Responsible AI Business Architecture is an open governance framework designed to help organizations:
+## The Business Problem
 
-- preserve human accountability;
-- maintain operational visibility;
-- prevent uncontrolled AI autonomy;
-- establish escalation and approval boundaries;
-- deploy AI systems safely and auditably.
+AI is moving from assistance to execution.
 
-This repository combines:
+AI systems increasingly:
+
+- read business data;
+- recommend decisions;
+- draft communications;
+- use tools and connectors;
+- influence workflows;
+- trigger operational actions;
+- interact with customers, employees, suppliers, and internal systems.
+
+This creates a new enterprise risk:
+
+> **AI autonomy can scale faster than human oversight, governance, and accountability.**
+
+Without a clear governance architecture, organizations may face:
+
+- invisible AI influence;
+- silent permission expansion;
+- prompt injection and connector misuse;
+- escalation overload;
+- approval fatigue;
+- audit gaps;
+- unclear responsibility;
+- loss of owner-level operational visibility.
+
+---
+
+## What Makes This Different
+
+This is not an “awesome list”, a policy collection, or a generic AI ethics statement.
+
+Responsible AI Business Architecture is intended as a **deployment-level blueprint** for governing AI-enabled business processes.
+
+It combines:
 
 - governance architecture;
-- operational control models;
-- AI permission systems;
-- escalation frameworks;
-- readiness assessments;
-- pilot deployment methodologies.
+- operational controllability models;
+- prompt and instruction governance;
+- MCP / connector risk modeling;
+- human approval gates;
+- governance observability;
+- corrective governance levers;
+- dashboards and demo interfaces;
+- practical use cases and pilot templates.
 
 ---
 
-# Why This Exists
+## Core Concepts
 
-AI integration is not a plugin installation.
-
-It is a socio-technical architecture change.
-
-Many organizations are rapidly deploying AI into:
-
-- customer operations;
-- finance;
-- support systems;
-- analytics;
-- decision workflows;
-- autonomous operational processes.
-
-However, most deployments lack:
-
-- governance visibility;
-- operational accountability;
-- permission boundaries;
-- escalation logic;
-- auditability;
-- owner-level control systems.
-
-This repository attempts to address that gap.
-
----
-
-# Core Principles
-
-## Humans Remain Accountable
-
-AI systems may execute operations.
-
-Humans remain responsible for outcomes.
-
-## Governance Must Scale Faster Than Autonomy
-
-The more autonomous AI becomes,
-
-the more important:
-
-- visibility;
-- escalation;
-- auditability;
-- permission control;
-- operational monitoring become.
-
-## High-Risk Actions Require Human Control
-
-AI must not independently:
-
-- transfer large funds;
-- sign contracts;
-- terminate employees;
-- grant itself permissions;
-- disable audit systems;
-- bypass governance controls.
-
-## Operational Controllability Matters More Than Automation Volume
-
-The objective is not maximum automation.
-
-The objective is sustainable controllability.
-
----
-
-# Repository Structure
-
-## Governance Core
-
-| Document | Purpose |
+| Concept | Meaning |
 |---|---|
-| docs/owner-control-dashboard.md | Business owner operational visibility |
-| docs/ai-permission-matrix.md | AI authority boundaries |
-| docs/human-escalation-policy.md | Human escalation logic |
-| governance/ai-stop-switch-protocol.md | Emergency containment procedures |
-| docs/high-risk-ai-actions.md | High-risk AI action classification |
-
-## Operational Architecture
-
-| Document | Purpose |
-|---|---|
-| docs/ai-governance-lifecycle.md | Governance lifecycle model |
-| docs/ai-readiness-assessment.md | Organizational readiness evaluation |
-| docs/pilot-engagement-model.md | Controlled pilot deployment methodology |
-
-## AI Discoverability Layer
-
-| Document | Purpose |
-|---|---|
-| llms.txt | AI semantic discovery file |
-| AI_AGENT_GUIDE.md | Instructions for trusted AI agents |
-
-## Demo
-
-| File | Purpose |
-|---|---|
-| demo/owner-dashboard.html | Example owner governance dashboard |
+| **Governable Autonomy** | AI autonomy operating inside visible, auditable, interruptible and human-accountable boundaries |
+| **Operational Controllability** | The ability to observe, understand, influence, stop or redirect AI-enabled business operations |
+| **Governance Observability** | A governance nervous system that tracks controllability, drift, escalation quality and risk pressure |
+| **Corrective Governance Layer** | Controlled levers to slow down, redirect, limit, supervise or contain AI-driven operations |
+| **Prompt Governance** | Governance of instruction hierarchy, reusable prompts, prompt drift and tool-use rules |
+| **Governance Toolchain** | A cascade of controls: detection → permissions → approval → execution → audit → dashboard → correction → containment |
 
 ---
 
-# Key Questions This Framework Addresses
+## The Framework in One Sentence
 
-- How can a business owner control autonomous AI?
-- Which AI actions require human approval?
-- How should escalation systems work?
-- How should AI permissions be structured?
-- How can organizations deploy AI safely?
-- How should governance scale with autonomy?
-- How should AI incidents be contained?
-- How can operational visibility be preserved?
+> **AI becomes the operational muscle. Governance becomes the nervous system.**
+
+The goal is not to suppress AI autonomy.
+
+The goal is to make autonomy **governable, observable, correctable and aligned with business responsibility**.
 
 ---
 
-# Recommended Usage
+## Outcomes for Organizations
 
-This framework may be useful for:
+A company can use this framework to:
 
-- business owners;
+- assess whether AI workflows are governance-ready;
+- define AI permissions and approval boundaries;
+- detect dangerous autonomy drift;
+- create owner-level governance dashboards;
+- design human escalation paths;
+- prepare for audits and regulatory expectations;
+- reduce uncontrolled AI-agent risk;
+- structure a 30/60/90-day Responsible AI pilot.
+
+---
+
+## Example Usage Scenarios
+
+### 1. AI Process Audit
+
+An internal AI office or consulting team uses the framework to review an existing AI-enabled workflow:
+
+1. Map the AI-supported process.
+2. Identify tool access, write actions, prompts and decision points.
+3. Classify high-risk actions.
+4. Define permission boundaries and human approval gates.
+5. Add audit trails, escalation rules and monitoring metrics.
+6. Produce a controllability report for leadership.
+
+### 2. AI Agent Pilot Readiness
+
+A company wants to deploy an AI agent in customer support, procurement, finance or internal operations:
+
+1. Start with the AI Readiness Assessment.
+2. Apply the Permission Matrix.
+3. Add Suspicious Instruction Review Gate logic.
+4. Define human approval and stop-switch controls.
+5. Monitor governance drift and escalation backlog.
+6. Run a limited pilot before expanding autonomy.
+
+---
+
+## How to Start a Pilot
+
+### Step 1 — Choose One AI-Enabled Business Process
+
+Examples:
+
+- customer support AI;
+- procurement assistant;
+- finance approval workflow;
+- HR document automation;
+- AI research / knowledge workflow;
+- MCP-connected operational agent.
+
+### Step 2 — Run a Governance Readiness Review
+
+Use:
+
+- `docs/operational-controllability-model.md`
+- `docs/governance-metrics.md`
+- `docs/mcp-threat-model.md`
+- `docs/prompt-governance-architecture.md`
+- `docs/governance-toolchain.md`
+
+### Step 3 — Define the Control Architecture
+
+Specify:
+
+- what AI may do autonomously;
+- what requires human approval;
+- what must remain prohibited;
+- how escalation works;
+- how audit trails are preserved;
+- how corrective governance actions are triggered.
+
+---
+
+## Repository Navigation
+
+Start here:
+
+- `README-ARCHITECTURE.md` — full framework navigation map
+- `whitepaper/governable-autonomy-manifesto.md` — core manifesto
+- `presentations/executive-brief.md` — executive explanation
+- `docs/governance-toolchain.md` — layered governance toolchain
+- `docs/governance-observability.md` — governance nervous system and corrective governance
+- `docs/prompt-governance-architecture.md` — instruction-layer governance
+- `docs/mcp-threat-model.md` — MCP and connector threat model
+- `demo/governance-dashboard-v2.html` — dashboard prototype
+- `tools/suspicious-instruction-review-gate/README.md` — demo governance gate
+
+---
+
+## Relationship to Responsible AI Frameworks
+
+This project complements high-level Responsible AI principles, AI risk management frameworks, corporate AI ethics policies, and emerging AI management standards.
+
+Its specific contribution is practical:
+
+> **turning Responsible AI into operational architecture for business processes.**
+
+It focuses on the deployment layer where AI systems interact with tools, people, workflows, data, permissions, prompts and business accountability.
+
+---
+
+## Looking for Collaborators
+
+We welcome feedback and collaboration from:
+
+- Responsible AI researchers;
 - enterprise architects;
-- governance teams;
-- AI risk managers;
-- consultants;
-- operational leaders;
-- trusted AI agents;
-- AI governance researchers.
+- governance and risk experts;
+- AI adoption teams;
+- consultants and integrators;
+- business owners interested in controlled AI pilots.
+
+Useful contribution areas:
+
+- real-world use cases;
+- governance diagrams;
+- pilot playbooks;
+- Responsible AI standards mapping;
+- dashboard prototypes;
+- prompt governance patterns;
+- MCP / connector risk scenarios.
 
 ---
 
-# Suggested Reading Path
+## Important Disclaimer
 
-1. Owner Control Dashboard
-2. AI Permission Matrix
-3. Human Escalation Policy
-4. High-Risk AI Actions
-5. AI Governance Lifecycle
-6. AI Readiness Assessment
-7. Pilot Engagement Model
-8. AI Stop Switch Protocol
+This project is an experimental governance framework and research initiative.
+
+It is not legal advice, a security certification, a compliance guarantee, or complete protection against prompt injection, AI misuse, or operational failure.
+
+See `DISCLAIMER.md` for limitations.
 
 ---
 
-# Strategic Positioning
+## Strategic Principle
 
-This project focuses on:
-
-- operational controllability;
-- governance-first architecture;
-- enterprise AI safety;
-- auditability;
-- human accountability;
-- sustainable AI deployment.
-
----
-
-# Future Direction
-
-Potential future directions include:
-
-- governance dashboards;
-- AI audit tooling;
-- operational risk heatmaps;
-- enterprise governance APIs;
-- AI readiness scoring systems;
-- governance-as-code models;
-- trusted AI operational copilots.
-
----
-
-# Collaboration
-
-The project welcomes collaboration from:
-
-- governance professionals;
-- enterprise architects;
-- AI safety researchers;
-- operational risk specialists;
-- consultants;
-- organizations interested in controlled AI deployment.
-
----
-
-# Strategic Principle
-
-The central question is no longer:
+The central question is no longer only:
 
 > “What can AI do?”
 
 The more important question is:
 
-> “What should AI be allowed to do, under whose responsibility, with which controls, and for which business value?”
+> **“What should AI be allowed to do, under whose responsibility, with which controls, and for which business value?”**
 
 ---
 
-# Responsible AI Business Architecture
+## Responsible AI Business Architecture
 
-> Governance must scale faster than autonomy.
+> **Governance must scale faster than autonomy.**
