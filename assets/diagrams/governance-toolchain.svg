@@ -1,0 +1,40 @@
+<svg width="1400" height="760" viewBox="0 0 1400 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111F"/>
+      <stop offset="1" stop-color="#040914"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="760" fill="url(#bg)"/>
+
+  <text x="90" y="95" fill="#F8FBFF" font-size="50" font-family="Arial" font-weight="700">
+    Governance Toolchain
+  </text>
+
+  <text x="92" y="138" fill="#8FA6C2" font-size="24" font-family="Arial">
+    Runtime governance pipeline for AI-native operational systems
+  </text>
+
+  <line x1="180" y1="400" x2="1220" y2="400" stroke="#38BDF8" stroke-width="3" opacity="0.25"/>
+
+  <rect x="120" y="320" width="150" height="160" rx="26" fill="#102038" stroke="#38BDF8" stroke-width="2"/>
+  <text x="195" y="410" text-anchor="middle" fill="#EDF5FF" font-size="28" font-family="Arial" font-weight="700">Prompt</text>
+
+  <rect x="320" y="320" width="170" height="160" rx="26" fill="#102038" stroke="#22C55E" stroke-width="2"/>
+  <text x="405" y="410" text-anchor="middle" fill="#EDF5FF" font-size="28" font-family="Arial" font-weight="700">Validation</text>
+
+  <rect x="540" y="320" width="190" height="160" rx="26" fill="#102038" stroke="#A78BFA" stroke-width="2"/>
+  <text x="635" y="410" text-anchor="middle" fill="#EDF5FF" font-size="28" font-family="Arial" font-weight="700">Agent Runtime</text>
+
+  <rect x="780" y="320" width="190" height="160" rx="26" fill="#102038" stroke="#FACC15" stroke-width="2"/>
+  <text x="875" y="410" text-anchor="middle" fill="#EDF5FF" font-size="28" font-family="Arial" font-weight="700">MCP Tools</text>
+
+  <rect x="1020" y="320" width="220" height="160" rx="26" fill="#102038" stroke="#FB923C" stroke-width="2"/>
+  <text x="1130" y="392" text-anchor="middle" fill="#EDF5FF" font-size="28" font-family="Arial" font-weight="700">Monitoring &amp;</text>
+  <text x="1130" y="430" text-anchor="middle" fill="#EDF5FF" font-size="28" font-family="Arial" font-weight="700">Escalation</text>
+
+  <text x="90" y="670" fill="#60738C" font-size="18" font-family="Arial">
+    Responsible AI Business Architecture
+  </text>
+</svg>
