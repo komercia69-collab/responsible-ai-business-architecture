@@ -1,0 +1,17 @@
+# Responsible AI Business Architecture
+# Governance-critical files should require explicit review.
+
+# Default owner
+* @komercia69-collab
+
+# Governance and security layers
+/docs/ @komercia69-collab
+/frameworks/ @komercia69-collab
+/assets/diagrams/ @komercia69-collab
+/demo/ @komercia69-collab
+/portal/ @komercia69-collab
+
+# Security and workflows
+SECURITY.md @komercia69-collab
+/.github/ @komercia69-collab
+/.github/workflows/ @komercia69-collab
