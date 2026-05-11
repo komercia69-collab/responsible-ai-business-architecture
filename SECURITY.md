@@ -72,6 +72,10 @@ Alternatively, open a private security advisory or contact the maintainers direc
 
 Please avoid publishing exploit details in public issues before review.
 
+For operational response guidance, see:
+
+- `docs/incident-response-playbook.md`
+
 ---
 
 # What to Include in a Report
