@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executive Governance Portal | Responsible AI Business Architecture</title>
+  <style>
+    :root {
+      --bg: #050b14;
+      --panel: #0f1d31;
+      --panel2: #13233a;
+      --text: #edf5ff;
+      --muted: #9fb0c7;
+      --line: rgba(255,255,255,.1);
+      --accent: #38bdf8;
+      --green: #22c55e;
+      --yellow: #facc15;
+      --orange: #fb923c;
+      --violet: #a78bfa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: radial-gradient(circle at top left, rgba(56,189,248,.18), transparent 30%), linear-gradient(180deg,#08111f,#050b14);
+      color: var(--text);
+    }
+    .shell { max-width: 1180px; margin: auto; padding: 0 24px; }
+    header { border-bottom: 1px solid var(--line); background: rgba(5,11,20,.78); backdrop-filter: blur(16px); position: sticky; top:0; z-index:10; }
+    .nav { min-height: 72px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    .brand { font-weight: 850; letter-spacing: -.04em; }
+    nav a { color: var(--muted); text-decoration:none; margin-left:18px; font-size:.94rem; }
+    nav a:hover { color: var(--accent); }
+    .hero { padding: 86px 0 56px; display:grid; grid-template-columns: 1.15fr .85fr; gap:40px; align-items:center; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.8rem); line-height:.92; letter-spacing:-.075em; margin:0; }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); line-height:1; letter-spacing:-.055em; margin:0 0 18px; }
+    h3 { margin:0 0 10px; font-size:1.25rem; }
+    p { margin:0; }
+    .lead { color:var(--muted); font-size:1.18rem; line-height:1.65; margin-top:24px; }
+    .badge { display:inline-block; padding:10px 14px; border:1px solid rgba(56,189,248,.35); background:rgba(56,189,248,.08); border-radius:999px; color:#c7edff; font-weight:800; margin-bottom:20px; }
+    .panel,.card { background:rgba(15,29,49,.88); border:1px solid var(--line); border-radius:24px; box-shadow:0 28px 80px rgba(0,0,0,.28); }
+    .panel { padding:24px; }
+    .signals { display:grid; gap:12px; margin-top:16px; }
+    .signal { display:flex; justify-content:space-between; gap:14px; padding:14px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:16px; }
+    .ok { color:var(--green); font-weight:850; } .watch{color:var(--yellow);font-weight:850;} .ready{color:var(--accent);font-weight:850;}
+    .cta { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:12px 16px; border-radius:14px; border:1px solid rgba(255,255,255,.14); color:var(--text); text-decoration:none; font-weight:800; background:rgba(255,255,255,.06); }
+    .btn.primary { background:linear-gradient(135deg,var(--accent),var(--green)); color:#06111e; border:0; }
+    section { padding:64px 0; }
+    .grid { display:grid; grid-template-columns:repeat(12,1fr); gap:18px; }
+    .card { grid-column:span 4; padding:24px; min-height:190px; }
+    .card.large { grid-column:span 6; }
+    .card.full { grid-column:span 12; }
+    .muted { color:var(--muted); line-height:1.6; }
+    .visual { width:100%; border-radius:18px; background:#07111f; border:1px solid var(--line); margin-top:18px; }
+    .metric-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px; }
+    .metric { padding:18px; border-radius:18px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); }
+    .metric span { color:var(--muted); font-size:.88rem; display:block; margin-bottom:8px; }
+    .metric strong { font-size:2rem; letter-spacing:-.04em; }
+    footer { padding:42px 0; border-top:1px solid var(--line); color:var(--muted); text-align:center; }
+    @media(max-width:900px){ nav{display:none}.hero{grid-template-columns:1fr}.card,.card.large{grid-column:span 12}.metric-grid{grid-template-columns:1fr}.btn{width:100%} }
+  </style>
+</head>
+<body>
+<header>
+  <div class="shell nav">
+    <div class="brand">Responsible AI Business Architecture</div>
+    <nav>
+      <a href="#architecture">Architecture</a>
+      <a href="#mcp">MCP Governance</a>
+      <a href="#assessment">Assessment</a>
+      <a href="#assets">Assets</a>
+      <a href="https://github.com/komercia69-collab/responsible-ai-business-architecture">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="shell hero">
+    <div>
+      <div class="badge">Executive Governance Portal V2</div>
+      <h1>Governable autonomy for AI-native enterprises.</h1>
+      <p class="lead">A deployment-level governance architecture for AI agents, MCP/connectors and autonomous workflows — focused on operational controllability, observability and human accountability.</p>
+      <div class="cta">
+        <a class="btn primary" href="../demo/governance-readiness-assessment.html">Run Readiness Assessment</a>
+        <a class="btn" href="../README-ARCHITECTURE.md">View Architecture Map</a>
+        <a class="btn" href="../frameworks/governance-maturity-model.md">Maturity Model</a>
+        <a class="btn" href="../docs/mcp-governance-principles.md">MCP Governance</a>
+      </div>
+    </div>
+    <aside class="panel">
+      <h3>Owner Control Snapshot</h3>
+      <p class="muted">Executive visibility into whether AI-enabled operations remain controlled.</p>
+      <div class="signals">
+        <div class="signal"><span>Operational Stability</span><span class="ok">92%</span></div>
+        <div class="signal"><span>Governance Drift</span><span class="watch">LOW</span></div>
+        <div class="signal"><span>MCP Monitoring</span><span class="ready">ACTIVE</span></div>
+        <div class="signal"><span>Human Override</span><span class="ok">READY</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="shell" id="architecture">
+    <h2>Runtime governance architecture</h2>
+    <p class="lead">The project reframes AI governance from static policy into operational architecture.</p>
+    <div class="grid" style="margin-top:28px">
+      <article class="card large">
+        <h3>Governance Nervous System</h3>
+        <p class="muted">A sensory and corrective governance layer for AI-native operations.</p>
+        <img class="visual" src="../assets/diagrams/governance-nervous-system.svg" alt="Governance Nervous System diagram" />
+      </article>
+      <article class="card large">
+        <h3>Corrective Governance Layer</h3>
+        <p class="muted">Operational containment: detect, contain, correct and preserve auditability.</p>
+        <img class="visual" src="../assets/diagrams/corrective-governance-layer.svg" alt="Corrective Governance Layer diagram" />
+      </article>
+    </div>
+  </section>
+
+  <section class="shell" id="mcp">
+    <h2>MCP governance surface</h2>
+    <p class="lead">MCP/connectors transform AI systems from assistants into operational actors. Trust does not eliminate runtime governance risk.</p>
+    <div class="grid" style="margin-top:28px">
+      <article class="card full">
+        <h3>MCP Governance Threat Map</h3>
+        <img class="visual" src="../assets/diagrams/mcp-governance-threat-map.svg" alt="MCP Governance Threat Map diagram" />
+        <div class="cta">
+          <a class="btn" href="../docs/mcp-governance-principles.md">Read MCP Governance Principles</a>
+          <a class="btn" href="../use-cases/ai-agent-with-mcp.md">View MCP Use Case</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="shell" id="assessment">
+    <h2>Governance readiness assessment</h2>
+    <p class="lead">Evaluate whether an organization is ready for AI agents, MCP/connectors and autonomous workflows.</p>
+    <div class="grid" style="margin-top:28px">
+      <article class="card">
+        <h3>Governance Visibility</h3>
+        <p class="muted">Runtime observability, audit coverage and escalation telemetry.</p>
+      </article>
+      <article class="card">
+        <h3>MCP / Connector Governance</h3>
+        <p class="muted">Read/write separation, permission mapping and trust-boundary review.</p>
+      </article>
+      <article class="card">
+        <h3>Corrective Governance</h3>
+        <p class="muted">Stop-switch, rollback, containment and human override readiness.</p>
+      </article>
+      <article class="card full">
+        <h3>Assessment output</h3>
+        <div class="metric-grid">
+          <div class="metric"><span>Total Score</span><strong>0–24</strong></div>
+          <div class="metric"><span>Classification</span><strong class="watch">Risk / Ready</strong></div>
+          <div class="metric"><span>Next Step</span><strong class="ready">Action Plan</strong></div>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="../demo/governance-readiness-assessment.html">Open Interactive Assessment</a>
+          <a class="btn" href="../frameworks/ai-governance-readiness-assessment.md">Read Assessment Framework</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="shell" id="assets">
+    <h2>Executive visual assets</h2>
+    <div class="grid" style="margin-top:28px">
+      <article class="card large">
+        <h3>Owner Control Center</h3>
+        <p class="muted">Executive dashboard model for AI governance telemetry.</p>
+        <img class="visual" src="../assets/diagrams/owner-control-center.svg" alt="Owner Control Center diagram" />
+      </article>
+      <article class="card large">
+        <h3>Governance Toolchain</h3>
+        <p class="muted">Runtime governance pipeline from prompt to escalation.</p>
+        <img class="visual" src="../assets/diagrams/governance-toolchain.svg" alt="Governance Toolchain diagram" />
+      </article>
+      <article class="card full">
+        <h3>Governance Drift Cascade</h3>
+        <p class="muted">How small governance drift becomes systemic operational instability.</p>
+        <img class="visual" src="../assets/diagrams/governance-drift-cascade.svg" alt="Governance Drift Cascade diagram" />
+      </article>
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="panel">
+      <h2>Strategic principle</h2>
+      <p class="lead">AI integration is not a plugin installation. It is a socio-technical architecture change.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/komercia69-collab/responsible-ai-business-architecture">Open Repository</a>
+        <a class="btn" href="../docs/governance-integrity.md">Governance Integrity</a>
+        <a class="btn" href="../docs/example-safety-policy.md">Example Safety Policy</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell">Responsible AI Business Architecture — Governance must scale faster than autonomy.</div>
+</footer>
+</body>
+</html>
