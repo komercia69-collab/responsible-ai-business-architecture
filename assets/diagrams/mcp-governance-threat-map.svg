@@ -1,0 +1,74 @@
+<svg width="1600" height="950" viewBox="0 0 1600 950" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="950" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111F"/>
+      <stop offset="1" stop-color="#040914"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="950" fill="url(#bg)"/>
+
+  <text x="90" y="90" fill="#F8FBFF" font-size="54" font-family="Arial" font-weight="700">
+    MCP Governance Threat Map
+  </text>
+
+  <text x="92" y="135" fill="#8FA6C2" font-size="24" font-family="Arial">
+    Runtime trust boundaries and governance risk propagation
+  </text>
+
+  <rect x="120" y="260" width="220" height="120" rx="24" fill="#102038" stroke="#38BDF8" stroke-width="2"/>
+  <text x="230" y="330" text-anchor="middle" fill="#EDF5FF" font-size="32" font-family="Arial" font-weight="700">User</text>
+
+  <rect x="470" y="220" width="300" height="190" rx="30" fill="#13233A" stroke="#22C55E" stroke-width="3"/>
+  <text x="620" y="305" text-anchor="middle" fill="#F8FBFF" font-size="40" font-family="Arial" font-weight="700">AI Agent</text>
+  <text x="620" y="345" text-anchor="middle" fill="#9FB0C7" font-size="22" font-family="Arial">
+    Tool-using operational actor
+  </text>
+
+  <line x1="340" y1="320" x2="470" y2="320" stroke="#38BDF8" stroke-width="3"/>
+
+  <rect x="920" y="120" width="280" height="120" rx="24" fill="#2B160A" stroke="#FACC15" stroke-width="2"/>
+  <text x="1060" y="190" text-anchor="middle" fill="#FACC15" font-size="30" font-family="Arial" font-weight="700">Prompt Layer</text>
+
+  <rect x="920" y="300" width="280" height="120" rx="24" fill="#102038" stroke="#38BDF8" stroke-width="2"/>
+  <text x="1060" y="370" text-anchor="middle" fill="#38BDF8" font-size="30" font-family="Arial" font-weight="700">MCP Tools</text>
+
+  <rect x="920" y="480" width="280" height="120" rx="24" fill="#2B1012" stroke="#FB923C" stroke-width="2"/>
+  <text x="1060" y="550" text-anchor="middle" fill="#FB923C" font-size="30" font-family="Arial" font-weight="700">Write Actions</text>
+
+  <rect x="920" y="660" width="280" height="120" rx="24" fill="#2B1012" stroke="#EF4444" stroke-width="2"/>
+  <text x="1060" y="730" text-anchor="middle" fill="#EF4444" font-size="30" font-family="Arial" font-weight="700">External Systems</text>
+
+  <line x1="770" y1="240" x2="920" y2="180" stroke="#FACC15" stroke-width="3" stroke-dasharray="10 8"/>
+  <line x1="770" y1="320" x2="920" y2="360" stroke="#38BDF8" stroke-width="3" stroke-dasharray="10 8"/>
+  <line x1="770" y1="380" x2="920" y2="540" stroke="#FB923C" stroke-width="3" stroke-dasharray="10 8"/>
+  <line x1="770" y1="400" x2="920" y2="720" stroke="#EF4444" stroke-width="3" stroke-dasharray="10 8"/>
+
+  <rect x="1280" y="180" width="240" height="520" rx="28" fill="#0F1D31" stroke="#A78BFA" stroke-width="2"/>
+
+  <text x="1400" y="240" text-anchor="middle" fill="#A78BFA" font-size="32" font-family="Arial" font-weight="700">
+    Governance Layer
+  </text>
+
+  <circle cx="1320" cy="310" r="7" fill="#22C55E"/>
+  <text x="1340" y="317" fill="#EDF5FF" font-size="22" font-family="Arial">Approval Gates</text>
+
+  <circle cx="1320" cy="380" r="7" fill="#38BDF8"/>
+  <text x="1340" y="387" fill="#EDF5FF" font-size="22" font-family="Arial">Observability</text>
+
+  <circle cx="1320" cy="450" r="7" fill="#FACC15"/>
+  <text x="1340" y="457" fill="#EDF5FF" font-size="22" font-family="Arial">Drift Detection</text>
+
+  <circle cx="1320" cy="520" r="7" fill="#FB923C"/>
+  <text x="1340" y="527" fill="#EDF5FF" font-size="22" font-family="Arial">Escalation</text>
+
+  <circle cx="1320" cy="590" r="7" fill="#EF4444"/>
+  <text x="1340" y="597" fill="#EDF5FF" font-size="22" font-family="Arial">Corrective Controls</text>
+
+  <line x1="1200" y1="360" x2="1280" y2="360" stroke="#A78BFA" stroke-width="3"/>
+  <line x1="1200" y1="540" x2="1280" y2="540" stroke="#A78BFA" stroke-width="3"/>
+
+  <text x="90" y="890" fill="#60738C" font-size="18" font-family="Arial">
+    Responsible AI Business Architecture
+  </text>
+</svg>
