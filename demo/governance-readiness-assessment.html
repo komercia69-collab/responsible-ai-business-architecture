@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Governance Readiness Assessment</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #07111F;
+      color: #EDF5FF;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #8FA6C2;
+      font-size: 20px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background: #0F1D31;
+      border: 1px solid #1F3A5B;
+      border-radius: 22px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .question {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #C9D7E6;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    .score-value {
+      color: #38BDF8;
+      font-weight: bold;
+      margin-top: 6px;
+    }
+
+    .result {
+      background: #13233A;
+      border: 2px solid #22C55E;
+      border-radius: 24px;
+      padding: 36px;
+      margin-top: 40px;
+    }
+
+    .result h2 {
+      margin-top: 0;
+      font-size: 36px;
+    }
+
+    .risk {
+      font-size: 24px;
+      color: #FACC15;
+      margin-bottom: 12px;
+    }
+
+    .recommendations {
+      margin-top: 20px;
+    }
+
+    button {
+      background: #38BDF8;
+      border: none;
+      color: #07111F;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 14px 24px;
+      border-radius: 14px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    footer {
+      margin-top: 70px;
+      color: #60738C;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Governance Readiness Assessment</h1>
+    <div class="subtitle">
+      Operational governance evaluation for AI agents, MCP/connectors and autonomous workflows.
+    </div>
+
+    <div class="card">
+      <h2>1. Governance Visibility</h2>
+      <div class="question">
+        <label>How visible are AI-enabled workflows?</label>
+        <input type="range" min="0" max="4" value="2" id="visibility">
+        <div class="score-value" id="visibilityValue">2</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2. MCP / Connector Governance</h2>
+      <div class="question">
+        <label>How controlled are MCP permissions and external actions?</label>
+        <input type="range" min="0" max="4" value="2" id="mcp">
+        <div class="score-value" id="mcpValue">2</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3. Human Oversight</h2>
+      <div class="question">
+        <label>How strong are approval gates and override pathways?</label>
+        <input type="range" min="0" max="4" value="2" id="oversight">
+        <div class="score-value" id="oversightValue">2</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4. Corrective Governance</h2>
+      <div class="question">
+        <label>Can unsafe autonomy be contained or rolled back?</label>
+        <input type="range" min="0" max="4" value="2" id="corrective">
+        <div class="score-value" id="correctiveValue">2</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5. Prompt Governance</h2>
+      <div class="question">
+        <label>How mature is prompt governance and injection awareness?</label>
+        <input type="range" min="0" max="4" value="2" id="prompt">
+        <div class="score-value" id="promptValue">2</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6. Executive Governance Visibility</h2>
+      <div class="question">
+        <label>Can leadership assess operational AI stability?</label>
+        <input type="range" min="0" max="4" value="2" id="executive">
+        <div class="score-value" id="executiveValue">2</div>
+      </div>
+    </div>
+
+    <button onclick="calculateAssessment()">Calculate Governance Readiness</button>
+
+    <div class="result" id="result">
+      <h2>Assessment Result</h2>
+      <div class="risk" id="riskLevel">Awaiting evaluation...</div>
+      <div id="scoreOutput"></div>
+      <div class="recommendations" id="recommendations"></div>
+    </div>
+
+    <footer>
+      Responsible AI Business Architecture
+    </footer>
+  </div>
+
+  <script>
+    const sliders = [
+      'visibility',
+      'mcp',
+      'oversight',
+      'corrective',
+      'prompt',
+      'executive'
+    ];
+
+    sliders.forEach(id => {
+      const slider = document.getElementById(id);
+      const output = document.getElementById(id + 'Value');
+
+      slider.addEventListener('input', () => {
+        output.textContent = slider.value;
+      });
+    });
+
+    function calculateAssessment() {
+      let total = 0;
+
+      sliders.forEach(id => {
+        total += parseInt(document.getElementById(id).value);
+      });
+
+      let classification = '';
+      let recommendations = '';
+
+      if (total <= 6) {
+        classification = 'High Governance Risk';
+        recommendations = 'Establish visibility, approval gates and governance ownership before expanding AI autonomy.';
+      } else if (total <= 12) {
+        classification = 'Limited Governance Readiness';
+        recommendations = 'Strengthen MCP governance, escalation pathways and runtime observability.';
+      } else if (total <= 18) {
+        classification = 'Governed Pilot Capable';
+        recommendations = 'Expand governance telemetry and corrective governance before scaling autonomy.';
+      } else {
+        classification = 'Governable Autonomy Readiness';
+        recommendations = 'Continue evolving adaptive governance and enterprise-wide observability.';
+      }
+
+      document.getElementById('riskLevel').textContent = classification;
+      document.getElementById('scoreOutput').innerHTML = '<strong>Total Score:</strong> ' + total + ' / 24';
+      document.getElementById('recommendations').innerHTML = '<strong>Recommended Next Step:</strong> ' + recommendations;
+    }
+  </script>
+</body>
+</html>
