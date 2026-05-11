@@ -1,0 +1,74 @@
+<svg width="1500" height="900" viewBox="0 0 1500 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1500" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111F"/>
+      <stop offset="1" stop-color="#040914"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1500" height="900" fill="url(#bg)"/>
+
+  <text x="90" y="90" fill="#F8FBFF" font-size="54" font-family="Arial" font-weight="700">
+    Owner Control Center
+  </text>
+
+  <text x="92" y="135" fill="#8FA6C2" font-size="24" font-family="Arial">
+    Executive governance dashboard for AI-native operational systems
+  </text>
+
+  <rect x="90" y="190" width="1320" height="620" rx="34" fill="#0C1728" stroke="#1F3A5B" stroke-width="2"/>
+
+  <rect x="130" y="240" width="280" height="180" rx="24" fill="#102038" stroke="#22C55E" stroke-width="2"/>
+  <text x="160" y="300" fill="#9FB0C7" font-size="22" font-family="Arial">Operational Stability</text>
+  <text x="160" y="365" fill="#22C55E" font-size="62" font-family="Arial" font-weight="700">92%</text>
+
+  <rect x="460" y="240" width="280" height="180" rx="24" fill="#102038" stroke="#FACC15" stroke-width="2"/>
+  <text x="490" y="300" fill="#9FB0C7" font-size="22" font-family="Arial">Governance Drift</text>
+  <text x="490" y="365" fill="#FACC15" font-size="54" font-family="Arial" font-weight="700">LOW</text>
+
+  <rect x="790" y="240" width="280" height="180" rx="24" fill="#102038" stroke="#38BDF8" stroke-width="2"/>
+  <text x="820" y="300" fill="#9FB0C7" font-size="22" font-family="Arial">Escalation Queue</text>
+  <text x="820" y="365" fill="#38BDF8" font-size="62" font-family="Arial" font-weight="700">3</text>
+
+  <rect x="1120" y="240" width="240" height="180" rx="24" fill="#102038" stroke="#A78BFA" stroke-width="2"/>
+  <text x="1150" y="300" fill="#9FB0C7" font-size="22" font-family="Arial">Override</text>
+  <text x="1150" y="365" fill="#A78BFA" font-size="44" font-family="Arial" font-weight="700">READY</text>
+
+  <rect x="130" y="470" width="520" height="280" rx="28" fill="#0F1D31" stroke="#1F3A5B" stroke-width="2"/>
+  <text x="165" y="525" fill="#F8FBFF" font-size="30" font-family="Arial" font-weight="700">
+    Governance Signals
+  </text>
+
+  <circle cx="185" cy="585" r="7" fill="#22C55E"/>
+  <text x="205" y="592" fill="#EDF5FF" font-size="22" font-family="Arial">Prompt Integrity Verified</text>
+
+  <circle cx="185" cy="635" r="7" fill="#38BDF8"/>
+  <text x="205" y="642" fill="#EDF5FF" font-size="22" font-family="Arial">MCP Monitoring Active</text>
+
+  <circle cx="185" cy="685" r="7" fill="#FACC15"/>
+  <text x="205" y="692" fill="#EDF5FF" font-size="22" font-family="Arial">Drift Detection Enabled</text>
+
+  <rect x="710" y="470" width="650" height="280" rx="28" fill="#0F1D31" stroke="#1F3A5B" stroke-width="2"/>
+  <text x="745" y="525" fill="#F8FBFF" font-size="30" font-family="Arial" font-weight="700">
+    Runtime Governance Events
+  </text>
+
+  <rect x="750" y="565" width="570" height="48" rx="14" fill="#13233A"/>
+  <text x="775" y="596" fill="#EDF5FF" font-size="20" font-family="Arial">
+    Prompt escalation triggered for external data request
+  </text>
+
+  <rect x="750" y="630" width="570" height="48" rx="14" fill="#13233A"/>
+  <text x="775" y="661" fill="#EDF5FF" font-size="20" font-family="Arial">
+    MCP permission review completed successfully
+  </text>
+
+  <rect x="750" y="695" width="570" height="48" rx="14" fill="#13233A"/>
+  <text x="775" y="726" fill="#EDF5FF" font-size="20" font-family="Arial">
+    Human override pathway verified and operational
+  </text>
+
+  <text x="90" y="860" fill="#60738C" font-size="18" font-family="Arial">
+    Responsible AI Business Architecture
+  </text>
+</svg>
