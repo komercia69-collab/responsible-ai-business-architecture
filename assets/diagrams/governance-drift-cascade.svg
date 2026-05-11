@@ -1,0 +1,41 @@
+<svg width="1200" height="500" viewBox="0 0 1200 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="500" fill="#050B14"/>
+
+  <text x="70" y="80" fill="#EDF5FF" font-size="38" font-family="Arial" font-weight="700">
+    Governance Drift Cascade
+  </text>
+
+  <text x="70" y="120" fill="#9FB0C7" font-size="20" font-family="Arial">
+    How minor governance drift escalates into systemic instability
+  </text>
+
+  <rect x="70" y="220" width="180" height="110" rx="22" fill="#2A2108" stroke="#FACC15" stroke-width="2"/>
+  <text x="95" y="280" fill="#FACC15" font-size="24" font-family="Arial" font-weight="700">
+    Prompt Drift
+  </text>
+
+  <line x1="250" y1="275" x2="340" y2="275" stroke="#FB923C" stroke-width="4"/>
+
+  <rect x="340" y="220" width="200" height="110" rx="22" fill="#2B160A" stroke="#FB923C" stroke-width="2"/>
+  <text x="372" y="280" fill="#FB923C" font-size="24" font-family="Arial" font-weight="700">
+    Connector Misuse
+  </text>
+
+  <line x1="540" y1="275" x2="650" y2="275" stroke="#EF4444" stroke-width="4"/>
+
+  <rect x="650" y="220" width="200" height="110" rx="22" fill="#2B1012" stroke="#EF4444" stroke-width="2"/>
+  <text x="685" y="280" fill="#EF4444" font-size="24" font-family="Arial" font-weight="700">
+    Workflow Corruption
+  </text>
+
+  <line x1="850" y1="275" x2="960" y2="275" stroke="#EF4444" stroke-width="4"/>
+
+  <rect x="960" y="220" width="180" height="110" rx="22" fill="#2B1012" stroke="#EF4444" stroke-width="2"/>
+  <text x="992" y="280" fill="#EF4444" font-size="24" font-family="Arial" font-weight="700">
+    Business Instability
+  </text>
+
+  <text x="70" y="430" fill="#718198" font-size="16" font-family="Arial">
+    Governance maturity must scale faster than autonomy.
+  </text>
+</svg>
