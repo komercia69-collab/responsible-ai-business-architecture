@@ -1,14 +1,128 @@
 # Responsible AI Business Architecture
 
+## From AI Control to Human–AI Coordination
+
 > **AI may be probabilistic. Responsibility must not be.**
 
-**Deployment-level socio-technical governance architecture for AI-native enterprises.**
+Artificial intelligence is rapidly moving from assistance to execution.
 
-Responsible AI Business Architecture is an open framework for organizations deploying AI agents, MCP/connectors, autonomous workflows and AI-enabled business operations without losing operational control, auditability, accountability or business trust.
+AI systems are increasingly becoming operational participants inside:
 
-<p align="center">
-  <img src="assets/diagrams/governance-nervous-system.svg" alt="Governance Nervous System diagram" width="100%" />
-</p>
+- business workflows;
+- enterprise systems;
+- real-time operational environments;
+- distributed decision architectures.
+
+Most organizations are not prepared for this transition.
+
+The challenge is evolving:
+
+from:
+
+- controlling AI systems
+
+toward:
+
+- designing governable operational environments where humans, organizations and autonomous AI systems can coordinate responsibly.
+
+---
+
+## Core Idea
+
+> **We do not try to fully control intelligence.**
+>
+> **We design governable operational environments where humans, organizations and autonomous AI systems can cooperate responsibly.**
+
+Responsible AI Business Architecture is an open-source research and architecture initiative exploring the future of operational governance, human-AI coordination and cooperative autonomy in AI-native organizations.
+
+---
+
+## Why This Matters
+
+As AI autonomy increases:
+
+- operational speed increases;
+- workflow complexity increases;
+- coordination difficulty increases;
+- human visibility decreases.
+
+Human management structures may eventually become slower than autonomous operational environments.
+
+This creates a new challenge:
+
+## Coordination Asymmetry
+
+The future problem may not be intelligence itself.
+
+The future problem may be preserving:
+
+- operational stability;
+- accountability;
+- intervention capability;
+- human participation;
+- governability.
+
+---
+
+## Core Architecture Areas
+
+| Area | Meaning |
+|---|---|
+| **Governance Nervous System** | A real-time coordination and stabilization layer for AI-native operational environments |
+| **Runtime Governance** | Governance during execution, not only retrospective auditing |
+| **Corrective Governance** | Intervention, escalation and stabilization mechanisms for autonomous operations |
+| **Human-AI Operational Interface** | Translation layer between machine-speed environments and human decision-makers |
+| **Cooperative Autonomy** | Sustainable operational coexistence between humans, organizations and autonomous systems |
+| **Governable Operational Environments** | Environments where AI may act autonomously while stability and accountability remain preserved |
+
+---
+
+## Current Research Areas
+
+- AI-native operational systems
+- runtime governance
+- human-AI coordination
+- coordination asymmetry
+- operational visibility
+- intervention architecture
+- real-time governance systems
+- AI-agent permissions
+- operational drift detection
+- scalable oversight systems
+- governance observability
+- shared operational language
+
+---
+
+## Key Research Questions
+
+- What happens when AI systems operate faster than human management structures?
+- Can governance function at machine speed?
+- How do organizations preserve operational clarity inside autonomous environments?
+- What becomes the future interface between humans and AI systems?
+- Which human qualities become most important in AI-native organizations?
+- How do humans maintain accountability while operational autonomy scales?
+
+---
+
+## Architecture Map
+
+```text
+Human Layer
+  strategic intent • accountability • intervention
+        ↓
+Human-AI Operational Interface
+  visibility • escalation • operational translation
+        ↓
+Governance Nervous System
+  telemetry • coordination • stabilization • corrective governance
+        ↓
+Operational AI Agents
+  execution • workflows • local autonomy
+        ↓
+Execution Environment
+  business processes • tools • systems • outcomes
+```
 
 ---
 
@@ -16,241 +130,141 @@ Responsible AI Business Architecture is an open framework for organizations depl
 
 | Start Here | Purpose |
 |---|---|
-| [`portal/index.html`](portal/index.html) | Executive-facing governance portal |
-| [`README-ARCHITECTURE.md`](README-ARCHITECTURE.md) | Full architecture navigation map |
-| [`whitepaper/governable-autonomy-manifesto.md`](whitepaper/governable-autonomy-manifesto.md) | Core manifesto and strategic framing |
-| [`architecture/governance-nervous-system.md`](architecture/governance-nervous-system.md) | Runtime governance sensory layer |
-| [`architecture/corrective-governance-layer.md`](architecture/corrective-governance-layer.md) | Intervention and containment model |
-| [`use-cases/ai-agent-with-mcp.md`](use-cases/ai-agent-with-mcp.md) | Practical AI agent + MCP governance scenario |
-| [`playbooks/ai-pilot-readiness-playbook.md`](playbooks/ai-pilot-readiness-playbook.md) | First pilot readiness playbook |
-| [`tools/suspicious-instruction-review-gate/README.md`](tools/suspicious-instruction-review-gate/README.md) | Demo governance gate |
+| [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html) | Executive-facing governance portal |
+| [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Strategic whitepaper |
+| [`docs/project-positioning.md`](docs/project-positioning.md) | Current project positioning |
+| [`docs/evolution-from-control-to-coexistence.md`](docs/evolution-from-control-to-coexistence.md) | Conceptual evolution of the project |
+| [`docs/governance-principles.md`](docs/governance-principles.md) | Core governance principles |
+| [`docs/governance-glossary.md`](docs/governance-glossary.md) | Shared vocabulary |
+| [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md) | Governance readiness assessment |
+| [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Interactive assessment demo |
 
 ---
 
-## The Business Problem
+## Core Concepts
 
-AI is moving from assistance to execution.
+### Governance Nervous System
 
-AI systems increasingly:
+The Governance Nervous System is the real-time coordination layer between human intent, organizational continuity and autonomous operational systems.
 
-- read business data;
-- recommend decisions;
-- draft communications;
-- use tools and connectors;
-- influence workflows;
-- trigger operational actions;
-- interact with customers, employees, suppliers and internal systems.
+It is not a command-and-control mechanism.
 
-This creates a new enterprise risk:
-
-> **AI autonomy can scale faster than human oversight, governance and accountability.**
-
-Without deployment-level governance architecture, organizations may face:
-
-- invisible AI influence;
-- silent permission expansion;
-- prompt injection and connector misuse;
-- escalation overload;
-- approval fatigue;
-- audit gaps;
-- unclear responsibility;
-- loss of owner-level operational visibility.
+It is a stabilization and translation layer for autonomous environments.
 
 ---
 
-## What Makes This Different
+### Governable Operational Environments
 
-This is not an “awesome list”, a policy collection or a generic AI ethics statement.
+The project does not assume that advanced autonomous systems can always be fully controlled internally.
 
-Responsible AI Business Architecture is intended as a **deployment-level blueprint** for governing AI-enabled business processes.
+Instead, it asks:
 
-It combines:
-
-- governance architecture;
-- operational controllability models;
-- prompt and instruction governance;
-- MCP / connector risk modeling;
-- human approval gates;
-- governance observability;
-- corrective governance levers;
-- dashboards and demo interfaces;
-- practical use cases and pilot templates.
+> Can the environment in which they operate remain observable, accountable, correctable and stable?
 
 ---
 
-## Core Architecture Concepts
+### Human-AI Operational Coordination
 
-| Concept | Meaning |
-|---|---|
-| **Governable Autonomy** | AI autonomy operating inside visible, auditable, interruptible and human-accountable boundaries |
-| **Operational Controllability** | The ability to observe, understand, influence, stop or redirect AI-enabled business operations |
-| **Governance Observability** | A governance nervous system that tracks controllability, drift, escalation quality and risk pressure |
-| **Corrective Governance Layer** | Controlled levers to slow down, redirect, limit, supervise or contain AI-driven operations |
-| **Prompt Governance** | Governance of instruction hierarchy, reusable prompts, prompt drift and tool-use rules |
-| **MCP Threat Governance** | Governance of connector permissions, tool access, data movement and external actions |
-| **Owner Control Center** | Executive dashboard for operational truth, not only technical logs |
+The future interface between humans and AI may depend less on direct control and more on shared operational language, visibility, escalation and coordinated intervention.
 
 ---
 
-## Framework in One Sentence
+### Cooperative Autonomy
 
-> **AI becomes the operational muscle. Governance becomes the nervous system.**
-
-The goal is not to suppress AI autonomy.
-
-The goal is to make autonomy **governable, observable, correctable and aligned with business responsibility**.
+Cooperative autonomy means that autonomous systems can participate in shared operational environments without destroying human accountability, organizational continuity or operational clarity.
 
 ---
 
-## Governance Drift Cascade
+### Runtime Governance
 
-Small governance drift can become systemic instability when AI systems operate across prompts, connectors and workflows.
+Governance must increasingly operate during execution, not only after failure analysis.
+
+Visibility without intervention is insufficient.
+
+---
+
+## Visual Architecture
 
 <p align="center">
-  <img src="assets/diagrams/governance-drift-cascade.svg" alt="Governance Drift Cascade diagram" width="100%" />
+  <img src="assets/diagrams/governance-nervous-system.svg" alt="Governance Nervous System diagram" width="100%" />
 </p>
 
----
-
-## Governance Toolchain
-
-A single policy is not enough. Governability emerges from a layered runtime toolchain:
-
-```text
-Prompt
-  → Validation
-  → Agent Runtime
-  → MCP / Connector Access
-  → Monitoring
-  → Escalation
-  → Human Review
-  → Audit Trail
-  → Corrective Governance
-```
-
----
-
-## Outcomes for Organizations
-
-A company can use this framework to:
-
-- assess whether AI workflows are governance-ready;
-- define AI permissions and approval boundaries;
-- detect dangerous autonomy drift;
-- create owner-level governance dashboards;
-- design human escalation paths;
-- prepare for audits and regulatory expectations;
-- reduce uncontrolled AI-agent risk;
-- structure a 30/60/90-day Responsible AI pilot.
-
----
-
-## Example Usage Scenarios
-
-### 1. AI Process Audit
-
-An internal AI office or consulting team uses the framework to review an existing AI-enabled workflow:
-
-1. Map the AI-supported process.
-2. Identify tool access, write actions, prompts and decision points.
-3. Classify high-risk actions.
-4. Define permission boundaries and human approval gates.
-5. Add audit trails, escalation rules and monitoring metrics.
-6. Produce a controllability report for leadership.
-
-### 2. AI Agent Pilot Readiness
-
-A company wants to deploy an AI agent in customer support, procurement, finance or internal operations:
-
-1. Start with the AI Readiness Assessment.
-2. Apply the Permission Matrix.
-3. Add Suspicious Instruction Review Gate logic.
-4. Define human approval and stop-switch controls.
-5. Monitor governance drift and escalation backlog.
-6. Run a limited pilot before expanding autonomy.
-
-### 3. MCP-Connected Agent Governance
-
-A company connects an AI agent to CRM, email, ticketing or internal tools through MCP/connectors:
-
-1. Map every connector and permission.
-2. Classify read/write/external action capability.
-3. Add prompt-layer threat detection.
-4. Require human review for sensitive or external actions.
-5. Monitor connector usage and governance drift.
-6. Preserve full audit trails.
+<p align="center">
+  <img src="assets/diagrams/mcp-governance-threat-map.svg" alt="MCP Governance Threat Map diagram" width="100%" />
+</p>
 
 ---
 
 ## Repository Navigation
 
-### Architecture
+### Concepts
+
+- [`docs/concepts/governance-nervous-system.md`](docs/concepts/governance-nervous-system.md)
+- [`docs/concepts/cooperative-autonomy.md`](docs/concepts/cooperative-autonomy.md)
+- [`docs/concepts/operational-governability.md`](docs/concepts/operational-governability.md)
+- [`docs/concepts/coordination-asymmetry.md`](docs/concepts/coordination-asymmetry.md)
+- [`docs/concepts/human-ai-operational-interface.md`](docs/concepts/human-ai-operational-interface.md)
+
+### Evolution
+
+- [`docs/evolution/from-control-to-coordination.md`](docs/evolution/from-control-to-coordination.md)
+- [`docs/evolution-from-control-to-coexistence.md`](docs/evolution-from-control-to-coexistence.md)
+
+### Architecture and Governance
 
 - [`README-ARCHITECTURE.md`](README-ARCHITECTURE.md)
 - [`architecture/governance-nervous-system.md`](architecture/governance-nervous-system.md)
 - [`architecture/corrective-governance-layer.md`](architecture/corrective-governance-layer.md)
+- [`docs/mcp-governance-principles.md`](docs/mcp-governance-principles.md)
 - [`docs/governance-toolchain.md`](docs/governance-toolchain.md)
 - [`docs/governance-observability.md`](docs/governance-observability.md)
-- [`docs/operational-controllability-model.md`](docs/operational-controllability-model.md)
 
-### Threat and Prompt Governance
+### Security and Integrity
 
-- [`docs/prompt-governance-architecture.md`](docs/prompt-governance-architecture.md)
-- [`docs/mcp-threat-model.md`](docs/mcp-threat-model.md)
+- [`SECURITY.md`](SECURITY.md)
+- [`docs/governance-integrity.md`](docs/governance-integrity.md)
+- [`docs/example-safety-policy.md`](docs/example-safety-policy.md)
+- [`docs/incident-response-playbook.md`](docs/incident-response-playbook.md)
+
+### Demos and Tools
+
+- [`demo/governance-dashboard-v2.html`](demo/governance-dashboard-v2.html)
+- [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html)
 - [`tools/suspicious-instruction-review-gate/README.md`](tools/suspicious-instruction-review-gate/README.md)
 
-### Use Cases and Playbooks
-
-- [`use-cases/ai-agent-with-mcp.md`](use-cases/ai-agent-with-mcp.md)
-- [`playbooks/ai-pilot-readiness-playbook.md`](playbooks/ai-pilot-readiness-playbook.md)
-
-### Demo and Portal
-
-- [`portal/index.html`](portal/index.html)
-- [`demo/governance-dashboard-v2.html`](demo/governance-dashboard-v2.html)
-
 ---
 
-## Relationship to Responsible AI Frameworks
+## Who This Is For
 
-This project complements high-level Responsible AI principles, AI risk management frameworks, corporate AI ethics policies and emerging AI management standards.
+This project is intended for:
 
-Its specific contribution is practical:
-
-> **turning Responsible AI into operational architecture for business processes.**
-
-It focuses on the deployment layer where AI systems interact with tools, people, workflows, data, permissions, prompts and business accountability.
-
----
-
-## Looking for Collaborators
-
-We welcome feedback and collaboration from:
-
-- Responsible AI researchers;
 - enterprise architects;
-- governance and risk experts;
-- AI adoption teams;
-- consultants and integrators;
-- business owners interested in controlled AI pilots.
+- AI systems engineers;
+- operations leaders;
+- governance specialists;
+- infrastructure architects;
+- real-time systems engineers;
+- AI-native product builders;
+- organizational strategists;
+- operational systems researchers.
 
-Useful contribution areas:
+---
 
-- real-world use cases;
-- governance diagrams;
-- pilot playbooks;
-- Responsible AI standards mapping;
-- dashboard prototypes;
-- prompt governance patterns;
-- MCP / connector risk scenarios.
+## Relationship to Responsible AI
+
+This project complements Responsible AI principles, AI risk frameworks and AI ethics discussions.
+
+Its specific contribution is practical and architectural:
+
+> turning Responsible AI into operational coordination architecture for AI-native organizations.
 
 ---
 
 ## Important Disclaimer
 
-This project is an experimental governance framework and research initiative.
+This project is an experimental governance architecture and research initiative.
 
-It is not legal advice, a security certification, a compliance guarantee, or complete protection against prompt injection, AI misuse or operational failure.
+It is not legal advice, a security certification, a compliance guarantee or complete protection against prompt injection, AI misuse or operational failure.
 
 See [`DISCLAIMER.md`](DISCLAIMER.md) for limitations.
 
@@ -262,9 +276,13 @@ The central question is no longer only:
 
 > “What can AI do?”
 
-The more important question is:
+or even:
 
-> **“What should AI be allowed to do, under whose responsibility, with which controls, and for which business value?”**
+> “How do we control AI?”
+
+The deeper question is becoming:
+
+> **How do humans, organizations and autonomous systems remain operationally coordinated as autonomy continues to scale?**
 
 ---
 
