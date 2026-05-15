@@ -1,0 +1,47 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1600" height="980" fill="#FCFCFD"/>
+<text x="90" y="95" fill="#172033" font-family="Arial" font-size="56" font-weight="700">Coordination Collapse</text>
+<text x="92" y="145" fill="#667085" font-family="Arial" font-size="24">How local AI optimization can destabilize larger operational environments</text>
+
+<rect x="90" y="250" width="280" height="160" rx="28" fill="#EAF1FF" stroke="#93C5FD" stroke-width="3"/>
+<text x="230" y="325" text-anchor="middle" fill="#1D4ED8" font-family="Arial" font-size="30" font-weight="700">Local Optimization</text>
+<text x="135" y="375" fill="#172033" font-family="Arial" font-size="22">AI agents optimize</text>
+<text x="135" y="405" fill="#172033" font-family="Arial" font-size="22">speed and efficiency</text>
+
+<rect x="480" y="250" width="280" height="160" rx="28" fill="#FFF7ED" stroke="#FDBA74" stroke-width="3"/>
+<text x="620" y="325" text-anchor="middle" fill="#C2410C" font-family="Arial" font-size="30" font-weight="700">Coordination Pressure</text>
+<text x="525" y="375" fill="#172033" font-family="Arial" font-size="22">Workflow interactions</text>
+<text x="525" y="405" fill="#172033" font-family="Arial" font-size="22">grow in complexity</text>
+
+<rect x="870" y="250" width="280" height="160" rx="28" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="3"/>
+<text x="1010" y="325" text-anchor="middle" fill="#B91C1C" font-family="Arial" font-size="30" font-weight="700">Visibility Loss</text>
+<text x="915" y="375" fill="#172033" font-family="Arial" font-size="22">Humans receive fragmented</text>
+<text x="915" y="405" fill="#172033" font-family="Arial" font-size="22">and delayed signals</text>
+
+<rect x="1260" y="250" width="280" height="160" rx="28" fill="#FEE2E2" stroke="#EF4444" stroke-width="3"/>
+<text x="1400" y="325" text-anchor="middle" fill="#991B1B" font-family="Arial" font-size="30" font-weight="700">Systemic Instability</text>
+<text x="1305" y="375" fill="#172033" font-family="Arial" font-size="22">Escalation overload</text>
+<text x="1305" y="405" fill="#172033" font-family="Arial" font-size="22">and operational drift</text>
+
+<path d="M370 330H480" stroke="#2563EB" stroke-width="6" marker-end="url(#a1)"/>
+<path d="M760 330H870" stroke="#D97706" stroke-width="6" marker-end="url(#a2)"/>
+<path d="M1150 330H1260" stroke="#DC2626" stroke-width="6" marker-end="url(#a3)"/>
+
+<rect x="340" y="620" width="920" height="190" rx="34" fill="#ECFDF3" stroke="#86EFAC" stroke-width="3"/>
+<text x="800" y="695" text-anchor="middle" fill="#15803D" font-family="Arial" font-size="38" font-weight="700">Governance Nervous System</text>
+<text x="450" y="750" fill="#172033" font-family="Arial" font-size="26">• Runtime governance</text>
+<text x="450" y="790" fill="#172033" font-family="Arial" font-size="26">• Coordination monitoring</text>
+<text x="850" y="750" fill="#172033" font-family="Arial" font-size="26">• Human intervention readiness</text>
+<text x="850" y="790" fill="#172033" font-family="Arial" font-size="26">• Operational stabilization</text>
+
+<path d="M1400 410C1350 540 1150 610 980 620" stroke="#16A34A" stroke-width="6" stroke-dasharray="14 10" fill="none" marker-end="url(#a4)"/>
+
+<text x="800" y="900" text-anchor="middle" fill="#667085" font-family="Arial" font-size="24">The future risk may not be one autonomous system — but the cumulative instability created by many interacting systems.</text>
+
+<defs>
+<marker id="a1" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2 2L10 6L2 10" stroke="#2563EB" stroke-width="2" fill="none"/></marker>
+<marker id="a2" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2 2L10 6L2 10" stroke="#D97706" stroke-width="2" fill="none"/></marker>
+<marker id="a3" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2 2L10 6L2 10" stroke="#DC2626" stroke-width="2" fill="none"/></marker>
+<marker id="a4" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2 2L10 6L2 10" stroke="#16A34A" stroke-width="2" fill="none"/></marker>
+</defs>
+</svg>
