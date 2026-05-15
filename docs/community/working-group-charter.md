@@ -18,11 +18,38 @@ The goal is to develop mechanisms, interfaces and governance architectures that 
 
 ---
 
+# This Is a Collaborative Discussion Space
+
+Responsible AI Business Architecture is not presented as a finished doctrine or final answer.
+
+The project starts from a different assumption:
+
+> Effective Human-AI Operational Coordination is too complex, dynamic and interdisciplinary to be solved by one person, one company or one framework alone.
+
+The working group exists to create a structured place where this direction can be built together.
+
+The aim is to attract people who also see Human-AI Operational Coordination as an important operational challenge and want to help develop:
+
+- shared language;
+- practical models;
+- use cases;
+- assessment tools;
+- governance patterns;
+- interface designs;
+- failure scenarios;
+- operational experiments.
+
+---
+
 # Core Thesis
 
 > The future challenge is not intelligence itself.
 >
 > The future challenge is sustaining governable operational environments as autonomy continues to scale.
+
+A second thesis follows from this:
+
+> The human-AI interface must evolve faster than the AI systems it coordinates.
 
 ---
 
@@ -35,7 +62,8 @@ The working group aims to:
 - create practical architecture patterns;
 - develop scenarios and failure models;
 - design human-facing intervention and visibility interfaces;
-- collect feedback from practitioners across engineering, operations, governance and business domains;
+- explore Living Human-AI Operational Interfaces;
+- collect feedback from practitioners across engineering, operations, governance, law, security and business domains;
 - build an open knowledge base for responsible AI-native organizations.
 
 ---
@@ -51,10 +79,14 @@ The project is especially relevant for:
 - operations leaders;
 - project managers;
 - AI governance professionals;
+- legal and compliance experts;
+- security specialists;
 - human-computer interaction thinkers;
 - industrial and infrastructure operators;
 - responsible AI researchers;
-- business owners and decision-makers.
+- business owners and decision-makers;
+- frontline employees who work with AI-enabled workflows;
+- end users affected by AI-supported operations.
 
 ---
 
@@ -96,6 +128,18 @@ Retrospective audits are not enough for autonomous operational environments.
 
 Humans and AI systems will need interfaces, concepts and signals that are meaningful to both human decision-makers and machine-speed systems.
 
+## 6. Treat the interface as living infrastructure
+
+The Human-AI Operational Interface is not a static dashboard or one-time implementation.
+
+It must be continuously updated through feedback, testing, correction and learning.
+
+## 7. Cross-functional participation is required
+
+Human-AI Operational Coordination requires business, technical, legal, security, operational and human perspectives.
+
+No single discipline can solve it alone.
+
 ---
 
 # Current Working Questions
@@ -107,12 +151,22 @@ Humans and AI systems will need interfaces, concepts and signals that are meanin
 - How can organizations preserve operational clarity without slowing innovation?
 - How should human intervention work in autonomous business environments?
 - What failure patterns appear when multiple AI agents optimize locally but destabilize the larger system?
+- How can the Human-AI Operational Interface remain dynamic rather than become a static compliance artifact?
+- What kind of professional community is needed to continuously update this interface?
 
 ---
 
 # Strategic Goal
 
 Create a dynamic professional environment where mechanisms for effective human-AI interaction are continuously explored, tested, refined and shared before high-autonomy AI systems become deeply embedded in business operations.
+
+This environment should itself behave like a living governance process:
+
+- open to new expertise;
+- responsive to real-world feedback;
+- willing to revise assumptions;
+- focused on practical operational outcomes;
+- committed to preserving human responsibility over time.
 
 ---
 
