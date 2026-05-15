@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Responsible AI Business Architecture</title>
+<style>
+:root {
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --ink:#172033;
+  --muted:#667085;
+  --line:#d9e1ec;
+  --blue:#2563eb;
+  --green:#16a34a;
+  --amber:#d97706;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:radial-gradient(circle at top left,#e8f0ff,transparent 32%),var(--bg);
+  color:var(--ink);
+}
+.container{
+  max-width:1280px;
+  margin:0 auto;
+  padding:40px 22px 80px;
+}
+.hero{
+  padding:40px 0 30px;
+}
+.eyebrow{
+  color:var(--blue);
+  font-size:13px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+h1{
+  font-size:clamp(44px,6vw,82px);
+  line-height:.95;
+  letter-spacing:-.06em;
+  margin:18px 0 18px;
+}
+.lead{
+  max-width:920px;
+  color:var(--muted);
+  font-size:20px;
+  line-height:1.7;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:18px;
+  margin-top:36px;
+}
+.card{
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:26px;
+  box-shadow:0 18px 60px rgba(23,32,51,.06);
+}
+.large{grid-column:span 7}
+.medium{grid-column:span 5}
+.half{grid-column:span 6}
+.full{grid-column:span 12}
+.card h2{
+  margin-top:0;
+  font-size:30px;
+  letter-spacing:-.04em;
+}
+.card p, .card li{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:17px;
+}
+ul{padding-left:22px}
+.badge{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:999px;
+  background:#eaf1ff;
+  color:#1d4ed8;
+  font-size:13px;
+  font-weight:700;
+  margin:0 8px 10px 0;
+}
+.visual{
+  width:100%;
+  border-radius:18px;
+  border:1px solid var(--line);
+  margin-top:18px;
+}
+.quote{
+  font-size:34px;
+  line-height:1.3;
+  letter-spacing:-.04em;
+  color:var(--ink);
+}
+.footer{
+  margin-top:50px;
+  color:var(--muted);
+  font-size:15px;
+}
+@media (max-width:960px){
+  .large,.medium,.half,.full{grid-column:span 12}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <section class="hero">
+    <div class="eyebrow">Responsible AI Business Architecture</div>
+    <h1>From AI Control<br>to Human–AI Coordination</h1>
+    <p class="lead">
+      An open operational architecture initiative exploring how humans, organizations and increasingly autonomous AI systems may cooperate responsibly inside AI-native operational environments.
+    </p>
+  </section>
+
+  <section class="grid">
+    <div class="card large">
+      <h2>The Emerging Coordination Problem</h2>
+      <p>
+        The future challenge may not come from one superintelligent system.
+        A more realistic risk may emerge from thousands of semi-autonomous systems making local decisions faster than organizations can understand their combined effects.
+      </p>
+      <div>
+        <span class="badge">Coordination Asymmetry</span>
+        <span class="badge">Runtime Governance</span>
+        <span class="badge">Operational Trust</span>
+        <span class="badge">Governable Autonomy</span>
+      </div>
+      <img class="visual" src="../assets/diagrams/coordination-collapse-map.svg" alt="Coordination Collapse" />
+    </div>
+
+    <div class="card medium">
+      <h2>Governance Nervous System</h2>
+      <p>
+        A real-time stabilization and coordination layer between:
+      </p>
+      <ul>
+        <li>human decision-makers</li>
+        <li>operational systems</li>
+        <li>autonomous AI agents</li>
+        <li>machine-speed workflows</li>
+      </ul>
+      <p>
+        The role of governance is evolving from retrospective auditing toward runtime operational coordination.
+      </p>
+    </div>
+
+    <div class="card half">
+      <h2>Human–AI Operational Interface</h2>
+      <p>
+        Future organizations may require interfaces capable of translating machine-speed operational activity into meaningful human coordination signals.
+      </p>
+      <img class="visual" src="../assets/diagrams/human-ai-operational-interface-map.svg" alt="Human AI Interface" />
+    </div>
+
+    <div class="card half">
+      <h2>Working Questions</h2>
+      <ul>
+        <li>Can governance operate at machine speed?</li>
+        <li>How should organizations preserve intervention capability?</li>
+        <li>What becomes the future human role inside AI-native organizations?</li>
+        <li>Can operational trust survive large-scale autonomy?</li>
+        <li>How do humans and AI systems share operational understanding?</li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="quote">
+        “The future challenge is not intelligence itself.<br>
+        The future challenge is preserving governable operational environments as autonomy continues to scale.”
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Responsible AI Business Architecture • Human–AI Operational Coordination • AI-Native Organizations
+  </div>
+</div>
+</body>
+</html>
