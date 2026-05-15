@@ -136,6 +136,7 @@ Execution Environment
 | [`docs/evolution-from-control-to-coexistence.md`](docs/evolution-from-control-to-coexistence.md) | Conceptual evolution of the project |
 | [`docs/governance-principles.md`](docs/governance-principles.md) | Core governance principles |
 | [`docs/governance-glossary.md`](docs/governance-glossary.md) | Shared vocabulary |
+| [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md) | Operational failure patterns for AI-native environments |
 | [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md) | Governance readiness assessment |
 | [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Interactive assessment demo |
 
@@ -218,6 +219,11 @@ Visibility without intervention is insufficient.
 - [`docs/mcp-governance-principles.md`](docs/mcp-governance-principles.md)
 - [`docs/governance-toolchain.md`](docs/governance-toolchain.md)
 - [`docs/governance-observability.md`](docs/governance-observability.md)
+
+### Failure Patterns
+
+- [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md)
+- [`docs/failure-patterns/erosion-of-human-judgment.md`](docs/failure-patterns/erosion-of-human-judgment.md)
 
 ### Security and Integrity
 
