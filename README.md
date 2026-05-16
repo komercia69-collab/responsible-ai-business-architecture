@@ -125,6 +125,7 @@ The future problem may be preserving:
 | **Human-AI Operational Interface** | Translation layer between machine-speed environments and human decision-makers |
 | **Living Human-AI Operational Interface** | A continuously evolving coordination layer that adapts faster than the AI systems it helps govern |
 | **AI Governance Gateway** | A socio-technical gateway controlling AI access to actions, data and decisions through limits, logs, escalation and human accountability |
+| **Personal AI Operational Twin** | A personalized AI work layer configured with a person's context, style, workflows and tools, requiring clear boundaries for delegated identity and responsibility |
 | **Dynamic Governance Environment** | A governance environment that is continuously updated through feedback, testing, correction and desired outcomes |
 | **Cooperative Autonomy** | Sustainable operational coexistence between humans, organizations and autonomous systems |
 | **Governable Operational Environments** | Environments where AI may act autonomously while stability and accountability remain preserved |
@@ -142,6 +143,8 @@ The future problem may be preserving:
 - real-time governance systems
 - AI-agent permissions
 - AI governance gateways
+- personal AI operational twins
+- delegated AI identity
 - operational drift detection
 - scalable oversight systems
 - governance observability
@@ -162,6 +165,7 @@ The future problem may be preserving:
 - How do humans maintain accountability while operational autonomy scales?
 - How can the human-AI interface evolve faster than the AI systems it coordinates?
 - What governance gateways are needed before AI output becomes operational action?
+- When does a personalized AI assistant become a delegated operational identity?
 - What kinds of cross-functional communities are needed to build effective human-AI operational coordination?
 
 ---
@@ -170,7 +174,10 @@ The future problem may be preserving:
 
 ```text
 Human Layer
-  strategic intent • accountability • intervention
+  strategic intent • identity • accountability • intervention
+        ↓
+Personal AI Operational Twin
+  context • style • memory • drafts • recurring workflows
         ↓
 Living Human-AI Operational Interface
   visibility • escalation • operational translation • feedback • continuous adaptation
@@ -202,6 +209,7 @@ Execution Environment
 | [`docs/governance-vocabulary.md`](docs/governance-vocabulary.md) | Shared vocabulary |
 | [`docs/concepts/living-human-ai-operational-interface.md`](docs/concepts/living-human-ai-operational-interface.md) | Living interface concept |
 | [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md) | Gateway pattern for AI access, actions and accountability |
+| [`docs/concepts/personal-ai-operational-twin.md`](docs/concepts/personal-ai-operational-twin.md) | Personalized AI work layer and delegated identity governance |
 | [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md) | Governance readiness assessment |
 | [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Interactive assessment demo |
 
@@ -255,6 +263,16 @@ It extends the logic of API gateways from technical access control toward respon
 
 ---
 
+### Personal AI Operational Twin
+
+A Personal AI Operational Twin is a personalized AI work layer configured with a person's context, writing style, documents, workflows and tools.
+
+It may increase productivity, but it also creates a critical governance question: when does assistance become delegated operational identity?
+
+Personalization increases usefulness. Delegation increases responsibility.
+
+---
+
 ### Cooperative Autonomy
 
 Cooperative autonomy means that autonomous systems can participate in shared operational environments without destroying human accountability, organizational continuity or operational clarity.
@@ -292,6 +310,7 @@ Visibility without intervention is insufficient.
 - [`docs/concepts/human-ai-operational-interface.md`](docs/concepts/human-ai-operational-interface.md)
 - [`docs/concepts/living-human-ai-operational-interface.md`](docs/concepts/living-human-ai-operational-interface.md)
 - [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md)
+- [`docs/concepts/personal-ai-operational-twin.md`](docs/concepts/personal-ai-operational-twin.md)
 
 ### Evolution
 
