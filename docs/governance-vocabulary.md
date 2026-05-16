@@ -99,6 +99,27 @@ A Living Human-AI Operational Interface should evolve at least as fast as the AI
 
 ---
 
+# AI Action Boundary Mapping
+
+A governance method for defining what an AI system may analyze, recommend, decide, trigger or execute inside a real workflow.
+
+Before assigning AI to an operational process, organizations should map the boundary between:
+
+- analysis;
+- recommendation;
+- decision support;
+- human decision;
+- automated execution;
+- accountability.
+
+AI Action Boundary Mapping helps distinguish productivity assistance from operational delegation.
+
+Its core principle is:
+
+> Before AI acts, define where AI is allowed to act.
+
+---
+
 # AI Governance Gateway
 
 A socio-technical control layer between AI systems and operational environments.
