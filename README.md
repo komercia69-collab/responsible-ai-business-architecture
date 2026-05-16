@@ -124,6 +124,7 @@ The future problem may be preserving:
 | **Corrective Governance** | Intervention, escalation and stabilization mechanisms for autonomous operations |
 | **Human-AI Operational Interface** | Translation layer between machine-speed environments and human decision-makers |
 | **Living Human-AI Operational Interface** | A continuously evolving coordination layer that adapts faster than the AI systems it helps govern |
+| **AI Action Boundary Mapping** | A method for defining where AI may analyze, recommend, decide, draft, trigger or execute inside real workflows |
 | **AI Governance Gateway** | A socio-technical gateway controlling AI access to actions, data and decisions through limits, logs, escalation and human accountability |
 | **Personal AI Operational Twin** | A personalized AI work layer configured with a person's context, style, workflows and tools, requiring clear boundaries for delegated identity and responsibility |
 | **Dynamic Governance Environment** | A governance environment that is continuously updated through feedback, testing, correction and desired outcomes |
@@ -142,6 +143,7 @@ The future problem may be preserving:
 - intervention architecture
 - real-time governance systems
 - AI-agent permissions
+- AI action boundary mapping
 - AI governance gateways
 - personal AI operational twins
 - delegated AI identity
@@ -165,6 +167,7 @@ The future problem may be preserving:
 - How do humans maintain accountability while operational autonomy scales?
 - How can the human-AI interface evolve faster than the AI systems it coordinates?
 - What governance gateways are needed before AI output becomes operational action?
+- Where are the boundaries between AI analysis, recommendation, decision support, execution and accountability?
 - When does a personalized AI assistant become a delegated operational identity?
 - What kinds of cross-functional communities are needed to build effective human-AI operational coordination?
 
@@ -175,6 +178,9 @@ The future problem may be preserving:
 ```text
 Human Layer
   strategic intent • identity • accountability • intervention
+        ↓
+AI Action Boundary Mapping
+  analysis • recommendation • decision support • execution • accountability
         ↓
 Personal AI Operational Twin
   context • style • memory • drafts • recurring workflows
@@ -208,6 +214,7 @@ Execution Environment
 | [`docs/governance-principles.md`](docs/governance-principles.md) | Core governance principles |
 | [`docs/governance-vocabulary.md`](docs/governance-vocabulary.md) | Shared vocabulary |
 | [`docs/concepts/living-human-ai-operational-interface.md`](docs/concepts/living-human-ai-operational-interface.md) | Living interface concept |
+| [`docs/concepts/ai-action-boundary-mapping.md`](docs/concepts/ai-action-boundary-mapping.md) | Method for defining AI action, approval and accountability boundaries |
 | [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md) | Gateway pattern for AI access, actions and accountability |
 | [`docs/concepts/personal-ai-operational-twin.md`](docs/concepts/personal-ai-operational-twin.md) | Personalized AI work layer and delegated identity governance |
 | [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md) | Governance readiness assessment |
@@ -250,6 +257,16 @@ The Human-AI Operational Interface is not a static control panel.
 It is a living coordination environment that must be continuously updated through operational feedback, desired outcomes, emerging risks and cross-functional human expertise.
 
 If AI systems learn, adapt and scale, governance cannot remain static.
+
+---
+
+### AI Action Boundary Mapping
+
+AI Action Boundary Mapping defines where AI may analyze, recommend, decide, draft, trigger or execute inside real workflows.
+
+It helps organizations distinguish productivity assistance from operational delegation before AI output becomes operational action.
+
+Before AI acts, define where AI is allowed to act.
 
 ---
 
@@ -309,6 +326,7 @@ Visibility without intervention is insufficient.
 - [`docs/concepts/coordination-asymmetry.md`](docs/concepts/coordination-asymmetry.md)
 - [`docs/concepts/human-ai-operational-interface.md`](docs/concepts/human-ai-operational-interface.md)
 - [`docs/concepts/living-human-ai-operational-interface.md`](docs/concepts/living-human-ai-operational-interface.md)
+- [`docs/concepts/ai-action-boundary-mapping.md`](docs/concepts/ai-action-boundary-mapping.md)
 - [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md)
 - [`docs/concepts/personal-ai-operational-twin.md`](docs/concepts/personal-ai-operational-twin.md)
 
