@@ -99,6 +99,29 @@ A Living Human-AI Operational Interface should evolve at least as fast as the AI
 
 ---
 
+# AI Governance Gateway
+
+A socio-technical control layer between AI systems and operational environments.
+
+Its role is to regulate what AI systems are allowed to access, recommend, trigger or modify — under which human authority, with which limits, logs, escalation rules and accountability structures.
+
+Unlike a traditional API Gateway, an AI Governance Gateway does not only manage technical access.
+
+It manages responsibility, context, risk and human oversight at the point where AI output becomes operational action.
+
+The concept connects API Gateway thinking with Human-AI Operational Coordination by asking:
+
+- what action is being requested;
+- who or what generated the request;
+- which human role authorized this class of action;
+- what data, tools or systems will be affected;
+- what risk level applies;
+- whether human approval is required;
+- how the action will be logged;
+- who remains accountable if something goes wrong.
+
+---
+
 # Dynamic Governance Environment
 
 A governance environment that changes through operational feedback, cross-functional review, emerging risks, desired outcomes and continuous learning.
