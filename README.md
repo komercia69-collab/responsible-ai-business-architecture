@@ -128,6 +128,7 @@ The future problem may be preserving:
 | **AI Action Boundary Mapping** | A method for defining where AI may analyze, recommend, decide, draft, trigger or execute inside real workflows |
 | **AI Governance Gateway** | A socio-technical gateway controlling AI access to actions, data and decisions through limits, logs, escalation and human accountability |
 | **Personal AI Operational Twin** | A personalized AI work layer configured with a person's context, style, workflows and tools, requiring clear boundaries for delegated identity and responsibility |
+| **Failure Patterns** | Reusable patterns for identifying loss of judgment, coordination, accountability or governability inside AI-native environments |
 | **Dynamic Governance Environment** | A governance environment that is continuously updated through feedback, testing, correction and desired outcomes |
 | **Cooperative Autonomy** | Sustainable operational coexistence between humans, organizations and autonomous systems |
 | **Governable Operational Environments** | Environments where AI may act autonomously while stability and accountability remain preserved |
@@ -155,6 +156,8 @@ The future problem may be preserving:
 - living human-AI operational interfaces
 - dynamic governance environments
 - collaborative governance development
+- failure patterns in AI-native environments
+- erosion of human judgment under AI acceleration
 
 ---
 
@@ -171,6 +174,7 @@ The future problem may be preserving:
 - Where are the boundaries between AI analysis, recommendation, decision support, execution and accountability?
 - When does a personalized AI assistant become a delegated operational identity?
 - What kinds of cross-functional communities are needed to build effective human-AI operational coordination?
+- How can organizations detect when AI acceleration begins to erode human judgment?
 
 ---
 
@@ -215,6 +219,7 @@ Execution Environment
 | [`docs/evolution-from-control-to-coexistence.md`](docs/evolution-from-control-to-coexistence.md) | Conceptual evolution of the project |
 | [`docs/governance-principles.md`](docs/governance-principles.md) | Core governance principles |
 | [`docs/governance-vocabulary.md`](docs/governance-vocabulary.md) | Shared vocabulary |
+| [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md) | Operational failure patterns for AI-native environments |
 | [`docs/concepts/living-human-ai-operational-interface.md`](docs/concepts/living-human-ai-operational-interface.md) | Living interface concept |
 | [`docs/concepts/ai-action-boundary-mapping.md`](docs/concepts/ai-action-boundary-mapping.md) | Method for defining AI action, approval and accountability boundaries |
 | [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md) | Gateway pattern for AI access, actions and accountability |
@@ -346,6 +351,11 @@ Visibility without intervention is insufficient.
 - [`docs/mcp-governance-principles.md`](docs/mcp-governance-principles.md)
 - [`docs/governance-toolchain.md`](docs/governance-toolchain.md)
 - [`docs/governance-observability.md`](docs/governance-observability.md)
+
+### Failure Patterns
+
+- [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md)
+- [`docs/failure-patterns/erosion-of-human-judgment.md`](docs/failure-patterns/erosion-of-human-judgment.md)
 
 ### Security and Integrity
 
