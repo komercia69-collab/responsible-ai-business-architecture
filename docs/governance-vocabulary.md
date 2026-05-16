@@ -122,6 +122,41 @@ The concept connects API Gateway thinking with Human-AI Operational Coordination
 
 ---
 
+# Personal AI Operational Twin
+
+An AI system configured with a person's context, writing style, documents, workflows, preferences and recurring tasks.
+
+It may function as a second brain, assistant, draft generator, research partner, memory layer or workflow executor.
+
+A Personal AI Operational Twin increases productivity, but also creates governance questions around access, consent, representation, auditability and responsibility.
+
+The key question is:
+
+> When an AI system acts in a person's style, using that person's context and connected tools, where does assistance end and delegated operational identity begin?
+
+---
+
+# Delegated AI Identity
+
+The operational role created when an AI system represents, assists or acts on behalf of a human actor inside a workflow.
+
+A Delegated AI Identity is not identical to the human person.
+
+It is also not a neutral tool once it has access to personal context, communication style, documents and operational systems.
+
+It must therefore be governed through clear boundaries around:
+
+- access;
+- generation;
+- sending;
+- decision support;
+- updates;
+- approvals;
+- logging;
+- accountability.
+
+---
+
 # Dynamic Governance Environment
 
 A governance environment that changes through operational feedback, cross-functional review, emerging risks, desired outcomes and continuous learning.
