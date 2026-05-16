@@ -6,7 +6,7 @@ This document contains strategic discussion questions designed to encourage inte
 
 ---
 
-# Human–AI Coordination
+## Human–AI Coordination
 
 - What happens when AI systems coordinate operationally faster than humans can understand?
 - Can organizations preserve meaningful accountability under large-scale autonomy?
@@ -15,7 +15,29 @@ This document contains strategic discussion questions designed to encourage inte
 
 ---
 
-# Runtime Governance
+## Human Judgment Under AI Acceleration
+
+AI-assisted workflows may not fail only because AI produces incorrect outputs.
+
+They may also fail when execution becomes faster than human teams can preserve architectural judgment, shared context and responsibility.
+
+Discussion prompts:
+
+- Where do you already see tension between AI acceleration and human judgment?
+- How can teams detect when AI is reducing critical review rather than supporting it?
+- Can technically correct AI-assisted outputs still be architecturally dangerous?
+- What should trigger architectural review in AI-assisted engineering workflows?
+- How can organizations prevent over-trusting polished but context-incomplete AI outputs?
+- How should teams distinguish between AI suggestions, human decisions and accountable approvals?
+- What signals indicate that shared understanding is being lost during fast AI-assisted execution?
+
+Related failure pattern:
+
+- [Erosion of Human Judgment During Fast AI-Assisted Execution](../failure-patterns/erosion-of-human-judgment.md)
+
+---
+
+## Runtime Governance
 
 - Can governance operate continuously during execution?
 - What signals should trigger human escalation?
@@ -24,7 +46,7 @@ This document contains strategic discussion questions designed to encourage inte
 
 ---
 
-# Organizational Transformation
+## Organizational Transformation
 
 - Will future managers coordinate AI systems instead of employees?
 - What happens to traditional hierarchies inside AI-native organizations?
@@ -33,7 +55,7 @@ This document contains strategic discussion questions designed to encourage inte
 
 ---
 
-# Explainability and Visibility
+## Explainability and Visibility
 
 - What happens when explainability becomes fragmented across many systems?
 - Is local explainability enough for system-level trust?
@@ -42,7 +64,7 @@ This document contains strategic discussion questions designed to encourage inte
 
 ---
 
-# Safety and Stability
+## Safety and Stability
 
 - Which industries are most vulnerable to coordination collapse?
 - What can AI governance learn from aviation and automotive safety engineering?
@@ -51,7 +73,7 @@ This document contains strategic discussion questions designed to encourage inte
 
 ---
 
-# Human Qualities
+## Human Qualities
 
 - Which human qualities become more valuable as operational autonomy increases?
 - Can judgment become more important than execution?
@@ -60,7 +82,7 @@ This document contains strategic discussion questions designed to encourage inte
 
 ---
 
-# Long-Term Questions
+## Long-Term Questions
 
 - Is the future of AI full automation or cooperative autonomy?
 - Can humans remain operational participants instead of becoming passive observers?
@@ -69,7 +91,7 @@ This document contains strategic discussion questions designed to encourage inte
 
 ---
 
-# Strategic Principle
+## Strategic Principle
 
 > The project does not assume that the future should be controlled entirely.
 >
