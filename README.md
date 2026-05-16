@@ -119,6 +119,7 @@ The future problem may be preserving:
 
 | Area | Meaning |
 |---|---|
+| **Human–AI Operational Coordination Stack** | Layered architecture connecting human accountability, AI action boundaries, governance gateways and operational AI agents |
 | **Governance Nervous System** | A real-time coordination and stabilization layer for AI-native operational environments |
 | **Runtime Governance** | Governance during execution, not only retrospective auditing |
 | **Corrective Governance** | Intervention, escalation and stabilization mechanisms for autonomous operations |
@@ -209,6 +210,7 @@ Execution Environment
 |---|---|
 | [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html) | Executive-facing governance portal |
 | [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Strategic whitepaper |
+| [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md) | Layered architecture for Human-AI Operational Coordination |
 | [`docs/project-positioning.md`](docs/project-positioning.md) | Current project positioning |
 | [`docs/evolution-from-control-to-coexistence.md`](docs/evolution-from-control-to-coexistence.md) | Conceptual evolution of the project |
 | [`docs/governance-principles.md`](docs/governance-principles.md) | Core governance principles |
@@ -338,6 +340,7 @@ Visibility without intervention is insufficient.
 ### Architecture and Governance
 
 - [`README-ARCHITECTURE.md`](README-ARCHITECTURE.md)
+- [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md)
 - [`architecture/governance-nervous-system.md`](architecture/governance-nervous-system.md)
 - [`architecture/corrective-governance-layer.md`](architecture/corrective-governance-layer.md)
 - [`docs/mcp-governance-principles.md`](docs/mcp-governance-principles.md)
