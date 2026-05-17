@@ -120,6 +120,7 @@ The future problem may be preserving:
 | Area | Meaning |
 |---|---|
 | **Human–AI Operational Coordination Stack** | Layered architecture connecting human accountability, AI action boundaries, governance gateways and operational AI agents |
+| **Project Development Tracks** | Parallel architecture and prototype tracks that co-evolve through feedback rather than replacing one another |
 | **Human–AI Coordination Room** | Prototype interface for business owners, human teams and autonomous AI agents around process dynamics, decisions and governance |
 | **LLMOps to Human–AI Operational Coordination** | Bridge between technical AI operations and organizational responsibility architecture |
 | **Governance Nervous System** | A real-time coordination and stabilization layer for AI-native operational environments |
@@ -164,6 +165,7 @@ The future problem may be preserving:
 - technical AI operations as governance demand
 - business owner interfaces for AI-native operations
 - process dynamics dashboards for human-AI coordination
+- co-evolution of architecture and prototype tracks
 
 ---
 
@@ -183,6 +185,7 @@ The future problem may be preserving:
 - How can organizations detect when AI acceleration begins to erode human judgment?
 - How can LLMOps signals become part of operational governance rather than only technical monitoring?
 - How should business owners see positive dynamics, deterioration, correction needs and development decisions in AI-native operations?
+- How can architecture and prototype tracks co-evolve faster than agent autonomy?
 
 ---
 
@@ -221,6 +224,7 @@ Execution Environment
 | Start Here | Purpose |
 |---|---|
 | [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html) | Executive-facing governance portal |
+| [`docs/project-development-tracks.md`](docs/project-development-tracks.md) | Explains the parallel Architecture Track and Prototype Track |
 | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html) | Prototype demo for coordinating business owners, human teams and AI agents |
 | [`docs/prototypes/human-ai-coordination-interface-prototype.md`](docs/prototypes/human-ai-coordination-interface-prototype.md) | Prototype specification for Human-AI Coordination Room |
 | [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Strategic whitepaper |
@@ -348,8 +352,9 @@ Visibility without intervention is insufficient.
 - [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md)
 - [`docs/concepts/personal-ai-operational-twin.md`](docs/concepts/personal-ai-operational-twin.md)
 
-### Evolution
+### Evolution and Project Direction
 
+- [`docs/project-development-tracks.md`](docs/project-development-tracks.md)
 - [`docs/evolution/from-control-to-coordination.md`](docs/evolution/from-control-to-coordination.md)
 - [`docs/evolution-from-control-to-coexistence.md`](docs/evolution-from-control-to-coexistence.md)
 
@@ -451,3 +456,5 @@ The deeper question is becoming:
 > **Governance must scale faster than autonomy.**
 
 > **The human-AI interface must evolve faster than the AI systems it coordinates.**
+
+> **Architecture and prototype must co-evolve faster than agent autonomy.**
