@@ -64,6 +64,8 @@ Use [`docs/start-here-by-role.md`](docs/start-here-by-role.md) to choose a pract
 - Governance / Legal / Security Specialist
 - Researcher / Community Contributor
 
+If you are sharing the project externally, use [`docs/external-summary.md`](docs/external-summary.md).
+
 If you have one hour and want a fast overview, use [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md).
 
 If you want a compact map of the most important ideas, use [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md).
@@ -87,7 +89,7 @@ Use this hub as a quick navigation panel for the repository.
 
 | Hub Area | Start Here | What It Helps You Do |
 |---|---|---|
-| **Orientation** | [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose the right entry path |
+| **Orientation** | [`docs/external-summary.md`](docs/external-summary.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand, share and navigate the project quickly |
 | **Governance Architecture** | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md), [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md), [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md) | Map responsibility, action boundaries, gateways, agent capabilities and coordination layers |
 | **Prototypes & Portals** | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html), [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html), [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Explore interface prototypes and executive-facing governance views |
 | **Pilots & Use Cases** | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`use-cases/README.md`](use-cases/README.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
@@ -317,6 +319,7 @@ Execution Environment
 
 | Start Here | Purpose |
 |---|---|
+| [`docs/external-summary.md`](docs/external-summary.md) | Short external summary for sharing the project with partners, employers, collaborators and LinkedIn contacts |
 | [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md) | Fast one-hour route from first contact to one workflow governance snapshot |
 | [`docs/start-here-by-role.md`](docs/start-here-by-role.md) | Role-based entry paths for business owners, CTOs, AI engineers, consultants, governance roles and contributors |
 | [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Compact map of the most important concepts and how they connect |
@@ -482,6 +485,7 @@ Visibility without intervention is insufficient.
 
 ### Getting Started
 
+- [`docs/external-summary.md`](docs/external-summary.md)
 - [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md)
 - [`docs/start-here-by-role.md`](docs/start-here-by-role.md)
 - [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md)
