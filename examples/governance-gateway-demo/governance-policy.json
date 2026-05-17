@@ -1,0 +1,43 @@
+{
+  "policyId": "customer-support-governance-policy-v1",
+  "description": "Minimal policy for a customer support AI agent governance gateway demo.",
+  "allowedAgents": [
+    "customer-support-agent"
+  ],
+  "allowedActionTypes": [
+    "classify_ticket",
+    "draft_reply",
+    "offer_refund",
+    "update_crm_note",
+    "close_complaint"
+  ],
+  "forbiddenCategories": [
+    "legal_advice",
+    "medical_advice",
+    "employment_decision",
+    "credit_decision"
+  ],
+  "highRiskCategories": [
+    "legal",
+    "medical",
+    "vulnerable_customer",
+    "safety",
+    "security_incident"
+  ],
+  "maxAutonomousRefundAmount": 50,
+  "maxRefundWithManagerApproval": 250,
+  "customerFacingActionsRequireApproval": [
+    "offer_refund",
+    "close_complaint"
+  ],
+  "irreversibleActionsRequireEscalation": true,
+  "requireHumanApprovalForExecutionMode": [
+    "execute"
+  ],
+  "logging": {
+    "includeTimestamp": true,
+    "includePolicyId": true,
+    "includeReasons": true,
+    "includeOriginalAction": true
+  }
+}
