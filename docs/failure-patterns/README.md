@@ -32,6 +32,12 @@ These patterns describe situations where AI acceleration weakens human decision 
 
 - [Erosion of Human Judgment During Fast AI-Assisted Execution](./erosion-of-human-judgment.md)
 
+### Agent Design Failures
+
+These patterns describe situations where AI agents are designed as prompt-driven workers without sufficient mission clarity, action boundaries, oversight and recovery architecture.
+
+- [Agent Design Without Governance Architecture](./agent-design-without-governance-architecture.md)
+
 ### Coordination Failures
 
 These patterns describe breakdowns in coordination between humans, AI agents, teams, workflows and governance mechanisms.
