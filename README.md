@@ -70,6 +70,8 @@ If you want to understand the project value for different readers, use [`PROJECT
 
 If you want to see how the project relates to external governance standards, use [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md).
 
+If you want to see a minimal executable proof layer, use [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md).
+
 If you have one hour and want a fast overview, use [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md).
 
 If you want a compact map of the most important ideas, use [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md).
@@ -95,6 +97,7 @@ Use this hub as a quick navigation panel for the repository.
 |---|---|---|
 | **Orientation** | [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md), [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand, share, review and navigate the project quickly |
 | **Governance Architecture** | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md), [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md), [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md) | Map responsibility, action boundaries, gateways, agent capabilities and coordination layers |
+| **Proof Layer** | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) | Run a minimal executable Governance Gateway example from policy to decision log |
 | **Prototypes & Portals** | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html), [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html), [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Explore interface prototypes and executive-facing governance views |
 | **Pilots & Use Cases** | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`use-cases/README.md`](use-cases/README.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
 | **Governance Toolkit** | [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md), [`tools/suspicious-instruction-review-gate/README.md`](tools/suspicious-instruction-review-gate/README.md) | Assess readiness, detect failure patterns and test governance controls |
@@ -187,6 +190,7 @@ The future problem may be preserving:
 | **Human–AI Operational Coordination Stack** | Layered architecture connecting human accountability, AI action boundaries, governance gateways and operational AI agents |
 | **Agent Development Kit Governance Mapping** | Maps instruction files, skills, hooks, subagents, plugins and external tools to governance controls and responsibility boundaries |
 | **External Standards Mapping** | Shows how the project complements NIST AI RMF, EU AI Act and enterprise AI governance at the operational architecture level |
+| **Executable Governance Gateway Demo** | Minimal proof layer showing policy checks, gateway decisions and decision logs for AI agent actions |
 | **Minimal Human–AI Governance Pilot** | Practical first application of the framework to one real AI-assisted workflow |
 | **Concrete Use Cases** | Example instances showing how the framework applies to real AI-assisted workflows |
 | **Core Concepts Bundle** | Compact map of the most important project concepts and how to apply them to one workflow |
@@ -244,6 +248,8 @@ The future problem may be preserving:
 - NIST AI RMF operational translation
 - EU AI Act governance relevance
 - enterprise AI governance alignment
+- executable governance gateway demo
+- policy-to-decision-log governance flow
 - LLMOps governance integration
 - technical AI operations as governance demand
 - business owner interfaces for AI-native operations
@@ -292,6 +298,7 @@ The future problem may be preserving:
 - How can one concrete AI-assisted workflow be turned into an example instance of governable operational action?
 - How should agent development kits map instructions, skills, hooks, subagents, plugins and tools to governance controls?
 - How can external AI governance standards be translated into operational workflow controls?
+- How can a Governance Gateway be demonstrated as an executable policy-to-decision control point?
 
 ---
 
@@ -332,6 +339,7 @@ Execution Environment
 | [`docs/external-summary.md`](docs/external-summary.md) | Short external summary for sharing the project with partners, employers, collaborators and LinkedIn contacts |
 | [`PROJECT-VALUE.md`](PROJECT-VALUE.md) | Project value and review guide for different external readers |
 | [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md) | Shows how the project complements NIST AI RMF, EU AI Act and enterprise AI governance at the workflow-control layer |
+| [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) | Minimal executable proof layer showing policy-to-decision-log governance flow |
 | [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md) | Fast one-hour route from first contact to one workflow governance snapshot |
 | [`docs/start-here-by-role.md`](docs/start-here-by-role.md) | Role-based entry paths for business owners, CTOs, AI engineers, consultants, governance roles and contributors |
 | [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Compact map of the most important concepts and how they connect |
@@ -500,6 +508,7 @@ Visibility without intervention is insufficient.
 - [`PROJECT-VALUE.md`](PROJECT-VALUE.md)
 - [`docs/external-summary.md`](docs/external-summary.md)
 - [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md)
+- [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md)
 - [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md)
 - [`docs/start-here-by-role.md`](docs/start-here-by-role.md)
 - [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md)
@@ -516,6 +525,10 @@ Visibility without intervention is insufficient.
 ### Standards and External Alignment
 
 - [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md)
+
+### Examples and Proof Layer
+
+- [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md)
 
 ### Concepts
 
