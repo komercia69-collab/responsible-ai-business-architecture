@@ -81,6 +81,21 @@ Each route gives you:
 
 ---
 
+## Project Hub Overview
+
+Use this hub as a quick navigation panel for the repository.
+
+| Hub Area | Start Here | What It Helps You Do |
+|---|---|---|
+| **Orientation** | [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose the right entry path |
+| **Governance Architecture** | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md), [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md), [`docs/concepts/governance-nervous-system.md`](docs/concepts/governance-nervous-system.md) | Map responsibility, action boundaries, gateways and coordination layers |
+| **Prototypes & Portals** | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html), [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html), [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Explore interface prototypes and executive-facing governance views |
+| **Pilots & Use Cases** | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`use-cases/README.md`](use-cases/README.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
+| **Governance Toolkit** | [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md), [`tools/suspicious-instruction-review-gate/README.md`](tools/suspicious-instruction-review-gate/README.md) | Assess readiness, detect failure patterns and test governance controls |
+| **Project Direction** | [`docs/project-intent.md`](docs/project-intent.md), [`docs/project-development-tracks.md`](docs/project-development-tracks.md), [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Understand why the project exists and how architecture, prototypes and adoption paths evolve together |
+
+---
+
 ## This Project Is a Discussion Space, Not a Finished Doctrine
 
 Responsible AI Business Architecture is not presented as a final answer.
