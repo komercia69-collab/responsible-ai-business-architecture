@@ -120,6 +120,7 @@ The future problem may be preserving:
 | Area | Meaning |
 |---|---|
 | **Human–AI Operational Coordination Stack** | Layered architecture connecting human accountability, AI action boundaries, governance gateways and operational AI agents |
+| **LLMOps to Human–AI Operational Coordination** | Bridge between technical AI operations and organizational responsibility architecture |
 | **Governance Nervous System** | A real-time coordination and stabilization layer for AI-native operational environments |
 | **Runtime Governance** | Governance during execution, not only retrospective auditing |
 | **Corrective Governance** | Intervention, escalation and stabilization mechanisms for autonomous operations |
@@ -158,6 +159,8 @@ The future problem may be preserving:
 - collaborative governance development
 - failure patterns in AI-native environments
 - erosion of human judgment under AI acceleration
+- LLMOps governance integration
+- technical AI operations as governance demand
 
 ---
 
@@ -175,6 +178,7 @@ The future problem may be preserving:
 - When does a personalized AI assistant become a delegated operational identity?
 - What kinds of cross-functional communities are needed to build effective human-AI operational coordination?
 - How can organizations detect when AI acceleration begins to erode human judgment?
+- How can LLMOps signals become part of operational governance rather than only technical monitoring?
 
 ---
 
@@ -215,6 +219,7 @@ Execution Environment
 | [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html) | Executive-facing governance portal |
 | [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Strategic whitepaper |
 | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md) | Layered architecture for Human-AI Operational Coordination |
+| [`docs/architecture/llmops-to-human-ai-operational-coordination.md`](docs/architecture/llmops-to-human-ai-operational-coordination.md) | Bridge between LLMOps and responsibility-aware operational governance |
 | [`docs/project-positioning.md`](docs/project-positioning.md) | Current project positioning |
 | [`docs/evolution-from-control-to-coexistence.md`](docs/evolution-from-control-to-coexistence.md) | Conceptual evolution of the project |
 | [`docs/governance-principles.md`](docs/governance-principles.md) | Core governance principles |
@@ -346,6 +351,7 @@ Visibility without intervention is insufficient.
 
 - [`README-ARCHITECTURE.md`](README-ARCHITECTURE.md)
 - [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md)
+- [`docs/architecture/llmops-to-human-ai-operational-coordination.md`](docs/architecture/llmops-to-human-ai-operational-coordination.md)
 - [`architecture/governance-nervous-system.md`](architecture/governance-nervous-system.md)
 - [`architecture/corrective-governance-layer.md`](architecture/corrective-governance-layer.md)
 - [`docs/mcp-governance-principles.md`](docs/mcp-governance-principles.md)
