@@ -121,20 +121,53 @@ const quickCheckQuestions = [
 
 let selectedQuickScores = new Array(quickCheckQuestions.length).fill(1);
 
+function appendTextElement(parent, tagName, text, className) {
+  const element = document.createElement(tagName);
+  if (className) {
+    element.className = className;
+  }
+  element.textContent = text;
+  parent.appendChild(element);
+  return element;
+}
+
+function appendLabelWithStrongValue(parent, label, value) {
+  const paragraph = document.createElement('p');
+  const strong = document.createElement('strong');
+  strong.textContent = label;
+  paragraph.appendChild(strong);
+  paragraph.appendChild(document.createTextNode(' ' + value));
+  parent.appendChild(paragraph);
+}
+
 function renderQuickCheck() {
   const container = document.getElementById('quickCheckQuestions');
-  container.innerHTML = '';
+  container.replaceChildren();
   quickCheckQuestions.forEach((q, i) => {
     const div = document.createElement('div');
     div.className = 'quick-check-item';
-    div.innerHTML = `
-      <label>${i + 1}. ${q}</label>
-      <select onchange="selectedQuickScores[${i}]=parseInt(this.value)">
-        <option value="0" ${selectedQuickScores[i]===0?'selected':''}>0 — No / unclear</option>
-        <option value="1" ${selectedQuickScores[i]===1?'selected':''}>1 — Partly</option>
-        <option value="2" ${selectedQuickScores[i]===2?'selected':''}>2 — Yes / clear</option>
-      </select>
-    `;
+
+    appendTextElement(div, 'label', `${i + 1}. ${q}`);
+
+    const select = document.createElement('select');
+    select.value = String(selectedQuickScores[i]);
+    select.addEventListener('change', (event) => {
+      selectedQuickScores[i] = parseInt(event.target.value, 10);
+    });
+
+    [
+      { value: '0', text: '0 — No / unclear' },
+      { value: '1', text: '1 — Partly' },
+      { value: '2', text: '2 — Yes / clear' }
+    ].forEach(optionData => {
+      const option = document.createElement('option');
+      option.value = optionData.value;
+      option.textContent = optionData.text;
+      select.appendChild(option);
+    });
+
+    select.value = String(selectedQuickScores[i]);
+    div.appendChild(select);
     container.appendChild(div);
   });
 }
@@ -205,25 +238,50 @@ function generateReport() {
     nextStep = 'Collect missing information and repeat the assessment.';
   }
 
-  document.getElementById('reportResult').innerHTML = `
-    <div class="decision ${decision.toLowerCase()}">${decision}</div>
-    <h3>${useCase}</h3>
-    <p><strong>Quick Check Score:</strong> ${score} / 14</p>
-    <p><strong>Explanation:</strong> ${explanation}</p>
-    <p><strong>Recommended next step:</strong> ${nextStep}</p>
-    <div class="summary">
-      <p><strong>Canvas completeness:</strong></p>
-      <ul>
-        <li>Business process and pain: ${processPain ? 'Yes' : 'Missing or too short'}</li>
-        <li>AI role: ${aiRole ? 'Yes' : 'Missing or too short'}</li>
-        <li>Data involved: ${data ? 'Yes' : 'Missing or too short'}</li>
-        <li>Risks assessed: ${risksAssessed ? 'Yes' : 'Missing'}</li>
-        <li>Human control: ${human ? 'Yes' : 'Missing or too short'}</li>
-        <li>Success metric: ${success ? 'Yes' : 'Missing or too short'}</li>
-      </ul>
-    </div>
-    <p class="small" style="margin-top:16px;">This is a preliminary framework-based signal. It is not legal advice, compliance certification, security review, or technical implementation approval.</p>
-  `;
+  const reportResult = document.getElementById('reportResult');
+  reportResult.replaceChildren();
+
+  const decisionElement = appendTextElement(reportResult, 'div', decision, `decision ${decision.toLowerCase()}`);
+  decisionElement.setAttribute('aria-label', `Decision signal: ${decision}`);
+
+  appendTextElement(reportResult, 'h3', useCase);
+  appendLabelWithStrongValue(reportResult, 'Quick Check Score:', `${score} / 14`);
+  appendLabelWithStrongValue(reportResult, 'Explanation:', explanation);
+  appendLabelWithStrongValue(reportResult, 'Recommended next step:', nextStep);
+
+  const summary = document.createElement('div');
+  summary.className = 'summary';
+
+  const completeness = document.createElement('p');
+  const completenessStrong = document.createElement('strong');
+  completenessStrong.textContent = 'Canvas completeness:';
+  completeness.appendChild(completenessStrong);
+  summary.appendChild(completeness);
+
+  const list = document.createElement('ul');
+  [
+    ['Business process and pain', processPain ? 'Yes' : 'Missing or too short'],
+    ['AI role', aiRole ? 'Yes' : 'Missing or too short'],
+    ['Data involved', data ? 'Yes' : 'Missing or too short'],
+    ['Risks assessed', risksAssessed ? 'Yes' : 'Missing'],
+    ['Human control', human ? 'Yes' : 'Missing or too short'],
+    ['Success metric', success ? 'Yes' : 'Missing or too short']
+  ].forEach(([label, value]) => {
+    const item = document.createElement('li');
+    item.textContent = `${label}: ${value}`;
+    list.appendChild(item);
+  });
+  summary.appendChild(list);
+  reportResult.appendChild(summary);
+
+  const disclaimer = appendTextElement(
+    reportResult,
+    'p',
+    'This is a preliminary framework-based signal. It is not legal advice, compliance certification, security review, or technical implementation approval.',
+    'small'
+  );
+  disclaimer.style.marginTop = '16px';
+
   showStep(3);
 }
 
