@@ -137,6 +137,7 @@ The future problem may be preserving:
 | **Project Intent** | Explains why the project exists, what it contributes, and why it aims to help others build the bridge between autonomy and responsibility |
 | **Project Development Tracks** | Parallel architecture and prototype tracks that co-evolve through feedback rather than replacing one another |
 | **Human–AI Coordination Room** | Prototype interface for business owners, human teams and autonomous AI agents around process dynamics, decisions and governance |
+| **Trusted Decision Intelligence** | Governance concept for AI + Blockchain + BI systems where data integrity, AI reasoning and human accountability must remain connected |
 | **Model–Agent Fit Governance** | Governance pattern for selecting models according to agent role, capability, risk level, action boundaries and accountability requirements |
 | **LLMOps to Human–AI Operational Coordination** | Bridge between technical AI operations and organizational responsibility architecture |
 | **Governance Nervous System** | A real-time coordination and stabilization layer for AI-native operational environments |
@@ -187,6 +188,9 @@ The future problem may be preserving:
 - bridge between AI autonomy and human responsibility
 - model-agent fit governance
 - model selection as operational responsibility architecture
+- trusted decision intelligence
+- AI + Blockchain + BI governance
+- data integrity vs decision integrity
 
 ---
 
@@ -210,6 +214,8 @@ The future problem may be preserving:
 - How can this work help others save time, money and avoidable mistakes when building governable human-AI systems?
 - How should organizations choose models according to agent role, risk level, tool permissions and accountability requirements?
 - What minimum governance architecture should every operational AI agent have before autonomy is increased?
+- How can organizations distinguish data integrity from decision integrity in AI + Blockchain + BI systems?
+- What governance is needed before BI recommendations become automated business actions?
 
 ---
 
@@ -253,6 +259,7 @@ Execution Environment
 | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html) | Prototype demo for coordinating business owners, human teams and AI agents |
 | [`docs/prototypes/human-ai-coordination-interface-prototype.md`](docs/prototypes/human-ai-coordination-interface-prototype.md) | Prototype specification for Human-AI Coordination Room |
 | [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Strategic whitepaper |
+| [`docs/concepts/trusted-decision-intelligence.md`](docs/concepts/trusted-decision-intelligence.md) | AI + Blockchain + BI governance concept for trusted and accountable decision intelligence |
 | [`docs/concepts/model-agent-fit-governance.md`](docs/concepts/model-agent-fit-governance.md) | Model selection as governance decision for agentic systems |
 | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md) | Layered architecture for Human-AI Operational Coordination |
 | [`docs/architecture/llmops-to-human-ai-operational-coordination.md`](docs/architecture/llmops-to-human-ai-operational-coordination.md) | Bridge between LLMOps and responsibility-aware operational governance |
@@ -329,6 +336,14 @@ It extends the logic of API gateways from technical access control toward respon
 
 ---
 
+### Trusted Decision Intelligence
+
+Trusted Decision Intelligence connects Business Intelligence, AI, Blockchain and Human-AI Operational Coordination.
+
+It distinguishes data integrity from decision integrity and asks how organizations preserve accountability when trusted data, AI reasoning and automated business actions converge.
+
+---
+
 ### Model-Agent Fit Governance
 
 Model-Agent Fit Governance treats model selection as an operational responsibility decision.
@@ -395,6 +410,7 @@ Visibility without intervention is insufficient.
 - [`docs/concepts/living-human-ai-operational-interface.md`](docs/concepts/living-human-ai-operational-interface.md)
 - [`docs/concepts/ai-action-boundary-mapping.md`](docs/concepts/ai-action-boundary-mapping.md)
 - [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md)
+- [`docs/concepts/trusted-decision-intelligence.md`](docs/concepts/trusted-decision-intelligence.md)
 - [`docs/concepts/model-agent-fit-governance.md`](docs/concepts/model-agent-fit-governance.md)
 - [`docs/concepts/personal-ai-operational-twin.md`](docs/concepts/personal-ai-operational-twin.md)
 
