@@ -57,6 +57,26 @@ Related failure pattern:
 
 ---
 
+## Trusted Decision Intelligence
+
+AI, Blockchain and Business Intelligence can create powerful systems for insight, prediction, automation and auditability. But trusted data does not automatically create responsible action.
+
+Discussion prompts:
+
+- When does BI stop being a reporting system and become a decision environment?
+- How should organizations separate data integrity from decision integrity?
+- What must happen before an AI-generated BI recommendation becomes an automated workflow?
+- Where should human approval be required in Agentic BI systems?
+- Can Blockchain auditability create false trust if decision governance is weak?
+- How should smart contracts be governed when they execute AI-informed business rules?
+- What should business owners see when AI + BI + Blockchain systems recommend or trigger actions?
+
+Related concept:
+
+- [Trusted Decision Intelligence](../concepts/trusted-decision-intelligence.md)
+
+---
+
 ## Runtime Governance
 
 - Can governance operate continuously during execution?
