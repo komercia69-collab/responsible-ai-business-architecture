@@ -88,7 +88,7 @@ Use this hub as a quick navigation panel for the repository.
 | Hub Area | Start Here | What It Helps You Do |
 |---|---|---|
 | **Orientation** | [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose the right entry path |
-| **Governance Architecture** | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md), [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md), [`docs/concepts/governance-nervous-system.md`](docs/concepts/governance-nervous-system.md) | Map responsibility, action boundaries, gateways and coordination layers |
+| **Governance Architecture** | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md), [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md), [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md) | Map responsibility, action boundaries, gateways, agent capabilities and coordination layers |
 | **Prototypes & Portals** | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html), [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html), [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Explore interface prototypes and executive-facing governance views |
 | **Pilots & Use Cases** | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`use-cases/README.md`](use-cases/README.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
 | **Governance Toolkit** | [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md), [`tools/suspicious-instruction-review-gate/README.md`](tools/suspicious-instruction-review-gate/README.md) | Assess readiness, detect failure patterns and test governance controls |
@@ -179,6 +179,7 @@ The future problem may be preserving:
 | Area | Meaning |
 |---|---|
 | **Human–AI Operational Coordination Stack** | Layered architecture connecting human accountability, AI action boundaries, governance gateways and operational AI agents |
+| **Agent Development Kit Governance Mapping** | Maps instruction files, skills, hooks, subagents, plugins and external tools to governance controls and responsibility boundaries |
 | **Minimal Human–AI Governance Pilot** | Practical first application of the framework to one real AI-assisted workflow |
 | **Concrete Use Cases** | Example instances showing how the framework applies to real AI-assisted workflows |
 | **Core Concepts Bundle** | Compact map of the most important project concepts and how to apply them to one workflow |
@@ -230,6 +231,8 @@ The future problem may be preserving:
 - failure patterns in AI-native environments
 - erosion of human judgment under AI acceleration
 - agent design without governance architecture
+- agent development kit governance mapping
+- governed skills, hooks, subagents and plugins
 - LLMOps governance integration
 - technical AI operations as governance demand
 - business owner interfaces for AI-native operations
@@ -276,6 +279,7 @@ The future problem may be preserving:
 - Which core concepts should every new reader understand before applying the framework?
 - What is the smallest useful pilot that can map one workflow from AI assistance to governed operational action?
 - How can one concrete AI-assisted workflow be turned into an example instance of governable operational action?
+- How should agent development kits map instructions, skills, hooks, subagents, plugins and tools to governance controls?
 
 ---
 
@@ -318,6 +322,7 @@ Execution Environment
 | [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Compact map of the most important concepts and how they connect |
 | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) | Minimal pilot format for applying the framework to one real AI-assisted workflow |
 | [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Concrete example of a customer support AI workflow governed through BI signals, action boundaries, gateway checks, human approval and CRM execution |
+| [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md) | Maps technical agent development kit layers to governance controls, responsibility boundaries and operational coordination |
 | [`docs/project-intent.md`](docs/project-intent.md) | Explains the project intent: reusable bridge-building material between AI autonomy and human responsibility |
 | [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html) | Executive-facing governance portal |
 | [`docs/project-development-tracks.md`](docs/project-development-tracks.md) | Explains the parallel Architecture Track and Prototype Track |
@@ -368,6 +373,16 @@ Instead, it asks:
 ### Human-AI Operational Coordination
 
 The future interface between humans and AI may depend less on direct control and more on shared operational language, visibility, escalation and coordinated intervention.
+
+---
+
+### Agent Development Kit Governance Mapping
+
+Agent development kits increase capability.
+
+Governance architecture must define how that capability is bounded, monitored, delegated and corrected.
+
+This mapping connects instruction files, skills, hooks, subagents, plugins, external tools and agent teams to governance controls, responsibility boundaries and operational coordination.
 
 ---
 
@@ -487,6 +502,7 @@ Visibility without intervention is insufficient.
 - [`docs/concepts/operational-governability.md`](docs/concepts/operational-governability.md)
 - [`docs/concepts/coordination-asymmetry.md`](docs/concepts/coordination-asymmetry.md)
 - [`docs/concepts/human-ai-operational-interface.md`](docs/concepts/human-ai-operational-interface.md)
+- [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md)
 - [`docs/concepts/living-human-ai-operational-interface.md`](docs/concepts/living-human-ai-operational-interface.md)
 - [`docs/concepts/ai-action-boundary-mapping.md`](docs/concepts/ai-action-boundary-mapping.md)
 - [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md)
