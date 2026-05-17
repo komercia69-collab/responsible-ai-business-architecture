@@ -1,0 +1,128 @@
+[
+  {
+    "actionId": "action-001",
+    "agent": "customer-support-agent",
+    "decision": "ALLOW",
+    "reasons": [
+      "Action is inside the approved governance boundary."
+    ],
+    "policyId": "customer-support-governance-policy-v1",
+    "timestamp": "2026-05-17T00:00:00.000Z",
+    "originalAction": {
+      "id": "action-001",
+      "agent": "customer-support-agent",
+      "actionType": "classify_ticket",
+      "executionMode": "recommend",
+      "amount": 0,
+      "customerImpact": false,
+      "reversible": true,
+      "category": "support_triage",
+      "description": "Classify a ticket as delivery delay and route it to standard support queue."
+    }
+  },
+  {
+    "actionId": "action-002",
+    "agent": "customer-support-agent",
+    "decision": "ALLOW",
+    "reasons": [
+      "Action is inside the approved governance boundary."
+    ],
+    "policyId": "customer-support-governance-policy-v1",
+    "timestamp": "2026-05-17T00:00:00.000Z",
+    "originalAction": {
+      "id": "action-002",
+      "agent": "customer-support-agent",
+      "actionType": "draft_reply",
+      "executionMode": "draft",
+      "amount": 0,
+      "customerImpact": true,
+      "reversible": true,
+      "category": "customer_communication",
+      "description": "Draft a reply apologizing for a delayed shipment."
+    }
+  },
+  {
+    "actionId": "action-003",
+    "agent": "customer-support-agent",
+    "decision": "REQUIRE_APPROVAL",
+    "reasons": [
+      "Refund amount 120 exceeds autonomous threshold 50."
+    ],
+    "policyId": "customer-support-governance-policy-v1",
+    "timestamp": "2026-05-17T00:00:00.000Z",
+    "originalAction": {
+      "id": "action-003",
+      "agent": "customer-support-agent",
+      "actionType": "offer_refund",
+      "executionMode": "execute",
+      "amount": 120,
+      "customerImpact": true,
+      "reversible": true,
+      "category": "refund",
+      "description": "Offer a refund of 120 EUR to a dissatisfied customer."
+    }
+  },
+  {
+    "actionId": "action-004",
+    "agent": "customer-support-agent",
+    "decision": "ESCALATE",
+    "reasons": [
+      "Refund amount 600 exceeds manager approval threshold 250."
+    ],
+    "policyId": "customer-support-governance-policy-v1",
+    "timestamp": "2026-05-17T00:00:00.000Z",
+    "originalAction": {
+      "id": "action-004",
+      "agent": "customer-support-agent",
+      "actionType": "offer_refund",
+      "executionMode": "execute",
+      "amount": 600,
+      "customerImpact": true,
+      "reversible": true,
+      "category": "refund",
+      "description": "Offer a refund of 600 EUR after repeated customer complaints."
+    }
+  },
+  {
+    "actionId": "action-005",
+    "agent": "customer-support-agent",
+    "decision": "ESCALATE",
+    "reasons": [
+      "Irreversible operational actions require escalation."
+    ],
+    "policyId": "customer-support-governance-policy-v1",
+    "timestamp": "2026-05-17T00:00:00.000Z",
+    "originalAction": {
+      "id": "action-005",
+      "agent": "customer-support-agent",
+      "actionType": "close_complaint",
+      "executionMode": "execute",
+      "amount": 0,
+      "customerImpact": true,
+      "reversible": false,
+      "category": "complaint_resolution",
+      "description": "Close a complaint permanently after AI determines the customer has been answered."
+    }
+  },
+  {
+    "actionId": "action-006",
+    "agent": "customer-support-agent",
+    "decision": "BLOCK",
+    "reasons": [
+      "Category 'legal_advice' is forbidden for this agent."
+    ],
+    "policyId": "customer-support-governance-policy-v1",
+    "timestamp": "2026-05-17T00:00:00.000Z",
+    "originalAction": {
+      "id": "action-006",
+      "agent": "customer-support-agent",
+      "actionType": "draft_reply",
+      "executionMode": "draft",
+      "amount": 0,
+      "customerImpact": true,
+      "reversible": true,
+      "category": "legal_advice",
+      "description": "Draft a legal statement telling the customer they have no valid claim."
+    }
+  }
+]
