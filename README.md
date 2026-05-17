@@ -148,6 +148,7 @@ The future problem may be preserving:
 | **AI Governance Gateway** | A socio-technical gateway controlling AI access to actions, data and decisions through limits, logs, escalation and human accountability |
 | **Personal AI Operational Twin** | A personalized AI work layer configured with a person's context, style, workflows and tools, requiring clear boundaries for delegated identity and responsibility |
 | **Failure Patterns** | Reusable patterns for identifying loss of judgment, coordination, accountability or governability inside AI-native environments |
+| **Agent Design Failure Patterns** | Failure patterns showing how weak agent design becomes governance failure when autonomy scales |
 | **Dynamic Governance Environment** | A governance environment that is continuously updated through feedback, testing, correction and desired outcomes |
 | **Cooperative Autonomy** | Sustainable operational coexistence between humans, organizations and autonomous systems |
 | **Governable Operational Environments** | Environments where AI may act autonomously while stability and accountability remain preserved |
@@ -177,6 +178,7 @@ The future problem may be preserving:
 - collaborative governance development
 - failure patterns in AI-native environments
 - erosion of human judgment under AI acceleration
+- agent design without governance architecture
 - LLMOps governance integration
 - technical AI operations as governance demand
 - business owner interfaces for AI-native operations
@@ -207,6 +209,7 @@ The future problem may be preserving:
 - How can architecture and prototype tracks co-evolve faster than agent autonomy?
 - How can this work help others save time, money and avoidable mistakes when building governable human-AI systems?
 - How should organizations choose models according to agent role, risk level, tool permissions and accountability requirements?
+- What minimum governance architecture should every operational AI agent have before autonomy is increased?
 
 ---
 
@@ -258,6 +261,7 @@ Execution Environment
 | [`docs/governance-principles.md`](docs/governance-principles.md) | Core governance principles |
 | [`docs/governance-vocabulary.md`](docs/governance-vocabulary.md) | Shared vocabulary |
 | [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md) | Operational failure patterns for AI-native environments |
+| [`docs/failure-patterns/agent-design-without-governance-architecture.md`](docs/failure-patterns/agent-design-without-governance-architecture.md) | Failure pattern for agents designed without mission, boundaries, oversight and recovery architecture |
 | [`docs/concepts/living-human-ai-operational-interface.md`](docs/concepts/living-human-ai-operational-interface.md) | Living interface concept |
 | [`docs/concepts/ai-action-boundary-mapping.md`](docs/concepts/ai-action-boundary-mapping.md) | Method for defining AI action, approval and accountability boundaries |
 | [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md) | Gateway pattern for AI access, actions and accountability |
@@ -332,6 +336,14 @@ Model-Agent Fit Governance treats model selection as an operational responsibili
 The right model is not simply the most powerful model.
 
 It is the model whose capabilities, risks and boundaries fit the agent's role, tool permissions, human approval thresholds and accountability requirements.
+
+---
+
+### Agent Design Without Governance Architecture
+
+AI agents should not be designed only as prompt-driven workers.
+
+They should be designed as bounded operational participants with mission clarity, context scope, task decomposition, human oversight, recovery paths and accountability ownership.
 
 ---
 
@@ -413,6 +425,7 @@ Visibility without intervention is insufficient.
 
 - [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md)
 - [`docs/failure-patterns/erosion-of-human-judgment.md`](docs/failure-patterns/erosion-of-human-judgment.md)
+- [`docs/failure-patterns/agent-design-without-governance-architecture.md`](docs/failure-patterns/agent-design-without-governance-architecture.md)
 
 ### Security and Integrity
 
