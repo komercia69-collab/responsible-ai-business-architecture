@@ -68,6 +68,8 @@ If you have one hour and want a fast overview, use [`docs/60-minute-project-path
 
 If you want a compact map of the most important ideas, use [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md).
 
+If you want to apply the framework to one real workflow, use [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
+
 Each route gives you:
 
 - the files to open first;
@@ -160,6 +162,7 @@ The future problem may be preserving:
 | Area | Meaning |
 |---|---|
 | **Human–AI Operational Coordination Stack** | Layered architecture connecting human accountability, AI action boundaries, governance gateways and operational AI agents |
+| **Minimal Human–AI Governance Pilot** | Practical first application of the framework to one real AI-assisted workflow |
 | **Core Concepts Bundle** | Compact map of the most important project concepts and how to apply them to one workflow |
 | **60-Minute Project Path** | A fast route from first contact to practical understanding and one workflow governance snapshot |
 | **Role-Based Start Routes** | Practical entry paths for business owners, CTOs, AI engineers, consultants, governance roles and contributors |
@@ -223,6 +226,7 @@ The future problem may be preserving:
 - role-based adoption paths for Human-AI Operational Coordination
 - 60-minute adoption paths for Human-AI Operational Coordination
 - core concept bundling for practical adoption
+- minimal pilot formats for one-workflow governance mapping
 
 ---
 
@@ -251,6 +255,7 @@ The future problem may be preserving:
 - How can different roles enter the project through practical routes without needing to read the whole repository first?
 - What is the smallest useful path from project discovery to one actionable workflow governance snapshot?
 - Which core concepts should every new reader understand before applying the framework?
+- What is the smallest useful pilot that can map one workflow from AI assistance to governed operational action?
 
 ---
 
@@ -291,6 +296,7 @@ Execution Environment
 | [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md) | Fast one-hour route from first contact to one workflow governance snapshot |
 | [`docs/start-here-by-role.md`](docs/start-here-by-role.md) | Role-based entry paths for business owners, CTOs, AI engineers, consultants, governance roles and contributors |
 | [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Compact map of the most important concepts and how they connect |
+| [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) | Minimal pilot format for applying the framework to one real AI-assisted workflow |
 | [`docs/project-intent.md`](docs/project-intent.md) | Explains the project intent: reusable bridge-building material between AI autonomy and human responsibility |
 | [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html) | Executive-facing governance portal |
 | [`docs/project-development-tracks.md`](docs/project-development-tracks.md) | Explains the parallel Architecture Track and Prototype Track |
@@ -443,6 +449,7 @@ Visibility without intervention is insufficient.
 - [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md)
 - [`docs/start-here-by-role.md`](docs/start-here-by-role.md)
 - [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md)
+- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
 - [`docs/project-intent.md`](docs/project-intent.md)
 - [`docs/project-development-tracks.md`](docs/project-development-tracks.md)
 
@@ -482,6 +489,10 @@ Visibility without intervention is insufficient.
 
 - [`docs/prototypes/human-ai-coordination-interface-prototype.md`](docs/prototypes/human-ai-coordination-interface-prototype.md)
 - [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html)
+
+### Offers and Pilot Formats
+
+- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
 
 ### Failure Patterns
 
