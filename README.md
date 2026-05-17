@@ -120,6 +120,7 @@ The future problem may be preserving:
 | Area | Meaning |
 |---|---|
 | **Human–AI Operational Coordination Stack** | Layered architecture connecting human accountability, AI action boundaries, governance gateways and operational AI agents |
+| **Human–AI Coordination Room** | Prototype interface for business owners, human teams and autonomous AI agents around process dynamics, decisions and governance |
 | **LLMOps to Human–AI Operational Coordination** | Bridge between technical AI operations and organizational responsibility architecture |
 | **Governance Nervous System** | A real-time coordination and stabilization layer for AI-native operational environments |
 | **Runtime Governance** | Governance during execution, not only retrospective auditing |
@@ -161,6 +162,8 @@ The future problem may be preserving:
 - erosion of human judgment under AI acceleration
 - LLMOps governance integration
 - technical AI operations as governance demand
+- business owner interfaces for AI-native operations
+- process dynamics dashboards for human-AI coordination
 
 ---
 
@@ -179,6 +182,7 @@ The future problem may be preserving:
 - What kinds of cross-functional communities are needed to build effective human-AI operational coordination?
 - How can organizations detect when AI acceleration begins to erode human judgment?
 - How can LLMOps signals become part of operational governance rather than only technical monitoring?
+- How should business owners see positive dynamics, deterioration, correction needs and development decisions in AI-native operations?
 
 ---
 
@@ -217,6 +221,8 @@ Execution Environment
 | Start Here | Purpose |
 |---|---|
 | [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html) | Executive-facing governance portal |
+| [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html) | Prototype demo for coordinating business owners, human teams and AI agents |
+| [`docs/prototypes/human-ai-coordination-interface-prototype.md`](docs/prototypes/human-ai-coordination-interface-prototype.md) | Prototype specification for Human-AI Coordination Room |
 | [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Strategic whitepaper |
 | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md) | Layered architecture for Human-AI Operational Coordination |
 | [`docs/architecture/llmops-to-human-ai-operational-coordination.md`](docs/architecture/llmops-to-human-ai-operational-coordination.md) | Bridge between LLMOps and responsibility-aware operational governance |
@@ -357,6 +363,11 @@ Visibility without intervention is insufficient.
 - [`docs/mcp-governance-principles.md`](docs/mcp-governance-principles.md)
 - [`docs/governance-toolchain.md`](docs/governance-toolchain.md)
 - [`docs/governance-observability.md`](docs/governance-observability.md)
+
+### Prototypes and Demos
+
+- [`docs/prototypes/human-ai-coordination-interface-prototype.md`](docs/prototypes/human-ai-coordination-interface-prototype.md)
+- [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html)
 
 ### Failure Patterns
 

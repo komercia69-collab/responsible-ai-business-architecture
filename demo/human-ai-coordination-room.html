@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human–AI Coordination Room</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --line: #334155;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --blue: #38bdf8;
+      --violet: #a78bfa;
+      --pink: #f472b6;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1e3a8a 0, #0f172a 35%, #020617 100%);
+      color: var(--text);
+    }
+
+    header {
+      padding: 32px 24px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(2,6,23,0.7);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 48px);
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 820px;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(15,23,42,0.8);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+    }
+
+    main {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 26px 24px 56px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(30,41,59,0.92), rgba(15,23,42,0.92));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .span-12 { grid-column: span 12; }
+    .span-8 { grid-column: span 8; }
+    .span-6 { grid-column: span 6; }
+    .span-4 { grid-column: span 4; }
+    .span-3 { grid-column: span 3; }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 16px;
+      color: #e2e8f0;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.52;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .metric {
+      background: rgba(15,23,42,0.7);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .metric .label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .metric .value {
+      display: block;
+      font-size: 28px;
+      font-weight: 800;
+      margin-top: 6px;
+      letter-spacing: -0.03em;
+    }
+
+    .green { color: var(--green); }
+    .amber { color: var(--amber); }
+    .red { color: var(--red); }
+    .blue { color: var(--blue); }
+    .violet { color: var(--violet); }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .status-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .status-table th, .status-table td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 14px;
+      vertical-align: top;
+    }
+
+    .status-table th {
+      color: #f8fafc;
+      background: rgba(255,255,255,0.06);
+      font-weight: 700;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #020617;
+    }
+
+    .tag.green { background: var(--green); color: #052e16; }
+    .tag.amber { background: var(--amber); color: #451a03; }
+    .tag.red { background: var(--red); color: #450a0a; }
+    .tag.blue { background: var(--blue); color: #082f49; }
+    .tag.violet { background: var(--violet); color: #2e1065; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .flow-step {
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(56,189,248,0.08);
+      border: 1px solid rgba(56,189,248,0.22);
+      min-height: 92px;
+    }
+
+    .flow-step strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #e0f2fe;
+      font-size: 14px;
+    }
+
+    .flow-step span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .decision-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .decision {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(15,23,42,0.7);
+      padding: 14px;
+    }
+
+    .decision strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-weight: 700;
+      cursor: pointer;
+      color: #020617;
+    }
+
+    .btn-approve { background: var(--green); }
+    .btn-modify { background: var(--amber); }
+    .btn-reject { background: var(--red); color: white; }
+    .btn-escalate { background: var(--blue); }
+
+    .note {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid rgba(167,139,250,0.25);
+      color: #ddd6fe;
+    }
+
+    footer {
+      color: var(--muted);
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px 32px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 1000px) {
+      .span-8, .span-6, .span-4, .span-3 { grid-column: span 12; }
+      .metric-row { grid-template-columns: repeat(2, 1fr); }
+      .flow { grid-template-columns: 1fr; }
+      .header-inner { flex-direction: column; }
+    }
+
+    @media (max-width: 560px) {
+      .metric-row { grid-template-columns: 1fr; }
+      header, main { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1>Human–AI Coordination Room</h1>
+        <p class="subtitle">A first prototype interface for coordinating business owners, human teams and autonomous AI agents around shared missions, business process dynamics, governance gates and improvement decisions.</p>
+      </div>
+      <div class="badge"><span class="dot"></span> Prototype v0.1 · Simulated data</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid">
+      <div class="card span-12">
+        <h2>Owner Overview · Customer Support AI Pilot</h2>
+        <p>The owner view summarizes whether the business process is becoming healthier, merely faster, or in need of correction.</p>
+        <div class="metric-row">
+          <div class="metric"><span class="label">Business process health</span><span class="value green">Improving</span></div>
+          <div class="metric"><span class="label">Value gain</span><span class="value green">+24%</span></div>
+          <div class="metric"><span class="label">Governance load</span><span class="value amber">Medium</span></div>
+          <div class="metric"><span class="label">Risk trend</span><span class="value amber">+7%</span></div>
+        </div>
+        <div class="note">Owner decision needed: expand AI drafting for low-risk tickets, but keep refund and legal-risk workflows under stricter human approval.</div>
+      </div>
+
+      <div class="card span-4">
+        <h2>Positive Dynamics</h2>
+        <ul>
+          <li>First response time improved by 34%.</li>
+          <li>Routine ticket resolution improved by 18%.</li>
+          <li>Human workload decreased in low-risk cases.</li>
+          <li>Documentation consistency improved.</li>
+        </ul>
+      </div>
+
+      <div class="card span-4">
+        <h2>Needs Correction</h2>
+        <ul>
+          <li>Refund-related escalations increased by 12%.</li>
+          <li>Compliance review delays increased.</li>
+          <li>AI confidence is too high in ambiguous cases.</li>
+          <li>Some CRM update requests lack sufficient explanation.</li>
+        </ul>
+      </div>
+
+      <div class="card span-4">
+        <h2>Development / Sanitation</h2>
+        <h3>Develop</h3>
+        <ul>
+          <li>Expand AI drafting for low-risk workflows.</li>
+          <li>Improve policy retrieval quality.</li>
+        </ul>
+        <h3>Sanitize</h3>
+        <ul>
+          <li>Restrict refund automation.</li>
+          <li>Require human review for legal-risk language.</li>
+        </ul>
+      </div>
+
+      <div class="card span-12">
+        <h2>Mission Interface</h2>
+        <table class="status-table">
+          <tr><th>Mission</th><td>Improve customer support speed without losing accountability.</td></tr>
+          <tr><th>Mission owner</th><td>Head of Customer Operations</td></tr>
+          <tr><th>Success criteria</th><td>Faster first response, stable customer satisfaction, no unauthorized commitments, full traceability.</td></tr>
+          <tr><th>Red lines</th><td>AI cannot issue refunds, make legal commitments or update CRM without gateway approval.</td></tr>
+          <tr><th>Autonomy level</th><td><span class="tag amber">Assisted execution with human approval</span></td></tr>
+        </table>
+      </div>
+
+      <div class="card span-12">
+        <h2>Human–AI Coordination Stack in This Prototype</h2>
+        <div class="flow">
+          <div class="flow-step"><strong>Human Layer</strong><span>Owner intent, accountability, strategic decision.</span></div>
+          <div class="flow-step"><strong>Boundaries</strong><span>What AI may observe, recommend, draft or execute.</span></div>
+          <div class="flow-step"><strong>Agent Network</strong><span>Ticket, policy, draft, risk and CRM agents.</span></div>
+          <div class="flow-step"><strong>Live Room</strong><span>Tasks, approvals, risks and attention required.</span></div>
+          <div class="flow-step"><strong>Gateway</strong><span>Approve, reject, modify, escalate or rollback.</span></div>
+          <div class="flow-step"><strong>Process Dynamics</strong><span>Business health, improvement and deterioration.</span></div>
+          <div class="flow-step"><strong>Learning</strong><span>Updated boundaries, patterns and strategic memory.</span></div>
+        </div>
+      </div>
+
+      <div class="card span-8">
+        <h2>Agent Boundary Map</h2>
+        <table class="status-table">
+          <thead><tr><th>Agent</th><th>Allowed</th><th>Forbidden</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Ticket Intake Agent</td><td>Classify and prioritize tickets</td><td>Close tickets autonomously</td><td><span class="tag green">Active</span></td></tr>
+            <tr><td>Policy Retrieval Agent</td><td>Retrieve and rank policy context</td><td>Invent policy</td><td><span class="tag green">Active</span></td></tr>
+            <tr><td>Draft Response Agent</td><td>Draft low-risk responses</td><td>Send external messages</td><td><span class="tag amber">Review needed</span></td></tr>
+            <tr><td>Risk Review Agent</td><td>Flag legal, refund and complaint risks</td><td>Override human decision</td><td><span class="tag green">Active</span></td></tr>
+            <tr><td>CRM Action Agent</td><td>Request CRM updates</td><td>Write without approval</td><td><span class="tag red">Blocked</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card span-4">
+        <h2>Live Coordination</h2>
+        <div class="pill-list">
+          <span class="pill">24 active tickets</span>
+          <span class="pill">7 AI drafts ready</span>
+          <span class="pill">3 pending approvals</span>
+          <span class="pill">2 blocked actions</span>
+          <span class="pill">1 policy conflict</span>
+          <span class="pill">Risk trend: medium</span>
+        </div>
+        <div class="note">Human attention priority: review refund escalation boundary before expanding autonomy.</div>
+      </div>
+
+      <div class="card span-6">
+        <h2>Governance Gateway</h2>
+        <div class="decision-list">
+          <div class="decision">
+            <strong>Action request: Send compensation email</strong>
+            <p>Requested by Draft Response Agent. Risk: medium. Reason: contains refund-related wording.</p>
+            <div class="actions">
+              <button class="btn-approve">Approve</button>
+              <button class="btn-modify">Modify</button>
+              <button class="btn-reject">Reject</button>
+              <button class="btn-escalate">Escalate</button>
+            </div>
+          </div>
+          <div class="decision">
+            <strong>Action request: Update CRM case status</strong>
+            <p>Requested by CRM Action Agent. Risk: high. Missing explanation for customer impact.</p>
+            <div class="actions">
+              <button class="btn-reject">Block</button>
+              <button class="btn-escalate">Escalate to supervisor</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card span-6">
+        <h2>Process Dynamics</h2>
+        <table class="status-table">
+          <thead><tr><th>Signal</th><th>Trend</th><th>Interpretation</th></tr></thead>
+          <tbody>
+            <tr><td>First response time</td><td class="green">Improved</td><td>AI drafting helps low-risk cases.</td></tr>
+            <tr><td>Customer satisfaction</td><td class="green">Slightly improved</td><td>Speed is helping, but complex cases still need care.</td></tr>
+            <tr><td>Escalations</td><td class="amber">Increased</td><td>Refund and complaint boundaries need correction.</td></tr>
+            <tr><td>Governance load</td><td class="amber">Medium</td><td>Approvals are manageable, but trending upward.</td></tr>
+            <tr><td>Responsibility clarity</td><td class="green">Stable</td><td>Owner and approval roles are defined.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card span-12">
+        <h2>Learning Log</h2>
+        <table class="status-table">
+          <thead><tr><th>Event</th><th>Learning</th><th>Governance update</th></tr></thead>
+          <tbody>
+            <tr><td>AI draft rejected for refund wording</td><td>Drafting agent overuses compensation language.</td><td>Require stricter refund template boundaries.</td></tr>
+            <tr><td>Policy retrieval missed exception clause</td><td>RAG context incomplete in edge cases.</td><td>Add freshness and exception-clause check.</td></tr>
+            <tr><td>CRM update blocked</td><td>Tool action lacked impact explanation.</td><td>Gateway requires customer-impact summary before CRM writes.</td></tr>
+            <tr><td>Low-risk drafts approved quickly</td><td>AI useful in repetitive safe workflows.</td><td>Candidate area for controlled autonomy expansion.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Prototype principle: every new AI capability should trigger an interface question — what must become visible, governable and decision-ready for humans before autonomy is expanded?
+  </footer>
+</body>
+</html>
