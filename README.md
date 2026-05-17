@@ -137,6 +137,7 @@ The future problem may be preserving:
 | **Project Intent** | Explains why the project exists, what it contributes, and why it aims to help others build the bridge between autonomy and responsibility |
 | **Project Development Tracks** | Parallel architecture and prototype tracks that co-evolve through feedback rather than replacing one another |
 | **Human–AI Coordination Room** | Prototype interface for business owners, human teams and autonomous AI agents around process dynamics, decisions and governance |
+| **Model–Agent Fit Governance** | Governance pattern for selecting models according to agent role, capability, risk level, action boundaries and accountability requirements |
 | **LLMOps to Human–AI Operational Coordination** | Bridge between technical AI operations and organizational responsibility architecture |
 | **Governance Nervous System** | A real-time coordination and stabilization layer for AI-native operational environments |
 | **Runtime Governance** | Governance during execution, not only retrospective auditing |
@@ -182,6 +183,8 @@ The future problem may be preserving:
 - process dynamics dashboards for human-AI coordination
 - co-evolution of architecture and prototype tracks
 - bridge between AI autonomy and human responsibility
+- model-agent fit governance
+- model selection as operational responsibility architecture
 
 ---
 
@@ -203,6 +206,7 @@ The future problem may be preserving:
 - How should business owners see positive dynamics, deterioration, correction needs and development decisions in AI-native operations?
 - How can architecture and prototype tracks co-evolve faster than agent autonomy?
 - How can this work help others save time, money and avoidable mistakes when building governable human-AI systems?
+- How should organizations choose models according to agent role, risk level, tool permissions and accountability requirements?
 
 ---
 
@@ -246,6 +250,7 @@ Execution Environment
 | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html) | Prototype demo for coordinating business owners, human teams and AI agents |
 | [`docs/prototypes/human-ai-coordination-interface-prototype.md`](docs/prototypes/human-ai-coordination-interface-prototype.md) | Prototype specification for Human-AI Coordination Room |
 | [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Strategic whitepaper |
+| [`docs/concepts/model-agent-fit-governance.md`](docs/concepts/model-agent-fit-governance.md) | Model selection as governance decision for agentic systems |
 | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md) | Layered architecture for Human-AI Operational Coordination |
 | [`docs/architecture/llmops-to-human-ai-operational-coordination.md`](docs/architecture/llmops-to-human-ai-operational-coordination.md) | Bridge between LLMOps and responsibility-aware operational governance |
 | [`docs/project-positioning.md`](docs/project-positioning.md) | Current project positioning |
@@ -320,6 +325,16 @@ It extends the logic of API gateways from technical access control toward respon
 
 ---
 
+### Model-Agent Fit Governance
+
+Model-Agent Fit Governance treats model selection as an operational responsibility decision.
+
+The right model is not simply the most powerful model.
+
+It is the model whose capabilities, risks and boundaries fit the agent's role, tool permissions, human approval thresholds and accountability requirements.
+
+---
+
 ### Personal AI Operational Twin
 
 A Personal AI Operational Twin is a personalized AI work layer configured with a person's context, writing style, documents, workflows and tools.
@@ -368,6 +383,7 @@ Visibility without intervention is insufficient.
 - [`docs/concepts/living-human-ai-operational-interface.md`](docs/concepts/living-human-ai-operational-interface.md)
 - [`docs/concepts/ai-action-boundary-mapping.md`](docs/concepts/ai-action-boundary-mapping.md)
 - [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md)
+- [`docs/concepts/model-agent-fit-governance.md`](docs/concepts/model-agent-fit-governance.md)
 - [`docs/concepts/personal-ai-operational-twin.md`](docs/concepts/personal-ai-operational-twin.md)
 
 ### Evolution and Project Direction
