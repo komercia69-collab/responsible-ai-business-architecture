@@ -51,6 +51,28 @@ See [`docs/project-intent.md`](docs/project-intent.md).
 
 ---
 
+## Start Here
+
+Different readers need different entry paths.
+
+Use [`docs/start-here-by-role.md`](docs/start-here-by-role.md) to choose a practical route based on your role:
+
+- Business Owner / CEO
+- CTO / Head of AI
+- AI Engineer / Agent Builder
+- Consultant / Enterprise Architect
+- Governance / Legal / Security Specialist
+- Researcher / Community Contributor
+
+Each route gives you:
+
+- the 3 files to open first;
+- what to do in 60 minutes;
+- the expected outcome;
+- the next practical step.
+
+---
+
 ## This Project Is a Discussion Space, Not a Finished Doctrine
 
 Responsible AI Business Architecture is not presented as a final answer.
@@ -134,6 +156,7 @@ The future problem may be preserving:
 | Area | Meaning |
 |---|---|
 | **Human–AI Operational Coordination Stack** | Layered architecture connecting human accountability, AI action boundaries, governance gateways and operational AI agents |
+| **Role-Based Start Routes** | Practical entry paths for business owners, CTOs, AI engineers, consultants, governance roles and contributors |
 | **Project Intent** | Explains why the project exists, what it contributes, and why it aims to help others build the bridge between autonomy and responsibility |
 | **Project Development Tracks** | Parallel architecture and prototype tracks that co-evolve through feedback rather than replacing one another |
 | **Human–AI Coordination Room** | Prototype interface for business owners, human teams and autonomous AI agents around process dynamics, decisions and governance |
@@ -191,6 +214,7 @@ The future problem may be preserving:
 - trusted decision intelligence
 - AI + Blockchain + BI governance
 - data integrity vs decision integrity
+- role-based adoption paths for Human-AI Operational Coordination
 
 ---
 
@@ -216,6 +240,7 @@ The future problem may be preserving:
 - What minimum governance architecture should every operational AI agent have before autonomy is increased?
 - How can organizations distinguish data integrity from decision integrity in AI + Blockchain + BI systems?
 - What governance is needed before BI recommendations become automated business actions?
+- How can different roles enter the project through practical routes without needing to read the whole repository first?
 
 ---
 
@@ -253,6 +278,7 @@ Execution Environment
 
 | Start Here | Purpose |
 |---|---|
+| [`docs/start-here-by-role.md`](docs/start-here-by-role.md) | Role-based entry paths for business owners, CTOs, AI engineers, consultants, governance roles and contributors |
 | [`docs/project-intent.md`](docs/project-intent.md) | Explains the project intent: reusable bridge-building material between AI autonomy and human responsibility |
 | [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html) | Executive-facing governance portal |
 | [`docs/project-development-tracks.md`](docs/project-development-tracks.md) | Explains the parallel Architecture Track and Prototype Track |
@@ -399,6 +425,12 @@ Visibility without intervention is insufficient.
 ---
 
 ## Repository Navigation
+
+### Getting Started
+
+- [`docs/start-here-by-role.md`](docs/start-here-by-role.md)
+- [`docs/project-intent.md`](docs/project-intent.md)
+- [`docs/project-development-tracks.md`](docs/project-development-tracks.md)
 
 ### Concepts
 
