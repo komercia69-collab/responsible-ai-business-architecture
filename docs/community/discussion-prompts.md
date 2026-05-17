@@ -37,6 +37,26 @@ Related failure pattern:
 
 ---
 
+## Agent Design and Governance Architecture
+
+AI agent failures often begin before deployment: in unclear objectives, weak context design, missing task decomposition, assumed human oversight and absent recovery paths.
+
+Discussion prompts:
+
+- When does an AI agent become more than a prompt-driven worker?
+- What minimum governance architecture should every operational AI agent have?
+- Why is a prompt not enough to define responsible agent behavior?
+- How should teams define mission, role, boundaries and tool permissions before deploying agents?
+- What does usable human oversight look like in agentic workflows?
+- How should recovery, rollback and escalation paths be designed before autonomy is increased?
+- Which beginner AI-agent mistakes become systemic risks when autonomy scales?
+
+Related failure pattern:
+
+- [Agent Design Without Governance Architecture](../failure-patterns/agent-design-without-governance-architecture.md)
+
+---
+
 ## Runtime Governance
 
 - Can governance operate continuously during execution?
