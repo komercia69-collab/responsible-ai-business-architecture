@@ -85,6 +85,59 @@ The deeper governance question is:
 
 ---
 
+## Five-Layer Gap Diagnostic
+
+Many production failures in agentic systems can be traced to a missing or weak layer.
+
+A five-layer agent stack can be read as a diagnostic map:
+
+```text
+Instruction / memory file
+        ↓
+Skills
+        ↓
+Hooks
+        ↓
+Subagents
+        ↓
+Plugins
+```
+
+In one line:
+
+```text
+Instructions set rules → Skills provide expertise → Hooks enforce quality → Subagents delegate work → Plugins distribute capability
+```
+
+The governance diagnostic question is:
+
+> Which layer is missing, weak, overloaded or ungoverned in this agent system?
+
+| Layer | If missing or weak | Governance question |
+|---|---|---|
+| Instruction / memory file | The agent lacks stable mission, rules, context and operating constraints | What is the agent's constitution and who owns it? |
+| Skills | The agent repeats work, improvises capability or relies on bloated context | Which capabilities are approved, reusable and bounded? |
+| Hooks | Quality, safety and permission checks depend on prompt obedience | Where are runtime checks enforced outside the prompt? |
+| Subagents | The main agent does everything, loses focus or delegates informally | Which tasks require bounded specialist agents? |
+| Plugins | Capability cannot be safely reused, versioned or distributed across teams | Which capabilities are approved for organizational reuse? |
+
+This diagnostic helps convert a technical architecture question into a governance architecture question.
+
+The practical review is simple:
+
+- if rules are unclear, strengthen the instruction / memory layer;
+- if expertise is improvised, define governed skills;
+- if quality depends on trust, add hooks;
+- if work is overloaded, define bounded subagents;
+- if reuse is chaotic, govern plugins;
+- if all layers exist but still fail, inspect cross-layer coordination and accountability.
+
+Key principle:
+
+> Most agentic failures are not only model failures. They are often missing-layer, weak-boundary or poor-coordination failures.
+
+---
+
 ## Instruction Files as Governance Memory
 
 Persistent instruction files can act like operational memory for an agent.
@@ -429,6 +482,7 @@ Use this mapping when:
 - Plugins require governance metadata before organizational reuse.
 - Tool access is delegated operational authority.
 - Agent teams require coordination governance.
+- Missing layers often become production failure sources.
 
 > A prompt is not a governance architecture.
 >
