@@ -70,6 +70,8 @@ If you want a compact map of the most important ideas, use [`docs/core-concepts-
 
 If you want to apply the framework to one real workflow, use [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
 
+If you want to see a concrete example instance, start with [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md).
+
 Each route gives you:
 
 - the files to open first;
@@ -163,6 +165,7 @@ The future problem may be preserving:
 |---|---|
 | **Human–AI Operational Coordination Stack** | Layered architecture connecting human accountability, AI action boundaries, governance gateways and operational AI agents |
 | **Minimal Human–AI Governance Pilot** | Practical first application of the framework to one real AI-assisted workflow |
+| **Concrete Use Cases** | Example instances showing how the framework applies to real AI-assisted workflows |
 | **Core Concepts Bundle** | Compact map of the most important project concepts and how to apply them to one workflow |
 | **60-Minute Project Path** | A fast route from first contact to practical understanding and one workflow governance snapshot |
 | **Role-Based Start Routes** | Practical entry paths for business owners, CTOs, AI engineers, consultants, governance roles and contributors |
@@ -227,6 +230,7 @@ The future problem may be preserving:
 - 60-minute adoption paths for Human-AI Operational Coordination
 - core concept bundling for practical adoption
 - minimal pilot formats for one-workflow governance mapping
+- concrete use cases for agentic BI and governed operational action
 
 ---
 
@@ -256,6 +260,7 @@ The future problem may be preserving:
 - What is the smallest useful path from project discovery to one actionable workflow governance snapshot?
 - Which core concepts should every new reader understand before applying the framework?
 - What is the smallest useful pilot that can map one workflow from AI assistance to governed operational action?
+- How can one concrete AI-assisted workflow be turned into an example instance of governable operational action?
 
 ---
 
@@ -297,6 +302,7 @@ Execution Environment
 | [`docs/start-here-by-role.md`](docs/start-here-by-role.md) | Role-based entry paths for business owners, CTOs, AI engineers, consultants, governance roles and contributors |
 | [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Compact map of the most important concepts and how they connect |
 | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) | Minimal pilot format for applying the framework to one real AI-assisted workflow |
+| [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Concrete example of a customer support AI workflow governed through BI signals, action boundaries, gateway checks, human approval and CRM execution |
 | [`docs/project-intent.md`](docs/project-intent.md) | Explains the project intent: reusable bridge-building material between AI autonomy and human responsibility |
 | [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html) | Executive-facing governance portal |
 | [`docs/project-development-tracks.md`](docs/project-development-tracks.md) | Explains the parallel Architecture Track and Prototype Track |
@@ -450,8 +456,14 @@ Visibility without intervention is insufficient.
 - [`docs/start-here-by-role.md`](docs/start-here-by-role.md)
 - [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md)
 - [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
+- [`use-cases/README.md`](use-cases/README.md)
 - [`docs/project-intent.md`](docs/project-intent.md)
 - [`docs/project-development-tracks.md`](docs/project-development-tracks.md)
+
+### Use Cases
+
+- [`use-cases/README.md`](use-cases/README.md)
+- [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md)
 
 ### Concepts
 
