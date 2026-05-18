@@ -324,7 +324,62 @@ Governance integrity means alignment between:
 
 ---
 
-# 13. Practical Adoption Path
+# 13. Against Governance Theater
+
+Governance frameworks can become theater.
+
+They can produce documents that look complete, policies that sound responsible and dashboards that appear professional — while failing to control real operational behavior.
+
+Examples of governance theater include:
+
+- documents that look good but do not control anything;
+- escalation paths that exist only on paper;
+- policies nobody checks during execution;
+- decision logs nobody reads or acts on;
+- approval gates that become rubber stamps;
+- dashboards without intervention authority;
+- frameworks that sound impressive but fail on the first operational test.
+
+Responsible AI Business Architecture is explicitly designed to avoid this failure mode.
+
+The project should not be evaluated only by whether its language sounds responsible.
+
+It should be evaluated by whether its concepts help create real operational control:
+
+1. Action boundaries that define what AI may and may not do.
+2. Governance gateways that affect runtime decisions.
+3. Failure patterns that show where governance breaks.
+4. Executable demos that prove mechanisms can work at minimal scale.
+5. Anti-pattern examples that show how governance can fail.
+6. Standards mapping that clarifies relevance without overclaiming compliance.
+7. Disclaimers that acknowledge what the project does not and cannot promise.
+
+The project also has its own incentive risk.
+
+Any governance framework can be used as a pitch.
+
+That includes this one.
+
+For that reason, the project must continue to separate signal from theater:
+
+- claims should be tied to repository artifacts;
+- concepts should connect to workflows;
+- examples should include failure modes, not only best practices;
+- demos should show decision behavior, not only architecture diagrams;
+- standards alignment should remain honest and limited;
+- governance should be tested under operational pressure.
+
+The goal is not to make governance look mature.
+
+The goal is to make responsibility operationally visible, assignable, testable and correctable.
+
+> If governance does not affect action, it is not governance.
+>
+> It is theater.
+
+---
+
+# 14. Practical Adoption Path
 
 A responsible adoption path may include:
 
