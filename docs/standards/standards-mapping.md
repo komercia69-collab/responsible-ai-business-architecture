@@ -1,35 +1,20 @@
-# External Standards Mapping
+# Standards Mapping
 
 ## NIST AI RMF, EU AI Act and Enterprise AI Governance
 
-## Purpose
-
-This document explains how Responsible AI Business Architecture relates to external AI governance standards, regulatory frameworks and enterprise governance approaches.
-
-It does not claim that this project replaces any official standard, legal review, compliance program or security assessment.
-
-Instead, it shows how the project can complement existing frameworks at the operational architecture level.
-
-Responsible AI Business Architecture focuses on Human-AI Operational Coordination:
-
-> how humans, organizations and AI systems remain accountable, observable, correctable and coordinated when AI begins to act inside real workflows.
-
----
-
 ## Positioning
 
-Existing standards and frameworks help organizations define what responsible, trustworthy and compliant AI should mean.
-
-Responsible AI Business Architecture asks a practical follow-up question:
-
-> How do those principles become workflow boundaries, governance gateways, approval points, runtime controls, escalation paths and owner-level visibility?
-
-In other words:
-
-```text
 External standards define governance expectations.
+
 Responsible AI Business Architecture helps translate them into operational coordination architecture.
-```
+
+This project does not claim to replace legal, compliance, security, privacy or audit review.
+
+It is an operational architecture companion to recognized governance frameworks and regulatory expectations.
+
+The central question is:
+
+> How do high-level governance expectations become workflow boundaries, governance gateways, approval points, runtime controls, escalation paths, logs and owner-level visibility?
 
 ---
 
@@ -73,7 +58,7 @@ This is especially relevant when AI systems move from passive assistance toward 
 
 ---
 
-## Mapping to NIST AI Risk Management Framework
+## NIST AI RMF Alignment
 
 The NIST AI Risk Management Framework is commonly summarized around four core functions:
 
@@ -83,82 +68,144 @@ Govern → Map → Measure → Manage
 
 Responsible AI Business Architecture can support these functions as an operational architecture companion.
 
-| NIST AI RMF function | RABA contribution |
-|---|---|
-| Govern | Defines accountability layers, governance gateways, human approval paths and role-based responsibility |
-| Map | Maps AI action boundaries, workflow context, tool access, affected stakeholders and operational dependencies |
-| Measure | Supports observability, governance signals, pilot readiness assessment, failure patterns and owner-level process dynamics |
-| Manage | Supports escalation paths, corrective governance, runtime intervention, rollback logic and continuous feedback loops |
+### Govern
+
+Governance expectation:
+
+```text
+Establish accountability, roles, governance culture and oversight structure.
+```
+
+| Project element | Operational contribution | File |
+|---|---|---|
+| Human–AI Operational Coordination Stack | Defines the accountability and coordination layers between humans, AI agents and execution environments | `docs/architecture/human-ai-operational-coordination-stack.md` |
+| Governance Principles | Provides core principles for responsible AI-enabled operations | `docs/governance-principles.md` |
+| AI Action Boundary Mapping | Clarifies where AI may observe, analyze, recommend, draft, trigger or execute | `docs/concepts/ai-action-boundary-mapping.md` |
+| Model–Agent Fit Governance | Treats model choice as a governance decision connected to agent role, risk, tools and accountability | `docs/concepts/model-agent-fit-governance.md` |
 
 ---
 
-## NIST AI RMF: Practical Alignment Examples
+### Map
 
-| Governance expectation | Operational translation in this project |
+Governance expectation:
+
+```text
+Identify AI use context, affected workflows, stakeholders, risks and operational dependencies.
+```
+
+| Project element | Operational contribution | File |
+|---|---|---|
+| AI Action Boundary Mapping | Maps where AI affects workflow actions and where human responsibility must remain explicit | `docs/concepts/ai-action-boundary-mapping.md` |
+| Failure Patterns | Identifies recurring ways AI-native environments can lose governability, coordination or judgment | `docs/failure-patterns/README.md` |
+| Erosion of Human Judgment | Maps risk of weakened human review during fast AI-assisted execution | `docs/failure-patterns/erosion-of-human-judgment.md` |
+| Agent Design Without Governance Architecture | Maps risk of agents built without mission clarity, boundaries, oversight and recovery paths | `docs/failure-patterns/agent-design-without-governance-architecture.md` |
+
+---
+
+### Measure
+
+Governance expectation:
+
+```text
+Analyze, assess and monitor AI risks, governance readiness and operational control quality.
+```
+
+| Project element | Operational contribution | File |
+|---|---|---|
+| AI Governance Readiness Assessment | Helps assess whether a workflow or organization is ready for AI-enabled operations | `frameworks/ai-governance-readiness-assessment.md` |
+| Governance Observability | Defines governance signals beyond technical performance monitoring | `docs/governance-observability.md` |
+| Governance Nervous System | Monitors signals, drift, escalations, approvals and governance pressure in AI-native operations | `docs/concepts/governance-nervous-system.md` |
+| Governance Maturity Model | Defines progression from AI chaos to governed workflows and AI-native governance | `whitepaper/governable-autonomy-whitepaper-v2.md` |
+
+---
+
+### Manage
+
+Governance expectation:
+
+```text
+Prioritize, respond to, mitigate and recover from AI-related risks.
+```
+
+| Project element | Operational contribution | File |
+|---|---|---|
+| AI Governance Gateway | Provides a control point before AI output becomes operational action | `docs/concepts/ai-governance-gateway.md` |
+| Executable Governance Gateway Demo | Demonstrates policy-to-decision-log flow in runnable code | `examples/governance-gateway-demo/` |
+| Corrective Governance Layer | Defines intervention, containment, escalation and rollback mechanisms | `architecture/corrective-governance-layer.md` |
+| Incident Response Playbook | Supports structured response to governance incidents | `docs/incident-response-playbook.md` |
+| Minimal Human–AI Governance Pilot | Tests governance on one workflow before autonomy scales | `offers/minimal-human-ai-governance-pilot.md` |
+
+---
+
+## NIST AI RMF: Practical Translation
+
+| NIST-style expectation | Operational translation in this project |
 |---|---|
 | AI risks should be governed | Define who owns the workflow, who approves AI action and who can stop or correct the system |
 | AI context should be mapped | Use AI Action Boundary Mapping to identify where AI analyzes, recommends, drafts, triggers or executes |
 | AI risks should be measured | Use readiness assessments, governance observability and failure pattern scans |
 | AI risks should be managed | Use Governance Gateway checks, human approval, escalation and correction loops |
-| AI systems should be trustworthy | Preserve traceability, explainability of decisions, accountability and intervention capacity |
+| AI systems should be trustworthy | Preserve traceability, accountability, intervention capacity and decision logs |
 
 This project is not a NIST AI RMF implementation.
 
-It is a practical architecture layer that can help teams discuss how NIST-like governance expectations appear inside actual workflows.
+It is a practical architecture layer that helps teams discuss how NIST-like governance expectations appear inside actual workflows.
 
 ---
 
-## Mapping to the EU AI Act
+## EU AI Act Relevance
 
-The EU AI Act introduces a risk-based approach to AI regulation.
+The EU AI Act establishes a risk-based approach to AI systems deployed or used in the European Union.
 
 Responsible AI Business Architecture does not classify systems legally and does not determine compliance status.
 
-However, it can help organizations prepare operational evidence and governance structure around questions that become important in regulated AI contexts.
+However, it can help organizations prepare operational evidence, workflow controls and governance structure around questions that become important in regulated AI contexts.
 
-| EU AI Act concern area | RABA contribution |
-|---|---|
-| Risk-based AI governance | Helps map which workflow actions are low-risk, restricted, high-impact or require human control |
-| Human oversight | Defines where human review, approval, escalation or intervention is required |
-| Transparency | Supports logs, decision traces, user-facing explanations and owner-level visibility |
-| Data governance | Encourages mapping of data categories, data access and decision context |
-| Technical documentation | Provides structured workflow, boundary, gateway and pilot artifacts that may support documentation efforts |
-| Monitoring after deployment | Uses Governance Nervous System, runtime governance and failure pattern monitoring concepts |
-| Accountability | Keeps final operational responsibility assigned to human or organizational roles |
+| EU AI Act expectation or concern | Project element | File or proof layer |
+|---|---|---|
+| Human oversight for high-impact or high-risk AI contexts | AI Action Boundary Mapping + AI Governance Gateway | `docs/concepts/ai-action-boundary-mapping.md`, `docs/concepts/ai-governance-gateway.md` |
+| Logging and auditability | Decision logging in the executable Governance Gateway demo | `examples/governance-gateway-demo/decision-log-example.json` |
+| Risk management system | Governance Nervous System + failure pattern scanning | `docs/concepts/governance-nervous-system.md`, `docs/failure-patterns/README.md` |
+| Transparency and explainability to operators or users | Human–AI Coordination Room and owner-level visibility | `demo/human-ai-coordination-room.html` |
+| Incident detection and response | Corrective Governance Layer + Incident Response Playbook | `architecture/corrective-governance-layer.md`, `docs/incident-response-playbook.md` |
+| Accountability assignment | Human–AI Operational Coordination Stack | `docs/architecture/human-ai-operational-coordination-stack.md` |
+| Data and model documentation support | Model–Agent Fit Governance and workflow mapping artifacts | `docs/concepts/model-agent-fit-governance.md` |
+| Human review before sensitive action | Governance Gateway decisions: `REQUIRE_APPROVAL` and `ESCALATE` | `examples/governance-gateway-demo/` |
 
 ---
 
-## EU AI Act: Practical Alignment Examples
+## EU AI Act: Practical Questions
 
 | Regulatory-style question | Operational question in this project |
 |---|---|
 | Is the AI system high-risk? | Which workflow does it affect, what harm could occur and who is impacted? |
-| Is there human oversight? | Where exactly can a human approve, block, correct or escalate AI output? |
-| Is the system transparent enough? | What is logged, what is visible to users, managers and auditors? |
-| Is the AI output used for decisions? | Does AI only support analysis, or does it influence operational action? |
-| Can the organization monitor the system? | Which signals show drift, escalation pressure, policy violation or coordination failure? |
+| Is there meaningful human oversight? | Where exactly can a human approve, block, correct or escalate AI output? |
+| Is the system transparent enough? | What is logged, what is visible to users, managers, owners and auditors? |
+| Is AI output used for decisions? | Does AI only support analysis, or does it influence operational action? |
+| Can the organization monitor the system after deployment? | Which signals show drift, escalation pressure, policy violation or coordination failure? |
 | Can errors be corrected? | Which actions are reversible and what recovery path exists? |
 
 This project should be seen as a governance design companion, not as a legal compliance checklist.
 
 ---
 
-## Mapping to Enterprise AI Governance
+## Enterprise AI Governance Alignment
 
 Enterprise AI governance often involves policies, approvals, risk assessments, model inventories, data governance, security review and audit processes.
 
 Responsible AI Business Architecture contributes a workflow-level operational layer.
 
-| Enterprise governance need | RABA contribution |
-|---|---|
-| AI use case intake | Minimal Human-AI Governance Pilot and readiness assessment |
-| Role and responsibility clarity | Human-AI Operational Coordination Stack and accountability mapping |
-| AI capability control | AI Action Boundary Mapping and Model-Agent Fit Governance |
-| Tool and system access control | AI Governance Gateway and agent development kit governance mapping |
-| Runtime monitoring | Governance Nervous System and governance observability concepts |
-| Escalation and recovery | Corrective Governance and failure pattern scanning |
-| Executive visibility | Human-AI Coordination Room and owner-level process dynamics view |
-| Knowledge reuse | Project Hub, templates, use cases and governance vocabulary |
+| Enterprise governance expectation | Project element | Operational value |
+|---|---|---|
+| AI use case intake | Minimal Human–AI Governance Pilot | Helps start from one bounded workflow |
+| Role and responsibility clarity | Human–AI Operational Coordination Stack | Maps who remains accountable |
+| Defined AI action boundaries | AI Action Boundary Mapping | Separates analysis, recommendation, drafting, triggering and execution |
+| Runtime controls | AI Governance Gateway + executable demo | Turns policy into runtime decision logic |
+| Escalation and override paths | Corrective Governance Layer | Supports containment, escalation and recovery |
+| Executive visibility | Owner Control Center + Executive Governance Portal | Makes governance visible to business owners and leaders |
+| Audit trail | Decision logging in the Governance Gateway demo | Shows how actions and decisions can be recorded |
+| Failure pattern awareness | Failure Patterns library | Helps detect early signs of governance breakdown |
+| Pilot-first approach | Minimal Human–AI Governance Pilot | Tests governance before scaling autonomy |
 
 ---
 
@@ -178,30 +225,91 @@ Workflow Governance: boundaries, gateways, approvals, logs, escalation
 AI Systems, Agents, Tools, Data and Business Processes
 ```
 
-RABA is not the entire governance stack.
+Responsible AI Business Architecture is not the entire governance stack.
 
 It is the operational coordination layer that helps make governance usable inside real AI-assisted workflows.
 
 ---
 
-## Mapping Project Concepts to Governance Needs
+## Proof Layer: Governance Gateway Demo
 
-| Project concept | Governance need addressed |
+The project includes a minimal executable Governance Gateway demo:
+
+```text
+examples/governance-gateway-demo/
+```
+
+This moves the project from:
+
+```text
+framework-as-document
+```
+
+toward:
+
+```text
+framework-as-proof
+```
+
+The demo flow is:
+
+```text
+AI agent action
+        ↓
+Governance policy check
+        ↓
+Decision: ALLOW / BLOCK / REQUIRE_APPROVAL / ESCALATE
+        ↓
+Decision log
+```
+
+Run:
+
+```bash
+node examples/governance-gateway-demo/governance-gateway.js
+```
+
+The demo includes:
+
+| File | Purpose |
 |---|---|
-| Human-AI Operational Coordination Stack | End-to-end accountability and operational structure |
-| AI Action Boundary Mapping | Clear separation between analysis, recommendation, drafting, triggering and execution |
-| AI Governance Gateway | Control point before AI output becomes operational action |
-| Governance Nervous System | Runtime monitoring, feedback and stabilization |
-| Model-Agent Fit Governance | Choosing models according to task, risk, tools and responsibility |
-| Agent Development Kit Governance Mapping | Governing skills, hooks, subagents, plugins and tool access |
-| Failure Patterns | Detecting early signs of coordination, accountability or oversight breakdown |
-| Minimal Human-AI Governance Pilot | Testing governance on one workflow before scaling autonomy |
-| Trusted Decision Intelligence | Distinguishing data integrity from decision integrity |
-| Human-AI Coordination Room | Owner-level visibility and operational interface design |
+| `governance-policy.json` | Defines allowed agents, action types, thresholds, forbidden categories and approval rules |
+| `sample-agent-actions.json` | Provides example AI agent action requests |
+| `governance-gateway.js` | Evaluates action requests against governance policy |
+| `decision-log-example.json` | Shows logged decisions, reasons, policy ID, timestamp and original action |
+
+This demonstrates a core governance mechanism that NIST AI RMF, EU AI Act concerns and enterprise governance programs all need in practice:
+
+```text
+A controlled point between AI capability and operational action,
+with policy checks, decision outcomes, human approval paths,
+escalation paths and logging.
+```
 
 ---
 
-## Example: From Standard Principle to Workflow Control
+## Failure Patterns as Risk Support
+
+Failure patterns in this project support risk identification across NIST AI RMF, EU AI Act and enterprise governance discussions.
+
+They help identify where AI-native operations can lose responsibility, judgment, accountability or coordination even when individual AI outputs appear correct.
+
+| Failure pattern or category | Related risk category |
+|---|---|
+| Erosion of Human Judgment | Human oversight failure |
+| Agent Design Without Governance Architecture | System design and delegation risk |
+| Coordination Gaps Between Humans and AI Agents | Operational coordination risk |
+| Escalation Saturation | Human review capacity risk |
+| Coordination Collapse | Systemic operational breakdown risk |
+| Oversight Latency | Delayed human intervention risk |
+| Runtime Governance Drift | Monitoring and control failure |
+| Architectural Opacity | Loss of system-level explainability |
+| Context Drift Across AI-Assisted Workflows | Data and context integrity risk |
+| Explainability Fragmentation | Fragmented accountability and explanation risk |
+
+---
+
+## From Standard Principle to Workflow Control
 
 High-level principle:
 
@@ -229,13 +337,13 @@ This is the type of translation Responsible AI Business Architecture is designed
 
 ---
 
-## Example: From Risk Assessment to Action Boundary
+## From Risk Assessment to Action Boundary
 
 A traditional risk assessment may say:
 
 > This AI use case has customer impact and therefore requires human oversight and monitoring.
 
-RABA asks:
+Responsible AI Business Architecture asks:
 
 - What exact customer-impacting actions exist?
 - Which of them may AI draft?
@@ -251,19 +359,6 @@ This moves governance from general intention to operational design.
 
 ---
 
-## How to Use This Mapping
-
-Use this document when:
-
-- explaining the project to governance, legal, risk or compliance audiences;
-- preparing a responsible AI pilot;
-- reviewing an AI agent workflow;
-- connecting project concepts to recognized AI governance frameworks;
-- discussing where operational coordination fits in enterprise AI governance;
-- showing that the project complements, not replaces, external standards.
-
----
-
 ## Recommended Reading Path
 
 For external standards alignment:
@@ -274,7 +369,8 @@ For external standards alignment:
 4. `docs/architecture/human-ai-operational-coordination-stack.md`
 5. `docs/concepts/ai-action-boundary-mapping.md`
 6. `docs/concepts/ai-governance-gateway.md`
-7. `offers/minimal-human-ai-governance-pilot.md`
+7. `examples/governance-gateway-demo/README.md`
+8. `offers/minimal-human-ai-governance-pilot.md`
 
 ---
 
@@ -282,10 +378,11 @@ For external standards alignment:
 
 - External standards define important governance expectations.
 - Organizations still need to translate those expectations into real workflow controls.
-- RABA focuses on that operational translation layer.
+- Responsible AI Business Architecture focuses on that operational translation layer.
 - It does not replace legal, compliance, privacy, security or regulatory review.
 - It helps teams ask better questions before AI systems act inside business processes.
 - Its strongest contribution is Human-AI Operational Coordination: boundaries, gateways, approvals, observability, escalation and correction.
+- The executable Governance Gateway demo shows how a policy-to-decision-log control point can work at minimal scale.
 
 > Standards define the expectation.
 >
