@@ -1,0 +1,65 @@
+{
+  "policyId": "responsible-ai-operations-policy-theater-v1",
+  "description": "A policy that sounds responsible but does not create reliable runtime control.",
+  "principles": [
+    "Human oversight is required for important decisions.",
+    "AI decisions should be logged.",
+    "High-risk cases should be escalated.",
+    "The organization remains accountable for AI-assisted work."
+  ],
+  "oversight": {
+    "humanReviewRequired": true,
+    "reviewMode": "as-needed",
+    "reviewOwner": "operations-team",
+    "maximumReviewDelayHours": null,
+    "reviewSamplingRate": "periodic"
+  },
+  "logging": {
+    "enabled": true,
+    "reviewFrequency": "monthly",
+    "alertOnBlockedAction": false,
+    "alertOnRepeatedEscalation": false,
+    "alertOnApprovalDelay": false
+  },
+  "riskClassification": {
+    "enabled": true,
+    "categories": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "classificationOwner": "ai-agent",
+    "humanReviewForHighRisk": "recommended"
+  },
+  "actions": {
+    "allowedByDefault": true,
+    "forbiddenActions": [
+      "legal_advice",
+      "medical_advice"
+    ],
+    "requiresApproval": [
+      "external_payment",
+      "contract_signature"
+    ],
+    "ambiguousActions": [
+      "case_closure",
+      "record_update",
+      "priority_downgrade",
+      "customer_commitment"
+    ]
+  },
+  "escalation": {
+    "enabled": true,
+    "path": "manager-review",
+    "trigger": "when the AI determines escalation is necessary",
+    "fallbackIfManagerUnavailable": "continue normal workflow"
+  },
+  "knownWeaknesses": [
+    "allowedByDefault means actions proceed unless explicitly forbidden",
+    "high-risk review is recommended rather than enforced",
+    "logs are reviewed monthly and do not trigger alerts",
+    "escalation depends on the AI deciding to escalate",
+    "ambiguous actions are not clearly blocked or routed to approval",
+    "fallback allows workflow to continue if manager is unavailable"
+  ]
+}
