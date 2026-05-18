@@ -53,6 +53,8 @@ See [`docs/project-intent.md`](docs/project-intent.md).
 
 ## Start Here
 
+If you are new to the project and want the fastest overview, start with [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md).
+
 Different readers need different entry paths.
 
 Use [`docs/start-here-by-role.md`](docs/start-here-by-role.md) to choose a practical route based on your role:
@@ -95,7 +97,7 @@ Use this hub as a quick navigation panel for the repository.
 
 | Hub Area | Start Here | What It Helps You Do |
 |---|---|---|
-| **Orientation** | [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md), [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand, share, review and navigate the project quickly |
+| **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md), [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand, share, review and navigate the project quickly |
 | **Governance Architecture** | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md), [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md), [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md) | Map responsibility, action boundaries, gateways, agent capabilities and coordination layers |
 | **Proof Layer** | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) | Run a minimal executable Governance Gateway example from policy to decision log |
 | **Prototypes & Portals** | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html), [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html), [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Explore interface prototypes and executive-facing governance views |
@@ -336,6 +338,7 @@ Execution Environment
 
 | Start Here | Purpose |
 |---|---|
+| [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md) | Fastest short overview of the project for first-time readers |
 | [`docs/external-summary.md`](docs/external-summary.md) | Short external summary for sharing the project with partners, employers, collaborators and LinkedIn contacts |
 | [`PROJECT-VALUE.md`](PROJECT-VALUE.md) | Project value and review guide for different external readers |
 | [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md) | Shows how the project complements NIST AI RMF, EU AI Act and enterprise AI governance at the workflow-control layer |
@@ -505,6 +508,7 @@ Visibility without intervention is insufficient.
 
 ### Getting Started
 
+- [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md)
 - [`PROJECT-VALUE.md`](PROJECT-VALUE.md)
 - [`docs/external-summary.md`](docs/external-summary.md)
 - [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md)
