@@ -1,0 +1,68 @@
+[
+  {
+    "id": "action-001",
+    "agent": "customer-support-agent",
+    "actionType": "classify_ticket",
+    "executionMode": "recommend",
+    "amount": 0,
+    "customerImpact": false,
+    "reversible": true,
+    "category": "support_triage",
+    "description": "Classify a ticket as delivery delay and route it to standard support queue."
+  },
+  {
+    "id": "action-002",
+    "agent": "customer-support-agent",
+    "actionType": "draft_reply",
+    "executionMode": "draft",
+    "amount": 0,
+    "customerImpact": true,
+    "reversible": true,
+    "category": "customer_communication",
+    "description": "Draft a reply apologizing for a delayed shipment."
+  },
+  {
+    "id": "action-003",
+    "agent": "customer-support-agent",
+    "actionType": "offer_refund",
+    "executionMode": "execute",
+    "amount": 120,
+    "customerImpact": true,
+    "reversible": true,
+    "category": "refund",
+    "description": "Offer a refund of 120 EUR to a dissatisfied customer."
+  },
+  {
+    "id": "action-004",
+    "agent": "customer-support-agent",
+    "actionType": "offer_refund",
+    "executionMode": "execute",
+    "amount": 600,
+    "customerImpact": true,
+    "reversible": true,
+    "category": "refund",
+    "description": "Offer a refund of 600 EUR after repeated customer complaints."
+  },
+  {
+    "id": "action-005",
+    "agent": "customer-support-agent",
+    "actionType": "close_complaint",
+    "executionMode": "execute",
+    "amount": 0,
+    "customerImpact": true,
+    "reversible": false,
+    "category": "complaint_resolution",
+    "description": "Close a complaint permanently after AI determines the customer has been answered."
+  },
+  {
+    "id": "action-006",
+    "agent": "customer-support-agent",
+    "actionType": "draft_reply",
+    "executionMode": "draft",
+    "amount": 0,
+    "customerImpact": true,
+    "reversible": true,
+    "category": "legal_advice",
+    "description": "Draft a legal statement telling the customer they have no valid claim."
+  }
+]
