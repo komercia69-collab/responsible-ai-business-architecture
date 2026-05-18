@@ -18,6 +18,37 @@ The central question is:
 
 ---
 
+## What This Project Does Not Promise
+
+This project does not:
+
+- guarantee compliance with the EU AI Act or any other regulation;
+- eliminate AI risks;
+- prevent all governance failures;
+- make an organization responsible simply because it uses this framework;
+- certify legal, security, privacy or audit readiness;
+- claim superiority over other governance frameworks;
+- replace organizational culture, expert review or accountable leadership.
+
+What it does:
+
+- provide operational architecture patterns;
+- show working code for minimal governance mechanisms;
+- catalog failure patterns where real systems can break;
+- map concepts carefully to external standards and governance expectations;
+- support honest conversation about AI governance, operational control and responsibility.
+
+The quality of governance depends on:
+
+- honest implementation, not documentation alone;
+- continuous operation, not one-time setup;
+- organizational culture, not framework language alone;
+- real escalation paths, not templates;
+- human accountability, not system safety claims;
+- tested controls, not governance theater.
+
+---
+
 ## What This Project Does Not Replace
 
 This project does not replace:
@@ -99,6 +130,7 @@ Identify AI use context, affected workflows, stakeholders, risks and operational
 | Failure Patterns | Identifies recurring ways AI-native environments can lose governability, coordination or judgment | `docs/failure-patterns/README.md` |
 | Erosion of Human Judgment | Maps risk of weakened human review during fast AI-assisted execution | `docs/failure-patterns/erosion-of-human-judgment.md` |
 | Agent Design Without Governance Architecture | Maps risk of agents built without mission clarity, boundaries, oversight and recovery paths | `docs/failure-patterns/agent-design-without-governance-architecture.md` |
+| Governance Theater | Maps risk that governance exists as presentation but fails as operational control | `docs/failure-patterns/governance-theater.md` |
 
 ---
 
@@ -298,6 +330,7 @@ They help identify where AI-native operations can lose responsibility, judgment,
 |---|---|
 | Erosion of Human Judgment | Human oversight failure |
 | Agent Design Without Governance Architecture | System design and delegation risk |
+| Governance Theater | False confidence, symbolic governance and controls that do not work in practice |
 | Coordination Gaps Between Humans and AI Agents | Operational coordination risk |
 | Escalation Saturation | Human review capacity risk |
 | Coordination Collapse | Systemic operational breakdown risk |
@@ -383,6 +416,7 @@ For external standards alignment:
 - It helps teams ask better questions before AI systems act inside business processes.
 - Its strongest contribution is Human-AI Operational Coordination: boundaries, gateways, approvals, observability, escalation and correction.
 - The executable Governance Gateway demo shows how a policy-to-decision-log control point can work at minimal scale.
+- Governance quality depends on real implementation, testing, monitoring, escalation and accountability — not documentation alone.
 
 > Standards define the expectation.
 >
