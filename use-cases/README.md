@@ -22,6 +22,7 @@ Each use case should connect:
 | Use case | What it demonstrates |
 |---|---|
 | [`Customer Support AI Agent / Agentic BI Governance`](customer-support-agentic-bi-governance.md) | How a customer support AI workflow can move from BI signal to AI recommendation, governance gateway, human approval, CRM execution and governance learning |
+| [`AI-Assisted Maintenance Triage Governance`](maintenance-ai-triage-governance.md) | How an operational maintenance workflow can use AI for triage and work order preparation without losing safety awareness, human responsibility, escalation control or auditability |
 
 ---
 
@@ -48,6 +49,12 @@ CRM action is executed
         ↓
 Governance Nervous System logs and learns
 ```
+
+Then compare it with:
+
+[`maintenance-ai-triage-governance.md`](maintenance-ai-triage-governance.md)
+
+This second example shows that the framework is not limited to customer support. It can also apply to maintenance, field service and operational environments where AI may assist with triage but must not silently become responsible for safety.
 
 ---
 
