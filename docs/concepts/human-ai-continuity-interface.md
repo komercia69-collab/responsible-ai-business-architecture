@@ -4,7 +4,7 @@
 
 A reliable Human-AI interface should not only optimize output.
 
-It should support the human ability to continue acting, learning, correcting, staying motivated and remaining responsible under accelerating AI-enabled complexity.
+It should support the human ability to continue acting, learning, correcting, staying motivated, withstanding increasing tempo and remaining responsible under accelerating AI-enabled complexity.
 
 This concept extends Human-AI Operational Coordination with a human continuity layer.
 
@@ -54,6 +54,7 @@ What went wrong?
 What can be recovered?
 What is the next safe step?
 Which decision remains mine?
+Is the tempo still sustainable?
 How do I continue without losing responsibility?
 ```
 
@@ -88,6 +89,35 @@ motivation becomes a condition of responsible participation.
 
 ---
 
+## Why Tempo Resilience Matters
+
+AI does not only increase productivity.
+
+It also increases tempo.
+
+More output creates more decisions.
+
+More decisions create more review pressure.
+
+More possibilities create more unfinished branches.
+
+More unfinished branches create more cognitive load.
+
+If the interface does not help regulate this tempo, the human may lose the ability to follow the process responsibly.
+
+Therefore:
+
+```text
+A reliable Human-AI interface must help the human withstand increasing tempo
+without losing orientation, motivation, judgment or responsibility.
+```
+
+Tempo resilience is not the same as speed.
+
+It is the ability to remain capable under acceleration.
+
+---
+
 ## Link to Human Qualities
 
 Human-AI Continuity Interface supports qualities that become more important in the age of AI:
@@ -100,6 +130,7 @@ Human-AI Continuity Interface supports qualities that become more important in t
 - intuition;
 - responsibility;
 - judgment;
+- tempo resilience;
 - connection to the real world.
 
 AI should not weaken these qualities by doing everything for the human.
@@ -201,7 +232,40 @@ Useful patterns:
 
 ---
 
-### 7. Human Responsibility Marker
+### 7. Tempo Resilience
+
+The interface should help the human withstand a rising tempo over time.
+
+This is different from simply working faster.
+
+Tempo resilience means preserving human orientation, judgment and responsibility when AI increases the number of outputs, options, corrections, branches and decisions.
+
+Useful patterns:
+
+- tempo warnings;
+- workload compression summaries;
+- slowing-down prompts;
+- branch pruning;
+- deferred decision lists;
+- recovery checkpoints;
+- explicit stop points;
+- “enough for now” markers;
+- separation of exploration from commitment.
+
+Useful interface questions:
+
+```text
+Is the tempo still sustainable?
+Are we creating more branches than we can responsibly review?
+Which decisions can wait?
+Which branch should be closed?
+What must be preserved before moving faster?
+Should we pause and consolidate?
+```
+
+---
+
+### 8. Human Responsibility Marker
 
 The interface should mark where responsibility remains human.
 
@@ -220,7 +284,7 @@ This decision should not be automated.
 
 ---
 
-### 8. Learning Reflection
+### 9. Learning Reflection
 
 The interface helps the human see what they learned.
 
@@ -256,6 +320,9 @@ Error Recovery Layer
         ↓
 Motivation Layer
   progress, confidence, energy, self-motivation
+        ↓
+Tempo Layer
+  pace, overload, branching, consolidation, pause points
         ↓
 Governance Layer
   approval, escalation, accountability, logs
@@ -298,7 +365,10 @@ Relevant signals may include:
 - loss of human review;
 - repeated uncorrected errors;
 - human uncertainty about next step;
-- unclear responsibility boundaries.
+- unclear responsibility boundaries;
+- unsustainable tempo;
+- too many active branches;
+- too many decisions without consolidation.
 
 ---
 
@@ -314,6 +384,8 @@ This concept helps reduce:
 - over-delegation;
 - abandonment of complex work;
 - loss of motivation under acceleration;
+- tempo overload;
+- branch overload;
 - silent transfer of responsibility to AI.
 
 ---
@@ -332,6 +404,8 @@ When designing a Human-AI interface, ask:
 8. Does it prevent AI speed from overwhelming human responsibility?
 9. Does it help return after interruption?
 10. Does it support motivation during long, complex, open-ended work?
+11. Does it help the human withstand increasing tempo?
+12. Does it help pause, consolidate and close branches before moving faster?
 
 ---
 
@@ -348,9 +422,12 @@ It may need features such as:
 - recovery checkpoints;
 - human approval markers;
 - motivation-aware summaries;
+- tempo-aware summaries;
 - interruption recovery;
 - error correction paths;
 - learning reflections;
+- pause and consolidation prompts;
+- branch management;
 - governance-aware task state.
 
 These are not decorative features.
@@ -363,8 +440,8 @@ They are part of reliable Human-AI collaboration under complexity.
 
 ```text
 A reliable Human-AI interface must support not only task execution,
-but also the human capacity to remain motivated, oriented and responsible
-inside a hyperdynamic process.
+but also the human capacity to remain motivated, oriented, tempo-resilient
+and responsible inside a hyperdynamic process.
 ```
 
 ---
@@ -381,10 +458,11 @@ meaning
 + motivation
 + shared error recovery
 + pace regulation
++ tempo resilience
 + responsibility markers
 + learning reflection
 ```
 
 Without this layer, AI may accelerate work faster than the human can responsibly sustain.
 
-With this layer, AI can help the human act, learn, correct and remain responsible under complexity.
+With this layer, AI can help the human act, learn, correct, withstand increasing tempo and remain responsible under complexity.
