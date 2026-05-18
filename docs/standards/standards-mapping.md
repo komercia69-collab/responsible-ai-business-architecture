@@ -146,7 +146,7 @@ Analyze, assess and monitor AI risks, governance readiness and operational contr
 |---|---|---|
 | AI Governance Readiness Assessment | Helps assess whether a workflow or organization is ready for AI-enabled operations | `frameworks/ai-governance-readiness-assessment.md` |
 | Governance Observability | Defines governance signals beyond technical performance monitoring | `docs/governance-observability.md` |
-| Governance Nervous System | Monitors signals, drift, escalations, approvals and governance pressure in AI-native operations | `docs/concepts/governance-nervous-system.md` |
+| Governance Nervous System | Monitors signals, drift, escalations, approvals and governance pressure in AI-native operations | `architecture/governance-nervous-system.md` |
 | Governance Maturity Model | Defines progression from AI chaos to governed workflows and AI-native governance | `whitepaper/governable-autonomy-whitepaper-v2.md` |
 
 ---
@@ -197,7 +197,7 @@ However, it can help organizations prepare operational evidence, workflow contro
 |---|---|---|
 | Human oversight for high-impact or high-risk AI contexts | AI Action Boundary Mapping + AI Governance Gateway | `docs/concepts/ai-action-boundary-mapping.md`, `docs/concepts/ai-governance-gateway.md` |
 | Logging and auditability | Decision logging in the executable Governance Gateway demo | `examples/governance-gateway-demo/decision-log-example.json` |
-| Risk management system | Governance Nervous System + failure pattern scanning | `docs/concepts/governance-nervous-system.md`, `docs/failure-patterns/README.md` |
+| Risk management system | Governance Nervous System + failure pattern scanning | `architecture/governance-nervous-system.md`, `docs/failure-patterns/README.md` |
 | Transparency and explainability to operators or users | Human–AI Coordination Room and owner-level visibility | `demo/human-ai-coordination-room.html` |
 | Incident detection and response | Corrective Governance Layer + Incident Response Playbook | `architecture/corrective-governance-layer.md`, `docs/incident-response-playbook.md` |
 | Accountability assignment | Human–AI Operational Coordination Stack | `docs/architecture/human-ai-operational-coordination-stack.md` |
