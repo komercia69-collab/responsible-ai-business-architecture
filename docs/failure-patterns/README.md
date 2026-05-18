@@ -38,6 +38,12 @@ These patterns describe situations where AI agents are designed as prompt-driven
 
 - [Agent Design Without Governance Architecture](./agent-design-without-governance-architecture.md)
 
+### Governance Integrity Failures
+
+These patterns describe situations where governance exists as documentation, presentation or formal process, but does not control real operational behavior.
+
+- [Governance Theater](./governance-theater.md)
+
 ### Coordination Failures
 
 These patterns describe breakdowns in coordination between humans, AI agents, teams, workflows and governance mechanisms.
