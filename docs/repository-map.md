@@ -46,6 +46,12 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 ---
 
+## Releases and Snapshots
+
+- [`docs/releases/v0.1-partner-preview.md`](releases/v0.1-partner-preview.md)
+
+---
+
 ## Use Cases
 
 - [`../use-cases/README.md`](../use-cases/README.md)
