@@ -11,6 +11,8 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/this-project-in-3-minutes.md`](this-project-in-3-minutes.md)
 - [`../PROJECT-VALUE.md`](../PROJECT-VALUE.md)
 - [`docs/external-summary.md`](external-summary.md)
+- [`docs/partner-engagement.md`](partner-engagement.md)
+- [`docs/share-this-project.md`](share-this-project.md)
 - [`docs/ai-collaboration-protocol.md`](ai-collaboration-protocol.md)
 - [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
@@ -22,6 +24,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`../use-cases/README.md`](../use-cases/README.md)
 - [`docs/project-intent.md`](project-intent.md)
 - [`docs/project-development-tracks.md`](project-development-tracks.md)
+- [`docs/partner-readiness-backlog.md`](partner-readiness-backlog.md)
 
 ---
 
@@ -114,7 +117,15 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 ## Offers and Pilot Formats
 
+- [`docs/partner-engagement.md`](partner-engagement.md)
+- [`../offers/pilot-partner-call.md`](../offers/pilot-partner-call.md)
 - [`../offers/minimal-human-ai-governance-pilot.md`](../offers/minimal-human-ai-governance-pilot.md)
+
+---
+
+## Partner Readiness and Operational Maturity
+
+- [`docs/partner-readiness-backlog.md`](partner-readiness-backlog.md)
 
 ---
 

@@ -8,6 +8,14 @@ It is intended for business owners, CTOs, AI engineers, enterprise architects, c
 
 ---
 
+## For Pilot Partners
+
+If your organization is exploring AI in a real workflow, start with [`docs/partner-engagement.md`](docs/partner-engagement.md).
+
+The recommended first step is narrow: choose one AI-assisted workflow, map where AI output becomes operational action, identify approval and escalation points, and define what should be logged before autonomy increases.
+
+---
+
 ## Start Here
 
 If you are new to the project, start with [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md).
@@ -81,11 +89,11 @@ For a detailed file-by-file navigation map, see [`docs/repository-map.md`](docs/
 | Hub Area | Start Here | What It Helps You Do |
 |---|---|---|
 | **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose a practical entry route |
-| **External Sharing** | [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md), [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md) | Share, review and position the project with partners, employers and governance audiences |
+| **External Sharing** | [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md), [`docs/share-this-project.md`](docs/share-this-project.md), [`docs/partner-engagement.md`](docs/partner-engagement.md) | Share, review and position the project with partners, employers and governance audiences |
 | **Governance Architecture** | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md), [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md), [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md) | Map responsibility, action boundaries, gateways, agent capabilities and coordination layers |
 | **Proof Layer** | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md), [`docs/diagrams/governance-gateway-flow.md`](docs/diagrams/governance-gateway-flow.md) | Run and understand a minimal Governance Gateway example from policy to decision log |
 | **Prototypes & Portals** | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html), [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html), [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Explore interface prototypes and executive-facing governance views |
-| **Pilots & Use Cases** | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`use-cases/README.md`](use-cases/README.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
+| **Pilots & Use Cases** | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`offers/pilot-partner-call.md`](offers/pilot-partner-call.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
 | **Governance Toolkit** | [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md), [`tools/suspicious-instruction-review-gate/README.md`](tools/suspicious-instruction-review-gate/README.md) | Assess readiness, detect failure patterns and test governance controls |
 | **Project Direction** | [`docs/project-intent.md`](docs/project-intent.md), [`docs/project-development-tracks.md`](docs/project-development-tracks.md), [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Understand why the project exists and how architecture, prototypes and adoption paths evolve together |
 
@@ -245,7 +253,7 @@ The deeper question is becoming:
 
 If you are new to the project, start with [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md).
 
-If you want to apply the framework, use [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) to map one real AI-assisted workflow.
+If you want to apply the framework, use [`docs/partner-engagement.md`](docs/partner-engagement.md) or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) to map one real AI-assisted workflow.
 
 If you want to contribute, open an issue with a concrete workflow, failure pattern, governance question or pilot scenario.
 
