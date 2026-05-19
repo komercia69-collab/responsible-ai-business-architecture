@@ -68,6 +68,8 @@ Use [`docs/start-here-by-role.md`](docs/start-here-by-role.md) to choose a pract
 
 If you are sharing the project externally, use [`docs/external-summary.md`](docs/external-summary.md).
 
+If you want to understand how this project works with AI systems without losing human responsibility, use [`docs/ai-collaboration-protocol.md`](docs/ai-collaboration-protocol.md).
+
 If you want to understand the project value for different readers, use [`PROJECT-VALUE.md`](PROJECT-VALUE.md).
 
 If you want to see how the project relates to external governance standards, use [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md).
@@ -99,7 +101,7 @@ Use this hub as a quick navigation panel for the repository.
 
 | Hub Area | Start Here | What It Helps You Do |
 |---|---|---|
-| **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md), [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand, share, review and navigate the project quickly |
+| **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/external-summary.md`](docs/external-summary.md), [`docs/ai-collaboration-protocol.md`](docs/ai-collaboration-protocol.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md), [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand, share, review and navigate the project quickly |
 | **Governance Architecture** | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md), [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md), [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md) | Map responsibility, action boundaries, gateways, agent capabilities and coordination layers |
 | **Proof Layer** | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md), [`docs/diagrams/governance-gateway-flow.md`](docs/diagrams/governance-gateway-flow.md) | Run and understand a minimal Governance Gateway example from policy to decision log |
 | **Prototypes & Portals** | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html), [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html), [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Explore interface prototypes and executive-facing governance views |
@@ -344,6 +346,7 @@ Execution Environment
 |---|---|
 | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md) | Fastest short overview of the project for first-time readers |
 | [`docs/external-summary.md`](docs/external-summary.md) | Short external summary for sharing the project with partners, employers, collaborators and LinkedIn contacts |
+| [`docs/ai-collaboration-protocol.md`](docs/ai-collaboration-protocol.md) | Collaboration protocol for using AI systems as thinking partners without losing human responsibility |
 | [`PROJECT-VALUE.md`](PROJECT-VALUE.md) | Project value and review guide for different external readers |
 | [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md) | Shows how the project complements NIST AI RMF, EU AI Act and enterprise AI governance at the workflow-control layer |
 | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) | Minimal executable proof layer showing policy-to-decision-log governance flow |
@@ -516,6 +519,7 @@ Visibility without intervention is insufficient.
 - [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md)
 - [`PROJECT-VALUE.md`](PROJECT-VALUE.md)
 - [`docs/external-summary.md`](docs/external-summary.md)
+- [`docs/ai-collaboration-protocol.md`](docs/ai-collaboration-protocol.md)
 - [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md)
 - [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md)
 - [`docs/diagrams/governance-gateway-flow.md`](docs/diagrams/governance-gateway-flow.md)
