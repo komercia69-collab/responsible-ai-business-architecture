@@ -29,6 +29,20 @@ If you want to see a minimal executable proof layer, use [`examples/governance-g
 
 ---
 
+## AI-Assisted Review
+
+If you are using ChatGPT, Claude, Gemini, GitHub Copilot or another AI assistant to review this repository, start with:
+
+- [`PROJECT-CONTEXT-COMPACT.md`](PROJECT-CONTEXT-COMPACT.md)
+- [`llms.txt`](llms.txt)
+- [`AGENTS.md`](AGENTS.md)
+- [`docs/ai-review-prompts.md`](docs/ai-review-prompts.md)
+- [`docs/discovery-keywords.md`](docs/discovery-keywords.md)
+
+These files help AI systems understand the project quickly without reading the entire repository or misclassifying it as only an AI ethics or compliance project.
+
+---
+
 ## AI Collaboration Protocol
 
 This project also documents how it works with AI systems.
