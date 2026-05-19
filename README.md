@@ -51,6 +51,8 @@ It currently provides reusable orientation material, architecture concepts, pilo
 
 Use this hub as the main navigation panel for the repository.
 
+For a detailed file-by-file navigation map, see [`docs/repository-map.md`](docs/repository-map.md).
+
 | Hub Area | Start Here | What It Helps You Do |
 |---|---|---|
 | **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose a practical entry route |
