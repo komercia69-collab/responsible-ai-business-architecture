@@ -1,163 +1,221 @@
 # Pilot Partner Call
 
-A practical discovery call for organizations that may want to test the Responsible AI Business Architecture framework on one real business process.
+> A practical invitation for organizations that want to explore Human–AI Operational Coordination in one real workflow.
 
-> AI may be probabilistic. Responsibility must not be.
+## Why This Exists
 
-## Short Opening
+Many organizations are beginning to use AI assistants, copilots or agents inside real business processes.
 
-Many organizations want to use AI, but the first question is often too technical:
+The difficult question is no longer only:
 
 > Which AI tool should we use?
 
-A safer and more useful first question is:
+The more important operational question is:
 
-> Which business process is ready for responsible AI support, under which controls, and for which measurable value?
+> Where does AI output become operational action, and how do we keep that boundary responsible, visible and governable?
 
-The Pilot Partner Call is a structured conversation for organizations that can provide one real process for analysis and want to understand whether it could become a responsible AI pilot.
+This pilot partner call invites organizations, teams and practitioners to explore that question through one limited, practical workflow.
 
-## Who This Is For
+---
 
-This call is for organizations, teams, or institutions that:
+## What We Are Looking For
 
-- are considering AI adoption;
-- have one concrete process where AI might help;
-- want to avoid uncontrolled automation;
-- need clearer human responsibility and approval points;
-- want to understand AI risks before implementation;
-- need a practical bridge between business, IT, compliance, and operations.
+We are looking for pilot partners who are willing to examine one AI-assisted or AI-agentic workflow together.
 
-It may be especially useful for:
+The ideal partner does not need to have a perfect AI strategy.
 
-- small and medium-sized businesses;
-- service companies;
-- customer support teams;
-- accounting or finance teams;
-- operations teams;
-- internal knowledge management teams;
-- consultants working with client processes;
-- organizations looking for a safe first AI pilot.
+The ideal partner has:
 
-## Why Pilot Partners Are Needed
+- one real workflow where AI is already used or being considered;
+- a practical concern about responsibility, approval, visibility or control;
+- openness to structured discussion;
+- willingness to map boundaries before increasing automation;
+- interest in improving operations without losing accountability.
 
-The framework becomes valuable when it is tested against real business processes.
+---
 
-Pilot partners help validate whether the framework is practical, clear, and useful in real organizational contexts.
+## Suitable Pilot Areas
 
-They also help answer important questions:
+Good first pilot candidates include:
 
-- Where can AI create measurable value?
-- Where should AI only support or recommend?
-- Where must human approval remain mandatory?
-- What data and permission boundaries are needed?
-- What should be documented before implementation?
-- When is a process not ready for AI yet?
+- customer support response workflows;
+- complaint, refund or escalation handling;
+- CRM update processes;
+- sales outreach drafting;
+- internal reporting and business intelligence;
+- document review;
+- compliance support;
+- recruiting screening support;
+- operational monitoring and alerting;
+- AI-assisted software development workflows.
 
-## What Problem This Solves
+The first pilot should be narrow.
 
-Many AI projects fail or create risk because organizations move too quickly from idea to tool.
+It should focus on one workflow, not the whole organization.
 
-Common problems include:
+---
 
-- automating a process nobody fully understands;
-- giving AI broad access without clear responsibility;
-- treating human review as a formality;
-- ignoring data sensitivity and audit requirements;
-- choosing a pilot that is too large or too risky;
-- missing a valuable AI opportunity because no safe testing path exists.
+## What the Pilot Does
 
-The Pilot Partner Call helps slow down the right part of the process: not innovation, but unclear responsibility.
+The pilot creates a first governance snapshot for one workflow.
 
-## What the Organization Receives
+It helps answer:
 
-After the call, the organization should have a clearer view of:
+- What is AI allowed to observe, analyze, recommend, draft, trigger or execute?
+- Where must AI stop?
+- Which actions require human approval?
+- What should be logged?
+- What can be reversed?
+- Who is accountable?
+- What should be improved before autonomy increases?
 
-- whether the selected process is a reasonable AI pilot candidate;
-- what value AI could realistically create;
-- what risks need to be clarified;
-- where human review or approval is required;
-- what AI should be allowed to access, prepare, recommend, or execute;
-- whether the next step should be a pilot, preparation, rejection, or more information.
+The goal is not to slow down AI adoption.
 
-The expected outcome is not a sales promise.
+The goal is to make AI adoption governable.
 
-The expected outcome is a better decision.
+---
 
-## What Is Expected from the Organization
+## Possible Formats
 
-The organization should bring one concrete business process for discussion.
+### 1. Introductory Call
 
-Helpful preparation includes:
+A short first conversation to understand the workflow, the current AI use and the main governance concern.
 
-- a short description of the current workflow;
-- the main pain or inefficiency;
-- why AI is being considered;
-- what data is involved;
-- who currently owns the process;
-- what could go wrong if AI makes a mistake;
-- where human approval may be needed.
+Typical output:
 
-No confidential, personal, customer, financial, health, HR, or legally sensitive information is required for the first call.
+- initial workflow description;
+- main AI action boundary;
+- first risk hypothesis;
+- recommended next step.
 
-The process can be described in a generalized or anonymized way.
+### 2. 60–90 Minute Diagnostic Workshop
 
-## How the Pilot Call Works
+A focused session with the people who understand the workflow.
 
-A typical call follows this structure:
+Typical output:
 
-1. Select one concrete business process.
-2. Run the [AI Readiness Quick Check](../QUICK-CHECK.md).
-3. Clarify business value and current pain.
-4. Identify data, risk, and responsibility points.
-5. Define the possible AI role.
-6. Discuss permission boundaries and human approval.
-7. Choose a preliminary decision: Green, Yellow, Red, or Grey.
+- one workflow governance snapshot;
+- top AI action boundaries;
+- top 3 governance risks;
+- required human approval points;
+- next-step recommendation.
 
-The call can also lead into a deeper [Responsible AI Pilot Discovery Session](responsible-ai-pilot-discovery-session.md) or a structured [Responsible AI Pilot Canvas](../templates/responsible-ai-pilot-canvas.md).
+### 3. Lightweight Pilot
 
-## Expected Outputs After the Call
+A more complete 1–2 week exploration of one workflow.
 
-The expected outputs may include:
+Typical output:
 
-- a short process summary;
-- initial Quick Check score;
-- main business value hypothesis;
-- main risk and data sensitivity notes;
-- recommended AI role;
-- recommended human control point;
-- initial permission boundary notes;
-- preliminary pilot decision;
-- suggested next step.
+- workflow map;
+- AI Action Boundary Map;
+- Governance Gateway Map;
+- Model–Agent Fit Review;
+- Failure Pattern Scan;
+- Owner-Level Process Dynamics View;
+- short pilot summary report.
 
-Possible decision outcomes:
+See [`minimal-human-ai-governance-pilot.md`](minimal-human-ai-governance-pilot.md) for the detailed pilot format.
 
-- **Green** — good candidate for a controlled AI pilot;
-- **Yellow** — promising, but preparation is required;
-- **Red** — not suitable as a first AI pilot;
-- **Grey** — not enough information yet.
+---
 
-The result can later be documented in an [AI Pilot Decision Report](../templates/ai-pilot-decision-report.md).
+## What We Need From a Pilot Partner
+
+A pilot partner should be able to provide:
+
+| Input | Description |
+|---|---|
+| Workflow description | What process should be reviewed |
+| Current or planned AI use | Where AI is used or may be introduced |
+| Human roles | Who uses, approves, supervises or owns the workflow |
+| Tools and systems | CRM, email, documents, BI, internal tools, APIs or agent systems |
+| Risk concerns | What could go wrong if AI is used poorly |
+| Business goal | What improvement the organization hopes to achieve |
+
+Sensitive data is not required for the first conversation.
+
+The pilot can start with a simplified or anonymized workflow description.
+
+---
+
+## What the Partner Gets
+
+The partner receives a practical first view of how AI participation affects the workflow.
+
+This may include:
+
+- clearer AI action boundaries;
+- better understanding of approval points;
+- visibility into where AI output becomes operational action;
+- early warning signs for governance failure;
+- a lightweight governance gateway concept;
+- a safer path toward increasing AI autonomy.
+
+The output should be usable by business, technical, governance and operational stakeholders.
+
+---
 
 ## What This Is Not
 
-This call is not:
+This pilot partner call is not:
 
 - legal advice;
-- compliance certification;
-- security certification;
-- vendor selection;
-- a technical implementation plan;
-- a guarantee that AI should be implemented;
-- a promise of business results.
+- a compliance certification;
+- a security audit;
+- a production implementation;
+- a complete AI safety evaluation;
+- a promise that AI risk can be eliminated.
 
-It is a structured framework-based analysis before implementation decisions are made.
+It is a structured first step toward responsible Human–AI Operational Coordination.
 
-## Soft Call to Action
+---
 
-If your organization has one real process where AI might help, start with the [AI Readiness Quick Check](../QUICK-CHECK.md).
+## Why Participate
 
-If the process looks promising, open a use case using the [AI Use Case Review issue template](../.github/ISSUE_TEMPLATE/ai-use-case-review.md) or continue with the [Responsible AI Pilot Discovery Session](responsible-ai-pilot-discovery-session.md).
+AI adoption often moves faster than organizational responsibility structures.
 
-The best first AI pilot is not the most ambitious one.
+A small pilot helps an organization slow down at the right point: not to block innovation, but to define the boundary before automation expands.
 
-It is the one where value can be tested safely, responsibility remains clear, and the organization learns how to scale responsibly.
+The benefit is practical:
+
+> Start with one workflow. Map the boundary. Design the gateway. Preserve responsibility.
+
+---
+
+## Suggested First Message
+
+Organizations or practitioners interested in a pilot can start with a short message:
+
+```text
+We are interested in exploring a Human–AI Governance Pilot.
+
+Workflow:
+
+Current or planned AI use:
+
+Main concern:
+
+People involved:
+
+Preferred format:
+- Introductory call
+- 60–90 minute diagnostic
+- Lightweight pilot
+```
+
+---
+
+## Related Project Materials
+
+- [`minimal-human-ai-governance-pilot.md`](minimal-human-ai-governance-pilot.md) — detailed pilot format
+- [`../docs/this-project-in-3-minutes.md`](../docs/this-project-in-3-minutes.md) — short project overview
+- [`../docs/start-here-by-role.md`](../docs/start-here-by-role.md) — role-based entry paths
+- [`../use-cases/customer-support-agentic-bi-governance.md`](../use-cases/customer-support-agentic-bi-governance.md) — concrete workflow example
+- [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md) — minimal executable proof layer
+
+---
+
+## Closing Principle
+
+> AI may be probabilistic. Responsibility must not be.
+
+> Autonomy may scale. Governability must scale faster.
