@@ -14,6 +14,8 @@ The goal is not to let multiple AI systems generate more text.
 
 The goal is to create a governable collaboration environment where AI systems help structure, review and implement project work while human responsibility remains explicit.
 
+This room can be understood as an interface built on top of a deeper coordination topology: the [`Human-AI Operational Coordination Lattice`](../concepts/human-ai-operational-coordination-lattice.md).
+
 ---
 
 ## Why This Prototype Exists
@@ -306,6 +308,8 @@ The human owner decides.
 
 This cycle turns multi-AI collaboration into a governable workflow.
 
+The [`Human-AI Operational Coordination Lattice`](../concepts/human-ai-operational-coordination-lattice.md) extends this cycle by describing the underlying nodes, connection types, handoff routes, decision gates, evidence layer and failure modes.
+
 ---
 
 ## Context-Budget Rules
@@ -410,7 +414,8 @@ This prototype connects to existing project files:
 - `AGENTS.md` guides AI agents working in the repository;
 - `docs/ai-review-prompts.md` provides prompts for structured AI review;
 - `docs/discovery-keywords.md` supports discovery and classification;
-- `docs/ai-collaboration-protocol.md` explains responsible AI collaboration principles.
+- `docs/ai-collaboration-protocol.md` explains responsible AI collaboration principles;
+- `docs/concepts/human-ai-operational-coordination-lattice.md` describes the deeper coordination topology beneath this room.
 
 Together, these files form an early AI-readable operating layer for the project.
 
