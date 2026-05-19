@@ -18,6 +18,8 @@ The goal is not to let AI change the project directly.
 
 The goal is to capture useful AI-generated insight in a format that a human owner can review, accept, reject or convert into an issue or pull request.
 
+For external reviewers and potential partners, see also [`external-ai-suggestion-intake.md`](external-ai-suggestion-intake.md), which explains why someone might want to submit a recommendation and what value they can get from doing so.
+
 ---
 
 ## Core Rule
