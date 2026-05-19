@@ -37,11 +37,12 @@ Use these files when reviewing the repository with ChatGPT, Claude, Gemini, GitH
 - [`../AGENTS.md`](../AGENTS.md)
 - [`docs/ai-review-prompts.md`](ai-review-prompts.md)
 - [`docs/ai-contribution-intake.md`](ai-contribution-intake.md)
+- [`docs/external-ai-suggestion-intake.md`](external-ai-suggestion-intake.md)
 - [`docs/discovery-keywords.md`](discovery-keywords.md)
 
 These files help AI systems identify the project purpose, choose the right reading path, classify the repository correctly and produce practical analysis for business, governance and pilot-partner readers.
 
-AI-assisted reviews can also produce structured improvement suggestions through [`docs/ai-contribution-intake.md`](ai-contribution-intake.md).
+AI-assisted reviews can also produce structured improvement suggestions through [`docs/ai-contribution-intake.md`](ai-contribution-intake.md). External reviewers can use [`docs/external-ai-suggestion-intake.md`](external-ai-suggestion-intake.md) to understand why and how to submit those recommendations.
 
 ---
 
