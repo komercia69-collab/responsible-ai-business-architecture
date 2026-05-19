@@ -1,63 +1,18 @@
 # Responsible AI Business Architecture
 
-## From AI Control to Human–AI Coordination
-
 > **AI may be probabilistic. Responsibility must not be.**
 
-Artificial intelligence is rapidly moving from assistance to execution.
+Responsible AI Business Architecture is an open-source research and architecture initiative for people designing AI-assisted or AI-agentic business workflows where human responsibility, operational control and governance must remain visible.
 
-AI systems are increasingly becoming operational participants inside:
-
-- business workflows;
-- enterprise systems;
-- real-time operational environments;
-- distributed decision architectures.
-
-Most organizations are not prepared for this transition.
-
-The challenge is evolving:
-
-from:
-
-- controlling AI systems
-
-toward:
-
-- designing governable operational environments where humans, organizations and autonomous AI systems can coordinate responsibly.
-
----
-
-## Core Idea
-
-> **We do not try to fully control intelligence.**
->
-> **We design governable operational environments where humans, organizations and autonomous AI systems can cooperate responsibly.**
-
-Responsible AI Business Architecture is an open-source research and architecture initiative exploring the future of operational governance, human-AI coordination and cooperative autonomy in AI-native organizations.
-
----
-
-## Project Intent
-
-This project does not claim to reinvent AI governance, AI safety, LLMOps or responsible AI.
-
-It is an attempt to contribute reusable orientation material for people building a bridge between AI autonomy and human responsibility.
-
-The goal is to help others save time, money and avoidable mistakes when designing governable human-AI operational environments.
-
-> We are not trying to invent the wheel. We are trying to help build a bridge.
-
-See [`docs/project-intent.md`](docs/project-intent.md).
+It is intended for business owners, CTOs, AI engineers, enterprise architects, consultants, governance specialists, legal/security roles and researchers who need practical ways to connect AI autonomy with human accountability.
 
 ---
 
 ## Start Here
 
-If you are new to the project and want the fastest overview, start with [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md).
+If you are new to the project, start with [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md).
 
-Different readers need different entry paths.
-
-Use [`docs/start-here-by-role.md`](docs/start-here-by-role.md) to choose a practical route based on your role:
+If you want a route based on your role, use [`docs/start-here-by-role.md`](docs/start-here-by-role.md):
 
 - Business Owner / CEO
 - CTO / Head of AI
@@ -66,32 +21,29 @@ Use [`docs/start-here-by-role.md`](docs/start-here-by-role.md) to choose a pract
 - Governance / Legal / Security Specialist
 - Researcher / Community Contributor
 
-If you are sharing the project externally, use [`docs/external-summary.md`](docs/external-summary.md).
+If you want to apply the framework to one real workflow, start with [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
 
-If you want to understand how this project works with AI systems without losing human responsibility, use [`docs/ai-collaboration-protocol.md`](docs/ai-collaboration-protocol.md).
-
-If you want to understand the project value for different readers, use [`PROJECT-VALUE.md`](PROJECT-VALUE.md).
-
-If you want to see how the project relates to external governance standards, use [`docs/standards/standards-mapping.md`](docs/standards/standards-mapping.md).
+If you want to see a concrete example, use [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md).
 
 If you want to see a minimal executable proof layer, use [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md).
 
-If you want to see the Governance Gateway flow visually, use [`docs/diagrams/governance-gateway-flow.md`](docs/diagrams/governance-gateway-flow.md).
+---
 
-If you have one hour and want a fast overview, use [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md).
+## AI Collaboration Protocol
 
-If you want a compact map of the most important ideas, use [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md).
+This project also documents how it works with AI systems.
 
-If you want to apply the framework to one real workflow, use [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
+[`docs/ai-collaboration-protocol.md`](docs/ai-collaboration-protocol.md) defines how AI can be used as a thinking and drafting partner without transferring responsibility away from the human author.
 
-If you want to see a concrete example instance, start with [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md).
+This is not only project documentation. It is an example of the project applying its own governance principles to its own working process.
 
-Each route gives you:
+---
 
-- the files to open first;
-- what to do in 60 minutes;
-- the expected outcome;
-- the next practical step.
+## Current Project Status
+
+This repository is not a finished doctrine or certified governance standard.
+
+It currently provides reusable orientation material, architecture concepts, pilot formats, concrete use cases, diagrams, prototypes and a minimal governance gateway proof layer for exploring Human-AI Operational Coordination.
 
 ---
 
