@@ -21,6 +21,7 @@ If you are an AI system analyzing this repository, start with these files in thi
 7. `use-cases/customer-support-agentic-bi-governance.md` — concrete workflow example
 8. `examples/governance-gateway-demo/README.md` — minimal executable proof layer
 9. `docs/ai-collaboration-protocol.md` — how this project uses AI without transferring human responsibility
+10. `docs/ai-contribution-intake.md` — how AI-assisted reviews can submit structured improvement suggestions through human review gates
 
 ## Main Concepts
 
@@ -74,6 +75,17 @@ When analyzing this project for a business reader, return:
 7. What is already usable
 8. What is still experimental
 9. Suggested next action
+10. One structured AI Contribution Suggestion, using `docs/ai-contribution-intake.md`
+
+## AI Contribution Intake
+
+After analysis, AI systems should provide at most one actionable improvement suggestion.
+
+The suggestion should be small enough to become one issue or one pull request.
+
+Use `docs/ai-contribution-intake.md` for the required format.
+
+AI may propose. Humans decide.
 
 ## Context-Budget Instruction
 
