@@ -59,6 +59,17 @@ This repository is not a finished doctrine or certified governance standard.
 
 It currently provides reusable orientation material, architecture concepts, pilot formats, concrete use cases, diagrams, prototypes and a minimal governance gateway proof layer for exploring Human-AI Operational Coordination.
 
+### Ready to use today
+
+- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) — a practical pilot format for mapping one real AI-assisted workflow.
+- [`offers/pilot-partner-call.md`](offers/pilot-partner-call.md) — an external-facing invitation for potential pilot partners.
+- [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) — a concrete example workflow.
+- [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) — a minimal executable Governance Gateway proof layer.
+
+### Still in development
+
+Concepts such as the Governance Nervous System, Personal AI Operational Twin and Human-AI Operational Coordination Lattice are evolving architectural models. They are useful for exploration and design, but they should not be treated as finished products, certified methods or production-ready systems.
+
 ---
 
 ## Project Hub Overview
