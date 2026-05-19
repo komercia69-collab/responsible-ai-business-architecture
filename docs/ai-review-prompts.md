@@ -4,6 +4,8 @@ Use these prompts when asking ChatGPT, Claude, Gemini, GitHub Copilot or another
 
 The goal is to help AI systems produce useful, practical analysis without wasting context on a full repository summary.
 
+For structured improvement capture, see [`ai-contribution-intake.md`](ai-contribution-intake.md).
+
 ---
 
 ## Prompt 1: Fast Project Analysis
@@ -28,6 +30,18 @@ Return:
 5. What is still experimental
 6. Best first file to read
 7. Suggested next action
+
+After the analysis, add one structured AI Contribution Suggestion:
+- Title
+- Observation
+- Why it matters
+- Suggested improvement
+- Affected files
+- Expected benefit
+- Risk if implemented
+- Risk if ignored
+- Suggested next action
+- Confidence
 
 Do not summarize every file.
 Keep the answer practical and decision-oriented.
@@ -55,6 +69,8 @@ Return:
 4. What input the partner must provide
 5. Main risks or limitations
 6. Recommended next step
+
+After the analysis, add one structured AI Contribution Suggestion that could improve the pilot partner path.
 
 Do not treat this as a generic AI ethics project.
 Focus on Human-AI Operational Coordination.
@@ -84,6 +100,8 @@ Return:
 5. Suggested improvement
 6. One-sentence summary for a decision-maker
 
+After the review, add one AI Contribution Suggestion that is small enough to become one issue or PR.
+
 Keep the answer concise.
 ```
 
@@ -109,6 +127,8 @@ Return:
 4. Suggested minimal improvement
 5. Risk if unchanged
 
+After the review, add one structured AI Contribution Suggestion related to governance consistency.
+
 Do not rewrite the whole project.
 ```
 
@@ -133,6 +153,8 @@ Return:
 4. Are there conflicting instructions?
 5. What one file should be improved next?
 6. Suggested minimal patch
+
+After the review, add one structured AI Contribution Suggestion related to AI readability or discovery.
 
 Use context-budget mode.
 ```
@@ -161,6 +183,8 @@ Use the repository to answer:
 5. What can go wrong?
 6. What is the smallest useful next step?
 
+After the review, add one AI Contribution Suggestion if the workflow reveals a missing use case, failure pattern or governance control.
+
 Read first:
 - offers/minimal-human-ai-governance-pilot.md
 - docs/concepts/ai-action-boundary-mapping.md
@@ -184,6 +208,8 @@ Return only:
 3. Why it matters
 4. Minimal patch idea
 5. Risk
+
+Then format that recommendation as an AI Contribution Suggestion.
 
 Prefer improvements that help external readers, pilot partners or AI assistants understand the project faster.
 ```
