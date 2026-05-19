@@ -24,6 +24,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`../use-cases/README.md`](../use-cases/README.md)
 - [`docs/project-intent.md`](project-intent.md)
 - [`docs/project-development-tracks.md`](project-development-tracks.md)
+- [`docs/partner-readiness-backlog.md`](partner-readiness-backlog.md)
 
 ---
 
@@ -119,6 +120,12 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/partner-engagement.md`](partner-engagement.md)
 - [`../offers/pilot-partner-call.md`](../offers/pilot-partner-call.md)
 - [`../offers/minimal-human-ai-governance-pilot.md`](../offers/minimal-human-ai-governance-pilot.md)
+
+---
+
+## Partner Readiness and Operational Maturity
+
+- [`docs/partner-readiness-backlog.md`](partner-readiness-backlog.md)
 
 ---
 
