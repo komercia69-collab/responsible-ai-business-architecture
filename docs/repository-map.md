@@ -25,6 +25,20 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 
 ---
 
+## AI-Assisted Review and Discovery
+
+Use these files when reviewing the repository with ChatGPT, Claude, Gemini, GitHub Copilot or another AI assistant:
+
+- [`../PROJECT-CONTEXT-COMPACT.md`](../PROJECT-CONTEXT-COMPACT.md)
+- [`../llms.txt`](../llms.txt)
+- [`../AGENTS.md`](../AGENTS.md)
+- [`docs/ai-review-prompts.md`](ai-review-prompts.md)
+- [`docs/discovery-keywords.md`](discovery-keywords.md)
+
+These files help AI systems identify the project purpose, choose the right reading path, classify the repository correctly and produce practical analysis for business, governance and pilot-partner readers.
+
+---
+
 ## Use Cases
 
 - [`../use-cases/README.md`](../use-cases/README.md)
