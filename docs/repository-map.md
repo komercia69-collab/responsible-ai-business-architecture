@@ -66,6 +66,7 @@ These files help AI systems identify the project purpose, choose the right readi
 - [`docs/concepts/operational-governability.md`](concepts/operational-governability.md)
 - [`docs/concepts/coordination-asymmetry.md`](concepts/coordination-asymmetry.md)
 - [`docs/concepts/human-ai-operational-interface.md`](concepts/human-ai-operational-interface.md)
+- [`docs/concepts/human-ai-operational-coordination-lattice.md`](concepts/human-ai-operational-coordination-lattice.md)
 - [`docs/concepts/agent-development-kit-governance-mapping.md`](concepts/agent-development-kit-governance-mapping.md)
 - [`docs/concepts/living-human-ai-operational-interface.md`](concepts/living-human-ai-operational-interface.md)
 - [`docs/concepts/ai-action-boundary-mapping.md`](concepts/ai-action-boundary-mapping.md)
@@ -100,6 +101,7 @@ These files help AI systems identify the project purpose, choose the right readi
 
 ## Prototypes and Demos
 
+- [`docs/prototypes/three-ai-project-coordination-room.md`](prototypes/three-ai-project-coordination-room.md)
 - [`docs/prototypes/human-ai-coordination-interface-prototype.md`](prototypes/human-ai-coordination-interface-prototype.md)
 - [`../demo/human-ai-coordination-room.html`](../demo/human-ai-coordination-room.html)
 - [`../demo/governance-dashboard-v2.html`](../demo/governance-dashboard-v2.html)
