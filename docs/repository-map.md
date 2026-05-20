@@ -133,6 +133,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 - [`docs/partner-engagement.md`](partner-engagement.md)
 - [`../offers/human-ai-workflow-governance-review.md`](../offers/human-ai-workflow-governance-review.md)
+- [`../templates/workflow-governance-review-report.md`](../templates/workflow-governance-review-report.md)
 - [`../offers/pilot-partner-call.md`](../offers/pilot-partner-call.md)
 - [`../offers/minimal-human-ai-governance-pilot.md`](../offers/minimal-human-ai-governance-pilot.md)
 
