@@ -154,6 +154,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 ## Security and Integrity
 
 - [`../SECURITY.md`](../SECURITY.md)
+- [`docs/repository-security-hardening.md`](repository-security-hardening.md)
 - [`docs/governance-integrity.md`](governance-integrity.md)
 - [`docs/example-safety-policy.md`](example-safety-policy.md)
 - [`docs/incident-response-playbook.md`](incident-response-playbook.md)
