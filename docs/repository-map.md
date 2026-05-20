@@ -59,6 +59,12 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 ---
 
+## Scenarios
+
+- [`docs/scenarios/customer-support-governance-review-scenario.md`](scenarios/customer-support-governance-review-scenario.md)
+
+---
+
 ## Use Cases
 
 - [`../use-cases/README.md`](../use-cases/README.md)
