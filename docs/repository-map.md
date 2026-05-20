@@ -13,6 +13,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/external-summary.md`](external-summary.md)
 - [`docs/partner-engagement.md`](partner-engagement.md)
 - [`docs/share-this-project.md`](share-this-project.md)
+- [`docs/contributor-prototype-ideas.md`](contributor-prototype-ideas.md)
 - [`docs/ai-collaboration-protocol.md`](ai-collaboration-protocol.md)
 - [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
@@ -49,6 +50,12 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 ## Releases and Snapshots
 
 - [`docs/releases/v0.1-partner-preview.md`](releases/v0.1-partner-preview.md)
+
+---
+
+## Contributor Entry Points
+
+- [`docs/contributor-prototype-ideas.md`](contributor-prototype-ideas.md)
 
 ---
 
