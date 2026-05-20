@@ -96,6 +96,8 @@ Possible outputs include:
 - main governance risks;
 - recommended next step.
 
+The report can use [`../templates/workflow-governance-review-report.md`](../templates/workflow-governance-review-report.md) as a delivery template.
+
 The output should be understandable by business, technical and governance stakeholders.
 
 ---
@@ -166,6 +168,7 @@ Relevant project files:
 
 - `offers/minimal-human-ai-governance-pilot.md`
 - `docs/partner-engagement.md`
+- `templates/workflow-governance-review-report.md`
 - `docs/concepts/ai-action-boundary-mapping.md`
 - `docs/concepts/ai-governance-gateway.md`
 - `use-cases/customer-support-agentic-bi-governance.md`
