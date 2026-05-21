@@ -1,0 +1,17 @@
+{
+  "event_id": "evt_action_drafted_001",
+  "event_type": "ActionDrafted",
+  "timestamp": "2026-05-21T14:00:00Z",
+  "schema_version": "0.1",
+  "workflow_id": "wf_customer_email_001",
+  "action_id": "act_send_email_001",
+  "agent_id": "agent_customer_support",
+  "current_state": "DRAFT",
+  "previous_state": null,
+  "action_type": "send_customer_email",
+  "action_boundary": "external_customer_communication",
+  "risk_level": "medium",
+  "human_owner_role": "support_team_lead",
+  "technical_trace_id": "trace_001",
+  "policy_reference": "policy_customer_email_v1"
+}
