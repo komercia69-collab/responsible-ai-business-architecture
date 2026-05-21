@@ -9,7 +9,10 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 ## Getting Started
 
 - [`docs/this-project-in-3-minutes.md`](this-project-in-3-minutes.md)
+- [`docs/quick-technical-start.md`](quick-technical-start.md)
 - [`docs/project-status.md`](project-status.md)
+- [`../QUICK-TECHNICAL-START.md`](../QUICK-TECHNICAL-START.md)
+- [`../starter-kit/README.md`](../starter-kit/README.md)
 - [`../PROJECT-VALUE.md`](../PROJECT-VALUE.md)
 - [`docs/external-summary.md`](external-summary.md)
 - [`docs/partner-engagement.md`](partner-engagement.md)
@@ -88,8 +91,20 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/approval-state-specification.md`](approval-state-specification.md)
 - [`docs/decision-log-schema.md`](decision-log-schema.md)
 - [`docs/governance-gateway-implementation.md`](governance-gateway-implementation.md)
+- [`docs/governance-gateway-runtime-model.md`](governance-gateway-runtime-model.md)
+- [`docs/action-lifecycle-example.md`](action-lifecycle-example.md)
+- [`docs/fail-safe-governance-behavior.md`](fail-safe-governance-behavior.md)
 - [`docs/rubber-stamp-risk.md`](rubber-stamp-risk.md)
 - [`../implementation/responsibility-event-stream.md`](../implementation/responsibility-event-stream.md)
+
+---
+
+## Audit Integrity and Recovery Layer
+
+- [`docs/audit-integrity-breach-response.md`](audit-integrity-breach-response.md)
+- [`docs/recovery-protocol.md`](recovery-protocol.md)
+- [`docs/distributed-governance-condition-propagation.md`](distributed-governance-condition-propagation.md)
+- [`../rfcs/rfc-audit-integrity-and-recovery-protocol.md`](../rfcs/rfc-audit-integrity-and-recovery-protocol.md)
 
 ---
 
@@ -102,6 +117,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 ## Examples and Proof Layer
 
+- [`../starter-kit/README.md`](../starter-kit/README.md)
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
 - [`../examples/gateway-policy-examples/README.md`](../examples/gateway-policy-examples/README.md)
 - [`../examples/gateway-policy-examples/customer-email-policy.md`](../examples/gateway-policy-examples/customer-email-policy.md)
@@ -110,6 +126,12 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../examples/decision-log-examples/README.md`](../examples/decision-log-examples/README.md)
 - [`../demo/customer-email-governance-simulation/README.md`](../demo/customer-email-governance-simulation/README.md)
 - [`docs/diagrams/governance-gateway-flow.md`](diagrams/governance-gateway-flow.md)
+
+---
+
+## RFCs
+
+- [`../rfcs/rfc-audit-integrity-and-recovery-protocol.md`](../rfcs/rfc-audit-integrity-and-recovery-protocol.md)
 
 ---
 
@@ -203,6 +225,9 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../SECURITY.md`](../SECURITY.md)
 - [`docs/repository-security-hardening.md`](repository-security-hardening.md)
 - [`docs/governance-integrity.md`](governance-integrity.md)
+- [`docs/audit-integrity-breach-response.md`](audit-integrity-breach-response.md)
+- [`docs/recovery-protocol.md`](recovery-protocol.md)
+- [`docs/distributed-governance-condition-propagation.md`](distributed-governance-condition-propagation.md)
 - [`docs/example-safety-policy.md`](example-safety-policy.md)
 - [`docs/incident-response-playbook.md`](incident-response-playbook.md)
 
