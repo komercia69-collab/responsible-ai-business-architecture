@@ -98,6 +98,99 @@ Without a governance gateway at this point, tool execution may become delegated 
 
 ---
 
+## Sampling as a second responsibility flow
+
+Tool execution is not the only responsibility-sensitive flow in MCP.
+
+Sampling introduces a reverse direction: an MCP server can ask the host/client to perform an LLM call on its behalf.
+
+This creates a second responsibility question:
+
+> If a server initiates a model call through the host, who is responsible for the content, purpose, approval, and downstream use of that call?
+
+Technical user confirmation is not the same as organizational accountability.
+
+A RABA-aligned host should treat sampling as a governable flow with its own checkpoints:
+
+- which server requested the sampling call;
+- what context was included;
+- whether user review was required before and after the call;
+- whether the sampling request attempted to access sensitive data;
+- whether the result could influence later tool execution;
+- who owns the decision to allow the reverse model call;
+- how the sampling request and response are logged.
+
+Sampling should therefore produce responsibility events such as:
+
+```text
+SamplingRequested
+SamplingContextReviewed
+SamplingApproved
+SamplingRejected
+SamplingResultReturned
+SamplingResultUsedForToolDecision
+DecisionLogged
+```
+
+This prevents sampling from becoming a hidden channel where server-driven model calls influence workflow execution without a clear responsibility record.
+
+---
+
+## Living approval state, not one-time consent
+
+MCP-connected systems often begin with a consent or authorization moment: a user connects a server, grants OAuth access, or confirms a tool capability.
+
+RABA treats that as the beginning of governance, not the end.
+
+A one-time consent can become stale when:
+
+- a server changes its tool schema;
+- a tool adds new required parameters;
+- a tool's behavior changes after installation;
+- a server moves from read-only to write-capable behavior;
+- a workflow starts using a tool in a new business context;
+- a capability becomes higher-risk because of volume, customer impact, financial impact, or regulatory context.
+
+Therefore, approval state should be living, not static.
+
+Material changes should trigger review, reclassification, re-approval, or escalation.
+
+A RABA-aligned host/runtime should be able to emit events such as:
+
+```text
+ToolSchemaChanged
+ToolBehaviorDriftDetected
+ApprovalStateExpired
+ReapprovalRequired
+ServerCapabilityChanged
+GovernanceDriftDetected
+```
+
+This is especially important for rug-pull style risks, where a server appears safe at approval time but later changes behavior or schema in a way that expands risk.
+
+---
+
+## Security vs Governance
+
+Security and governance overlap, but they are not the same layer.
+
+| Security asks | RABA governance asks |
+|---|---|
+| Can this server, token, tool, resource, or transport be abused? | Who owns the risk boundary? |
+| Can the model be manipulated through tool descriptions or resource content? | Who approved this capability and its authority? |
+| Can data leak across tools, servers, or systems? | Was the context boundary explicitly governed? |
+| Can a malicious package compromise users? | Who approved the server source and trust level? |
+| Can token scope or audience validation fail? | Who owns authorization and escalation if it fails? |
+| Can tool behavior change after consent? | Does approval state expire or require re-approval? |
+
+Security can detect or prevent classes of failure.
+
+Governance defines who was responsible for the authority, approval, escalation, and accountability around those failures.
+
+RABA does not replace MCP security engineering. It provides the responsibility architecture that makes security-relevant decisions governable and auditable.
+
+---
+
 ## Host-Layer Responsibility
 
 The RABA governance gateway logically belongs at the host layer or immediately adjacent to it.
@@ -249,7 +342,11 @@ MCP-enabled systems can produce technical traces: what was called, with which pa
 
 MCP does not define organizational accountability. If a `send_email` tool sends an incorrect message to a customer, the technical trace can show that the tool was called. It does not by itself answer who was responsible for allowing that call to proceed.
 
-RABA closes these gaps by adding an explicit governance layer to MCP tool execution — without replacing or modifying the protocol itself.
+### Who is accountable for server-initiated model calls?
+
+MCP sampling creates a second responsibility gap. A server can initiate a model call through the host. Even when the user is shown the request, the organizational responsibility question remains: who allowed this server to ask for model reasoning, with which context, for which purpose, and with what downstream effect?
+
+RABA closes these gaps by adding an explicit governance layer to MCP tool execution and related MCP flows — without replacing or modifying the protocol itself.
 
 ---
 
@@ -271,6 +368,8 @@ Responsibility observability answers:
 - Was escalation required — and did it occur?
 - Is the decision recorded in a business accountability log?
 - Can an auditor reconstruct the full authorization chain?
+- Did a server-initiated sampling call influence the workflow or later tool execution?
+- Did approval state remain valid after schema, context, risk, or business impact changed?
 
 Both are necessary. They are not the same.
 
@@ -327,11 +426,16 @@ ExecutionAuthorized
 ExecutionBlocked
 EscalationTriggered
 EscalationAssigned
+SamplingRequested
+SamplingApproved
+ToolSchemaChanged
+ReapprovalRequired
+GovernanceDriftDetected
 DecisionLogged
 AuditTraceSigned
 ```
 
-This connects MCP tool execution to the broader RABA concept of a Responsibility Event Stream.
+This connects MCP tool execution and related MCP flows to the broader RABA concept of a Responsibility Event Stream.
 
 ---
 
@@ -351,6 +455,7 @@ Before deploying MCP-connected AI agents in production, organizations should ans
 - Who is the named approver for each tool category?
 - What is the approval mechanism — in-workflow confirmation, role-based authorization, or conditional rule?
 - What happens if the approver is unavailable?
+- When does approval expire or require re-approval?
 
 ### Escalation paths
 
@@ -379,6 +484,38 @@ Before deploying MCP-connected AI agents in production, organizations should ans
 - Which prompts represent approved workflows?
 - Which user-triggered workflows require additional confirmation before tool execution?
 
+### Sampling governance
+
+- Which servers are allowed to request sampling?
+- Which sampling requests require user review, organizational approval, or blocking?
+- Can sampling results influence later tool execution?
+- Are sampling requests and responses logged in the decision record?
+
+### Capability and token governance
+
+- Who authorizes capability tokens or scoped access for agents?
+- Are tokens scoped to specific tools, workflows, users, time windows, and risk levels?
+- Who is accountable if a capability token is misused?
+- What event invalidates or rotates the capability?
+
+---
+
+## Regulated environments and pilot focus
+
+RABA is especially relevant where tool execution creates legal, financial, operational, or reputational consequences.
+
+High-value pilot domains include:
+
+- government and public-sector workflows;
+- compliance operations;
+- legal contract lifecycle management;
+- HR and payroll;
+- tax and finance workflows;
+- regulated customer communications;
+- healthcare and insurance operations.
+
+These environments need more than integration. They need explicit responsibility architecture: action boundaries, approval ownership, escalation paths, decision logs, and auditability.
+
 ---
 
 ## Conclusion
@@ -397,6 +534,8 @@ RABA adds the governance layer that MCP does not provide:
 - escalation paths enforced at runtime;
 - business decision records linked to technical traces;
 - responsibility events emitted for audit and monitoring;
+- sampling governance for reverse model-call flows;
+- living approval state instead of one-time consent;
 - responsibility observability as a first-class operational requirement.
 
 The goal is not to slow down AI agents. It is to ensure that as agents act faster and across more systems, the humans who are responsible for outcomes remain clearly identified, properly informed, and genuinely accountable.
@@ -408,6 +547,7 @@ The goal is not to slow down AI agents. It is to ensure that as agents act faste
 - [Responsibility Layer for Agentic AI Architecture](./responsibility-layer-for-agentic-ai-architecture.md)
 - [Responsibility Management Interface](../concepts/responsibility-management-interface.md)
 - [Responsibility Event Stream](../implementation/responsibility-event-stream.md)
+- [MCP Responsibility Threat Map](../security/mcp-responsibility-threat-map.md)
 
 ---
 
