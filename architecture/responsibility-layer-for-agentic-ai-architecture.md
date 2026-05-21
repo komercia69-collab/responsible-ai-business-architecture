@@ -12,7 +12,7 @@ Agentic AI architecture describes how AI systems are built, coordinated, and ope
 
 But technical architecture does not answer the governance question.
 
-When an AI agent invokes a tool, who authorized that action? When an agent orchestrates a multi-step workflow, who owns the outcome? When an agent produces a recommendation, who decides whether it becomes an execution? When something goes wrong, who is accountable — and is that accountability traceable?
+When an AI agent invokes a tool, who authorized that action? When an agent orchestrates a multi-step workflow, who owns the outcome? When an agent produces a recommendation, who decides whether it becomes authorized execution? When something is actually executed, who is accountable — and is that accountability traceable?
 
 These questions are not answered by architecture diagrams alone. They require an explicit responsibility layer.
 
@@ -28,10 +28,10 @@ RABA exists to define and operationalize this missing layer.
 |---|---|---|
 | Primary question | How does the system operate? | Who is accountable, and under what conditions? |
 | Agent structure | Decomposition, roles, orchestration | Authority limits, escalation path, delegated identity |
-| Tool usage | Invocation, function calling, API access | Action boundary, approval state, execution authorization |
+| Tool usage | Invocation, function calling, API access | Action boundary, approval state, authorization, execution accountability |
 | Observability | Traces, logs, metrics, monitoring | Responsibility visibility, decision log, accountability record |
 | Security | Access control, sandboxing, policy enforcement | Role-based authority, approval chains, permission boundaries |
-| Human involvement | Human-in-the-loop feedback mechanism | Named approver, decision reason, accountability assignment |
+| Human involvement | Human-in-the-loop feedback mechanism | Named approver, authorizer, decision reason, accountability assignment |
 | Deployment | Infrastructure, environment, configuration | Organizational owner, responsibility assignment per workflow |
 
 Neither replaces the other. RABA is the governance layer that makes agentic systems auditable and accountable in production.
@@ -50,21 +50,23 @@ Current agentic AI architecture maps do not explicitly surface the following que
 
 ### Action state
 
-- Is the AI drafting, recommending, executing, or escalating?
+- Is the AI drafting, recommending, authorized to execute, executed, or escalating?
 - Which state is currently active?
 - Who authorized the transition to the current state?
+- Did the authorized action actually execute?
 
 ### Action boundaries
 
 - Where is the boundary between AI-permitted and human-required action?
 - Which actions may the AI execute autonomously?
-- Which actions require approval before execution?
+- Which actions require authorization before execution?
 
-### Approval
+### Approval and authorization
 
-- Who approves the transition from recommendation to execution?
+- Who approves the transition from recommendation to authorization?
 - What is the approval mechanism — manual, role-based, or conditional?
 - Is the approval decision recorded?
+- Does authorization expire or require re-approval?
 
 ### Accountability record
 
@@ -95,7 +97,7 @@ RABA treats delegated AI identity as a governance concern:
 - Which human role, team, project, or organization delegated authority to the agent?
 - What is the agent allowed to do without approval?
 - What is the agent allowed to recommend but not execute?
-- Which actions require explicit human approval?
+- Which actions require explicit human authorization?
 - Which actions must always escalate?
 - Where does delegated authority end?
 - Which human role remains accountable after delegation?
@@ -136,13 +138,14 @@ Shows whether the current action is within the AI's permitted execution scope or
 
 ### Approval state
 
-Every AI-supported action exists in one of four states:
+Every AI-supported action exists in one of the core RABA states defined in [`docs/approval-state-specification.md`](../docs/approval-state-specification.md):
 
 | State | Meaning |
 |---|---|
 | `DRAFT` | AI has produced output; no external action has occurred. The workflow remains under the responsibility of the system or workflow owner. |
-| `RECOMMEND` | AI output is surfaced to a human for review; decision is pending. |
-| `EXECUTE` | Action has been authorized and will proceed or has proceeded. |
+| `RECOMMEND` | AI output is surfaced to a human or policy route for review; decision is pending. |
+| `AUTHORIZED` | A human role or approved policy has authorized the action to proceed, but execution may not yet have completed. |
+| `EXECUTED` | The authorized action has completed and produced an external effect. |
 | `ESCALATE` | Action exceeds AI authority or approval threshold; routed to a human owner. |
 
 ### Escalation ownership
@@ -159,7 +162,7 @@ Each action state transition is linked to a business decision log entry. The tec
 
 ### Auditability
 
-The history of state transitions, approvals, escalations, and decisions is retained and queryable.
+The history of state transitions, approvals, authorizations, executions, escalations, and decisions is retained and queryable.
 
 ---
 
@@ -179,6 +182,8 @@ Technical observability and responsibility observability address different quest
 - Who was responsible for this action?
 - Was the AI permitted to act at this point?
 - Was approval required — and was it obtained?
+- Was the action authorized before execution?
+- Was the authorized action actually executed?
 - Was escalation required — and did it occur?
 - Was an action boundary crossed?
 - Is the business decision properly logged and attributable?
@@ -206,15 +211,21 @@ The AI generates the email content. Nothing is sent. No external effect occurs. 
 
 ### State: `RECOMMEND`
 
-The AI surfaces the draft to a human agent for review. The human reads the draft and decides whether to approve, modify, or reject it. The AI has no further authority. Accountability for the decision rests with the human reviewer.
+The AI surfaces the draft to a human agent for review. The human reads the draft and decides whether to approve, modify, reject, or escalate it. The AI has no further authority. Accountability for the decision rests with the human reviewer or defined approval route.
 
 **RABA record:** Draft produced by AI system `[ID]`, reviewed by `[Role]`, decision pending.
 
-### State: `EXECUTE` with approval
+### State: `AUTHORIZED`
 
-A human approver reviews the draft and authorizes sending. The system sends the email. The approval decision, approver identity, timestamp, and email content are recorded in the decision log.
+A human approver reviews the draft and authorizes sending. The approval decision, approver identity, timestamp, approval scope, and email content are recorded in the decision log.
 
-**RABA record:** Email sent following approval by `[Role]` at `[timestamp]`. Decision log entry `[ID]` created.
+**RABA record:** Email authorized by `[Role]` at `[timestamp]`. Authorization record `[ID]` created. Execution may proceed within the approved scope.
+
+### State: `EXECUTED`
+
+The system sends the authorized email. The execution result, external reference, timestamp, linked authorization record, and technical trace are recorded.
+
+**RABA record:** Email sent following authorization `[ID]`. Decision log entry `[ID]` linked to technical trace `[ID]` and external reference `[ID]`.
 
 ### State: `ESCALATE`
 
@@ -233,6 +244,7 @@ RABA adds the responsibility layer that makes production AI systems governable, 
 - Action boundaries defined before deployment
 - Approval states embedded in the workflow
 - Named accountability at every decision point
+- Clear distinction between recommendation, authorization, and completed execution
 - Delegated AI identity linked to human or organizational ownership
 - Escalation paths defined and enforced at runtime
 - Technical traces linked to business decision records
