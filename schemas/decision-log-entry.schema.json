@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raba.dev/schemas/decision-log-entry.schema.json",
+  "title": "RABA Decision Log Entry",
+  "description": "Business accountability record for an AI-supported action governed by RABA.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "decision_log_id",
+    "timestamp",
+    "workflow_id",
+    "action_id",
+    "agent_id",
+    "action_type",
+    "action_boundary",
+    "approval_state",
+    "outcome"
+  ],
+  "properties": {
+    "decision_log_id": {
+      "type": "string",
+      "description": "Unique identifier of the business accountability record."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time when the decision log entry was created or updated."
+    },
+    "workflow_id": {
+      "type": "string",
+      "description": "Workflow or business process where the decision occurred."
+    },
+    "action_id": {
+      "type": "string",
+      "description": "Specific AI-supported action being governed."
+    },
+    "agent_id": {
+      "type": "string",
+      "description": "AI agent, model workflow, automation or runtime component involved."
+    },
+    "action_type": {
+      "type": "string",
+      "description": "Human-readable category of the action."
+    },
+    "action_boundary": {
+      "type": "string",
+      "description": "Boundary crossed or approached by the action."
+    },
+    "approval_state": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "RECOMMEND",
+        "AUTHORIZED",
+        "EXECUTED",
+        "ESCALATE",
+        "REJECTED",
+        "BLOCKED",
+        "FAILED",
+        "REVOKED",
+        "EXPIRED",
+        "REAPPROVAL_REQUIRED"
+      ],
+      "description": "Current RABA approval state."
+    },
+    "previous_state": {
+      "type": ["string", "null"],
+      "description": "Previous RABA approval state, if available."
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"],
+      "description": "Risk level assigned to the action or transition."
+    },
+    "human_owner_role": {
+      "type": "string",
+      "description": "Human role accountable for the workflow or action."
+    },
+    "authorizer_id": {
+      "type": "string",
+      "description": "Identifier of the human or system that authorized the action."
+    },
+    "authorizer_role": {
+      "type": "string",
+      "description": "Role that authorized the action."
+    },
+    "decision_reason": {
+      "type": "string",
+      "description": "Human-readable explanation of the decision."
+    },
+    "policy_reference": {
+      "type": "string",
+      "description": "Policy, rule, threshold or governance condition used."
+    },
+    "technical_trace_id": {
+      "type": "string",
+      "description": "Link or identifier for the associated technical trace."
+    },
+    "tool_call_id": {
+      "type": "string",
+      "description": "Tool call, function call or MCP tool invocation identifier."
+    },
+    "external_system": {
+      "type": "string",
+      "description": "External system affected by the action, if any."
+    },
+    "external_reference": {
+      "type": "string",
+      "description": "External record, email, ticket, transaction, document or system reference."
+    },
+    "outcome": {
+      "type": "string",
+      "description": "Result of the decision or action."
+    }
+  }
+}
