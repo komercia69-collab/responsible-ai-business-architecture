@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raba.dev/schemas/recovery-decision-record.schema.json",
+  "title": "RABA Recovery Decision Record",
+  "description": "Governance artifact recording why a system, workflow, tenant, zone, or cluster was allowed to return to trusted operation after a governance integrity breach.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "recovery_id",
+    "breach_id",
+    "governance_condition",
+    "affected_scope",
+    "detection_timestamp",
+    "containment_timestamp",
+    "recovery_decision_timestamp",
+    "evidence_of_integrity",
+    "quarantine_event_disposition",
+    "risk_acceptance_statement",
+    "authority_and_approval_evidence",
+    "recovery_decision"
+  ],
+  "properties": {
+    "recovery_id": {
+      "type": "string",
+      "description": "Unique identifier for the Recovery Decision Record."
+    },
+    "breach_id": {
+      "type": "string",
+      "description": "Identifier of the related breach or governance condition event."
+    },
+    "governance_condition": {
+      "type": "string",
+      "enum": [
+        "AUDIT_INTEGRITY_BREACH",
+        "CONTAINED_DEGRADED",
+        "READ_ONLY_GOVERNANCE_MODE",
+        "RECOVERY_PENDING"
+      ]
+    },
+    "affected_scope": {
+      "type": "string",
+      "enum": [
+        "NODE_LOCAL",
+        "WORKFLOW_SCOPE",
+        "TENANT_SCOPE",
+        "ZONE_SCOPE",
+        "GLOBAL_SCOPE"
+      ]
+    },
+    "affected_entities": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "workflow_ids": { "type": "array", "items": { "type": "string" } },
+        "tenant_ids": { "type": "array", "items": { "type": "string" } },
+        "zone_ids": { "type": "array", "items": { "type": "string" } },
+        "gateway_instance_ids": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "detection_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "containment_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "recovery_decision_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "return_to_operational_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_of_integrity": {
+      "type": "object",
+      "required": [
+        "verification_status",
+        "hash_chain_verification",
+        "signature_verification",
+        "event_sequence_verification",
+        "technical_trace_reconciliation"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "verification_status": {
+          "type": "string",
+          "enum": ["passed", "failed", "partial", "inconclusive", "passed_with_known_gaps"]
+        },
+        "hash_chain_verification": {
+          "type": "string",
+          "enum": ["passed", "failed", "partial", "not_applicable", "unknown"]
+        },
+        "signature_verification": {
+          "type": "string",
+          "enum": ["passed", "failed", "partial", "not_applicable", "unknown"]
+        },
+        "event_sequence_verification": {
+          "type": "string",
+          "enum": ["passed", "failed", "partial", "not_applicable", "unknown"]
+        },
+        "technical_trace_reconciliation": {
+          "type": "string",
+          "enum": ["passed", "failed", "partial", "not_applicable", "unknown"]
+        },
+        "policy_version_status": {
+          "type": "string"
+        },
+        "key_rotation_status": {
+          "type": "string"
+        },
+        "verification_summary": {
+          "type": "string"
+        }
+      }
+    },
+    "quarantine_event_disposition": {
+      "type": "object",
+      "required": [
+        "quarantine_log_id",
+        "total_quarantined_events",
+        "disposition_summary"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "quarantine_log_id": { "type": "string" },
+        "total_quarantined_events": { "type": "integer", "minimum": 0 },
+        "reviewed_events": { "type": "integer", "minimum": 0 },
+        "reconciled_events": { "type": "integer", "minimum": 0 },
+        "rejected_events": { "type": "integer", "minimum": 0 },
+        "reintegrated_events": { "type": "integer", "minimum": 0 },
+        "preserved_as_evidence_events": { "type": "integer", "minimum": 0 },
+        "unresolved_events": { "type": "integer", "minimum": 0 },
+        "reviewer_role": { "type": "string" },
+        "disposition_summary": { "type": "string" },
+        "disposition_values": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "RECONCILED",
+              "REJECTED",
+              "MANUALLY_REVIEWED",
+              "REINTEGRATED",
+              "PRESERVED_AS_EVIDENCE",
+              "UNRESOLVED"
+            ]
+          }
+        }
+      }
+    },
+    "risk_acceptance_statement": {
+      "type": "object",
+      "required": ["unresolved_risks", "risk_acceptance", "accountable_role"],
+      "additionalProperties": true,
+      "properties": {
+        "unresolved_risks": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "accepted_risks": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "compensating_controls": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "monitoring_requirements": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "risk_acceptance": {
+          "type": "string",
+          "enum": ["accepted", "accepted_with_conditions", "not_accepted", "escalated"]
+        },
+        "accountable_role": {
+          "type": "string"
+        }
+      }
+    },
+    "authority_and_approval_evidence": {
+      "type": "object",
+      "required": ["accountable_recovery_role", "approval_decision", "approval_timestamp"],
+      "additionalProperties": true,
+      "properties": {
+        "accountable_recovery_role": { "type": "string" },
+        "approver_reference": { "type": "string" },
+        "approval_decision": {
+          "type": "string",
+          "enum": [
+            "approved",
+            "partially_approved",
+            "rejected",
+            "escalated"
+          ]
+        },
+        "approval_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "approval_rationale": { "type": "string" },
+        "cryptographic_authority_evidence": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "signature_present": { "type": "boolean" },
+            "signature_reference": { "type": "string" },
+            "signed_recovery_hash": { "type": "string" },
+            "external_approval_record": { "type": "string" }
+          }
+        }
+      }
+    },
+    "recovery_decision": {
+      "type": "string",
+      "enum": [
+        "RESTORE_OPERATIONAL",
+        "PARTIAL_RESTORE",
+        "CONTINUE_CONTAINMENT",
+        "ENTER_READ_ONLY_GOVERNANCE_MODE",
+        "ESCALATE_RECOVERY",
+        "FAIL_CLOSED"
+      ]
+    },
+    "related_records": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "breach_record_uri": { "type": "string" },
+        "quarantine_log_uri": { "type": "string" },
+        "decision_log_references": { "type": "array", "items": { "type": "string" } },
+        "responsibility_event_references": { "type": "array", "items": { "type": "string" } },
+        "technical_trace_references": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
