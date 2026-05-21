@@ -19,6 +19,9 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/share-this-project.md`](share-this-project.md)
 - [`docs/contributor-prototype-ideas.md`](contributor-prototype-ideas.md)
 - [`docs/ai-collaboration-protocol.md`](ai-collaboration-protocol.md)
+- [`docs/multi-ai-operating-model.md`](multi-ai-operating-model.md)
+- [`docs/ai-recommendation-triage-protocol.md`](ai-recommendation-triage-protocol.md)
+- [`docs/decision-log/README.md`](decision-log/README.md)
 - [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
 - [`../demo/customer-email-governance-simulation/README.md`](../demo/customer-email-governance-simulation/README.md)
@@ -31,6 +34,16 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/project-intent.md`](project-intent.md)
 - [`docs/project-development-tracks.md`](project-development-tracks.md)
 - [`docs/partner-readiness-backlog.md`](partner-readiness-backlog.md)
+
+---
+
+## Multi-AI Operating Layer
+
+- [`docs/multi-ai-operating-model.md`](multi-ai-operating-model.md)
+- [`docs/ai-recommendation-triage-protocol.md`](ai-recommendation-triage-protocol.md)
+- [`docs/decision-log/README.md`](decision-log/README.md)
+- [`../templates/ai-recommendation-card.md`](../templates/ai-recommendation-card.md)
+- [`../templates/ai-decision-card.md`](../templates/ai-decision-card.md)
 
 ---
 
@@ -103,7 +116,9 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 - [`docs/audit-integrity-breach-response.md`](audit-integrity-breach-response.md)
 - [`docs/recovery-protocol.md`](recovery-protocol.md)
+- [`docs/recovery-decision-record.md`](recovery-decision-record.md)
 - [`docs/distributed-governance-condition-propagation.md`](distributed-governance-condition-propagation.md)
+- [`../schemas/recovery-decision-record.schema.json`](../schemas/recovery-decision-record.schema.json)
 - [`../rfcs/rfc-audit-integrity-and-recovery-protocol.md`](../rfcs/rfc-audit-integrity-and-recovery-protocol.md)
 
 ---
@@ -112,6 +127,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 - [`../schemas/decision-log-entry.schema.json`](../schemas/decision-log-entry.schema.json)
 - [`../schemas/responsibility-event.schema.json`](../schemas/responsibility-event.schema.json)
+- [`../schemas/recovery-decision-record.schema.json`](../schemas/recovery-decision-record.schema.json)
 
 ---
 
@@ -227,6 +243,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/governance-integrity.md`](governance-integrity.md)
 - [`docs/audit-integrity-breach-response.md`](audit-integrity-breach-response.md)
 - [`docs/recovery-protocol.md`](recovery-protocol.md)
+- [`docs/recovery-decision-record.md`](recovery-decision-record.md)
 - [`docs/distributed-governance-condition-propagation.md`](distributed-governance-condition-propagation.md)
 - [`docs/example-safety-policy.md`](example-safety-policy.md)
 - [`docs/incident-response-playbook.md`](incident-response-playbook.md)
