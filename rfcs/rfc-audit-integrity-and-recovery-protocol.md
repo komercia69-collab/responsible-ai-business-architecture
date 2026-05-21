@@ -12,9 +12,11 @@ Status: Draft
 
 ## Summary
 
-This RFC defines how RABA handles audit integrity failures, degraded trust conditions, quarantine logging, distributed breach propagation, and recovery back to trusted operation.
+This RFC defines how RABA handles audit integrity failures, degraded trust conditions, quarantine logging, distributed breach propagation, Recovery Decision Records, and recovery back to trusted operation.
 
 It introduces `AUDIT_INTEGRITY_BREACH` as a system-level Governance Condition, distinct from action-level Approval States.
+
+It also defines `READ_ONLY_GOVERNANCE_MODE` as a strict containment mode for high-impact, unclear, or global trust failures.
 
 ---
 
@@ -26,7 +28,7 @@ If those records are corrupted, incomplete, unverifiable, or suspected to be man
 
 However, the system also should not unnecessarily stop all productive work.
 
-RABA therefore needs a model that protects trusted execution while preserving safe degraded work.
+RABA therefore needs a model that protects trusted execution, preserves evidence, and allows safe degraded work when appropriate.
 
 ---
 
@@ -50,6 +52,7 @@ System governance conditions may include:
 OPERATIONAL
 AUDIT_INTEGRITY_BREACH
 CONTAINED_DEGRADED
+READ_ONLY_GOVERNANCE_MODE
 RECOVERY_PENDING
 ```
 
@@ -69,6 +72,8 @@ They define the trusted operating context in which approval states are evaluated
 6. Distributed breach propagation should be fast but not blindly global.
 7. Quarantine records must remain separate from trusted logs until reviewed.
 8. Recovery decisions must themselves be auditable.
+9. Read-only governance mode should preserve evidence while preventing action progression.
+10. Recovery Decision Records should document evidence, risk acceptance, quarantined event disposition, and authority.
 
 ---
 
@@ -108,12 +113,26 @@ Containment should be proportional to the affected scope and impact level.
 
 | Action / state | Default behavior during breach |
 |---|---|
-| `DRAFT` | allow in degraded mode |
-| `RECOMMEND` | allow in degraded mode |
+| `DRAFT` | allow in degraded mode if impact allows |
+| `RECOMMEND` | allow in degraded mode if impact allows |
 | `AUTHORIZED` but not executed | hold or require re-authorization |
 | new high-impact execution | block or fail-contained |
 | unclear boundary | escalate |
 | missing responsibility owner | escalate |
+
+---
+
+## Containment Modes
+
+RABA distinguishes three containment modes:
+
+| Mode | Purpose |
+|---|---|
+| `DEGRADED_MODE` | preserve low-risk non-executing work while blocking execution |
+| `READ_ONLY_GOVERNANCE_MODE` | observe, collect evidence, write quarantine records, and prevent new action progression |
+| `FAIL_CLOSED` | block execution in the affected scope |
+
+`READ_ONLY_GOVERNANCE_MODE` is especially relevant when tampering, key compromise, unclear scope, high-impact workflow impact, or global breach is suspected.
 
 ---
 
@@ -136,7 +155,26 @@ The Quarantine Log should include:
 - chain verification status;
 - containment decision.
 
-Quarantine records may later be reconciled, rejected, or preserved as incident evidence.
+Quarantine records may later be reconciled, rejected, reintegrated, manually reviewed, preserved as incident evidence, or marked unresolved.
+
+---
+
+## Disposition of Quarantined Events
+
+A Recovery Decision Record must document what happened to quarantined events.
+
+Possible dispositions:
+
+```text
+RECONCILED
+REJECTED
+MANUALLY_REVIEWED
+REINTEGRATED
+PRESERVED_AS_EVIDENCE
+UNRESOLVED
+```
+
+No quarantined event should be silently moved into trusted records without disposition.
 
 ---
 
@@ -159,7 +197,7 @@ Recovery Decision Record
   ↓
 Human Recovery Approval
   ↓
-Return to OPERATIONAL
+Return to OPERATIONAL / PARTIAL_OPERATIONAL
 ```
 
 The system must not automatically return to `OPERATIONAL` only because technical verification passes.
@@ -168,29 +206,61 @@ The system must not automatically return to `OPERATIONAL` only because technical
 
 ## Recovery Decision Record
 
-A Recovery Decision Record should include:
+A Recovery Decision Record is the governance artifact that explains why a system, workflow, tenant, zone, or cluster was allowed to return to trusted operation after a governance integrity breach.
 
-- recovery id;
-- breach id;
-- affected scope;
-- detection timestamp;
-- containment timestamp;
-- recovery decision timestamp;
-- verification status;
-- impact assessment summary;
-- quarantined records reviewed;
-- unresolved risks;
-- key rotation status;
-- policy version status;
-- decision;
-- accountable recovery role;
-- approval evidence.
+It should include five required sections:
 
-This record explains why trusted operation was restored or why containment continues.
+1. Incident and Scope
+2. Evidence of Integrity
+3. Disposition of Quarantined Events
+4. Risk Acceptance Statement
+5. Authority and Approval Evidence
+
+The RDR answers:
+
+> Why was the system allowed to return to OPERATIONAL after audit integrity was broken?
+
+Related files:
+
+- [`docs/recovery-decision-record.md`](../docs/recovery-decision-record.md)
+- [`schemas/recovery-decision-record.schema.json`](../schemas/recovery-decision-record.schema.json)
 
 ---
 
-## Human Recovery Approval
+## Evidence of Integrity
+
+Evidence of Integrity should include:
+
+- hash-chain verification result;
+- signature verification result;
+- event sequence verification result;
+- Decision Log and Responsibility Event Stream reconciliation;
+- technical trace reconciliation;
+- policy version verification;
+- key status;
+- gateway instance consistency check.
+
+Technical evidence can prove consistency.
+
+It does not alone restore trust.
+
+---
+
+## Risk Acceptance Statement
+
+Recovery does not always mean zero risk.
+
+The RDR should explicitly record:
+
+- unresolved risks;
+- accepted risks;
+- compensating controls;
+- monitoring requirements after recovery;
+- accountable role accepting risk.
+
+---
+
+## Authority and Approval Evidence
 
 Recovery requires an accountable human role.
 
@@ -203,6 +273,14 @@ Possible roles:
 - Workflow Owner for low-scope incidents.
 
 For high-impact or global incidents, recovery may require multiple approvals.
+
+Approval evidence may include:
+
+- digital signature;
+- signed approval event;
+- signed recovery decision hash;
+- approval record in an external GRC system;
+- multi-party approval record.
 
 ---
 
@@ -303,7 +381,9 @@ It defines the governance architecture pattern that implementation teams can map
 
 - [`docs/audit-integrity-breach-response.md`](../docs/audit-integrity-breach-response.md)
 - [`docs/recovery-protocol.md`](../docs/recovery-protocol.md)
+- [`docs/recovery-decision-record.md`](../docs/recovery-decision-record.md)
 - [`docs/distributed-governance-condition-propagation.md`](../docs/distributed-governance-condition-propagation.md)
+- [`schemas/recovery-decision-record.schema.json`](../schemas/recovery-decision-record.schema.json)
 - [`docs/fail-safe-governance-behavior.md`](../docs/fail-safe-governance-behavior.md)
 - [`docs/decision-log-schema.md`](../docs/decision-log-schema.md)
 - [`implementation/responsibility-event-stream.md`](../implementation/responsibility-event-stream.md)
@@ -313,10 +393,11 @@ It defines the governance architecture pattern that implementation teams can map
 ## Open Questions
 
 1. What minimum cryptographic guarantees should the reference implementation demonstrate?
-2. Should RABA define a formal Recovery Decision Record schema?
-3. How should recovery approval be represented in the Responsibility Event Stream?
-4. What level of distributed consistency is required for high-impact workflows?
-5. Should global recovery require multi-party approval by default?
+2. How should recovery approval be represented in the Responsibility Event Stream?
+3. What level of distributed consistency is required for high-impact workflows?
+4. Should global recovery require multi-party approval by default?
+5. Should RABA define a separate Quarantine Event schema?
+6. Should RABA define a formal Read-Only Governance Mode transition event?
 
 ---
 
