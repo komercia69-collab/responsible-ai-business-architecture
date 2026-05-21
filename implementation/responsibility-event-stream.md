@@ -2,7 +2,7 @@
 
 **Project:** Responsible AI Business Architecture (RABA)  
 **Status:** Draft — implementation direction  
-**Related concepts:** Responsibility Management Interface, Responsibility Layer for Agentic AI Architecture
+**Related concepts:** Responsibility Management Interface, Responsibility Layer for Agentic AI Architecture, Approval State Specification, Decision Log Schema
 
 ---
 
@@ -32,7 +32,7 @@ ActionRecommended
 ApprovalRequested
 ApprovalGranted
 ApprovalRejected
-ExecutionAuthorized
+AuthorizationCreated
 ExecutionStarted
 ExecutionCompleted
 EscalationTriggered
@@ -43,6 +43,9 @@ DecisionLogged
 AuditTraceSigned
 PolicyBoundaryReached
 ActionBoundaryCrossed
+AuthorizationRevoked
+AuthorizationExpired
+ReapprovalRequired
 ```
 
 These events can form a reliable stream of accountability across AI systems, workflow engines, approval interfaces, compliance tools, and audit storage.
@@ -109,10 +112,11 @@ Scenario: AI prepares and sends a customer email.
 2. ActionRecommended
 3. ApprovalRequested
 4. ApprovalGranted
-5. ExecutionAuthorized
-6. ExecutionCompleted
-7. DecisionLogged
-8. AuditTraceSigned
+5. AuthorizationCreated
+6. ExecutionStarted
+7. ExecutionCompleted
+8. DecisionLogged
+9. AuditTraceSigned
 ```
 
 If the workflow detects legal, financial, or reputational risk, the flow changes:
@@ -133,32 +137,161 @@ The responsibility event stream makes this sequence reconstructable later.
 
 ---
 
-## Minimal event schema
+## Minimal event envelope
 
-A responsibility event should include at least:
+All responsibility events should share a common envelope.
 
 ```json
 {
   "event_id": "evt_123",
   "event_type": "ApprovalGranted",
-  "timestamp": "2026-05-20T08:30:00Z",
+  "timestamp": "2026-05-21T14:30:00Z",
+  "schema_version": "0.1",
   "workflow_id": "wf_456",
   "action_id": "act_789",
-  "agent_id": "agent_support_email",
-  "current_state": "EXECUTE",
+  "agent_id": "agent_customer_support",
+  "current_state": "AUTHORIZED",
   "previous_state": "RECOMMEND",
-  "action_boundary": "customer_email_send",
+  "action_boundary": "external_customer_communication",
+  "risk_level": "medium",
   "human_owner_role": "support_team_lead",
-  "approver_id": "user_123",
   "decision_log_id": "dec_456",
   "technical_trace_id": "trace_789",
-  "policy_reference": "policy_customer_email_v1",
-  "risk_level": "medium",
-  "reason": "Human approval granted after review"
+  "policy_reference": "policy_customer_email_v1"
 }
 ```
 
 The exact schema can vary by organization, but the link between technical trace, business decision log, and human accountability should remain explicit.
+
+---
+
+## Minimal event schemas
+
+This section defines three initial event schemas that make the Responsibility Event Stream implementable.
+
+### 1. `ActionDrafted`
+
+Emitted when an AI system creates a draft or identifies a possible action before any external effect occurs.
+
+```json
+{
+  "event_id": "evt_action_drafted_001",
+  "event_type": "ActionDrafted",
+  "timestamp": "2026-05-21T14:00:00Z",
+  "schema_version": "0.1",
+  "workflow_id": "wf_customer_email_001",
+  "action_id": "act_send_email_001",
+  "agent_id": "agent_customer_support",
+  "current_state": "DRAFT",
+  "previous_state": null,
+  "action_type": "send_customer_email",
+  "action_boundary": "external_customer_communication",
+  "risk_level": "medium",
+  "draft_reference": "draft_001",
+  "input_context_refs": ["case_123", "policy_refund_v2"],
+  "technical_trace_id": "trace_001"
+}
+```
+
+Minimum required fields:
+
+- `event_id`
+- `event_type`
+- `timestamp`
+- `workflow_id`
+- `action_id`
+- `agent_id`
+- `current_state`
+- `action_type`
+- `action_boundary`
+
+---
+
+### 2. `ApprovalGranted`
+
+Emitted when a human role, accountable owner, or approved policy grants authorization for an action to proceed.
+
+```json
+{
+  "event_id": "evt_approval_granted_001",
+  "event_type": "ApprovalGranted",
+  "timestamp": "2026-05-21T14:05:00Z",
+  "schema_version": "0.1",
+  "workflow_id": "wf_customer_email_001",
+  "action_id": "act_send_email_001",
+  "agent_id": "agent_customer_support",
+  "previous_state": "RECOMMEND",
+  "current_state": "AUTHORIZED",
+  "action_type": "send_customer_email",
+  "action_boundary": "external_customer_communication",
+  "risk_level": "medium",
+  "human_owner_role": "support_team_lead",
+  "authorizer_id": "user_123",
+  "authorizer_role": "support_team_lead",
+  "decision_reason": "Reviewed draft; no legal or financial claim included; approved standard support response.",
+  "policy_reference": "policy_customer_email_v1",
+  "approval_scope": "single_action",
+  "approval_expires_at": "2026-05-21T15:05:00Z",
+  "decision_log_id": "dec_001",
+  "technical_trace_id": "trace_001"
+}
+```
+
+Minimum required fields:
+
+- `event_id`
+- `event_type`
+- `timestamp`
+- `workflow_id`
+- `action_id`
+- `previous_state`
+- `current_state`
+- `authorizer_id` or `authorizer_role`
+- `decision_reason`
+- `decision_log_id`
+
+---
+
+### 3. `EscalationTriggered`
+
+Emitted when an action exceeds permitted authority or risk threshold and must be routed to an elevated owner.
+
+```json
+{
+  "event_id": "evt_escalation_triggered_001",
+  "event_type": "EscalationTriggered",
+  "timestamp": "2026-05-21T14:03:00Z",
+  "schema_version": "0.1",
+  "workflow_id": "wf_customer_email_001",
+  "action_id": "act_send_email_001",
+  "agent_id": "agent_customer_support",
+  "previous_state": "RECOMMEND",
+  "current_state": "ESCALATE",
+  "action_type": "send_customer_email",
+  "action_boundary": "external_customer_communication",
+  "risk_level": "high",
+  "escalation_reason": "Customer dispute mentions legal claim and refund request above support threshold.",
+  "escalation_trigger": "legal_or_financial_risk",
+  "escalation_owner_role": "compliance_officer",
+  "expected_response_by": "2026-05-21T16:00:00Z",
+  "policy_reference": "policy_sensitive_customer_communication_v1",
+  "decision_log_id": "dec_002",
+  "technical_trace_id": "trace_002"
+}
+```
+
+Minimum required fields:
+
+- `event_id`
+- `event_type`
+- `timestamp`
+- `workflow_id`
+- `action_id`
+- `previous_state`
+- `current_state`
+- `escalation_reason`
+- `escalation_owner_role`
+- `decision_log_id`
 
 ---
 
@@ -217,6 +350,8 @@ It allows an organization to answer:
 
 This implementation direction complements:
 
+- [`docs/approval-state-specification.md`](../docs/approval-state-specification.md)
+- [`docs/decision-log-schema.md`](../docs/decision-log-schema.md)
 - [`concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
 - [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](../architecture/responsibility-layer-for-agentic-ai-architecture.md)
 
