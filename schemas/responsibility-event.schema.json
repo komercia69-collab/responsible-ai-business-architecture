@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raba.dev/schemas/responsibility-event.schema.json",
+  "title": "RABA Responsibility Event",
+  "description": "Structured event representing a responsibility-relevant state transition or governance event in an AI-supported workflow.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "event_id",
+    "event_type",
+    "timestamp",
+    "schema_version",
+    "workflow_id",
+    "action_id",
+    "current_state"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "Unique identifier of the responsibility event."
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "ActionDrafted",
+        "ActionRecommended",
+        "ApprovalRequested",
+        "ApprovalGranted",
+        "ApprovalRejected",
+        "AuthorizationCreated",
+        "ExecutionStarted",
+        "ExecutionCompleted",
+        "ExecutionBlocked",
+        "ExecutionFailed",
+        "EscalationTriggered",
+        "EscalationAssigned",
+        "EscalationResolved",
+        "HumanOwnerAssigned",
+        "DecisionLogged",
+        "AuditTraceSigned",
+        "PolicyBoundaryReached",
+        "ActionBoundaryReached",
+        "ActionBoundaryCrossed",
+        "AuthorizationRevoked",
+        "AuthorizationExpired",
+        "ReapprovalRequired",
+        "SamplingRequested",
+        "SamplingApproved",
+        "SamplingRejected",
+        "ToolSchemaChanged",
+        "GovernanceDriftDetected",
+        "RubberStampRiskDetected"
+      ],
+      "description": "Type of responsibility event."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time when the responsibility event occurred."
+    },
+    "schema_version": {
+      "type": "string",
+      "description": "Schema version used by the event."
+    },
+    "workflow_id": {
+      "type": "string",
+      "description": "Workflow or business process where the event occurred."
+    },
+    "action_id": {
+      "type": "string",
+      "description": "Specific AI-supported action associated with the event."
+    },
+    "agent_id": {
+      "type": "string",
+      "description": "AI agent, workflow, runtime or automation involved."
+    },
+    "current_state": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "RECOMMEND",
+        "AUTHORIZED",
+        "EXECUTED",
+        "ESCALATE",
+        "REJECTED",
+        "BLOCKED",
+        "FAILED",
+        "REVOKED",
+        "EXPIRED",
+        "REAPPROVAL_REQUIRED"
+      ],
+      "description": "Current RABA state after the event."
+    },
+    "previous_state": {
+      "type": ["string", "null"],
+      "description": "Previous RABA state before the event."
+    },
+    "action_type": {
+      "type": "string",
+      "description": "Human-readable category of action."
+    },
+    "action_boundary": {
+      "type": "string",
+      "description": "Boundary reached, crossed or evaluated."
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"],
+      "description": "Risk level assigned to the action or event."
+    },
+    "human_owner_role": {
+      "type": "string",
+      "description": "Human role accountable for the action or workflow."
+    },
+    "authorizer_id": {
+      "type": "string",
+      "description": "Identifier of the authorizer, if applicable."
+    },
+    "authorizer_role": {
+      "type": "string",
+      "description": "Role of the authorizer, if applicable."
+    },
+    "decision_reason": {
+      "type": "string",
+      "description": "Human-readable reason for approval, rejection, escalation, block or override."
+    },
+    "decision_log_id": {
+      "type": "string",
+      "description": "Linked RABA decision log entry."
+    },
+    "technical_trace_id": {
+      "type": "string",
+      "description": "Linked technical trace."
+    },
+    "policy_reference": {
+      "type": "string",
+      "description": "Policy or rule involved in the event."
+    }
+  }
+}
