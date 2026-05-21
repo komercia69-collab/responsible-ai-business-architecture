@@ -1,0 +1,22 @@
+{
+  "decision_log_id": "dec_customer_email_002",
+  "timestamp": "2026-05-21T14:07:00Z",
+  "workflow_id": "wf_customer_email_001",
+  "action_id": "act_send_email_001",
+  "agent_id": "agent_customer_support",
+  "action_type": "send_customer_email",
+  "action_boundary": "external_customer_communication",
+  "approval_state": "EXECUTED",
+  "previous_state": "AUTHORIZED",
+  "risk_level": "medium",
+  "human_owner_role": "support_team_lead",
+  "authorizer_id": "user_123",
+  "authorizer_role": "support_team_lead",
+  "decision_reason": "Execution completed under valid authorization dec_customer_email_001.",
+  "policy_reference": "policy_customer_email_v1",
+  "technical_trace_id": "trace_001",
+  "tool_call_id": "tool_send_email_001",
+  "external_system": "customer_email_platform",
+  "external_reference": "email_sent_456",
+  "outcome": "executed_successfully"
+}
