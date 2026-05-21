@@ -1,0 +1,21 @@
+{
+  "event_id": "evt_escalation_triggered_001",
+  "event_type": "EscalationTriggered",
+  "timestamp": "2026-05-21T14:03:00Z",
+  "schema_version": "0.1",
+  "workflow_id": "wf_customer_email_001",
+  "action_id": "act_send_email_001",
+  "agent_id": "agent_customer_support",
+  "previous_state": "RECOMMEND",
+  "current_state": "ESCALATE",
+  "action_type": "send_customer_email",
+  "action_boundary": "external_customer_communication",
+  "risk_level": "high",
+  "human_owner_role": "support_team_lead",
+  "decision_reason": "Customer dispute mentions legal claim and refund request above support threshold.",
+  "decision_log_id": "dec_002",
+  "technical_trace_id": "trace_002",
+  "policy_reference": "policy_sensitive_customer_communication_v1",
+  "escalation_trigger": "legal_or_financial_risk",
+  "escalation_owner_role": "compliance_officer"
+}
