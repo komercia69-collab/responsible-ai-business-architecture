@@ -1,0 +1,12 @@
+# Simple line-based action samples for the RABA starter kit.
+# Format: key=value pairs separated by semicolons.
+
+action_id=action-001; workflow_id=customer_message_demo; agent_id=assistant-agent; action_type=customer_message; requested_operation=draft; external_effect=false; action_boundary=defined; responsible_role=support-lead; risk_level=low
+
+action_id=action-002; workflow_id=customer_message_demo; agent_id=assistant-agent; action_type=customer_message; requested_operation=recommend; external_effect=false; action_boundary=defined; responsible_role=support-lead; risk_level=low
+
+action_id=action-003; workflow_id=customer_message_demo; agent_id=assistant-agent; action_type=customer_message; requested_operation=deliver; external_effect=true; review_state=approved; action_boundary=defined; responsible_role=support-lead; risk_level=medium
+
+action_id=action-004; workflow_id=customer_message_demo; agent_id=assistant-agent; action_type=customer_message; requested_operation=deliver; external_effect=true; approval_state=AUTHORIZED; external_system_result=completed; action_boundary=defined; responsible_role=support-lead; risk_level=medium
+
+action_id=action-005; workflow_id=customer_message_demo; agent_id=assistant-agent; action_type=customer_message; requested_operation=deliver; external_effect=true; action_boundary=unclear; responsible_role=missing; risk_level=high
