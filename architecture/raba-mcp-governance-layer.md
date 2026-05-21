@@ -8,7 +8,7 @@
 
 ## Why This Document Exists
 
-Model Context Protocol (MCP) is becoming a standard integration layer between AI applications and real business systems. It allows AI-enabled hosts to connect to external services through MCP servers that expose tools, resources, and prompts.
+Model Context Protocol (MCP) is becoming a standard integration layer between AI applications and real business systems. It allows AI-enabled hosts to connect to external services through MCP servers that expose tools, resources, prompts and related capabilities.
 
 This is a significant operational shift.
 
@@ -84,6 +84,7 @@ Step 6   Model decides: tool X is needed
          → What is the action boundary for this tool?
          → What approval state applies?
          → Is human authorization required before execution?
+         → Should the action be blocked, recommended, authorized, executed or escalated?
          → Is this action logged to the decision record?
          ↓
 Step 7   Tool execution request is released or blocked
@@ -98,7 +99,27 @@ Without a governance gateway at this point, tool execution may become delegated 
 
 ---
 
-## Sampling as a second responsibility flow
+## Approval States for MCP Tool Execution
+
+RABA uses the approval-state model defined in [`docs/approval-state-specification.md`](../docs/approval-state-specification.md).
+
+The key distinction is:
+
+```text
+DRAFT → RECOMMEND → AUTHORIZED → EXECUTED
+                  ↘ ESCALATE
+```
+
+Earlier RABA drafts used `EXECUTE` broadly. This document now distinguishes:
+
+- `AUTHORIZED` — execution is permitted but may not yet have happened;
+- `EXECUTED` — execution has completed and produced an external effect.
+
+This matters for MCP because a tool call can be approved, released, fail, be revoked, expire, or complete. These are different governance events and should not be collapsed into one state.
+
+---
+
+## Sampling as a Second Responsibility Flow
 
 Tool execution is not the only responsibility-sensitive flow in MCP.
 
@@ -136,7 +157,7 @@ This prevents sampling from becoming a hidden channel where server-driven model 
 
 ---
 
-## Living approval state, not one-time consent
+## Living Approval State, Not One-Time Consent
 
 MCP-connected systems often begin with a consent or authorization moment: a user connects a server, grants OAuth access, or confirms a tool capability.
 
@@ -153,7 +174,7 @@ A one-time consent can become stale when:
 
 Therefore, approval state should be living, not static.
 
-Material changes should trigger review, reclassification, re-approval, or escalation.
+Material changes should trigger review, reclassification, re-approval, blocking, or escalation.
 
 A RABA-aligned host/runtime should be able to emit events such as:
 
@@ -230,31 +251,11 @@ Not all tools carry equal risk. RABA introduces a governance classification that
 | Risk level | Typical technical signal | Action type | RABA approval state |
 |---|---|---|---|
 | Low | `readOnly` | Read, list, retrieve, summarize | `DRAFT` — no external action |
-| Medium | `idempotent` or low-impact write | Create, write, update within safe limits | `RECOMMEND` — human review before execution |
-| High | `destructive` or external communication | Delete, send, submit, publish | `EXECUTE` — explicit approval required |
-| Critical | Destructive + business impact threshold | Financial, legal, customer-facing, irreversible, regulated | `ESCALATE` — elevated role authorization |
+| Medium | `idempotent` or low-impact write | Create, write, update within safe limits | `RECOMMEND` — human review before authorization |
+| High | `destructive` or external communication | Delete, send, submit, publish | `AUTHORIZED` required before execution; then `EXECUTED` if completed |
+| Critical | Destructive + business impact threshold | Financial, legal, customer-facing, irreversible, regulated | `ESCALATE` — elevated role authorization before execution |
 
 This table is not a universal rule. It is a starting pattern. Organizations should adapt the mapping based on domain, risk appetite, regulation, data sensitivity, and operational impact.
-
----
-
-## Approval State Definitions
-
-### `DRAFT`
-
-The model has produced output or identified an action. No external effect has occurred. The action exists only inside the session or workflow. The workflow remains under the responsibility of the system or workflow owner.
-
-### `RECOMMEND`
-
-The model proposes an action to a human reviewer. The human decides whether to approve, modify, or reject. The model has no further authority to execute. Accountability rests with the human who decides.
-
-### `EXECUTE`
-
-A human or authorized policy has explicitly authorized the action. Execution proceeds. The authorization, authorizer identity or role, timestamp, action parameters, and decision reason are recorded in the decision log.
-
-### `ESCALATE`
-
-The action exceeds the model's permitted authority or meets a business-defined risk threshold. Execution is blocked. The action is routed to a defined escalation owner — for example, a senior role, compliance officer, finance manager, legal reviewer, or designated accountable owner. No execution occurs until escalation is resolved.
 
 ---
 
@@ -279,12 +280,12 @@ The model reads data. No external effect occurs. No approval is normally needed,
 ```text
 Tool:           create_task
 Signal:         low-impact write / idempotent-like operation
-RABA state:     RECOMMEND
-Authorization:  Human review before execution
-Logged:         Proposed action + reviewer decision + timestamp
+RABA state:     RECOMMEND → AUTHORIZED → EXECUTED
+Authorization:  Human review before authorization
+Logged:         Proposed action + reviewer decision + execution result + timestamp
 ```
 
-The model proposes the task. A human confirms before it is created.
+The model proposes the task. A human confirms before it is created. After successful creation, the action becomes `EXECUTED`.
 
 ---
 
@@ -293,13 +294,13 @@ The model proposes the task. A human confirms before it is created.
 ```text
 Tool:           send_email
 Signal:         external communication / potentially destructive business impact
-RABA state:     EXECUTE
+RABA state:     RECOMMEND → AUTHORIZED → EXECUTED
 Authorization:  Explicit approval required
-Logged:         Approver identity + decision reason + email content + timestamp
+Logged:         Approver identity + decision reason + email content + timestamp + execution result
 Decision log:   Entry created with full accountability record
 ```
 
-No customer-facing email is sent without named human authorization. The decision is recorded.
+No customer-facing email is sent without named human authorization. The decision and execution outcome are recorded.
 
 ---
 
@@ -309,12 +310,12 @@ No customer-facing email is sent without named human authorization. The decision
 Tool:           submit_payment
 Signal:         financial execution / irreversible or high-impact action
 Business rule:  Amount exceeds defined threshold
-RABA state:     ESCALATE
+RABA state:     ESCALATE → AUTHORIZED → EXECUTED
 Authorization:  Elevated role required, such as Finance Manager
-Logged:         Escalation trigger + routing target + resolution + timestamp
+Logged:         Escalation trigger + routing target + resolution + authorization + execution outcome
 ```
 
-The action is blocked. The escalation owner is notified. No execution occurs until resolved.
+The action is blocked until escalation is resolved. No execution occurs until authorized.
 
 ---
 
@@ -332,7 +333,7 @@ MCP does not define business action boundaries. The model may be able to call an
 
 ### Is approval required — and was it obtained?
 
-MCP does not provide a universal approval-state model. The protocol itself does not distinguish between a tool that should execute immediately, one that requires review, one that requires explicit approval, and one that must escalate.
+MCP does not provide a universal approval-state model. The protocol itself does not distinguish between a tool that should execute immediately, one that requires review, one that requires explicit authorization, and one that must escalate.
 
 ### Is the execution auditable at the organizational level?
 
@@ -364,10 +365,11 @@ Responsibility observability answers:
 
 - Who was accountable for this tool execution?
 - Was the tool within the agent's permitted action boundary?
-- Was approval required — and was it obtained before execution?
+- Was approval required — and was authorization obtained before execution?
 - Was escalation required — and did it occur?
 - Is the decision recorded in a business accountability log?
 - Can an auditor reconstruct the full authorization chain?
+- Did the authorized action actually execute?
 - Did a server-initiated sampling call influence the workflow or later tool execution?
 - Did approval state remain valid after schema, context, risk, or business impact changed?
 
@@ -381,7 +383,7 @@ A system can be technically observable and still organizationally unaccountable.
 
 The RABA governance gateway sits between the model's tool decision and the tool execution request.
 
-It does not need to modify the MCP protocol. It operates at the host or runtime layer — the application or platform environment that manages the user interface, model API connection, MCP client sessions, policy decisions, approvals, and logs.
+It does not need to modify the MCP protocol. It operates at the host or runtime layer — the application or platform environment that manages the user interface, model API connection, MCP client sessions, policy decisions, approvals, authorizations, execution release and logs.
 
 ```text
 MODEL DECISION LAYER
@@ -390,7 +392,7 @@ MODEL DECISION LAYER
   ├── Classify tool by risk level
   ├── Determine required approval state
   ├── Check action boundary for current agent role
-  ├── Route to: auto-execute / human review / approval / escalation / block
+  ├── Route to: auto-execute / human review / authorization / escalation / block
   ├── Record state transition to decision log
   ├── Emit responsibility event
   └── Release or block tool execution request
@@ -422,7 +424,9 @@ ActionBoundaryReached
 ApprovalRequested
 ApprovalGranted
 ApprovalRejected
-ExecutionAuthorized
+AuthorizationCreated
+ExecutionStarted
+ExecutionCompleted
 ExecutionBlocked
 EscalationTriggered
 EscalationAssigned
@@ -447,15 +451,15 @@ Before deploying MCP-connected AI agents in production, organizations should ans
 
 - Which tools may the AI agent execute without human authorization?
 - Which tools require review before execution?
-- Which tools require explicit approval from a named role?
+- Which tools require explicit authorization from a named role?
 - Which tools are prohibited regardless of model confidence?
 
-### Approval ownership
+### Approval and authorization ownership
 
-- Who is the named approver for each tool category?
-- What is the approval mechanism — in-workflow confirmation, role-based authorization, or conditional rule?
+- Who is the named approver or authorizer for each tool category?
+- What is the mechanism — in-workflow confirmation, role-based authorization, or conditional rule?
 - What happens if the approver is unavailable?
-- When does approval expire or require re-approval?
+- When does authorization expire or require re-approval?
 
 ### Escalation paths
 
@@ -500,7 +504,7 @@ Before deploying MCP-connected AI agents in production, organizations should ans
 
 ---
 
-## Regulated environments and pilot focus
+## Regulated Environments and Pilot Focus
 
 RABA is especially relevant where tool execution creates legal, financial, operational, or reputational consequences.
 
@@ -531,6 +535,7 @@ RABA adds the governance layer that MCP does not provide:
 - action boundaries defined per agent role;
 - approval states embedded in the execution flow;
 - named accountability at every tool execution;
+- distinction between authorization and completed execution;
 - escalation paths enforced at runtime;
 - business decision records linked to technical traces;
 - responsibility events emitted for audit and monitoring;
@@ -544,6 +549,8 @@ The goal is not to slow down AI agents. It is to ensure that as agents act faste
 
 ## Related RABA Documents
 
+- [Approval State Specification](../docs/approval-state-specification.md)
+- [Decision Log Schema](../docs/decision-log-schema.md)
 - [Responsibility Layer for Agentic AI Architecture](./responsibility-layer-for-agentic-ai-architecture.md)
 - [Responsibility Management Interface](../concepts/responsibility-management-interface.md)
 - [Responsibility Event Stream](../implementation/responsibility-event-stream.md)
