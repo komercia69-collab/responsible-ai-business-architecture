@@ -9,6 +9,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 ## Getting Started
 
 - [`docs/this-project-in-3-minutes.md`](this-project-in-3-minutes.md)
+- [`docs/project-status.md`](project-status.md)
 - [`../PROJECT-VALUE.md`](../PROJECT-VALUE.md)
 - [`docs/external-summary.md`](external-summary.md)
 - [`docs/partner-engagement.md`](partner-engagement.md)
@@ -17,6 +18,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/ai-collaboration-protocol.md`](ai-collaboration-protocol.md)
 - [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
+- [`../demo/customer-email-governance-simulation/README.md`](../demo/customer-email-governance-simulation/README.md)
 - [`docs/diagrams/governance-gateway-flow.md`](diagrams/governance-gateway-flow.md)
 - [`docs/60-minute-project-path.md`](60-minute-project-path.md)
 - [`docs/start-here-by-role.md`](start-here-by-role.md)
@@ -59,6 +61,15 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 ---
 
+## Current Project Status and Roadmap
+
+- [`docs/project-status.md`](project-status.md)
+- [`docs/project-intent.md`](project-intent.md)
+- [`docs/project-development-tracks.md`](project-development-tracks.md)
+- [`docs/partner-readiness-backlog.md`](partner-readiness-backlog.md)
+
+---
+
 ## Scenarios
 
 - [`docs/scenarios/customer-support-governance-review-scenario.md`](scenarios/customer-support-governance-review-scenario.md)
@@ -72,16 +83,40 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 ---
 
-## Standards and External Alignment
+## Core Specification
 
-- [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
+- [`docs/approval-state-specification.md`](approval-state-specification.md)
+- [`docs/decision-log-schema.md`](decision-log-schema.md)
+- [`docs/governance-gateway-implementation.md`](governance-gateway-implementation.md)
+- [`docs/rubber-stamp-risk.md`](rubber-stamp-risk.md)
+- [`../implementation/responsibility-event-stream.md`](../implementation/responsibility-event-stream.md)
+
+---
+
+## Machine-Readable Schemas
+
+- [`../schemas/decision-log-entry.schema.json`](../schemas/decision-log-entry.schema.json)
+- [`../schemas/responsibility-event.schema.json`](../schemas/responsibility-event.schema.json)
 
 ---
 
 ## Examples and Proof Layer
 
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
+- [`../examples/gateway-policy-examples/README.md`](../examples/gateway-policy-examples/README.md)
+- [`../examples/gateway-policy-examples/customer-email-policy.md`](../examples/gateway-policy-examples/customer-email-policy.md)
+- [`../examples/gateway-policy-examples/high-risk-action-policy.md`](../examples/gateway-policy-examples/high-risk-action-policy.md)
+- [`../examples/responsibility-event-examples/README.md`](../examples/responsibility-event-examples/README.md)
+- [`../examples/decision-log-examples/README.md`](../examples/decision-log-examples/README.md)
+- [`../demo/customer-email-governance-simulation/README.md`](../demo/customer-email-governance-simulation/README.md)
 - [`docs/diagrams/governance-gateway-flow.md`](diagrams/governance-gateway-flow.md)
+
+---
+
+## Standards and External Alignment
+
+- [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
+- [`docs/standards-alignment.md`](standards-alignment.md)
 
 ---
 
@@ -100,6 +135,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/concepts/trusted-decision-intelligence.md`](concepts/trusted-decision-intelligence.md)
 - [`docs/concepts/model-agent-fit-governance.md`](concepts/model-agent-fit-governance.md)
 - [`docs/concepts/personal-ai-operational-twin.md`](concepts/personal-ai-operational-twin.md)
+- [`../concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
 
 ---
 
@@ -119,6 +155,8 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/architecture/llmops-to-human-ai-operational-coordination.md`](architecture/llmops-to-human-ai-operational-coordination.md)
 - [`../architecture/governance-nervous-system.md`](../architecture/governance-nervous-system.md)
 - [`../architecture/corrective-governance-layer.md`](../architecture/corrective-governance-layer.md)
+- [`../architecture/raba-mcp-governance-layer.md`](../architecture/raba-mcp-governance-layer.md)
+- [`../architecture/responsibility-layer-for-agentic-ai-architecture.md`](../architecture/responsibility-layer-for-agentic-ai-architecture.md)
 - [`docs/mcp-governance-principles.md`](mcp-governance-principles.md)
 - [`docs/governance-toolchain.md`](governance-toolchain.md)
 - [`docs/governance-observability.md`](governance-observability.md)
@@ -132,6 +170,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../demo/human-ai-coordination-room.html`](../demo/human-ai-coordination-room.html)
 - [`../demo/governance-dashboard-v2.html`](../demo/governance-dashboard-v2.html)
 - [`../demo/governance-readiness-assessment.html`](../demo/governance-readiness-assessment.html)
+- [`../demo/customer-email-governance-simulation/README.md`](../demo/customer-email-governance-simulation/README.md)
 
 ---
 
