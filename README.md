@@ -2,54 +2,132 @@
 
 > **AI may be probabilistic. Responsibility must not be.**
 
-Responsible AI Business Architecture is an open-source research and architecture initiative for people designing AI-assisted or AI-agentic business workflows where human responsibility, operational control and governance must remain visible.
+Responsible AI Business Architecture (RABA) is an open-source research and architecture initiative for organizations designing AI-assisted or AI-agentic business workflows where human responsibility, operational control, auditability and governance must remain visible.
 
-It is intended for business owners, CTOs, AI engineers, enterprise architects, consultants, governance specialists, legal/security roles and researchers who need practical ways to connect AI autonomy with human accountability.
+RABA focuses on a specific gap:
 
----
+> AI agents are becoming able to act inside real business systems faster than organizations are defining who is accountable for those actions.
 
-## For Pilot Partners
+RABA is not an AI ethics manifesto, a compliance checklist or a security certification.
 
-If your organization is exploring AI in a real workflow, start with [`docs/partner-engagement.md`](docs/partner-engagement.md).
-
-The recommended first step is narrow: choose one AI-assisted workflow, map where AI output becomes operational action, identify approval and escalation points, and define what should be logged before autonomy increases.
+It is a practical operational architecture for making AI-supported actions accountable, reviewable and auditable.
 
 ---
 
 ## Start Here
 
-If you are new to the project, start with [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md).
+If you are new to the project, start with:
 
-If you want a route based on your role, use [`docs/start-here-by-role.md`](docs/start-here-by-role.md):
+- [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md)
+- [`docs/start-here-by-role.md`](docs/start-here-by-role.md)
 
-- Business Owner / CEO
-- CTO / Head of AI
-- AI Engineer / Agent Builder
-- Consultant / Enterprise Architect
-- Governance / Legal / Security Specialist
-- Researcher / Community Contributor
+If your organization is exploring AI in a real workflow, start with:
 
-If you want to apply the framework to one real workflow, start with [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
+- [`docs/partner-engagement.md`](docs/partner-engagement.md)
+- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
 
-If you want to see a concrete example, use [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md).
+If you want to see a concrete example, use:
 
-If you want to see a minimal executable proof layer, use [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md).
+- [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md)
 
-### Practical entry points for the responsibility architecture
+If you want to see a minimal executable proof layer, use:
 
-RABA now connects three levels of practical work:
+- [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md)
 
-| If you are... | Start with | Why |
+---
+
+## Core RABA Concepts
+
+RABA is currently organized around six core concepts.
+
+| Core concept | Start here | What it defines |
 |---|---|---|
-| Working in AI governance, compliance, legal, risk or audit | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md) | Understand the missing responsibility layer above technical agentic AI architecture |
-| Designing products, workflows, approvals or business operations | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md) | See how responsibility can become visible and manageable inside workflow interfaces |
-| Building AI runtime, observability, policy, audit or event-driven infrastructure | [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Explore one implementation direction for responsibility events, audit trails, dashboards and enterprise integrations |
+| **Action Boundary** | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md) | Where AI assistance becomes operational action |
+| **Approval States** | [`docs/approval-state-specification.md`](docs/approval-state-specification.md) | How AI-supported actions move from draft to recommendation, authorization, execution or escalation |
+| **Governance Gateway** | [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md) | The control point between model decision and external execution |
+| **Decision Log** | [`docs/decision-log-schema.md`](docs/decision-log-schema.md) | The business accountability record linked to technical traces |
+| **Responsibility Observability** | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md) | How organizations see who was responsible, not only what happened technically |
+| **Responsibility Event Stream** | [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | The event-driven implementation pattern for responsibility transitions |
 
 In short:
 
 ```text
 governance concept → operational interface → implementation pattern
 ```
+
+---
+
+## Practical Entry Points by Audience
+
+| If you are... | Start with | Why |
+|---|---|---|
+| Working in AI governance, compliance, legal, risk or audit | [`docs/approval-state-specification.md`](docs/approval-state-specification.md), [`docs/decision-log-schema.md`](docs/decision-log-schema.md) | Understand the core operational model and accountability record |
+| Designing products, workflows, approvals or business operations | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md) | See how responsibility can become visible and manageable inside workflow interfaces |
+| Building AI runtime, observability, policy, audit or event-driven infrastructure | [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Explore implementation patterns for responsibility events, audit trails and dashboards |
+| Working with MCP, tools or agentic execution | [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md), [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md) | Map tool execution and MCP security risks to responsibility architecture |
+| Exploring a pilot | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`pilots/customer-communication-pilot.md`](pilots/customer-communication-pilot.md) | Apply RABA to one real workflow |
+
+---
+
+## Ready to Use Today
+
+- [`docs/approval-state-specification.md`](docs/approval-state-specification.md) — formal state model for AI-supported actions.
+- [`docs/decision-log-schema.md`](docs/decision-log-schema.md) — minimum business accountability record.
+- [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md) — responsibility layer above technical agentic AI architecture.
+- [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md) — governance checkpoint for MCP tool execution.
+- [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md) — MCP security risks mapped to responsibility failures.
+- [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md) — interface concept for visible and manageable responsibility.
+- [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) — event-driven implementation direction.
+- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) — practical pilot format for one real AI-assisted workflow.
+- [`offers/pilot-partner-call.md`](offers/pilot-partner-call.md) — external-facing invitation for pilot partners.
+- [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) — minimal executable Governance Gateway proof layer.
+
+---
+
+## For Pilot Partners
+
+If your organization is exploring AI in a real workflow, the recommended first step is narrow:
+
+1. Choose one AI-assisted workflow.
+2. Map where AI output becomes operational action.
+3. Identify approval and escalation points.
+4. Define what should be logged before autonomy increases.
+5. Test the workflow with RABA approval states and decision logs.
+
+Start with [`docs/partner-engagement.md`](docs/partner-engagement.md) or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
+
+---
+
+## Project Hub Overview
+
+For a detailed file-by-file navigation map, see [`docs/repository-map.md`](docs/repository-map.md).
+
+| Hub Area | Start Here | What It Helps You Do |
+|---|---|---|
+| **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose a practical route |
+| **Core Specification** | [`docs/approval-state-specification.md`](docs/approval-state-specification.md), [`docs/decision-log-schema.md`](docs/decision-log-schema.md) | Understand the operational state model and accountability record |
+| **Governance Architecture** | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md), [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md) | Map responsibility, action boundaries, gateways, delegated authority and MCP tool execution |
+| **Responsibility Interface & Implementation** | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Make responsibility visible in interfaces and translate accountability into events |
+| **Security & Threat Mapping** | [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md) | Connect security risks to responsibility failures and governance controls |
+| **Proof Layer** | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md), [`docs/diagrams/governance-gateway-flow.md`](docs/diagrams/governance-gateway-flow.md) | Run and understand a minimal Governance Gateway example |
+| **Pilots & Use Cases** | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`pilots/customer-communication-pilot.md`](pilots/customer-communication-pilot.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
+| **Standards & Positioning** | [`docs/standards-alignment.md`](docs/standards-alignment.md), [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md) | Position RABA relative to existing governance and risk frameworks |
+| **Project Direction** | [`docs/project-intent.md`](docs/project-intent.md), [`docs/project-development-tracks.md`](docs/project-development-tracks.md), [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Understand why the project exists and how it may evolve |
+
+---
+
+## Research Directions
+
+The following concepts are important but currently experimental or exploratory. They should not be treated as finished products, certified methods or production-ready systems.
+
+- **Governance Nervous System** — real-time coordination and stabilization layer for AI-native operational environments.
+- **Living Human-AI Operational Interface** — adaptive coordination layer between humans and AI systems.
+- **Personal AI Operational Twin** — model for AI-assisted personal or role-based workflow continuity.
+- **Trusted Decision Intelligence** — AI + data integrity + human accountability for decision systems.
+- **Model-Agent Fit Governance** — selecting models according to agent role, risk and authority.
+- **Human-AI Operational Coordination Lattice** — exploratory model for multi-agent and multi-human coordination.
+
+These ideas may become future architecture tracks, but the current core of RABA is the six-concept operational model above.
 
 ---
 
@@ -77,53 +155,7 @@ This is not only project documentation. It is an example of the project applying
 
 ---
 
-## Current Project Status
-
-This repository is not a finished doctrine or certified governance standard.
-
-It currently provides reusable orientation material, architecture concepts, pilot formats, concrete use cases, diagrams, prototypes and a minimal governance gateway proof layer for exploring Human-AI Operational Coordination.
-
-### Ready to use today
-
-- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) — a practical pilot format for mapping one real AI-assisted workflow.
-- [`offers/pilot-partner-call.md`](offers/pilot-partner-call.md) — an external-facing invitation for potential pilot partners.
-- [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) — a concrete example workflow.
-- [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) — a minimal executable Governance Gateway proof layer.
-- [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md) — the responsibility layer above technical agentic AI architecture.
-- [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md) — an operational interface concept for making responsibility visible and manageable.
-- [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) — an implementation direction for event-driven accountability and responsibility observability.
-
-### Still in development
-
-Concepts such as the Governance Nervous System, Personal AI Operational Twin and Human-AI Operational Coordination Lattice are evolving architectural models. They are useful for exploration and design, but they should not be treated as finished products, certified methods or production-ready systems.
-
----
-
-## Project Hub Overview
-
-Use this hub as the main navigation panel for the repository.
-
-For a detailed file-by-file navigation map, see [`docs/repository-map.md`](docs/repository-map.md).
-
-| Hub Area | Start Here | What It Helps You Do |
-|---|---|---|
-| **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose a practical entry route |
-| **External Sharing** | [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md), [`docs/share-this-project.md`](docs/share-this-project.md), [`docs/partner-engagement.md`](docs/partner-engagement.md) | Share, review and position the project with partners, employers and governance audiences |
-| **Governance Architecture** | [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md), [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md), [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md), [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md) | Map responsibility, action boundaries, gateways, agent capabilities, delegated authority and coordination layers |
-| **Responsibility Interface & Implementation** | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Make responsibility visible in workflow interfaces and translate accountability into event-driven implementation patterns |
-| **Proof Layer** | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md), [`docs/diagrams/governance-gateway-flow.md`](docs/diagrams/governance-gateway-flow.md) | Run and understand a minimal Governance Gateway example from policy to decision log |
-| **Prototypes & Portals** | [`demo/human-ai-coordination-room.html`](demo/human-ai-coordination-room.html), [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html), [`demo/governance-readiness-assessment.html`](demo/governance-readiness-assessment.html) | Explore interface prototypes and executive-facing governance views |
-| **Pilots & Use Cases** | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`offers/pilot-partner-call.md`](offers/pilot-partner-call.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
-| **Governance Toolkit** | [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md), [`tools/suspicious-instruction-review-gate/README.md`](tools/suspicious-instruction-review-gate/README.md) | Assess readiness, detect failure patterns and test governance controls |
-| **Project Direction** | [`docs/project-intent.md`](docs/project-intent.md), [`docs/project-development-tracks.md`](docs/project-development-tracks.md), [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Understand why the project exists and how architecture, prototypes and adoption paths evolve together |
-
----
-
 ## Core Idea
-
-> **We do not try to fully control intelligence.**
->
-> **We design governable operational environments where humans, organizations and autonomous AI systems can cooperate responsibly.**
 
 Artificial intelligence is moving from assistance to execution.
 
@@ -131,84 +163,22 @@ AI systems are increasingly becoming operational participants inside business wo
 
 The challenge is evolving from controlling AI systems toward designing governable operational environments where humans, organizations and autonomous AI systems can coordinate responsibly.
 
----
-
-## This Project Is a Discussion Space, Not a Finished Doctrine
-
-Responsible AI Business Architecture is not presented as a final answer.
-
-It is a structured space for serious discussion, practical exploration and collaborative development around one of the most important operational questions of the coming years:
-
-> **How can humans and AI systems work together effectively without losing responsibility, oversight and control?**
-
-The goal is to develop shared language, practical models, use cases, assessment tools and governance patterns for Human-AI Operational Coordination.
-
----
-
-## Core Architecture Areas
-
-| Area | Meaning |
-|---|---|
-| **Human–AI Operational Coordination Stack** | Layered architecture connecting human accountability, AI action boundaries, governance gateways and operational AI agents |
-| **AI Action Boundary Mapping** | A method for defining where AI may analyze, recommend, decide, draft, trigger or execute inside real workflows |
-| **Responsibility Layer for Agentic AI Architecture** | Governance layer above technical agentic AI maps: ownership, approval states, delegated identity, escalation and auditability |
-| **Responsibility Management Interface** | Operational interface concept for making action boundaries, approval states, escalation ownership and accountability visible at runtime |
-| **Responsibility Event Stream** | Event-driven implementation pattern for responsibility events, audit trails, decision logs and responsibility observability |
-| **AI Governance Gateway** | A socio-technical gateway controlling AI access to actions, data and decisions through limits, logs, escalation and human accountability |
-| **Agent Development Kit Governance Mapping** | Maps instruction files, skills, hooks, subagents, plugins and external tools to governance controls and responsibility boundaries |
-| **Governance Nervous System** | A real-time coordination and stabilization layer for AI-native operational environments |
-| **Living Human-AI Operational Interface** | A continuously evolving coordination layer that adapts faster than the AI systems it helps govern |
-| **Model–Agent Fit Governance** | Governance pattern for selecting models according to agent role, capability, risk level, action boundaries and accountability requirements |
-| **Trusted Decision Intelligence** | Governance concept for AI + Blockchain + BI systems where data integrity, AI reasoning and human accountability must remain connected |
-| **Minimal Human–AI Governance Pilot** | Practical first application of the framework to one real AI-assisted workflow |
-| **Executable Governance Gateway Demo** | Minimal proof layer showing policy checks, gateway decisions and decision logs for AI agent actions |
+> **We do not try to fully control intelligence.**
+>
+> **We design governable operational environments where humans, organizations and autonomous AI systems can cooperate responsibly.**
 
 ---
 
 ## Key Research Questions
 
-- What happens when AI systems operate faster than human management structures?
-- Can governance function at machine speed?
-- How do organizations preserve operational clarity inside autonomous environments?
 - Where are the boundaries between AI analysis, recommendation, decision support, execution and accountability?
-- What governance gateways are needed before AI output becomes operational action?
-- How can organizations detect when AI acceleration begins to erode human judgment?
-- How should organizations choose models according to agent role, risk level, tool permissions and accountability requirements?
-- What minimum governance architecture should every operational AI agent have before autonomy is increased?
-- How can one concrete AI-assisted workflow be turned into an example instance of governable operational action?
-- How can external AI governance standards be translated into operational workflow controls?
+- What governance gateway is needed before AI output becomes operational action?
+- How should approval states be represented technically and operationally?
 - How can technical traces be linked to business decision records and named human accountability?
 - How can responsibility events be captured, monitored and audited across AI workflows?
-
----
-
-## Architecture Map
-
-```text
-Human Layer
-  strategic intent • identity • accountability • intervention
-        ↓
-AI Action Boundary Mapping
-  analysis • recommendation • decision support • execution • accountability
-        ↓
-Personal AI Operational Twin
-  context • style • memory • drafts • recurring workflows
-        ↓
-Living Human-AI Operational Interface
-  visibility • escalation • operational translation • feedback • continuous adaptation
-        ↓
-AI Governance Gateway
-  access control • risk limits • logging • escalation • human approval
-        ↓
-Governance Nervous System
-  telemetry • coordination • stabilization • corrective governance
-        ↓
-Operational AI Agents
-  execution • workflows • local autonomy
-        ↓
-Execution Environment
-  business processes • tools • systems • outcomes
-```
+- How can organizations detect when approval becomes a rubber stamp?
+- How can MCP-connected AI agents execute tools without losing accountability?
+- How can external AI governance standards be translated into operational workflow controls?
 
 ---
 
@@ -232,7 +202,7 @@ This project is intended for:
 - CTOs and heads of AI;
 - enterprise architects and consultants;
 - AI systems engineers and agent builders;
-- governance, legal, compliance and security specialists;
+- governance, legal, compliance, audit, risk and security specialists;
 - process designers and frontline practitioners working with AI-enabled workflows;
 - researchers exploring Human-AI Operational Coordination.
 
@@ -255,22 +225,6 @@ This project is an experimental governance architecture and research initiative.
 It is not legal advice, a security certification, a compliance guarantee or complete protection against prompt injection, AI misuse or operational failure.
 
 See [`DISCLAIMER.md`](DISCLAIMER.md) for limitations.
-
----
-
-## Strategic Principle
-
-The central question is no longer only:
-
-> “What can AI do?”
-
-or even:
-
-> “How do we control AI?”
-
-The deeper question is becoming:
-
-> **How do humans, organizations and autonomous systems remain operationally coordinated as autonomy continues to scale?**
 
 ---
 
