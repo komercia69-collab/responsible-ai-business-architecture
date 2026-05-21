@@ -1,0 +1,21 @@
+{
+  "event_id": "evt_approval_granted_001",
+  "event_type": "ApprovalGranted",
+  "timestamp": "2026-05-21T14:05:00Z",
+  "schema_version": "0.1",
+  "workflow_id": "wf_customer_email_001",
+  "action_id": "act_send_email_001",
+  "agent_id": "agent_customer_support",
+  "previous_state": "RECOMMEND",
+  "current_state": "AUTHORIZED",
+  "action_type": "send_customer_email",
+  "action_boundary": "external_customer_communication",
+  "risk_level": "medium",
+  "human_owner_role": "support_team_lead",
+  "authorizer_id": "user_123",
+  "authorizer_role": "support_team_lead",
+  "decision_reason": "Reviewed draft; no legal or financial claim included; approved standard support response.",
+  "decision_log_id": "dec_001",
+  "technical_trace_id": "trace_001",
+  "policy_reference": "policy_customer_email_v1"
+}
