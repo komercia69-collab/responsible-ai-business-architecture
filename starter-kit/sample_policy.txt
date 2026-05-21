@@ -1,0 +1,19 @@
+# Minimal RABA policy file
+# This file is intentionally simple and line-based.
+
+workflow = customer_message_demo
+external_effect_requires_approval = true
+default_fail_safe = ESCALATE
+
+# Allowed low-impact preparation states
+allow draft when external_effect=false
+allow recommend when external_effect=false
+
+# Delivery requires approval before execution
+allow authorize when requested_operation=deliver and review_state=approved
+allow executed when approval_state=AUTHORIZED and external_system_result=completed
+
+# Escalation rules
+escalate when action_boundary=unclear
+escalate when responsible_role=missing
+escalate when risk_level=high
