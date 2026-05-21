@@ -63,16 +63,16 @@ OPERATIONAL
     ↓ breach detected
 AUDIT_INTEGRITY_BREACH
     ↓ containment
-CONTAINED_DEGRADED
+CONTAINED_DEGRADED or READ_ONLY_GOVERNANCE_MODE
     ↓ verification and investigation
 RECOVERY_PENDING
-    ↓ recovery approval
-OPERATIONAL
+    ↓ Recovery Decision Record + recovery approval
+OPERATIONAL or PARTIAL_OPERATIONAL
 ```
 
 The system should not return from `AUDIT_INTEGRITY_BREACH` to `OPERATIONAL` automatically.
 
-A recovery decision must be explicitly recorded.
+A Recovery Decision Record must be explicitly recorded.
 
 ---
 
@@ -84,13 +84,25 @@ Recommended behavior:
 
 | Action category | Behavior during breach |
 |---|---|
-| Internal draft | allow in degraded mode |
-| Recommendation without external effect | allow in degraded mode |
-| New authorization | hold or require re-authorization |
+| Internal draft | allow in degraded mode if scope and impact allow |
+| Recommendation without external effect | allow in degraded mode if scope and impact allow |
+| New authorization | hold, require re-authorization, or enter read-only governance mode |
 | Authorized but not executed action | freeze or require re-authorization |
 | New external execution | block or fail-contained |
-| High-impact workflow | fail-closed for affected scope |
+| High-impact workflow | fail-closed or read-only governance mode for affected scope |
 | Escalation | trigger immediately |
+
+---
+
+## Containment Modes
+
+RABA distinguishes three containment modes.
+
+| Mode | Purpose | Typical use |
+|---|---|---|
+| `DEGRADED_MODE` | preserve low-risk preparation while blocking execution | scoped breach with low-impact internal work |
+| `READ_ONLY_GOVERNANCE_MODE` | observe, collect evidence, and prevent new action progression | suspected tampering, unclear audit integrity, high-impact or global breach |
+| `FAIL_CLOSED` | block execution entirely inside affected scope | key compromise, global breach, high-impact unresolved trust failure |
 
 ---
 
@@ -104,10 +116,47 @@ Example:
 approval_state: RECOMMEND
 governance_condition: AUDIT_INTEGRITY_BREACH
 execution_allowed: false
-mode: degraded
+mode: DEGRADED_MODE
 ```
 
 This allows productivity without allowing untrusted external execution.
+
+---
+
+## Read-Only Governance Mode
+
+`READ_ONLY_GOVERNANCE_MODE` is a strict containment mode.
+
+In this mode, the system may:
+
+- observe actions;
+- collect evidence;
+- write quarantine records;
+- support audit review;
+- preserve technical traces;
+- prepare a Recovery Decision Record.
+
+It should not allow new action progression toward external execution inside the affected scope.
+
+Example:
+
+```text
+governance_condition: AUDIT_INTEGRITY_BREACH
+containment_mode: READ_ONLY_GOVERNANCE_MODE
+action_progression_allowed: false
+execution_allowed: false
+quarantine_logging: enabled
+recovery_decision_record_required: true
+```
+
+Read-only governance mode is especially relevant when:
+
+- audit-chain manipulation is suspected;
+- signing key compromise is suspected;
+- breach scope is unclear;
+- high-impact workflows are affected;
+- global or zone-level trust is degraded;
+- forensic evidence must be preserved.
 
 ---
 
@@ -138,6 +187,23 @@ It is a separate evidence area for later investigation and recovery.
 
 ---
 
+## Disposition of Quarantined Events
+
+A Recovery Decision Record must explain what happened to events recorded during the breach.
+
+Possible dispositions:
+
+- `RECONCILED`;
+- `REJECTED`;
+- `MANUALLY_REVIEWED`;
+- `REINTEGRATED`;
+- `PRESERVED_AS_EVIDENCE`;
+- `UNRESOLVED`.
+
+No quarantined event should be silently moved into trusted records without disposition.
+
+---
+
 ## Scope of Breach
 
 A breach should be scoped before applying broad containment.
@@ -150,7 +216,7 @@ Possible scopes:
 | `WORKFLOW_SCOPE` | one workflow affected | hold execution for that workflow |
 | `TENANT_SCOPE` | one customer, tenant, or domain affected | isolate tenant/domain |
 | `ZONE_SCOPE` | one region, cluster, or policy zone affected | contain zone |
-| `GLOBAL_SCOPE` | shared key, root policy, or shared event stream affected | global fail-contained |
+| `GLOBAL_SCOPE` | shared key, root policy, or shared event stream affected | global fail-contained or read-only governance mode |
 
 Containment should be fast enough to prevent unsafe execution, but narrow enough to avoid unnecessary system-wide availability loss.
 
@@ -180,9 +246,11 @@ Every breach should produce a breach record containing:
 - affected gateway instances;
 - suspected cause;
 - containment action;
+- containment mode;
 - quarantine log location;
 - recovery owner;
-- current governance condition.
+- current governance condition;
+- Recovery Decision Record requirement.
 
 ---
 
@@ -197,13 +265,16 @@ Governance recovery restores trust.
 Return to `OPERATIONAL` requires both:
 
 1. technical verification passed;
-2. recovery approved by an accountable human role.
+2. Recovery Decision Record created;
+3. recovery approved by an accountable human role.
 
 ---
 
 ## Related Documents
 
 - [`docs/recovery-protocol.md`](recovery-protocol.md)
+- [`docs/recovery-decision-record.md`](recovery-decision-record.md)
+- [`schemas/recovery-decision-record.schema.json`](../schemas/recovery-decision-record.schema.json)
 - [`docs/fail-safe-governance-behavior.md`](fail-safe-governance-behavior.md)
 - [`docs/governance-gateway-runtime-model.md`](governance-gateway-runtime-model.md)
 - [`docs/decision-log-schema.md`](decision-log-schema.md)
