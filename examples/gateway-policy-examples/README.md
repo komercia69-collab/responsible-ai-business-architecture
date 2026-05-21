@@ -12,8 +12,8 @@ These examples are not production-ready access-control systems. They are small, 
 
 | File | Workflow | Purpose |
 |---|---|---|
-| [`customer-email-policy.json`](customer-email-policy.json) | Customer communication | Demonstrates how an AI-drafted customer email moves from `DRAFT` or `RECOMMEND` toward `AUTHORIZED`, `EXECUTED` or `ESCALATE` |
-| [`high-risk-action-policy.json`](high-risk-action-policy.json) | Generic high-risk action | Demonstrates escalation-first handling for irreversible, regulated, sensitive or high-impact actions |
+| [`customer-email-policy.md`](customer-email-policy.md) | Customer communication | Demonstrates how an AI-drafted customer email moves from `DRAFT` or `RECOMMEND` toward `AUTHORIZED`, `EXECUTED` or `ESCALATE` |
+| [`high-risk-action-policy.md`](high-risk-action-policy.md) | Generic high-risk action | Demonstrates escalation-first handling for irreversible, sensitive or high-impact actions |
 
 ---
 
