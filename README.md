@@ -183,6 +183,75 @@ This is not only project documentation. It is an example of the project applying
 
 ---
 
+## How RABA governs its own evolution
+
+RABA is not only a framework for governing human-AI systems.
+
+It applies the same discipline to its own development.
+
+Major architectural changes are not merged directly from raw model output. Instead, RABA uses a structured multi-model governance process that turns recommendations into reviewed, traceable decisions.
+
+### Multi-model governance process
+
+1. **Exploration**
+   External reasoning models may propose changes using a structured Recommendation Card.
+
+2. **Critical review**
+   Alternative models stress-test proposals by looking for risks, failure modes, unclear assumptions, and implementation gaps.
+
+3. **Synthesis**
+   Recommendations are compared in a controlled workspace. Overlaps, conflicts, and trade-offs are made explicit before any change is accepted.
+
+4. **Gatekeeping**
+   The Integrator evaluates each proposal against internal safeguards:
+
+   - **Governance Gateway check** — does this change preserve or improve accountability, traceability, reviewability, and auditability?
+   - **Action Boundary check** — does this change avoid uncontrolled expansion of system behavior or external effects?
+
+5. **Codification**
+   Only accepted changes are merged into the project Canon and recorded in the Decision Log.
+
+### Canon and Decision Log
+
+RABA maintains two governance artifacts for its own evolution:
+
+- **Canon** — the accepted project state stored in GitHub.
+- **Decision Log** — a traceable record explaining why significant recommendations were accepted, partially accepted, deferred, or rejected.
+
+Any major architectural change should be explainable through the Decision Log.
+
+This separation prevents architectural drift, preserves the reasoning behind decisions, and makes the evolution of the framework auditable over time.
+
+### Dogfooding governance
+
+RABA deliberately applies its own governance discipline to its own development.
+
+The project treats its evolution as a governed workflow:
+
+```text
+Expert input
+→ Recommendation Card
+→ Triage
+→ Governance Fit Check
+→ Decision Card
+→ Canon update
+→ Decision Log
+```
+
+This is intentional dogfooding.
+
+The framework should first pass its own governance discipline before it can credibly be used to govern other human-AI or multi-agent systems.
+
+Related documents:
+
+- [`docs/multi-ai-operating-model.md`](docs/multi-ai-operating-model.md)
+- [`docs/ai-recommendation-triage-protocol.md`](docs/ai-recommendation-triage-protocol.md)
+- [`docs/decision-log/README.md`](docs/decision-log/README.md)
+- [`templates/ai-recommendation-card.md`](templates/ai-recommendation-card.md)
+- [`templates/ai-decision-card.md`](templates/ai-decision-card.md)
+
+---
+
 ## Core Idea
 
 Artificial intelligence is moving from assistance to execution.
