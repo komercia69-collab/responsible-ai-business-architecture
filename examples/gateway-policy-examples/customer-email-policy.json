@@ -1,0 +1,91 @@
+{
+  "policy_id": "customer-email-policy-v1",
+  "policy_version": "1.0.0",
+  "workflow": "customer_communication",
+  "description": "Minimal Governance Gateway policy example for AI-assisted customer-facing messages.",
+  "phase_scope": {
+    "phase": "Phase 1",
+    "focus": "governing action progression after an action request has been formed",
+    "input_integrity_governance": "out_of_scope"
+  },
+  "state_model": ["DRAFT", "RECOMMEND", "AUTHORIZED", "EXECUTED", "ESCALATE"],
+  "action_boundary": {
+    "action_type": "customer_message",
+    "external_effect_requires_authorization": true
+  },
+  "rules": [
+    {
+      "rule_id": "draft_without_external_effect",
+      "corridor": "green",
+      "conditions": {
+        "requested_operation": "draft",
+        "external_effect": false
+      },
+      "gateway_decision": "DRAFT",
+      "responsible_party": "agent_or_workflow_owner",
+      "event_type": "ActionDrafted",
+      "next_step": "prepare for review or recommendation"
+    },
+    {
+      "rule_id": "recommend_without_external_effect",
+      "corridor": "green",
+      "conditions": {
+        "requested_operation": "recommend",
+        "external_effect": false
+      },
+      "gateway_decision": "RECOMMEND",
+      "responsible_party": "workflow_owner",
+      "event_type": "ActionRecommended",
+      "next_step": "request accountable human review"
+    },
+    {
+      "rule_id": "authorize_after_human_review",
+      "corridor": "controlled",
+      "conditions": {
+        "requested_operation": "send",
+        "external_effect": true,
+        "review_state": "approved"
+      },
+      "requires": ["authorizer_reference", "responsible_role"],
+      "gateway_decision": "AUTHORIZED",
+      "responsible_party": "accountable_human_role",
+      "event_type": "ApprovalGranted",
+      "next_step": "allow controlled execution"
+    },
+    {
+      "rule_id": "record_execution_after_authorization",
+      "corridor": "controlled",
+      "conditions": {
+        "requested_operation": "send",
+        "approval_state": "AUTHORIZED",
+        "external_system_result": "completed"
+      },
+      "gateway_decision": "EXECUTED",
+      "responsible_party": "system_executor_and_accountable_business_role",
+      "event_type": "ActionExecuted",
+      "next_step": "record outcome and close or monitor"
+    },
+    {
+      "rule_id": "escalate_unclear_or_high_impact",
+      "corridor": "red",
+      "conditions_any": [
+        {"action_boundary": "unclear"},
+        {"responsible_role": "missing"},
+        {"risk_level": "high"}
+      ],
+      "gateway_decision": "ESCALATE",
+      "responsible_party": "escalation_owner",
+      "event_type": "EscalationTriggered",
+      "next_step": "route to escalation path"
+    }
+  ],
+  "minimum_outputs": [
+    "gateway_decision",
+    "approval_state",
+    "responsible_party",
+    "matched_rule_id",
+    "policy_version",
+    "decision_log_required",
+    "responsibility_event_type"
+  ]
+}
