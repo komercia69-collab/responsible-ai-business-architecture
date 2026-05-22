@@ -1,0 +1,77 @@
+{
+  "policy_id": "starter-kit-policy-v1",
+  "policy_version": "1.0.0",
+  "workflow": "customer_message_demo",
+  "description": "Minimal external policy configuration for the RABA starter kit.",
+  "corridors": {
+    "green": {
+      "description": "Low-risk preparation or recommendation path without external effect.",
+      "allowed_operations": ["draft", "recommend"]
+    },
+    "red": {
+      "description": "Escalation path for high-impact, unclear-boundary, or missing-responsibility cases.",
+      "escalation_required": true
+    }
+  },
+  "rules": [
+    {
+      "rule_id": "green_draft_no_external_effect",
+      "corridor": "green",
+      "conditions": {
+        "requested_operation": "draft",
+        "external_effect": false
+      },
+      "approval_state": "DRAFT",
+      "event_type": "ActionDrafted",
+      "next_step": "allow editing or recommendation"
+    },
+    {
+      "rule_id": "green_recommend_no_external_effect",
+      "corridor": "green",
+      "conditions": {
+        "requested_operation": "recommend",
+        "external_effect": false
+      },
+      "approval_state": "RECOMMEND",
+      "event_type": "ActionRecommended",
+      "next_step": "request human review"
+    },
+    {
+      "rule_id": "authorize_with_review_reference",
+      "corridor": "controlled",
+      "conditions": {
+        "requested_operation": "deliver",
+        "external_effect": true,
+        "review_state": "approved"
+      },
+      "requires_authorizer_reference": true,
+      "approval_state": "AUTHORIZED",
+      "event_type": "ApprovalGranted",
+      "next_step": "allow controlled execution"
+    },
+    {
+      "rule_id": "record_completed_after_authorization",
+      "corridor": "controlled",
+      "conditions": {
+        "requested_operation": "deliver",
+        "approval_state": "AUTHORIZED",
+        "external_system_result": "completed"
+      },
+      "approval_state": "EXECUTED",
+      "event_type": "ActionExecuted",
+      "next_step": "record execution outcome"
+    },
+    {
+      "rule_id": "red_escalate_unclear_boundary_or_high_risk",
+      "corridor": "red",
+      "conditions_any": [
+        {"action_boundary": "unclear"},
+        {"responsible_role": "missing"},
+        {"risk_level": "high"}
+      ],
+      "approval_state": "ESCALATE",
+      "event_type": "EscalationTriggered",
+      "next_step": "route to escalation owner"
+    }
+  ]
+}
