@@ -51,9 +51,39 @@ docs/decision-log/2026-05/2026-05-21-audit-integrity-recovery.md
 - Decision: [accept / partial / defer / reject]
 - Canon Impact: [how this changes or preserves the core architecture]
 - Repo Impact: [files changed or planned]
+- Governance Gateway Check: [OK / partial / not applicable]
+- Action Boundary Check: [OK / partial / not applicable]
 - Reasoning: [why the decision was made]
 - Status: [Active / Implemented / Superseded / Deferred / Closed]
 ```
+
+---
+
+## Doc Vault to GitHub Workflow
+
+Comet or another workspace may prepare Recommendation Cards or draft Decision Log entries in a Doc Vault.
+
+GitHub remains the durable archive for accepted Decision Log entries.
+
+Recommended handoff:
+
+```text
+Doc Vault / Comet workspace
+  ↓
+Markdown recommendation or decision draft
+  ↓
+ChatGPT triage
+  ↓
+Human confirmation when needed
+  ↓
+GitHub Decision Log commit
+```
+
+Doc Vault is a working interface for search, filtering, comparison, and preparation.
+
+GitHub is the long-term project memory.
+
+Raw workspace exports should not be treated as Canon until accepted through triage.
 
 ---
 
