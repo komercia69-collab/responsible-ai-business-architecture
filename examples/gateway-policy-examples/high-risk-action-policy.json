@@ -1,0 +1,82 @@
+{
+  "policy_id": "high-risk-action-policy-v1",
+  "policy_version": "1.0.0",
+  "workflow": "generic_high_risk_action",
+  "description": "Minimal escalation-first Governance Gateway policy example for high-impact or unclear AI-supported actions.",
+  "phase_scope": {
+    "phase": "Phase 1",
+    "focus": "governing action progression after an action request has been formed",
+    "input_integrity_governance": "out_of_scope"
+  },
+  "state_model": ["DRAFT", "RECOMMEND", "AUTHORIZED", "EXECUTED", "ESCALATE"],
+  "rules": [
+    {
+      "rule_id": "low_impact_draft",
+      "corridor": "green",
+      "conditions": {
+        "requested_operation": "draft",
+        "external_effect": false,
+        "impact_level": "low"
+      },
+      "gateway_decision": "DRAFT",
+      "responsible_party": "agent_or_workflow_owner",
+      "event_type": "ActionDrafted",
+      "next_step": "continue preparation"
+    },
+    {
+      "rule_id": "medium_impact_recommend",
+      "corridor": "controlled",
+      "conditions": {
+        "requested_operation": "recommend",
+        "external_effect": false,
+        "impact_level": "medium"
+      },
+      "gateway_decision": "RECOMMEND",
+      "responsible_party": "workflow_owner",
+      "event_type": "ActionRecommended",
+      "next_step": "request human review"
+    },
+    {
+      "rule_id": "high_impact_escalation",
+      "corridor": "red",
+      "conditions": {
+        "impact_level": "high"
+      },
+      "gateway_decision": "ESCALATE",
+      "responsible_party": "escalation_owner",
+      "event_type": "EscalationTriggered",
+      "next_step": "route to escalation owner before authorization"
+    },
+    {
+      "rule_id": "irreversible_action_escalation",
+      "corridor": "red",
+      "conditions": {
+        "reversibility": "irreversible"
+      },
+      "gateway_decision": "ESCALATE",
+      "responsible_party": "escalation_owner",
+      "event_type": "EscalationTriggered",
+      "next_step": "require senior review before authorization"
+    },
+    {
+      "rule_id": "unclear_boundary_escalation",
+      "corridor": "red",
+      "conditions": {
+        "action_boundary": "unclear"
+      },
+      "gateway_decision": "ESCALATE",
+      "responsible_party": "escalation_owner",
+      "event_type": "EscalationTriggered",
+      "next_step": "clarify action boundary before progression"
+    }
+  ],
+  "minimum_outputs": [
+    "gateway_decision",
+    "approval_state",
+    "responsible_party",
+    "matched_rule_id",
+    "policy_version",
+    "decision_log_required",
+    "responsibility_event_type"
+  ]
+}
