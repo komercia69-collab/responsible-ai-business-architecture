@@ -191,6 +191,10 @@ It applies the same discipline to its own development.
 
 Major architectural changes are not merged directly from raw model output. Instead, RABA uses a structured multi-model governance process that turns recommendations into reviewed, traceable decisions.
 
+In this project, the **Integrator** is the working integration role that compares recommendations and prepares repository changes. The **human owner remains the final accountable decision maker** for what becomes Canon.
+
+The controlled workspace is practical, not abstract: it may include ChatGPT, Claude, Gemini, Comet/browser tabs, GitHub, templates, and Decision Log files. The accepted Canon is the project state stored in GitHub.
+
 ### Multi-model governance process
 
 1. **Exploration**
@@ -202,13 +206,19 @@ Major architectural changes are not merged directly from raw model output. Inste
 3. **Synthesis**
    Recommendations are compared in a controlled workspace. Overlaps, conflicts, and trade-offs are made explicit before any change is accepted.
 
-4. **Gatekeeping**
-   The Integrator evaluates each proposal against internal safeguards:
+4. **Triage**
+   The Integrator classifies each meaningful recommendation as accepted, partially accepted, deferred, or rejected.
+
+5. **Governance Fit Check**
+   The recommendation is evaluated against RABA-specific safeguards:
 
    - **Governance Gateway check** — does this change preserve or improve accountability, traceability, reviewability, and auditability?
    - **Action Boundary check** — does this change avoid uncontrolled expansion of system behavior or external effects?
 
-5. **Codification**
+6. **Decision Card**
+   Significant decisions are summarized in a Decision Card before or during repository updates.
+
+7. **Codification**
    Only accepted changes are merged into the project Canon and recorded in the Decision Log.
 
 ### Canon and Decision Log
@@ -231,6 +241,8 @@ The project treats its evolution as a governed workflow:
 ```text
 Expert input
 → Recommendation Card
+→ Critical review
+→ Synthesis
 → Triage
 → Governance Fit Check
 → Decision Card
