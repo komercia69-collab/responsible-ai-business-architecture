@@ -1,33 +1,32 @@
-# RABA Project Archive
+# Legacy Archive Notice
 
-## Structure
+This file is kept only as a compatibility note.
 
+The active RABA navigation and archive structure is maintained in:
+
+- [`docs/repository-map.md`](repository-map.md)
+- [`docs/decision-log/README.md`](decision-log/README.md)
+- [`docs/doc-vault-github-chatgpt-protocol.md`](doc-vault-github-chatgpt-protocol.md)
+
+Do not use `/canon`, `/in-review` or `/decisions` as active project folders unless they are explicitly created and accepted later through the RABA triage process.
+
+Current project rule:
+
+```text
+Canon lives in GitHub.
+Doc Vault supports work.
+ChatGPT integrates.
+Human remains accountable.
 ```
-/canon         Source of truth. Confirmed by Oleksandr Shuliak.
-/in-review     Drafts under model analysis. Not yet confirmed.
-/decisions     Decision Records. Every significant decision logged.
+
+Current Decision Log structure:
+
+```text
+docs/decision-log/YYYY-MM/YYYY-MM-DD-topic.md
 ```
 
-## Rules
+For current operating rules, see:
 
-- Nothing moves to `/canon` without human confirmation
-- `/in-review` documents are working materials, not commitments
-- Decision Records are permanent — superseded decisions stay logged, not deleted
-- LinkedIn content references only `/canon` documents
-
-## Current canon documents
-
-- `TEAM-WORKFLOW.md` — how the team operates
-- `SESSION-BRIEF-TEMPLATE.md` — session input standard
-
-## Current decision records
-
-- `DR-001` — Team Workflow Structure
-- `DR-002` — Canon-First Rule for LinkedIn
-- `DR-003` — Archive Structure
-
----
-
-**Owner:** Oleksandr Shuliak  
-**Project:** Responsible AI Business Architecture (RABA)  
-**GitHub:** komercia69-collab/responsible-ai-business-architecture
+- [`docs/multi-ai-operating-model.md`](multi-ai-operating-model.md)
+- [`docs/ai-recommendation-triage-protocol.md`](ai-recommendation-triage-protocol.md)
+- [`docs/decision-log/README.md`](decision-log/README.md)
