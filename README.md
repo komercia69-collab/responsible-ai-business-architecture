@@ -293,6 +293,8 @@ The challenge is evolving from controlling AI systems toward designing governabl
 
 ## Visual Architecture
 
+- See: [The Missing Governance Layer](assets/diagrams/raba-6th-layer.html)
+
 <p align="center">
   <img src="assets/diagrams/governance-nervous-system.svg" alt="Governance Nervous System diagram" width="100%" />
 </p>
