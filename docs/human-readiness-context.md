@@ -21,9 +21,47 @@ authority
 continuity
 ```
 
-A person may be formally present in the workflow but not actually ready to accept responsibility for a decision.
+A person may be formally present in the workflow but not actually positioned to accept responsibility for a decision.
 
 RABA should not treat every human click as meaningful accountability.
+
+---
+
+## Declarative, Not Telemetric
+
+RABA should not infer human readiness through behavioral monitoring.
+
+Readiness is declarative, role-based and action-specific.
+
+Core rule:
+
+```text
+The interface scaffolds the decision.
+It does not assess the person.
+```
+
+Another formulation:
+
+```text
+Readiness is declared through accountable role-based action,
+not inferred through behavioral monitoring.
+```
+
+This means the system should not claim:
+
+```text
+System assessed user as ready.
+```
+
+It should record something closer to:
+
+```text
+Approved by [responsible role] with [authority reference] at [timestamp].
+```
+
+The interface supports the responsible subject by showing action requirements, uncertainty, boundaries and response options.
+
+It should not judge personal psychological, medical or emotional state.
 
 ---
 
@@ -36,11 +74,17 @@ A subject of responsibility should have:
 | Requirement | Meaning |
 |---|---|
 | Context | understands what is being approved, rejected, deferred or escalated |
-| Capacity | has enough operational readiness to make the decision |
+| Capacity | has operational ability and role readiness to handle this decision path |
 | Authority | is allowed to make the decision |
-| Continuity | can remain responsible across the relevant workflow window |
+| Continuity | the role remains connected to consequences across the relevant workflow window |
 | Visibility | can see the action boundary, expected effect and risk level |
 | Exit path | can escalate, defer, reject or request more context |
+
+`Capacity` should not mean psychological scoring or personal surveillance.
+
+`Continuity` should not mean permanent personal burden.
+
+They mean that the workflow has a role able to responsibly handle the decision and remain linked to the relevant follow-up window.
 
 ---
 
@@ -76,7 +120,7 @@ A Responsibility Management Interface should help the responsible subject unders
 
 The interface should support responsible refusal, not only approval.
 
-Possible options:
+Possible options should be presented as legitimate paths:
 
 ```text
 Authorize
@@ -87,13 +131,15 @@ Reject
 Request second review
 ```
 
+`Authorize` should not be designed as the only normal or expected outcome.
+
 ---
 
 ## Operational Readiness, Not Surveillance
 
 RABA should support human responsibility, not monitor or punish human vulnerability.
 
-This requirement should not be implemented as personal profiling or medical assessment.
+This requirement should not be implemented as personal profiling, medical assessment, emotional scoring or behavioral surveillance.
 
 The goal is to support responsible decision conditions.
 
@@ -102,10 +148,11 @@ Acceptable signals are operational, such as:
 - missing context;
 - unclear boundary;
 - high-impact action;
-- repeated rapid approvals;
+- repeated rapid approvals as a process risk indicator;
 - lack of authority;
 - second-review requirement;
-- explicit user-selected low-energy or defer mode.
+- explicit user-selected defer mode;
+- explicit request for more context.
 
 ---
 
@@ -132,10 +179,12 @@ Avoid:
 - requiring approval without an escalation path;
 - giving responsibility to a role without authority;
 - making the reviewer accountable for outcomes they could not reasonably understand;
-- confusing formal approval with real responsibility.
+- confusing formal approval with real responsibility;
+- inferring readiness from attention, emotion, fatigue or speed of interaction;
+- turning a responsibility interface into a human surveillance interface.
 
 ---
 
 ## One-Sentence Summary
 
-> Human approval becomes meaningful only when the human or role has context, capacity, authority and continuity to carry responsibility for the action.
+> Human approval becomes meaningful only when the human or role has context, capacity, authority and continuity to carry responsibility for the action — and readiness is declared through accountable role-based action, not inferred through behavioral monitoring.
