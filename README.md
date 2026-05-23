@@ -21,6 +21,10 @@ If you are new to the project, start with:
 - [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md)
 - [`docs/start-here-by-role.md`](docs/start-here-by-role.md)
 
+If you want to understand why this matters in a real operational pattern, read:
+
+- [`docs/why-governance-matters.md`](docs/why-governance-matters.md)
+
 If your organization is exploring AI in a real workflow, start with:
 
 - [`docs/partner-engagement.md`](docs/partner-engagement.md)
