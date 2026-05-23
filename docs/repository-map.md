@@ -124,6 +124,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/human-readiness-context.md`](human-readiness-context.md)
 - [`docs/responsibility-boundary-under-uncertainty.md`](responsibility-boundary-under-uncertainty.md)
 - [`docs/responsibility-review-panel-requirements.md`](responsibility-review-panel-requirements.md)
+- [`docs/compliance-checker-vs-runtime-governance.md`](compliance-checker-vs-runtime-governance.md)
 - [`docs/rubber-stamp-risk.md`](rubber-stamp-risk.md)
 - [`../concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
 
