@@ -27,6 +27,8 @@ If you want to understand why this matters in a real operational pattern, read:
 
 If your organization is exploring AI in a real workflow, start with:
 
+- [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md)
+- [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md)
 - [`docs/partner-engagement.md`](docs/partner-engagement.md)
 - [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
 
@@ -37,6 +39,7 @@ If you want to see a concrete example, use:
 If you want to see a minimal executable proof layer, use:
 
 - [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md)
+- [`starter-kit/example-output.md`](starter-kit/example-output.md)
 
 ---
 
@@ -69,7 +72,7 @@ governance concept → operational interface → implementation pattern
 | Designing products, workflows, approvals or business operations | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md) | See how responsibility can become visible and manageable inside workflow interfaces |
 | Building AI runtime, observability, policy, audit or event-driven infrastructure | [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Explore how responsibility states become policy checks, decisions, events and audit trails |
 | Working with MCP, tools or agentic execution | [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md), [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md) | Map tool execution and MCP security risks to responsibility architecture |
-| Exploring a pilot | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`pilots/customer-communication-pilot.md`](pilots/customer-communication-pilot.md) | Apply RABA to one real workflow |
+| Exploring a pilot | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) | Apply RABA to one real workflow and scope a minimal pilot |
 
 ---
 
@@ -83,9 +86,12 @@ governance concept → operational interface → implementation pattern
 - [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md) — MCP security risks mapped to responsibility failures.
 - [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md) — interface concept for visible and manageable responsibility.
 - [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) — event-driven implementation direction.
+- [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md) — compact pilot scoping overview for external conversations.
+- [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md) — 30–45 minute conversation guide for pilot discussions.
 - [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) — practical pilot format for one real AI-assisted workflow.
 - [`offers/pilot-partner-call.md`](offers/pilot-partner-call.md) — external-facing invitation for pilot partners.
 - [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) — minimal executable Governance Gateway proof layer.
+- [`starter-kit/example-output.md`](starter-kit/example-output.md) — example starter-kit output without running the code.
 
 ---
 
@@ -126,7 +132,7 @@ If your organization is exploring AI in a real workflow, the recommended first s
 4. Define what should be logged before autonomy increases.
 5. Test the workflow with RABA approval states and decision logs.
 
-Start with [`docs/partner-engagement.md`](docs/partner-engagement.md) or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
+Start with [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
 
 ---
 
@@ -141,8 +147,8 @@ For a detailed file-by-file navigation map, see [`docs/repository-map.md`](docs/
 | **Governance Architecture** | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md), [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md) | Map responsibility, action boundaries, gateways, delegated authority and MCP tool execution |
 | **Responsibility Interface & Implementation** | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Make responsibility visible in interfaces and translate accountability into events |
 | **Security & Threat Mapping** | [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md) | Connect security risks to responsibility failures and governance controls |
-| **Proof Layer** | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md), [`docs/diagrams/governance-gateway-flow.md`](docs/diagrams/governance-gateway-flow.md) | Run and understand a minimal Governance Gateway example |
-| **Pilots & Use Cases** | [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`pilots/customer-communication-pilot.md`](pilots/customer-communication-pilot.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
+| **Proof Layer** | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md), [`starter-kit/example-output.md`](starter-kit/example-output.md), [`docs/diagrams/governance-gateway-flow.md`](docs/diagrams/governance-gateway-flow.md) | Run and understand a minimal Governance Gateway example |
+| **Pilots & Use Cases** | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`pilots/customer-communication-pilot.md`](pilots/customer-communication-pilot.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
 | **Standards & Positioning** | [`docs/standards-alignment.md`](docs/standards-alignment.md), [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md) | Position RABA relative to existing governance and risk frameworks |
 | **Project Direction** | [`docs/project-intent.md`](docs/project-intent.md), [`docs/project-development-tracks.md`](docs/project-development-tracks.md), [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Understand why the project exists and how it may evolve |
 
@@ -347,7 +353,7 @@ See [`DISCLAIMER.md`](DISCLAIMER.md) for limitations.
 
 If you are new to the project, start with [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md).
 
-If you want to apply the framework, use [`docs/partner-engagement.md`](docs/partner-engagement.md) or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) to map one real AI-assisted workflow.
+If you want to apply the framework, use [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) to map one real AI-assisted workflow.
 
 If you want to contribute, open an issue with a concrete workflow, failure pattern, governance question or pilot scenario.
 
