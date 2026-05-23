@@ -11,6 +11,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/this-project-in-3-minutes.md`](this-project-in-3-minutes.md)
 - [`docs/quick-technical-start.md`](quick-technical-start.md)
 - [`docs/project-status.md`](project-status.md)
+- [`docs/raba-status-snapshot-2026-05-22.md`](raba-status-snapshot-2026-05-22.md)
 - [`../QUICK-TECHNICAL-START.md`](../QUICK-TECHNICAL-START.md)
 - [`../starter-kit/README.md`](../starter-kit/README.md)
 - [`../PROJECT-VALUE.md`](../PROJECT-VALUE.md)
@@ -21,6 +22,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/ai-collaboration-protocol.md`](ai-collaboration-protocol.md)
 - [`docs/multi-ai-operating-model.md`](multi-ai-operating-model.md)
 - [`docs/ai-recommendation-triage-protocol.md`](ai-recommendation-triage-protocol.md)
+- [`docs/doc-vault-github-chatgpt-protocol.md`](doc-vault-github-chatgpt-protocol.md)
 - [`docs/decision-log/README.md`](decision-log/README.md)
 - [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
@@ -41,6 +43,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 
 - [`docs/multi-ai-operating-model.md`](multi-ai-operating-model.md)
 - [`docs/ai-recommendation-triage-protocol.md`](ai-recommendation-triage-protocol.md)
+- [`docs/doc-vault-github-chatgpt-protocol.md`](doc-vault-github-chatgpt-protocol.md)
 - [`docs/decision-log/README.md`](decision-log/README.md)
 - [`../templates/ai-recommendation-card.md`](../templates/ai-recommendation-card.md)
 - [`../templates/ai-decision-card.md`](../templates/ai-decision-card.md)
@@ -68,6 +71,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 ## Releases and Snapshots
 
 - [`docs/releases/v0.1-partner-preview.md`](releases/v0.1-partner-preview.md)
+- [`docs/raba-status-snapshot-2026-05-22.md`](raba-status-snapshot-2026-05-22.md)
 
 ---
 
@@ -80,6 +84,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 ## Current Project Status and Roadmap
 
 - [`docs/project-status.md`](project-status.md)
+- [`docs/raba-status-snapshot-2026-05-22.md`](raba-status-snapshot-2026-05-22.md)
 - [`docs/project-intent.md`](project-intent.md)
 - [`docs/project-development-tracks.md`](project-development-tracks.md)
 - [`docs/partner-readiness-backlog.md`](partner-readiness-backlog.md)
@@ -101,6 +106,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 ## Core Specification
 
+- [`docs/system-integration-map.md`](system-integration-map.md)
 - [`docs/approval-state-specification.md`](approval-state-specification.md)
 - [`docs/decision-log-schema.md`](decision-log-schema.md)
 - [`docs/governance-gateway-implementation.md`](governance-gateway-implementation.md)
@@ -109,6 +115,17 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/fail-safe-governance-behavior.md`](fail-safe-governance-behavior.md)
 - [`docs/rubber-stamp-risk.md`](rubber-stamp-risk.md)
 - [`../implementation/responsibility-event-stream.md`](../implementation/responsibility-event-stream.md)
+
+---
+
+## Responsibility Interface and Human Accountability Layer
+
+- [`docs/human-ai-interaction-space.md`](human-ai-interaction-space.md)
+- [`docs/human-readiness-context.md`](human-readiness-context.md)
+- [`docs/responsibility-boundary-under-uncertainty.md`](responsibility-boundary-under-uncertainty.md)
+- [`docs/responsibility-review-panel-requirements.md`](responsibility-review-panel-requirements.md)
+- [`docs/rubber-stamp-risk.md`](rubber-stamp-risk.md)
+- [`../concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
 
 ---
 
@@ -134,14 +151,21 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 ## Examples and Proof Layer
 
 - [`../starter-kit/README.md`](../starter-kit/README.md)
+- [`../starter-kit/mock_ai_agent.py`](../starter-kit/mock_ai_agent.py)
+- [`../starter-kit/raba_gateway.py`](../starter-kit/raba_gateway.py)
+- [`../starter-kit/sample_actions.json`](../starter-kit/sample_actions.json)
+- [`../starter-kit/sample_policy.json`](../starter-kit/sample_policy.json)
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
 - [`../examples/gateway-policy-examples/README.md`](../examples/gateway-policy-examples/README.md)
 - [`../examples/gateway-policy-examples/customer-email-policy.md`](../examples/gateway-policy-examples/customer-email-policy.md)
+- [`../examples/gateway-policy-examples/customer-email-policy.json`](../examples/gateway-policy-examples/customer-email-policy.json)
 - [`../examples/gateway-policy-examples/high-risk-action-policy.md`](../examples/gateway-policy-examples/high-risk-action-policy.md)
+- [`../examples/gateway-policy-examples/high-risk-action-policy.json`](../examples/gateway-policy-examples/high-risk-action-policy.json)
 - [`../examples/responsibility-event-examples/README.md`](../examples/responsibility-event-examples/README.md)
 - [`../examples/decision-log-examples/README.md`](../examples/decision-log-examples/README.md)
 - [`../demo/customer-email-governance-simulation/README.md`](../demo/customer-email-governance-simulation/README.md)
 - [`docs/diagrams/governance-gateway-flow.md`](diagrams/governance-gateway-flow.md)
+- [`../assets/diagrams/raba-6th-layer.html`](../assets/diagrams/raba-6th-layer.html)
 
 ---
 
