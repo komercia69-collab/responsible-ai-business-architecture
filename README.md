@@ -90,6 +90,7 @@ governance concept → operational interface → implementation pattern
 - [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md) — project-level definition of operational responsibility in AI workflows.
 - [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md) — risk-proportional model for preserving automation speed while keeping responsibility visible.
 - [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md) — product principle for protecting accountable speed as business value.
+- [`concepts/policy-integrity.md`](concepts/policy-integrity.md) — concept for protecting governed speed from governance drift.
 - [`docs/approval-state-specification.md`](docs/approval-state-specification.md) — formal state model for AI-supported actions.
 - [`docs/decision-log-schema.md`](docs/decision-log-schema.md) — minimum business accountability record.
 - [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) — implementation pattern for the control point between AI intent and governed action.
@@ -107,35 +108,56 @@ governance concept → operational interface → implementation pattern
 
 ---
 
-## Core Implementation Chain
+## RABA Architecture: Three Levels
 
-RABA now has a minimal chain from governance concept to implementation pattern:
+RABA now has a minimal structure from governance principle to runtime implementation.
 
-```text
-Operational Responsibility
-  ↓
-Governed Speed
-  ↓
-Speed Protection
-  ↓
-Action Boundary
-  ↓
-Approval State Specification
-  ↓
-Governance Gateway
-  ↓
-Decision Log
-  ↓
-Responsibility Event Stream
-  ↓
-Responsibility Management Interface / Audit View
-```
+### Level 1 — Principles
+
+What RABA is built on.
+
+**Operational Responsibility**  
+Every AI-supported action must be connected to a human role with authority, understanding, answerability, and corrective duty.
+
+**Governed Speed**  
+Responsibility does not stop automation. Responsibility defines the safe speed of automation.
+
+**Speed Protection**  
+RABA does not protect slowness. RABA protects accountable speed and defends it from governance drift.
+
+### Level 2 — Architecture
+
+How RABA structures governance.
+
+**Action Boundary**  
+The defined limit where AI moves from assisting into executing. Every boundary has an owner, an approval requirement, and a recorded crossing.
+
+**Approval States**  
+DRAFT / RECOMMEND / AUTHORIZED / EXECUTED / ESCALATE / REVOKED  
+Every AI-supported action exists in exactly one state at any time.
+
+**Governance Gateway**  
+The routing point between model decision and tool execution. Routes to Fast Path, Review Path, Escalation Path, or Block based on human-defined business rules.
+
+### Level 3 — Implementation
+
+How RABA is operationalized.
+
+**Decision Log**  
+The organizational accountability record for every governed action. Linked to technical trace. Named approver. Timestamp. Reason.
+
+**Responsibility Event Stream**  
+Structured events emitted at every state transition. Machine-readable. Auditable. Connectable to compliance and risk infrastructure.
+
+**Responsibility Management Interface**  
+The runtime interface where responsibility becomes visible and actionable. Shows action state, responsible role, approval status, escalation path, and audit link.
 
 The key implementation documents are:
 
 - [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md)
 - [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md)
 - [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md)
+- [`concepts/policy-integrity.md`](concepts/policy-integrity.md)
 - [`docs/approval-state-specification.md`](docs/approval-state-specification.md)
 - [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md)
 - [`docs/decision-log-schema.md`](docs/decision-log-schema.md)
@@ -164,7 +186,7 @@ For a detailed file-by-file navigation map, see [`docs/repository-map.md`](docs/
 | Hub Area | Start Here | What It Helps You Do |
 |---|---|---|
 | **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose a practical route |
-| **Core Specification** | [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md), [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md), [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md), [`docs/approval-state-specification.md`](docs/approval-state-specification.md), [`docs/decision-log-schema.md`](docs/decision-log-schema.md), [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) | Understand operational responsibility, governed speed, speed protection, the state model, accountability record and gateway control point |
+| **Core Specification** | [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md), [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md), [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md), [`concepts/policy-integrity.md`](concepts/policy-integrity.md), [`docs/approval-state-specification.md`](docs/approval-state-specification.md), [`docs/decision-log-schema.md`](docs/decision-log-schema.md), [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) | Understand operational responsibility, governed speed, speed protection, policy integrity, the state model, accountability record and gateway control point |
 | **Governance Architecture** | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md), [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md) | Map responsibility, action boundaries, gateways, delegated authority and MCP tool execution |
 | **Responsibility Interface & Implementation** | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Make responsibility visible in interfaces and translate accountability into events |
 | **Security & Threat Mapping** | [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md) | Connect security risks to responsibility failures and governance controls |
