@@ -45,6 +45,10 @@ The repository now uses this structure:
 - `docs/this-project-in-3-minutes.md` — fastest short overview
 - `docs/start-here-by-role.md` — role-based entry paths
 - `docs/ai-collaboration-protocol.md` — how the project works with AI without transferring human responsibility
+- `concepts/responsibility-definition.md` — operational responsibility definition and temporal responsibility model
+- `concepts/responsibility-throughput-model.md` — governed speed, Fast Path, Review Path, Escalation Path and Governed Bypass Lane
+- `concepts/speed-protection-principle.md` — accountable speed as product value, including policy integrity and governance drift prevention
+- `concepts/policy-integrity.md` — standalone concept for policy integrity and governance drift prevention
 - `offers/pilot-partner-call.md` — external invitation for potential pilot partners
 - `offers/minimal-human-ai-governance-pilot.md` — detailed pilot format for one workflow
 - `use-cases/customer-support-agentic-bi-governance.md` — concrete workflow example
@@ -54,17 +58,18 @@ The repository now uses this structure:
 
 ## Current Working Direction
 
-Recent work focused on external onboarding:
+Recent work focused on strengthening RABA's core governance architecture:
 
-1. README first-screen clarity was improved.
-2. Role-based and practical entry points were moved higher.
-3. AI Collaboration Protocol was made more visible.
-4. Duplicate README navigation was reduced.
-5. Detailed navigation was moved to `docs/repository-map.md`.
-6. README now links to `docs/repository-map.md`.
-7. `offers/pilot-partner-call.md` was reframed as an external pilot invitation.
+1. README was restructured into three explicit levels: Principles, Architecture, Implementation.
+2. Policy Integrity was added as a standalone concept.
+3. Governance drift was recognized as a first-class risk.
+4. Speed Protection was strengthened with governance drift prevention.
+5. The Responsibility Throughput Model was strengthened with Governed Bypass Lane prohibitions.
+6. Fast Path percentage was clarified as a diagnostic metric, not a performance target.
+7. Responsibility Definition was strengthened with a Temporal Responsibility Model.
+8. A Decision Log entry recorded the adoption of Policy Integrity and Governance Drift Prevention.
 
-The next likely work should strengthen practical adoption materials, pilot partner communication, use cases, and governance gateway examples.
+The next likely work should strengthen practical adoption materials, pilot partner communication, use cases, governance gateway examples, and a lightweight policy integrity self-assessment.
 
 ---
 
@@ -79,7 +84,11 @@ When editing or extending the project, preserve these ideas:
 - human approval must remain meaningful, not symbolic;
 - decision logs, escalation paths and rollback/recovery matter;
 - model choice is a governance decision, not only a technical preference;
-- one real workflow is better than a vague organization-wide transformation.
+- one real workflow is better than a vague organization-wide transformation;
+- governed speed is only valuable if the governance that defines it is protected;
+- Fast Path percentage is a diagnostic metric, not a performance target;
+- Bypass may prepare the decision environment, but must not create facts that constrain the accountable decision;
+- policy changes must be owned, reviewed, logged and protected from governance drift.
 
 ---
 
@@ -99,6 +108,8 @@ Prefer small, safe, reviewable changes:
 6. review before merge.
 
 Avoid large rewrites unless the task explicitly requires them.
+
+Human confirmation is required before any commit.
 
 ---
 
@@ -135,6 +146,7 @@ For GitHub work, use this pattern:
 Work by small iterations:
 issue → branch → PR → review → merge.
 Prefer documentation-only PRs unless code changes are explicitly requested.
+Human confirmation is required before any commit.
 ```
 
 ---
@@ -149,7 +161,9 @@ Potential next tasks:
 - add a second concrete use case;
 - improve the Governance Gateway demo documentation;
 - add a simple contributor guide for submitting workflows or failure patterns;
-- create a short `docs/how-to-review-one-workflow.md` guide.
+- create a short `docs/how-to-review-one-workflow.md` guide;
+- create a lightweight `docs/policy-integrity-self-assessment.md`;
+- add policy integrity fields to schema examples and gateway policy examples.
 
 ---
 
@@ -162,3 +176,9 @@ It is about operational architecture:
 > How does an organization remain responsible, visible and correctable when AI systems participate in real workflows?
 
 That distinction should remain visible in README, offers, pilots, use cases and examples.
+
+Also preserve the newer distinction:
+
+> Governed speed is only valuable if the governance that defines it is protected.
+
+RABA should not optimize for maximum automation speed. It should optimize for accountable speed inside policy boundaries that remain owned, reviewed, logged and resistant to drift.
