@@ -38,9 +38,9 @@ RABA should ask:
 
 ---
 
-## 3. Fast Path, Review Path, Escalation Path
+## 3. Fast Path, Review Path, Escalation Path, and Bypass Lane
 
-To avoid unnecessary slowdown, RABA separates AI-supported actions into at least three operational paths.
+To avoid unnecessary slowdown, RABA separates AI-supported actions into multiple operational paths.
 
 ### 3.1 Fast Path
 
@@ -84,6 +84,34 @@ The system must pause, block, or escalate when the action is:
 
 Escalation Path protects the organization from fast wrong action.
 
+### 3.4 Governed Bypass Lane
+
+When a high-risk action requires human approval, the main execution decision may need to wait. But the whole information flow does not have to freeze.
+
+RABA can use a **Governed Bypass Lane**: a parallel processing lane that keeps useful, non-final, non-destructive work moving while the final decision is slowed down for human judgment.
+
+The bypass lane may perform supporting actions such as:
+
+- collecting additional evidence;
+- improving data quality;
+- re-running analysis with another model or rule set;
+- preparing alternative recommendations;
+- generating a decision brief for the human approver;
+- checking policy, legal, or contract constraints;
+- simulating outcomes;
+- preparing rollback or remediation options;
+- notifying internal stakeholders that a decision is pending;
+- queueing downstream work without executing the final external action.
+
+The bypass lane is not a way to evade responsibility. It is a way to preserve throughput while responsibility controls do their work.
+
+A bypass lane must not perform the blocked high-impact action itself. It may only perform allowed supporting actions that are reversible, internal, non-destructive, or explicitly permitted by policy.
+
+In short:
+
+> Slow the final decision when needed.  
+> Do not unnecessarily stop useful preparation, enrichment, analysis, or remediation planning.
+
 ---
 
 ## 4. Responsibility Latency Budget
@@ -100,10 +128,12 @@ Examples:
 |---|---:|---|
 | Micro action | milliseconds to seconds | automated execution with policy limits and logging |
 | Operational action | seconds to minutes | fast path or sampled review |
-| Customer-impacting action | minutes to hours | human review or batch approval |
-| High-risk action | hours to days if needed | explicit approval, legal/compliance review, escalation |
+| Customer-impacting action | minutes to hours | human review, bypass enrichment, or batch approval |
+| High-risk action | hours to days if needed | explicit approval, legal/compliance review, escalation, bypass preparation |
 
 The point is not to make everything slow. The point is to make governance latency explicit, designed, and justified.
+
+The bypass lane helps use the latency budget productively. While the decision waits, the system can reduce uncertainty, improve the decision package, and prepare safe follow-up actions.
 
 ---
 
@@ -141,7 +171,7 @@ RABA should not say:
 
 RABA should say:
 
-> More autonomy where the cost of being wrong is low and recoverable. More friction where the cost of being wrong is high, irreversible, or legally sensitive.
+> More autonomy where the cost of being wrong is low and recoverable. More friction where the cost of being wrong is high, irreversible, or legally sensitive. Parallel bypass processing where the final decision must wait but useful safe work can continue.
 
 ---
 
@@ -207,6 +237,16 @@ Example:
 
 > Internal tagging may be automatic. Customer notification may require review. Account suspension may require explicit approval.
 
+### 6.8 Governed Bypass Processing
+
+When a decision is delayed for review, the workflow can continue with safe supporting operations.
+
+Example:
+
+> A customer account suspension requires human approval. While waiting, the system gathers related events, checks recent customer communications, prepares a summary for the reviewer, identifies reversible alternatives, and prepares a rollback plan. It does not suspend the account until the responsible role approves.
+
+Bypass processing preserves speed by keeping the information flow active while preventing the final high-risk action from executing prematurely.
+
 ---
 
 ## 7. Speed-Control Matrix
@@ -215,13 +255,13 @@ RABA can represent the relationship between speed and responsibility as a matrix
 
 | Risk / Reversibility | Low impact / reversible | Medium impact / partially reversible | High impact / hard to reverse |
 |---|---|---|---|
-| Low uncertainty | Fast Path: autonomous execution + logging | Review Path: sampled or batch review | Review Path: approval before execution |
-| Medium uncertainty | Fast Path with audit sampling | Review Path: human review or delay | Escalation Path: explicit approval |
-| High uncertainty | Review Path: exception review | Escalation Path: pause or approve | Escalation Path: block until reviewed |
+| Low uncertainty | Fast Path: autonomous execution + logging | Review Path: sampled or batch review | Review Path: approval before execution + bypass preparation |
+| Medium uncertainty | Fast Path with audit sampling | Review Path: human review or delay + bypass enrichment | Escalation Path: explicit approval + bypass evidence package |
+| High uncertainty | Review Path: exception review + bypass data improvement | Escalation Path: pause or approve + bypass analysis | Escalation Path: block final action, continue only allowed bypass processing |
 
 This matrix makes the project more realistic for automation-heavy organizations.
 
-The goal is not to maximize control. The goal is to allocate control where it changes the outcome.
+The goal is not to maximize control. The goal is to allocate control where it changes the outcome while keeping safe work moving.
 
 ---
 
@@ -241,6 +281,22 @@ Fast Path | Review Path | Escalation Path | Block
 Execution / approval / audit / remediation
 ```
 
+With bypass processing, the gateway can split the workflow:
+
+```text
+AI proposal / action intent
+  ↓
+Policy and boundary evaluation
+  ↓
+Final action: Review / Escalation / Block
+  ↓
+Bypass lane: enrichment / evidence / alternatives / rollback preparation
+  ↓
+Human decision or policy resolution
+  ↓
+Execute / modify / reject / remediate
+```
+
 The gateway should evaluate:
 
 - action type;
@@ -251,13 +307,46 @@ The gateway should evaluate:
 - delegated authority limits;
 - legal or policy sensitivity;
 - available remediation path;
-- current anomaly or drift signals.
+- current anomaly or drift signals;
+- which supporting actions are allowed in the bypass lane.
 
 This allows RABA to preserve automation speed without allowing uncontrolled autonomy.
 
 ---
 
-## 9. Avoiding the False Choice
+## 9. Bypass Lane Boundaries
+
+A bypass lane must be governed. Otherwise, it can become a hidden execution path that performs the very action that governance delayed.
+
+Allowed bypass actions usually have these properties:
+
+- internal only;
+- reversible;
+- non-destructive;
+- evidence-generating;
+- decision-supporting;
+- policy-permitted;
+- logged;
+- not externally final;
+- not rights-affecting by themselves.
+
+Disallowed bypass actions include:
+
+- executing the blocked final action under another name;
+- notifying external parties as if the decision were already final;
+- changing rights, access, money, legal status, safety posture, or customer standing;
+- deleting or overwriting evidence;
+- expanding AI authority while review is pending;
+- creating downstream commitments that make the human decision meaningless.
+
+The key rule:
+
+> Bypass may accelerate preparation.  
+> Bypass must not pre-decide the accountable decision.
+
+---
+
+## 10. Avoiding the False Choice
 
 The debate is often framed as:
 
@@ -277,13 +366,19 @@ Ungoverned speed creates hidden risk, unclear accountability, and expensive fail
 
 Governed speed makes automation faster where it is safe and slower where the cost of error is high.
 
+Bypass processing adds a third option:
+
+```text
+pause the final decision, but continue safe supporting work
+```
+
 The project should therefore position responsibility as an acceleration architecture, not merely a restriction architecture.
 
 Good governance can increase speed because it gives organizations confidence to automate more actions safely.
 
 ---
 
-## 10. Suggested Schema Elements
+## 11. Suggested Schema Elements
 
 A future schema may include a throughput governance layer:
 
@@ -301,6 +396,22 @@ throughput_governance:
     required_before_execution: false
     review_mode: "audit_sampling" # none | pre_approval | batch | audit_sampling | escalation
     sampling_rate: "2%"
+  bypass_lane:
+    enabled: true
+    allowed_while_pending: true
+    allowed_actions:
+      - "collect_evidence"
+      - "improve_data_quality"
+      - "prepare_decision_brief"
+      - "simulate_outcomes"
+      - "prepare_rollback_plan"
+    disallowed_actions:
+      - "execute_final_external_action"
+      - "change_customer_rights"
+      - "delete_evidence"
+    requires_logging: true
+    bypass_owner_role: "Operations Analyst"
+    boundary_policy_id: "POL-AI-BYPASS-01"
   escalation:
     trigger_on_boundary_violation: true
     trigger_on_high_uncertainty: true
@@ -317,7 +428,7 @@ It allows automation to remain fast while keeping responsibility visible and aud
 
 ---
 
-## 11. Practical Example: High-Volume Customer Refunds
+## 12. Practical Example: High-Volume Customer Refunds
 
 ### Without Throughput-Aware Responsibility
 
@@ -338,6 +449,7 @@ Refunds are routed by risk and reversibility:
 - refunds under a low threshold are auto-approved if policy conditions are met;
 - unusual cases go to exception review;
 - high-value or suspicious refunds require approval;
+- while the case is pending, the bypass lane gathers evidence, prepares a decision brief, and checks rollback options;
 - a sample of low-risk refunds is audited daily;
 - anomaly spikes trigger a kill switch;
 - the Decision Owner owns the policy;
@@ -349,11 +461,51 @@ Result:
 - most routine actions remain fast;
 - risky actions receive attention;
 - humans focus where judgment matters;
+- pending cases become better prepared instead of simply blocked;
 - responsibility remains visible.
 
 ---
 
-## 12. RABA Principle Statement
+## 13. Practical Example: Account Suspension
+
+### Scenario
+
+An AI-supported fraud system recommends suspending a customer account. The action is high-impact because it affects access, trust, and possibly money.
+
+### Without Bypass
+
+The account suspension waits for human approval. Nothing else happens.
+
+Result:
+
+- the reviewer receives a weak decision package;
+- evidence gathering happens manually;
+- the queue grows;
+- pressure increases to approve quickly;
+- rubber-stamping becomes more likely.
+
+### With Governed Bypass
+
+The final suspension waits for human approval, but the bypass lane continues safe work:
+
+- collects recent fraud signals;
+- checks transaction reversibility;
+- summarizes customer history;
+- identifies less harmful alternatives, such as temporary transaction hold or step-up verification;
+- prepares customer communication drafts but does not send them;
+- prepares rollback instructions if suspension is approved and later found wrong;
+- logs all supporting actions.
+
+Result:
+
+- the human decision is slower than full automation but faster and better than manual review;
+- the decision package is richer;
+- the final high-impact action remains governed;
+- responsibility and throughput are both preserved.
+
+---
+
+## 14. RABA Principle Statement
 
 **RABA Principle: Governed Speed**
 
@@ -365,9 +517,12 @@ Low-risk, reversible, policy-bounded actions may execute quickly.
 
 High-risk, irreversible, uncertain, or rights-affecting actions require friction, review, escalation, or blocking.
 
+When a final action must wait for human judgment, a governed bypass lane may continue safe supporting work: evidence gathering, data improvement, alternative analysis, decision-brief preparation, simulation, and rollback planning.
+
 The goal is not maximum automation and not maximum control.
 
 The goal is the highest responsible speed for each action class.
 
 > Governance must scale faster than autonomy.  
-> But governance must also be fast enough to govern autonomy in real time.
+> But governance must also be fast enough to govern autonomy in real time.  
+> When final execution must slow down, safe preparation should continue.
