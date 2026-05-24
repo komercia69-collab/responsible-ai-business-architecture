@@ -240,3 +240,90 @@ The goal is the highest speed that remains accountable, policy-bounded, auditabl
 > Governed speed is value.  
 > Governed speed requires governed stopping.  
 > RABA protects governed speed.
+
+---
+
+## 12. Policy Integrity and Governance Drift Prevention
+
+RABA defines governed speed. But governed speed is only sustainable if the policies that define it are protected from gradual erosion under organizational pressure.
+
+Governance drift is the process by which sound governance structures are progressively weakened through small, individually justified decisions that accumulate into a material loss of accountability.
+
+Common governance drift patterns:
+
+### Fast Path Expansion Drift
+
+An organization under performance pressure reclassifies medium-risk actions as low-risk to increase Fast Path throughput. Each individual reclassification seems reasonable. The cumulative effect is that Fast Path no longer reflects real-world reversibility — it reflects business convenience.
+
+### Latency Budget Inflation
+
+Responsibility Latency Budgets are gradually increased to reduce governance friction. Over time, the budget for a high-risk action class drifts from seconds to minutes to hours. The governance requirement remains on paper but no longer functions in practice.
+
+### Rubber-Stamp Normalization
+
+Review Path actions are approved so consistently and quickly that the Review Path effectively becomes a Fast Path with an extra click. No individual approval seems wrong. The pattern reveals that understanding and authority have been replaced by habit.
+
+### Policy Limit Relaxation Without Evidence
+
+Fast Path policy limits are increased without documented evidence that real-world reversibility supports the increase. The argument is operational efficiency. The result is undefended speed.
+
+### Shadow Mode Permanence
+
+AI systems remain in shadow mode indefinitely because graduation requires human approval that is never formally requested. Shadow mode becomes a permanent operational state rather than a governed transition.
+
+### RABA Policy Integrity Requirements
+
+1. **Policy ownership**  
+   Every action class routing policy must have a named human policy owner. The policy owner is responsible for the current classification and must approve any change to routing path, policy limits, or reversibility classification.
+
+2. **Policy change process**  
+   Changes to routing path classification, policy limits, real-world reversibility assessment, or latency budget must follow a defined change process that includes:
+
+   - documented justification;
+   - review by a second role independent of the team requesting the change;
+   - approval state recorded in the decision log;
+   - effective date and review date.
+
+3. **Periodic policy review cadence**  
+   Every action class routing policy must have a defined review cadence. The review must include:
+
+   - audit sample of actual decisions in the current period;
+   - verification that real-world reversibility classification remains accurate;
+   - review of any incidents, near-misses, or escalations;
+   - confirmation or reclassification of the routing path.
+
+4. **Governance drift indicators**  
+   The following signals indicate potential governance drift and must trigger a policy review:
+
+   - Fast Path percentage increasing without documented reclassification;
+   - Review Path average approval time decreasing consistently;
+   - Escalation rate decreasing without documented improvement in AI quality;
+   - Policy limit increases without supporting evidence;
+   - Shadow mode systems with no graduation timeline;
+   - Rubber-stamping indicators in batch approval;
+   - Valid human overrides decreasing.
+
+5. **External audit trigger**  
+   If governance drift indicators are detected across three consecutive review periods without remediation, an external audit of the affected action class must be triggered. The audit must be conducted by a role independent of the operational team.
+
+6. **Protection from business pressure**  
+   RABA explicitly states that the following are not valid justifications for relaxing policy governance:
+
+   - competitive speed pressure;
+   - cost reduction targets;
+   - model confidence improvement alone;
+   - absence of recent incidents;
+   - user or operator convenience.
+
+Valid justifications for policy relaxation must include:
+
+- documented evidence of improved real-world reversibility;
+- audit results showing sustained accuracy and low harm rate;
+- independent review and approval;
+- recorded decision log entry with named approver and reason.
+
+Core principle:
+
+> Governed speed is only valuable if the governance that defines it is protected.  
+> RABA does not protect slowness. RABA protects accountable speed.  
+> Accountable speed requires policy integrity.
