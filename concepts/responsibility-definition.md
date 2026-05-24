@@ -22,6 +22,7 @@ An organization needs to know:
 
 - who owns the AI-supported decision;
 - who has the authority to approve, reject, pause, or escalate it;
+- whether that authority is synchronous human approval or asynchronous delegated autonomy;
 - who can intervene while the action is still unfolding;
 - who can explain the decision;
 - who must correct the consequences if the action causes harm;
@@ -35,16 +36,16 @@ RABA treats responsibility as an operational object that can be designed, displa
 
 ## 3. Operational Definition
 
-**Responsibility is the operational link between an AI-supported action, an accountable human role, the authority to approve, pause, stop, override, or escalate the action, the duty to explain the decision, and the obligation to correct its consequences.**
+**Responsibility is the operational link between an AI-supported action, an accountable human role, the authority to approve, delegate, pause, stop, override, or escalate the action, the duty to explain the decision, and the obligation to correct its consequences.**
 
 This means responsibility exists only when the following elements are clear:
 
 1. **The action** — what the AI system proposed, recommended, triggered, or executed.
 2. **The responsible role** — who owns the decision in the organization.
-3. **The authority** — whether that role can approve, reject, pause, override, or escalate the action.
-4. **The understanding** — whether the responsible person has enough information to act meaningfully.
+3. **The authority model** — whether the action requires synchronous human approval or may execute under asynchronous delegated limits.
+4. **The understanding** — whether the responsible person has enough information to act meaningfully and resist automation bias.
 5. **The answerability** — who must explain the decision and its reasoning.
-6. **The corrective duty** — who must fix, reverse, or mitigate consequences if something goes wrong.
+6. **The corrective duty** — who owns the correction decision and who technically executes remediation.
 7. **The legal trace** — what evidence remains to prove who knew what, when, and under which authority.
 
 If these elements are missing, responsibility is not operational. It is only symbolic.
@@ -81,7 +82,7 @@ Before an AI-supported action is executed, responsibility means:
 
 - defining who owns the decision;
 - checking whether the action is within authorized boundaries;
-- verifying that the responsible human has enough context to approve or reject;
+- verifying that the responsible human has enough context to approve, reject, or delegate;
 - identifying whether the action requires escalation;
 - deciding whether execution is allowed, delayed, blocked, or converted into a recommendation.
 
@@ -110,7 +111,42 @@ After the action, responsibility means:
 - updating the workflow, rules, training, monitoring, or escalation path;
 - preserving evidence for audit, legal review, and organizational learning.
 
-A responsible AI workflow must therefore support responsibility **before**, **during**, and **after** action.
+### 5.4 Synchronous and Asynchronous Responsibility
+
+Responsibility does not always require a human to approve every single action before execution.
+
+Some business processes are too fast, too frequent, or too time-sensitive for synchronous human review. Examples include fraud detection, cybersecurity response, real-time routing, algorithmic trading controls, infrastructure scaling, or high-volume operational triage.
+
+RABA therefore distinguishes two authority modes:
+
+### Synchronous Authority
+
+A human or defined role must approve, reject, pause, or escalate the action before execution.
+
+This is appropriate when:
+
+- the action has high impact;
+- the action is hard to reverse;
+- the action affects rights, access, safety, money, employment, legal position, or customer trust;
+- uncertainty is high;
+- policy requires explicit human authorization.
+
+### Asynchronous Delegated Authority
+
+The AI-supported system may act autonomously inside predefined limits, while a human or organizational role remains accountable for the policy, thresholds, monitoring, audit, and remediation path.
+
+This is appropriate only when:
+
+- the action is low-risk or tightly bounded;
+- limits are defined by business rules or policies, not by the model alone;
+- monitoring and audit are active;
+- exceptions and uncertainty trigger escalation;
+- the action can be reversed or contained;
+- a human owner is accountable for the delegation design.
+
+This distinction prevents RABA from becoming a blanket prohibition on autonomy. RABA does not forbid autonomous execution. It requires that autonomy be delegated explicitly, bounded by policy, observable, auditable, and correctable.
+
+A responsible AI workflow must therefore support responsibility **before**, **during**, and **after** action, with either synchronous approval or asynchronous delegated authority depending on risk and context.
 
 ---
 
@@ -140,6 +176,11 @@ A person cannot be meaningfully responsible for an action they cannot influence.
 
 If a human is placed “in the loop” but cannot stop, modify, reject, override, or escalate the AI-supported action, then the human role may be only decorative.
 
+Authority must be explicit about the mode of control:
+
+- **Synchronous authority** — a human role must approve before execution.
+- **Asynchronous delegated authority** — the system may act within predefined limits, while a human role owns the delegation policy, monitoring, thresholds, audit, and remediation.
+
 A real responsibility structure must answer:
 
 - Can this person approve the action?
@@ -148,6 +189,8 @@ A real responsibility structure must answer:
 - Can this person escalate the case?
 - Can this person override the AI recommendation?
 - Can this person request more evidence?
+- Can this person define, reduce, or revoke delegated autonomy limits?
+- Can this person realistically go against the AI recommendation without being punished for slowing the process?
 
 If the answer is no, then the person is not truly responsible. They are only observing the system.
 
@@ -169,7 +212,19 @@ The interface must show:
 
 A person cannot responsibly approve what they do not understand.
 
-Therefore, RABA requires that AI-supported decisions be explainable at the level needed for the responsible role.
+However, information display alone is not enough. RABA must also address **automation bias**: the tendency of humans to accept a confident machine recommendation without sufficient independent judgment.
+
+For high-risk decisions, the Responsibility Management Interface should create **cognitive friction** before approval. Examples include:
+
+- requiring the approver to enter a short reason for approval;
+- asking the approver to confirm the main risk factor in their own words;
+- showing uncertainty and missing data before the approve button becomes available;
+- requiring comparison with at least one alternative action;
+- forcing escalation when confidence is high but data quality is low;
+- slowing down approval for irreversible or high-impact actions;
+- detecting repeated one-click approvals as a rubber-stamping pattern.
+
+Therefore, RABA requires that AI-supported decisions be explainable at the level needed for the responsible role and that high-risk approvals include enough friction to prevent responsibility from becoming a mechanical click.
 
 ---
 
@@ -181,7 +236,7 @@ A responsible person or role must be able to answer questions such as:
 
 - Why was this decision made?
 - What did the AI system recommend?
-- Did a human approve the action?
+- Did a human approve the action, or was it executed under delegated authority?
 - What risk signals were visible?
 - Was uncertainty present?
 - Were alternatives available?
@@ -199,6 +254,14 @@ Responsibility does not end when the action is approved.
 
 If the AI-supported action creates harm, error, unfairness, operational damage, or compliance risk, the organization must know who is responsible for correction.
 
+Corrective duty is often hybrid. The role that owns the business decision may not have technical access to reverse a transaction, roll back a system state, change production parameters, restore data, or disable an integration.
+
+RABA therefore distinguishes:
+
+- **Decision Owner** — the business or governance role that accepts the risk, owns the decision, and is accountable for why correction is required.
+- **Remediation Executor** — the technical or operational role that has the tools, permissions, and procedural capability to perform the correction.
+- **Remediation SLA** — the expected time window, escalation path, and evidence requirement for correction.
+
 Corrective duty includes:
 
 - stopping the action;
@@ -209,10 +272,10 @@ Corrective duty includes:
 - changing policy rules;
 - improving model monitoring;
 - documenting the incident;
-- escalating to legal, compliance, audit, or leadership roles;
+- escalating to legal, compliance, audit, IT, security, or leadership roles;
 - preventing recurrence.
 
-Without corrective duty, responsibility becomes passive.
+Without a named remediation executor and escalation path, corrective duty becomes passive.
 
 ---
 
@@ -261,9 +324,10 @@ RABA is not legal advice and does not replace jurisdiction-specific compliance a
 At minimum, an organization should be able to prove:
 
 - which human role had decision authority;
+- whether authority was synchronous or asynchronously delegated;
 - what the AI system recommended;
 - what uncertainty, risk, or boundary signals were visible;
-- who approved, paused, rejected, overrode, or escalated the action;
+- who approved, paused, rejected, overrode, escalated, or delegated the action;
 - what policy, contract, regulation, or internal rule was relevant;
 - when each action or approval occurred;
 - what data was used and whether that data may be retained;
@@ -301,6 +365,8 @@ But AI cannot:
 
 Therefore, responsibility cannot be delegated to AI.
 
+Operational authority may be delegated to an AI-supported system within defined limits. Responsibility cannot be delegated to the system itself.
+
 AI may support the decision, but responsibility must remain with a defined human role and organizational structure.
 
 ---
@@ -316,6 +382,8 @@ A responsible AI workflow should show:
 - current action state;
 - responsible role;
 - decision owner;
+- authority mode;
+- delegated autonomy limits;
 - required approval level;
 - AI confidence or uncertainty;
 - risk level;
@@ -324,7 +392,8 @@ A responsible AI workflow should show:
 - human approval status;
 - execution boundary;
 - audit log;
-- corrective owner.
+- corrective owner;
+- remediation executor.
 
 This turns responsibility from an abstract ethical principle into an operational layer of the system.
 
@@ -338,24 +407,30 @@ It should answer in real time:
 
 - What is the AI proposing?
 - What is the current workflow state?
-- Is this a draft, recommendation, approval, execution, escalation, or remediation step?
+- Is this a draft, recommendation, approval, delegated execution, escalation, or remediation step?
 - Who owns this decision?
 - Who has approval authority?
+- Is authority synchronous or asynchronously delegated?
+- What delegated limits apply?
 - What risks are visible?
 - Is the action reversible?
 - What happens if the action is wrong?
 - Who must approve before execution?
 - Who can intervene during execution?
+- Can the human realistically override the AI recommendation?
 - Who receives escalation?
+- Who technically executes remediation?
 - What will be recorded in the audit log?
 
 The interface should not only display AI output. It should display the responsibility structure around that output.
+
+For high-risk decisions, the interface should not optimize only for speed and convenience. It should introduce proportionate cognitive friction so that human approval remains meaningful rather than performative.
 
 ---
 
 ## 12. Minimal Responsibility Questions
 
-For every AI-supported action, RABA should require six questions:
+For every AI-supported action, RABA should require seven questions:
 
 ### 1. Who is responsible?
 
@@ -371,7 +446,7 @@ Draft, recommend, approve, execute, monitor, escalate, remediate?
 
 ### 4. With what authority?
 
-Can the role approve, reject, pause, override, or escalate?
+Can the role approve, reject, pause, override, escalate, or define delegated autonomy limits?
 
 ### 5. Answerable to whom?
 
@@ -379,9 +454,13 @@ Customer, management, regulator, audit, legal department, court, public authorit
 
 ### 6. What happens if the action is wrong?
 
-Who corrects the consequences, who documents the incident, and who improves the workflow?
+Who corrects the consequences, who documents the incident, who technically executes remediation, and who improves the workflow?
 
-If these six questions cannot be answered, the system does not yet have a sufficient responsibility structure.
+### 7. Can the human realistically override the AI?
+
+Does the human have a practical, cultural, procedural, and technical ability to reject or override the AI recommendation without being punished for slowing down the process or reducing automation metrics?
+
+If these seven questions cannot be answered, the system does not yet have a sufficient responsibility structure.
 
 ---
 
@@ -399,7 +478,15 @@ Typical symptom:
 
 > “The system just did it.”
 
-### 13.2 Approval Without Understanding
+### 13.2 Autonomous Action Without Delegated Limits
+
+The system acts autonomously, but the business limits, thresholds, allowed action types, escalation rules, and audit duties were never explicitly defined.
+
+Typical symptom:
+
+> “It was supposed to be autonomous, but nobody knows what it was allowed to do.”
+
+### 13.3 Approval Without Understanding
 
 A human clicks approve, but the interface does not show enough context, uncertainty, risk, or consequence information for meaningful approval.
 
@@ -407,7 +494,15 @@ Typical symptom:
 
 > “I approved it, but I did not know what it would actually do.”
 
-### 13.3 Escalation Without Owner
+### 13.4 Rubber-Stamping Approval
+
+The interface technically asks for human approval, but the workflow design, time pressure, incentives, or UI pattern turns approval into a mechanical click.
+
+Typical symptom:
+
+> “Everyone approves these because rejecting them creates more work.”
+
+### 13.5 Escalation Without Owner
 
 The workflow detects risk or uncertainty, but the escalation path is unclear or nobody owns the escalated decision.
 
@@ -415,7 +510,7 @@ Typical symptom:
 
 > “It was flagged, but nobody knew who should decide.”
 
-### 13.4 Monitoring Without Intervention
+### 13.6 Monitoring Without Intervention
 
 The organization can see that something is happening, but nobody has authority or tools to pause, stop, or redirect the action while it is unfolding.
 
@@ -423,7 +518,7 @@ Typical symptom:
 
 > “We saw it going wrong, but we could not stop it in time.”
 
-### 13.5 Harm Without Remediation
+### 13.7 Harm Without Remediation
 
 An AI-supported action causes harm, unfairness, financial loss, or operational damage, but there is no defined correction path.
 
@@ -431,7 +526,15 @@ Typical symptom:
 
 > “We know something went wrong, but we do not know who must fix it.”
 
-### 13.6 Audit Log Without Accountability
+### 13.8 Correction Without Technical Executor
+
+A business owner accepts that remediation is needed, but no technical or operational role is assigned to perform the rollback, data correction, access restoration, or system change.
+
+Typical symptom:
+
+> “The business agreed to fix it, but nobody had the keys to reverse it.”
+
+### 13.9 Audit Log Without Accountability
 
 Technical logs exist, but they do not show who owned the decision, who approved it, what was understood, or why the action was allowed.
 
@@ -439,11 +542,49 @@ Typical symptom:
 
 > “We can see what the system did, but not who was accountable.”
 
+### 13.10 Closed-Loop AI Supervision
+
+The AI system estimates risk, and that same AI-derived risk estimate determines whether human review is needed. The model effectively decides whether it should be governed.
+
+Typical symptom:
+
+> “The model said this was low risk, so no human was involved.”
+
 These failure modes show why responsibility must be designed before deployment, not reconstructed after failure.
 
 ---
 
-## 14. Suggested Schema Elements
+## 14. Avoiding Closed-Loop AI Supervision
+
+A responsibility architecture must not allow a probabilistic AI system to be the sole judge of whether its own output requires human oversight.
+
+RABA therefore separates:
+
+- **Model signals** — probabilistic outputs such as risk score, confidence, anomaly score, similarity, or classification.
+- **Business rules and policies** — deterministic or reviewed rules that define when approval, escalation, audit, or blocking is required.
+- **Governance Gateway checks** — runtime enforcement points that evaluate whether the proposed action is allowed under the current policy.
+
+Model signals may inform the decision, but they must not be the only boundary between autonomy and responsibility.
+
+Human review triggers should be defined by policy and business rules outside the model, especially when:
+
+- uncertainty is high;
+- data is incomplete;
+- the action is hard to reverse;
+- the affected party is vulnerable;
+- the action changes rights, access, money, safety, employment, legal position, or customer trust;
+- repeated automated approvals indicate drift or rubber-stamping.
+
+In short:
+
+> The model may estimate risk.  
+> Policy must define the boundary.  
+> The Governance Gateway must enforce the boundary.  
+> A human or organization must own the boundary.
+
+---
+
+## 15. Suggested Schema Elements
 
 A future RABA event schema may include fields such as:
 
@@ -452,6 +593,7 @@ responsibility:
   decision_owner_role: "Compliance Officer"
   accountable_unit: "Risk & Compliance"
   temporal_phase: "before_action" # before_action | during_action | after_action
+  authority_mode: "synchronous" # synchronous | asynchronous_delegated
   authority_scope:
     can_approve: true
     can_reject: true
@@ -459,12 +601,31 @@ responsibility:
     can_override: true
     can_escalate: true
     can_intervene_during_execution: true
+    can_define_delegated_limits: true
+  delegated_autonomy:
+    enabled: false
+    policy_id: "POL-AI-DELEGATION-01"
+    allowed_action_types: []
+    max_impact_threshold: null
+    escalation_on_uncertainty: true
+    audit_sampling_rate: "100%"
   required_understanding:
     explanation_available: true
     uncertainty_visible: true
     risk_context_visible: true
     reversibility_visible: true
     consequence_preview_visible: true
+  output_evaluation:
+    meaning_validated: true
+    tone_appropriate: true
+    syntax_clear: true
+    rationale_structured: true
+    missing_data_visible: true
+  cognitive_friction:
+    required: true
+    reason_entry_required: true
+    alternative_review_required: true
+    repeated_approval_detection: true
   answerability:
     explanation_required: true
     audit_log_required: true
@@ -475,7 +636,9 @@ responsibility:
     access_control_scope: "risk-compliance-audit"
     evidence_package_required: true
   corrective_duty:
-    remediation_owner_role: "Process Owner"
+    decision_owner_role: "Process Owner"
+    remediation_executor_role: "IT Operations Lead"
+    remediation_sla: "4h"
     incident_logging_required: true
     reversal_possible: "partial"
     escalation_target: "Head of Risk"
@@ -485,7 +648,7 @@ This is only a draft structure, but it shows how responsibility can become machi
 
 ---
 
-## 15. Practical Example: AI-Supported Customer Rejection
+## 16. Practical Example: AI-Supported Customer Rejection
 
 ### Scenario
 
@@ -499,6 +662,7 @@ An AI system recommends rejecting a customer application because of a risk score
 - No escalation path is available.
 - No human explanation is recorded.
 - No corrective process is defined.
+- The approve button is easier than asking for more evidence.
 
 This is not responsible AI governance.
 
@@ -508,7 +672,9 @@ This is not responsible AI governance.
 - The responsible role is visible.
 - The confidence and uncertainty level are shown.
 - The risk factors are summarized.
+- Missing data is visible.
 - The human approver can approve, reject, pause, or escalate.
+- For high-risk rejection, the approver must enter a reason rather than only clicking a button.
 - The audit log records who approved and why.
 - If the decision is wrong, a correction path exists.
 - The decision can be reviewed by compliance or audit.
@@ -517,7 +683,7 @@ This is closer to RABA.
 
 ---
 
-## 16. Practical Example: AI Error in Production Operations
+## 17. Practical Example: AI Error in Production Operations
 
 ### Scenario
 
@@ -535,6 +701,7 @@ Typical questions become difficult to answer:
 - Did anyone have authority to pause the adjustment?
 - Was there a real-time monitoring threshold?
 - Who must reverse the change and handle affected production batches?
+- Who technically has access to reverse the change?
 - What should be reported to quality, operations, compliance, or customers?
 
 In this situation, the organization may have technical logs but still lack accountability.
@@ -545,34 +712,41 @@ The workflow would treat the AI recommendation as a governed action:
 
 - the action boundary would identify the transition from recommendation to machine parameter change;
 - the responsible role would be visible before execution;
+- the authority mode would show whether the action requires synchronous approval or may execute under delegated limits;
 - the uncertainty signal would show incomplete sensor data;
 - the reversibility profile would show whether the action can be safely rolled back;
 - the required approval level would increase if production quality risk is detected;
 - the operator or process owner could pause or escalate the change during execution;
 - the decision log would record who approved the change and why;
-- the corrective duty would define who reverses the parameter, quarantines affected batches, documents the incident, and updates the workflow.
+- the corrective duty would separate the decision owner from the remediation executor;
+- the remediation SLA would define who reverses the parameter, quarantines affected batches, documents the incident, and updates the workflow.
 
 The value of responsibility is not only that someone can be blamed later. The value is that the workflow can prevent, interrupt, explain, and repair operational harm.
 
 ---
 
-## 17. Design Principle
+## 18. Design Principle
 
 A responsible AI system should never allow a meaningful action to enter the real world without a defined responsibility path.
 
 In short:
 
 > No AI-supported action without a visible responsible role.  
-> No execution without authority.  
+> No execution without an explicit authority model.  
+> No autonomous execution without policy-defined delegated limits.  
 > No approval without understanding.  
+> No high-risk approval without cognitive friction.  
+> No human-in-the-loop without realistic override ability.  
 > No runtime monitoring without intervention rights.  
 > No decision without answerability.  
 > No consequence without corrective duty.  
-> No accountability without evidence.
+> No corrective duty without a remediation executor.  
+> No accountability without evidence.  
+> No model-only decision about whether the model needs oversight.
 
 ---
 
-## 18. RABA Principle Statement
+## 19. RABA Principle Statement
 
 **RABA Principle: Operational Responsibility**
 
@@ -581,29 +755,36 @@ Every AI-supported action must be connected to a visible human or organizational
 This structure must include:
 
 - decision ownership;
-- authority;
+- explicit authority mode;
+- delegated autonomy limits where asynchronous execution is allowed;
 - sufficient understanding;
+- cognitive friction for high-risk approval;
 - runtime intervention where risk requires it;
+- realistic override ability;
 - answerability;
 - corrective duty;
+- named remediation executor;
 - auditability;
 - escalation path;
 - legal traceability.
 
-AI may generate the recommendation, but the organization must own the decision.
+AI may generate the recommendation, risk signal, or operational suggestion, but the organization must own the decision boundary.
 
 ---
 
-## 19. Short Version for README or Manifesto
+## 20. Short Version for README or Manifesto
 
 **Responsibility in AI workflows is not a slogan. It is a design requirement.**
 
 Every AI-supported action must be connected to a human role that has authority, understanding, answerability, corrective duty, and legally useful evidence.
 
+RABA does not require a human click before every action. It requires that every action have an explicit authority model: synchronous human approval or asynchronous delegated autonomy inside policy-defined limits.
+
 AI can recommend.  
 AI can calculate.  
 AI can classify.  
 AI can generate.  
+AI can act within delegated boundaries.  
 
 But AI cannot carry responsibility.
 
@@ -613,7 +794,7 @@ Therefore, RABA requires that every meaningful AI-supported action has a visible
 
 ---
 
-## 20. Call to Action
+## 21. Call to Action
 
 Defining responsibility is not optional for organizations that use AI in real workflows. It is the minimum condition for governable autonomy.
 
