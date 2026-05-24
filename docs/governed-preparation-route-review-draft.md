@@ -349,37 +349,188 @@ If the preparation leads to an action, the final Decision Log must capture:
 
 ## 11. Rubber-Stamp Drift Detection
 
-RABA proposes automated rubber-stamp drift detection with configurable thresholds.
+RABA proposes automated rubber-stamp drift detection through a policy-owned threshold matrix.
 
-This is not an optional philosophical question. It is a proposed control whose parameters should be confirmed or adjusted during implementation.
+A single threshold such as `N approvals below T seconds` is insufficient for production governance.
 
-Suggested configurable parameters:
+The same short approval time means different things depending on workflow type, risk class, reviewer role, evidence complexity, and time window. A flat threshold can over-trigger on routine work and under-trigger on critical cases.
+
+Rubber-stamp drift thresholds are governance policy parameters, not technical constants.
+
+They must be owned by a named policy owner, versioned, auditable, and changed only through a documented policy-change process.
+
+Telemetry detects anomalies. Humans evaluate accountability.
+
+Rubber-stamp telemetry is an escalation signal, not an automated judgment of reviewer competence.
+
+### 11.1 Threshold Matrix Model
+
+RABA should evaluate rubber-stamp drift using a condition matrix:
+
+```text
+approval_time_seconds
+× risk_class
+× reviewer_role
+× workflow_type
+× rolling_time_window
+× case_complexity_score where required
+→ pattern trigger
+→ response action
+```
+
+Suggested matrix configuration:
 
 ```json
 {
-  "rubber_stamp_detection": {
+  "rubber_stamp_drift_detection": {
     "enabled": true,
-    "risk_classes": ["medium", "high"],
-    "approval_time_threshold_seconds": 3,
-    "consecutive_approval_count": 10,
-    "action": "trigger_review_or_block",
-    "review_owner": "policy_owner"
+    "evaluation_model": "threshold_matrix",
+    "policy_version": "rubber_stamp_detection_v1.0",
+    "threshold_owner": "policy_owner",
+    "technical_config_owner": "system_administrator",
+    "requires_independent_review_for_threshold_change": true,
+    "effective_date": "2026-05-24",
+    "review_date": "2026-06-24",
+    "conditions": [
+      {
+        "workflow_type": "customer_support_compensation_review",
+        "risk_class": "medium",
+        "reviewer_role": "support_manager",
+        "case_complexity_score": "medium",
+        "rolling_time_window_minutes": 30,
+        "minimum_review_time": {
+          "calculation_method": "evidence_complexity_based",
+          "evidence_word_count": 850,
+          "source_count": 4,
+          "contains_policy_exception": false,
+          "contains_conflicting_facts": true,
+          "assumed_review_speed_words_per_minute": 200,
+          "minimum_review_time_seconds": 255
+        },
+        "pattern_trigger": {
+          "approvals_below_minimum_time": 10,
+          "within_time_window_minutes": 30
+        },
+        "active_interlock_required": true,
+        "response_action": "increase_friction_and_notify_policy_owner"
+      },
+      {
+        "workflow_type": "policy_exception_review",
+        "risk_class": "high",
+        "reviewer_role": "supervisor",
+        "case_complexity_score": "high",
+        "rolling_time_window_minutes": 60,
+        "minimum_review_time": {
+          "calculation_method": "evidence_complexity_based",
+          "evidence_word_count": 1200,
+          "source_count": 6,
+          "contains_policy_exception": true,
+          "contains_conflicting_facts": true,
+          "assumed_review_speed_words_per_minute": 200,
+          "minimum_review_time_seconds": 360
+        },
+        "pattern_trigger": {
+          "approvals_below_minimum_time": 3,
+          "within_time_window_minutes": 60
+        },
+        "active_interlock_required": true,
+        "response_action": "temporary_review_hold_and_escalate"
+      }
+    ]
   }
 }
 ```
 
-The default proposal is:
+### 11.2 Dynamic Minimum Review Time
 
-> If a reviewer approves N medium/high-risk AI-prepared packages below T seconds within a defined time window, the system triggers review or temporary block.
+The review time threshold must not be a fixed universal constant.
 
-G and K should confirm or adjust:
+It should be computed from evidence complexity, including:
 
-- approval time threshold T;
-- approval count N;
-- affected risk classes;
-- time window;
-- block versus review behavior;
-- escalation owner.
+- evidence word count;
+- source count;
+- workflow type;
+- risk class;
+- reviewer role;
+- policy exceptions;
+- conflicting facts;
+- missing sources;
+- context completeness status.
+
+A simple starting point is to estimate minimum feasible review time using an assumed review speed, such as 200 words per minute, then increase the threshold when policy exceptions, conflicting facts, or missing evidence are present.
+
+This value is not a productivity target. It is a drift signal.
+
+### 11.3 Active Interlock and Anti-Gamification
+
+Time-based telemetry must be combined with Active Interlock signals.
+
+Waiting longer than the threshold is not sufficient evidence of meaningful review.
+
+Active Interlock may require:
+
+- opening the evidence package;
+- opening at least one source document;
+- acknowledging context warnings;
+- reviewing conflicting facts;
+- selecting or confirming the applied policy;
+- entering a reason for approval;
+- modifying or explicitly confirming critical fields.
+
+This prevents a reviewer from simply waiting `T + 1` seconds and approving without meaningful review.
+
+### 11.4 Response Actions
+
+Rubber-stamp drift detection should produce actionable governance responses.
+
+Possible response actions:
+
+- increase friction level for the reviewer role and workflow type;
+- disable one-click approval for the affected action class;
+- require text justification for the next approvals;
+- notify the policy owner;
+- notify the reviewer’s supervisor;
+- trigger a policy review;
+- create a human audit queue;
+- temporarily hold review authority for the affected workflow if the pattern repeats.
+
+The system may raise friction and trigger human review, but final evaluation of reviewer conduct belongs to human governance roles.
+
+### 11.5 Threshold Ownership and Versioning
+
+Threshold values are policy decisions, not technical defaults.
+
+RABA should distinguish:
+
+- policy owner — defines or approves thresholds;
+- system administrator — implements configuration;
+- independent reviewer — approves material threshold changes where required;
+- auditor — reviews threshold changes and drift patterns.
+
+Threshold configuration must be versioned.
+
+A threshold change should emit Responsibility Event Stream events such as:
+
+```text
+threshold_change_requested
+threshold_change_approved
+threshold_version_updated
+threshold_review_due
+threshold_relaxation_detected
+```
+
+Material threshold changes should be recorded in the Decision Log with:
+
+- named policy owner;
+- reason;
+- prior value;
+- new value;
+- effective date;
+- review date;
+- independent reviewer if required;
+- rollback rule if the change causes drift.
+
+Without versioned threshold governance, the drift detector can itself drift.
 
 ---
 
@@ -412,6 +563,10 @@ AI summaries become the human reviewer’s primary reality, while omitted or con
 ### Permission Creep
 
 Preparation tools gradually receive access to execution APIs for convenience.
+
+### Drift Detector Drift
+
+Thresholds for detecting rubber-stamp behavior are relaxed without policy owner approval, versioning, independent review, or Decision Log record.
 
 These are Policy Integrity risks and must trigger review.
 
@@ -468,13 +623,19 @@ AI prepares context in Shadow Object
 2. Shadow Object implementation  
    Do existing CRM/ERP integration layers support a read-only Shadow Object, or does RABA need a custom proxy UI layer?
 
-3. Rubber-stamp detection parameters  
-   RABA proposes automated drift detection with configurable thresholds. What should be the default threshold for N approvals below T seconds, and should the default action be review, temporary block, or escalation?
+3. Threshold matrix scope  
+   Is `risk_class` sufficient, or should `case_complexity_score` be required for all medium/high-risk workflows?
 
-4. Independent validation boundary  
+4. Threshold ownership  
+   Who owns threshold configuration: compliance officer, policy owner, system administrator, or a split model where policy owner defines and administrator implements?
+
+5. Threshold change governance  
+   Should threshold modification always be treated as a policy change event in the Responsibility Event Stream and Decision Log?
+
+6. Independent validation boundary  
    Which checks must be independent of the same AI system that prepared the recommendation?
 
-5. Merge authorization  
+7. Merge authorization  
    What minimum human action should count as authorization to merge Shadow Object content into the active system?
 
 ---
@@ -515,7 +676,8 @@ The implementation requires:
 - cognitive friction;
 - context completeness warnings;
 - independent or structured validation checks;
-- rubber-stamp drift detection;
+- policy-owned rubber-stamp drift threshold matrix;
+- threshold ownership and versioning;
 - Decision Log traceability.
 
 This pattern may become one of RABA’s strongest practical mechanisms because it protects both speed and responsibility.
