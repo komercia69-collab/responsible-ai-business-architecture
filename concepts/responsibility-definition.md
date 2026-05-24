@@ -151,6 +151,42 @@ This distinction prevents RABA from becoming a blanket prohibition on autonomy. 
 
 A responsible AI workflow must therefore support responsibility **before**, **during**, and **after** action, with either synchronous approval or asynchronous delegated authority depending on risk and context.
 
+### 5.5 Temporal Responsibility Model
+
+Responsibility is not a single moment. It exists before, during, and after an AI-supported action.
+
+Before the action:
+
+- Is the action boundary defined?
+- Is the responsible role assigned?
+- Is the authority scope clear?
+- Are policy limits set by humans, not by the AI system?
+- Is the real-world reversibility classification current?
+- Is the escalation path defined?
+
+During the action:
+
+- Is the responsible role informed in real time?
+- Can the responsible person intervene, pause, or redirect?
+- Is monitoring active?
+- Are anomaly triggers defined?
+- Is cognitive friction applied where risk is elevated?
+- Is the governance gateway routing correctly?
+
+After the action:
+
+- Is the decision recorded in the decision log?
+- Is the technical trace linked to the accountability record?
+- Is the corrective duty owner identified?
+- Is the remediation SLA active if needed?
+- Is the audit trail complete?
+- Is the policy review cadence maintained?
+
+Core principle:
+
+> Responsibility that exists only at the moment of approval is incomplete.  
+> RABA requires responsibility to be visible and operational at all three stages.
+
 ---
 
 ## 6. The Five Layers of Responsibility
