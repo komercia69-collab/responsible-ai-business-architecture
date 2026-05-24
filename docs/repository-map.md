@@ -31,6 +31,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/60-minute-project-path.md`](60-minute-project-path.md)
 - [`docs/start-here-by-role.md`](start-here-by-role.md)
 - [`docs/core-concepts-bundle.md`](core-concepts-bundle.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 - [`../offers/minimal-human-ai-governance-pilot.md`](../offers/minimal-human-ai-governance-pilot.md)
 - [`../use-cases/README.md`](../use-cases/README.md)
@@ -63,6 +64,7 @@ Use these files when reviewing the repository with ChatGPT, Claude, Gemini, GitH
 - [`docs/ai-contribution-intake.md`](ai-contribution-intake.md)
 - [`docs/external-ai-suggestion-intake.md`](external-ai-suggestion-intake.md)
 - [`docs/discovery-keywords.md`](discovery-keywords.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 
 These files help AI systems identify the project purpose, choose the right reading path, classify the repository correctly and produce practical analysis for business, governance and pilot-partner readers.
@@ -113,6 +115,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/responsibility-throughput-model.md`](../concepts/responsibility-throughput-model.md)
 - [`../concepts/speed-protection-principle.md`](../concepts/speed-protection-principle.md)
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 - [`docs/system-integration-map.md`](system-integration-map.md)
 - [`docs/approval-state-specification.md`](approval-state-specification.md)
@@ -136,6 +139,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/rubber-stamp-risk.md`](rubber-stamp-risk.md)
 - [`../concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 
 ---
@@ -147,6 +151,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/recovery-decision-record.md`](recovery-decision-record.md)
 - [`docs/distributed-governance-condition-propagation.md`](distributed-governance-condition-propagation.md)
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 - [`../schemas/recovery-decision-record.schema.json`](../schemas/recovery-decision-record.schema.json)
 - [`../rfcs/rfc-audit-integrity-and-recovery-protocol.md`](../rfcs/rfc-audit-integrity-and-recovery-protocol.md)
@@ -192,6 +197,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 - [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
 - [`docs/standards-alignment.md`](standards-alignment.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 
 ---
@@ -203,6 +209,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/speed-protection-principle.md`](../concepts/speed-protection-principle.md)
 - [`../concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 - [`docs/concepts/governance-nervous-system.md`](concepts/governance-nervous-system.md)
 - [`docs/concepts/cooperative-autonomy.md`](concepts/cooperative-autonomy.md)
@@ -242,6 +249,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/governance-toolchain.md`](governance-toolchain.md)
 - [`docs/governance-observability.md`](governance-observability.md)
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 
 ---
@@ -264,6 +272,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../templates/workflow-governance-review-report.md`](../templates/workflow-governance-review-report.md)
 - [`../offers/pilot-partner-call.md`](../offers/pilot-partner-call.md)
 - [`../offers/minimal-human-ai-governance-pilot.md`](../offers/minimal-human-ai-governance-pilot.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 
 ---
@@ -271,6 +280,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 ## Partner Readiness and Operational Maturity
 
 - [`docs/partner-readiness-backlog.md`](partner-readiness-backlog.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 
 ---
@@ -289,6 +299,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/repository-security-hardening.md`](repository-security-hardening.md)
 - [`docs/governance-integrity.md`](governance-integrity.md)
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
+- [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 - [`docs/audit-integrity-breach-response.md`](audit-integrity-breach-response.md)
 - [`docs/recovery-protocol.md`](recovery-protocol.md)
