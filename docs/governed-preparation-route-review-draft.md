@@ -363,7 +363,28 @@ Telemetry detects anomalies. Humans evaluate accountability.
 
 Rubber-stamp telemetry is an escalation signal, not an automated judgment of reviewer competence.
 
-### 11.1 Threshold Matrix Model
+AI may collect telemetry and recommend threshold review. AI must not approve, activate, or silently apply threshold changes.
+
+### 11.1 Risk and Complexity Are Separate Dimensions
+
+`risk_class` and `case_complexity_score` measure different things.
+
+`risk_class` describes the consequence of a wrong decision.
+
+`case_complexity_score` describes the effort required to review the evidence.
+
+A high-risk case may be simple to review if the evidence is short and clear. A low-risk case may be complex to review if it includes many sources, conflicting facts, or long history.
+
+RABA should therefore treat them as separate dimensions:
+
+```text
+risk_class → determines friction requirements
+case_complexity_score → determines minimum feasible review time
+```
+
+For medium and high-risk workflows, `case_complexity_score` should be required because review time cannot be meaningfully evaluated from risk alone.
+
+### 11.2 Threshold Matrix Model
 
 RABA should evaluate rubber-stamp drift using a condition matrix:
 
@@ -373,7 +394,7 @@ approval_time_seconds
 × reviewer_role
 × workflow_type
 × rolling_time_window
-× case_complexity_score where required
+× case_complexity_score
 → pattern trigger
 → response action
 ```
@@ -386,11 +407,13 @@ Suggested matrix configuration:
     "enabled": true,
     "evaluation_model": "threshold_matrix",
     "policy_version": "rubber_stamp_detection_v1.0",
-    "threshold_owner": "policy_owner",
-    "technical_config_owner": "system_administrator",
+    "owner_id": "policy_owner_id",
+    "technical_owner_id": "system_administrator_id",
+    "reviewer_id": "independent_reviewer_id",
     "requires_independent_review_for_threshold_change": true,
     "effective_date": "2026-05-24",
     "review_date": "2026-06-24",
+    "rollback_procedure": "restore_previous_threshold_version_and_generate_post_audit_report",
     "conditions": [
       {
         "workflow_type": "customer_support_compensation_review",
@@ -399,12 +422,13 @@ Suggested matrix configuration:
         "case_complexity_score": "medium",
         "rolling_time_window_minutes": 30,
         "minimum_review_time": {
-          "calculation_method": "evidence_complexity_based",
+          "calculation_method": "complexity_based_with_risk_adjustment",
+          "base_time_from_complexity_seconds": 180,
+          "risk_adjustment_seconds": 75,
           "evidence_word_count": 850,
           "source_count": 4,
           "contains_policy_exception": false,
           "contains_conflicting_facts": true,
-          "assumed_review_speed_words_per_minute": 200,
           "minimum_review_time_seconds": 255
         },
         "pattern_trigger": {
@@ -421,12 +445,13 @@ Suggested matrix configuration:
         "case_complexity_score": "high",
         "rolling_time_window_minutes": 60,
         "minimum_review_time": {
-          "calculation_method": "evidence_complexity_based",
+          "calculation_method": "complexity_based_with_risk_adjustment",
+          "base_time_from_complexity_seconds": 300,
+          "risk_adjustment_seconds": 60,
           "evidence_word_count": 1200,
           "source_count": 6,
           "contains_policy_exception": true,
           "contains_conflicting_facts": true,
-          "assumed_review_speed_words_per_minute": 200,
           "minimum_review_time_seconds": 360
         },
         "pattern_trigger": {
@@ -441,27 +466,35 @@ Suggested matrix configuration:
 }
 ```
 
-### 11.2 Dynamic Minimum Review Time
+### 11.3 Dynamic Minimum Review Time
 
 The review time threshold must not be a fixed universal constant.
 
-It should be computed from evidence complexity, including:
+It should be computed from case complexity and adjusted by risk.
+
+Complexity inputs may include:
 
 - evidence word count;
 - source count;
-- workflow type;
-- risk class;
-- reviewer role;
-- policy exceptions;
 - conflicting facts;
 - missing sources;
-- context completeness status.
+- context completeness status;
+- policy exception count;
+- number of affected records;
+- number of systems involved.
 
-A simple starting point is to estimate minimum feasible review time using an assumed review speed, such as 200 words per minute, then increase the threshold when policy exceptions, conflicting facts, or missing evidence are present.
+Risk inputs may include:
+
+- financial exposure;
+- legal consequence;
+- external reliance;
+- customer impact;
+- reversibility classification;
+- regulatory sensitivity.
 
 This value is not a productivity target. It is a drift signal.
 
-### 11.3 Active Interlock and Anti-Gamification
+### 11.4 Active Interlock and Anti-Gamification
 
 Time-based telemetry must be combined with Active Interlock signals.
 
@@ -479,7 +512,7 @@ Active Interlock may require:
 
 This prevents a reviewer from simply waiting `T + 1` seconds and approving without meaningful review.
 
-### 11.4 Response Actions
+### 11.5 Response Actions
 
 Rubber-stamp drift detection should produce actionable governance responses.
 
@@ -496,7 +529,7 @@ Possible response actions:
 
 The system may raise friction and trigger human review, but final evaluation of reviewer conduct belongs to human governance roles.
 
-### 11.5 Threshold Ownership and Versioning
+### 11.6 Threshold Ownership, Versioning, and Lifecycle Control
 
 Threshold values are policy decisions, not technical defaults.
 
@@ -512,11 +545,18 @@ Threshold configuration must be versioned.
 A threshold change should emit Responsibility Event Stream events such as:
 
 ```text
+threshold_modified
 threshold_change_requested
 threshold_change_approved
 threshold_version_updated
 threshold_review_due
+threshold_relaxation_requested
+threshold_relaxation_approved
+threshold_relaxation_rejected
 threshold_relaxation_detected
+policy_integrity_review_triggered
+threshold_rollback_executed
+threshold_remediation_report_generated
 ```
 
 Material threshold changes should be recorded in the Decision Log with:
@@ -526,11 +566,52 @@ Material threshold changes should be recorded in the Decision Log with:
 - prior value;
 - new value;
 - effective date;
-- review date;
+- scheduled review date;
 - independent reviewer if required;
-- rollback rule if the change causes drift.
+- rollback procedure;
+- remediation requirement if the change is later rolled back.
+
+Threshold relaxation must not activate automatically.
+
+Any relaxation must trigger `policy_integrity_review_triggered` and remain pending until approved by the independent reviewer.
+
+Threshold tightening may be applied as a protective control, but it must still be logged and reviewed if it materially affects workflow operations.
+
+This creates a general RABA principle:
+
+> Relaxation of governance controls requires justification before activation.  
+> Protective tightening may be faster, but must remain traceable.
 
 Without versioned threshold governance, the drift detector can itself drift.
+
+### 11.7 Rollback and Remediation
+
+Rollback restores the threshold configuration. It does not automatically repair decisions already approved while the weakened threshold was active.
+
+When a threshold rollback is executed, the system must generate a report of all decisions approved during the weakened-threshold period.
+
+That report should include:
+
+- affected workflow type;
+- threshold version active at the time;
+- approval timestamps;
+- reviewer role;
+- risk class;
+- case complexity score;
+- whether active interlock was completed;
+- whether approval time was below the restored threshold;
+- resulting business action.
+
+A risk-based sample of those decisions should be routed to post-audit review.
+
+Rollback therefore has two parts:
+
+```text
+configuration rollback
++ remediation review of decisions made during weakened control period
+```
+
+This prevents rollback from becoming a purely technical restoration that leaves governance consequences unresolved.
 
 ---
 
@@ -567,6 +648,14 @@ Preparation tools gradually receive access to execution APIs for convenience.
 ### Drift Detector Drift
 
 Thresholds for detecting rubber-stamp behavior are relaxed without policy owner approval, versioning, independent review, or Decision Log record.
+
+### Meta-Rubber-Stamping
+
+AI proposes threshold relaxation and the organization accepts it without human policy-owner review, allowing AI-generated operational convenience signals to weaken human oversight.
+
+### Rollback Without Remediation
+
+A weakened threshold is rolled back technically, but decisions approved during the weakened-threshold period are never identified or reviewed.
 
 These are Policy Integrity risks and must trigger review.
 
@@ -615,28 +704,57 @@ AI prepares context in Shadow Object
 
 ---
 
-## 14. Open Questions for G and K
+## 14. Open Questions for G and K — Drift Detection Thresholds
 
-1. Friction trigger metrics  
-   What financial, operational, or risk thresholds should dynamically escalate `friction_level` from low to high?
+The following questions are not only technical configuration questions. They test whether drift detection itself is protected from governance drift.
 
-2. Shadow Object implementation  
-   Do existing CRM/ERP integration layers support a read-only Shadow Object, or does RABA need a custom proxy UI layer?
+### 1. Parameter sufficiency
 
-3. Threshold matrix scope  
-   Is `risk_class` sufficient, or should `case_complexity_score` be required for all medium/high-risk workflows?
+Is `risk_class` sufficient as a condition, or should `case_complexity_score` be required as a mandatory additional parameter for all medium and high-risk workflows?
 
-4. Threshold ownership  
-   Who owns threshold configuration: compliance officer, policy owner, system administrator, or a split model where policy owner defines and administrator implements?
+### 2. Threshold ownership
 
-5. Threshold change governance  
-   Should threshold modification always be treated as a policy change event in the Responsibility Event Stream and Decision Log?
+Proposed split:
 
-6. Independent validation boundary  
-   Which checks must be independent of the same AI system that prepared the recommendation?
+- Policy owner defines threshold values.
+- System administrator implements them technically.
+- Independent reviewer approves any change before activation.
 
-7. Merge authorization  
-   What minimum human action should count as authorization to merge Shadow Object content into the active system?
+Is this three-role model appropriate for your organization, or should ownership be consolidated or extended?
+
+### 3. Threshold changes as policy events
+
+Should every threshold modification be recorded as a policy change event in the Responsibility Event Stream and Decision Log?
+
+Recommendation: yes. A threshold change is a governance decision, not a technical update. It must be traceable.
+
+### 4. Threshold relaxation as integrity trigger
+
+Should any relaxation of a threshold — increasing the allowed approval time, reducing the pattern trigger count, or narrowing the detection window — automatically initiate a Policy Integrity review before the change takes effect?
+
+Recommendation: yes. Relaxation is the highest-risk configuration change in a drift detection system. It must not be silent.
+
+### 5. Change lifecycle requirements
+
+Should all threshold matrix changes require:
+
+- effective date, when the change activates;
+- scheduled review date, when it must be re-evaluated;
+- rollback rule, conditions under which the previous threshold is automatically restored?
+
+Recommendation: yes. Without these three controls, threshold history becomes unauditable and rollback becomes manual and contested.
+
+### 6. Remediation after rollback
+
+When a threshold rollback occurs, should RABA require a post-audit report for decisions approved during the weakened-threshold period?
+
+Recommendation: yes. Rollback restores configuration, but it does not automatically repair decisions already made under weakened controls.
+
+### 7. AI role in threshold governance
+
+Should AI be allowed to recommend threshold review while being prohibited from approving, activating, or silently applying threshold changes?
+
+Recommendation: yes. AI may provide BI signals, but threshold changes must remain human policy decisions.
 
 ---
 
@@ -677,7 +795,10 @@ The implementation requires:
 - context completeness warnings;
 - independent or structured validation checks;
 - policy-owned rubber-stamp drift threshold matrix;
-- threshold ownership and versioning;
+- separation of risk class and case complexity score;
+- threshold ownership, versioning, and lifecycle control;
+- relaxation review before activation;
+- rollback plus remediation review;
 - Decision Log traceability.
 
 This pattern may become one of RABA’s strongest practical mechanisms because it protects both speed and responsibility.
