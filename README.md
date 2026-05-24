@@ -14,6 +14,8 @@ It is a practical operational architecture for making AI-supported actions accou
 
 For the project-level definition of responsibility, start with [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md).
 
+For the project-level answer to the concern that responsibility may slow automation, read [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md).
+
 ---
 
 ## Start Here
@@ -47,11 +49,12 @@ If you want to see a minimal executable proof layer, use:
 
 ## Core RABA Concepts
 
-RABA is currently organized around seven core concepts.
+RABA is currently organized around eight core concepts.
 
 | Core concept | Start here | What it defines |
 |---|---|---|
 | **Operational Responsibility** | [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md) | What responsibility means in AI workflows: authority, understanding, answerability, corrective duty and legal traceability |
+| **Governed Speed** | [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md) | How RABA preserves automation speed through risk-proportional control paths instead of universal human approval |
 | **Action Boundary** | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md) | Where AI assistance becomes operational action |
 | **Approval States** | [`docs/approval-state-specification.md`](docs/approval-state-specification.md) | How AI-supported actions move from draft to recommendation, authorization, execution or escalation |
 | **Governance Gateway** | [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) | The control point that evaluates state transitions before external execution |
@@ -72,7 +75,7 @@ governance concept → operational interface → implementation pattern
 | If you are... | Start with | Why |
 |---|---|---|
 | Working in AI governance, compliance, legal, risk or audit | [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md), [`docs/approval-state-specification.md`](docs/approval-state-specification.md), [`docs/decision-log-schema.md`](docs/decision-log-schema.md) | Understand responsibility as an operational and legally traceable structure, then see the state model and accountability record |
-| Designing products, workflows, approvals or business operations | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md) | See how responsibility can become visible and manageable inside workflow interfaces |
+| Designing products, workflows, approvals or business operations | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md), [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md) | See how responsibility can become visible and manageable without turning governance into a universal bottleneck |
 | Building AI runtime, observability, policy, audit or event-driven infrastructure | [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Explore how responsibility states become policy checks, decisions, events and audit trails |
 | Working with MCP, tools or agentic execution | [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md), [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md) | Map tool execution and MCP security risks to responsibility architecture |
 | Exploring a pilot | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) | Apply RABA to one real workflow and scope a minimal pilot |
@@ -82,6 +85,7 @@ governance concept → operational interface → implementation pattern
 ## Ready to Use Today
 
 - [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md) — project-level definition of operational responsibility in AI workflows.
+- [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md) — risk-proportional model for preserving automation speed while keeping responsibility visible.
 - [`docs/approval-state-specification.md`](docs/approval-state-specification.md) — formal state model for AI-supported actions.
 - [`docs/decision-log-schema.md`](docs/decision-log-schema.md) — minimum business accountability record.
 - [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) — implementation pattern for the control point between AI intent and governed action.
@@ -106,6 +110,8 @@ RABA now has a minimal chain from governance concept to implementation pattern:
 ```text
 Operational Responsibility
   ↓
+Governed Speed
+  ↓
 Action Boundary
   ↓
 Approval State Specification
@@ -122,6 +128,7 @@ Responsibility Management Interface / Audit View
 The key implementation documents are:
 
 - [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md)
+- [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md)
 - [`docs/approval-state-specification.md`](docs/approval-state-specification.md)
 - [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md)
 - [`docs/decision-log-schema.md`](docs/decision-log-schema.md)
@@ -150,7 +157,7 @@ For a detailed file-by-file navigation map, see [`docs/repository-map.md`](docs/
 | Hub Area | Start Here | What It Helps You Do |
 |---|---|---|
 | **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose a practical route |
-| **Core Specification** | [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md), [`docs/approval-state-specification.md`](docs/approval-state-specification.md), [`docs/decision-log-schema.md`](docs/decision-log-schema.md), [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) | Understand operational responsibility, the state model, accountability record and gateway control point |
+| **Core Specification** | [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md), [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md), [`docs/approval-state-specification.md`](docs/approval-state-specification.md), [`docs/decision-log-schema.md`](docs/decision-log-schema.md), [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) | Understand operational responsibility, governed speed, the state model, accountability record and gateway control point |
 | **Governance Architecture** | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md), [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md) | Map responsibility, action boundaries, gateways, delegated authority and MCP tool execution |
 | **Responsibility Interface & Implementation** | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Make responsibility visible in interfaces and translate accountability into events |
 | **Security & Threat Mapping** | [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md) | Connect security risks to responsibility failures and governance controls |
