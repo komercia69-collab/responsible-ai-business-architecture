@@ -5,6 +5,8 @@
 **Related assessment:** [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](customer-support-agentic-bi.md)  
 **Related one-page assessment:** [`docs/policy-integrity-self-assessment-one-page.md`](../../docs/policy-integrity-self-assessment-one-page.md)  
 **Scenario type:** Governance Drift Prevention  
+**Scenario status:** Constructed but realistically plausible scenario  
+**Evidence status:** Not a real company case study or production incident; based on the RABA customer-support use case and common governance drift patterns that can occur in AI-assisted customer-support workflows.  
 **Status:** Draft example
 
 ---
@@ -12,6 +14,8 @@
 ## Purpose
 
 This scenario shows how governance drift can appear in the customer-support Agentic BI workflow.
+
+This is a constructed but realistically plausible scenario, not a report of a real organization or production incident.
 
 The goal is not to add a new RABA principle or restructure the architecture.
 
