@@ -30,9 +30,10 @@ It is an open-source research and architecture initiative that provides:
 - concrete use cases;
 - diagrams;
 - prototypes;
-- a minimal Governance Gateway proof layer.
+- a minimal Governance Gateway proof layer;
+- a practical Policy Integrity Self-Assessment for detecting governance drift risk in one workflow or action class.
 
-The practical goal is to help people map where AI autonomy meets human responsibility.
+The practical goal is to help people map where AI autonomy meets human responsibility and verify whether governed speed is protected from policy drift.
 
 ---
 
@@ -49,6 +50,7 @@ The repository now uses this structure:
 - `concepts/responsibility-throughput-model.md` — governed speed, Fast Path, Review Path, Escalation Path and Governed Bypass Lane
 - `concepts/speed-protection-principle.md` — accountable speed as product value, including policy integrity and governance drift prevention
 - `concepts/policy-integrity.md` — standalone concept for policy integrity and governance drift prevention
+- `docs/policy-integrity-self-assessment.md` — practical 45-question assessment for policy integrity and governance drift risk
 - `offers/pilot-partner-call.md` — external invitation for potential pilot partners
 - `offers/minimal-human-ai-governance-pilot.md` — detailed pilot format for one workflow
 - `use-cases/customer-support-agentic-bi-governance.md` — concrete workflow example
@@ -58,7 +60,7 @@ The repository now uses this structure:
 
 ## Current Working Direction
 
-Recent work focused on strengthening RABA's core governance architecture:
+Recent work focused on strengthening RABA's core governance architecture and making Policy Integrity practically usable:
 
 1. README was restructured into three explicit levels: Principles, Architecture, Implementation.
 2. Policy Integrity was added as a standalone concept.
@@ -68,8 +70,25 @@ Recent work focused on strengthening RABA's core governance architecture:
 6. Fast Path percentage was clarified as a diagnostic metric, not a performance target.
 7. Responsibility Definition was strengthened with a Temporal Responsibility Model.
 8. A Decision Log entry recorded the adoption of Policy Integrity and Governance Drift Prevention.
+9. `docs/policy-integrity-self-assessment.md` was created as a practical tool for pilot partners and internal reviews.
+10. README and `docs/repository-map.md` were updated so the self-assessment is visible in pilot, core specification, governance, security and AI-review paths.
 
-The next likely work should strengthen practical adoption materials, pilot partner communication, use cases, governance gateway examples, and a lightweight policy integrity self-assessment.
+The next likely work should strengthen practical adoption materials, pilot partner communication, use cases, governance gateway examples, and schema/gateway examples for policy integrity.
+
+---
+
+## Recommended Pilot Conversation Path
+
+For a pilot partner or external reviewer, use this minimum path:
+
+1. `docs/this-project-in-3-minutes.md` — quick orientation.
+2. `docs/pilot-partner-talk-track.md` — conversation structure.
+3. `offers/minimal-human-ai-governance-pilot.md` — pilot format.
+4. `use-cases/customer-support-agentic-bi-governance.md` — concrete workflow example.
+5. `concepts/policy-integrity.md` — why governed speed needs protected policies.
+6. `docs/policy-integrity-self-assessment.md` — assess one workflow or action class for governance drift risk.
+
+For AI-assisted review, include `PROJECT-CONTEXT-COMPACT.md`, `docs/discovery-keywords.md`, `concepts/policy-integrity.md`, and `docs/policy-integrity-self-assessment.md`.
 
 ---
 
@@ -88,7 +107,8 @@ When editing or extending the project, preserve these ideas:
 - governed speed is only valuable if the governance that defines it is protected;
 - Fast Path percentage is a diagnostic metric, not a performance target;
 - Bypass may prepare the decision environment, but must not create facts that constrain the accountable decision;
-- policy changes must be owned, reviewed, logged and protected from governance drift.
+- policy changes must be owned, reviewed, logged and protected from governance drift;
+- Policy Integrity should be testable through a practical workflow-level assessment, not only described as a concept.
 
 ---
 
@@ -162,8 +182,8 @@ Potential next tasks:
 - improve the Governance Gateway demo documentation;
 - add a simple contributor guide for submitting workflows or failure patterns;
 - create a short `docs/how-to-review-one-workflow.md` guide;
-- create a lightweight `docs/policy-integrity-self-assessment.md`;
-- add policy integrity fields to schema examples and gateway policy examples.
+- add policy integrity fields to schema examples and gateway policy examples;
+- create a compact one-page version of `docs/policy-integrity-self-assessment.md` for external conversations.
 
 ---
 
@@ -182,3 +202,7 @@ Also preserve the newer distinction:
 > Governed speed is only valuable if the governance that defines it is protected.
 
 RABA should not optimize for maximum automation speed. It should optimize for accountable speed inside policy boundaries that remain owned, reviewed, logged and resistant to drift.
+
+The practical expression of this distinction is now:
+
+> Use `docs/policy-integrity-self-assessment.md` to test whether a specific workflow or action class can responsibly support more autonomy.
