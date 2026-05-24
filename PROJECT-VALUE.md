@@ -88,10 +88,10 @@ The project helps answer where AI can support the business safely, which process
 
 Relevant entry points:
 
-- [`docs/external-summary.md`](docs/external-summary.md)
-- [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md)
-- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
-- [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html)
+- [docs/external-summary.md](docs/external-summary.md)
+- [docs/60-minute-project-path.md](docs/60-minute-project-path.md)
+- [offers/minimal-human-ai-governance-pilot.md](offers/minimal-human-ai-governance-pilot.md)
+- [portal/executive-governance-portal.html](portal/executive-governance-portal.html)
 
 ---
 
@@ -101,10 +101,10 @@ The project helps prepare one concrete AI-assisted workflow before scaling auton
 
 Relevant entry points:
 
-- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
-- [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md)
-- [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md)
-- [`demo/index.html`](demo/index.html)
+- [offers/minimal-human-ai-governance-pilot.md](offers/minimal-human-ai-governance-pilot.md)
+- [frameworks/ai-governance-readiness-assessment.md](frameworks/ai-governance-readiness-assessment.md)
+- [use-cases/customer-support-agentic-bi-governance.md](use-cases/customer-support-agentic-bi-governance.md)
+- [demo/index.html](demo/index.html)
 
 ---
 
@@ -114,10 +114,10 @@ The project helps connect technical agent capability to operational responsibili
 
 Relevant entry points:
 
-- [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md)
-- [`docs/concepts/model-agent-fit-governance.md`](docs/concepts/model-agent-fit-governance.md)
-- [`docs/failure-patterns/agent-design-without-governance-architecture.md`](docs/failure-patterns/agent-design-without-governance-architecture.md)
-- [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md)
+- [docs/concepts/agent-development-kit-governance-mapping.md](docs/concepts/agent-development-kit-governance-mapping.md)
+- [docs/concepts/model-agent-fit-governance.md](docs/concepts/model-agent-fit-governance.md)
+- [docs/failure-patterns/agent-design-without-governance-architecture.md](docs/failure-patterns/agent-design-without-governance-architecture.md)
+- [docs/concepts/ai-governance-gateway.md](docs/concepts/ai-governance-gateway.md)
 
 ---
 
@@ -127,11 +127,11 @@ The project provides operational language for translating Responsible AI princip
 
 Relevant entry points:
 
-- [`docs/governance-principles.md`](docs/governance-principles.md)
-- [`docs/governance-vocabulary.md`](docs/governance-vocabulary.md)
-- [`docs/concepts/ai-action-boundary-mapping.md`](docs/concepts/ai-action-boundary-mapping.md)
-- [`docs/concepts/trusted-decision-intelligence.md`](docs/concepts/trusted-decision-intelligence.md)
-- [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md)
+- [docs/governance-principles.md](docs/governance-principles.md)
+- [docs/governance-vocabulary.md](docs/governance-vocabulary.md)
+- [docs/concepts/ai-action-boundary-mapping.md](docs/concepts/ai-action-boundary-mapping.md)
+- [docs/concepts/trusted-decision-intelligence.md](docs/concepts/trusted-decision-intelligence.md)
+- [docs/failure-patterns/README.md](docs/failure-patterns/README.md)
 
 ---
 
@@ -141,10 +141,10 @@ The project can serve as a structured conversation and diagnostic toolkit for AI
 
 Relevant entry points:
 
-- [`docs/start-here-by-role.md`](docs/start-here-by-role.md)
-- [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md)
-- [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md)
-- [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md)
+- [docs/start-here-by-role.md](docs/start-here-by-role.md)
+- [docs/60-minute-project-path.md](docs/60-minute-project-path.md)
+- [frameworks/ai-governance-readiness-assessment.md](frameworks/ai-governance-readiness-assessment.md)
+- [docs/architecture/human-ai-operational-coordination-stack.md](docs/architecture/human-ai-operational-coordination-stack.md)
 
 ---
 
@@ -154,10 +154,10 @@ The project creates a conceptual space around emerging questions of Human-AI Ope
 
 Relevant entry points:
 
-- [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md)
-- [`docs/project-intent.md`](docs/project-intent.md)
-- [`docs/project-development-tracks.md`](docs/project-development-tracks.md)
-- [`docs/evolution-from-control-to-coexistence.md`](docs/evolution-from-control-to-coexistence.md)
+- [whitepaper/governable-autonomy-whitepaper-v2.md](whitepaper/governable-autonomy-whitepaper-v2.md)
+- [docs/project-intent.md](docs/project-intent.md)
+- [docs/project-development-tracks.md](docs/project-development-tracks.md)
+- [docs/evolution-from-control-to-coexistence.md](docs/evolution-from-control-to-coexistence.md)
 
 ---
 
@@ -191,30 +191,30 @@ But this is one audience among several, not the main purpose of the project.
 
 Read:
 
-- [`docs/external-summary.md`](docs/external-summary.md)
-- [`README.md`](README.md)
+- [docs/external-summary.md](docs/external-summary.md)
+- [README.md](README.md)
 - this file
 
 ### 60-minute review
 
 Follow:
 
-- [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md)
+- [docs/60-minute-project-path.md](docs/60-minute-project-path.md)
 
 ### Practical workflow review
 
 Read:
 
-- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
-- [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md)
+- [offers/minimal-human-ai-governance-pilot.md](offers/minimal-human-ai-governance-pilot.md)
+- [use-cases/customer-support-agentic-bi-governance.md](use-cases/customer-support-agentic-bi-governance.md)
 
 ### Technical agent governance review
 
 Read:
 
-- [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md)
-- [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md)
-- [`docs/concepts/model-agent-fit-governance.md`](docs/concepts/model-agent-fit-governance.md)
+- [docs/concepts/agent-development-kit-governance-mapping.md](docs/concepts/agent-development-kit-governance-mapping.md)
+- [docs/concepts/ai-governance-gateway.md](docs/concepts/ai-governance-gateway.md)
+- [docs/concepts/model-agent-fit-governance.md](docs/concepts/model-agent-fit-governance.md)
 
 ---
 
