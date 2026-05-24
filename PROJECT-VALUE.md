@@ -45,17 +45,7 @@ The project focuses on the operational layer where:
 
 This means the project does not treat responsibility as an abstract value.
 
-It treats responsibility as something that must be designed into:
-
-- workflows;
-- roles;
-- approval points;
-- logs;
-- interfaces;
-- tool permissions;
-- agent boundaries;
-- escalation paths;
-- feedback loops.
+It treats responsibility as something that must be designed into workflows, roles, approval points, logs, interfaces, tool permissions, agent boundaries, escalation paths and feedback loops.
 
 ---
 
@@ -94,20 +84,14 @@ It is a structured open-source space for developing reusable language, architect
 
 ### For Business Owners and Executives
 
-The project helps answer:
-
-- Where can AI support the business safely?
-- Which processes are ready for AI assistance?
-- Where must human responsibility stay visible?
-- How can AI activity be monitored at owner level?
-- How can the organization avoid losing control as AI autonomy increases?
+The project helps answer where AI can support the business safely, which processes are ready for AI assistance, where human responsibility must stay visible, and how the organization can avoid losing control as AI autonomy increases.
 
 Relevant entry points:
 
-- `docs/external-summary.md`
-- `docs/60-minute-project-path.md`
-- `offers/minimal-human-ai-governance-pilot.md`
-- `portal/executive-governance-portal.html`
+- [`docs/external-summary.md`](docs/external-summary.md)
+- [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md)
+- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
+- [`portal/executive-governance-portal.html`](portal/executive-governance-portal.html)
 
 ---
 
@@ -115,22 +99,12 @@ Relevant entry points:
 
 The project helps prepare one concrete AI-assisted workflow before scaling autonomy.
 
-It supports questions such as:
-
-- What is the workflow?
-- What should AI do?
-- What should AI not do?
-- Where is human approval required?
-- What should be logged?
-- What happens if AI is wrong?
-- How do we decide whether to continue, stop or redesign the pilot?
-
 Relevant entry points:
 
-- `offers/minimal-human-ai-governance-pilot.md`
-- `frameworks/ai-governance-readiness-assessment.md`
-- `use-cases/customer-support-agentic-bi-governance.md`
-- `demo/index.html`
+- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
+- [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md)
+- [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md)
+- [`demo/index.html`](demo/index.html)
 
 ---
 
@@ -138,21 +112,12 @@ Relevant entry points:
 
 The project helps connect technical agent capability to operational responsibility.
 
-It asks:
-
-- What tools may the agent access?
-- What actions may the agent execute?
-- Which actions require approval?
-- Which model fits the agent role?
-- What happens when subagents delegate work?
-- How are skills, hooks and plugins governed?
-
 Relevant entry points:
 
-- `docs/concepts/agent-development-kit-governance-mapping.md`
-- `docs/concepts/model-agent-fit-governance.md`
-- `docs/failure-patterns/agent-design-without-governance-architecture.md`
-- `docs/concepts/ai-governance-gateway.md`
+- [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md)
+- [`docs/concepts/model-agent-fit-governance.md`](docs/concepts/model-agent-fit-governance.md)
+- [`docs/failure-patterns/agent-design-without-governance-architecture.md`](docs/failure-patterns/agent-design-without-governance-architecture.md)
+- [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md)
 
 ---
 
@@ -160,22 +125,13 @@ Relevant entry points:
 
 The project provides operational language for translating Responsible AI principles into concrete controls.
 
-It supports questions such as:
-
-- Where is accountability assigned?
-- Which AI actions are allowed, restricted or forbidden?
-- What must be auditable?
-- Which risks require escalation?
-- What is the difference between data integrity and decision integrity?
-- How can governance work during execution, not only after review?
-
 Relevant entry points:
 
-- `docs/governance-principles.md`
-- `docs/governance-vocabulary.md`
-- `docs/concepts/ai-action-boundary-mapping.md`
-- `docs/concepts/trusted-decision-intelligence.md`
-- `docs/failure-patterns/README.md`
+- [`docs/governance-principles.md`](docs/governance-principles.md)
+- [`docs/governance-vocabulary.md`](docs/governance-vocabulary.md)
+- [`docs/concepts/ai-action-boundary-mapping.md`](docs/concepts/ai-action-boundary-mapping.md)
+- [`docs/concepts/trusted-decision-intelligence.md`](docs/concepts/trusted-decision-intelligence.md)
+- [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md)
 
 ---
 
@@ -183,68 +139,33 @@ Relevant entry points:
 
 The project can serve as a structured conversation and diagnostic toolkit for AI adoption.
 
-It provides:
-
-- role-based entry paths;
-- 60-minute review path;
-- pilot format;
-- readiness assessment;
-- governance concepts;
-- failure patterns;
-- use case structure;
-- demo interfaces.
-
 Relevant entry points:
 
-- `docs/start-here-by-role.md`
-- `docs/60-minute-project-path.md`
-- `frameworks/ai-governance-readiness-assessment.md`
-- `docs/architecture/human-ai-operational-coordination-stack.md`
+- [`docs/start-here-by-role.md`](docs/start-here-by-role.md)
+- [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md)
+- [`frameworks/ai-governance-readiness-assessment.md`](frameworks/ai-governance-readiness-assessment.md)
+- [`docs/architecture/human-ai-operational-coordination-stack.md`](docs/architecture/human-ai-operational-coordination-stack.md)
 
 ---
 
 ### For Researchers and Discussion Partners
 
-The project creates a conceptual space around emerging questions:
-
-- What happens when AI systems operate faster than human management structures?
-- How does coordination change when autonomous systems become operational participants?
-- What is the interface between human accountability and machine-speed workflows?
-- How should governance evolve beyond model governance and agent governance?
+The project creates a conceptual space around emerging questions of Human-AI Operational Coordination and governable autonomy.
 
 Relevant entry points:
 
-- `whitepaper/governable-autonomy-whitepaper-v2.md`
-- `docs/project-intent.md`
-- `docs/project-development-tracks.md`
-- `docs/evolution-from-control-to-coexistence.md`
+- [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md)
+- [`docs/project-intent.md`](docs/project-intent.md)
+- [`docs/project-development-tracks.md`](docs/project-development-tracks.md)
+- [`docs/evolution-from-control-to-coexistence.md`](docs/evolution-from-control-to-coexistence.md)
 
 ---
 
 ### For Employers and Hiring Teams
 
-This project can also be reviewed as evidence of applied capability in:
-
-- Responsible AI;
-- AI governance;
-- AI business architecture;
-- Human-AI coordination;
-- business process analysis;
-- governance tooling;
-- prototype interface thinking;
-- technical communication.
+This project can also be reviewed as evidence of applied capability in Responsible AI, AI governance, AI business architecture, Human-AI coordination, business process analysis, governance tooling, prototype interface thinking and technical communication.
 
 But this is one audience among several, not the main purpose of the project.
-
-The project demonstrates ability to connect:
-
-- AI technology;
-- business value;
-- governance controls;
-- human accountability;
-- operational processes;
-- risk visibility;
-- user-facing coordination interfaces.
 
 ---
 
@@ -270,47 +191,36 @@ The project demonstrates ability to connect:
 
 Read:
 
-- `docs/external-summary.md`
-- `README.md`
+- [`docs/external-summary.md`](docs/external-summary.md)
+- [`README.md`](README.md)
 - this file
 
 ### 60-minute review
 
 Follow:
 
-- `docs/60-minute-project-path.md`
+- [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md)
 
 ### Practical workflow review
 
 Read:
 
-- `offers/minimal-human-ai-governance-pilot.md`
-- `use-cases/customer-support-agentic-bi-governance.md`
+- [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md)
+- [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md)
 
 ### Technical agent governance review
 
 Read:
 
-- `docs/concepts/agent-development-kit-governance-mapping.md`
-- `docs/concepts/ai-governance-gateway.md`
-- `docs/concepts/model-agent-fit-governance.md`
+- [`docs/concepts/agent-development-kit-governance-mapping.md`](docs/concepts/agent-development-kit-governance-mapping.md)
+- [`docs/concepts/ai-governance-gateway.md`](docs/concepts/ai-governance-gateway.md)
+- [`docs/concepts/model-agent-fit-governance.md`](docs/concepts/model-agent-fit-governance.md)
 
 ---
 
 ## Collaboration Directions
 
-The project can evolve through:
-
-- real workflow use cases;
-- pilot organization feedback;
-- technical runtime governance integrations;
-- interface prototypes;
-- external standards mapping;
-- governance control patterns;
-- failure pattern contributions;
-- visual diagrams;
-- implementation experiments;
-- discussion with AI builders, governance specialists and business leaders.
+The project can evolve through real workflow use cases, pilot organization feedback, technical runtime governance integrations, interface prototypes, external standards mapping, governance control patterns, failure pattern contributions, visual diagrams, implementation experiments and discussion with AI builders, governance specialists and business leaders.
 
 ---
 
