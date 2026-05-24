@@ -26,6 +26,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/decision-log/README.md`](decision-log/README.md)
 - [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`../demo/customer-email-governance-simulation/README.md`](../demo/customer-email-governance-simulation/README.md)
 - [`docs/diagrams/governance-gateway-flow.md`](diagrams/governance-gateway-flow.md)
 - [`docs/60-minute-project-path.md`](60-minute-project-path.md)
@@ -66,6 +67,7 @@ Use these files when reviewing the repository with ChatGPT, Claude, Gemini, GitH
 - [`docs/discovery-keywords.md`](discovery-keywords.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 
 These files help AI systems identify the project purpose, choose the right reading path, classify the repository correctly and produce practical analysis for business, governance and pilot-partner readers.
 
@@ -106,6 +108,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 - [`../use-cases/README.md`](../use-cases/README.md)
 - [`../use-cases/customer-support-agentic-bi-governance.md`](../use-cases/customer-support-agentic-bi-governance.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 
 ---
 
@@ -117,6 +120,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`docs/system-integration-map.md`](system-integration-map.md)
 - [`docs/approval-state-specification.md`](approval-state-specification.md)
 - [`docs/decision-log-schema.md`](decision-log-schema.md)
@@ -141,6 +145,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 
 ---
 
@@ -153,6 +158,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`../schemas/recovery-decision-record.schema.json`](../schemas/recovery-decision-record.schema.json)
 - [`../rfcs/rfc-audit-integrity-and-recovery-protocol.md`](../rfcs/rfc-audit-integrity-and-recovery-protocol.md)
 
@@ -174,6 +180,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../starter-kit/sample_actions.json`](../starter-kit/sample_actions.json)
 - [`../starter-kit/sample_policy.json`](../starter-kit/sample_policy.json)
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`../examples/gateway-policy-examples/README.md`](../examples/gateway-policy-examples/README.md)
 - [`../examples/gateway-policy-examples/customer-email-policy.md`](../examples/gateway-policy-examples/customer-email-policy.md)
 - [`../examples/gateway-policy-examples/customer-email-policy.json`](../examples/gateway-policy-examples/customer-email-policy.json)
@@ -199,6 +206,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/standards-alignment.md`](standards-alignment.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 
 ---
 
@@ -211,6 +219,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`docs/concepts/governance-nervous-system.md`](concepts/governance-nervous-system.md)
 - [`docs/concepts/cooperative-autonomy.md`](concepts/cooperative-autonomy.md)
 - [`docs/concepts/operational-governability.md`](concepts/operational-governability.md)
@@ -251,6 +260,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 
 ---
 
@@ -274,6 +284,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../offers/minimal-human-ai-governance-pilot.md`](../offers/minimal-human-ai-governance-pilot.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 
 ---
 
@@ -282,6 +293,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/partner-readiness-backlog.md`](partner-readiness-backlog.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 
 ---
 
@@ -301,6 +313,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`docs/audit-integrity-breach-response.md`](audit-integrity-breach-response.md)
 - [`docs/recovery-protocol.md`](recovery-protocol.md)
 - [`docs/recovery-decision-record.md`](recovery-decision-record.md)
