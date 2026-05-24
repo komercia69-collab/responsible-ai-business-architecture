@@ -17,6 +17,8 @@ RABA treats responsibility as a routing and control layer that determines which 
 
 The routing path for any action class must be determined by human-defined business rules, not by the AI system’s self-assessment of risk. AI may apply the rules. AI may provide signals to the rules. AI may not set or relax the rules that determine its own level of oversight.
 
+For macro-level safeguards against biased bypass briefs, Fast Path cascades, and remediation scale gaps, see [`governed-speed-safety-controls.md`](governed-speed-safety-controls.md).
+
 ---
 
 ## 2. Principle: Governance Should Scale With Risk
@@ -63,6 +65,8 @@ The system may execute automatically when the action is:
 Fast Path is not ungoverned automation. It is governed automation with low runtime friction.
 
 Fast Path should never be justified only by model confidence. It must be justified by deterministic policy conditions, impact limits, real-world recoverability, and accountable ownership of the policy limits.
+
+At high volume, Fast Path also requires macro-level safeguards: circuit breaker thresholds, Time-to-Halt targets, and mass remediation capacity.
 
 ### 3.2 Review Path
 
@@ -119,6 +123,8 @@ The bypass lane is not a way to evade responsibility. It is a way to preserve th
 
 A bypass lane must not perform the blocked high-impact action itself. It may only perform allowed supporting actions that are reversible, internal, non-destructive, or explicitly permitted by policy.
 
+Bypass processing must follow Evidence Neutrality: facts, AI interpretation, uncertainty, supporting evidence, opposing evidence, alternatives, and remediation options should be separated so that the decision brief does not steer the human through hidden framing.
+
 In short:
 
 > Slow the final decision when needed.  
@@ -153,7 +159,9 @@ For each action class, the organization should define:
 - escalation triggers;
 - rollback or remediation requirements;
 - audit sampling requirements;
-- whether bypass processing is allowed while review is pending.
+- whether bypass processing is allowed while review is pending;
+- whether circuit breaker protection is required;
+- whether mass remediation playbooks are required.
 
 The AI system may classify facts or provide signals that are used by the routing rules, but it must not be the sole source of the routing rule itself.
 
@@ -224,8 +232,10 @@ An action class should move from Fast Path to Review Path, Escalation Path, or B
 - legal or regulatory context changes;
 - real-world reversibility is lower than expected;
 - remediation takes longer than expected;
+- remediation capacity is exceeded or projected to be exceeded;
 - policy limits are exceeded or repeatedly approached;
-- reviewers show signs of rubber-stamping or alert fatigue.
+- reviewers show signs of rubber-stamping or alert fatigue;
+- circuit breaker thresholds are exceeded.
 
 ### 5.4 What Triggers Path Upgrade?
 
@@ -234,6 +244,7 @@ An action class may move toward more autonomy only when:
 - the observation period is complete;
 - error rates remain below defined thresholds;
 - real-world remediation has been tested;
+- mass remediation capacity has been evaluated for expected volume;
 - audit results are acceptable;
 - the action stays within policy limits;
 - the decision owner approves the change;
@@ -339,7 +350,8 @@ Friction should increase when:
 - affected-party vulnerability increases;
 - the action moves from internal recommendation to external execution;
 - repeated approvals indicate rubber-stamping;
-- batch review patterns indicate alert fatigue.
+- batch review patterns indicate alert fatigue;
+- remediation capacity becomes insufficient for action volume.
 
 Friction should decrease when:
 
@@ -349,6 +361,7 @@ Friction should decrease when:
 - policy boundaries are clear;
 - monitoring is strong;
 - remediation is fast and meaningful;
+- mass remediation capacity is sufficient;
 - historical performance is stable;
 - audit sampling is sufficient.
 
@@ -464,6 +477,8 @@ Example:
 
 However, a kill switch is not proof of safety by itself. A kill switch stops future harm; it may not repair harm already created. Rollback must therefore be evaluated through real-world reversibility.
 
+At high volume, a kill switch should be formalized as a Governance Circuit Breaker with explicit triggers, Time-to-Halt targets, owner role, restart criteria, and post-incident review.
+
 ### 9.8 Control by Action Class
 
 Controls apply to action classes, not every individual event in the same way.
@@ -482,6 +497,25 @@ Example:
 
 Bypass processing preserves speed by keeping the information flow active while preventing the final high-risk action from executing prematurely.
 
+Bypass processing must not create confirmation bias through selective evidence. Decision briefs should separate facts, AI interpretation, uncertainty, supporting evidence, opposing evidence, alternatives, and remediation options.
+
+### 9.10 Mass Remediation Readiness
+
+For high-volume Fast Path actions, the organization must be able to remediate at the scale at which automation can create harm.
+
+A single-case rollback is not enough.
+
+Fast Path eligibility should include:
+
+- batch remediation capability;
+- maximum exposure before halt;
+- remediation throughput estimate;
+- customer or stakeholder communication capacity;
+- evidence export capability;
+- escalation if remediation capacity is exceeded.
+
+If the organization cannot remediate the expected volume of wrong actions, the action class should not be treated as fully real-world reversible.
+
 ---
 
 ## 10. Speed-Control Matrix
@@ -490,8 +524,8 @@ RABA can represent the relationship between speed and responsibility as a matrix
 
 | Risk / Real-world reversibility | Low impact / fully reversible | Medium impact / partially reversible | High impact / hard to reverse |
 |---|---|---|---|
-| Low uncertainty | Fast Path: autonomous execution + logging | Review Path: sampled or batch review with anti-fatigue controls | Review Path: approval before execution + bypass preparation |
-| Medium uncertainty | Fast Path with audit sampling only if policy limits are deterministic | Review Path: human review or delay + bypass enrichment | Escalation Path: explicit approval + bypass evidence package |
+| Low uncertainty | Fast Path: autonomous execution + logging + circuit breaker where volume requires | Review Path: sampled or batch review with anti-fatigue controls | Review Path: approval before execution + bypass preparation |
+| Medium uncertainty | Fast Path with audit sampling only if policy limits are deterministic and remediation capacity is sufficient | Review Path: human review or delay + bypass enrichment | Escalation Path: explicit approval + bypass evidence package |
 | High uncertainty | Review Path: exception review + bypass data improvement | Escalation Path: pause or approve + bypass analysis | Escalation Path: block final action, continue only allowed bypass processing |
 
 This matrix makes the project more realistic for automation-heavy organizations.
@@ -573,6 +607,19 @@ In short:
 > The AI may operate inside policy limits.  
 > It must not grant itself easier policy limits.
 
+### 11.2 Circuit Breaker Routing
+
+The Governance Gateway should support macro-level circuit breaker routing.
+
+When circuit breaker thresholds are exceeded, the gateway should be able to:
+
+- degrade an action class from Fast Path to Review Path;
+- degrade an action class from Review Path to Escalation Path;
+- block final external actions;
+- keep only governed bypass preparation active;
+- notify the owner and incident response roles;
+- require governed restart before Fast Path resumes.
+
 ---
 
 ## 12. Bypass Lane Boundaries
@@ -604,6 +651,24 @@ The key rule:
 
 > Bypass may accelerate preparation.  
 > Bypass must not pre-decide the accountable decision.
+
+### 12.1 Evidence Neutrality
+
+Bypass may prepare a decision brief, but it must not manipulate the reviewer through selective evidence or biased framing.
+
+A bypass decision brief should separate:
+
+- facts;
+- AI interpretation;
+- uncertainty;
+- missing data;
+- evidence supporting the proposed action;
+- evidence against the proposed action;
+- alternatives;
+- real-world consequences;
+- remediation options.
+
+For high-impact cases, the brief should include a reasonable red-team argument against the proposed action.
 
 ---
 
@@ -756,10 +821,28 @@ throughput_governance:
     requires_logging: true
     bypass_owner_role: "Operations Analyst"
     boundary_policy_id: "POL-AI-BYPASS-01"
+    evidence_neutrality:
+      required: true
+      facts_separated_from_ai_interpretation: true
+      opposing_evidence_required: true
+      missing_data_visible: true
+      alternatives_required: true
+      tone_neutrality_required: true
+  circuit_breaker:
+    enabled: true
+    time_to_halt_target: "5m"
+    automatic_degradation: "fast_path_to_review_path"
+    restart_requires_human_approval: true
+  mass_remediation:
+    playbook_required: true
+    batch_remediation_available: true
+    maximum_exposure_before_halt: 1000
+    remediation_capacity_per_day: 5000
   escalation:
     trigger_on_boundary_violation: true
     trigger_on_high_uncertainty: true
     trigger_on_policy_limit_change: true
+    trigger_on_circuit_breaker_activation: true
     owner_role: "Customer Operations Lead"
   safety_controls:
     kill_switch_available: true
@@ -797,12 +880,14 @@ Refunds are routed by risk and real-world reversibility:
 - unusual cases go to exception review;
 - high-value or suspicious refunds require approval;
 - while the case is pending, the bypass lane gathers evidence, prepares a decision brief, and checks remediation options;
+- the decision brief separates facts, AI interpretation, evidence for, evidence against, uncertainty, alternatives, and remediation options;
 - a sample of low-risk refunds is audited daily;
 - batch approvals include anti-fatigue controls and outlier review;
-- anomaly spikes trigger a kill switch;
+- anomaly spikes trigger a circuit breaker;
 - policy limit changes require escalation and human approval;
 - the Decision Owner owns the policy limits;
 - the Remediation Executor can reverse or correct transactions where real-world remediation is still meaningful;
+- a mass remediation playbook defines how affected refunds are identified and corrected at scale;
 - the Decision Log preserves evidence.
 
 Result:
@@ -811,6 +896,7 @@ Result:
 - risky actions receive attention;
 - humans focus where judgment matters;
 - pending cases become better prepared instead of simply blocked;
+- cascade risk is reduced;
 - responsibility remains visible.
 
 ---
@@ -840,6 +926,7 @@ The final suspension waits for human approval, but the bypass lane continues saf
 - collects recent fraud signals;
 - checks real-world reversibility of possible actions;
 - summarizes customer history;
+- identifies evidence for and against suspension;
 - identifies less harmful alternatives, such as temporary transaction hold or step-up verification;
 - prepares customer communication drafts but does not send them;
 - prepares remediation instructions if suspension is approved and later found wrong;
@@ -848,7 +935,7 @@ The final suspension waits for human approval, but the bypass lane continues saf
 Result:
 
 - the human decision is slower than full automation but faster and better than manual review;
-- the decision package is richer;
+- the decision package is richer and less biased;
 - the final high-impact action remains governed;
 - responsibility and throughput are both preserved.
 
@@ -862,7 +949,7 @@ RABA does not slow automation by requiring human approval for every AI-supported
 
 RABA increases the responsible speed of automation by routing actions through risk-proportional control paths.
 
-Low-risk, real-world reversible, policy-bounded actions may execute quickly.
+Low-risk, real-world reversible, policy-bounded actions may execute quickly only when stopping and remediation capacity can scale with the automation.
 
 High-risk, irreversible, uncertain, or rights-affecting actions require friction, review, escalation, or blocking.
 
@@ -877,4 +964,5 @@ RABA replaces unknown speed with accountable speed.
 > Governance must scale faster than autonomy.  
 > But governance must also be fast enough to govern autonomy in real time.  
 > When final execution must slow down, safe preparation should continue.  
-> The model may provide signals; policy must own the path.
+> The model may provide signals; policy must own the path.  
+> No governed speed without governed stopping.
