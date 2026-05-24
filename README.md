@@ -81,7 +81,7 @@ governance concept → operational interface → implementation pattern
 | Designing products, workflows, approvals or business operations | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md), [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md), [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md) | See how responsibility can become visible and manageable without turning governance into a universal bottleneck |
 | Building AI runtime, observability, policy, audit or event-driven infrastructure | [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Explore how responsibility states become policy checks, decisions, events and audit trails |
 | Working with MCP, tools or agentic execution | [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md), [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md) | Map tool execution and MCP security risks to responsibility architecture |
-| Exploring a pilot | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) | Apply RABA to one real workflow and scope a minimal pilot |
+| Exploring a pilot | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md) | Apply RABA to one real workflow and assess whether governed speed is protected from policy drift |
 
 ---
 
@@ -91,6 +91,7 @@ governance concept → operational interface → implementation pattern
 - [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md) — risk-proportional model for preserving automation speed while keeping responsibility visible.
 - [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md) — product principle for protecting accountable speed as business value.
 - [`concepts/policy-integrity.md`](concepts/policy-integrity.md) — concept for protecting governed speed from governance drift.
+- [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md) — practical 45-question tool for assessing policy integrity and governance drift risk in one workflow or action class.
 - [`docs/approval-state-specification.md`](docs/approval-state-specification.md) — formal state model for AI-supported actions.
 - [`docs/decision-log-schema.md`](docs/decision-log-schema.md) — minimum business accountability record.
 - [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) — implementation pattern for the control point between AI intent and governed action.
@@ -158,6 +159,7 @@ The key implementation documents are:
 - [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md)
 - [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md)
 - [`concepts/policy-integrity.md`](concepts/policy-integrity.md)
+- [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md)
 - [`docs/approval-state-specification.md`](docs/approval-state-specification.md)
 - [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md)
 - [`docs/decision-log-schema.md`](docs/decision-log-schema.md)
@@ -174,8 +176,9 @@ If your organization is exploring AI in a real workflow, the recommended first s
 3. Identify approval and escalation points.
 4. Define what should be logged before autonomy increases.
 5. Test the workflow with RABA approval states and decision logs.
+6. Use [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md) to check whether governed speed is protected from policy drift before expanding autonomy.
 
-Start with [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
+Start with [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
 
 ---
 
@@ -186,12 +189,12 @@ For a detailed file-by-file navigation map, see [`docs/repository-map.md`](docs/
 | Hub Area | Start Here | What It Helps You Do |
 |---|---|---|
 | **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose a practical route |
-| **Core Specification** | [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md), [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md), [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md), [`concepts/policy-integrity.md`](concepts/policy-integrity.md), [`docs/approval-state-specification.md`](docs/approval-state-specification.md), [`docs/decision-log-schema.md`](docs/decision-log-schema.md), [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) | Understand operational responsibility, governed speed, speed protection, policy integrity, the state model, accountability record and gateway control point |
+| **Core Specification** | [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md), [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md), [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md), [`concepts/policy-integrity.md`](concepts/policy-integrity.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), [`docs/approval-state-specification.md`](docs/approval-state-specification.md), [`docs/decision-log-schema.md`](docs/decision-log-schema.md), [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) | Understand operational responsibility, governed speed, speed protection, policy integrity, the state model, accountability record and gateway control point |
 | **Governance Architecture** | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md), [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md) | Map responsibility, action boundaries, gateways, delegated authority and MCP tool execution |
 | **Responsibility Interface & Implementation** | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Make responsibility visible in interfaces and translate accountability into events |
 | **Security & Threat Mapping** | [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md) | Connect security risks to responsibility failures and governance controls |
 | **Proof Layer** | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md), [`starter-kit/example-output.md`](starter-kit/example-output.md), [`docs/diagrams/governance-gateway-flow.md`](docs/diagrams/governance-gateway-flow.md) | Run and understand a minimal Governance Gateway example |
-| **Pilots & Use Cases** | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`pilots/customer-communication-pilot.md`](pilots/customer-communication-pilot.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow |
+| **Pilots & Use Cases** | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`pilots/customer-communication-pilot.md`](pilots/customer-communication-pilot.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow and assess governance drift risk before scaling autonomy |
 | **Standards & Positioning** | [`docs/standards-alignment.md`](docs/standards-alignment.md), [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md) | Position RABA relative to existing governance and risk frameworks |
 | **Project Direction** | [`docs/project-intent.md`](docs/project-intent.md), [`docs/project-development-tracks.md`](docs/project-development-tracks.md), [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Understand why the project exists and how it may evolve |
 
@@ -396,7 +399,7 @@ See [`DISCLAIMER.md`](DISCLAIMER.md) for limitations.
 
 If you are new to the project, start with [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md).
 
-If you want to apply the framework, use [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) to map one real AI-assisted workflow.
+If you want to apply the framework, use [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md) to map and assess one real AI-assisted workflow.
 
 If you want to contribute, open an issue with a concrete workflow, failure pattern, governance question or pilot scenario.
 
