@@ -108,6 +108,12 @@ Organizations should be able to increase autonomy when evidence supports it, rat
 
 Governance should route, sample, escalate, pause, or block without collapsing the entire workflow.
 
+### 5.6 Stopping Power
+
+Speed is protected only when unsafe speed can be stopped quickly.
+
+For high-volume action classes, RABA should protect not only throughput, but also the ability to halt, degrade, or contain a Fast Path before a small failure becomes a cascade.
+
 ---
 
 ## 6. What RABA Must Not Protect
@@ -119,10 +125,12 @@ RABA must not protect:
 - model-only routing into Fast Path;
 - relaxed policy limits without human approval;
 - hidden execution through bypass lanes;
+- biased decision briefs that steer human reviewers;
 - rubber-stamping or batch-stamping;
 - irreversible external actions disguised as low-risk;
 - latency-budget excuses for negligent routing;
 - autonomy upgrades without evidence;
+- high-volume Fast Path without circuit breaker and mass remediation readiness;
 - business pressure that punishes humans for valid overrides.
 
 The purpose is to protect responsible speed, not any speed.
@@ -138,8 +146,11 @@ RABA protects speed through a combination of controls:
 - **Responsibility Latency Budget** — governance latency is explicit and designed.
 - **Fast Path safeguards** — low-risk actions remain fast when policy conditions are met.
 - **Governed Bypass Lane** — safe preparation continues while final decisions wait.
+- **Evidence Neutrality** — bypass decision briefs separate facts, AI interpretation, supporting evidence, opposing evidence, uncertainty, alternatives and remediation options.
 - **Sampling and audit** — low-risk actions can be reviewed after execution.
 - **Batch approval with anti-fatigue controls** — human review can scale without becoming meaningless.
+- **Governance Circuit Breaker** — macro-level halt/degrade controls stop Fast Path cascades.
+- **Mass Remediation Playbook** — remediation capacity scales with automation volume.
 - **Shadow mode graduation** — autonomy increases only after evidence and approval.
 - **Policy limit governance** — AI cannot relax the rules that determine its own oversight.
 - **Kill switch and remediation** — fast action has containment and correction paths.
@@ -155,14 +166,19 @@ A future RABA implementation may track speed protection metrics such as:
 - average governance latency by action class;
 - number of actions preserved by Governed Bypass Lane;
 - decision package completeness before human review;
+- evidence-neutrality quality score for bypass briefs;
 - audit error rate for Fast Path actions;
 - false positive and false negative rates;
+- **Time-to-Halt** for each high-volume Fast Path action class;
+- number of circuit breaker activations;
+- number of actions executed before halt after anomaly detection;
 - remediation time after wrong action;
+- mass remediation capacity versus maximum Fast Path exposure;
 - number of policy limit changes;
 - number of valid human overrides;
 - rubber-stamping or batch-stamping indicators;
 - loss of throughput due to unnecessary friction;
-- incidents prevented by escalation.
+- incidents prevented by escalation or circuit breaker activation.
 
 These metrics help show that RABA is not merely adding control. It is actively preserving useful speed while reducing unsafe speed.
 
@@ -182,6 +198,8 @@ RABA is valuable to business users because it helps them answer:
 - Which actions must be blocked?
 - Which work can continue while waiting for a human decision?
 - How do we prove that speed was justified?
+- How fast can we stop a Fast Path if it becomes unsafe?
+- Can we remediate at the same scale at which we automate?
 - When can we safely increase autonomy?
 - When must we reduce speed because the risk changed?
 
@@ -200,6 +218,7 @@ Together:
 ```text
 Responsibility Throughput Model = how to route speed
 Speed Protection Principle = why responsible speed is a product asset
+Governed Speed Safety Controls = how to stop cascades, neutralize bypass bias and remediate at scale
 Governance Gateway = where routing is enforced
 Decision Log = why routing decisions are accountable
 Responsibility Management Interface = where speed, responsibility, and friction become visible
@@ -215,8 +234,9 @@ RABA must protect the speed of safe automation as deliberately as it controls th
 
 The goal is not maximum speed and not maximum control.
 
-The goal is the highest speed that remains accountable, policy-bounded, auditable, and recoverable in the real world.
+The goal is the highest speed that remains accountable, policy-bounded, auditable, recoverable in the real world, and stoppable before local failure becomes systemic harm.
 
 > Unknown speed is risk.  
 > Governed speed is value.  
+> Governed speed requires governed stopping.  
 > RABA protects governed speed.
