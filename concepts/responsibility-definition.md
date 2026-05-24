@@ -26,6 +26,7 @@ An organization needs to know:
 - who can intervene while the action is still unfolding;
 - who can explain the decision;
 - who must correct the consequences if the action causes harm;
+- whether correction can scale to the volume at which automation may create harm;
 - who remains accountable when the AI system is uncertain, wrong, incomplete, or overconfident.
 
 Without this structure, “responsible AI” becomes a statement of intention rather than a working governance mechanism.
@@ -45,7 +46,7 @@ This means responsibility exists only when the following elements are clear:
 3. **The authority model** — whether the action requires synchronous human approval or may execute under asynchronous delegated limits.
 4. **The understanding** — whether the responsible person has enough information to act meaningfully and resist automation bias.
 5. **The answerability** — who must explain the decision and its reasoning.
-6. **The corrective duty** — who owns the correction decision and who technically executes remediation.
+6. **The corrective duty** — who owns the correction decision, who technically executes remediation, and whether remediation can scale to the expected failure volume.
 7. **The legal trace** — what evidence remains to prove who knew what, when, and under which authority.
 
 If these elements are missing, responsibility is not operational. It is only symbolic.
@@ -108,6 +109,7 @@ After the action, responsibility means:
 - reviewing whether the result matched the intended outcome;
 - identifying harm, unfairness, operational damage, or compliance issues;
 - correcting the consequences;
+- determining whether the correction is single-case remediation or mass remediation;
 - updating the workflow, rules, training, monitoring, or escalation path;
 - preserving evidence for audit, legal review, and organizational learning.
 
@@ -142,6 +144,7 @@ This is appropriate only when:
 - monitoring and audit are active;
 - exceptions and uncertainty trigger escalation;
 - the action can be reversed or contained;
+- remediation capacity is proportionate to the speed and volume of automation;
 - a human owner is accountable for the delegation design.
 
 This distinction prevents RABA from becoming a blanket prohibition on autonomy. RABA does not forbid autonomous execution. It requires that autonomy be delegated explicitly, bounded by policy, observable, auditable, and correctable.
@@ -261,11 +264,14 @@ RABA therefore distinguishes:
 - **Decision Owner** — the business or governance role that accepts the risk, owns the decision, and is accountable for why correction is required.
 - **Remediation Executor** — the technical or operational role that has the tools, permissions, and procedural capability to perform the correction.
 - **Remediation SLA** — the expected time window, escalation path, and evidence requirement for correction.
+- **Mass Remediation Playbook** — the approved protocol for identifying, containing, correcting, communicating, and auditing many wrong actions created by the same failure pattern.
 
 Corrective duty includes:
 
 - stopping the action;
 - reversing the action where possible;
+- identifying the affected population;
+- reversing or correcting actions in batch where needed;
 - notifying affected people or teams;
 - correcting wrong data;
 - updating the workflow;
@@ -275,7 +281,9 @@ Corrective duty includes:
 - escalating to legal, compliance, audit, IT, security, or leadership roles;
 - preventing recurrence.
 
-Without a named remediation executor and escalation path, corrective duty becomes passive.
+For high-volume Fast Path actions, corrective duty must be tested against scale. The organization must know not only whether one wrong action can be corrected, but whether a large volume of wrong actions can be remediated within an acceptable time.
+
+Without a named remediation executor, escalation path, and mass remediation capacity where needed, corrective duty becomes passive.
 
 ---
 
@@ -332,7 +340,8 @@ At minimum, an organization should be able to prove:
 - when each action or approval occurred;
 - what data was used and whether that data may be retained;
 - who had permission to access the decision record;
-- what remediation path was available if harm occurred.
+- what remediation path was available if harm occurred;
+- whether mass remediation capacity existed for high-volume delegated actions.
 
 Depending on jurisdiction, sector, and risk level, this may require stronger controls such as electronic signatures, immutable audit logs, role-based access control, retention policies, consent records, privacy assessments, or legal review before deployment.
 
@@ -393,7 +402,8 @@ A responsible AI workflow should show:
 - execution boundary;
 - audit log;
 - corrective owner;
-- remediation executor.
+- remediation executor;
+- mass remediation readiness where the action may execute at high volume.
 
 This turns responsibility from an abstract ethical principle into an operational layer of the system.
 
@@ -420,6 +430,7 @@ It should answer in real time:
 - Can the human realistically override the AI recommendation?
 - Who receives escalation?
 - Who technically executes remediation?
+- Is mass remediation capacity required and available?
 - What will be recorded in the audit log?
 
 The interface should not only display AI output. It should display the responsibility structure around that output.
@@ -430,7 +441,7 @@ For high-risk decisions, the interface should not optimize only for speed and co
 
 ## 12. Minimal Responsibility Questions
 
-For every AI-supported action, RABA should require seven questions:
+For every AI-supported action, RABA should require eight questions:
 
 ### 1. Who is responsible?
 
@@ -460,7 +471,11 @@ Who corrects the consequences, who documents the incident, who technically execu
 
 Does the human have a practical, cultural, procedural, and technical ability to reject or override the AI recommendation without being punished for slowing down the process or reducing automation metrics?
 
-If these seven questions cannot be answered, the system does not yet have a sufficient responsibility structure.
+### 8. Can remediation scale to the speed of automation?
+
+If the action can execute at high volume, does the organization have the playbook, tooling, staffing, communication path, and escalation mechanism to correct a large number of wrong actions within an acceptable time?
+
+If these eight questions cannot be answered, the system does not yet have a sufficient responsibility structure.
 
 ---
 
@@ -534,7 +549,15 @@ Typical symptom:
 
 > “The business agreed to fix it, but nobody had the keys to reverse it.”
 
-### 13.9 Audit Log Without Accountability
+### 13.9 Mass Harm Without Mass Remediation
+
+The system creates many wrong actions quickly, but the organization only has a single-case remediation process.
+
+Typical symptom:
+
+> “We can fix one case, but not the thousands the system created before we stopped it.”
+
+### 13.10 Audit Log Without Accountability
 
 Technical logs exist, but they do not show who owned the decision, who approved it, what was understood, or why the action was allowed.
 
@@ -542,7 +565,7 @@ Typical symptom:
 
 > “We can see what the system did, but not who was accountable.”
 
-### 13.10 Closed-Loop AI Supervision
+### 13.11 Closed-Loop AI Supervision
 
 The AI system estimates risk, and that same AI-derived risk estimate determines whether human review is needed. The model effectively decides whether it should be governed.
 
@@ -639,6 +662,10 @@ responsibility:
     decision_owner_role: "Process Owner"
     remediation_executor_role: "IT Operations Lead"
     remediation_sla: "4h"
+    mass_remediation_playbook_required: true
+    mass_remediation_playbook_id: "MRP-AI-ACTION-CLASS-01"
+    batch_remediation_available: true
+    remediation_capacity_assessed: true
     incident_logging_required: true
     reversal_possible: "partial"
     escalation_target: "Head of Risk"
@@ -741,6 +768,7 @@ In short:
 > No decision without answerability.  
 > No consequence without corrective duty.  
 > No corrective duty without a remediation executor.  
+> No high-volume Fast Path without mass remediation readiness.  
 > No accountability without evidence.  
 > No model-only decision about whether the model needs oversight.
 
@@ -764,6 +792,7 @@ This structure must include:
 - answerability;
 - corrective duty;
 - named remediation executor;
+- mass remediation readiness where action volume requires it;
 - auditability;
 - escalation path;
 - legal traceability.
