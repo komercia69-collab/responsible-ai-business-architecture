@@ -45,6 +45,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/ai-recommendation-triage-protocol.md`](ai-recommendation-triage-protocol.md)
 - [`docs/doc-vault-github-chatgpt-protocol.md`](doc-vault-github-chatgpt-protocol.md)
 - [`docs/decision-log/README.md`](decision-log/README.md)
+- [`docs/decision-log/2026-05/2026-05-24-policy-integrity-and-governance-drift.md`](decision-log/2026-05/2026-05-24-policy-integrity-and-governance-drift.md)
 - [`../templates/ai-recommendation-card.md`](../templates/ai-recommendation-card.md)
 - [`../templates/ai-decision-card.md`](../templates/ai-decision-card.md)
 
@@ -106,6 +107,10 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 ## Core Specification
 
+- [`../concepts/responsibility-definition.md`](../concepts/responsibility-definition.md)
+- [`../concepts/responsibility-throughput-model.md`](../concepts/responsibility-throughput-model.md)
+- [`../concepts/speed-protection-principle.md`](../concepts/speed-protection-principle.md)
+- [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/system-integration-map.md`](system-integration-map.md)
 - [`docs/approval-state-specification.md`](approval-state-specification.md)
 - [`docs/decision-log-schema.md`](decision-log-schema.md)
@@ -127,6 +132,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/compliance-checker-vs-runtime-governance.md`](compliance-checker-vs-runtime-governance.md)
 - [`docs/rubber-stamp-risk.md`](rubber-stamp-risk.md)
 - [`../concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
+- [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 
 ---
 
@@ -136,6 +142,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/recovery-protocol.md`](recovery-protocol.md)
 - [`docs/recovery-decision-record.md`](recovery-decision-record.md)
 - [`docs/distributed-governance-condition-propagation.md`](distributed-governance-condition-propagation.md)
+- [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`../schemas/recovery-decision-record.schema.json`](../schemas/recovery-decision-record.schema.json)
 - [`../rfcs/rfc-audit-integrity-and-recovery-protocol.md`](../rfcs/rfc-audit-integrity-and-recovery-protocol.md)
 
@@ -185,6 +192,11 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 ## Concepts
 
+- [`../concepts/responsibility-definition.md`](../concepts/responsibility-definition.md)
+- [`../concepts/responsibility-throughput-model.md`](../concepts/responsibility-throughput-model.md)
+- [`../concepts/speed-protection-principle.md`](../concepts/speed-protection-principle.md)
+- [`../concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
+- [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/concepts/governance-nervous-system.md`](concepts/governance-nervous-system.md)
 - [`docs/concepts/cooperative-autonomy.md`](concepts/cooperative-autonomy.md)
 - [`docs/concepts/operational-governability.md`](concepts/operational-governability.md)
@@ -198,7 +210,6 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/concepts/trusted-decision-intelligence.md`](concepts/trusted-decision-intelligence.md)
 - [`docs/concepts/model-agent-fit-governance.md`](concepts/model-agent-fit-governance.md)
 - [`docs/concepts/personal-ai-operational-twin.md`](concepts/personal-ai-operational-twin.md)
-- [`../concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
 
 ---
 
@@ -223,6 +234,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/mcp-governance-principles.md`](mcp-governance-principles.md)
 - [`docs/governance-toolchain.md`](governance-toolchain.md)
 - [`docs/governance-observability.md`](governance-observability.md)
+- [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 
 ---
 
@@ -266,6 +278,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../SECURITY.md`](../SECURITY.md)
 - [`docs/repository-security-hardening.md`](repository-security-hardening.md)
 - [`docs/governance-integrity.md`](governance-integrity.md)
+- [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/audit-integrity-breach-response.md`](audit-integrity-breach-response.md)
 - [`docs/recovery-protocol.md`](recovery-protocol.md)
 - [`docs/recovery-decision-record.md`](recovery-decision-record.md)
