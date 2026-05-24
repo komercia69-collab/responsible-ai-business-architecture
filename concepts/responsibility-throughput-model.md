@@ -15,6 +15,8 @@ RABA treats responsibility as a routing and control layer that determines which 
 > Responsibility should not stop automation.  
 > Responsibility should define the safe speed of automation.
 
+The routing path for any action class must be determined by human-defined business rules, not by the AI system’s self-assessment of risk. AI may apply the rules. AI may provide signals to the rules. AI may not set or relax the rules that determine its own level of oversight.
+
 ---
 
 ## 2. Principle: Governance Should Scale With Risk
@@ -124,7 +126,127 @@ In short:
 
 ---
 
-## 4. Responsibility Latency Budget
+## 4. Path Classification Rules
+
+Speed paths must be defined at the level of action classes before runtime.
+
+An action class is a recurring type of AI-supported action such as:
+
+- classify an internal ticket;
+- draft a customer response;
+- send a customer response;
+- issue a refund;
+- block an account;
+- change a production parameter;
+- approve a procurement step;
+- update access rights.
+
+For each action class, the organization should define:
+
+- the default path: Fast Path, Review Path, Escalation Path, or Block;
+- the deterministic filters that allow or prevent Fast Path;
+- the real-world reversibility class;
+- the maximum allowed impact;
+- the data quality requirements;
+- the policy owner;
+- the review cadence;
+- escalation triggers;
+- rollback or remediation requirements;
+- audit sampling requirements;
+- whether bypass processing is allowed while review is pending.
+
+The AI system may classify facts or provide signals that are used by the routing rules, but it must not be the sole source of the routing rule itself.
+
+A safe routing rule should look like this:
+
+```text
+IF action_class = low_value_refund
+AND amount <= 20 EUR
+AND customer_status = verified
+AND data_completeness = sufficient
+AND real_world_reversibility = full
+AND no boundary violation is detected
+THEN Fast Path
+ELSE Review Path or Escalation Path
+```
+
+A weak routing rule looks like this:
+
+```text
+IF model_risk_score = low
+THEN Fast Path
+```
+
+RABA rejects model-only routing because it allows the AI system to become the judge of its own oversight.
+
+---
+
+## 5. Speed-Path Governance
+
+The path classification for each action class is itself a governance object.
+
+It should have an owner, version, review cycle, approval state, and audit trail.
+
+### 5.1 Who Defines the Path?
+
+Speed paths should be defined by accountable human or organizational roles, such as:
+
+- process owner;
+- risk owner;
+- product owner;
+- compliance or legal reviewer;
+- operations lead;
+- security owner;
+- audit representative where appropriate.
+
+AI may assist in drafting or analyzing path rules, but the accepted rule must be owned by a human or organization.
+
+### 5.2 How Often Should Paths Be Reviewed?
+
+Each path classification should have a review cadence.
+
+Examples:
+
+- high-risk action classes: monthly or after every incident;
+- medium-risk action classes: quarterly or after drift indicators;
+- low-risk action classes: semi-annually or after significant volume change;
+- experimental action classes: after a defined observation window.
+
+### 5.3 What Triggers Path Downgrade or Escalation?
+
+An action class should move from Fast Path to Review Path, Escalation Path, or Block when:
+
+- incident rate increases;
+- audit sample error rate exceeds threshold;
+- data quality decreases;
+- drift is detected;
+- customer complaints increase;
+- legal or regulatory context changes;
+- real-world reversibility is lower than expected;
+- remediation takes longer than expected;
+- policy limits are exceeded or repeatedly approached;
+- reviewers show signs of rubber-stamping or alert fatigue.
+
+### 5.4 What Triggers Path Upgrade?
+
+An action class may move toward more autonomy only when:
+
+- the observation period is complete;
+- error rates remain below defined thresholds;
+- real-world remediation has been tested;
+- audit results are acceptable;
+- the action stays within policy limits;
+- the decision owner approves the change;
+- the change is logged as a governance decision.
+
+In short:
+
+> Speed paths are not runtime conveniences.  
+> They are governed policy objects.
+
+---
+
+## 6. Responsibility Latency Budget
 
 Every workflow has a tolerance for delay. A fraud system, trading control, medical triage queue, customer support assistant, procurement approval, and internal report generator do not have the same timing requirements.
 
@@ -147,15 +269,17 @@ The bypass lane helps use the latency budget productively. While the decision wa
 
 A latency budget must not be used as a legal or ethical excuse for premature automation. It is an engineering constraint for governance design, not a waiver of responsibility.
 
+A latency budget should have a review trigger. If the organization repeatedly expands Fast Path to meet latency goals without proving real-world reversibility and remediation capacity, the governance design is failing.
+
 ---
 
-## 5. Reversibility Must Be Real-World Reversibility
+## 7. Reversibility Must Be Real-World Reversibility
 
 RABA uses reversibility as a speed-control factor, but the word “reversible” can be misleading.
 
 A technical rollback is not the same as real-world reversal.
 
-### 5.1 System Reversibility
+### 7.1 System Reversibility
 
 System reversibility means that a technical state can be changed back.
 
@@ -169,7 +293,7 @@ Examples:
 
 System reversibility is useful, but it is not enough for Fast Path routing.
 
-### 5.2 Real-World Reversibility
+### 7.2 Real-World Reversibility
 
 Real-world reversibility asks whether the organization can meaningfully undo or repair the actual consequence of the action.
 
@@ -187,7 +311,7 @@ For routing into Fast Path, RABA should use **real-world reversibility** as the 
 
 System reversibility may reduce technical remediation cost, but it must not be treated as proof that the action is safe to automate.
 
-### 5.3 Reversibility Classes
+### 7.3 Reversibility Classes
 
 A practical classification may be:
 
@@ -201,7 +325,7 @@ This prevents the myth of easy rollback from weakening the governance gateway.
 
 ---
 
-## 6. Automation Friction Gradient
+## 8. Automation Friction Gradient
 
 RABA uses friction where it creates responsibility value.
 
@@ -240,11 +364,11 @@ RABA should say:
 
 ---
 
-## 7. Throughput-Preserving Controls
+## 9. Throughput-Preserving Controls
 
 Responsibility can be designed without destroying throughput by using several control patterns.
 
-### 7.1 Policy-Bounded Autonomy
+### 9.1 Policy-Bounded Autonomy
 
 AI-supported systems may execute automatically inside predefined business limits.
 
@@ -254,7 +378,7 @@ Example:
 
 Policy-bounded autonomy must be bounded by reviewed business rules, not by the model’s self-assessment alone.
 
-### 7.2 Exception-Based Human Review
+### 9.2 Exception-Based Human Review
 
 Humans review exceptions rather than every normal case.
 
@@ -262,7 +386,7 @@ Example:
 
 > Only cases with uncertainty, boundary violation, conflicting signals, or high impact are routed to a human.
 
-### 7.3 Sampling and Audit
+### 9.3 Sampling and Audit
 
 A percentage of low-risk actions is reviewed after execution.
 
@@ -270,7 +394,7 @@ Example:
 
 > 2% of low-risk support responses are audited daily; 100% of high-risk escalations are reviewed.
 
-### 7.4 Batch Approval With Anti-Fatigue Controls
+### 9.4 Batch Approval With Anti-Fatigue Controls
 
 Humans may approve groups of similar actions when individual review adds little value.
 
@@ -293,7 +417,7 @@ Anti-fatigue controls may include:
 
 The goal is not to slow every batch. The goal is to prevent Review Path from becoming a disguised Fast Path.
 
-### 7.5 Shadow Mode and Progressive Autonomy
+### 9.5 Shadow Mode and Progressive Autonomy
 
 AI starts by recommending only, then moves to supervised execution, then to bounded autonomy after performance is proven.
 
@@ -303,7 +427,34 @@ Example:
 recommend only → human-approved execution → bounded autonomous execution → sampled audit
 ```
 
-### 7.6 Kill Switch and Rollback
+Shadow Mode itself is a governance object, not a casual testing mode.
+
+### 9.6 Shadow Mode Graduation Criteria
+
+Moving from shadow mode to production autonomy should require an explicit approval state.
+
+A graduation decision should define:
+
+- who authorizes the move from shadow mode to production mode;
+- the observation period required before graduation;
+- the minimum number of cases observed;
+- acceptable error rate and severity threshold;
+- false positive and false negative tolerance;
+- drift and data quality checks;
+- evidence that real-world remediation has been tested;
+- audit results;
+- whether the production mode is Fast Path, Review Path, or bounded autonomy;
+- rollback plan if production performance differs from shadow results;
+- date of next review.
+
+A model or agent should not graduate itself from shadow mode.
+
+In short:
+
+> Shadow mode may generate evidence.  
+> Humans must approve graduation.
+
+### 9.7 Kill Switch and Rollback
 
 Fast automation is safer when stop and remediation mechanisms are explicit.
 
@@ -313,7 +464,7 @@ Example:
 
 However, a kill switch is not proof of safety by itself. A kill switch stops future harm; it may not repair harm already created. Rollback must therefore be evaluated through real-world reversibility.
 
-### 7.7 Control by Action Class
+### 9.8 Control by Action Class
 
 Controls apply to action classes, not every individual event in the same way.
 
@@ -321,7 +472,7 @@ Example:
 
 > Internal tagging may be automatic. Customer notification may require review. Account suspension may require explicit approval.
 
-### 7.8 Governed Bypass Processing
+### 9.9 Governed Bypass Processing
 
 When a decision is delayed for review, the workflow can continue with safe supporting operations.
 
@@ -333,7 +484,7 @@ Bypass processing preserves speed by keeping the information flow active while p
 
 ---
 
-## 8. Speed-Control Matrix
+## 10. Speed-Control Matrix
 
 RABA can represent the relationship between speed and responsibility as a matrix.
 
@@ -345,11 +496,13 @@ RABA can represent the relationship between speed and responsibility as a matrix
 
 This matrix makes the project more realistic for automation-heavy organizations.
 
+The matrix is not a model-only router. It is a governance design tool. Runtime routing must be enforced through human-defined policy rules, deterministic filters, and Gateway checks.
+
 The goal is not to maximize control. The goal is to allocate control where it changes the outcome while keeping safe work moving.
 
 ---
 
-## 9. Governance Gateway Role
+## 11. Governance Gateway Role
 
 The Governance Gateway should not only decide whether an action is allowed.
 
@@ -396,7 +549,7 @@ The gateway should evaluate:
 
 This allows RABA to preserve automation speed without allowing uncontrolled autonomy.
 
-### 9.1 Policy Limit Change Control
+### 11.1 Policy Limit Change Control
 
 The policy limits that route actions into Fast Path, Review Path, Escalation Path, or Block are themselves high-impact governance objects.
 
@@ -422,7 +575,7 @@ In short:
 
 ---
 
-## 10. Bypass Lane Boundaries
+## 12. Bypass Lane Boundaries
 
 A bypass lane must be governed. Otherwise, it can become a hidden execution path that performs the very action that governance delayed.
 
@@ -454,7 +607,7 @@ The key rule:
 
 ---
 
-## 11. Avoiding Closed-Loop Routing
+## 13. Avoiding Closed-Loop Routing
 
 The speed-control matrix is only safe if the routing inputs are not controlled only by the same AI system being governed.
 
@@ -492,7 +645,7 @@ In short:
 
 ---
 
-## 12. Avoiding the False Choice
+## 14. Avoiding the False Choice
 
 The debate is often framed as:
 
@@ -522,9 +675,11 @@ The project should therefore position responsibility as an acceleration architec
 
 Good governance can increase speed because it gives organizations confidence to automate more actions safely.
 
+RABA does not slow automation by default. It replaces unknown speed with accountable speed.
+
 ---
 
-## 13. Suggested Schema Elements
+## 15. Suggested Schema Elements
 
 A future schema may include a throughput governance layer:
 
@@ -533,6 +688,23 @@ throughput_governance:
   action_class: "customer_refund"
   routing_path: "fast_path" # fast_path | review_path | escalation_path | block
   responsibility_latency_budget: "2s"
+  path_classification:
+    determined_by: "human_defined_business_rules"
+    ai_may_apply_rules: true
+    ai_may_set_rules: false
+    ai_may_relax_rules: false
+    rule_owner_role: "Customer Operations Lead"
+    rule_version: "v3.2"
+    review_cadence: "quarterly"
+    last_reviewed_at: "2026-05-24"
+    next_review_due: "2026-08-24"
+    downgrade_triggers:
+      - "audit_error_rate_above_threshold"
+      - "data_quality_drop"
+      - "incident_detected"
+      - "complaint_rate_increase"
+      - "remediation_sla_breach"
+    upgrade_requires_human_approval: true
   impact_level: "low" # low | medium | high
   reversibility:
     system_reversibility: "full" # full | partial | none
@@ -557,6 +729,17 @@ throughput_governance:
       outlier_review_required: true
       max_batch_size: 500
       approval_speed_monitoring: true
+  shadow_mode:
+    enabled: false
+    graduation_requires_approval: true
+    required_observation_period: "30d"
+    minimum_cases_observed: 1000
+    maximum_error_rate: "0.5%"
+    severity_threshold: "no_high_severity_errors"
+    drift_check_required: true
+    real_world_remediation_tested: true
+    graduation_owner_role: "Process Owner"
+    rollback_plan_required: true
   bypass_lane:
     enabled: true
     allowed_while_pending: true
@@ -591,7 +774,7 @@ It allows automation to remain fast while keeping responsibility visible and aud
 
 ---
 
-## 14. Practical Example: High-Volume Customer Refunds
+## 16. Practical Example: High-Volume Customer Refunds
 
 ### Without Throughput-Aware Responsibility
 
@@ -609,6 +792,7 @@ Result:
 
 Refunds are routed by risk and real-world reversibility:
 
+- refund action classes are classified by human-defined business rules;
 - refunds under a low threshold are auto-approved if deterministic policy conditions are met;
 - unusual cases go to exception review;
 - high-value or suspicious refunds require approval;
@@ -631,7 +815,7 @@ Result:
 
 ---
 
-## 15. Practical Example: Account Suspension
+## 17. Practical Example: Account Suspension
 
 ### Scenario
 
@@ -670,7 +854,7 @@ Result:
 
 ---
 
-## 16. RABA Principle Statement
+## 18. RABA Principle Statement
 
 **RABA Principle: Governed Speed**
 
@@ -687,6 +871,8 @@ When a final action must wait for human judgment, a governed bypass lane may con
 The goal is not maximum automation and not maximum control.
 
 The goal is the highest responsible speed for each action class.
+
+RABA replaces unknown speed with accountable speed.
 
 > Governance must scale faster than autonomy.  
 > But governance must also be fast enough to govern autonomy in real time.  
