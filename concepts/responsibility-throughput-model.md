@@ -123,6 +123,23 @@ The bypass lane is not a way to evade responsibility. It is a way to preserve th
 
 A bypass lane must not perform the blocked high-impact action itself. It may only perform allowed supporting actions that are reversible, internal, non-destructive, or explicitly permitted by policy.
 
+#### What is explicitly prohibited in Governed Bypass Lane
+
+The following actions must not occur inside a Governed Bypass Lane, regardless of preparation purpose:
+
+- sending any external communication to customers, partners, or regulators;
+- modifying customer or user data records;
+- reserving, committing, or blocking financial resources;
+- creating legally significant records or documents;
+- triggering downstream automated workflows that cannot be reversed before the accountable decision is made;
+- communicating the likely decision outcome to any external party;
+- creating obligations on behalf of the organization.
+
+The boundary rule:
+
+> Bypass may prepare the decision environment.  
+> Bypass must not create facts that constrain the accountable decision.
+
 Bypass processing must follow Evidence Neutrality: facts, AI interpretation, uncertainty, supporting evidence, opposing evidence, alternatives, and remediation options should be separated so that the decision brief does not steer the human through hidden framing.
 
 In short:
@@ -406,6 +423,14 @@ A percentage of low-risk actions is reviewed after execution.
 Example:
 
 > 2% of low-risk support responses are audited daily; 100% of high-risk escalations are reviewed.
+
+Important: Fast Path percentage is a diagnostic metric, not a performance target.
+
+Increasing Fast Path share without documented evidence of improved real-world reversibility is a governance red flag, not a success indicator.
+
+Organizations must not optimize for Fast Path percentage. They must optimize for accurate path classification.
+
+If Fast Path percentage is increasing, the correct question is: did real-world reversibility improve, or did governance drift?
 
 ### 9.4 Batch Approval With Anti-Fatigue Controls
 
