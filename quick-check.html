@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Readiness Quick Check</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --dark: #263445;
+      --blue: #2563eb;
+      --green-bg: #dcfce7;
+      --green-text: #166534;
+      --yellow-bg: #fef9c3;
+      --yellow-text: #854d0e;
+      --red-bg: #fee2e2;
+      --red-text: #991b1b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+
+    .hero,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero {
+      padding: 40px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      color: #0f172a;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #0f172a;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      color: #0f172a;
+    }
+
+    p { font-size: 1.05rem; }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .principle {
+      margin: 24px 0;
+      padding: 18px 20px;
+      background: #f1f5f9;
+      border-left: 5px solid var(--dark);
+      border-radius: 10px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--border);
+    }
+
+    .primary {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+    }
+
+    .secondary {
+      background: white;
+      color: var(--dark);
+    }
+
+    .score-list,
+    .question-list,
+    .next-list,
+    .red-flags {
+      padding-left: 22px;
+    }
+
+    .question-list li {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .score-box {
+      display: inline-block;
+      min-width: 64px;
+      padding: 6px 10px;
+      margin-left: 8px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .result {
+      padding: 18px 20px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .green { background: var(--green-bg); color: var(--green-text); }
+    .yellow { background: var(--yellow-bg); color: var(--yellow-text); }
+    .red { background: var(--red-bg); color: var(--red-text); }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    a { color: var(--blue); }
+
+    @media print {
+      body { background: white; }
+      .actions { display: none; }
+      .hero,
+      .card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>AI Readiness Quick Check</h1>
+      <p class="tagline">Answer 7 questions before starting your first AI pilot.</p>
+      <div class="principle">AI may be probabilistic. Responsibility must not be.</div>
+      <p>This is a fast 3-minute self-check for organizations, teams, consultants, and business owners who want to use AI without losing control, responsibility, auditability, or operational stability.</p>
+      <div class="actions">
+        <a class="button primary" href="demo/">Try the Demo Assistant</a>
+        <a class="button secondary" href="index.html">Back to Home</a>
+        <a class="button secondary" href="QUICK-CHECK.md">View Markdown Source</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Why This Exists</h2>
+      <p>Many AI initiatives begin with a tool, a vendor, or a general promise of automation.</p>
+      <p>This framework starts with a different question:</p>
+      <div class="principle">Is this business process ready for a responsible AI pilot?</div>
+      <p>The Quick Check helps you see whether one concrete AI idea is a promising pilot candidate, whether the process needs more preparation, or whether it is too risky as a first step.</p>
+    </section>
+
+    <section class="card">
+      <h2>How to Use It</h2>
+      <p>Choose one concrete business process that you may want to improve with AI.</p>
+      <p>Examples:</p>
+      <ul>
+        <li>customer email triage;</li>
+        <li>invoice processing;</li>
+        <li>internal knowledge search;</li>
+        <li>support ticket classification;</li>
+        <li>reporting drafts;</li>
+        <li>document review;</li>
+        <li>service request routing.</li>
+      </ul>
+      <p>Score each question:</p>
+      <ul class="score-list">
+        <li>0 = no / unclear</li>
+        <li>1 = partly</li>
+        <li>2 = yes / clear</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>The 7 Questions</h2>
+      <ol class="question-list">
+        <li>Is the business process clearly understood by the team? <span class="score-box">0 / 1 / 2</span></li>
+        <li>Is there a visible business pain AI could reduce? <span class="score-box">0 / 1 / 2</span></li>
+        <li>Is the process limited enough for a safe first pilot? <span class="score-box">0 / 1 / 2</span></li>
+        <li>Is the required data clearly identified? <span class="score-box">0 / 1 / 2</span></li>
+        <li>Could mistakes be detected and corrected by humans? <span class="score-box">0 / 1 / 2</span></li>
+        <li>Is it clear where human approval is required? <span class="score-box">0 / 1 / 2</span></li>
+        <li>Is someone accountable for the final result? <span class="score-box">0 / 1 / 2</span></li>
+      </ol>
+      <p><strong>Total: ____ / 14</strong></p>
+    </section>
+
+    <section class="card">
+      <h2>Interpretation</h2>
+
+      <div class="result green">
+        <h3>12–14 Points — Good Pilot Candidate</h3>
+        <p>This process may be suitable for a first controlled AI pilot.</p>
+      </div>
+      <p>Recommended next step:</p>
+      <ul class="next-list">
+        <li>define the AI role;</li>
+        <li>avoid autonomous execution at the beginning;</li>
+        <li>define data and permission boundaries;</li>
+        <li>add a Confirmation Gate where needed;</li>
+        <li>define simple success metrics;</li>
+        <li>run a limited pilot.</li>
+      </ul>
+
+      <div class="result yellow">
+        <h3>7–11 Points — Needs Preparation</h3>
+        <p>The process may have AI potential, but the organization should prepare before implementation.</p>
+      </div>
+      <p>Recommended next step:</p>
+      <ul class="next-list">
+        <li>clarify process ownership;</li>
+        <li>map the current workflow;</li>
+        <li>identify data and risk points;</li>
+        <li>define human review;</li>
+        <li>avoid giving AI broad permissions;</li>
+        <li>choose a smaller pilot scope if needed.</li>
+      </ul>
+
+      <div class="result red">
+        <h3>0–6 Points — Not Ready Yet</h3>
+        <p>This process is probably not ready for AI integration as a first pilot.</p>
+      </div>
+      <p>Recommended next step:</p>
+      <ul class="next-list">
+        <li>understand the process better;</li>
+        <li>reduce operational chaos;</li>
+        <li>define responsibility;</li>
+        <li>improve data quality;</li>
+        <li>choose a lower-risk process;</li>
+        <li>avoid full automation.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Immediate Red Flags</h2>
+      <p>Be careful if any of these are true:</p>
+      <ul class="red-flags">
+        <li>nobody owns the process;</li>
+        <li>the process affects meaningful business, human, or operational outcomes;</li>
+        <li>AI would need broad access to confidential systems;</li>
+        <li>employees would be expected to approve AI output without enough context;</li>
+        <li>management expects full automation immediately;</li>
+        <li>mistakes would be hard to detect, reverse, or explain.</li>
+      </ul>
+      <p>If several red flags are present, do not start with autonomous AI.</p>
+    </section>
+
+    <section class="card">
+      <h2>What This Quick Check Gives You</h2>
+      <ol>
+        <li>Whether your AI idea is a reasonable pilot candidate.</li>
+        <li>Whether the process needs preparation before automation.</li>
+        <li>Where responsibility and human control need attention.</li>
+        <li>Whether a discovery session, pilot canvas, or decision report should follow.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Suggested Next Steps</h2>
+      <p><strong>Quick Check → Mini-Workshop / Discovery Session → Responsible AI Pilot Canvas → Risk & Permission Review → AI Pilot Decision Report → Pilot Partner / Implementation Partner / Scaling Discussion</strong></p>
+      <div class="actions">
+        <a class="button primary" href="demo/">Try the Demo Assistant</a>
+        <a class="button secondary" href="templates/responsible-ai-pilot-canvas.md">Open Pilot Canvas</a>
+        <a class="button secondary" href="templates/ai-pilot-decision-report.md">Open Decision Report</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Important Boundary</h2>
+      <p class="small">This is not legal advice, compliance certification, security certification, or a guarantee that AI should be implemented. It is a practical first diagnostic tool for deciding whether a business process deserves deeper review.</p>
+      <div class="principle">Do not ask only what AI can do. Ask what AI should be allowed to do, under whose responsibility, with which controls, and for which business value.</div>
+    </section>
+  </main>
+</body>
+</html>
