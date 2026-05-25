@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Active Confirmation Interlock — RABA Demo v0.3</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg:           #0a0c0f;
+    --surface:      #111318;
+    --surface2:     #1a1d24;
+    --border:       #252830;
+    --border-active:#3a3f4a;
+    --text:         #d4d8e0;
+    --text-dim:     #5a6070;
+    --text-mid:     #8a909e;
+    --accent:       #4a9eff;
+    --accent-dim:   #1a3a5c;
+    --warn:         #ff9f4a;
+    --warn-dim:     #3d2710;
+    --ok:           #4aff9a;
+    --ok-dim:       #0d3320;
+    --danger:       #ff4a6a;
+    --danger-dim:   #3d0d18;
+    --highlight-rev:#ff9f4a;
+    --highlight-fwd:#4a9eff;
+    --mono:         'IBM Plex Mono', monospace;
+    --sans:         'IBM Plex Sans', sans-serif;
+    --radius:       4px;
+    --transition:   180ms ease;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 32px 16px 64px;
+  }
+
+  .shell {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--warn);
+    border: 1px solid var(--warn);
+    padding: 2px 8px;
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -.01em;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: var(--text-mid);
+    max-width: 580px;
+  }
+  .principle {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: .04em;
+    border-left: 2px solid var(--border-active);
+    padding-left: 12px;
+  }
+
+  .block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  .block-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .block-label .step-num {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 1px solid var(--border-active);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-mid);
+    margin-bottom: 6px;
+  }
+  textarea, input[type="text"] {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 10px 12px;
+    resize: vertical;
+    transition: border-color var(--transition);
+    outline: none;
+  }
+  textarea:focus, input[type="text"]:focus {
+    border-color: var(--accent);
+  }
+  textarea { min-height: 72px; }
+
+  .options-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--text-mid);
+    user-select: none;
+  }
+  .toggle-label input[type="checkbox"] {
+    accent-color: var(--accent);
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+  }
+
+  .risk-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .risk-btn {
+    flex: 1;
+    padding: 7px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-mid);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-align: center;
+  }
+  .risk-btn[data-risk="high"].active  { background: var(--danger-dim); border-color: var(--danger); color: var(--danger); }
+  .risk-btn[data-risk="medium"].active{ background: var(--warn-dim);   border-color: var(--warn);   color: var(--warn); }
+  .risk-btn[data-risk="low"].active   { background: var(--ok-dim);     border-color: var(--ok);     color: var(--ok); }
+
+  #type-area {
+    position: relative;
+  }
+  #typed-input {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .match-indicator {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .08em;
+  }
+  .match-indicator.ok { color: var(--ok); }
+  .match-indicator.err { color: var(--danger); }
+
+  .phrase-display {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 2;
+    letter-spacing: .01em;
+    min-height: 56px;
+  }
+  .word {
+    display: inline-block;
+    padding: 1px 3px;
+    border-radius: 2px;
+    transition: background 80ms, color 80ms;
+    position: relative;
+  }
+  .word.hl-rev {
+    background: var(--highlight-rev);
+    color: #000;
+  }
+  .word.hl-fwd {
+    background: var(--highlight-fwd);
+    color: #000;
+  }
+  .word.done-rev { color: var(--warn); }
+  .word.done-fwd { color: var(--accent); }
+
+  .seq-status {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    align-items: center;
+  }
+  .seq-pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .08em;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    transition: all var(--transition);
+  }
+  .seq-pill.active { border-color: var(--warn); color: var(--warn); background: var(--warn-dim); }
+  .seq-pill.done   { border-color: var(--ok);   color: var(--ok);   background: var(--ok-dim); }
+
+  #check-block { display: none; }
+  .check-question {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .check-options {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .check-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-mid);
+    transition: all var(--transition);
+    text-align: left;
+  }
+  .check-option:hover { border-color: var(--border-active); color: var(--text); }
+  .check-option.correct { background: var(--ok-dim); border-color: var(--ok); color: var(--ok); }
+  .check-option.wrong   { background: var(--danger-dim); border-color: var(--danger); color: var(--danger); }
+  .check-option .opt-key {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+  .check-attempts {
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .check-attempts.warn { color: var(--warn); }
+
+  .btn-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  button {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+  button:hover:not(:disabled) { border-color: var(--border-active); color: var(--text); }
+  button:disabled { opacity: .35; cursor: not-allowed; }
+
+  #btn-start  { border-color: var(--accent); color: var(--accent); }
+  #btn-start:hover:not(:disabled) { background: var(--accent-dim); }
+  #btn-send   { border-color: var(--ok); color: var(--ok); }
+  #btn-send:hover:not(:disabled)  { background: var(--ok-dim); }
+  #btn-reset  { font-size: 11px; }
+
+  .a11y-note {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    font-size: 12px;
+    color: var(--text-mid);
+    margin-top: 10px;
+    display: none;
+  }
+  .a11y-note.visible { display: block; }
+
+  #json-block { display: none; }
+  .json-pre {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: var(--text-mid);
+    overflow-x: auto;
+    white-space: pre;
+    position: relative;
+  }
+  .json-key   { color: var(--accent); }
+  .json-str   { color: var(--ok); }
+  .json-bool  { color: var(--warn); }
+  .json-num   { color: #c792ea; }
+  .json-null  { color: var(--danger); }
+
+  .copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 10px;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .copy-btn.copied { border-color: var(--ok); color: var(--ok); background: var(--ok-dim); }
+
+  .demo-notice {
+    background: var(--warn-dim);
+    border: 1px solid var(--warn);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--warn);
+    letter-spacing: .03em;
+    margin-bottom: 20px;
+  }
+
+  .sent-state {
+    display: none;
+    text-align: center;
+    padding: 28px 20px;
+  }
+  .sent-state.visible { display: block; }
+  .sent-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .sent-title {
+    font-family: var(--mono);
+    font-size: 15px;
+    color: var(--ok);
+    margin-bottom: 6px;
+  }
+  .sent-sub {
+    font-size: 12px;
+    color: var(--text-dim);
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .progress-wrap {
+    height: 2px;
+    background: var(--border);
+    border-radius: 1px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transition: width 80ms linear;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: .06em;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 520px) {
+    .risk-btn { font-size: 9px; padding: 6px 4px; }
+    .options-row { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="header">
+    <div class="badge">RABA · Demo v0.3 · Discussion Draft</div>
+    <h1>Active Confirmation Interlock</h1>
+    <p class="subtitle">
+      A governance UX mechanism that prevents symbolic or accidental confirmation
+      of consequential AI-assisted actions by the Human Owner.
+    </p>
+    <div class="principle">
+      AI may be probabilistic. Responsibility must not be.
+    </div>
+  </div>
+
+  <div class="demo-notice">
+    ⚠ This is a demonstration only. No action is executed. No data is transmitted.
+    The event record is generated locally and proves only that the interlock sequence ran.
+  </div>
+
+  <div class="block">
+    <div class="block-label">
+      <span class="step-num">1</span>
+      Configure action
+    </div>
+
+    <label for="phrase-input">Confirmation phrase (AI-generated action summary)</label>
+    <textarea id="phrase-input" aria-label="Confirmation phrase">Ben, I confirm. Create quick-check.html and update links in index.html and README.md.</textarea>
+
+    <div style="margin-top: 14px;">
+      <label for="owner-input">Human Owner identity</label>
+      <input type="text" id="owner-input" value="Oleksandr Shuliak" aria-label="Human Owner identity">
+    </div>
+
+    <div style="margin-top: 14px;">
+      <label>Risk class</label>
+      <div class="risk-row" role="radiogroup" aria-label="Risk class">
+        <button class="risk-btn active" data-risk="high"   role="radio" aria-checked="true">High</button>
+        <button class="risk-btn"        data-risk="medium" role="radio" aria-checked="false">Medium</button>
+        <button class="risk-btn"        data-risk="low"    role="radio" aria-checked="false">Low</button>
+      </div>
+    </div>
+
+    <div class="options-row">
+      <label class="toggle-label">
+        <input type="checkbox" id="opt-bidir" checked aria-label="Enable bidirectional reading sequence">
+        Bidirectional reading sequence
+      </label>
+      <label class="toggle-label">
+        <input type="checkbox" id="opt-a11y" aria-label="Accessibility fallback mode (no animation)">
+        Accessibility fallback (no animation)
+      </label>
+    </div>
+  </div>
+
+  <div class="block" id="type-block">
+    <div class="block-label">
+      <span class="step-num">2</span>
+      Typed confirmation
+    </div>
+    <label for="typed-input">
+      Type the confirmation phrase exactly to demonstrate active reading
+    </label>
+    <div id="type-area">
+      <textarea id="typed-input"
+        aria-label="Type the confirmation phrase exactly"
+        aria-describedby="typed-hint"
+        placeholder="Type the phrase above exactly as written…"
+        rows="3"></textarea>
+      <span class="match-indicator" id="match-ind" aria-live="polite"></span>
+    </div>
+    <p id="typed-hint" class="sr-only">
+      Type the full confirmation phrase exactly. The interlock will not proceed until the phrase matches.
+    </p>
+
+    <div class="a11y-note" id="a11y-note" aria-live="polite">
+      <strong>Accessibility mode active.</strong>
+      The bidirectional animation sequence is replaced by typed confirmation only.
+      The active comprehension check will still be required.
+    </div>
+
+    <div class="btn-row">
+      <button id="btn-start" disabled aria-label="Start interlock sequence">
+        Start interlock sequence →
+      </button>
+    </div>
+  </div>
+
+  <div class="block" id="seq-block">
+    <div class="block-label">
+      <span class="step-num">3</span>
+      Reading sequence
+      <span id="bidir-badge" class="seq-pill" style="margin-left:auto"></span>
+    </div>
+
+    <div class="phrase-display" id="phrase-display" aria-live="polite" aria-label="Phrase being highlighted">
+      —
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <div class="seq-status" aria-live="polite">
+      <span class="seq-pill" id="pill-rev">Reverse</span>
+      <span class="seq-pill" id="pill-fwd">Forward</span>
+      <span class="seq-pill" id="pill-check">Check</span>
+    </div>
+  </div>
+
+  <div class="block" id="check-block" aria-live="polite">
+    <div class="block-label">
+      <span class="step-num">4</span>
+      Active comprehension check
+    </div>
+    <p class="check-question" id="check-question"></p>
+    <div class="check-options" id="check-options" role="group" aria-label="Answer options"></div>
+    <p class="check-attempts" id="check-attempts-label"></p>
+  </div>
+
+  <div class="block" id="confirm-block">
+    <div class="block-label">
+      <span class="step-num">5</span>
+      Confirm action
+    </div>
+
+    <div class="sent-state" id="sent-state" aria-live="assertive">
+      <div class="sent-icon">✓</div>
+      <div class="sent-title">Confirmation record generated</div>
+      <div class="sent-sub">
+        No action was executed. In a real system, this record would be submitted
+        to the Decision Log. The event JSON is below.
+      </div>
+    </div>
+
+    <div id="pre-send-area">
+      <p style="font-size:12px; color:var(--text-mid); margin-bottom:12px;">
+        Complete all stages to activate. The send button enables only after
+        typed confirmation, reading sequence, and active check are passed.
+      </p>
+      <div class="btn-row">
+        <button id="btn-send" disabled aria-label="Send confirmation — demo only">
+          ✓ Send confirmation (demo only)
+        </button>
+        <button id="btn-reset" aria-label="Reset and start over">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="block" id="json-block" aria-label="Event record JSON">
+    <div class="block-label">
+      <span class="step-num">6</span>
+      Confirmation event record
+    </div>
+    <div class="json-pre" id="json-pre">
+      <button class="copy-btn" id="btn-copy" aria-label="Copy JSON to clipboard">Copy</button>
+      <div id="json-content"></div>
+    </div>
+    <p style="margin-top:10px; font-size:11px; color:var(--text-dim);">
+      This record is evidence of interlock execution. It is not proof of the quality of the human decision.
+      Fields <code>multi_ai_agreement: false</code> and <code>canonical: false</code> are governance markers.
+    </p>
+  </div>
+
+  <div class="footer">
+    RABA · Responsible AI Business Architecture · Active Confirmation Interlock Demo v0.3<br>
+    Status: Discussion Draft · Not canonical · Human Owner approval required before adoption<br>
+    Multi-AI agreement is not approval. Final authority: Human Owner (Oleksandr Shuliak).
+  </div>
+
+</div>
+
+<script>
+'use strict';
+
+const S = {
+  riskClass:        'high',
+  bidirEnabled:     true,
+  a11yMode:         false,
+  phraseMatched:    false,
+  seqRunning:       false,
+  revDone:          false,
+  fwdDone:          false,
+  checkDone:        false,
+  checkAttempts:    0,
+  checkCorrectIdx:  -1,
+  sendDone:         false,
+  startTime:        null,
+  endTime:          null,
+  seqDurationMs:    0,
+};
+
+const E = id => document.getElementById(id);
+const phraseInput   = E('phrase-input');
+const ownerInput    = E('owner-input');
+const typedInput    = E('typed-input');
+const matchInd      = E('match-ind');
+const optBidir      = E('opt-bidir');
+const optA11y       = E('opt-a11y');
+const btnStart      = E('btn-start');
+const btnSend       = E('btn-send');
+const btnReset      = E('btn-reset');
+const btnCopy       = E('btn-copy');
+const phraseDisplay = E('phrase-display');
+const progressFill  = E('progress-fill');
+const pillRev       = E('pill-rev');
+const pillFwd       = E('pill-fwd');
+const pillCheck     = E('pill-check');
+const checkBlock    = E('check-block');
+const checkQuestion = E('check-question');
+const checkOptions  = E('check-options');
+const checkAttempts = E('check-attempts-label');
+const jsonBlock     = E('json-block');
+const jsonContent   = E('json-content');
+const sentState     = E('sent-state');
+const preSendArea   = E('pre-send-area');
+const a11yNote      = E('a11y-note');
+const bidirBadge    = E('bidir-badge');
+
+document.querySelectorAll('.risk-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.risk-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-checked', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-checked', 'true');
+    S.riskClass = btn.dataset.risk;
+  });
+});
+
+optBidir.addEventListener('change', () => {
+  S.bidirEnabled = optBidir.checked;
+  updateBidirBadge();
+});
+optA11y.addEventListener('change', () => {
+  S.a11yMode = optA11y.checked;
+  a11yNote.classList.toggle('visible', S.a11yMode);
+  updateBidirBadge();
+});
+function updateBidirBadge() {
+  if (S.a11yMode) {
+    bidirBadge.textContent = 'A11Y MODE';
+    bidirBadge.style.setProperty('border-color', 'var(--accent)');
+    bidirBadge.style.setProperty('color', 'var(--accent)');
+  } else if (S.bidirEnabled) {
+    bidirBadge.textContent = 'Bidirectional';
+  } else {
+    bidirBadge.textContent = 'Forward only';
+  }
+}
+updateBidirBadge();
+
+typedInput.addEventListener('input', () => {
+  const target = phraseInput.value.trim();
+  const typed  = typedInput.value;
+  const match  = typed === target;
+  S.phraseMatched = match;
+  if (typed.length === 0) {
+    matchInd.textContent = '';
+    matchInd.className = 'match-indicator';
+  } else if (match) {
+    matchInd.textContent = '✓ match';
+    matchInd.className = 'match-indicator ok';
+  } else {
+    const chars = typed.length;
+    const total = target.length;
+    matchInd.textContent = `${chars}/${total}`;
+    matchInd.className = 'match-indicator err';
+  }
+  btnStart.disabled = !match || S.seqRunning;
+});
+
+function parsePhrase(phrase) {
+  const files = [...new Set(
+    (phrase.match(/[\w][\w.-]*\.\w{1,5}/g) || []).filter(f => f.includes('.'))
+  )];
+  const words = phrase.split(/\s+/).filter(Boolean);
+  return { files, words };
+}
+
+function buildDisplay(words) {
+  phraseDisplay.innerHTML = '';
+  words.forEach((w, i) => {
+    const span = document.createElement('span');
+    span.className = 'word';
+    span.dataset.i = i;
+    span.textContent = w + ' ';
+    phraseDisplay.appendChild(span);
+  });
+}
+
+function getWordSpans() {
+  return Array.from(phraseDisplay.querySelectorAll('.word'));
+}
+
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function wordIntervalMs(word) {
+  const base = 260;
+  const extra = Math.min(word.length * 18, 180);
+  const jitter = Math.floor(Math.random() * 40) - 20;
+  return base + extra + jitter;
+}
+
+async function runReverse(words) {
+  if (S.a11yMode) {
+    S.revDone = true;
+    pillRev.className = 'seq-pill done';
+    announceToSR('Reverse reading stage skipped — accessibility mode active.');
+    return;
+  }
+  pillRev.className = 'seq-pill active';
+  const spans = getWordSpans();
+  const total = words.length;
+  for (let i = total - 1; i >= 0; i--) {
+    const span = spans[i];
+    span.classList.add('hl-rev');
+    const ms = wordIntervalMs(words[i]);
+    setProgress(((total - i) / total) * 50);
+    await delay(ms);
+    span.classList.remove('hl-rev');
+    span.classList.add('done-rev');
+  }
+  S.revDone = true;
+  pillRev.className = 'seq-pill done';
+}
+
+async function runForward(words) {
+  if (S.a11yMode) {
+    S.fwdDone = true;
+    pillFwd.className = 'seq-pill done';
+    announceToSR('Forward reading stage skipped — accessibility mode active.');
+    return;
+  }
+  if (!S.bidirEnabled) {
+    S.fwdDone = true;
+    pillFwd.className = 'seq-pill done';
+    return;
+  }
+  pillFwd.className = 'seq-pill active';
+  const spans = getWordSpans();
+  const total = words.length;
+  for (let i = 0; i < total; i++) {
+    const span = spans[i];
+    span.classList.remove('done-rev');
+    span.classList.add('hl-fwd');
+    const ms = wordIntervalMs(words[i]);
+    setProgress(50 + ((i + 1) / total) * 50);
+    await delay(ms);
+    span.classList.remove('hl-fwd');
+    span.classList.add('done-fwd');
+  }
+  S.fwdDone = true;
+  pillFwd.className = 'seq-pill done';
+}
+
+function setProgress(pct) {
+  progressFill.style.width = pct + '%';
+}
+
+function buildCheck(phrase, files) {
+  const checks = [];
+
+  if (files.length > 0) {
+    checks.push({
+      question: `How many files will be affected by this action?`,
+      correct: files.length,
+      options: buildNumOptions(files.length),
+      type: 'file_count'
+    });
+  }
+
+  if (files.length >= 2) {
+    const target = files[Math.floor(Math.random() * files.length)];
+    const wrong1 = 'config.json';
+    const wrong2 = 'build.sh';
+    const wrong3 = 'styles.css';
+    checks.push({
+      question: `Which of the following is one of the target files?`,
+      correct: target,
+      options: shuffle([target, wrong1, wrong2, wrong3].slice(0, 4)),
+      type: 'file_name'
+    });
+  }
+
+  const verbs = phrase.match(/\b(create|update|delete|commit|publish|modify|remove|add)\b/gi);
+  if (verbs && verbs.length > 0) {
+    const targetVerb = verbs[0].toLowerCase();
+    const wrongVerbs = ['delete', 'revert', 'archive', 'clone', 'deploy']
+      .filter(v => v !== targetVerb).slice(0, 3);
+    checks.push({
+      question: `What is the primary action described in this confirmation?`,
+      correct: targetVerb,
+      options: shuffle([targetVerb, ...wrongVerbs]),
+      type: 'action_verb'
+    });
+  }
+
+  if (checks.length === 0) {
+    const words = phrase.split(/\s+/);
+    const idx = Math.floor(words.length / 2);
+    const target = words[idx].replace(/[^a-zA-Z]/g, '');
+    checks.push({
+      question: `Which word appears in the middle of the confirmation phrase?`,
+      correct: target,
+      options: shuffle([target, 'system', 'review', 'complete']),
+      type: 'word_recall'
+    });
+  }
+
+  return checks[Math.floor(Math.random() * checks.length)];
+}
+
+function buildNumOptions(correct) {
+  const opts = new Set([correct]);
+  while (opts.size < 4) {
+    const v = correct + Math.floor(Math.random() * 5) - 2;
+    if (v > 0) opts.add(v);
+  }
+  return shuffle([...opts]);
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function renderCheck(check) {
+  checkBlock.style.display = 'block';
+  pillCheck.className = 'seq-pill active';
+  checkQuestion.textContent = check.question;
+  checkOptions.innerHTML = '';
+  checkAttempts.textContent = '';
+
+  const keys = ['A', 'B', 'C', 'D'];
+  check.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'check-option';
+    btn.setAttribute('role', 'radio');
+    btn.setAttribute('aria-checked', 'false');
+    btn.setAttribute('aria-label', `Option ${keys[i]}: ${opt}`);
+    btn.innerHTML = `<span class="opt-key">${keys[i]}</span>${opt}`;
+    btn.addEventListener('click', () => handleCheckAnswer(opt, check.correct, check, btn));
+    checkOptions.appendChild(btn);
+  });
+
+  announceToSR('Active comprehension check: ' + check.question);
+}
+
+function handleCheckAnswer(chosen, correct, check, btn) {
+  if (S.checkDone) return;
+  S.checkAttempts++;
+
+  const isRight = String(chosen) === String(correct);
+  btn.classList.add(isRight ? 'correct' : 'wrong');
+
+  checkOptions.querySelectorAll('.check-option').forEach(b => {
+    b.disabled = true;
+    b.setAttribute('aria-checked', b === btn ? 'true' : 'false');
+  });
+
+  if (isRight) {
+    S.checkDone = true;
+    pillCheck.className = 'seq-pill done';
+    checkAttempts.textContent = `Passed on attempt ${S.checkAttempts}.`;
+    checkAttempts.className = 'check-attempts';
+    S.endTime = Date.now();
+    S.seqDurationMs = S.endTime - S.startTime;
+    announceToSR('Check passed. Confirmation is now available.');
+    enableSend();
+  } else {
+    const attemptsLeft = 3 - S.checkAttempts;
+    if (attemptsLeft > 0) {
+      checkAttempts.textContent = `Incorrect. ${attemptsLeft} attempt(s) remaining. Restarting sequence.`;
+      checkAttempts.className = 'check-attempts warn';
+      announceToSR(`Incorrect answer. ${attemptsLeft} attempts remaining. Sequence will restart.`);
+      setTimeout(() => restartSequence(), 1800);
+    } else {
+      checkAttempts.textContent = `Maximum attempts reached. Please reset and try again.`;
+      checkAttempts.className = 'check-attempts warn';
+      announceToSR('Maximum attempts reached. Please reset.');
+    }
+  }
+}
+
+function enableSend() {
+  if (S.revDone && S.fwdDone && S.checkDone) {
+    btnSend.disabled = false;
+    announceToSR('All stages complete. Send button is now active.');
+  }
+}
+
+let srNode;
+function announceToSR(msg) {
+  if (!srNode) {
+    srNode = document.createElement('div');
+    srNode.className = 'sr-only';
+    srNode.setAttribute('aria-live', 'assertive');
+    srNode.setAttribute('aria-atomic', 'true');
+    document.body.appendChild(srNode);
+  }
+  srNode.textContent = '';
+  requestAnimationFrame(() => { srNode.textContent = msg; });
+}
+
+async function runSequence() {
+  const phrase = phraseInput.value.trim();
+  const { files, words } = parsePhrase(phrase);
+
+  S.seqRunning = true;
+  S.startTime  = Date.now();
+  btnStart.disabled = true;
+
+  buildDisplay(words);
+
+  if (S.a11yMode) {
+    S.revDone = true;
+    S.fwdDone = true;
+    pillRev.className = 'seq-pill done';
+    pillFwd.className = 'seq-pill done';
+  } else {
+    await runReverse(words);
+    if (S.bidirEnabled) {
+      await runForward(words);
+    } else {
+      S.fwdDone = true;
+      pillFwd.className = 'seq-pill done';
+    }
+  }
+
+  setProgress(100);
+
+  const check = buildCheck(phrase, files);
+  renderCheck(check);
+}
+
+async function restartSequence() {
+  S.revDone = false;
+  S.fwdDone = false;
+  S.checkDone = false;
+  checkBlock.style.display = 'none';
+  pillRev.className = 'seq-pill';
+  pillFwd.className = 'seq-pill';
+  pillCheck.className = 'seq-pill';
+  progressFill.style.width = '0%';
+
+  await delay(300);
+  await runSequence();
+}
+
+function generateRecord() {
+  const phrase = phraseInput.value.trim();
+  const { files } = parsePhrase(phrase);
+  return {
+    event_type: 'human_confirmation_interlock',
+    schema_version: '0.3',
+    timestamp: new Date().toISOString(),
+    human_owner: ownerInput.value.trim() || 'unknown',
+    action_scope: 'github_commit',
+    risk_class: S.riskClass,
+    target_files: files.length > 0 ? files : ['(none detected)'],
+    confirmation_phrase: phrase,
+    interlock_sequence: {
+      a11y_mode: S.a11yMode,
+      bidirectional_enabled: S.bidirEnabled && !S.a11yMode,
+      reverse_reading_completed: S.revDone,
+      forward_reading_completed: S.fwdDone,
+      active_check_presented: true,
+      active_check_passed: S.checkDone,
+      active_check_attempts: S.checkAttempts,
+      sequence_duration_ms: S.seqDurationMs
+    },
+    send_enabled_after_sequence: true,
+    human_confirmation_sent: true,
+    approved_by: 'human_owner',
+    multi_ai_agreement: false,
+    canonical: false,
+    demo: true,
+    governance_note: 'Evidence of interlock execution only. Not proof of decision quality. Final authority: Human Owner.'
+  };
+}
+
+function syntaxHL(json) {
+  return json
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, match => {
+      if (/^"/.test(match)) {
+        if (/:$/.test(match)) return `<span class="json-key">${match}</span>`;
+        return `<span class="json-str">${match}</span>`;
+      }
+      if (/true|false/.test(match)) return `<span class="json-bool">${match}</span>`;
+      if (/null/.test(match))       return `<span class="json-null">${match}</span>`;
+      return `<span class="json-num">${match}</span>`;
+    });
+}
+
+function showJSON(record) {
+  jsonBlock.style.display = 'block';
+  const raw = JSON.stringify(record, null, 2);
+  jsonContent.innerHTML = syntaxHL(raw);
+  btnCopy.dataset.raw = raw;
+}
+
+btnStart.addEventListener('click', () => {
+  if (!S.phraseMatched || S.seqRunning) return;
+  runSequence();
+});
+
+btnSend.addEventListener('click', () => {
+  if (!S.checkDone) return;
+  S.sendDone = true;
+  btnSend.disabled = true;
+
+  preSendArea.style.display = 'none';
+  sentState.classList.add('visible');
+
+  const record = generateRecord();
+  showJSON(record);
+
+  announceToSR('Confirmation record generated. No action was executed. This is a demo.');
+});
+
+btnReset.addEventListener('click', () => {
+  location.reload();
+});
+
+btnCopy.addEventListener('click', () => {
+  const raw = btnCopy.dataset.raw || '';
+  if (!raw) return;
+  navigator.clipboard.writeText(raw).then(() => {
+    btnCopy.textContent = 'Copied ✓';
+    btnCopy.classList.add('copied');
+    setTimeout(() => {
+      btnCopy.textContent = 'Copy';
+      btnCopy.classList.remove('copied');
+    }, 1800);
+  }).catch(() => {
+    btnCopy.textContent = 'Failed';
+  });
+});
+
+document.addEventListener('keydown', e => {
+  if (!checkBlock.style.display || checkBlock.style.display === 'none') return;
+  const keys = { KeyA: 0, KeyB: 1, KeyC: 2, KeyD: 3 };
+  const idx = keys[e.code];
+  if (idx === undefined) return;
+  const opts = checkOptions.querySelectorAll('.check-option');
+  if (opts[idx] && !opts[idx].disabled) opts[idx].click();
+});
+
+pillRev.className = 'seq-pill';
+pillFwd.className = 'seq-pill';
+pillCheck.className = 'seq-pill';
+btnSend.disabled = true;
+btnStart.disabled = true;
+</script>
+</body>
+</html>
