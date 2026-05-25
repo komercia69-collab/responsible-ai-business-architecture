@@ -1,29 +1,34 @@
-# Active Confirmation Phrase Interlock
+# Active Confirmation Interlock
 
 **Status:** Discussion Draft  
+**Version:** 0.2  
 **Type:** Experimental governance UX control  
+**Owner:** Oleksandr Shuliak — Human Owner  
 **Canonical status:** Not canonical. This document proposes a pattern for review, testing, and critique.  
-**Related concepts:** Active Evidence Interlock, Human Owner confirmation, Rubber-Stamp Drift Detection, Cognitive Tunnel, AI consensus tunnel, Responsibility Event Stream, Decision Log discipline
+**Governance note:** Multi-AI agreement is not approval. Final architectural approval belongs to the Human Owner.  
+**Related concepts:** Active Evidence Interlock, Human Owner confirmation, Rubber-Stamp Drift Detection, Cognitive Tunnel, AI consensus tunnel, Responsibility Event Stream, Decision Log discipline, Governance Gateway
 
 ## Summary
 
-Active Confirmation Phrase Interlock is a proposed RABA governance UX pattern for sensitive AI-assisted actions.
+Active Confirmation Interlock is a proposed RABA governance UX pattern for sensitive AI-assisted actions.
 
 The pattern prevents a confirmation phrase from becoming immediately executable.
 
-Instead, before the Human Owner can submit the confirmation phrase, the interface requires an active reading sequence:
+Instead, before the Human Owner can submit the confirmation phrase, the interface requires an active confirmation sequence:
 
-1. The confirmation phrase is shown in reverse word order.
-2. Words are highlighted one by one in reverse order.
-3. The confirmation phrase is then shown in normal forward order.
-4. Words are highlighted one by one in forward order.
-5. Only after both reading passes are completed does the confirmation phrase become active, sendable, or executable.
+1. The confirmation phrase is displayed clearly, including action scope, target files or recipients, and risk class.
+2. The phrase is shown in reverse word order.
+3. Words are highlighted one by one in reverse order.
+4. The phrase is then shown in normal forward order.
+5. Words are highlighted one by one in forward order.
+6. The system presents a simple active engagement check derived from the action scope.
+7. Only after the reading sequence is completed and the active check is passed does the phrase become active, sendable, or executable.
 
 The goal is to make confirmation a visible act of attention rather than a symbolic button click.
 
 ## Core Principle
 
-> A confirmation phrase should not become executable until the Human Owner has actively processed it.
+> Confirmation is not valid if it cannot be shown to reflect active human engagement with the action scope.
 
 This does not prove perfect understanding.
 
@@ -40,46 +45,49 @@ However, confirmation can degrade into a rubber stamp when:
 - the user trusts multi-AI agreement too strongly;
 - the confirmation phrase is copied without being read;
 - the interface makes approval faster than review;
-- the decision feels already made by the system.
+- workflow momentum makes the decision feel already made by the system;
+- repeated confirmations create habituation.
 
 This creates a governance risk:
 
 > Human approval remains formally present but practically weak.
 
-Active Confirmation Phrase Interlock introduces a small amount of deliberate friction for cases where attention matters.
+Active Confirmation Interlock introduces deliberate, risk-based friction at the confirmation moment.
 
 ## Relationship to RABA
 
 ### Active Evidence Interlock
 
-Active Evidence Interlock asks whether the Human Owner engaged with the source material.
+Active Evidence Interlock asks whether the Human Owner engaged with source material.
 
-Active Confirmation Phrase Interlock asks whether the Human Owner actively processed the confirmation phrase before sending it.
+Active Confirmation Interlock asks whether the Human Owner actively processed the action scope before confirming execution.
 
 These are related but not identical:
 
 - Active Evidence Interlock protects evidence review.
-- Active Confirmation Phrase Interlock protects execution confirmation.
+- Active Confirmation Interlock protects execution confirmation.
+
+A strong implementation may use both: evidence review before authorization and active confirmation before execution.
 
 ### Human Owner Confirmation
 
 RABA requires Human Owner confirmation before sensitive governance actions.
 
-This pattern strengthens confirmation by making it less likely that the Human Owner confirms accidentally, automatically, or without noticing the action scope.
+This pattern operationalizes what confirmation means at runtime by making it less likely that the Human Owner confirms accidentally, automatically, or without noticing the action scope.
 
 ### Rubber-Stamp Drift Detection
 
 Rubber-stamp drift occurs when human review exists formally but becomes operationally meaningless.
 
-This interlock is one possible control against that drift.
+This interlock is a preventive control targeting the confirmation moment.
 
-It does not replace sampling, audit, reason capture, or threshold governance.
+It does not replace sampling, audit, reason capture, source-material review, escalation, or threshold governance.
 
 ### Cognitive Tunnel
 
-A cognitive tunnel occurs when AI-prepared material is so complete, polished, or selectively framed that the human review remains formally present but practically absent.
+A cognitive tunnel occurs when AI-prepared material is so complete, polished, or selectively framed that human review remains formally present but practically absent.
 
-Bidirectional reading of the confirmation phrase creates a small interruption that may help break the tunnel before execution.
+Bidirectional reading plus an active engagement check creates a small interruption that may help break tunnel momentum before execution.
 
 ### AI Consensus Tunnel
 
@@ -87,23 +95,24 @@ Multi-AI agreement is not approval.
 
 If several AI systems recommend the same action, the Human Owner must still confirm responsibility.
 
-This interlock can help ensure that a confirmation phrase is not treated as a mechanical continuation of AI consensus.
+A `multi_ai_agreement` or `multi_ai_consensus` field should be treated as a risk/context signal, not as a validation signal.
 
 ## Suggested Scope
 
-This pattern should be considered for actions such as:
+This pattern should be considered for actions classified as `risk_class: high`, including:
 
-- GitHub commits that affect important project material;
-- canonical architecture changes;
-- Decision Log entries;
-- external claims;
-- pilot offers;
-- partner-facing materials;
+- GitHub commits to canonical directories such as `concepts/`, `governance/`, `architecture/`, or accepted Decision Log areas;
+- canonical architecture decisions;
+- Decision Log entries marked as approved;
+- external publications, whitepaper claims, or public-facing documents;
+- pilot offers and partner-facing communications;
 - governance threshold changes;
-- actions that cross an approval boundary;
-- actions with medium or high operational consequence.
+- actions that cross a meaningful approval boundary;
+- actions drafted by AI where the Human Owner is confirming content they did not originally initiate.
 
-It should be optional or disabled for low-risk, routine, reversible actions.
+For `risk_class: medium`, the pattern may be optional, configurable, or replaced by a lighter confirmation mechanism.
+
+It should be disabled for low-risk, routine, reversible actions.
 
 ## Where It Should Not Apply
 
@@ -112,13 +121,77 @@ This pattern should not be used for every small interaction.
 It may be too much friction for:
 
 - ordinary chat replies;
+- draft iterations during active working sessions;
 - low-risk spelling fixes;
 - reversible formatting changes;
 - internal notes;
+- scratch files;
 - exploratory drafts;
-- actions that do not cross a meaningful boundary.
+- actions that do not cross a meaningful boundary;
+- actions the human clearly initiated and immediately executed.
 
-Overuse would create confirmation fatigue and reduce its governance value.
+Overuse would create confirmation fatigue and reduce governance value.
+
+## Mechanism
+
+When a high-risk action is ready for Human Owner confirmation, the system initiates the following sequence.
+
+### 1. Phrase Display
+
+The AI-generated confirmation phrase is displayed clearly.
+
+The phrase should include:
+
+- action scope;
+- target action;
+- target files, recipients, or affected objects;
+- risk class;
+- whether the action changes canonical, draft, external, or operational material.
+
+### 2. Reverse Reading Sequence
+
+The words of the phrase are highlighted one by one in reverse order, at a pace consistent with reading time.
+
+### 3. Forward Reading Sequence
+
+The words are then highlighted one by one in normal forward order.
+
+### 4. Active Engagement Check
+
+The system presents a simple question derived from the phrase or action scope.
+
+Examples:
+
+- How many files will be modified?
+- What is the target action?
+- Is this a draft, external, or canonical change?
+- Which file will be updated?
+- Is this action reversible?
+
+The Human Owner must answer correctly before proceeding.
+
+Without this active check, the reading sequence mostly proves exposure, not attention.
+
+### 5. Send Activation
+
+The send, confirm, commit, or execute button activates only after:
+
+- reverse reading is completed;
+- forward reading is completed;
+- active engagement check is passed;
+- action scope has not changed after the sequence.
+
+### 6. Confirmation Event Record
+
+The system generates a structured event record of the interlock execution, including:
+
+- sequence completion;
+- active check result;
+- timestamp;
+- action scope;
+- risk class;
+- target files or target objects;
+- Human Owner identity if available.
 
 ## Minimal UX Flow
 
@@ -128,24 +201,29 @@ Overuse would create confirmation fatigue and reduce its governance value.
 4. The phrase is split into words.
 5. The UI displays words in reverse order, highlighting one word at a time.
 6. The UI displays words in forward order, highlighting one word at a time.
-7. The send or execute button remains disabled during the sequence.
-8. The button becomes active only after both passes are completed.
+7. The system asks an active engagement question derived from the action scope.
+8. The send or execute button remains disabled until the active check is passed.
 9. If the phrase or action scope changes, the sequence resets.
 10. The confirmation event is recorded.
 
 ## Pseudo-Code
 
 ```javascript
-function startConfirmationInterlock(confirmationPhrase, actionScope) {
+function startConfirmationInterlock(confirmationPhrase, actionScope, activeCheck) {
   const words = confirmationPhrase.trim().split(/\s+/);
   const reverseWords = [...words].reverse();
 
   const event = {
+    event_type: 'human_confirmation_interlock',
+    schema_version: '0.2',
     confirmation_phrase: confirmationPhrase,
     action_scope: actionScope,
     reverse_reading_completed: false,
     forward_reading_completed: false,
-    activation_enabled_after_reading: false,
+    active_check_presented: false,
+    active_check_passed: false,
+    active_check_attempts: 0,
+    send_enabled_after_sequence: false,
     human_confirmation_sent: false,
     started_at: new Date().toISOString()
   };
@@ -157,8 +235,16 @@ function startConfirmationInterlock(confirmationPhrase, actionScope) {
 
     highlightSequence(words, () => {
       event.forward_reading_completed = true;
-      event.activation_enabled_after_reading = true;
-      enableSendButton();
+      event.active_check_presented = true;
+      presentActiveCheck(activeCheck, (isCorrect) => {
+        event.active_check_attempts += 1;
+
+        if (isCorrect && actionScopeUnchanged(actionScope)) {
+          event.active_check_passed = true;
+          event.send_enabled_after_sequence = true;
+          enableSendButton();
+        }
+      });
     });
   });
 
@@ -166,7 +252,7 @@ function startConfirmationInterlock(confirmationPhrase, actionScope) {
 }
 
 function submitConfirmation(event) {
-  if (!event.activation_enabled_after_reading) {
+  if (!event.send_enabled_after_sequence || !event.active_check_passed) {
     throw new Error('Confirmation interlock not completed.');
   }
 
@@ -176,32 +262,64 @@ function submitConfirmation(event) {
 }
 ```
 
-## Draft Event Schema
+## Event Schema v0.2
 
 ```json
 {
-  "event_type": "active_confirmation_phrase_interlock",
-  "status": "completed",
-  "confirmation_phrase": "Ben, I confirm. Create quick-check.html and update links in index.html.",
-  "confirmation_phrase_hash": "sha256:...",
-  "action_scope": "github_pages_navigation_fix",
-  "target_action": "create_file_and_update_links",
-  "target_files": [
-    "quick-check.html",
-    "index.html"
-  ],
-  "risk_class": "medium",
-  "human_owner_identity": "available_if_authenticated",
-  "reverse_reading_completed": true,
-  "forward_reading_completed": true,
-  "activation_enabled_after_reading": true,
+  "event_type": "human_confirmation_interlock",
+  "schema_version": "0.2",
+  "event_id": "<id>",
+  "timestamp_start_utc": "<ISO 8601>",
+  "timestamp_completed_utc": "<ISO 8601>",
+  "timestamp_submitted_utc": "<ISO 8601>",
+  "human_owner_identity": "<identity_if_available>",
+  "risk_class": "high | medium | low",
+  "action_scope": "<scope>",
+  "target_action": "<action>",
+  "target_files": ["<file>"],
+  "target_objects": ["<object_or_recipient_if_applicable>"],
+  "confirmation_phrase": "<phrase>",
+  "confirmation_phrase_hash": "sha256:<hash>",
+  "interlock_sequence": {
+    "reverse_reading_completed": true,
+    "forward_reading_completed": true,
+    "active_check_presented": true,
+    "active_check_type": "action_scope_question",
+    "active_check_passed": true,
+    "active_check_attempts": 1,
+    "sequence_duration_ms": 0,
+    "tab_remained_active": true,
+    "send_enabled_after_sequence": true
+  },
   "human_confirmation_sent": true,
   "phrase_changed_after_reading": false,
-  "started_at": "2026-05-25T00:00:00Z",
-  "completed_at": "2026-05-25T00:00:08Z",
-  "submitted_at": "2026-05-25T00:00:12Z"
+  "action_scope_changed_after_reading": false,
+  "multi_ai_agreement_present": false,
+  "multi_ai_consensus_risk_flag": false,
+  "canonical_change_claimed": false,
+  "interlock_version": "0.2",
+  "governance_note": "This record is evidence of interlock execution, not proof of decision quality. Final authority: Human Owner."
 }
 ```
+
+## Evidence Record: What It Proves and Does Not Prove
+
+| Evidence field | What it proves | What it does not prove |
+|---|---|---|
+| `reverse_reading_completed` | Reverse sequence ran to completion | Human genuinely read every word in reverse |
+| `forward_reading_completed` | Forward sequence ran to completion | Human genuinely read every word forward |
+| `active_check_presented` | A content-based check was shown | The check was sufficient for the full decision |
+| `active_check_passed` | Human answered the check correctly | Human will not regret or misunderstand the decision |
+| `active_check_attempts` | Number of attempts was recorded | Attempts alone do not measure attention quality |
+| `sequence_duration_ms` | Sequence ran for a measurable time | Human was attentive for the full duration |
+| `tab_remained_active` | Browser tab stayed active if measurable | Human was looking at the content |
+| `human_confirmation_sent` | Send or confirm action was executed | The action was evaluated against all relevant context |
+| `multi_ai_agreement_present` | Multiple AI systems agreed or converged | The decision is more approved or safer |
+| `multi_ai_consensus_risk_flag` | AI consensus tunnel risk was recognized | The risk was fully mitigated |
+
+This table must be preserved in audit or governance review.
+
+The event record is evidence of interlock execution, not a guarantee of the quality of the human decision.
 
 ## What This Proves
 
@@ -209,7 +327,9 @@ This pattern may provide evidence that:
 
 - the confirmation phrase was displayed;
 - the phrase was processed through a required reading sequence;
-- the send or execute action was not available before the sequence completed;
+- an active check was presented;
+- the active check was answered correctly;
+- the send or execute action was not available before sequence completion and check completion;
 - the Human Owner had a structured opportunity to notice the action scope;
 - the confirmation was not a single immediate click.
 
@@ -223,9 +343,10 @@ This pattern does not prove that:
 - the decision was compliant;
 - the risk was acceptable;
 - the user was not distracted;
-- the user did not simply wait through the animation.
+- the user did not simply wait through the sequence;
+- the confirmation event is sufficient for canonical adoption.
 
-For this reason, it should not replace source-material review, reason capture, escalation, audit, or independent review.
+For this reason, it should not replace source-material review, reason capture, escalation, audit, independent review, or Decision Log discipline.
 
 ## UX and Accessibility Risks
 
@@ -237,8 +358,10 @@ Potential risks include:
 - screen reader incompatibility;
 - language and word-order issues;
 - difficulty on small mobile screens;
+- cognitive overload;
 - false sense of security;
-- users waiting through the sequence without reading.
+- users waiting through the sequence without reading;
+- users learning the ritual without performing the evaluation.
 
 Any implementation should include:
 
@@ -246,22 +369,26 @@ Any implementation should include:
 - screen reader support;
 - reduced-motion mode;
 - adjustable speed;
+- accessible alternative to reverse word highlighting;
 - clear action summary;
 - plain-language confirmation phrase;
-- risk-based activation rules.
+- risk-based activation rules;
+- variable active check questions to reduce habituation.
 
 ## Controls Against Governance Theatre
 
 To avoid becoming symbolic theatre, this pattern should be combined with:
 
 - clear action scope;
-- visible target files or target actions;
+- visible target files, recipients, or target actions;
 - source-material engagement where relevant;
+- active engagement check;
 - reason capture for medium or high risk;
 - audit sampling;
 - rollback or remediation paths;
 - Decision Log discipline;
-- Human Owner confirmation.
+- Human Owner confirmation;
+- explicit warning when multi-AI agreement is present.
 
 The interlock should be treated as one signal, not as sufficient proof of responsible approval.
 
@@ -269,7 +396,7 @@ The interlock should be treated as one signal, not as sufficient proof of respon
 
 This pattern should be treated as:
 
-> Experimental optional interlock for medium/high-impact confirmation actions.
+> Experimental optional interlock for medium/high-impact confirmation actions, with mandatory active engagement check for high-risk actions.
 
 It should not be treated as a universal requirement.
 
@@ -277,13 +404,27 @@ It should be tested in demo environments before any canonical adoption.
 
 ## Open Questions
 
-1. Does reverse-word reading improve attention, or does it create unnecessary cognitive load?
-2. Would typed confirmation be stronger or simpler?
-3. Should the phrase include file names, action type, and risk class?
-4. Should the user answer a short check question instead of passively watching highlighted words?
-5. What accessibility standard should be required before real use?
-6. How should this interact with Active Evidence Interlock?
-7. Should this be a standalone pattern or a sub-pattern of Active Evidence Interlock?
+1. Is the bidirectional reading sequence the right mechanism, or is a well-structured action summary with active check sufficient without the reading sequence?
+2. What question types for the active check are practical, varied, and resistant to habituation?
+3. How should the interlock handle phrase length variation — short phrases vs. multi-file action descriptions?
+4. What is the accessibility-compliant alternative to visual word highlighting for screen reader users?
+5. Should failed active check attempts be surfaced to the Human Owner as a governance signal separate from the event log?
+6. Would typed confirmation be stronger or simpler?
+7. Should the phrase include file names, action type, and risk class?
+8. How should this interact with Active Evidence Interlock?
+9. Should this be a standalone pattern or a sub-pattern of Active Evidence Interlock?
+10. Should multi-AI agreement automatically raise an AI consensus tunnel warning?
+
+## Status and Next Steps
+
+- [ ] Human Owner review and decision on direction
+- [ ] Gemini enterprise architecture / UX risk / machine-readability stress test
+- [ ] K implementation feasibility review
+- [ ] Prototype minimal frontend component with active check
+- [ ] Accessibility review
+- [ ] Integration with Decision Log schema
+- [ ] Decide whether this remains standalone or becomes a sub-pattern of Active Evidence Interlock
+- [ ] Canonical adoption requires explicit Human Owner approval
 
 ## Key Statement
 
@@ -294,3 +435,6 @@ AI may recommend an action.
 AI may explain the reason.
 
 But execution confirmation should require active human attention, explicit responsibility, and an auditable record.
+
+**This document is a discussion draft. It has not been approved for canonical adoption.**  
+**Multi-AI agreement is not approval. Human Owner confirmation is required.**
