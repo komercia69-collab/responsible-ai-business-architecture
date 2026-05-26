@@ -25,6 +25,10 @@ External reviews may include:
 
 - [`decisionassure-raba-trace-example.md`](decisionassure-raba-trace-example.md) — external DecisionAssure trace example for stale confirmation, hidden commitment, rollback assumptions, and human responsibility boundaries.
 
+## Related Mappings
+
+- [`../mapping/decisionassure-raba-trace-field-mapping.md`](../mapping/decisionassure-raba-trace-field-mapping.md) — discussion draft mapping reported DecisionAssure trace fields to possible RABA Responsibility Event Stream concepts.
+
 ## Boundary
 
 External review inputs are preserved for evaluation, mapping and discussion.
