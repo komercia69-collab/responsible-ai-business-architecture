@@ -50,6 +50,12 @@ These patterns describe cases where human confirmation exists, but the executed 
 
 - [Confirmed Intent Drift](./confirmed-intent-drift.md)
 
+### Agentic Pipeline Failures
+
+These patterns describe agentic or multi-agent workflows that appear technically coherent but lack explicit responsibility boundaries around action-capable tools.
+
+- [Unbounded Autonomous Pipeline](./unbounded-autonomous-pipeline.md)
+
 ### Coordination Failures
 
 These patterns describe breakdowns in coordination between humans, AI agents, teams, workflows and governance mechanisms.
