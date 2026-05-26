@@ -44,6 +44,12 @@ These patterns describe situations where governance exists as documentation, pre
 
 - [Governance Theater](./governance-theater.md)
 
+### Confirmation and Scope Failures
+
+These patterns describe cases where human confirmation exists, but the executed action no longer matches the current confirmed intent.
+
+- [Confirmed Intent Drift](./confirmed-intent-drift.md)
+
 ### Coordination Failures
 
 These patterns describe breakdowns in coordination between humans, AI agents, teams, workflows and governance mechanisms.
