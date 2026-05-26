@@ -83,6 +83,54 @@ RABA distinguishes technical permission from authority.
 | Execution | The tool or system performs the action | Must be gated by approval state |
 | Responsibility | Human/organizational answerability and corrective duty | Cannot be transferred to the agent |
 
+## Read / Write Tool Boundary
+
+RABA distinguishes retrieval from action.
+
+Retrieval tools may collect, search, read, retrieve, summarize or synthesize information.
+
+Action tools may affect external systems, people, records, communications, commitments, infrastructure or business state.
+
+This boundary matters because an AI workflow can look like Retrieval-Augmented Generation while already containing action-capable tools such as Mail, Chat, CRM updates, ticket closure, payment initiation, API POST calls or deployment triggers.
+
+### Tool Classes
+
+| Tool class | Meaning | Governance expectation |
+|---|---|---|
+| `read_only` | Retrieves or reads information without changing external state | May be automated within policy and data-access boundaries |
+| `recommendation_only` | Drafts or proposes a possible action without executing it | Requires clear label as recommendation, not decision |
+| `action_capable` | Can affect external systems, people, records, communications or commitments | Requires authority validation before execution |
+| `high_consequence_action` | Can create legal, financial, safety, employment, medical, regulatory or reputational impact | Requires strong confirmation, escalation or block path |
+
+### Boundary Rule
+
+Any transition from retrieval tools to action tools requires explicit authority validation.
+
+In RABA terms:
+
+```text
+Vector Search / Web Search / Data Source Read
+→ recommendation or draft
+→ Action Boundary
+→ Active Confirmation Interlock or Governance Gateway
+→ authorized execution or escalation/block
+```
+
+A router agent, sub-agent, model confidence score or multi-agent agreement does not provide authority to cross this boundary.
+
+### Examples
+
+| Tool | Default class | RABA note |
+|---|---|---|
+| Vector search | `read_only` | Still subject to data governance and access rules |
+| Web search | `read_only` | Output may inform recommendation but does not authorize action |
+| Internal document retrieval | `read_only` | May require permission and privacy controls |
+| Email draft generation | `recommendation_only` | Draft is not approval to send |
+| Mail send | `action_capable` | Requires approval state and decision log link |
+| Chat post | `action_capable` | Requires action boundary check if external or business-impacting |
+| CRM update | `action_capable` | Requires traceable authority |
+| Contract offer | `high_consequence_action` | Requires Human Owner or legally valid approval process |
+
 ## Contractual Boundary
 
 An AI agent must not be treated as having authority to enter into contracts, commitments, offers, referrals, partnerships or liability arrangements unless a legally valid human or organizational approval process exists.
@@ -125,6 +173,8 @@ Agent identity fields should support Responsibility Event Stream by showing:
 - which AI system proposed the action;
 - which AI system produced the artifact;
 - which tool or action was requested;
+- whether the requested tool was read-only, recommendation-only, action-capable or high-consequence;
+- whether a read/write boundary was crossed;
 - which human confirmed or blocked it;
 - whether scope changed after confirmation;
 - whether execution occurred within the permitted boundary.
@@ -138,6 +188,7 @@ RABA should treat the following as governance failures:
 - agent obtains broader token than required;
 - agent sends external communication without approval;
 - agent turns a recommendation into execution;
+- agent crosses from retrieval to action without authority validation;
 - agent creates a hidden commitment;
 - agent identity is missing from event records;
 - agent action cannot be reconstructed after an incident.
