@@ -372,6 +372,7 @@ This area preserves deferred commercial concepts without activating a commercial
 - [`docs/failure-patterns/erosion-of-human-judgment.md`](failure-patterns/erosion-of-human-judgment.md)
 - [`docs/failure-patterns/agent-design-without-governance-architecture.md`](failure-patterns/agent-design-without-governance-architecture.md)
 - [`docs/failure-patterns/confirmed-intent-drift.md`](failure-patterns/confirmed-intent-drift.md)
+- [`docs/failure-patterns/unbounded-autonomous-pipeline.md`](failure-patterns/unbounded-autonomous-pipeline.md)
 - [`../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md)
 
 ---
