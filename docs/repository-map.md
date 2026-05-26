@@ -25,6 +25,11 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/doc-vault-github-chatgpt-protocol.md`](doc-vault-github-chatgpt-protocol.md)
 - [`docs/decision-log/README.md`](decision-log/README.md)
 - [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
+- [`docs/mapping/eu-ai-act-raba-mapping.md`](mapping/eu-ai-act-raba-mapping.md)
+- [`docs/mapping/nist-ai-rmf-raba-mapping.md`](mapping/nist-ai-rmf-raba-mapping.md)
+- [`../checklists/responsibility-architecture-review.md`](../checklists/responsibility-architecture-review.md)
+- [`../inquiries/README.md`](../inquiries/README.md)
+- [`../inquiries/open-problems-index.md`](../inquiries/open-problems-index.md)
 - [`../examples/governance-gateway-demo/README.md`](../examples/governance-gateway-demo/README.md)
 - [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md)
@@ -50,6 +55,7 @@ The main `README.md` is intentionally kept shorter as the public front door. Use
 - [`docs/doc-vault-github-chatgpt-protocol.md`](doc-vault-github-chatgpt-protocol.md)
 - [`docs/decision-log/README.md`](decision-log/README.md)
 - [`docs/decision-log/2026-05/2026-05-24-policy-integrity-and-governance-drift.md`](decision-log/2026-05/2026-05-24-policy-integrity-and-governance-drift.md)
+- [`../decision-log/2026-05-26-commercial-phase0-deferral.md`](../decision-log/2026-05-26-commercial-phase0-deferral.md)
 - [`../templates/ai-recommendation-card.md`](../templates/ai-recommendation-card.md)
 - [`../templates/ai-decision-card.md`](../templates/ai-decision-card.md)
 
@@ -68,6 +74,8 @@ Use these files when reviewing the repository with ChatGPT, Claude, Gemini, GitH
 - [`docs/discovery-keywords.md`](discovery-keywords.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../inquiries/README.md`](../inquiries/README.md)
+- [`../inquiries/external-inputs/README.md`](../inquiries/external-inputs/README.md)
 - [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md)
 
@@ -97,6 +105,8 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`docs/project-intent.md`](project-intent.md)
 - [`docs/project-development-tracks.md`](project-development-tracks.md)
 - [`docs/partner-readiness-backlog.md`](partner-readiness-backlog.md)
+- [`../decision-log/2026-05-26-commercial-phase0-deferral.md`](../decision-log/2026-05-26-commercial-phase0-deferral.md)
+- [`../backlog/commercial_concepts_deferred/README.md`](../backlog/commercial_concepts_deferred/README.md)
 
 ---
 
@@ -122,6 +132,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/responsibility-throughput-model.md`](../concepts/responsibility-throughput-model.md)
 - [`../concepts/speed-protection-principle.md`](../concepts/speed-protection-principle.md)
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
+- [`../concepts/agent-identity-and-authority.md`](../concepts/agent-identity-and-authority.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 - [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
@@ -150,6 +161,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
+- [`../checklists/responsibility-architecture-review.md`](../checklists/responsibility-architecture-review.md)
 - [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md)
 
@@ -212,10 +224,52 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 
 - [`docs/standards/standards-mapping.md`](standards/standards-mapping.md)
 - [`docs/standards-alignment.md`](standards-alignment.md)
+- [`docs/mapping/eu-ai-act-raba-mapping.md`](mapping/eu-ai-act-raba-mapping.md)
+- [`docs/mapping/nist-ai-rmf-raba-mapping.md`](mapping/nist-ai-rmf-raba-mapping.md)
+- [`../checklists/responsibility-architecture-review.md`](../checklists/responsibility-architecture-review.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 - [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md)
+
+---
+
+## Regulatory Mapping and Responsibility Review
+
+- [`docs/mapping/eu-ai-act-raba-mapping.md`](mapping/eu-ai-act-raba-mapping.md)
+- [`docs/mapping/nist-ai-rmf-raba-mapping.md`](mapping/nist-ai-rmf-raba-mapping.md)
+- [`../checklists/responsibility-architecture-review.md`](../checklists/responsibility-architecture-review.md)
+- [`../concepts/agent-identity-and-authority.md`](../concepts/agent-identity-and-authority.md)
+
+These documents are discussion drafts. They support compliance readiness and architecture review, but they do not replace legal advice, conformity assessment, GDPR/privacy governance, InfoSec controls, product liability analysis or sector-specific regulation.
+
+---
+
+## Open Problems, Sources and Inquiry Layer
+
+- [`../inquiries/README.md`](../inquiries/README.md)
+- [`../inquiries/open-problems-index.md`](../inquiries/open-problems-index.md)
+- [`../inquiries/legal-and-standards/README.md`](../inquiries/legal-and-standards/README.md)
+- [`../inquiries/research-notes/README.md`](../inquiries/research-notes/README.md)
+- [`../inquiries/external-inputs/README.md`](../inquiries/external-inputs/README.md)
+- [`../inquiries/resolution-attempts/README.md`](../inquiries/resolution-attempts/README.md)
+- [`../inquiries/templates/inquiry-template.md`](../inquiries/templates/inquiry-template.md)
+- [`../inquiries/templates/legal-source-template.md`](../inquiries/templates/legal-source-template.md)
+- [`../inquiries/templates/research-source-template.md`](../inquiries/templates/research-source-template.md)
+- [`../inquiries/templates/external-input-template.md`](../inquiries/templates/external-input-template.md)
+- [`../inquiries/templates/resolution-attempt-template.md`](../inquiries/templates/resolution-attempt-template.md)
+
+This area collects unresolved problem questions, relevant legal and standards sources, research notes, external expert input and resolution attempts. Inquiry material is non-canonical until Human Owner review and explicit adoption.
+
+---
+
+## Deferred Commercial Backlog
+
+- [`../decision-log/2026-05-26-commercial-phase0-deferral.md`](../decision-log/2026-05-26-commercial-phase0-deferral.md)
+- [`../backlog/commercial_concepts_deferred/README.md`](../backlog/commercial_concepts_deferred/README.md)
+- [`../backlog/commercial_concepts_deferred/commercial-phase0-source-summary.md`](../backlog/commercial_concepts_deferred/commercial-phase0-source-summary.md)
+
+This area preserves deferred commercial concepts without activating a commercial offer, pilot commitment, pricing model, legal representation, referral arrangement, partnership commitment or compliance guarantee.
 
 ---
 
@@ -226,6 +280,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../concepts/speed-protection-principle.md`](../concepts/speed-protection-principle.md)
 - [`../concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
+- [`../concepts/agent-identity-and-authority.md`](../concepts/agent-identity-and-authority.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
 - [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
@@ -264,6 +319,7 @@ AI-assisted reviews can also produce structured improvement suggestions through 
 - [`../architecture/corrective-governance-layer.md`](../architecture/corrective-governance-layer.md)
 - [`../architecture/raba-mcp-governance-layer.md`](../architecture/raba-mcp-governance-layer.md)
 - [`../architecture/responsibility-layer-for-agentic-ai-architecture.md`](../architecture/responsibility-layer-for-agentic-ai-architecture.md)
+- [`../concepts/agent-identity-and-authority.md`](../concepts/agent-identity-and-authority.md)
 - [`docs/mcp-governance-principles.md`](mcp-governance-principles.md)
 - [`docs/governance-toolchain.md`](governance-toolchain.md)
 - [`docs/governance-observability.md`](governance-observability.md)
