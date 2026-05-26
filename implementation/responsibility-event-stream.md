@@ -46,6 +46,9 @@ ActionBoundaryCrossed
 AuthorizationRevoked
 AuthorizationExpired
 ReapprovalRequired
+RouterDelegationRecorded
+ToolBoundaryClassified
+ReadWriteBoundaryCrossed
 ```
 
 These events can form a reliable stream of accountability across AI systems, workflow engines, approval interfaces, compliance tools, and audit storage.
@@ -295,6 +298,67 @@ Minimum required fields:
 
 ---
 
+## Multi-Agent Routing Trace
+
+Multi-agent systems introduce an additional responsibility question:
+
+> Which agent routed the task, which sub-agent received it, which tool class was requested, and whether the route crossed from retrieval into action?
+
+A technically successful multi-agent route is not automatically a governed action.
+
+A Router Agent may improve accuracy and task specialization, but it does not create Human Owner authority.
+
+RABA should therefore record routing decisions when they affect tool access, action boundaries, risk level, or responsibility assignment.
+
+### Candidate routing event fields
+
+```json
+{
+  "routing_trace": {
+    "router_agent_id": "retrieval_router_agent",
+    "delegated_to_agent_id": "retrieval_agent_z",
+    "delegation_reason": "mail_and_chat_context_required",
+    "delegation_confidence": 0.82,
+    "tool_requested": "mail.send",
+    "tool_class": "action_capable",
+    "read_write_boundary_crossed": true,
+    "requires_active_confirmation": true,
+    "governance_gate": "ActiveConfirmationInterlock",
+    "routing_policy_reference": "policy_agentic_rag_tools_v1",
+    "decision_log_id": "dec_123",
+    "technical_trace_id": "trace_456"
+  }
+}
+```
+
+### Suggested routing-related event types
+
+| Event type | Meaning |
+|---|---|
+| `RouterDelegationRecorded` | Router Agent assigned a task to another agent. |
+| `ToolBoundaryClassified` | Requested tool was classified as read-only, recommendation-only, action-capable, or high-consequence. |
+| `ReadWriteBoundaryCrossed` | Workflow moved from retrieval/recommendation into action-capable territory. |
+| `ActionBoundaryCrossed` | Workflow crossed a defined RABA action boundary. |
+| `PolicyBoundaryReached` | Policy requires escalation, confirmation, or blocking. |
+| `ReapprovalRequired` | Existing confirmation is insufficient for the requested route or action. |
+
+### Minimum route reconstruction questions
+
+A Responsibility Event Stream should allow reviewers to reconstruct:
+
+- which router agent delegated the task;
+- which sub-agent received it;
+- why delegation happened;
+- which tool was requested;
+- whether the tool was read-only or action-capable;
+- whether a read/write boundary was crossed;
+- whether Human Owner confirmation was required;
+- whether a Decision Log entry exists for external action.
+
+This is especially important for Agentic RAG systems where a workflow may appear to perform retrieval while also containing Mail, Chat, CRM, API write, deployment, or other action-capable tools.
+
+---
+
 ## Possible consumers of responsibility events
 
 A Responsibility Event Stream can support several operational consumers:
@@ -343,6 +407,8 @@ It allows an organization to answer:
 - Was the business decision logged?
 - Is the technical trace linked to human accountability?
 - Are approval patterns healthy or merely formal?
+- Which router agent delegated to which sub-agent?
+- Did a retrieval route cross into action-capable tool use?
 
 ---
 
@@ -353,7 +419,9 @@ This implementation direction complements:
 - [`docs/approval-state-specification.md`](../docs/approval-state-specification.md)
 - [`docs/decision-log-schema.md`](../docs/decision-log-schema.md)
 - [`concepts/responsibility-management-interface.md`](../concepts/responsibility-management-interface.md)
+- [`concepts/agent-identity-and-authority.md`](../concepts/agent-identity-and-authority.md)
 - [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](../architecture/responsibility-layer-for-agentic-ai-architecture.md)
+- [`docs/failure-patterns/unbounded-autonomous-pipeline.md`](../docs/failure-patterns/unbounded-autonomous-pipeline.md)
 
 The Responsibility Management Interface makes responsibility visible to humans.
 
@@ -372,6 +440,8 @@ The Responsibility Event Stream provides the underlying event architecture that 
 - How should organizations detect rubber-stamp approval behavior?
 - Which events should trigger real-time alerts?
 - How should responsibility event schemas differ by risk level or domain?
+- Should `routing_trace` be required for all multi-agent workflows or only action-capable routes?
+- Should `ReadWriteBoundaryCrossed` be a required event when Mail, Chat, CRM or API write tools are available?
 
 ---
 
