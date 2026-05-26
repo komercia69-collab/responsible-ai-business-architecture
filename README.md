@@ -266,7 +266,7 @@ The following concepts are important but currently experimental or exploratory. 
 - **Model-Agent Fit Governance** — selecting models according to agent role, risk and authority.
 - **Human-AI Operational Coordination Lattice** — exploratory model for multi-agent and multi-human coordination.
 
-These ideas may become future architecture tracks, but the current core of RABA is the six-concept operational model above.
+These ideas may become future architecture tracks, but the current core RABA model remains the operational responsibility architecture described above.
 
 ---
 
