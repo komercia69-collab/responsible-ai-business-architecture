@@ -42,6 +42,10 @@ textarea { resize: vertical; min-height: 82px; }
 .red { background: #fee2e2; color: #991b1b; }
 .grey { background: #e5e7eb; color: #374151; }
 .summary { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-top: 16px; }
+.demo-links { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+.demo-link-card { display: block; padding: 14px 16px; border: 1px solid var(--border); border-radius: 10px; background: #f8fafc; text-decoration: none; color: var(--text); }
+.demo-link-card strong { display: block; color: #0f172a; margin-bottom: 4px; }
+.demo-link-card span { display: block; color: #64748b; font-size: 0.9rem; }
 ul { margin-left: 20px; }
 .small { font-size: 0.9rem; color: #64748b; }
 </style>
@@ -54,6 +58,12 @@ ul { margin-left: 20px; }
     <p><strong>AI may be probabilistic. Responsibility must not be.</strong></p>
     <div class="progress"><div class="progress-fill" id="progressBar" style="width: 33%;"></div></div>
     <p class="small">This demo is a practical companion to the Responsible AI Business Architecture framework. It is not legal, compliance, security, or implementation advice.</p>
+    <div class="demo-links" aria-label="Additional RABA demos">
+      <a class="demo-link-card" href="active-confirmation-interlock.html">
+        <strong>Active Confirmation Interlock Demo</strong>
+        <span>Discussion Draft · Demo v0.3 · no real execution · local event JSON only</span>
+      </a>
+    </div>
   </div>
 
   <div id="step1" class="section active">
