@@ -1,7 +1,7 @@
 # Responsibility Realization Model
 
 **Status:** Discussion Draft  
-**Version:** 0.1  
+**Version:** 0.2  
 **Canonical status:** Non-canonical. This document records a working architectural direction for Human Owner review.  
 **Owner:** Oleksandr Shuliak — Human Owner  
 **Related concepts:** Responsibility Management Interface, Responsibility Event Stream, Governance Gateway, Human Owner Confirmation, Active Evidence Interlock, Temporal Responsibility Model, Escalation Ownership, Reversibility Profile, Policy Integrity, Decision Log
@@ -135,7 +135,7 @@ Examples of AI states:
 
 RABA implication:
 
-> The more an AI system moves from suggestion toward action, the stronger the required responsibility controls should become.
+> The more an AI system moves from suggestion toward action, the stronger the required mechanisms for responsibility realization and responsibility control should become.
 
 ### 5. Human-AI Interaction Boundary
 
@@ -148,11 +148,12 @@ Important questions include:
 - Was the human only rubber-stamping?
 - Was the human influenced by AI consensus tunnel?
 - Was Human Owner confirmation active or merely symbolic?
+- Did the human have a real ability to stop, change, or escalate the action?
 - Did the system preserve human accountability?
 
 RABA implication:
 
-> Human oversight should not be only formal. It should be operationally visible and auditable.
+> Human oversight should not be only formal. It should be operationally visible, effective, and auditable.
 
 ### 6. Environment and Context
 
@@ -170,11 +171,12 @@ Environment may include:
 - interface design;
 - incentives;
 - external stakeholders;
+- social, physical, or business conditions in which the action will be realized;
 - real-world consequences.
 
 RABA implication:
 
-> Responsibility controls must account for contextual conditions that can change the meaning or risk of an AI-assisted action.
+> Responsibility controls must account for contextual conditions that can change the meaning, risk, or consequences of an AI-assisted action.
 
 ### 7. Causes and Consequences
 
@@ -189,6 +191,7 @@ The system should help distinguish:
 - what policy controlled the action;
 - what environmental factors shaped the action;
 - what consequences followed;
+- what state change occurred after the action;
 - whether consequences were reversible.
 
 RABA implication:
@@ -213,6 +216,59 @@ At each point, RABA should be able to ask:
 - what can be proven here?
 - what remains unresolved here?
 
+## Independent Multi-Role Confirmation
+
+For critical AI-assisted actions, single Human Owner confirmation may be insufficient.
+
+RABA may require confirmation by two or more people or roles when an action has:
+
+- critical external impact;
+- low reversibility;
+- legal or compliance relevance;
+- financial or customer impact;
+- safety implications;
+- canonical governance consequences;
+- AI-agent execution with real-world effect.
+
+However, multi-person confirmation must not be treated as stronger evidence if the confirming people are in a direct hierarchy of control or dependency.
+
+The purpose is not to collect multiple symbolic approvals.
+
+The purpose is to obtain independent responsibility perspectives.
+
+Confirming roles should, where possible:
+
+- not be in a direct manager-subordinate relationship;
+- represent different responsibility domains;
+- have the ability to disagree without retaliation;
+- review the action scope independently;
+- confirm based on their own role responsibility;
+- have access to relevant evidence;
+- be able to trigger escalation or block execution.
+
+If independence cannot be achieved, the event record should explicitly mark this as a dependency risk.
+
+Multi-person confirmation does not prove correctness.
+
+It strengthens governance only when role independence, evidence review, and scope freshness are preserved.
+
+### Hierarchical Rubber-Stamp Risk
+
+A confirmation can appear stronger because two or more people approved it, while in practice one person controlled the decision.
+
+This may happen when:
+
+- one confirmer reports directly to another;
+- a subordinate is pressured to agree with a manager;
+- confirmers share the same incentive or political pressure;
+- the second confirmation is only procedural;
+- the second role lacks authority to block or escalate;
+- confirmation happens after the decision is already socially or organizationally settled.
+
+RABA should treat such cases as dependency risk, not as strong independent confirmation.
+
+> Multi-person confirmation is only stronger than single confirmation when the confirming roles are meaningfully independent.
+
 ## Suggested Model Fields
 
 The following fields may be relevant for future Responsibility Event Stream or Responsibility Management Interface development.
@@ -228,6 +284,37 @@ The following fields may be relevant for future Responsibility Event Stream or R
   "responsibility_holder": "<person_or_role>",
   "responsibility_scope": "<what_this_role_is_responsible_for>",
   "confirmation_state": "not_required | required | given | stale | revoked | missing",
+  "confirmation_mode": "none | single_owner | dual_owner | multi_role | escalation_required",
+  "independence_required": true,
+  "hierarchical_dependency_check": "not_required | passed | failed | unknown",
+  "required_confirming_roles": [
+    "human_owner",
+    "legal_reviewer",
+    "technical_owner"
+  ],
+  "confirmed_by": [
+    {
+      "role": "human_owner",
+      "person": "<person_or_id>",
+      "confirmation_state": "given",
+      "timestamp_utc": "<ISO 8601>",
+      "evidence_reviewed": true
+    },
+    {
+      "role": "legal_reviewer",
+      "person": "<person_or_id>",
+      "confirmation_state": "given",
+      "timestamp_utc": "<ISO 8601>",
+      "independent_from_human_owner": true,
+      "evidence_reviewed": true
+    }
+  ],
+  "known_dependency_risks": [
+    "same_reporting_line",
+    "manager_subordinate_relation",
+    "commercial_pressure",
+    "shared_incentive_conflict"
+  ],
   "evidence_state": "not_available | available | reviewed | stale | incomplete | disputed",
   "policy_state": "not_checked | checked | passed | failed | drift_detected",
   "environmental_factors": [
@@ -252,7 +339,8 @@ The following fields may be relevant for future Responsibility Event Stream or R
   "audit_claim": "<what_this_event_can_prove>",
   "audit_limitations": [
     "does_not_prove_understanding",
-    "does_not_prove_legal_compliance"
+    "does_not_prove_legal_compliance",
+    "does_not_prove_independent_judgment"
   ]
 }
 ```
@@ -264,6 +352,7 @@ The following fields may be relevant for future Responsibility Event Stream or R
 | Track responsibility over time | Responsibility Event Stream |
 | Show responsibility in the interface | Responsibility Management Interface |
 | Route action before execution | Governance Gateway |
+| Require independent confirmation for critical actions | Independent Multi-Role Confirmation |
 | Prevent stale approval | Confirmation freshness / stale authority detection |
 | Prevent hidden commitment | Governance Drift Prevention |
 | Confirm human responsibility | Human Owner Confirmation |
@@ -305,9 +394,11 @@ The model helps prevent RABA from reducing responsibility to:
 - a legal disclaimer;
 - AI-generated confidence;
 - multi-AI agreement;
+- multi-person rubber-stamping;
+- hierarchical rubber-stamping;
 - after-the-fact explanation only.
 
-Instead, the model treats responsibility as dynamic, situated, causal, and auditable.
+Instead, the model treats responsibility as dynamic, situated, causal, role-sensitive, independence-sensitive, and auditable.
 
 ## What This Model Does Not Claim
 
@@ -319,13 +410,15 @@ This model does not claim that:
 - AI systems can carry human responsibility;
 - all responsibility can be reduced to machine-readable fields;
 - external review equals approval;
-- multi-AI agreement equals validation.
+- multi-AI agreement equals validation;
+- multi-person confirmation automatically proves correctness;
+- multiple confirmations automatically prove independent judgment.
 
 ## Recommended RABA Position
 
 This concept should be treated as:
 
-> A discussion draft for developing RABA’s responsibility architecture systematically across time, process space, roles, AI-system state, environmental context, and causal consequence fields.
+> A discussion draft for developing RABA’s responsibility architecture systematically across time, process space, roles, AI-system state, environmental context, causal consequence fields, and independent multi-role confirmation for critical actions.
 
 It should not yet be treated as:
 
@@ -347,12 +440,17 @@ It should not yet be treated as:
 8. How should affected stakeholders appear in the model?
 9. How should this model connect to EU AI Act mapping?
 10. Should this become part of the canonical Responsibility Event Stream schema later?
+11. When should RABA require dual-owner or multi-role confirmation instead of single Human Owner confirmation?
+12. How should RABA verify that multi-person confirmation is independent rather than hierarchical rubber-stamping?
+13. How should RABA record cases where independent confirmation is required but unavailable?
 
 ## Governance Boundary
 
 Multi-AI agreement is not approval.
 
 External review is not approval.
+
+Multi-person confirmation is not automatic correctness.
 
 This concept is not canonical.
 
@@ -362,4 +460,6 @@ Final architectural approval belongs to the Human Owner.
 
 Responsibility in AI-assisted workflows is realized through a changing structure of time, process location, persons, roles, AI-system states, environmental conditions, causes, and consequences.
 
-RABA should make this structure visible, controllable, traceable, and auditable before AI-agent actions affect the real world.
+For critical actions, responsibility may also require independent confirmation from more than one role.
+
+RABA should make this structure visible, controllable, traceable, independence-sensitive, and auditable before AI-agent actions affect the real world.
