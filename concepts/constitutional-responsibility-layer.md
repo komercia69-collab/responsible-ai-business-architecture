@@ -1,274 +1,323 @@
-# Constitutional Responsibility Layer
+# Human Authority Constitution
 
+**Former working name:** Constitutional Responsibility Layer  
+**Alternative framing:** Root Responsibility Constitution  
+**Mechanism name:** Responsibility Delegation Chain  
 **Status:** Discussion Draft  
-**Version:** 0.2  
+**Version:** 0.3  
 **Canonical status:** Non-canonical. This document records a working architectural direction for Human Owner review.  
 **Owner:** Oleksandr Shuliak — Human Owner  
+**Review sources:** Claude critical review; Gemini stress-test review  
 **Related concepts:** Responsibility Realization Model, Governance Gateway, Responsibility Event Stream, Human Owner Confirmation, Contextual Legitimacy, Human Interpretive Stability, Bind-Time Admissibility Checklist, Policy Integrity, Escalation Ownership, Reversibility Profile, Decision Log
 
 ## Summary
 
-The Constitutional Responsibility Layer is a proposed RABA concept for preserving human responsibility while allowing AI systems and agents to operate with meaningful autonomy at lower dynamic levels.
+The Human Authority Constitution is a proposed RABA concept for preserving human responsibility while AI systems receive meaningful operational autonomy.
 
 The core idea is:
 
 > Human responsibility should move upward, not disappear.
 
-As AI systems receive more operational autonomy, human responsibility should be realized at the highest meaningful level of intention, purpose, constraint, boundary-setting, and accountability.
+As AI systems receive more autonomy at the operational level, human responsibility must become clearer at the level of intention, authority, scope, constraints, escalation, and accountability.
 
-AI systems may operate autonomously within lower-level workflows only when their actions remain inside boundaries derived from clear high-level human instructions.
+This concept is not canonical. It is a discussion draft for Human Owner review.
 
 ## Core Principle
 
-> The more autonomy AI systems receive at the operational level, the stronger the constitutional responsibility layer must become at the human level.
+> The more autonomy AI systems receive at the operational level, the stronger the Human Authority Constitution must become at the human level.
 
-This means RABA should not require humans to manually approve every micro-action.
+Autonomy increases the distance between human intent and AI action.
 
-Instead, RABA should help humans define, preserve, interpret, and audit the high-level responsibility constitution that governs what AI systems may do at lower operational levels.
+That distance increases drift risk.
 
-## Why This Matters
+A clear Human Authority Constitution helps prevent operational autonomy from becoming unaccountable autonomy.
 
-AI-agent autonomy creates a governance tension.
+## What This Is Not
 
-If humans must approve every small action, the system becomes slow, brittle, and unrealistic.
+The Human Authority Constitution is not:
 
-If AI systems are given broad autonomy without strong high-level responsibility boundaries, human responsibility becomes vague, symbolic, or displaced.
+- a runtime prompt;
+- a policy document by itself;
+- a checklist;
+- a Governance Gateway rule;
+- a substitute for Human Owner responsibility;
+- a source of legal or compliance claims.
 
-The Constitutional Responsibility Layer tries to resolve this tension by separating:
+It defines the human authority source from which operational policies and admissibility checks derive.
 
-- high-level human responsibility;
-- operational AI autonomy;
-- runtime interpretation;
-- action-level admissibility;
-- auditability of how high-level instructions became lower-level actions.
+## Authority and Execution Structures
 
-## Human Responsibility Moves Upward, Not Away
+Claude review identified that the original single chain mixed different abstraction levels. RABA should distinguish vertical authority from horizontal execution.
 
-In an autonomous AI workflow, human responsibility should not vanish into the system.
+### Vertical authority structure
 
-It should move upward into stronger responsibility functions:
+```text
+Human Authority Constitution
+→ Operational Policy
+→ Agent Instruction
+```
 
-- defining legitimate purposes;
-- setting action boundaries;
-- defining prohibited zones;
-- setting escalation rules;
-- defining risk thresholds;
-- selecting authority models;
-- defining evidence requirements;
-- deciding what must remain human judgment;
-- deciding what may be delegated to AI systems;
-- retaining accountability for the governance constitution.
+The vertical structure defines what humans reserve, what may be delegated, and how authorized action classes are translated into rules or instructions.
 
-This is different from simply approving each action manually.
+### Horizontal execution pipeline
 
-The human is responsible for the constitution under which lower-level actions are interpreted and executed.
+```text
+Runtime Interpretation
+→ Action Boundary
+→ Bind-Time Admissibility
+→ Governance Gateway
+→ Allow / Block / Escalate
+```
 
-## High-Level Human Constitution
+The horizontal structure defines how a live action is interpreted, checked, routed, and recorded.
 
-A high-level human constitution may include:
+These structures are connected, but they must not be collapsed.
 
-- purpose: what the system is allowed to optimize for;
-- values: what must not be sacrificed for speed or efficiency;
-- action boundaries: what AI systems may and may not do;
-- authority rules: who can authorize what kind of action;
-- escalation rules: when the system must stop and ask for human interpretation;
-- evidence rules: what counts as admissible evidence;
-- policy constraints: what rules cannot be violated;
-- reversibility rules: how consequence reversibility affects autonomy;
-- risk thresholds: which risk classes require stronger controls;
-- audit requirements: what must be recorded for later review.
+A Governance Gateway cannot authorize what the Human Authority Constitution reserves for the Human Owner.
 
-The constitution should not be vague.
+## Human / Policy / AI / System Domain Separation
 
-A statement such as `act responsibly` is not enough.
+Gemini review added an important runtime isolation warning: the Constitution must not become a probabilistic runtime prompt for an operational AI agent.
 
-The constitution must be interpretable, testable, and connected to workflow controls.
+RABA should separate domains as follows:
+
+| Domain | Artifact | Function |
+|---|---|---|
+| Human Domain | Human Authority Constitution | Defines human intent, reserved authority, and non-delegable boundaries. |
+| Bridge Domain | Operational Policy | Translates constitutional clauses into operational rules, thresholds, and constraints. |
+| AI Domain | Agent Instruction | Gives an AI system a task inside policy-derived boundaries. |
+| System Domain | Governance Gateway | Enforces allow / block / escalate decisions based on policies and admissibility checks. |
+| Audit Domain | Decision Log / Responsibility Event Stream | Records what happened, what was authorized, and what can or cannot be proven. |
+
+## Runtime Isolation Rule
+
+Operational AI agents must not interpret constitutional text directly during task execution.
+
+The Constitution is a human authority artifact.
+
+It may be referenced by governance infrastructure through clause IDs, hashes, derived policy links, and metadata.
+
+But operational agents should act through policies and instructions derived from the Constitution, not through free-form probabilistic interpretation of the Constitution's intent or spirit.
+
+RABA should therefore prohibit this pattern:
+
+```text
+LLM agent reads Constitution → LLM decides whether action fits the spirit of the Constitution → action proceeds
+```
+
+RABA should prefer this pattern:
+
+```text
+Human Authority Constitution → Operational Policy with traceability link → Gateway check → allow / block / escalate
+```
 
 ## Operational Testability Requirement
 
-A high-level constitution is only useful if it can be translated into operational constraints, escalation triggers, and admissibility checks.
+A constitutional clause is useful only if it can be translated into operational constraints, escalation triggers, admissibility checks, or explicit human-reserved decisions.
 
-If a high-level instruction cannot be tested at the lower operational level, it should not be treated as a sufficient governance instruction.
+Weak examples:
 
-Examples:
+- Act responsibly.
+- Use good evidence.
+- Avoid risk.
+- Stay aligned.
 
-| Weak high-level statement | Operationally testable translation |
-|---|---|
-| Act responsibly. | Do not execute external commitments without Human Owner confirmation. |
-| Use good evidence. | Require evidence to be present, fresh, referenceable, and scope-relevant before execution. |
-| Avoid risk. | Escalate high-risk actions and block irreversible high-risk actions with missing authority or missing evidence. |
-| Stay aligned. | Compare runtime action scope against the current constitutional purpose and allowed action classes. |
-| Keep humans in control. | Require escalation when authority scope, approval path, or Human Owner identity is unclear. |
+Operationally testable translations:
 
-RABA should prefer high-level instructions that can be connected to:
-
-- action classes;
-- allowed and prohibited zones;
-- evidence requirements;
-- authority conditions;
-- escalation triggers;
-- bind-time admissibility checks;
-- Governance Gateway decisions;
-- audit records.
+- Do not execute external commitments without Human Owner confirmation.
+- Require evidence to be present, fresh, referenceable, and scope-relevant before execution.
+- Escalate high-risk actions and block irreversible high-risk actions with missing authority or missing evidence.
+- Require escalation when authority scope, approval path, or Human Owner identity is unclear.
 
 A vague constitution creates the appearance of responsibility without giving the system enough structure to preserve responsibility at runtime.
 
-## Constitution / Policy / Prompt / Gateway Distinction
+## What Belongs in the Constitution
 
-The Constitutional Responsibility Layer must not be confused with policy, prompts, runtime interpretation, or gateway decisions.
+A statement belongs in the Human Authority Constitution if it defines what humans reserve, what authority may be delegated, or what cannot be delegated without losing meaning.
 
-| Layer | Function | Example |
-|---|---|---|
-| Constitution | Defines high-level human purpose, boundaries, values, and reserved responsibility. | AI systems must not create external commitments without authorized human confirmation. |
-| Policy | Translates constitutional boundaries into operational rules and thresholds. | External partner-facing messages require Human Owner approval and evidence snapshot. |
-| Prompt / agent instruction | Communicates a task or rule to an AI system. | Draft a response, but do not send it or imply commitment. |
-| Runtime interpretation | The system interprets the instruction in a live context. | This draft mentions a possible pilot offer; execution boundary may be near. |
-| Governance Gateway | Decides whether the action is allowed, blocked, or escalated. | Escalate because the draft creates possible external commitment. |
-| Decision Log / Event Stream | Records what happened and what the system can and cannot prove. | Human Owner confirmed review, but no commercial commitment was authorized. |
+Boundary criterion:
 
-This distinction prevents a common governance error:
+> Constitutional statements define what humans reserve for themselves. Policy statements define how AI systems implement what humans have authorized.
 
-> Treating a prompt as if it were a constitution, or treating a high-level value as if it were an executable policy.
+If a statement can be fully delegated to a policy engine without losing meaning, it belongs primarily in policy.
 
-For RABA, the constitution defines the upper responsibility boundary, policy makes it operational, prompts instruct AI systems, runtime interpretation applies those instructions, and the Governance Gateway tests whether the resulting action may proceed.
+If delegating it would erase human authority, accountability, or reserved judgment, it belongs in the Constitution.
 
-## Agent Autonomy Inside Responsibility Boundaries
+Examples of constitutional statements:
 
-AI systems may receive autonomy only inside the responsibility boundaries created by the high-level constitution.
+- External commitment creation is reserved for Human Owner confirmation.
+- Canonical architecture changes require explicit Human Owner approval and Decision Log entry.
+- Multi-AI agreement does not constitute approval.
+- AI systems may not act under unclear authority. If Human Owner identity, approval scope, or action authority is ambiguous, the action is blocked or escalated.
 
-Examples:
+## Narrowed Example: External Commitment
 
-- a system may classify routine tickets, but not close high-risk complaints without review;
-- a system may draft a partner-facing message, but not send it without Human Owner confirmation;
-- a system may recommend a policy update, but not modify canonical governance documents without approval;
-- a system may execute low-risk reversible actions, but must escalate irreversible or externally binding actions;
-- a system may retrieve evidence, but the Governance Gateway must still determine whether the evidence is admissible.
+A stronger constitutional clause should avoid unresolved words such as `authorized` without defining scope.
 
-Autonomy is therefore conditional.
+Recommended wording:
 
-It is delegated operation inside human-defined constitutional boundaries.
+> External commitment creation is reserved for Human Owner confirmation. An action creates an external commitment if it implies obligation, timeline, or resource allocation to a party outside the current workflow.
 
-## Runtime Interpretation of High-Level Instructions
+This can then be translated into operational policy and Gateway checks.
 
-The lower dynamic runtime level must interpret high-level human instructions accurately.
+## Policy Traceability Rule
 
-```text
-High-level Human Constitution → Operational Policy → Agent Instruction → Runtime Interpretation → Action Boundary → Bind-Time Admissibility → Governance Gateway → Allow / Block / Escalate
+Every Operational Policy derived from the Human Authority Constitution should include a traceability link to the constitutional clause that authorizes or constrains it.
+
+Suggested field:
+
+```json
+{
+  "policy_id": "external_commitment_policy_v1",
+  "derived_from_constitution_clause": "HAC-001",
+  "constitution_hash": "<hash>",
+  "policy_integrity_state": "valid | drifted | broken_traceability | unauthorized_change"
+}
 ```
 
-The main risk is that the runtime level may interpret the constitution incorrectly, too broadly, too narrowly, or too conveniently.
+The Governance Gateway should enforce operational policies.
 
-RABA must therefore ask:
+It should not rely on an LLM's direct interpretation of constitutional language.
 
-> Was the lower-level action a valid interpretation of the high-level human constitution?
+## Boundary with Policy Integrity
 
-And also:
+The Human Authority Constitution defines the source and scope of human authorization: what humans reserve, what may be delegated, and under which authority boundaries AI systems may operate.
 
-> Is the constitutional instruction operationally testable enough to support an allow decision?
+Policy Integrity protects the policies derived from that Constitution from drift, contradiction, unauthorized change, broken traceability, or misuse.
 
-If the answer is unclear, the Gateway should prefer block or escalate over silent execution.
+In RABA terms:
 
-## Capacity Allocation for Interpretation
+- the Constitution is the authority source;
+- Policy Integrity is the protection mechanism;
+- Operational Policy is the bridge from authority to enforceable rules;
+- Governance Gateway is the enforcement point.
 
-A significant share of system capacity should be dedicated not only to execution speed, but to learning, preserving, and correctly interpreting high-level human instructions at lower operational levels.
+Policies derive from the Constitution; they do not override it.
 
-This does not require a fixed percentage such as 50% as a canonical rule.
+## Boundary with Responsibility Realization Model
 
-However, the architectural direction is important:
+The Responsibility Realization Model describes how responsibility becomes real across time, roles, process state, context, action, consequence, and audit.
 
-> AI systems should spend substantial effort understanding and preserving responsibility boundaries, not only optimizing task completion.
+The Human Authority Constitution defines the upstream human authority and reserved responsibility from which that realization begins.
 
-In practice, this may include policy retrieval, evidence checking, scope comparison, ambiguity detection, contradiction detection, escalation trigger detection, confirmation freshness checks, authority boundary checks, replayable event recording, and learning from prior Human Owner corrections.
+In short:
 
-## Misinterpretation Risk
+- Human Authority Constitution defines the authority source;
+- Responsibility Realization Model describes how responsibility is carried through the workflow;
+- Governance Gateway and Responsibility Event Stream operationalize and record responsibility-relevant decisions.
 
-High-level responsibility must not become vague responsibility.
+## Closing the Recursion
 
-Examples of misinterpretation risk:
+The Human Owner's stated intent is the terminal authority inside RABA.
 
-- the system treats an old instruction as still valid after scope changes;
-- the system optimizes for speed when the constitution prioritizes accountability;
-- the system treats retrieved context as admissible evidence without checking freshness;
-- the system interprets silence as approval;
-- the system treats multi-AI agreement as validation;
-- the system expands a permitted low-risk action into a higher-risk action;
-- the system proceeds when authority or policy constraints are unclear;
-- the system treats a prompt-level instruction as permission to cross a constitutional boundary;
-- the system treats a high-level value as if it were a precise execution rule.
+The Human Authority Constitution derives its validity from the Human Owner, not from a meta-constitutional process.
 
-RABA should treat these as constitution interpretation failures, not only execution failures.
+There is no higher AI-generated governance layer above the Human Owner within RABA.
 
-## Relationship to Contextual Legitimacy
+This closes recursive governance semantics explicitly.
 
-The Constitutional Responsibility Layer defines high-level conditions of legitimacy.
+## Constitutional Drift and Amendment Path
 
-Contextual Legitimacy checks whether those conditions still validly bind the action at the moment it is opened or executed.
+Constitutions should not change casually, but they must not drift away from actual practice.
 
-The system should ask:
+RABA therefore needs a lightweight amendment path controlled by the Human Owner.
 
-- Is the current action still within the constitutional purpose?
-- Has the context changed since the instruction was given?
-- Are the evidence and authority conditions still valid?
-- Has the AI reframed the action beyond the original human intent?
-- Does execution still fit the current legitimacy conditions?
+A constitutional amendment should require:
 
-If legitimacy is unclear, the system should pause, block, or escalate.
+- Human Owner confirmation;
+- clear change summary;
+- reason for change;
+- affected clauses;
+- affected operational policies;
+- updated constitution hash or version;
+- Decision Log entry;
+- Policy Integrity check for derived policies.
+
+AI may draft amendment proposals, but may not ratify them.
+
+## Machine-Readable Constitutional Entry
+
+A constitutional entry should produce a queryable record that governance infrastructure can reference without asking an operational LLM agent to interpret the full constitutional text.
+
+```json
+{
+  "constitution_id": "raba-hac-v0.3",
+  "clause_id": "HAC-001",
+  "issued_by": "human_owner",
+  "ratified_by_human_id": "oleksandr_shuliak",
+  "issued_at": "<ISO 8601>",
+  "valid_until": null,
+  "authority_scope": [
+    "internal_documentation",
+    "draft_communications",
+    "governance_review"
+  ],
+  "excluded_actions": [
+    "external_commitment_creation",
+    "canonical_architecture_change_without_confirmation",
+    "partner_facing_publication"
+  ],
+  "escalation_triggers": [
+    "action_scope_outside_authority_scope",
+    "human_owner_identity_unclear",
+    "evidence_missing_or_stale",
+    "policy_traceability_broken"
+  ],
+  "evidence_requirement": "active_confirmation_interlock",
+  "amendment_authority": "human_owner_only",
+  "constitution_hash": "<hash>",
+  "version": "0.3"
+}
+```
+
+Narrative values or purpose statements may remain in documentation. Runtime-queryable records should contain only fields that Gateway, admissibility, or Policy Integrity checks can use.
+
+## What Stronger Means
+
+When AI autonomy increases, the Human Authority Constitution must become stronger across four dimensions:
+
+- **More specific** — narrower authority scope and fewer implied permissions.
+- **More formal** — explicit evidence requirements per authority class.
+- **Lower escalation threshold** — broader conditions triggering mandatory review.
+- **More auditable** — richer event fields for constitutional queries and derived policy traceability.
+
+## Allowed Action Classes Gap
+
+This concept currently references `allowed_action_classes`, but RABA has not yet defined that sub-concept formally.
+
+This is an open gap.
+
+Before this concept can move toward canonical review, RABA should define how action classes are named, scoped, versioned, and mapped to risk, authority, reversibility, and evidence requirements.
+
+Open questions:
+
+- What counts as an action class?
+- Who defines allowed and excluded action classes?
+- How are action classes versioned?
+- How are action classes linked to risk class and reversibility profile?
+- How does the Gateway detect that a runtime action belongs to an excluded action class?
 
 ## Relationship to Bind-Time Admissibility
 
-Bind-Time Admissibility asks what must be true at the moment an AI-agent action is allowed to proceed.
+Bind-Time Admissibility checks whether a specific action is admissible at the moment it is allowed, blocked, or escalated.
 
-The Constitutional Responsibility Layer provides the high-level human instruction source from which admissibility conditions should be derived.
+The Human Authority Constitution establishes what makes an instruction or action class eligible for admissibility evaluation in the first place.
 
-A bind-time admissibility check should therefore include action clarity, evidence state, evidence freshness, authority conditions, policy constraints, risk state, approval path, reversibility profile, operational testability of the relevant constitutional instruction, and whether the action remains aligned with the high-level constitution.
+An action may satisfy some admissibility checks and still violate constitutional scope if the policy or instruction was derived from an incorrectly scoped authority source.
 
 ## Relationship to Governance Gateway
 
-The Governance Gateway is the operational routing point.
+The Governance Gateway is the enforcement point.
 
-It should decide whether a proposed action should be:
+It decides:
 
 ```text
 allow | block | escalate
 ```
 
-The Constitutional Responsibility Layer helps determine the criteria by which the Gateway makes this decision.
+But the Gateway cannot authorize what the Human Authority Constitution reserves.
 
-The Gateway should not only ask whether an action is technically possible.
-
-It should ask whether the action is a valid lower-level interpretation of the high-level human responsibility constitution.
-
-## Suggested Event Fields
-
-Future Responsibility Event Stream or Governance Gateway records may include fields such as:
-
-```json
-{
-  "constitutional_layer_id": "<id>",
-  "human_constitution_version": "<version>",
-  "constitutional_purpose": "<purpose_statement>",
-  "constitutional_instruction_type": "purpose | value | boundary | policy_source | reserved_decision | escalation_rule",
-  "operational_testability": "testable | partially_testable | vague | not_tested",
-  "operationalized_as": ["policy_constraint", "escalation_trigger", "admissibility_check"],
-  "allowed_action_classes": ["<class_1>", "<class_2>"],
-  "prohibited_action_classes": ["<class_1>", "<class_2>"],
-  "delegated_autonomy_scope": "<scope_description>",
-  "human_reserved_decision_classes": ["external_commitment", "canonical_architecture_change", "irreversible_high_risk_action"],
-  "runtime_interpretation": "<how_the_system_interpreted_the_constitution>",
-  "interpretation_confidence": "high | medium | low | unknown",
-  "interpretation_dispute": false,
-  "contextual_legitimacy_state": "valid | degraded | shifted | ambiguous | not_checked",
-  "bind_time_admissibility_state": "admissible | not_admissible | unclear",
-  "gateway_decision": "allow | block | escalate",
-  "escalation_reason": "<reason_if_any>",
-  "audit_claim": "<what_this_record_can_prove>",
-  "audit_limitations": [
-    "does_not_prove_legal_compliance",
-    "does_not_prove_human_understanding",
-    "does_not_prove_perfect_interpretation"
-  ]
-}
-```
+The Gateway should enforce policies derived from the Constitution, verify policy traceability, and escalate or block when authority scope is unclear.
 
 ## What This Concept Tries to Prevent
 
@@ -280,11 +329,11 @@ This concept helps prevent:
 - lower-level drift from high-level human intent;
 - broad delegation without clear boundaries;
 - runtime interpretation that quietly expands authority;
-- treating execution speed as more important than responsibility preservation;
-- hiding responsibility in orchestration layers;
 - treating prompts as constitutions;
 - treating vague values as executable policies;
-- treating untestable high-level statements as sufficient governance.
+- treating untestable high-level statements as sufficient governance;
+- letting LLM agents interpret constitutional text directly during execution;
+- broken traceability between policy and human authority.
 
 ## What This Concept Does Not Claim
 
@@ -298,32 +347,36 @@ This concept does not claim that:
 - a vague constitution is sufficient governance;
 - prompts can replace policy;
 - policy can replace Human Owner responsibility;
-- RABA has solved legal or compliance responsibility;
+- Policy Integrity is redundant;
 - this is canonical RABA architecture;
-- external conceptual agreement equals approval.
+- external or multi-AI agreement equals approval.
 
 ## Recommended RABA Position
 
-This concept should be treated as:
+This concept should remain:
 
-> A discussion draft for exploring how human responsibility can move upward into high-level constitutional instruction, while AI systems receive conditional autonomy inside interpretable, testable, and auditable boundaries.
+> Discussion Draft / Non-canonical.
 
-It should not yet be treated as canonical architecture, compliance model, final schema, implementation requirement, or permission to expand AI autonomy without additional controls.
+It is promising and important, but not ready for canonical status until RABA resolves:
+
+- formal allowed action classes;
+- exact amendment path;
+- integration with Policy Integrity checks;
+- Governance Gateway schema implications;
+- how much constitutional material may be exposed to specialized governance/audit agents, if any.
 
 ## Open Questions
 
-1. What belongs in the high-level human constitution?
-2. Which instructions must remain human judgment rather than machine-readable policy?
-3. How should RABA detect incorrect runtime interpretation of high-level instructions?
-4. How much autonomy can be delegated before stronger bind-time admissibility is required?
-5. How should learning from Human Owner corrections be recorded?
-6. How should RABA prevent vague high-level values from becoming unenforceable slogans?
-7. When should the system escalate because it cannot interpret the constitution reliably?
-8. How should conflicting high-level instructions be resolved?
-9. How should the constitution evolve without governance drift?
-10. Which constitutional statements are operationally testable, partially testable, or too vague?
-11. How should RABA distinguish constitution, policy, prompt, runtime interpretation, and Gateway decision in event records?
-12. Should this layer eventually become part of the canonical RABA architecture?
+1. Should the primary name be Human Authority Constitution, Root Responsibility Constitution, or another name?
+2. How should allowed action classes be formally defined?
+3. What is the minimum schema for a constitutional clause?
+4. How should constitution_hash be generated and verified?
+5. How should Policy Integrity detect broken traceability from policy to constitution clause?
+6. Which specialized governance or audit agents may reference constitutional metadata?
+7. How should RABA prevent operational agents from interpreting constitutional text directly?
+8. What is the minimum lightweight amendment path controlled by the Human Owner?
+9. How should this concept connect to Responsibility Realization Model without becoming an umbrella for everything?
+10. Should this concept eventually be moved to a renamed file path?
 
 ## Governance Boundary
 
@@ -331,11 +384,17 @@ Multi-AI agreement is not approval.
 
 External agreement is not approval.
 
+Human Authority Constitution is not a runtime prompt.
+
+Operational agents must not interpret constitutional text directly.
+
+Policy derives from constitution; policy does not override constitution.
+
+Governance Gateway enforces policies; it does not probabilistically interpret constitutional intent.
+
 Autonomy is not responsibility transfer.
 
 A high-level constitution is not a substitute for bind-time checks.
-
-A vague constitution is not sufficient governance.
 
 A prompt is not a constitution.
 
@@ -347,8 +406,8 @@ Final architectural approval belongs to the Human Owner.
 
 Human responsibility should move upward, not disappear.
 
-AI systems may receive operational autonomy only inside high-level human-defined constitutional boundaries.
+As AI systems receive more autonomy, human authority must become more explicit, more traceable, more testable, and better protected from runtime reinterpretation.
 
-Those boundaries must be interpretable, operationally testable, and connected to policy constraints, prompts, runtime interpretation, Gateway decisions, and audit records.
+The Human Authority Constitution is the proposed human-domain source of authority from which operational policies derive. It is not a runtime instruction for AI agents.
 
-RABA should make the interpretation of those boundaries visible, testable, controllable, and auditable before autonomous actions affect the real world.
+RABA should protect the chain from human authority to policy to gateway enforcement to audit record without allowing probabilistic agents to replace Human Owner authority.
