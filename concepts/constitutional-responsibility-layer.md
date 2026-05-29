@@ -283,11 +283,17 @@ When AI autonomy increases, the Human Authority Constitution must become stronge
 
 ## Allowed Action Classes Gap
 
-This concept currently references `allowed_action_classes`, but RABA has not yet defined that sub-concept formally.
+This concept references `allowed_action_classes`.
 
-This is an open gap.
+RABA now has a non-canonical working note for Action Classes:
 
-Before this concept can move toward canonical review, RABA should define how action classes are named, scoped, versioned, and mapped to risk, authority, reversibility, and evidence requirements.
+[`docs/notes/action-classes-working-note.md`](../docs/notes/action-classes-working-note.md)
+
+However, the action-class model is not yet canonical.
+
+This remains an open stabilization gap.
+
+Before this concept can move toward canonical review, RABA must define how action classes are named, scoped, versioned, and mapped to risk, authority, reversibility, evidence requirements, Policy Integrity checks, and Governance Gateway outcomes.
 
 Open questions:
 
@@ -296,6 +302,7 @@ Open questions:
 - How are action classes versioned?
 - How are action classes linked to risk class and reversibility profile?
 - How does the Gateway detect that a runtime action belongs to an excluded action class?
+- Which action classes are required for a minimal RABA v0.1 profile?
 
 ## Relationship to Bind-Time Admissibility
 
