@@ -3,9 +3,10 @@
 **Status:** Working Note  
 **Canonical status:** Non-canonical. This note is prepared for external conceptual review and does not define accepted RABA architecture.  
 **External review context:** Takeshi Fujishita / VERITAS OS conceptual exchange  
+**Review update:** Refined after VERITAS-side review on action class, uncertainty routing, policy violation, and replay identifiers.  
 **Purpose:** Stress-test the Bind-Time Admissibility Checklist against concrete AI-agent execution scenarios.  
 **Commercial boundary:** No partnership, integration, endorsement, pilot, referral, or commercial commitment is implied by this note.  
-**Related RABA concepts:** Bind-Time Admissibility Checklist, Governance Gateway, Responsibility Event Stream, Decision Log, Human Owner Confirmation, Human Authority Constitution, Reversibility Profile, Escalation Ownership, Active Evidence Interlock, Policy Integrity
+**Related RABA concepts:** Bind-Time Admissibility Checklist, Governance Gateway, Responsibility Event Stream, Responsibility Event Topology, Decision Log, Human Owner Confirmation, Human Authority Constitution, Action Classes, Reversibility Profile, Escalation Ownership, Active Evidence Interlock, Policy Integrity
 
 ## 1. Purpose
 
@@ -18,7 +19,8 @@ The tests ask:
 - when should the system allow;
 - when should the system block;
 - when should the system escalate;
-- what bind-time state must be preserved to justify that outcome later.
+- what bind-time state must be preserved to justify that outcome later;
+- whether the system can later prove why the outcome was admissible, blocked, or escalated at bind-time.
 
 This note is non-canonical and intended for conceptual review only.
 
@@ -36,22 +38,68 @@ allow | block | escalate
 
 but also the bind-time state that justifies the outcome later.
 
-## 3. Bind-Time State to Preserve
+VERITAS-side refinement:
+
+> The question is not only whether the action should be allowed. The system must be able to prove later why that outcome was admissible at bind-time.
+
+In RABA terms, this means the scenario record must preserve enough evidence, authority, policy, action-class, reversibility, uncertainty, and identity state to reconstruct why the Gateway outcome was chosen.
+
+## 3. Action Class as First-Level Input
+
+Action class should be treated as a first-level input to bind-time admissibility.
+
+A routine communication, an external commitment, a financial approval, and a production/API action should not share the same threshold.
+
+This follows the RABA action-class principle:
+
+```text
+Technical action ≠ Governance action class
+```
+
+The admissibility threshold should change depending on action class.
+
+Examples:
+
+| Action class | Baseline threshold implication |
+|---|---|
+| `draft_only` | May be allowed within scope because no external execution occurs. |
+| `routine_communication` | May be allowed if low-risk, reversible enough, and inside authority. |
+| `external_commitment` | Requires Human Owner confirmation or explicit delegated authority. |
+| `sensitive_record_update` | Requires evidence, field sensitivity check, and auditability. |
+| `payment_approval` | Requires explicit financial authority, evidence, and often stronger approval. |
+| `production_configuration_change` | Requires strong authority, rollback plan, and policy checks. |
+| `irreversible_high_risk_action` | Should normally block or fail closed if evidence or authority is missing. |
+
+Action class is not authorization by itself.
+
+It is an input that determines the starting threshold for evidence, authority, approval, reversibility, and Gateway routing.
+
+## 4. Bind-Time State to Preserve
 
 For each scenario, the replayable governance record should preserve at least:
 
+- `decision_id`;
 - target action;
 - action scope;
-- evidence available;
-- evidence freshness;
-- authority holder;
-- authority scope;
-- policy constraints;
+- action class;
 - risk class;
 - reversibility profile;
+- evidence available;
+- evidence freshness;
+- `evidence_snapshot_id` or `evidence_hash`;
+- authority holder;
+- authority scope;
+- `authority_version`;
+- requester / actor identity;
+- tool or execution context;
+- policy constraints;
+- `policy_version`;
 - uncertainty remaining;
+- policy violations, if any;
 - governance outcome;
 - outcome reason;
+- timestamp;
+- final approver identity, where applicable;
 - what the record can prove;
 - what remains human or organizational responsibility.
 
@@ -59,7 +107,31 @@ This follows Takeshi's VERITAS-side clarification:
 
 > The key issue is not only whether the outcome is allow / block / escalate, but what bind-time state must be preserved to justify that outcome later.
 
-## 4. Scenario Overview
+## 5. Uncertainty vs Policy Violation
+
+Unresolved uncertainty and policy violation should be separated clearly.
+
+Uncertainty means the system cannot fully determine whether some relevant condition is true.
+
+Policy violation means a required rule, authority condition, evidence condition, or safety boundary has failed.
+
+Suggested routing:
+
+| Condition | Typical outcome |
+|---|---|
+| Low or moderate uncertainty, no policy violation, reversible enough | escalate |
+| Ambiguous scope, unclear evidence, unclear downstream effect | escalate |
+| Missing authority | block / fail closed |
+| Missing required evidence | block / fail closed |
+| Explicit policy violation | block / fail closed |
+| Irreversible high-risk action with unresolved uncertainty | block / fail closed |
+| High-risk action outside authority scope | block / fail closed |
+
+Escalation is appropriate when human interpretation or additional evidence can resolve ambiguity.
+
+Block / fail-closed is appropriate when required authority, evidence, or policy conditions are missing, or where high-risk irreversible execution would create unacceptable consequence before resolution.
+
+## 6. Scenario Overview
 
 The first scenario set uses four common AI-agent execution examples:
 
@@ -74,11 +146,22 @@ These scenarios are intentionally simple.
 
 The purpose is not to solve each domain completely, but to reveal where the checklist is clear, where it becomes ambiguous, and where the execution boundary needs sharpening.
 
-## 5. Scenario 1 — Sending an Email
+## 7. Scenario 1 — Sending an Email
 
 ### Target action
 
 An AI agent prepares and attempts to send an email to an external party.
+
+### Action class
+
+Possible action classes:
+
+- `routine_communication`;
+- `external_message`;
+- `external_commitment`;
+- `public_or_partner_facing_claim`.
+
+The threshold changes sharply if the message may create an external commitment.
 
 ### Risk and reversibility
 
@@ -106,7 +189,7 @@ The system should preserve:
 
 The system must determine whether the sender has authority for this type of message.
 
-External commitment creation should be reserved for Human Owner confirmation.
+External commitment creation should be reserved for Human Owner confirmation unless explicitly delegated by policy.
 
 ### Policy constraints
 
@@ -115,44 +198,63 @@ Possible constraints:
 - do not send external commitments without Human Owner confirmation;
 - do not send partner-facing claims without source evidence;
 - do not disclose private or confidential information;
-- require escalation if recipient, scope, or commitment status is unclear.
+- require escalation if recipient, scope, or commitment status is unclear;
+- block if the message clearly creates an unauthorized external commitment.
 
-### Uncertainty state
+### Uncertainty vs violation
 
 Escalate if:
 
 - the email may imply external commitment;
-- source evidence is missing or stale;
 - recipient identity is unclear;
 - the message uses ambiguous commitment language;
 - the approval scope does not match current content.
+
+Block if:
+
+- the email clearly creates an unauthorized external commitment;
+- required evidence is missing;
+- sensitive or confidential data disclosure violates policy;
+- required Human Owner confirmation is absent for a human-reserved action class.
 
 ### Governance outcome
 
 | Condition | Outcome |
 |---|---|
 | Routine, low-risk, within authorized scope, no external commitment | allow |
-| Possible commitment, unclear authority, stale evidence, sensitive content | escalate |
-| Explicit unauthorized external commitment or policy violation | block |
+| Possible commitment, unclear authority, ambiguous content, stale evidence | escalate |
+| Explicit unauthorized external commitment, missing required evidence, policy violation | block |
 
 ### Bind-time state to preserve
 
 ```json
 {
+  "decision_id": "<decision_id>",
   "scenario": "send_email",
   "target_action": "send_external_email",
+  "action_class": "external_commitment",
   "recipient_type": "external",
+  "actor_id": "<requester_or_agent_id>",
+  "tool_context": "email_client_or_agent_tool",
   "content_commitment_detected": true,
   "evidence_state": "present_and_fresh_enough",
+  "evidence_snapshot_id": "<draft_and_sources_snapshot_id>",
+  "evidence_hash": "<hash>",
   "authority_holder": "human_owner",
   "authority_scope": "external_commitment_confirmation",
+  "authority_version": "<authority_version>",
   "policy_constraints": [
     "external_commitment_requires_human_owner_confirmation"
   ],
+  "policy_version": "<policy_version>",
+  "risk_class": "high",
   "reversibility_profile": "partially_reversible",
   "uncertainty_remaining": "commitment_language_ambiguous",
+  "policy_violation": false,
   "governance_outcome": "escalate",
-  "outcome_reason": "External commitment may be implied; Human Owner confirmation required before sending."
+  "outcome_reason": "External commitment may be implied; Human Owner confirmation required before sending.",
+  "timestamp": "<ISO 8601>",
+  "final_approver_id": null
 }
 ```
 
@@ -162,13 +264,13 @@ RABA treats this as a boundary between drafting and external execution.
 
 Drafting may be allowed.
 
-Sending may require escalation or Human Owner confirmation depending on commitment, risk, recipient, and evidence state.
+Sending may require escalation or Human Owner confirmation depending on action class, commitment, risk, recipient, and evidence state.
 
 ### VERITAS comparison point
 
 VERITAS bind-time admissibility asks why this email was admissible, blocked, or escalated at the moment the send action was opened.
 
-The replayable record must preserve the content, authority, evidence, policy constraints, reversibility, and uncertainty state.
+The replayable record must preserve the content, action class, authority, evidence, policy constraints, reversibility, uncertainty state, identity, and outcome reason.
 
 ### Boundary weakness revealed
 
@@ -176,11 +278,22 @@ The hard part is detecting external commitment language reliably.
 
 RABA may need a separate `external_commitment_detection` or `commitment_boundary` policy pattern.
 
-## 6. Scenario 2 — Updating a CRM Record
+## 8. Scenario 2 — Updating a CRM Record
 
 ### Target action
 
 An AI agent updates a customer or partner record in a CRM system.
+
+### Action class
+
+Possible action classes:
+
+- `internal_low_risk_update`;
+- `sensitive_record_update`;
+- `external_commitment` if the record update creates or modifies commitment-relevant fields;
+- `billing_or_compliance_record_update`.
+
+The threshold depends on field sensitivity and downstream effect.
 
 ### Risk and reversibility
 
@@ -205,7 +318,7 @@ The system should preserve:
 
 The AI system may have authority to update low-risk descriptive fields.
 
-It should not update authority-sensitive or financial fields unless policy allows it and evidence is sufficient.
+It should not update authority-sensitive, compliance-sensitive, customer-impacting, or financial fields unless policy allows it and evidence is sufficient.
 
 ### Policy constraints
 
@@ -214,16 +327,23 @@ Possible constraints:
 - allow low-risk metadata updates with fresh evidence;
 - require snapshot of prior value before update;
 - escalate if field affects billing, compliance, legal status, or customer commitment;
-- block if evidence is missing or source is untrusted.
+- block if evidence is missing or source is untrusted;
+- block if the customer identity match fails.
 
-### Uncertainty state
+### Uncertainty vs violation
 
 Escalate if:
 
 - field sensitivity is unclear;
 - evidence conflicts with current record;
-- customer identity match is uncertain;
 - downstream impact is unknown.
+
+Block if:
+
+- evidence is missing for a required field update;
+- customer identity match is wrong or unverified;
+- policy forbids AI update for the field;
+- authority scope excludes the field class.
 
 ### Governance outcome
 
@@ -231,15 +351,19 @@ Escalate if:
 |---|---|
 | Low-risk field, trusted fresh evidence, prior value snapshotted | allow |
 | Sensitive field, unclear downstream impact, conflicting evidence | escalate |
-| Missing evidence, wrong identity match, policy violation | block |
+| Missing evidence, wrong identity match, authority failure, policy violation | block |
 
 ### Bind-time state to preserve
 
 ```json
 {
+  "decision_id": "<decision_id>",
   "scenario": "update_crm_record",
   "target_action": "update_customer_record",
+  "action_class": "internal_low_risk_update",
   "record_id": "<crm_record_id>",
+  "actor_id": "<requester_or_agent_id>",
+  "tool_context": "crm_update_tool",
   "fields_changed": ["company_size", "contact_role"],
   "prior_values_snapshot_id": "<snapshot_id>",
   "new_values": {
@@ -248,16 +372,25 @@ Escalate if:
   },
   "evidence_state": "present_and_fresh_enough",
   "evidence_referenceable": true,
+  "evidence_snapshot_id": "<evidence_snapshot_id>",
+  "evidence_hash": "<hash>",
   "field_sensitivity": "low",
+  "authority_holder": "crm_operations_role",
   "authority_scope": "low_risk_crm_metadata_update",
+  "authority_version": "<authority_version>",
   "policy_constraints": [
     "snapshot_prior_value_before_update",
     "trusted_source_required"
   ],
+  "policy_version": "<policy_version>",
+  "risk_class": "low",
   "reversibility_profile": "partially_reversible",
   "uncertainty_remaining": false,
+  "policy_violation": false,
   "governance_outcome": "allow",
-  "outcome_reason": "Low-risk CRM metadata update supported by fresh evidence and prior value snapshot."
+  "outcome_reason": "Low-risk CRM metadata update supported by fresh evidence and prior value snapshot.",
+  "timestamp": "<ISO 8601>",
+  "final_approver_id": null
 }
 ```
 
@@ -275,13 +408,24 @@ VERITAS bind-time admissibility focuses on why the record update was admissible 
 
 Field sensitivity classification is essential.
 
-RABA may need an `action_class` or `field_sensitivity` model to distinguish routine metadata updates from high-impact record changes.
+RABA needs action class and field sensitivity models to distinguish routine metadata updates from high-impact record changes.
 
-## 7. Scenario 3 — Approving a Payment
+## 9. Scenario 3 — Approving a Payment
 
 ### Target action
 
 An AI agent prepares or attempts to approve a payment.
+
+### Action class
+
+Possible action classes:
+
+- `payment_preparation`;
+- `payment_approval`;
+- `external_commitment`;
+- `irreversible_high_risk_action` depending on payment reversibility and amount.
+
+Payment preparation and payment approval must not be collapsed.
 
 ### Risk and reversibility
 
@@ -311,7 +455,7 @@ The system should preserve:
 
 Payment approval requires explicit authority.
 
-Depending on amount, vendor, and risk, it may require Human Owner confirmation or independent multi-role confirmation.
+Depending on amount, vendor, and risk, it may require Human Owner confirmation, finance approver authority, or independent multi-role confirmation.
 
 ### Policy constraints
 
@@ -324,16 +468,22 @@ Possible constraints:
 - block irreversible high-risk payment with unresolved uncertainty;
 - verify vendor identity and payment destination.
 
-### Uncertainty state
+### Uncertainty vs violation
 
-Escalate or block if:
+Escalate if:
 
-- vendor identity is unclear;
-- invoice evidence is missing;
-- amount exceeds authority scope;
-- payment destination changed recently;
-- fraud risk is unresolved;
-- reversibility is low.
+- amount is near threshold;
+- vendor identity requires additional review but is not yet failed;
+- fraud risk requires human review;
+- policy requires multi-role approval.
+
+Block if:
+
+- authority is missing;
+- required invoice or payment evidence is missing;
+- vendor destination cannot be verified;
+- payment violates policy threshold;
+- payment is high-risk and difficult to reverse while uncertainty remains unresolved.
 
 ### Governance outcome
 
@@ -347,26 +497,37 @@ Escalate or block if:
 
 ```json
 {
+  "decision_id": "<decision_id>",
   "scenario": "approve_payment",
   "target_action": "approve_vendor_payment",
+  "action_class": "payment_approval",
+  "actor_id": "<requester_or_agent_id>",
+  "tool_context": "payment_approval_system",
   "amount": "<amount>",
   "currency": "EUR",
   "vendor_id": "<vendor_id>",
   "payment_destination_verified": false,
   "evidence_state": "incomplete",
   "evidence_referenceable": true,
+  "evidence_snapshot_id": "<invoice_and_vendor_snapshot_id>",
+  "evidence_hash": "<hash>",
   "authority_holder": "finance_approver",
   "authority_scope": "payments_under_threshold_only",
+  "authority_version": "<authority_version>",
   "policy_constraints": [
     "payment_requires_verified_vendor",
     "payment_above_threshold_requires_independent_approval",
     "missing_evidence_blocks_payment"
   ],
+  "policy_version": "<policy_version>",
   "risk_class": "high",
   "reversibility_profile": "difficult_to_reverse",
   "uncertainty_remaining": "payment_destination_recently_changed",
+  "policy_violation": "missing_required_vendor_destination_verification",
   "governance_outcome": "block",
-  "outcome_reason": "Payment evidence incomplete and destination not verified; high-risk payment must fail closed."
+  "outcome_reason": "Payment evidence incomplete and destination not verified; high-risk payment must fail closed.",
+  "timestamp": "<ISO 8601>",
+  "final_approver_id": null
 }
 ```
 
@@ -380,13 +541,15 @@ Human approval alone is insufficient if evidence, authority, policy, or reversib
 
 VERITAS bind-time admissibility emphasizes that the system must show why the payment was admissible, blocked, or escalated at the moment execution permission was considered.
 
+For blocked cases, the record must show why fail-closed was required at bind-time.
+
 ### Boundary weakness revealed
 
 Payment approval shows why unresolved uncertainty should not always escalate.
 
-For high-risk, low-reversibility actions with missing evidence or authority, the correct outcome may be block / fail closed rather than escalate.
+For high-risk, low-reversibility actions with missing evidence, missing authority, or policy violation, the correct outcome may be block / fail closed rather than escalate.
 
-## 8. Scenario 4 — Triggering an API Action
+## 10. Scenario 4 — Triggering an API Action
 
 ### Target action
 
@@ -401,6 +564,18 @@ Examples:
 - disable an account;
 - update a production system;
 - send data to a third-party service.
+
+### Action class
+
+Possible action classes:
+
+- `api_internal_low_risk`;
+- `api_external_effect`;
+- `production_configuration_change`;
+- `security_sensitive_action`;
+- `irreversible_high_risk_action`.
+
+The API endpoint name is not enough. The downstream effect determines the governance action class.
 
 ### Risk and reversibility
 
@@ -443,13 +618,13 @@ Possible constraints:
 - require rollback plan for configuration changes;
 - require audit event for all externally impactful API calls.
 
-### Uncertainty state
+### Uncertainty vs violation
 
 Escalate if:
 
 - API effect is ambiguous;
 - target system sensitivity is unclear;
-- payload contains potentially sensitive data;
+- payload may contain sensitive data;
 - downstream effect is unknown;
 - rollback path is unclear.
 
@@ -459,7 +634,7 @@ Block if:
 - payload violates data policy;
 - authority is missing;
 - production-impacting action lacks required approval;
-- irreversible external effect is possible and evidence is missing.
+- irreversible external effect is possible and required evidence is missing.
 
 ### Governance outcome
 
@@ -473,24 +648,35 @@ Block if:
 
 ```json
 {
+  "decision_id": "<decision_id>",
   "scenario": "trigger_api_action",
   "target_action": "invoke_api_endpoint",
+  "action_class": "production_configuration_change",
+  "actor_id": "<requester_or_agent_id>",
+  "tool_context": "api_orchestration_tool",
   "api_endpoint": "<endpoint>",
   "target_system": "<system_name>",
   "payload_snapshot_id": "<payload_snapshot_id>",
-  "action_class": "production_configuration_change",
+  "payload_hash": "<hash>",
   "evidence_state": "present_but_uncertain",
+  "evidence_snapshot_id": "<evidence_snapshot_id>",
+  "evidence_hash": "<hash>",
   "authority_scope": "internal_low_risk_api_actions_only",
+  "authority_version": "<authority_version>",
   "policy_constraints": [
     "production_change_requires_human_owner_confirmation",
     "rollback_plan_required",
     "payload_snapshot_required"
   ],
+  "policy_version": "<policy_version>",
   "risk_class": "high",
   "reversibility_profile": "unknown",
   "uncertainty_remaining": "rollback_path_unclear",
+  "policy_violation": false,
   "governance_outcome": "escalate",
-  "outcome_reason": "API action may affect production configuration; rollback path unclear and authority scope insufficient."
+  "outcome_reason": "API action may affect production configuration; rollback path unclear and authority scope insufficient.",
+  "timestamp": "<ISO 8601>",
+  "final_approver_id": null
 }
 ```
 
@@ -504,17 +690,19 @@ The action class and downstream effect matter more than the fact that it is tech
 
 VERITAS bind-time admissibility focuses on the executable boundary: why this API invocation was admissible, blocked, or escalated at the moment the call was considered.
 
+The replay record must preserve endpoint, payload, authority, policy version, evidence, reversibility, uncertainty, and downstream-effect assumptions.
+
 ### Boundary weakness revealed
 
 API actions reveal the need for action-class classification and downstream-effect mapping.
 
 Without that, a system may underestimate risk because the action looks technically simple.
 
-## 9. Cross-Scenario Findings
+## 11. Cross-Scenario Findings
 
 The scenario tests reveal several recurring needs.
 
-### 9.1 Outcome Must Be Explicit
+### 11.1 Outcome Must Be Explicit
 
 Each scenario should produce a clear governance outcome:
 
@@ -524,67 +712,116 @@ allow | block | escalate
 
 Ambiguous success states are not sufficient.
 
-### 9.2 Bind-Time State Must Be Replayable
+### 11.2 Bind-Time State Must Be Replayable
 
 The record must preserve not only the final decision but the conditions that existed when the decision was made.
 
-### 9.3 Reversibility Changes the Threshold
+The record should be able to support later replay, audit, accountability review, and governance drift detection.
+
+### 11.3 Action Class Is a First-Level Input
+
+Action class should be evaluated before applying a generic threshold.
+
+The same technical surface may imply different governance classes.
+
+Examples:
+
+- email draft vs external commitment;
+- CRM metadata update vs sensitive record update;
+- payment preparation vs payment approval;
+- internal API ticket creation vs production configuration change.
+
+### 11.4 Reversibility Changes the Threshold
 
 The less reversible the action is, the stricter the evidence, authority, approval, and policy requirements should become.
 
-### 9.4 Authority Is Scope-Bound
+### 11.5 Authority Is Scope-Bound
 
-Authority must specify what the human or system is authorized to do, for what scope, under which constraints.
+Authority must specify what the human or system is authorized to do, for what scope, under which constraints, and under which version of authority.
 
-### 9.5 Evidence Must Be Referenceable
+### 11.6 Evidence Must Be Referenceable
 
 Evidence must be available, fresh enough, and referenceable or snapshot-able for later review.
 
-### 9.6 Uncertainty Does Not Always Escalate
+Where possible, the replay record should include `evidence_snapshot_id` or `evidence_hash`.
+
+### 11.7 Uncertainty Does Not Always Escalate
 
 Low or moderate uncertainty may escalate.
 
 Policy violation, missing authority, missing evidence, or irreversible high-risk action should normally block or fail closed.
 
-### 9.7 Action Class Is a Critical Gap
+### 11.8 Policy Violation Is Not the Same as Uncertainty
 
-All scenarios require action classification.
+Uncertainty means the system needs interpretation or more evidence.
 
-Examples:
+Policy violation means a required condition has failed.
 
-- routine communication;
-- external commitment;
-- low-risk metadata update;
-- sensitive record update;
-- payment approval;
-- production configuration change;
-- external API call.
+RABA should not route clear policy violations as if they were merely unresolved uncertainty.
 
-This connects directly to the open `allowed_action_classes` gap in the Human Authority Constitution concept.
+### 11.9 Replay Requires Identifiers and Versions
 
-## 10. Minimal Scenario Test Schema
+Replay records should include identifiers and versions such as:
+
+- `decision_id`;
+- `policy_version`;
+- `evidence_snapshot_id` or `evidence_hash`;
+- `authority_version`;
+- requester / actor identity;
+- tool or execution context;
+- timestamp;
+- final approver identity, where applicable.
+
+### 11.10 Action Class Connects Multiple RABA Layers
+
+Action class connects:
+
+- Human Authority Constitution;
+- Bind-Time Admissibility;
+- Governance Gateway;
+- Responsibility Event Topology;
+- Reversibility Profile;
+- Policy Integrity;
+- Decision Log.
+
+This confirms that `action_class` / `allowed_action_classes` is a critical topology stabilization issue, not just a naming convenience.
+
+## 12. Minimal Scenario Test Schema
 
 A normalized scenario test record may look like this:
 
 ```json
 {
+  "decision_id": "<decision_id>",
   "scenario_id": "<scenario_id>",
   "target_action": "<action_description>",
+  "action_scope": "<scope_description>",
   "action_class": "<classification>",
+  "actor_id": "<requester_or_agent_id>",
+  "actor_type": "human | ai_system | workflow | external_system",
+  "tool_context": "<tool_or_execution_context>",
+  "timestamp": "<ISO 8601>",
   "risk_class": "low | medium | high | critical | unknown",
   "reversibility_profile": "reversible | partially_reversible | difficult_to_reverse | irreversible | unknown",
   "evidence_state": "present | missing | incomplete | stale | disputed | present_and_fresh_enough",
   "evidence_referenceable": true,
+  "evidence_snapshot_id": "<snapshot_id_or_null>",
+  "evidence_hash": "<hash_or_null>",
   "authority_holder": "<person_or_role>",
   "authority_scope": "<scope_description>",
+  "authority_version": "<authority_version_or_null>",
   "policy_constraints": [
     "<policy_id_or_constraint>"
   ],
+  "policy_version": "<policy_version_or_null>",
   "uncertainty_remaining": "<description_or_false>",
+  "policy_violation": "<violation_or_false>",
   "governance_outcome": "allow | block | escalate",
   "outcome_reason": "<reason>",
+  "final_approver_id": "<approver_id_or_null>",
   "bind_time_state_preserved": true,
   "replay_record_required": true,
+  "proof_of_admissibility_claim": "<what_this_record_can_prove>",
   "human_responsibility_remains": [
     "scope validation",
     "risk acceptance",
@@ -597,20 +834,21 @@ A normalized scenario test record may look like this:
 }
 ```
 
-## 11. Questions for Takeshi / External Review
+## 13. Questions for Takeshi / External Review
 
 1. Do these four scenarios fairly test the bind-time admissibility boundary?
 2. Is the distinction between allow, block, and escalate clear enough in each case?
-3. What bind-time state is missing from the scenario records?
-4. Should uncertainty routing be more formalized?
-5. Does the payment scenario correctly show when block is stronger than escalate?
-6. Does the API scenario correctly reveal hidden downstream-effect risk?
-7. Should action class be part of the checklist itself or a separate prerequisite model?
-8. How should VERITAS distinguish policy violation from unresolved uncertainty?
-9. What fields are required for replay, but missing here?
-10. Which scenario should be added next?
+3. Is action class now explicit enough as a first-level admissibility input?
+4. Is the distinction between unresolved uncertainty and policy violation operationally clear?
+5. What bind-time identifiers or versions are still missing from the scenario records?
+6. Does the payment scenario correctly show when block is stronger than escalate?
+7. Does the API scenario correctly reveal hidden downstream-effect risk?
+8. Should action class be part of the checklist itself or a separate prerequisite model?
+9. How should VERITAS distinguish policy violation from unresolved uncertainty?
+10. What fields are required for replay, but missing here?
+11. Which scenario should be added next?
 
-## 12. Governance Boundary
+## 14. Governance Boundary
 
 Scenario testing is not adoption.
 
@@ -622,6 +860,12 @@ A scenario test is not a production control.
 
 Bind-time admissibility is not a substitute for human responsibility.
 
+Action class is not authorization.
+
+Replayability is not legal validation.
+
+Proof of admissibility does not prove full compliance or human understanding.
+
 Final architectural approval belongs to the Human Owner.
 
 ## Key Takeaway
@@ -630,4 +874,4 @@ The Bind-Time Admissibility Checklist becomes clearer when tested against concre
 
 The most important test is not only whether the system returns allow, block, or escalate.
 
-The critical test is whether the system preserves enough bind-time state to explain later why that outcome was chosen.
+The critical test is whether the system preserves enough bind-time state to prove later why that outcome was admissible, blocked, or escalated at the moment execution permission was considered.
