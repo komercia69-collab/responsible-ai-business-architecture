@@ -22,6 +22,7 @@ Each problem should link to:
 | Problem | Working question | Current status | Related RABA area |
 |---|---|---|---|
 | AI Governance Speed Gap | How can governance synchronize AI development speed with slower legal, institutional and social adaptation? | Open | Responsibility Synchronization Layer |
+| Human-AI Autonomy and Control Tension | How can AI autonomy create speed without dissolving human responsibility? | Open / Inquiry created | [`human-ai-autonomy-control-tension.md`](human-ai-autonomy-control-tension.md) |
 | Human-AI Asymmetry of Influence | How can RABA protect human judgment from being overpowered by globally scaled AI signals? | Concept draft exists | Social Responsibility Layer |
 | Agent Identity Without Legal Personhood | How can AI agents have technical identity and permissions without receiving legal authority? | Concept draft exists | Agent Identity and Authority |
 | Meaningful Human Oversight | How can organizations distinguish real human oversight from checkbox or rubber-stamp approval? | Active RABA core issue | Active Confirmation Interlock |
@@ -39,6 +40,7 @@ Each problem should link to:
 | Resolution attempt | RABA has a proposed approach, not yet accepted |
 | Concept draft exists | A concept document exists but is non-canonical |
 | Governance draft exists | A governance document exists but is non-canonical |
+| Open / Inquiry created | Problem identified and structured inquiry file exists |
 | Deferred | Preserved for later review, not active |
 | Accepted | Human Owner approved the result into project architecture |
 | Rejected | Human Owner rejected the proposed resolution |
