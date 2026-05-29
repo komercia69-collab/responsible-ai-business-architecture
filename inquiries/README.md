@@ -23,7 +23,10 @@ RABA uses this area to:
 - collect scientific and research recommendations;
 - preserve external expert input from LinkedIn, GitHub discussions or direct communication;
 - document resolution attempts;
-- distinguish unresolved inquiry from accepted architecture.
+- distinguish unresolved inquiry from accepted architecture;
+- define how community discussion input may enter the project without becoming approval.
+
+For community discussion intake rules, see [`community-discussion-intake.md`](community-discussion-intake.md).
 
 ## Principle
 
@@ -64,11 +67,24 @@ Concept draft or governance draft
 Decision Log only if accepted by Human Owner
 ```
 
+Community discussion input follows the same boundary discipline:
+
+```text
+GitHub Discussion
+  ↓
+Human Owner / Integrator triage
+  ↓
+inquiry, review note, issue, draft, or backlog item
+  ↓
+Human Owner decision if adoption is proposed
+```
+
 ## Directory Structure
 
 ```text
 inquiries/
 ├── README.md
+├── community-discussion-intake.md
 ├── open-problems-index.md
 ├── legal-and-standards/
 ├── research-notes/
@@ -97,3 +113,5 @@ An inquiry can influence canonical RABA architecture only after:
 3. external inputs are separated from RABA interpretation;
 4. a resolution attempt is documented;
 5. the Human Owner explicitly approves adoption.
+
+Community discussion can inform any of these steps, but it does not replace Human Owner approval.
