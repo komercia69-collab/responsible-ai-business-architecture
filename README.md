@@ -217,6 +217,26 @@ The key implementation documents are:
 
 ---
 
+## Architecture Notes / Topology Stabilization
+
+RABA is currently stabilizing the topology between core concepts before expanding the architecture further.
+
+Start with the architecture notes index:
+
+- [`docs/architecture/README.md`](docs/architecture/README.md)
+
+The current topology-stabilization notes are:
+
+- [`docs/architecture/semantic-dependency-map.md`](docs/architecture/semantic-dependency-map.md) — maps authority sources, policies, runtime checks, Gateway outcomes, event records and audit outputs.
+- [`docs/architecture/responsibility-event-topology.md`](docs/architecture/responsibility-event-topology.md) — normalizes responsibility-relevant events, replay requirements and state-transition integrity.
+- [`docs/notes/action-classes-working-note.md`](docs/notes/action-classes-working-note.md) — defines a first working model for action classes and allowed action classes.
+
+These notes are non-canonical working documents.
+
+They help protect the framework from semantic expansion outrunning topology stabilization.
+
+---
+
 ## For Pilot Partners
 
 If your organization is exploring AI in a real workflow, the recommended first step is narrow:
@@ -243,7 +263,7 @@ For a detailed file-by-file navigation map, see [`docs/repository-map.md`](docs/
 |---|---|---|
 | **Orientation** | [`docs/this-project-in-3-minutes.md`](docs/this-project-in-3-minutes.md), [`docs/start-here-by-role.md`](docs/start-here-by-role.md), [`docs/60-minute-project-path.md`](docs/60-minute-project-path.md), [`docs/core-concepts-bundle.md`](docs/core-concepts-bundle.md) | Understand the project quickly and choose a practical route |
 | **Core Specification** | [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md), [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md), [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md), [`concepts/policy-integrity.md`](concepts/policy-integrity.md), [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-agentic-bi.md), [`examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md), [`docs/approval-state-specification.md`](docs/approval-state-specification.md), [`docs/decision-log-schema.md`](docs/decision-log-schema.md), [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md) | Understand operational responsibility, governed speed, speed protection, policy integrity, the state model, accountability record and gateway control point |
-| **Governance Architecture** | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md), [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md), [`concepts/agent-identity-and-authority.md`](concepts/agent-identity-and-authority.md) | Map responsibility, action boundaries, gateways, delegated authority, non-human identity and MCP tool execution |
+| **Governance Architecture** | [`architecture/responsibility-layer-for-agentic-ai-architecture.md`](architecture/responsibility-layer-for-agentic-ai-architecture.md), [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md), [`concepts/agent-identity-and-authority.md`](concepts/agent-identity-and-authority.md), [`docs/architecture/README.md`](docs/architecture/README.md) | Map responsibility, action boundaries, gateways, delegated authority, non-human identity, MCP tool execution and topology stabilization |
 | **Responsibility Interface & Implementation** | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md) | Make responsibility visible in interfaces and translate accountability into events |
 | **Regulatory Mapping & Review** | [`docs/mapping/eu-ai-act-raba-mapping.md`](docs/mapping/eu-ai-act-raba-mapping.md), [`docs/mapping/nist-ai-rmf-raba-mapping.md`](docs/mapping/nist-ai-rmf-raba-mapping.md), [`checklists/responsibility-architecture-review.md`](checklists/responsibility-architecture-review.md) | Explore compliance-readiness mappings and pre-deployment responsibility architecture review without replacing legal, privacy or security functions |
 | **Open Problems & Sources** | [`inquiries/README.md`](inquiries/README.md), [`inquiries/open-problems-index.md`](inquiries/open-problems-index.md) | Track unresolved questions, legal and standards sources, research notes, external inputs and resolution attempts |
