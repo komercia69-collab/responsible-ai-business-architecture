@@ -142,7 +142,59 @@ Community members do not gain authority to:
 
 ---
 
-## 8. Relationship to `inquiries/`
+## 8. Contribution Format and Size Limits
+
+Community contributions should be concise, structured, and easy for other participants to read and respond to.
+
+Suggested limits:
+
+| Contribution type | Suggested limit |
+|---|---|
+| Main discussion post | 800–1,200 words |
+| Comment or reply | 300–500 words |
+| Images or screenshots | Maximum 3 per comment |
+| External links | Include only directly relevant links |
+| Large documents | Link or summarize; do not paste full documents into the thread |
+
+Suggested structure for a useful contribution:
+
+1. Problem view — how you understand the issue.
+2. Main risk — what could fail or drift.
+3. Proposed direction — what might help.
+4. Limitations — where your proposal may not work.
+5. Example — optional, if it clarifies the point.
+
+Discussion rule:
+
+```text
+One comment = one main idea, objection, example, or proposed solution.
+```
+
+Images should be used only when they clarify the point.
+
+Each image should include a short explanation of what it shows and why it matters.
+
+Avoid:
+
+- image dumps without explanation;
+- very long unstructured essays;
+- multiple unrelated ideas in one comment;
+- repeated comments that try to create pressure through volume;
+- pasting full documents when a summary and link would be clearer.
+
+RABA boundary:
+
+```text
+Volume does not equal authority.
+Longer comments do not carry more architectural weight.
+Repeated comments do not create consensus or approval.
+```
+
+Discussion input may be summarized, reformatted, or split before being preserved in `inquiries/`, `docs/reviews/`, issues, drafts, or decision logs.
+
+---
+
+## 9. Relationship to `inquiries/`
 
 The `inquiries/` directory is the structured place for open problems and unresolved questions.
 
@@ -160,7 +212,7 @@ A good inquiry should include:
 
 ---
 
-## 9. Relationship to `docs/reviews/`
+## 10. Relationship to `docs/reviews/`
 
 If a community contribution is a meaningful structured critique, comparison, or expert review, it may be preserved under `docs/reviews/`.
 
@@ -175,7 +227,7 @@ Not approval
 
 ---
 
-## 10. Relationship to `decision-log/`
+## 11. Relationship to `decision-log/`
 
 The `decision-log/` directory records decisions, not raw discussions.
 
@@ -192,7 +244,7 @@ Decision Log entries should preserve:
 
 ---
 
-## 11. Minimum Moderation Principle
+## 12. Minimum Moderation Principle
 
 RABA should welcome critique without allowing discussion noise to become architectural drift.
 
@@ -208,7 +260,7 @@ This protects both contributors and the project.
 
 ---
 
-## 12. What This Protocol Does Not Claim
+## 13. What This Protocol Does Not Claim
 
 This protocol does not claim that:
 
@@ -218,11 +270,14 @@ This protocol does not claim that:
 - external experts can approve RABA canon;
 - discussion replaces Human Owner confirmation;
 - a discussion thread is a decision-log entry;
-- a popular suggestion becomes architecture.
+- a popular suggestion becomes architecture;
+- longer comments carry more authority;
+- repeated comments create consensus;
+- screenshots or images replace structured explanation.
 
 ---
 
-## 13. Governance Boundary
+## 14. Governance Boundary
 
 Community discussion is not adoption.
 
@@ -231,6 +286,8 @@ Community agreement is not approval.
 External review is not final architectural approval.
 
 GitHub Discussions are input channels, not decision channels.
+
+Contribution volume is not authority.
 
 Multi-AI agreement is not approval.
 
