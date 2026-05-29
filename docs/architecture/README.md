@@ -16,11 +16,7 @@ The purpose of this index is to help readers understand which architecture notes
 
 ### 1. Semantic Dependency Map
 
-File:
-
-```text
-docs/architecture/semantic-dependency-map.md
-```
+File: [`docs/architecture/semantic-dependency-map.md`](semantic-dependency-map.md)
 
 Purpose:
 
@@ -43,11 +39,7 @@ Read this first because it defines the semantic topology that other notes should
 
 ### 2. Responsibility Event Topology
 
-File:
-
-```text
-docs/architecture/responsibility-event-topology.md
-```
+File: [`docs/architecture/responsibility-event-topology.md`](responsibility-event-topology.md)
 
 Purpose:
 
@@ -63,11 +55,7 @@ This note helps normalize replay, audit consistency, state-transition integrity,
 
 ### 3. Action Classes Working Note
 
-File:
-
-```text
-docs/notes/action-classes-working-note.md
-```
+File: [`docs/notes/action-classes-working-note.md`](../notes/action-classes-working-note.md)
 
 Purpose:
 
@@ -85,11 +73,7 @@ This note supports Human Authority Constitution, Bind-Time Admissibility, Govern
 
 ### Bind-Time Admissibility Checklist
 
-File:
-
-```text
-docs/notes/bind-time-admissibility-checklist.md
-```
+File: [`docs/notes/bind-time-admissibility-checklist.md`](../notes/bind-time-admissibility-checklist.md)
 
 Purpose:
 
@@ -97,11 +81,7 @@ Defines what must be true at bind-time before an AI-agent action is allowed to p
 
 ### Bind-Time Admissibility Scenario Tests
 
-File:
-
-```text
-docs/notes/bind-time-admissibility-scenario-tests.md
-```
+File: [`docs/notes/bind-time-admissibility-scenario-tests.md`](../notes/bind-time-admissibility-scenario-tests.md)
 
 Purpose:
 
@@ -114,11 +94,7 @@ Tests the bind-time admissibility checklist against concrete execution scenarios
 
 ### RABA for Leadership and Organizational Responsibility
 
-File:
-
-```text
-docs/notes/raba-leadership-responsibility-one-pager.md
-```
+File: [`docs/notes/raba-leadership-responsibility-one-pager.md`](../notes/raba-leadership-responsibility-one-pager.md)
 
 Purpose:
 
@@ -136,11 +112,7 @@ Who remains responsible after consequences?
 
 ### Human Authority Constitution
 
-File:
-
-```text
-concepts/constitutional-responsibility-layer.md
-```
+File: [`concepts/constitutional-responsibility-layer.md`](../../concepts/constitutional-responsibility-layer.md)
 
 Current internal title:
 
@@ -163,11 +135,7 @@ Operational agents must not interpret constitutional text directly.
 
 ### Davorin Popović Structural Topology Review
 
-File:
-
-```text
-docs/reviews/davorin-popovic-structural-topology-review.md
-```
+File: [`docs/reviews/davorin-popovic-structural-topology-review.md`](../reviews/davorin-popovic-structural-topology-review.md)
 
 Purpose:
 
@@ -183,10 +151,8 @@ semantic expansion outrunning topology stabilization
 
 Relevant files include:
 
-```text
-docs/notes/bind-time-admissibility-checklist.md
-docs/notes/bind-time-admissibility-scenario-tests.md
-```
+- [`docs/notes/bind-time-admissibility-checklist.md`](../notes/bind-time-admissibility-checklist.md)
+- [`docs/notes/bind-time-admissibility-scenario-tests.md`](../notes/bind-time-admissibility-scenario-tests.md)
 
 Purpose:
 
