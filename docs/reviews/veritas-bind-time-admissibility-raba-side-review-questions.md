@@ -333,11 +333,59 @@ It is a RABA-side pressure-test list of fields that may be useful to compare aga
 
 ---
 
-## 6. Scenario Questions
+## 6. VERITAS Scope Mapping
+
+This section maps RABA-side review areas into proposed scope categories for VERITAS-side interpretation.
+
+The purpose is to separate what may belong directly inside the VERITAS execution boundary from what may function as adjacent organizational, legal, or responsibility context.
+
+This mapping is provisional and external. It does not define VERITAS OS and does not create adoption or integration.
+
+| Area | Suggested scope | Reason |
+|---|---|---|
+| Action class | Inside VERITAS bind-time admissibility | Action class changes the admissibility threshold and should be a first-level execution-boundary input. |
+| Authority scope | Inside VERITAS bind-time admissibility | Execution cannot be admissible if the actor lacks authority for the requested action scope. |
+| Authority version | Inside VERITAS bind-time admissibility | Replay requires knowing which authority state was valid at bind-time. |
+| Evidence snapshot / hash | Inside VERITAS bind-time admissibility | Proof of admissibility requires reconstructable evidence state. |
+| Evidence freshness | Inside VERITAS bind-time admissibility | Stale or missing evidence changes allow / block / escalate routing. |
+| Policy reference / policy version | Inside VERITAS bind-time admissibility | The applied rule set must be known and replayable. |
+| Reversibility profile | Inside / threshold input | Reversibility changes how strict evidence, authority, and approval conditions should be. |
+| Unresolved uncertainty | Inside / routing input | Uncertainty may route to escalation or block depending on action class, authority, evidence, and reversibility. |
+| Policy violation | Inside VERITAS bind-time admissibility | Explicit violation should normally block or fail closed rather than be treated as ordinary uncertainty. |
+| Allow / block / escalate outcome reason | Inside VERITAS bind-time admissibility | The execution boundary must preserve why the outcome was selected. |
+| Proof of admissibility | Inside VERITAS bind-time admissibility | Core VERITAS concern: later proof of why the bind-time outcome was justified. |
+| Human approval state | Inside as one admissibility condition | Approval may be required, but should not override missing evidence, missing authority, policy violation, or unacceptable reversibility risk. |
+| Human understanding | Adjacent / separate responsibility context | Important for RABA accountability, but not automatically provable by the execution boundary. |
+| Organizational responsibility | Adjacent / upstream context | Informs authority, policy, and escalation ownership; may not be enforced directly by VERITAS. |
+| Legal mandate | Adjacent / upstream context | Should shape policy and authority inputs; bind-time admissibility should not claim full legal determination. |
+| Business context | Adjacent / upstream context | Helps classify action, risk, authority, and policy scope; not necessarily an execution-boundary rule by itself. |
+| Decision Log rationale | Adjacent / downstream accountability context | May be connected to the bind-time record, but is broader than execution permission. |
+| Full legal compliance | Outside direct VERITAS scope | Bind-time admissibility may preserve evidence of applied controls, but should not claim full legal compliance. |
+| Final business accountability | Outside direct VERITAS scope | Accountability remains organizational / human, even when execution boundary records are strong. |
+| Absence of future harm | Outside direct VERITAS scope | Admissibility at bind-time does not prove that no future harm or consequence will occur. |
+| Hidden authority accumulation | Needs sharper definition | Important boundary risk, but needs operational detection rules and test cases. |
+| Observability becoming authority | Needs sharper definition | Important topology risk; requires rules preventing dashboards, traces, or repeated use from becoming implicit approval. |
+| Tool access vs authority | Needs sharper definition | Tool permission must be separated from governance authority, but implementation patterns need clarification. |
+
+RABA-side interpretation:
+
+```text
+VERITAS bind-time admissibility should enforce and preserve execution-boundary state.
+Broader legal, organizational, and business responsibility context may provide upstream authority and policy inputs.
+The execution boundary should not silently absorb broader responsibility domains.
+```
+
+Review question for Takeshi:
+
+> Which areas in this mapping are correctly scoped, which are mis-scoped, and which require sharper VERITAS-side definitions?
+
+---
+
+## 7. Scenario Questions
 
 The following scenarios may help test the boundary:
 
-### 6.1 Sending an Email
+### 7.1 Sending an Email
 
 - Is this routine communication, external message, or external commitment?
 - Does the email create obligation, timeline, resource allocation, or public claim?
@@ -346,7 +394,7 @@ The following scenarios may help test the boundary:
 - Should ambiguous commitment language escalate?
 - Should unauthorized external commitment block?
 
-### 6.2 Updating a CRM Record
+### 7.2 Updating a CRM Record
 
 - Which field is being updated?
 - Is the field low-risk metadata or sensitive customer-impacting data?
@@ -355,7 +403,7 @@ The following scenarios may help test the boundary:
 - Can downstream systems be affected?
 - Does field sensitivity change admissibility?
 
-### 6.3 Approving a Payment
+### 7.3 Approving a Payment
 
 - Is the action payment preparation or payment approval?
 - Who has financial authority?
@@ -365,7 +413,7 @@ The following scenarios may help test the boundary:
 - Does missing evidence block rather than escalate?
 - Does difficult reversibility require fail-closed behavior?
 
-### 6.4 Triggering an API Action
+### 7.4 Triggering an API Action
 
 - What is the downstream effect of the API call?
 - Is the endpoint approved for this actor and action class?
@@ -376,7 +424,7 @@ The following scenarios may help test the boundary:
 
 ---
 
-## 7. Questions for Takeshi / VERITAS-Side Review
+## 8. Questions for Takeshi / VERITAS-Side Review
 
 1. Which of these question areas map cleanly to VERITAS bind-time admissibility?
 2. Which areas are outside VERITAS scope?
@@ -390,10 +438,11 @@ The following scenarios may help test the boundary:
 10. What minimal record is required to prove bind-time admissibility later?
 11. Which fields in the RABA-side pressure-test list are unnecessary, missing, or mis-scoped?
 12. Which scenario should be tested first?
+13. Which areas in the scope mapping are correctly scoped, mis-scoped, or need sharper VERITAS-side definition?
 
 ---
 
-## 8. What This Note Does Not Claim
+## 9. What This Note Does Not Claim
 
 This note does not claim that:
 
@@ -401,6 +450,7 @@ This note does not claim that:
 - VERITAS should adopt RABA terminology;
 - the proposed questions are complete;
 - the field list is a VERITAS schema;
+- the scope mapping defines VERITAS OS;
 - bind-time admissibility proves legal compliance;
 - replayability proves human understanding;
 - human approval is irrelevant;
@@ -409,13 +459,15 @@ This note does not claim that:
 
 ---
 
-## 9. Governance Boundary
+## 10. Governance Boundary
 
 External conceptual review is not adoption.
 
 Conceptual overlap is not partnership.
 
 Review questions are not implementation requirements.
+
+Scope mapping is not integration.
 
 Human approval is not automatically executable admissibility.
 
@@ -442,3 +494,5 @@ From the RABA perspective, the strongest bind-time admissibility boundary is not
 It is one that preserves enough authority, evidence, policy, action-class, reversibility, uncertainty, identity, and outcome state to prove later why that outcome was justified at the moment execution permission was considered.
 
 At the same time, it must prevent hidden authority accumulation: authority should not silently grow from access, repetition, prior approval, observability, or successful past execution.
+
+The added scope mapping helps separate the executable governance boundary from adjacent organizational, legal, and business responsibility context so VERITAS does not need to absorb every surrounding responsibility question into the execution boundary itself.
