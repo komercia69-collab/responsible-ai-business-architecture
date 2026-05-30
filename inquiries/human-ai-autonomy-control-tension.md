@@ -4,6 +4,7 @@
 **Canonical status:** Non-canonical. This inquiry frames an unresolved problem and does not define accepted RABA architecture.  
 **Problem area:** Human-AI autonomy, control, responsibility, speed, governance boundaries  
 **Related working note:** [`docs/notes/human-ai-autonomy-control-tensions.md`](../docs/notes/human-ai-autonomy-control-tensions.md)  
+**Related trigger-matrix note:** [`docs/notes/consequence-boundary-trigger-matrix.md`](../docs/notes/consequence-boundary-trigger-matrix.md)  
 **Related concepts:** Responsibility Throughput Model, Speed Protection Principle, Human Authority Constitution, Action Classes, Bind-Time Admissibility, Governance Gateway, Responsibility Event Topology, Decision Log, Policy Integrity, Semantic Dependency Map
 
 ---
@@ -60,6 +61,7 @@ The open problem is how to design the conditions for responsible speed.
 Current RABA work suggests that autonomy should be governed through a combination of:
 
 - action classes;
+- consequence-boundary trigger detection;
 - risk and reversibility profiles;
 - evidence availability and freshness;
 - authority scope;
@@ -126,6 +128,16 @@ When is human approval insufficient because evidence, authority, policy, reversi
 
 How can the architecture prevent authority from silently accumulating through repeated use, prior access, prior approval, or lack of prior blocking?
 
+### 4.11 Consequence-Boundary Trigger Problem
+
+What should trigger an admissibility boundary when an AI system proposes a next action?
+
+The AI system may propose the next action.
+
+It must not be the final judge of whether that action requires admissibility review.
+
+The open question is how to detect transitions where AI interpretation crosses into a new consequence class without slowing every low-risk autonomous step.
+
 ---
 
 ## 5. Possible Solution Paths
@@ -135,6 +147,7 @@ The following RABA mechanisms may contribute to a solution:
 | Mechanism | Contribution |
 |---|---|
 | Action Classes | Distinguish low-risk drafting from external commitment, payment approval, production action, or irreversible high-risk action. |
+| Consequence Boundary Trigger Matrix | Detect when a proposed action crosses into a consequence class that requires admissibility validation. |
 | Bind-Time Admissibility | Check whether an action is admissible at the moment execution permission is considered. |
 | Governance Gateway | Route actions to allow, block, or escalate. |
 | Human Authority Constitution | Define what may be delegated and what remains human-reserved. |
@@ -158,14 +171,17 @@ This inquiry remains unresolved until RABA clarifies:
 6. Which Gateway outcomes require Decision Log entries?
 7. How should hidden authority accumulation be detected?
 8. How should human approval be separated from executable admissibility?
-9. How should community input influence this open problem without becoming approval?
-10. What minimum implementation profile could test this in one workflow?
+9. What should trigger the admissibility boundary before execution?
+10. How should consequence-boundary triggers be defined, versioned, and tested?
+11. How should community input influence this open problem without becoming approval?
+12. What minimum implementation profile could test this in one workflow?
 
 ---
 
 ## 7. Related Documents
 
 - [`docs/notes/human-ai-autonomy-control-tensions.md`](../docs/notes/human-ai-autonomy-control-tensions.md)
+- [`docs/notes/consequence-boundary-trigger-matrix.md`](../docs/notes/consequence-boundary-trigger-matrix.md)
 - [`docs/architecture/semantic-dependency-map.md`](../docs/architecture/semantic-dependency-map.md)
 - [`docs/architecture/responsibility-event-topology.md`](../docs/architecture/responsibility-event-topology.md)
 - [`docs/notes/action-classes-working-note.md`](../docs/notes/action-classes-working-note.md)
@@ -178,11 +194,17 @@ This inquiry remains unresolved until RABA clarifies:
 
 ## 8. Community Discussion Angle
 
-This inquiry is a good candidate for future GitHub Discussions under an `Open Problems` category.
+This inquiry is connected to the GitHub Discussion:
+
+[`Open Problem: AI Autonomy, Speed, and Human Responsibility`](https://github.com/komercia69-collab/responsible-ai-business-architecture/discussions/72)
 
 Possible discussion prompt:
 
 > Where should human control be placed in autonomous AI workflows so responsibility remains meaningful without destroying the value of automation?
+
+Additional trigger-matrix prompt:
+
+> Where should the admissibility trigger belong: inside the AI system, inside deterministic policy infrastructure, inside workflow orchestration, or in a hybrid design?
 
 Community input may help identify:
 
@@ -190,7 +212,9 @@ Community input may help identify:
 - action classes not yet covered;
 - hidden authority accumulation risks;
 - cases where approval is not enough;
-- practical evidence and replay requirements.
+- practical evidence and replay requirements;
+- transition points where trigger detection is required;
+- risks of over-control and under-control.
 
 Community discussion is input only.
 
@@ -209,6 +233,7 @@ It should not be treated as solved until RABA can demonstrate a stable relations
 ```text
 human authority
 → action class
+→ consequence-boundary trigger
 → evidence
 → admissibility
 → gateway outcome
@@ -240,3 +265,5 @@ Final architectural approval belongs to the Human Owner.
 The central RABA challenge is not choosing between autonomy and control.
 
 The challenge is designing conditions under which AI autonomy can create speed while human responsibility remains explicit, replayable, and accountable.
+
+The Consequence Boundary Trigger Matrix is a proposed working direction for detecting the specific transitions where AI interpretation may cross into a new consequence class and therefore requires explicit admissibility handling.
