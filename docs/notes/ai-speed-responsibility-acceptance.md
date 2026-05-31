@@ -210,7 +210,131 @@ The risk is speed without accepted responsibility.
 
 ---
 
-## 9. Possible Runtime Record Fields
+## 9. Governed Bypass as Productive Waiting
+
+When AI speed reaches a consequence boundary, RABA should not break the workflow by default.
+
+It should prevent unauthorized consequence creation while preserving useful process momentum.
+
+A governed bypass is a controlled continuation path that allows consequence-safe preparatory work while human authority, responsibility acceptance, evidence, or admissibility conditions are being resolved.
+
+```text
+Governed bypass is not waiting.
+Governed bypass is consequence-safe continuation.
+```
+
+The process may continue as preparation.
+
+It must not continue as consequence.
+
+### 9.1 Human Response Window
+
+If human response is required, the system should not enter an undefined waiting state.
+
+Human response should occur within a defined Human Response Window.
+
+That window should be long enough for responsible review, but short enough to preserve the operational value of AI-supported speed.
+
+If more time is needed, the delay should itself be justified and recorded.
+
+Examples of justified delay reasons may include:
+
+- new policy interpretation required;
+- missing evidence;
+- changed market condition;
+- unclear authority;
+- need for legal or organizational review;
+- changed action scope.
+
+RABA principle:
+
+```text
+Human control must protect responsibility without becoming an undefined delay.
+```
+
+### 9.2 Productive Use of Waiting Time
+
+The bypass should treat the waiting time for human response as a resource.
+
+During the Human Response Window, the AI system may continue only approved preparatory actions that do not create new external, financial, legal, data, or operational consequences.
+
+Allowed bypass actions may include:
+
+- improving a draft;
+- marking risky commitment language;
+- preparing a safer alternative version;
+- collecting evidence;
+- checking evidence freshness;
+- summarizing the decision context for the human reviewer;
+- identifying applicable policy or authority scope;
+- estimating reversibility;
+- preparing allow / revise / escalate / block options;
+- preparing a Decision Log summary;
+- preparing a Responsibility Event chain for replay.
+
+Forbidden bypass actions should include:
+
+- sending an external message;
+- creating an external commitment;
+- changing critical records;
+- approving payment;
+- triggering irreversible or difficult-to-reverse API actions;
+- pretending that human approval has been granted;
+- using lack of response as implicit authority.
+
+### 9.3 Example: External Email Commitment Risk
+
+```text
+AI drafts an email
+→ external commitment risk is detected
+→ governed bypass is entered
+→ risky commitment language is marked or removed
+→ evidence and context are prepared
+→ human authority and responsibility acceptance are requested
+→ Human Response Window opens
+→ AI performs only allowed preparatory work
+→ human responds within the defined window
+→ the action is allowed, revised, escalated, or blocked
+```
+
+If no human response is received within the window, the system should not continue by inertia.
+
+It should escalate, extend the bypass only with a recorded reason, or block the consequential action.
+
+### 9.4 Bypass Record Fields
+
+A governed bypass record may include:
+
+```json
+{
+  "bypass_state": "entered | active | extended | completed | escalated | blocked",
+  "bypass_reason": "<consequence_boundary_or_missing_condition>",
+  "human_response_required": true,
+  "human_response_window": "<duration_or_deadline>",
+  "allowed_bypass_actions": [
+    "revise_draft",
+    "mark_risk_language",
+    "collect_evidence",
+    "prepare_decision_summary"
+  ],
+  "forbidden_bypass_actions": [
+    "send_external_message",
+    "create_external_commitment",
+    "execute_irreversible_action"
+  ],
+  "human_response_state": "pending | received | delayed | expired",
+  "delay_reason": "<reason_or_null>",
+  "exit_condition": "authority_and_responsibility_accepted | escalated | blocked"
+}
+```
+
+This is not a canonical schema.
+
+It is a working direction for connecting governed bypass, Human Response Window, responsibility acceptance, and operational speed.
+
+---
+
+## 10. Possible Runtime Record Fields
 
 To make responsibility acceptance operational, RABA may need fields such as:
 
@@ -235,7 +359,7 @@ It is a working direction for future Responsibility Event and Decision Log refin
 
 ---
 
-## 10. Relationship to RABA Concepts
+## 11. Relationship to RABA Concepts
 
 | RABA area | Relationship |
 |---|---|
@@ -243,14 +367,15 @@ It is a working direction for future Responsibility Event and Decision Log refin
 | Action Classes | Determines which responsibility acceptance threshold applies. |
 | Reversibility Profile | Changes how strict acceptance and correction duties should be. |
 | Bind-Time Admissibility | Can check whether responsibility acceptance is required before execution. |
-| Governance Gateway | Can route actions to allow, block, or escalate when responsibility acceptance is missing. |
-| Responsibility Event Topology | Can preserve when responsibility was assigned, requested, accepted, rejected, or expired. |
-| Decision Log | Can preserve human rationale and accepted responsibility scope. |
-| Responsibility Management Interface | Can make responsibility acceptance visible and actionable during workflow execution. |
+| Governed Bypass Lane | Preserves useful process momentum through consequence-safe preparatory work while missing conditions are resolved. |
+| Governance Gateway | Can route actions to allow, block, escalate, or governed bypass when responsibility acceptance is missing. |
+| Responsibility Event Topology | Can preserve when responsibility was assigned, requested, accepted, rejected, expired, or bypassed. |
+| Decision Log | Can preserve human rationale, accepted responsibility scope, and bypass reasoning. |
+| Responsibility Management Interface | Can make responsibility acceptance, Human Response Window, and bypass state visible and actionable during workflow execution. |
 
 ---
 
-## 11. Open Questions
+## 12. Open Questions
 
 1. Which AI action classes require explicit responsibility acceptance?
 2. Can responsibility acceptance be role-based, or must it always be person-based for high-risk actions?
@@ -262,16 +387,23 @@ It is a working direction for future Responsibility Event and Decision Log refin
 8. How should responsibility acceptance relate to Human Owner confirmation?
 9. Can a system proceed when responsibility is visible but not accepted?
 10. Which gateway outcomes should require acceptance before execution?
+11. Which action classes should enter governed bypass instead of immediate block?
+12. Which actions are allowed inside governed bypass?
+13. How long should the Human Response Window be for different action classes?
+14. When should bypass be extended, escalated, or blocked?
+15. How should human delay be recorded without turning human review into an undefined bottleneck?
 
 ---
 
-## 12. Governance Boundary
+## 13. Governance Boundary
 
 This note is non-canonical.
 
 It does not define accepted RABA architecture.
 
 It does not claim that responsibility acceptance has been fully modeled.
+
+It does not define a canonical Governed Bypass Lane schema.
 
 It does not replace Human Owner confirmation.
 
@@ -301,3 +433,11 @@ responsibility visibility
 The central problem is not whether AI should be fast.
 
 The central problem is whether human responsibility can remain explicitly accepted, replayable, and correctable while AI makes processes faster.
+
+Governed bypass adds a further working direction:
+
+```text
+Do not stop useful process momentum by default.
+Prevent consequence creation without admissibility.
+Use Human Response Window as productive preparation time.
+```
