@@ -1,0 +1,172 @@
+# RABA AI Role Profile Template
+# Status: Candidate artifact
+# Canonical status: Non-canonical
+# Purpose: Machine-readable output of a Governance Mapping Workshop for one AI-assisted use case.
+# Boundary: This template does not grant authority, approve execution, or define canonical RABA architecture.
+# Human Owner review is required before canonical adoption.
+
+profile_metadata:
+  profile_id: "ai_role_profile_example_001"
+  profile_version: "0.1-draft"
+  created_at: "YYYY-MM-DD"
+  created_by: "role_or_person"
+  review_status: "draft" # draft | reviewed | accepted | rejected | superseded
+  canonical_status: "non_canonical"
+  related_workshop_id: null
+  related_decision_log_id: null
+
+use_case:
+  use_case_id: "example_use_case_001"
+  use_case_name: "Short human-readable use case name"
+  business_domain: "sales | support | legal | finance | operations | hr | other"
+  business_problem: "Describe the problem the AI-assisted workflow is intended to solve."
+  intended_value: "Describe the expected value, e.g. speed, quality, search efficiency, consistency."
+  deployment_stage: "pre_implementation" # pre_implementation | pilot | rollout | established | under_review
+
+ai_role:
+  role_name: "drafting_assistant"
+  role_description: "Describe what the AI is expected to do."
+  autonomy_level: "assistive" # assistive | recommendatory | bounded_execution | autonomous_agent
+  ai_may_propose_next_action: true
+  ai_may_execute_without_human: false
+  ai_may_create_external_consequence: false
+
+allowed_outputs:
+  - "internal_summary"
+  - "draft_document"
+  - "risk_marker"
+  - "evidence_summary"
+
+forbidden_outputs:
+  - "external_commitment"
+  - "binding_legal_claim"
+  - "financial_approval"
+  - "customer_record_change"
+  - "policy_change"
+
+action_boundary:
+  boundary_name: "draft_to_external_action"
+  trigger: "AI output is about to move from internal preparation to external or operational consequence."
+  consequence_class: "external_claim" # none | internal_preparation | external_claim | data_change | financial | legal | safety | irreversible
+  boundary_status: "not_crossed" # not_crossed | approaching | crossed | blocked
+  action_class_required: true
+  authority_check_required: true
+  evidence_check_required: true
+  responsibility_acceptance_required: true
+
+access_and_authority:
+  read_access_model: "SSO_or_Active_Directory"
+  read_access_checked: false
+  action_authority_required: true
+  action_authority_status: "unresolved" # satisfied | missing | unresolved | not_required
+  authority_owner_role: "Business Process Owner"
+  authority_scope_id: null
+  authority_version: null
+  rule: "SSO / Active Directory governs data visibility. RABA Action Boundary governs action authority."
+
+source_log_bridge:
+  source_log_required: true
+  source_log_reference_ids:
+    - source_log_id: null
+      source_system: "enterprise_search_or_rag_system"
+      retrieval_trace_id: null
+      source_snapshot_id: null
+      evidence_hash: null
+      evidence_freshness: "unknown" # current | stale | unknown | contested | unavailable
+      human_source_reviewed: false
+  decision_log_required: true
+  responsibility_event_stream_required: true
+
+governance_mapping:
+  escalation_owner:
+    role: "Escalation Owner role"
+    named_person_required: true
+    named_person: null
+  responsibility_owner:
+    role: "Responsibility Owner role"
+    named_person_required: true
+    named_person: null
+  correction_owner:
+    role: "Correction Owner role"
+    named_person_required: false
+    named_person: null
+  policy_owner:
+    role: "Business / Operations Lead"
+    named_person_required: false
+    named_person: null
+  independent_reviewer_required: false
+  independent_reviewer_role: "Risk / Compliance Officer"
+
+human_response_window:
+  required: true
+  default_window_minutes: 30
+  maximum_window_minutes: 120
+  extension_allowed: true
+  extension_requires_reason: true
+  allowed_extension_reasons:
+    - "new_policy_review_required"
+    - "missing_evidence"
+    - "authority_unclear"
+    - "changed_business_context"
+  if_response_missing: "escalate_or_block" # escalate_or_block | extend_with_reason | block | no_action
+
+governed_bypass:
+  governed_bypass_allowed: true
+  route_name: "governed_preparation"
+  execution_locked: true
+  boundary_status_during_bypass: "not_crossed"
+  allowed_bypass_actions:
+    - "revise_draft"
+    - "mark_risky_claims"
+    - "collect_sources"
+    - "prepare_decision_summary"
+    - "prepare_alternative_options"
+  forbidden_bypass_actions:
+    - "send_external_message"
+    - "create_binding_commitment"
+    - "change_customer_record"
+    - "approve_financial_transaction"
+    - "imitate_human_authorization"
+  productive_waiting_required: true
+
+human_engagement_evidence:
+  active_engagement_required: true
+  source_review_required: true
+  reason_capture_required: true
+  short_decision_summary_required: false
+  risk_acknowledgment_required: true
+  conflict_acknowledgment_required: false
+  typed_confirmation_required_for_critical: false
+  passive_timer_only_allowed: false
+
+drift_detection:
+  enabled: true
+  ai_self_assessment_allowed: false
+  deterministic_or_independent_signals_required: true
+  monitored_indicators:
+    review_time_collapse: true
+    approval_rate_threshold_exceeded: true
+    default_reason_reuse_detected: true
+    high_risk_no_source_review: true
+    repeated_bypass_to_execution: true
+    human_response_missing_treated_as_approval: true
+  if_drift_detected: "escalate" # escalate | block | policy_review | sampled_post_audit
+
+logging_requirements:
+  decision_log_required: true
+  responsibility_events_required:
+    - "action_class_detected"
+    - "source_log_linked"
+    - "authority_check_requested"
+    - "human_response_window_opened"
+    - "responsibility_acceptance_requested"
+    - "governed_bypass_entered"
+    - "bypass_preparation_completed"
+    - "gateway_decision_recorded"
+  audit_log_reference_required: false
+
+approval_boundary:
+  template_use_does_not_grant_authority: true
+  human_owner_confirmation_required_for_canonical_use: true
+  multi_ai_agreement_is_not_approval: true
+  external_vendor_input_is_not_adoption: true
