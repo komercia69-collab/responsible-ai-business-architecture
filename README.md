@@ -12,11 +12,15 @@ RABA is not an AI ethics manifesto, a compliance checklist or a security certifi
 
 It is a practical operational architecture for making AI-supported actions accountable, reviewable and auditable.
 
+RABA does not stop useful process momentum by default. RABA prevents consequence creation without admissibility.
+
 For the project-level definition of responsibility, start with [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md).
 
 For the project-level answer to the concern that responsibility may slow automation, read [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md).
 
 For the product principle that RABA must protect responsible speed, read [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md).
+
+For the current non-canonical working direction on governed bypass and productive waiting, read [`docs/notes/ai-speed-responsibility-acceptance.md`](docs/notes/ai-speed-responsibility-acceptance.md) and [`docs/notes/decision-log-governed-bypass-extension.md`](docs/notes/decision-log-governed-bypass-extension.md).
 
 ---
 
@@ -230,6 +234,8 @@ The current topology-stabilization notes are:
 - [`docs/architecture/semantic-dependency-map.md`](docs/architecture/semantic-dependency-map.md) — maps authority sources, policies, runtime checks, Gateway outcomes, event records and audit outputs.
 - [`docs/architecture/responsibility-event-topology.md`](docs/architecture/responsibility-event-topology.md) — normalizes responsibility-relevant events, replay requirements and state-transition integrity.
 - [`docs/notes/action-classes-working-note.md`](docs/notes/action-classes-working-note.md) — defines a first working model for action classes and allowed action classes.
+- [`docs/notes/ai-speed-responsibility-acceptance.md`](docs/notes/ai-speed-responsibility-acceptance.md) — frames AI speed, responsibility acceptance, governed bypass and Human Response Window as non-canonical problem directions.
+- [`docs/notes/decision-log-governed-bypass-extension.md`](docs/notes/decision-log-governed-bypass-extension.md) — explains how Decision Logs may preserve governed bypass reasoning without turning bypass into execution authority.
 
 These notes are non-canonical working documents.
 
