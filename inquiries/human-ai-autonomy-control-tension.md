@@ -5,6 +5,7 @@
 **Problem area:** Human-AI autonomy, control, responsibility, speed, governance boundaries  
 **Related working note:** [`docs/notes/human-ai-autonomy-control-tensions.md`](../docs/notes/human-ai-autonomy-control-tensions.md)  
 **Related trigger-matrix note:** [`docs/notes/consequence-boundary-trigger-matrix.md`](../docs/notes/consequence-boundary-trigger-matrix.md)  
+**Related speed-responsibility note:** [`docs/notes/ai-speed-responsibility-acceptance.md`](../docs/notes/ai-speed-responsibility-acceptance.md)  
 **Related concepts:** Responsibility Throughput Model, Speed Protection Principle, Human Authority Constitution, Action Classes, Bind-Time Admissibility, Governance Gateway, Responsibility Event Topology, Decision Log, Policy Integrity, Semantic Dependency Map
 
 ---
@@ -80,6 +81,13 @@ stopped where necessary;
 accountable throughout.
 ```
 
+Additional speed-responsibility framing:
+
+```text
+AI can act faster.
+Responsibility cannot disappear with that acceleration.
+```
+
 This is not yet a complete solution.
 
 It is a working direction under topology stabilization.
@@ -138,6 +146,18 @@ It must not be the final judge of whether that action requires admissibility rev
 
 The open question is how to detect transitions where AI interpretation crosses into a new consequence class without slowing every low-risk autonomous step.
 
+### 4.12 Responsibility Acceptance Under AI Speed
+
+AI speed creates operational momentum.
+
+The open question is how to keep responsibility explicitly accepted, replayable, and correctable when automation accelerates the process.
+
+Visible responsibility is not realized responsibility.
+
+Assigned responsibility is not accepted responsibility.
+
+See related working note: [`docs/notes/ai-speed-responsibility-acceptance.md`](../docs/notes/ai-speed-responsibility-acceptance.md).
+
 ---
 
 ## 5. Possible Solution Paths
@@ -175,6 +195,8 @@ This inquiry remains unresolved until RABA clarifies:
 10. How should consequence-boundary triggers be defined, versioned, and tested?
 11. How should community input influence this open problem without becoming approval?
 12. What minimum implementation profile could test this in one workflow?
+13. Which action classes require explicit responsibility acceptance under AI speed?
+14. What minimum acceptance record is required for replayability?
 
 ---
 
@@ -182,6 +204,7 @@ This inquiry remains unresolved until RABA clarifies:
 
 - [`docs/notes/human-ai-autonomy-control-tensions.md`](../docs/notes/human-ai-autonomy-control-tensions.md)
 - [`docs/notes/consequence-boundary-trigger-matrix.md`](../docs/notes/consequence-boundary-trigger-matrix.md)
+- [`docs/notes/ai-speed-responsibility-acceptance.md`](../docs/notes/ai-speed-responsibility-acceptance.md)
 - [`docs/architecture/semantic-dependency-map.md`](../docs/architecture/semantic-dependency-map.md)
 - [`docs/architecture/responsibility-event-topology.md`](../docs/architecture/responsibility-event-topology.md)
 - [`docs/notes/action-classes-working-note.md`](../docs/notes/action-classes-working-note.md)
@@ -206,6 +229,10 @@ Additional trigger-matrix prompt:
 
 > Where should the admissibility trigger belong: inside the AI system, inside deterministic policy infrastructure, inside workflow orchestration, or in a hybrid design?
 
+Additional responsibility-acceptance prompt:
+
+> When AI makes a process faster, who explicitly accepts responsibility for the accelerated process, its uncertainty, and its correction duties?
+
 Community input may help identify:
 
 - real enterprise workflow examples;
@@ -214,6 +241,7 @@ Community input may help identify:
 - cases where approval is not enough;
 - practical evidence and replay requirements;
 - transition points where trigger detection is required;
+- responsibility acceptance thresholds;
 - risks of over-control and under-control.
 
 Community discussion is input only.
@@ -242,6 +270,15 @@ human authority
 → audit / correction
 ```
 
+The responsibility acceptance note adds an additional stabilization question:
+
+```text
+responsibility visibility
+→ responsibility assignment
+→ responsibility acceptance
+→ monitoring / escalation / correction obligation
+```
+
 ---
 
 ## Governance Boundary
@@ -264,6 +301,8 @@ Final architectural approval belongs to the Human Owner.
 
 The central RABA challenge is not choosing between autonomy and control.
 
-The challenge is designing conditions under which AI autonomy can create speed while human responsibility remains explicit, replayable, and accountable.
+The challenge is designing conditions under which AI autonomy can create speed while human responsibility remains explicit, accepted, replayable, and correctable.
 
 The Consequence Boundary Trigger Matrix is a proposed working direction for detecting the specific transitions where AI interpretation may cross into a new consequence class and therefore requires explicit admissibility handling.
+
+The AI Speed and Responsibility Acceptance note adds a related working direction: speed is valuable, but responsible speed requires distinguishing visible, assigned, and accepted responsibility under uncertainty.
