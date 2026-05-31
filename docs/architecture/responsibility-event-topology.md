@@ -4,7 +4,7 @@
 **Canonical status:** Non-canonical. This document is a topology stabilization aid and does not define accepted RABA architecture.  
 **Purpose:** Normalize responsibility-relevant event types, state transitions, replay requirements, and audit boundaries across RABA.  
 **Review context:** Created after external structural review identified a missing canonical Responsibility Event topology.  
-**Related concepts:** Responsibility Event Stream, Governance Gateway, Decision Log, Human Owner Confirmation, Active Evidence Interlock, Bind-Time Admissibility, Contextual Legitimacy, Reversibility Profile, Escalation Ownership, Policy Integrity, Semantic Dependency Map
+**Related concepts:** Responsibility Event Stream, Governance Gateway, Decision Log, Human Owner Confirmation, Responsibility Acceptance, Active Evidence Interlock, Bind-Time Admissibility, Contextual Legitimacy, Reversibility Profile, Escalation Ownership, Policy Integrity, Semantic Dependency Map
 
 ## 1. Why This Topology Exists
 
@@ -18,6 +18,7 @@ RABA uses responsibility events across many concepts:
 - corrective governance;
 - contextual legitimacy;
 - responsibility realization;
+- responsibility acceptance;
 - bind-time admissibility;
 - human confirmation.
 
@@ -46,6 +47,7 @@ A valid Responsibility Event should help answer:
 - what authority existed;
 - what evidence existed;
 - what policy or gateway condition applied;
+- whether responsibility was requested, assigned, accepted, rejected, or expired;
 - whether the action was allowed, blocked, escalated, or executed;
 - what remains human or organizational responsibility;
 - what can be replayed later.
@@ -86,6 +88,18 @@ Execution does not remove human or organizational accountability.
 
 Responsibility Events should make transitions between these states explicit.
 
+RABA should also preserve the difference between:
+
+```text
+VISIBLE → ASSIGNED → ACCEPTED
+```
+
+A visible responsible role is not accepted responsibility.
+
+An assigned role is not accepted responsibility.
+
+Accepted responsibility requires an accountable person or role to accept a defined scope, authority boundary, and correction obligation.
+
 ## 5. Event Families
 
 Responsibility Events can be grouped into families.
@@ -96,6 +110,7 @@ Responsibility Events can be grouped into families.
 | Evidence events | Record evidence availability, freshness, source, and admissibility. |
 | Review events | Record human or role-based review activity. |
 | Confirmation events | Record active confirmation or authorization state. |
+| Responsibility acceptance events | Record responsibility request, assignment, acceptance, rejection, expiration, and correction obligation. |
 | Gateway events | Record allow / block / escalate decisions. |
 | Execution events | Record attempted, completed, failed, or blocked execution. |
 | Escalation events | Record routing of unclear or high-risk cases. |
@@ -151,6 +166,20 @@ authorization_granted
 authorization_rejected
 ```
 
+### Responsibility acceptance events
+
+```text
+responsibility_acceptance_requested
+responsibility_owner_assigned
+responsibility_scope_defined
+responsibility_acceptance_started
+responsibility_accepted
+responsibility_rejected
+responsibility_expired
+correction_obligation_assigned
+correction_obligation_accepted
+```
+
 ### Gateway events
 
 ```text
@@ -160,6 +189,7 @@ gateway_decision_block
 gateway_decision_escalate
 gateway_policy_traceability_failed
 gateway_authority_scope_failed
+gateway_responsibility_acceptance_failed
 gateway_contextual_legitimacy_failed
 ```
 
@@ -223,7 +253,7 @@ A normalized Responsibility Event should preserve at least:
 {
   "event_id": "<unique_event_id>",
   "event_type": "<event_type>",
-  "event_family": "proposal | evidence | review | confirmation | gateway | execution | escalation | consequence | correction | audit",
+  "event_family": "proposal | evidence | review | confirmation | responsibility_acceptance | gateway | execution | escalation | consequence | correction | audit",
   "timestamp": "<ISO 8601>",
   "actor_type": "human | ai_system | governance_gateway | policy_engine | external_system",
   "actor_id": "<actor_or_system_id>",
@@ -233,6 +263,10 @@ A normalized Responsibility Event should preserve at least:
   "prior_state": "<state_before_event>",
   "new_state": "<state_after_event>",
   "authority_scope": "<scope_or_unknown>",
+  "responsible_party_id": "<person_or_role_or_null>",
+  "responsibility_scope": "<defined_scope_or_null>",
+  "responsibility_acceptance_state": "not_required | requested | assigned | accepted | rejected | expired | unknown",
+  "correction_obligation": "<defined_obligation_or_null>",
   "policy_reference": "<policy_id_or_null>",
   "evidence_reference": "<evidence_snapshot_or_null>",
   "gateway_decision": "allow | block | escalate | null",
@@ -305,6 +339,35 @@ action_executed
 → decision_log_entry_created
 ```
 
+### 8.6 Responsibility acceptance before governed execution
+
+```text
+recommendation_created
+→ action_class_detected
+→ responsibility_acceptance_requested
+→ responsibility_owner_assigned
+→ responsibility_scope_defined
+→ responsibility_accepted
+→ correction_obligation_assigned
+→ gateway_evaluation_started
+→ gateway_decision_allow
+→ execution_attempted
+```
+
+### 8.7 Missing responsibility acceptance
+
+```text
+recommendation_created
+→ action_class_detected
+→ responsibility_acceptance_requested
+→ responsibility_rejected
+→ gateway_evaluation_started
+→ gateway_responsibility_acceptance_failed
+→ gateway_decision_block
+→ action_blocked
+→ decision_log_entry_created
+```
+
 ## 9. Event Ordering Requirements
 
 RABA should preserve ordering rules.
@@ -312,6 +375,8 @@ RABA should preserve ordering rules.
 Examples:
 
 - `authorization_granted` should not occur before required confirmation events.
+- `responsibility_accepted` should not occur before `responsibility_scope_defined` for governed actions.
+- `gateway_decision_allow` should not occur when required responsibility acceptance is missing, rejected, or expired.
 - `action_executed` should not occur before an allow decision for governed actions.
 - `gateway_decision_allow` should not occur if authority scope is missing for high-risk actions.
 - `decision_log_entry_created` may occur after block, escalation, execution, or correction, but must reference the relevant event chain.
@@ -326,6 +391,8 @@ The following invariants should hold unless explicitly overridden by Human Owner
 ```text
 recommendation_created ≠ authorization_granted
 authorization_granted ≠ action_executed
+responsibility_visible ≠ responsibility_accepted
+responsibility_assigned ≠ responsibility_accepted
 evidence_retrieved ≠ evidence_admissible
 gateway_decision_allow ≠ human accountability discharged
 action_executed ≠ consequence accepted
@@ -347,6 +414,10 @@ Responsibility Event Stream and Decision Log are related but distinct.
 
 A Decision Log entry may summarize and reference one or more Responsibility Event chains.
 
+When responsibility acceptance is required, the Decision Log should not only say that an owner existed.
+
+It should reference whether responsibility was requested, assigned, accepted, rejected, or expired, and what correction obligation was attached.
+
 ## 12. Replay Requirements
 
 A replayable event chain should reconstruct:
@@ -356,6 +427,9 @@ A replayable event chain should reconstruct:
 - risk and reversibility state;
 - evidence state;
 - confirmation state;
+- responsibility acceptance state;
+- responsible party and accepted scope, if required;
+- correction obligation, if required;
 - authority scope;
 - policy constraints;
 - Gateway decision;
@@ -379,6 +453,10 @@ Potential drift signals:
 - allow decisions without evidence snapshots;
 - execution events without prior Gateway allow decision;
 - authorization reused after scope change;
+- required responsibility acceptance missing before high-impact execution;
+- responsibility assigned but never accepted;
+- responsibility acceptance reused after scope or context change;
+- correction obligation missing after responsibility acceptance;
 - repeated escalation without resolution;
 - policy traceability failures;
 - confirmation freshness failures;
@@ -406,6 +484,8 @@ The Gateway enforces policy-derived routing.
 
 It does not become final human authority.
 
+For action classes requiring responsibility acceptance, the Gateway should treat missing, rejected, stale, or expired responsibility acceptance as a routing condition.
+
 ## 15. Relationship to Bind-Time Admissibility
 
 Bind-Time Admissibility supplies pre-execution state required for Gateway evaluation.
@@ -420,6 +500,7 @@ This includes:
 - reversibility profile;
 - uncertainty state;
 - action class;
+- responsibility acceptance state;
 - outcome reason.
 
 ## 16. Relationship to Human Authority Constitution
@@ -434,9 +515,29 @@ They may reference:
 - constitution hash;
 - policy derived from constitution clause;
 - authority scope;
-- Human Owner confirmation.
+- Human Owner confirmation;
+- required responsibility acceptance scope.
 
-## 17. Open Questions
+## 17. Relationship to Responsibility Acceptance
+
+Responsibility acceptance is not identical to visibility, assignment, confirmation, or authorization.
+
+RABA should preserve the distinction:
+
+```text
+responsibility visibility
+→ responsibility assignment
+→ responsibility acceptance
+→ monitoring / escalation / correction obligation
+```
+
+Responsibility acceptance events should help determine whether a named person or role has accepted responsibility for a defined scope under a defined authority boundary.
+
+For high-impact or irreversible action classes, responsibility acceptance may become a precondition for Gateway allow.
+
+This remains a non-canonical working direction.
+
+## 18. Open Questions
 
 1. Which event types should become canonical first?
 2. Should event IDs be globally unique or workflow-scoped?
@@ -448,21 +549,27 @@ They may reference:
 8. How should event topology detect hidden commitment and stale authority?
 9. How should external review inputs be represented in event topology, if at all?
 10. How should Responsibility Event topology connect to GitHub commits, demo traces, and external comparison notes?
+11. Which action classes require explicit responsibility acceptance events?
+12. How should responsibility acceptance expire when context, authority, or action scope changes?
+13. How should correction obligation be represented without turning every owner into unlimited liability?
 
-## 18. What This Topology Does Not Claim
+## 19. What This Topology Does Not Claim
 
 This topology does not claim that:
 
 - the event list is complete;
 - all event types are canonical;
+- responsibility acceptance is fully modeled;
 - RABA already has a production event schema;
 - replay proves legal compliance;
 - event logging replaces human responsibility;
+- responsibility visibility equals responsibility acceptance;
+- responsibility assignment equals responsibility acceptance;
 - observability creates authority;
 - Gateway events replace Decision Log entries;
 - external review creates approval.
 
-## 19. Governance Boundary
+## 20. Governance Boundary
 
 This document is non-canonical.
 
@@ -475,6 +582,10 @@ Replay is not legal validation.
 Observability is not authority.
 
 Gateway outcome is not Human Owner responsibility transfer.
+
+Visible responsibility is not realized responsibility.
+
+Assigned responsibility is not accepted responsibility.
 
 External review is not approval.
 
@@ -489,5 +600,7 @@ Responsibility Events should record responsibility-relevant state changes withou
 The core event direction should remain:
 
 ```text
-proposal → evidence → review → confirmation → gateway decision → execution/block/escalation → consequence → correction/audit
+proposal → evidence → review → confirmation → responsibility acceptance → gateway decision → execution/block/escalation → consequence → correction/audit
 ```
+
+The added responsibility acceptance layer helps distinguish visible, assigned, and accepted responsibility before AI speed turns a proposed action into operational momentum.
