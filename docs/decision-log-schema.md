@@ -2,7 +2,8 @@
 
 **Project:** Responsible AI Business Architecture (RABA)  
 **Status:** Draft — core schema  
-**Core principle:** AI may be probabilistic. Responsibility must not be.
+**Core principle:** AI may be probabilistic. Responsibility must not be.  
+**Related extension:** [`docs/notes/decision-log-governed-bypass-extension.md`](notes/decision-log-governed-bypass-extension.md)
 
 ---
 
@@ -17,6 +18,8 @@ A RABA decision log answers a different question:
 > Who authorized this AI-supported action, under which responsibility state, for what reason, and with what accountable outcome?
 
 The decision log links technical execution to organizational accountability.
+
+For governed bypass handling, see [`Decision Log Governed Bypass Extension`](notes/decision-log-governed-bypass-extension.md).
 
 ---
 
@@ -164,6 +167,36 @@ Required:
 
 ---
 
+## Governed bypass extension
+
+Governed bypass is an emerging non-canonical RABA direction.
+
+It should not be treated as part of this core schema until reviewed and accepted by the Human Owner.
+
+For the current working note, see:
+
+- [`docs/notes/decision-log-governed-bypass-extension.md`](notes/decision-log-governed-bypass-extension.md)
+
+The extension explains how a Decision Log may preserve:
+
+- bypass reason;
+- allowed bypass actions;
+- forbidden bypass actions;
+- Human Response Window;
+- human response received / delayed / expired;
+- bypass exit condition;
+- bypass exit decision.
+
+Core boundary:
+
+```text
+process continues as preparation
+≠
+process continues as consequence
+```
+
+---
+
 ## Extended fields
 
 Organizations may add fields such as:
@@ -269,6 +302,8 @@ DecisionLogged
 The event stream is operational.  
 The decision log is the business accountability record.
 
+Governed bypass-related event chains are described in [`Decision Log Governed Bypass Extension`](notes/decision-log-governed-bypass-extension.md).
+
 ---
 
 ## Minimal JSON Schema draft
@@ -343,6 +378,7 @@ The decision log is the business accountability record.
 - How should sensitive content be referenced without storing it directly?
 - How should decision logs map to SOC 2, ISO 42001, EU AI Act, or internal audit controls?
 - How should organizations detect rubber-stamp approval behavior from decision logs?
+- How should governed bypass extension fields be integrated without making the core schema too heavy?
 
 ---
 
