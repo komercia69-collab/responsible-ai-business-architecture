@@ -17,6 +17,7 @@ External reviews may include:
 - third-party trace examples;
 - professional feedback;
 - LinkedIn or GitHub discussion summaries;
+- vendor / market-facing material reviews;
 - external tool evaluations;
 - specialist review notes;
 - structured review cards.
@@ -24,6 +25,21 @@ External reviews may include:
 ## Current Reviews
 
 - [`decisionassure-raba-trace-example.md`](decisionassure-raba-trace-example.md) — external DecisionAssure trace example for stale confirmation, hidden commitment, rollback assumptions, and human responsibility boundaries.
+- [`amber-generative-ai-introduction-raba-review.md`](amber-generative-ai-introduction-raba-review.md) — external market input reviewing an enterprise generative AI / RAG implementation guide and mapping its adoption practices to RABA responsibility-architecture gaps.
+
+## Current Market Input Takeaway
+
+```text
+RAG reduces hallucination risk.
+RABA reduces responsibility drift.
+```
+
+Longer positioning:
+
+```text
+Enterprise AI search grounds answers in company knowledge.
+RABA grounds AI-supported action in authority, admissibility, and accepted responsibility.
+```
 
 ## Related Mappings
 
@@ -38,6 +54,7 @@ They do not:
 - define canonical RABA architecture;
 - create commercial commitments;
 - create partnership or referral obligations;
+- create endorsement, adoption, or procurement recommendations;
 - replace Human Owner review;
 - replace RABA Decision Log or Responsibility Event Stream;
 - certify compliance.
