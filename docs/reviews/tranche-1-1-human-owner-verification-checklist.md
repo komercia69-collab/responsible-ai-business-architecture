@@ -49,16 +49,17 @@ Case B = consequential, because AI output moves into workflow state change.
 
 ### Human Owner verification
 
-- [ ] Confirm Case A is not automatically consequential.
-- [ ] Confirm Case B is consequential.
-- [ ] Confirm the candidate consequential-action definition can distinguish Case A from Case B.
+- [x] Confirm Case A is not automatically consequential.
+- [x] Confirm Case B is consequential.
+- [x] Confirm the candidate consequential-action definition can distinguish Case A from Case B.
 - [ ] Revise the candidate definition if this distinction is unclear.
 
 ### Notes / decision comments
 
 ```text
-Human Owner notes:
-
+Human Owner confirmed:
+Case A — not automatically consequential.
+Case B — consequential.
 ```
 
 ---
@@ -91,18 +92,20 @@ they should be merged.
 
 ### Human Owner verification
 
-- [ ] Confirm the action-class list is suitable for review.
-- [ ] Confirm the list should remain flat, not hierarchical, for Tranche 1.1.
-- [ ] Confirm `UNCLASSIFIED_CONSEQUENTIAL_ACTION` is acceptable as a fallback candidate.
+- [x] Confirm the action-class list is suitable for review.
+- [x] Confirm the list should remain flat, not hierarchical, for Tranche 1.1.
+- [x] Confirm `UNCLASSIFIED_CONSEQUENTIAL_ACTION` is acceptable as a fallback candidate.
 - [ ] Identify any classes that should be merged.
 - [ ] Identify any classes that are missing.
-- [ ] Confirm these classes remain candidate-only, not canonical schema.
+- [x] Confirm these classes remain candidate-only, not canonical schema.
 
 ### Notes / decision comments
 
 ```text
-Human Owner notes:
-
+Human Owner confirmed:
+candidate Action Classes suitable for review.
+UNCLASSIFIED_CONSEQUENTIAL_ACTION remains fallback candidate.
+Action Classes remain candidate-only, not canonical schema.
 ```
 
 ---
@@ -117,17 +120,20 @@ An Action Boundary is the point at which AI-supported output, recommendation, ev
 
 ### Human Owner verification
 
-- [ ] Confirm this definition is suitable for Tranche 1.1 review.
-- [ ] Confirm Action Boundary depends on the consequential-action definition.
-- [ ] Confirm Action Boundary depends on candidate Action Classes.
-- [ ] Confirm Action Boundary does not yet define Human Response Window, timeout, UI, SLA, or bypass behavior.
-- [ ] Confirm AI may detect boundary approach but must not be the final judge of admissibility.
+- [x] Confirm this definition is suitable for Tranche 1.1 review.
+- [x] Confirm Action Boundary depends on the consequential-action definition.
+- [x] Confirm Action Boundary depends on candidate Action Classes.
+- [x] Confirm Action Boundary does not yet define Human Response Window, timeout, UI, SLA, or bypass behavior.
+- [x] Confirm AI may detect boundary approach but must not be the final judge of admissibility.
 
 ### Notes / decision comments
 
 ```text
-Human Owner notes:
-
+Human Owner confirmed:
+Action Boundary definition suitable for Tranche 1.1 review.
+Action Boundary depends on consequential-action definition and candidate Action Classes.
+Action Boundary does not define HRW, timeout, UI, SLA, or bypass behavior in Tranche 1.1.
+AI may detect boundary approach but must not be the final judge of admissibility.
 ```
 
 ---
@@ -156,18 +162,23 @@ If a record does not show who accepted responsibility, for what scope, and when,
 
 ### Human Owner verification
 
-- [ ] Confirm Decision Log is a governance record, not a generic audit log.
-- [ ] Confirm `named human` is required for review.
-- [ ] Confirm `scope of responsibility` is required for review.
-- [ ] Confirm `timestamp of acceptance` is required for review.
-- [ ] Confirm automated system traces alone are not Decision Log entries.
-- [ ] Confirm Decision Log schema is not adopted by this checklist.
+- [x] Confirm Decision Log is a governance record, not a generic audit log.
+- [x] Confirm `named human` is required for review.
+- [x] Confirm `scope of responsibility` is required for review.
+- [x] Confirm `timestamp of acceptance` is required for review.
+- [x] Confirm automated system traces alone are not Decision Log entries.
+- [x] Confirm Decision Log schema is not adopted by this checklist.
 
 ### Notes / decision comments
 
 ```text
-Human Owner notes:
-
+Human Owner confirmed:
+Decision Log is a governance record, not a generic audit log.
+named human is required for review.
+scope of responsibility is required for review.
+timestamp of acceptance is required for review.
+automated system traces alone are not Decision Log entries.
+Decision Log schema is not adopted by this checklist.
 ```
 
 ---
@@ -204,19 +215,25 @@ replay_ref:
 
 ### Human Owner verification
 
-- [ ] Confirm Responsibility Event Stream remains in Tranche 1.1 only as a stub.
-- [ ] Confirm `boundary_transition_event` is candidate-only.
-- [ ] Confirm `boundary_transition_event` is not an adopted event family.
-- [ ] Confirm the required stub fields are suitable for review.
-- [ ] Confirm fields under review are not required.
-- [ ] Confirm no serialization format, data contract, or implementation schema is adopted.
-- [ ] Confirm the stub must not be used as implementation guidance without separate Human Owner confirmation.
+- [x] Confirm Responsibility Event Stream remains in Tranche 1.1 only as a stub.
+- [x] Confirm `boundary_transition_event` is candidate-only.
+- [x] Confirm `boundary_transition_event` is not an adopted event family.
+- [x] Confirm the required stub fields are suitable for review.
+- [x] Confirm fields under review are not required.
+- [x] Confirm no serialization format, data contract, or implementation schema is adopted.
+- [x] Confirm the stub must not be used as implementation guidance without separate Human Owner confirmation.
 
 ### Notes / decision comments
 
 ```text
-Human Owner notes:
-
+Human Owner confirmed:
+Responsibility Event Stream remains in Tranche 1.1 only as a stub.
+boundary_transition_event is candidate-only.
+boundary_transition_event is not an adopted event family.
+required stub fields are suitable for review.
+fields under review are not required.
+no serialization format, data contract, or implementation schema is adopted.
+stub must not be used as implementation guidance without separate Human Owner confirmation.
 ```
 
 ---
@@ -233,16 +250,19 @@ AI Speed and Responsibility Acceptance
 
 ### Human Owner verification
 
-- [ ] Confirm Human Response Window remains deferred to Tranche 1.2.
-- [ ] Confirm Governed Bypass remains deferred to Tranche 1.2.
-- [ ] Confirm AI Speed and Responsibility Acceptance remains a design / risk principle for now.
-- [ ] Confirm these items are not optional for mature RABA, only deferred from Tranche 1.1.
+- [x] Confirm Human Response Window remains deferred to Tranche 1.2.
+- [x] Confirm Governed Bypass remains deferred to Tranche 1.2.
+- [x] Confirm AI Speed and Responsibility Acceptance remains a design / risk principle for now.
+- [x] Confirm these items are not optional for mature RABA, only deferred from Tranche 1.1.
 
 ### Notes / decision comments
 
 ```text
-Human Owner notes:
-
+Human Owner confirmed:
+Human Response Window remains deferred to Tranche 1.2.
+Governed Bypass remains deferred to Tranche 1.2.
+AI Speed and Responsibility Acceptance remains a design / risk principle for now.
+These items are not optional for mature RABA, only deferred from Tranche 1.1.
 ```
 
 ---
@@ -266,18 +286,23 @@ Tranche 1.1 must not silently adopt:
 
 ### Human Owner verification
 
-- [ ] Confirm Tranche 1.1 remains non-canonical.
-- [ ] Confirm no schema is adopted.
-- [ ] Confirm no event family is adopted.
-- [ ] Confirm no public positioning is changed.
-- [ ] Confirm no implementation commitment is made.
-- [ ] Confirm no PR / merge approval is implied.
+- [x] Confirm Tranche 1.1 remains non-canonical.
+- [x] Confirm no schema is adopted.
+- [x] Confirm no event family is adopted.
+- [x] Confirm no public positioning is changed.
+- [x] Confirm no implementation commitment is made.
+- [x] Confirm no PR / merge approval is implied.
 
 ### Notes / decision comments
 
 ```text
-Human Owner notes:
-
+Human Owner confirmed:
+Tranche 1.1 remains non-canonical.
+No schema is adopted.
+No event family is adopted.
+No public positioning is changed.
+No implementation commitment is made.
+No PR / merge approval is implied.
 ```
 
 ---
@@ -307,7 +332,7 @@ This means the Human Owner decides that more review or consolidation is needed b
 Human Owner selected option:
 
 ```text
-[ ] Option A — Approve preparation of a future PR-ready canonicalization package
+[x] Option A — Approve preparation of a future PR-ready canonicalization package
 [ ] Option B — Revise Tranche 1.1 scope
 [ ] Option C — Defer PR-ready canonicalization work
 ```
@@ -315,7 +340,11 @@ Human Owner selected option:
 Human Owner decision notes:
 
 ```text
+Human Owner selected:
+Option A — approve preparation of a future PR-ready canonicalization package.
 
+Boundary:
+Nothing is canonical until separate Human Owner approval and merge.
 ```
 
 ---
