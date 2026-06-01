@@ -6,6 +6,7 @@
 **Human Owner status:** Human Owner review required before architectural adoption  
 **Source context:** amber white paper review and multi-AI analysis  
 **Date:** 2026-05-31  
+**Related non-canonical note:** [`Recursive Evidence Boundary`](../notes/recursive-evidence-boundary.md) — clarifies that evidence transfer is not authority transfer and that transferred proof becomes an incoming claim requiring local admissibility before consequential use.
 
 > This note is not approved architecture.  
 > Multi-AI agreement is not approval.  
