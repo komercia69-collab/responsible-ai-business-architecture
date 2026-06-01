@@ -6,7 +6,10 @@
 **Current phase:** Consolidation after scope guard and notes classification  
 
 > This file is a transfer summary only.  
+> It is authoritative only as a snapshot of the current handoff state.  
+> It is not authoritative as RABA architecture.  
 > It does not approve, reject, canonicalize, or implement any RABA concept.  
+> Canonical status must be determined through accepted documents and explicit Human Owner decisions.  
 > Human Owner confirmation is required before any architectural adoption, schema change, event-family adoption, file reorganization, or public positioning change.
 
 ---
@@ -35,7 +38,17 @@ So the project paused expansion and added consolidation material.
 
 ---
 
-## 2. Core scope guard
+## 2. Why now?
+
+Agentic AI, RAG systems, observability platforms, and automation tooling are expanding quickly.
+
+Without a scope guard, RABA could drift into a broad AI-governance encyclopedia instead of remaining focused on responsibility boundaries.
+
+The consolidation phase exists to protect the project before canonicalization begins.
+
+---
+
+## 3. Core scope guard
 
 The central RABA question was restated as:
 
@@ -68,7 +81,7 @@ docs/notes/raba-concept-map.md
 
 ---
 
-## 3. Classification review added
+## 4. Classification review added
 
 A non-canonical classification review was created:
 
@@ -88,7 +101,7 @@ This review does not adopt, reject, move, merge, or canonicalize any file.
 
 ---
 
-## 4. Current project shape
+## 5. Current project shape
 
 Current working structure:
 
@@ -121,7 +134,7 @@ Navigation / Scope Guard
 
 ---
 
-## 5. What is currently core
+## 6. What is currently core
 
 The likely Core / Candidate Core area is:
 
@@ -143,9 +156,15 @@ Consequential action requires authority, admissibility, decision record, and rep
 
 However, the classification review does not itself canonicalize these items.
 
+Before canonicalization, the Human Owner should explicitly answer:
+
+```text
+If RABA could only canonicalize three core concepts first, which three would they be?
+```
+
 ---
 
-## 6. What is currently boundary-pattern material
+## 7. What is currently boundary-pattern material
 
 Boundary patterns are useful because they identify where responsibility conditions change.
 
@@ -158,18 +177,24 @@ Agentic AI Responsibility Threshold
 Consequence Boundary Trigger Matrix
 ```
 
-Shared pattern:
+Shared organizing principle:
 
 ```text
 The dangerous moment is not only generation.
 The dangerous moment is transition into consequence.
 ```
 
+Working name:
+
+```text
+Consequence Transition Principle
+```
+
 These remain non-canonical unless separately reviewed and approved.
 
 ---
 
-## 7. What is currently implementation / market-facing material
+## 8. What is currently implementation / market-facing material
 
 Implementation and market-facing materials help explain or test RABA, but they are not the core canon.
 
@@ -192,20 +217,22 @@ They must not silently become RABA canon.
 
 ---
 
-## 8. What is intentionally not approved
+## 9. What is intentionally not approved
 
-The following are not approved as canonical event families or schema changes:
+The following are not approved as canonical event families or schema changes.
 
-```text
-incoming_claim
-reliance_boundary
-agentic_ai
-agent_boundary
-workflow_state_change
-responsibility_observability
-observability_layer
-responsibility_dashboard
-```
+They are preserved only to keep context for future review:
+
+| Candidate label | What it was trying to capture | Current status |
+|---|---|---|
+| `incoming_claim` | External proof entering a new domain as a claim requiring local admissibility | Candidate label only |
+| `reliance_boundary` | Receiving-boundary transition from external evidence to local reliance | Candidate label only |
+| `agentic_ai` | Mode where AI plans, uses tools, or coordinates workflow beyond answer generation | Candidate label only |
+| `agent_boundary` | Boundary where agentic behavior approaches consequence-capable action | Candidate label only |
+| `workflow_state_change` | AI output becoming a change in task or business workflow state | Candidate label only |
+| `responsibility_observability` | Visibility into responsibility transitions, not just technical events | Candidate label only |
+| `observability_layer` | Possible implementation layer for monitoring responsibility behavior | Candidate label only |
+| `responsibility_dashboard` | Possible UI/reporting surface for responsibility events and decision replay | Candidate label only |
 
 Candidate events inside working notes remain candidate-only.
 
@@ -213,11 +240,13 @@ No Responsibility Event Stream schema change has been made.
 
 No Decision Log schema change has been made.
 
+No single canonical schema source file has been confirmed yet.
+
 No implementation commitment has been made.
 
 ---
 
-## 9. Files recently added for consolidation
+## 10. Files recently added for consolidation
 
 Recently added consolidation files:
 
@@ -225,15 +254,16 @@ Recently added consolidation files:
 docs/notes/raba-concept-map.md
 docs/reviews/raba-notes-classification-review.md
 docs/reviews/raba-consolidation-transfer-summary.md
+docs/reviews/raba-consolidation-multi-ai-review-synthesis.md
 ```
 
-Their purpose is navigation, classification, and context transfer.
+Their purpose is navigation, classification, review synthesis, and context transfer.
 
 They are not canonical architecture.
 
 ---
 
-## 10. Current recommendation
+## 11. Current recommendation
 
 Current recommendation:
 
@@ -251,7 +281,29 @@ The project needs consolidation before canonicalization.
 
 ---
 
-## 11. Recommended next work
+## 12. Canonicalization Pack Exit Rule
+
+Consolidation is not the destination.
+
+Canonicalization should begin only when the Human Owner explicitly selects a concrete Canonicalization Pack for review.
+
+A Canonicalization Pack should identify:
+
+- target concept or file;
+- proposed canonical scope;
+- required schema impact, if any;
+- required UI or workflow impact, if any;
+- Decision Log impact;
+- Responsibility Event Stream impact;
+- risks of adoption;
+- risks of rejection;
+- unresolved Human Owner questions.
+
+No AI collaborator may start canonicalization merely because multiple AI systems agree.
+
+---
+
+## 13. Recommended next work
 
 Recommended next steps:
 
@@ -261,10 +313,11 @@ Recommended next steps:
 4. Prepare canonicalization reviews only after consolidation.
 5. Do not update public README until Human Owner confirms public positioning.
 6. Do not adopt event families without separate Human Owner confirmation.
+7. Treat repeated operational use of non-canonical concepts as a trigger for Human Owner review.
 
 ---
 
-## 12. Message for incoming collaborators
+## 14. Message for incoming collaborators
 
 Short handoff message:
 
@@ -278,12 +331,13 @@ Please treat all new notes as working material unless a separate Human Owner dec
 
 ---
 
-## 13. Governance boundary
+## 15. Governance boundary
 
 This transfer summary is:
 
 - non-canonical;
-- a handoff document;
+- authoritative only as a transfer snapshot;
+- not authoritative as RABA architecture;
 - not architecture approval;
 - not a Decision Log entry;
 - not a schema change;
