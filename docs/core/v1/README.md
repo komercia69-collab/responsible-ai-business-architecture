@@ -15,17 +15,17 @@
 
 ## 1. Purpose
 
-This candidate package proposes the minimum RABA core foundation needed to define how AI-supported activity approaches consequential business action and how responsibility must remain visible before action proceeds.
+This candidate package proposes, for review, the minimum RABA core foundation needed to describe how AI-supported activity approaches consequential business action and how responsibility should remain visible before action proceeds.
 
-Tranche 1.1 focuses on data and boundary canon readiness.
+Tranche 1.1 is proposed as a data-and-boundary canon-readiness step.
 
 It does not define runtime implementation, UI behavior, workflow automation, SLA, timeout policy, bypass behavior, dashboard logic, or market-facing positioning.
 
 ---
 
-## 2. Required review sequence
+## 2. Candidate review sequence
 
-Review must proceed in this order:
+This package should be reviewed in this order:
 
 ```text
 Consequential Action Definition
@@ -36,6 +36,8 @@ Consequential Action Definition
 ```
 
 This order matters because each element depends on the previous one.
+
+This review sequence is not merge approval and does not by itself adopt canon.
 
 ---
 
