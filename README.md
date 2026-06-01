@@ -14,6 +14,8 @@ It is a practical operational architecture for making AI-supported actions accou
 
 RABA does not stop useful process momentum by default. RABA prevents consequence creation without admissibility.
 
+> **Scope note:** RABA's current core is operational responsibility architecture: responsibility, governed speed, action boundaries, governance gateway, Decision Log, Responsibility Event Stream, and policy integrity. Research Directions are experimental future tracks. Multi-AI operating materials are project-internal governance showcases. Commercial concepts remain deferred unless explicitly activated by Human Owner decision.
+
 For the project-level definition of responsibility, start with [`concepts/responsibility-definition.md`](concepts/responsibility-definition.md).
 
 For the project-level answer to the concern that responsibility may slow automation, read [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md).
