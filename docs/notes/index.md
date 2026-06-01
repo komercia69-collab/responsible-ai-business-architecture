@@ -7,6 +7,7 @@ Status: non-canonical navigation aid.
 - [Agentic AI responsibility threshold](agentic-ai-responsibility-threshold.md)
 - [Decision Log governed bypass extension](decision-log-governed-bypass-extension.md)
 - [Governance mapping workshop add-on](governance-mapping-workshop-add-on.md)
+- [RABA concept map and scope guard](raba-concept-map.md)
 - [Recursive evidence boundary](recursive-evidence-boundary.md)
 - [Reliance boundary control loop](reliance-boundary-control-loop.md)
 - [Responsibility observability layer](responsibility-observability-layer.md)
