@@ -46,9 +46,10 @@ External reviews may include:
 - [`raba-core-tranche-1-1-readiness-pack.md`](raba-core-tranche-1-1-readiness-pack.md) — non-canonical readiness pack for Tranche 1.1: Action Classes, Consequential Action Definition, Action Boundary, Decision Log, and Responsibility Event Stream schema-stub review.
 - [`tranche-1-1-targeted-review-synthesis.md`](tranche-1-1-targeted-review-synthesis.md) — non-canonical synthesis of targeted Claude, Perplexity, and Gemini feedback on Tranche 1.1 readiness.
 - [`tranche-1-1-human-owner-verification-checklist.md`](tranche-1-1-human-owner-verification-checklist.md) — non-canonical checklist for Human Owner verification before future PR-ready canonicalization work.
-- [`pr-ready/tranche-1-1/`](pr-ready/tranche-1-1/) — non-canonical PR-ready draft materials for Tranche 1.1, including candidate action classes, boundary transition event stub, and Decision Log minimum governance fields.
+- [`tranche-1-1-transfer-summary.md`](tranche-1-1-transfer-summary.md) — non-canonical transfer summary capturing the current Tranche 1.1 state after Human Owner verification and draft-package preparation.
+- [`pr-ready/tranche-1-1/`](pr-ready/tranche-1-1/) — non-canonical PR-ready draft materials for Tranche 1.1, including candidate action classes, boundary transition event stub, Decision Log minimum governance fields, package draft, and PR readiness checklist.
 - [`raba-core-support-rd-focus-review.md`](raba-core-support-rd-focus-review.md) — non-canonical focus review distinguishing RABA core, supporting materials, experimental tracks, internal governance showcase, and deferred commercial concepts.
-- [`readme-focus-guard-mini-patch.md`](readme-focus-guard-mini-patch.md) — non-canonical proposed README focus-guard patch for Human Owner review; not applied to README.
+- [`readme-focus-guard-mini-patch.md`](readme-focus-guard-mini-patch.md) — non-canonical proposed README focus-guard patch for Human Owner review; short scope note was later applied to README by Human Owner confirmation.
 
 ## Current Market Input Takeaway
 
