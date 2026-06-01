@@ -3,7 +3,8 @@
 **Status:** Working Note  
 **Canonical status:** Non-canonical. This note proposes a mechanism for discussion and does not define accepted RABA architecture.  
 **Related inquiry:** [`inquiries/human-ai-autonomy-control-tension.md`](../../inquiries/human-ai-autonomy-control-tension.md)  
-**Related concepts:** Action Classes, Human Authority Constitution, Bind-Time Admissibility, Governance Gateway, Responsibility Event Topology, Policy Integrity, Active Confirmation Interlock, Reversibility Profile
+**Related concepts:** Action Classes, Human Authority Constitution, Bind-Time Admissibility, Governance Gateway, Responsibility Event Topology, Policy Integrity, Active Confirmation Interlock, Reversibility Profile  
+**Related integration note:** [`consequence-transition-control-layer.md`](consequence-transition-control-layer.md)
 
 ---
 
