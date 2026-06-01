@@ -24,7 +24,8 @@ External reviews may include:
 - implementation stress-test notes;
 - non-canonical consolidation and classification reviews;
 - transfer summaries for project handoff;
-- multi-AI review syntheses.
+- multi-AI review syntheses;
+- canonicalization packs for Human Owner review.
 
 ## Current Reviews
 
@@ -36,6 +37,7 @@ External reviews may include:
 - [`raba-notes-classification-review.md`](raba-notes-classification-review.md) — non-canonical consolidation review classifying current notes into Core, Boundary Patterns, Implementation / Market-Facing Extensions, External Inputs, and Scope Guard.
 - [`raba-consolidation-transfer-summary.md`](raba-consolidation-transfer-summary.md) — non-canonical transfer summary for handing off the current consolidation state to reviewers, AI collaborators, or project participants.
 - [`raba-consolidation-multi-ai-review-synthesis.md`](raba-consolidation-multi-ai-review-synthesis.md) — non-canonical synthesis of Claude, Perplexity, and Gemini reviews of the consolidation phase and its next governance controls.
+- [`raba-minimum-core-canonicalization-pack.md`](raba-minimum-core-canonicalization-pack.md) — non-canonical review package for the proposed first-core set: Action Boundary, Decision Log, and Responsibility Event Stream.
 
 ## Current Market Input Takeaway
 
