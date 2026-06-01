@@ -23,7 +23,8 @@ External reviews may include:
 - structured review cards;
 - implementation stress-test notes;
 - non-canonical consolidation and classification reviews;
-- transfer summaries for project handoff.
+- transfer summaries for project handoff;
+- multi-AI review syntheses.
 
 ## Current Reviews
 
@@ -34,6 +35,7 @@ External reviews may include:
 - [`reliance-boundary-control-loop-canonicalization-review.md`](reliance-boundary-control-loop-canonicalization-review.md) — non-canonical checklist for reviewing whether the Reliance Boundary Control Loop is ready for candidate architecture, schema, or event-family review.
 - [`raba-notes-classification-review.md`](raba-notes-classification-review.md) — non-canonical consolidation review classifying current notes into Core, Boundary Patterns, Implementation / Market-Facing Extensions, External Inputs, and Scope Guard.
 - [`raba-consolidation-transfer-summary.md`](raba-consolidation-transfer-summary.md) — non-canonical transfer summary for handing off the current consolidation state to reviewers, AI collaborators, or project participants.
+- [`raba-consolidation-multi-ai-review-synthesis.md`](raba-consolidation-multi-ai-review-synthesis.md) — non-canonical synthesis of Claude, Perplexity, and Gemini reviews of the consolidation phase and its next governance controls.
 
 ## Current Market Input Takeaway
 
