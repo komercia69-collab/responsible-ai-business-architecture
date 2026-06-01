@@ -16,9 +16,11 @@
 
 This draft package contains:
 
+- [`canonicalization-package-draft.md`](canonicalization-package-draft.md) — non-canonical package draft translating verified Tranche 1.1 readiness materials into a possible future PR-ready canonicalization proposal;
 - [`action-classes.candidate.yaml`](action-classes.candidate.yaml) — candidate flat action-class taxonomy for review;
 - [`boundary-transition-event.stub.yaml`](boundary-transition-event.stub.yaml) — candidate minimal Responsibility Event Stream root event stub for review;
-- [`decision-log-minimum-fields.md`](decision-log-minimum-fields.md) — candidate minimum Decision Log governance elements for review.
+- [`decision-log-minimum-fields.md`](decision-log-minimum-fields.md) — candidate minimum Decision Log governance elements for review;
+- [`pr-readiness-checklist.md`](pr-readiness-checklist.md) — checklist for verifying readiness before any future PR branch/package creation.
 
 ---
 
@@ -66,13 +68,18 @@ These deferred items may be reviewed in later packs.
 
 ## 4. Required Human Owner checks
 
-Before any future PR-ready canonicalization work, Human Owner should confirm:
+Human Owner verification has been captured in:
 
-- the Case A / Case B consequentiality boundary test;
-- the candidate Action Classes and fallback class;
-- the Decision Log minimum governance fields;
-- that `boundary_transition_event` remains candidate-only;
-- that no schema or event family is adopted by this draft package.
+```text
+../tranche-1-1-human-owner-verification-checklist.md
+```
+
+Before any future PR branch/package is created outside this review workspace, Human Owner must separately confirm:
+
+- whether to create a real PR-ready canonicalization branch/package;
+- whether canonical draft files should be proposed under `docs/core/v1/` or another location;
+- whether a Decision Log entry is required before or during that future PR step;
+- whether external review is required before opening a PR.
 
 ---
 
