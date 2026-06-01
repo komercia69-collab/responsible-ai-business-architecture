@@ -14,9 +14,11 @@
 
 ## 1. Purpose
 
-Tranche 1.1 may reference Responsibility Event Stream only as a minimal stub for responsibility-relevant boundary transitions.
+Tranche 1.1 may reference Responsibility Event Stream only as a minimal candidate stub for responsibility-relevant boundary transitions.
 
-This file exists to prevent silent adoption of an implementation schema while preserving the concept that responsibility-relevant transitions should be traceable.
+This file exists to prevent silent adoption of an implementation schema while preserving the candidate concept that responsibility-relevant transitions should be traceable.
+
+This is review material only.
 
 ---
 
@@ -75,6 +77,8 @@ A Responsibility Event Stream trace is not a Decision Log by itself.
 A technical event may indicate that a boundary transition occurred.
 
 A Decision Log must still show who accepted responsibility, for what scope, and when.
+
+This relationship is candidate review material, not schema adoption.
 
 ---
 
