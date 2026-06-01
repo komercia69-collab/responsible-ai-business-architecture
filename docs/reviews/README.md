@@ -26,7 +26,8 @@ External reviews may include:
 - transfer summaries for project handoff;
 - multi-AI review syntheses;
 - canonicalization packs for Human Owner review;
-- readiness packs for future PR-ready canonicalization work.
+- readiness packs for future PR-ready canonicalization work;
+- non-canonical PR-ready draft materials.
 
 ## Current Reviews
 
@@ -41,6 +42,8 @@ External reviews may include:
 - [`raba-minimum-core-canonicalization-pack.md`](raba-minimum-core-canonicalization-pack.md) — non-canonical review package for the proposed first-core set: Action Boundary, Decision Log, and Responsibility Event Stream.
 - [`raba-minimum-core-multi-ai-review-synthesis.md`](raba-minimum-core-multi-ai-review-synthesis.md) — non-canonical synthesis of Claude, Perplexity, and Gemini reviews of the proposed minimum core and its readiness gaps.
 - [`raba-core-tranche-1-1-readiness-pack.md`](raba-core-tranche-1-1-readiness-pack.md) — non-canonical readiness pack for Tranche 1.1: Action Classes, Consequential Action Definition, Action Boundary, Decision Log, and Responsibility Event Stream schema-stub review.
+- [`tranche-1-1-targeted-review-synthesis.md`](tranche-1-1-targeted-review-synthesis.md) — non-canonical synthesis of targeted Claude, Perplexity, and Gemini feedback on Tranche 1.1 readiness.
+- [`pr-ready/tranche-1-1/`](pr-ready/tranche-1-1/) — non-canonical PR-ready draft materials for Tranche 1.1, including candidate action classes, boundary transition event stub, and Decision Log minimum governance fields.
 
 ## Current Market Input Takeaway
 
