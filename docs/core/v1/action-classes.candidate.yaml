@@ -1,0 +1,63 @@
+# RABA Tranche 1.1 candidate action classes
+# Status: canonicalization candidate
+# Canonical status: not adopted
+# This file is not a schema adoption.
+# It is not an event-family adoption.
+# It is not implementation guidance.
+# Final architectural approval remains with the Human Owner.
+
+status: canonicalization_candidate_not_adopted
+tranche: "1.1"
+purpose: "Flat candidate action-class taxonomy for Human Owner and PR review"
+
+review_rule: >
+  If two action classes trigger the same Decision Log requirement,
+  the same escalation path, and the same confirmation requirement,
+  they should be merged.
+
+classes:
+  - id: READ_ONLY
+    description: "AI-supported access, retrieval, summarization, or display that does not by itself change workflow state or create an external consequence."
+    default_boundary_note: "Not automatically consequential, but may become relevant if relied upon for action."
+
+  - id: INTERNAL_RECOMMENDATION
+    description: "AI-supported recommendation, ranking, draft, or analysis intended for internal human review before action."
+    default_boundary_note: "Not automatically consequential unless it becomes a decision, workflow change, external communication, or commitment."
+
+  - id: WORKFLOW_STATE_CHANGE
+    description: "AI-supported creation, update, routing, status change, or progression of a workflow item."
+    default_boundary_note: "Potentially consequential because AI output changes operational state."
+
+  - id: DATA_MUTATION
+    description: "AI-supported creation, modification, deletion, enrichment, or correction of data records."
+    default_boundary_note: "Potentially consequential depending on data domain, authority, and downstream use."
+
+  - id: EXTERNAL_COMMUNICATION
+    description: "AI-supported message, notice, claim, explanation, instruction, or content sent outside the responsible organization or workflow owner."
+    default_boundary_note: "Potentially consequential because it may affect recipients, commitments, or legal/commercial expectations."
+
+  - id: EXTERNAL_TRANSACTION
+    description: "AI-supported payment, order, transfer, booking, filing, submission, or other transaction with external effect."
+    default_boundary_note: "Usually consequential because it may create obligation, entitlement, cost, or external state change."
+
+  - id: APPROVAL_OR_DENIAL
+    description: "AI-supported approval, rejection, eligibility decision, access decision, claim decision, or authorization decision."
+    default_boundary_note: "Consequential when it affects rights, access, benefits, obligations, or business outcome."
+
+  - id: COMPLIANCE_SIGN_OFF
+    description: "AI-supported certification, compliance conclusion, risk acceptance, regulatory assertion, or formal sign-off."
+    default_boundary_note: "Consequential because it may affect accountability, compliance status, or organizational liability."
+
+  - id: ESCALATION_OR_HANDOFF
+    description: "AI-supported transfer of responsibility, escalation to a role, or handoff to another system, team, or domain."
+    default_boundary_note: "Potentially consequential because responsibility ownership or decision authority may shift."
+
+  - id: UNCLASSIFIED_CONSEQUENTIAL_ACTION
+    description: "Fallback candidate class for actions that appear consequential but do not fit the current taxonomy."
+    default_boundary_note: "Must trigger review; not a license to avoid later classification."
+
+governance_boundary: >
+  These action classes are candidate review material only. They are not canonical,
+  not a machine-readable schema adoption, and not authorization for automated enforcement.
+  Presence in docs/core/v1 on this branch does not imply adoption.
+  Canonical adoption requires separate Human Owner approval and PR/merge decision trail.
