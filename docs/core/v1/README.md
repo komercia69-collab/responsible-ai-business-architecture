@@ -51,19 +51,7 @@ This review sequence is not merge approval and does not by itself adopt canon.
 
 ---
 
-## 4. Relationship to review notes
-
-The review notes in `docs/reviews/` are context-only guardrail notes.
-
-They do not expand the Tranche 1.1 candidate scope.
-
-They do not authorize canonical adoption, schema adoption, event-family adoption, implementation guidance, public positioning, pilots, vendor references, commercial commitments, or merge approval.
-
-They are included only to distinguish core candidate materials from roadmap, project-management, application, research, and risk-review materials.
-
----
-
-## 5. Deferred from Tranche 1.1
+## 4. Deferred from Tranche 1.1
 
 The following remain deferred to Tranche 1.2 or later:
 
@@ -81,7 +69,7 @@ These items are important for mature RABA, but they depend on a stable Action Bo
 
 ---
 
-## 6. Non-adoption boundary
+## 5. Non-adoption boundary
 
 This candidate package does not authorize:
 
