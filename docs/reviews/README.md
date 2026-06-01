@@ -28,6 +28,7 @@ External reviews may include:
 - [`decisionassure-raba-trace-example.md`](decisionassure-raba-trace-example.md) — external DecisionAssure trace example for stale confirmation, hidden commitment, rollback assumptions, and human responsibility boundaries.
 - [`amber-generative-ai-introduction-raba-review.md`](amber-generative-ai-introduction-raba-review.md) — external market input reviewing an enterprise generative AI / RAG implementation guide and mapping its adoption practices to RABA responsibility-architecture gaps.
 - [`raba-over-rag-governance-extension-recommendation.md`](raba-over-rag-governance-extension-recommendation.md) — implementation stress-test note translating RABA-over-RAG governance insertion points into candidate data links, role profiles, drift indicators, and artifact requirements.
+- [`peter-cranstone-receiving-boundary-reliance-layer.md`](peter-cranstone-receiving-boundary-reliance-layer.md) — external conceptual input on receiving-boundary reliance decisioning and recursive proof-to-claim transitions.
 
 ## Current Market Input Takeaway
 
