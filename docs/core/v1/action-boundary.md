@@ -13,9 +13,9 @@
 
 ## 1. Purpose
 
-The Action Boundary defines when AI-supported output approaches consequential business action and therefore requires explicit governance handling.
+This candidate proposes the Action Boundary as the point where AI-supported output approaches consequential business action and therefore requires explicit governance handling.
 
-This boundary is not a UI pattern, timeout rule, bypass mechanism, SLA, or implementation workflow.
+This boundary candidate is not a UI pattern, timeout rule, bypass mechanism, SLA, or implementation workflow.
 
 Those items remain deferred from Tranche 1.1.
 
@@ -24,6 +24,8 @@ Those items remain deferred from Tranche 1.1.
 ## 2. Candidate definition
 
 An Action Boundary is the point at which AI-supported output, recommendation, evidence, or plan approaches a consequential business action and therefore requires explicit authority, admissibility, responsibility, and record handling.
+
+This definition is a candidate statement for review, not adopted canon.
 
 ---
 
@@ -37,11 +39,13 @@ This means AI may signal that a boundary is near or crossed.
 
 It must not be the final authority for whether the action is admissible, authorized, or responsibility-accepted.
 
+This constraint is a candidate governance rule for review, not implementation guidance.
+
 ---
 
 ## 4. Dependency order
 
-Action Boundary depends on:
+Action Boundary should be reviewed after:
 
 ```text
 Consequential Action Definition
@@ -55,7 +59,7 @@ The boundary should not be reviewed before the consequential-action definition a
 
 ## 5. What Tranche 1.1 does not define
 
-Tranche 1.1 Action Boundary does not define:
+This Tranche 1.1 candidate does not define:
 
 - Human Response Window;
 - timeout behavior;
@@ -71,7 +75,7 @@ These remain deferred to Tranche 1.2 or later.
 
 ---
 
-## 6. Governance implication
+## 6. Candidate governance implication
 
 When an Action Boundary is triggered or approached, RABA should require explicit handling of:
 
@@ -84,6 +88,8 @@ When an Action Boundary is triggered or approached, RABA should require explicit
 This does not mean every AI output is consequential.
 
 It means consequential transition points must not be hidden inside model confidence, convenience, or workflow speed.
+
+This section is a candidate implication for review, not implementation guidance.
 
 ---
 
