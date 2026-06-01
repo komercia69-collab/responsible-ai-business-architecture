@@ -28,7 +28,8 @@ External reviews may include:
 - canonicalization packs for Human Owner review;
 - readiness packs for future PR-ready canonicalization work;
 - non-canonical PR-ready draft materials;
-- Human Owner verification checklists.
+- Human Owner verification checklists;
+- focus-guard and README patch proposals.
 
 ## Current Reviews
 
@@ -46,6 +47,8 @@ External reviews may include:
 - [`tranche-1-1-targeted-review-synthesis.md`](tranche-1-1-targeted-review-synthesis.md) — non-canonical synthesis of targeted Claude, Perplexity, and Gemini feedback on Tranche 1.1 readiness.
 - [`tranche-1-1-human-owner-verification-checklist.md`](tranche-1-1-human-owner-verification-checklist.md) — non-canonical checklist for Human Owner verification before future PR-ready canonicalization work.
 - [`pr-ready/tranche-1-1/`](pr-ready/tranche-1-1/) — non-canonical PR-ready draft materials for Tranche 1.1, including candidate action classes, boundary transition event stub, and Decision Log minimum governance fields.
+- [`raba-core-support-rd-focus-review.md`](raba-core-support-rd-focus-review.md) — non-canonical focus review distinguishing RABA core, supporting materials, experimental tracks, internal governance showcase, and deferred commercial concepts.
+- [`readme-focus-guard-mini-patch.md`](readme-focus-guard-mini-patch.md) — non-canonical proposed README focus-guard patch for Human Owner review; not applied to README.
 
 ## Current Market Input Takeaway
 
