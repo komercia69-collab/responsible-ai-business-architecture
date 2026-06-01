@@ -28,6 +28,18 @@ Decision Log
 Responsibility Event Stream minimal schema stub
 ```
 
+Internal review sequence:
+
+```text
+Consequential Action Definition
+→ Action Classes
+→ Action Boundary
+→ Decision Log
+→ Responsibility Event Stream stub
+```
+
+This sequence matters because each element depends on the previous one.
+
 This tranche does not include:
 
 ```text
@@ -62,10 +74,34 @@ Status:
 Candidate definition only. Not adopted.
 ```
 
+### 2.1 Consequentiality boundary test
+
+The candidate definition must distinguish between:
+
+```text
+Case A:
+AI summarizes a contract and presents the summary to a human who then decides whether to sign.
+
+Case B:
+AI summarizes a contract and pre-fills a signature field in a workflow system.
+```
+
+Expected classification:
+
+```text
+Case A = not automatically consequential.
+Case B = consequential, because AI output moves into workflow state change.
+```
+
+If the definition captures both cases as consequential by default, it may be too broad.
+
+If the definition excludes both cases, it may be too narrow.
+
 Review questions:
 
 - Is the definition broad enough to cover business, legal, operational, and customer-facing consequences?
 - Is it too broad for first-core review?
+- Does it pass the Case A / Case B test?
 - Should “materially affect” be defined later?
 - Should consequence classes be separate from action classes?
 
@@ -85,6 +121,7 @@ EXTERNAL_TRANSACTION
 APPROVAL_OR_DENIAL
 COMPLIANCE_SIGN_OFF
 ESCALATION_OR_HANDOFF
+UNCLASSIFIED_CONSEQUENTIAL_ACTION
 ```
 
 Purpose:
@@ -99,6 +136,27 @@ Status:
 Candidate taxonomy only. Not schema. Not canonical.
 ```
 
+### 3.1 Governance-response test
+
+Action Classes should remain flat, minimal, and governance-relevant.
+
+Working test:
+
+```text
+If two action classes trigger the same Decision Log requirement,
+the same escalation path,
+and the same confirmation requirement,
+they should be merged.
+```
+
+### 3.2 Fallback class
+
+`UNCLASSIFIED_CONSEQUENTIAL_ACTION` is a fallback candidate class.
+
+It prevents consequential actions from disappearing when they do not fit the first taxonomy.
+
+It is not a license to avoid later classification.
+
 Review questions:
 
 - Which classes are always non-consequential?
@@ -106,6 +164,7 @@ Review questions:
 - Which classes always require Decision Log capture?
 - Which classes always require Responsibility Event Stream capture?
 - Are any classes missing, overlapping, or too implementation-specific?
+- Do the classes pass the governance-response test?
 
 ---
 
@@ -135,6 +194,7 @@ Review questions:
 - Who may allow, limit, refuse, or escalate boundary crossing?
 - Which action classes require boundary handling?
 - How does Action Boundary connect to Decision Log and Responsibility Event Stream?
+- What happens when a consequential action is unclassified?
 
 ---
 
@@ -158,6 +218,24 @@ Status:
 Candidate definition only. Not adopted.
 ```
 
+### 5.1 Decision Log versus audit log
+
+A Decision Log is a governance record, not a generic audit log.
+
+Minimum governance elements for review:
+
+```text
+named human
+scope of responsibility
+timestamp of acceptance
+```
+
+Working rule:
+
+```text
+If a record does not show who accepted responsibility, for what scope, and when, it is not a Decision Log. It is an audit log.
+```
+
 Candidate minimum decision questions:
 
 - What action or boundary was involved?
@@ -166,6 +244,7 @@ Candidate minimum decision questions:
 - What evidence or source reference was used?
 - What limits, uncertainty, or conditions remained?
 - Which Responsibility Event Stream event, if any, links to this decision?
+- Who accepted responsibility, for what scope, and when?
 
 ---
 
@@ -187,23 +266,37 @@ Status:
 
 ```text
 Candidate schema stub only. Not adopted.
+Not canonical.
+Not an event family.
+Not an implementation commitment.
 ```
 
-Candidate required fields:
+Candidate root event type for review:
+
+```text
+boundary_transition_event
+```
+
+This is not adopted.
+
+It is only a candidate root event type for review.
+
+Candidate required stub fields for review:
 
 ```yaml
 event_id:
 event_type:
-action_class:
-boundary_status:
-decision_log_ref:
-responsibility_owner:
+action_boundary_triggered:
+decision_log_reference:
 timestamp:
 ```
 
-Candidate optional fields:
+Candidate fields under review, not required:
 
 ```yaml
+action_class:
+responsibility_owner:
+boundary_status:
 source_ref:
 consequence_class:
 authority_status:
@@ -212,15 +305,15 @@ replay_ref:
 
 Review questions:
 
-- Are these required fields too many or too few?
-- Should `decision_log_ref` be required for every event?
-- Should `action_class` be required before action classes are canonical?
-- What event types are needed for Tranche 1.1?
-- How is replay integrity protected?
+- Are these required stub fields too many or too few?
+- Should `decision_log_reference` be nullable?
+- Should `action_class` remain under review until Action Classes are accepted?
+- Is `boundary_transition_event` too broad, too narrow, or suitable as a candidate root event type?
+- How is replay integrity protected without adopting a full schema?
 
 ---
 
-## 7. Tranche 1.1 boundary
+## 7. Silent adoption hygiene
 
 Tranche 1.1 does not authorize:
 
@@ -232,7 +325,12 @@ Tranche 1.1 does not authorize:
 - implementation commitments;
 - public README updates;
 - vendor references;
-- pilot claims.
+- pilot claims;
+- concrete serialization formats;
+- SIEM / observability dependencies;
+- product-specific examples.
+
+Any examples must be explicitly marked as non-canonical examples or kept outside readiness / PR-ready materials.
 
 It only prepares the Human Owner to decide whether a future PR-ready canonicalization package should be created.
 
@@ -264,10 +362,15 @@ Before any PR-ready canonicalization work, Human Owner should confirm:
 
 - [ ] Tranche 1.1 is the right first readiness scope.
 - [ ] Consequential action definition is suitable for review.
+- [ ] Case A / Case B boundary test is accepted.
 - [ ] Candidate action classes are suitable for review.
+- [ ] Action Classes pass the governance-response test.
+- [ ] `UNCLASSIFIED_CONSEQUENTIAL_ACTION` is acceptable as fallback candidate.
 - [ ] Action Boundary definition is suitable for review.
 - [ ] Decision Log purpose is suitable for review.
-- [ ] Responsibility Event Stream should remain in Tranche 1.1 with a schema stub.
+- [ ] Decision Log minimum governance elements are accepted for review.
+- [ ] Responsibility Event Stream should remain in Tranche 1.1 with a stub only.
+- [ ] `boundary_transition_event` remains candidate-only.
 - [ ] Human Response Window and Governed Bypass are deferred to Tranche 1.2.
 - [ ] AI Speed and Responsibility Acceptance remains a design / risk principle for now.
 - [ ] No event families are adopted by this readiness pack.
