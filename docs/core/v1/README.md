@@ -24,7 +24,8 @@ Tranche 1.1 defines the minimum candidate core needed to determine when AI-suppo
 Review these files in order:
 
 ```text
-Consequential Action Definition
+Status and Adoption Boundary
+→ Consequential Action Definition
 → Action Classes
 → Action Boundary
 → Decision Log
@@ -36,6 +37,9 @@ This order must be preserved because each element depends on the previous one.
 ---
 
 ## 3. Candidate files
+
+0. [`status-and-adoption-boundary.md`](status-and-adoption-boundary.md)  
+   Clarifies the difference between draft, candidate, accepted for review, canonical, and implemented material.
 
 1. [`consequential-action.md`](consequential-action.md)  
    Defines the candidate meaning of consequential AI-supported action.
