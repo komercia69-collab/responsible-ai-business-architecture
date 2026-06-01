@@ -21,7 +21,8 @@ External reviews may include:
 - external tool evaluations;
 - specialist review notes;
 - structured review cards;
-- implementation stress-test notes.
+- implementation stress-test notes;
+- non-canonical consolidation and classification reviews.
 
 ## Current Reviews
 
@@ -30,6 +31,7 @@ External reviews may include:
 - [`raba-over-rag-governance-extension-recommendation.md`](raba-over-rag-governance-extension-recommendation.md) — implementation stress-test note translating RABA-over-RAG governance insertion points into candidate data links, role profiles, drift indicators, and artifact requirements.
 - [`peter-cranstone-receiving-boundary-reliance-layer.md`](peter-cranstone-receiving-boundary-reliance-layer.md) — external conceptual input on receiving-boundary reliance decisioning and recursive proof-to-claim transitions.
 - [`reliance-boundary-control-loop-canonicalization-review.md`](reliance-boundary-control-loop-canonicalization-review.md) — non-canonical checklist for reviewing whether the Reliance Boundary Control Loop is ready for candidate architecture, schema, or event-family review.
+- [`raba-notes-classification-review.md`](raba-notes-classification-review.md) — non-canonical consolidation review classifying current notes into Core, Boundary Patterns, Implementation / Market-Facing Extensions, External Inputs, and Scope Guard.
 
 ## Current Market Input Takeaway
 
