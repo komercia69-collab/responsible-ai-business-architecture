@@ -14,23 +14,29 @@
 
 ## 1. Purpose
 
-A RABA Decision Log is a governance record, not a generic audit log.
+This candidate proposes that a RABA Decision Log should be treated as a governance record, not a generic audit log.
 
 A technical audit log may show that an event happened.
 
 A RABA Decision Log should show why consequential AI-supported use was allowed, limited, refused, escalated, or blocked, under whose responsibility, and within what scope.
 
+This purpose statement is candidate material for review, not adopted canon.
+
 ---
 
 ## 2. Candidate minimum governance elements
 
-Candidate non-negotiable governance elements:
+Candidate non-negotiable governance elements for review:
 
 ```text
 named human
 scope of responsibility
 timestamp of acceptance
 ```
+
+These elements are proposed as minimum governance elements.
+
+They do not by themselves adopt a full Decision Log schema.
 
 ---
 
@@ -45,6 +51,8 @@ Russian formulation:
 ```text
 Если запись не показывает, кто принял ответственность, за какой объём ответственности и когда, это не Decision Log. Это audit log.
 ```
+
+This working rule is candidate review material, not implementation guidance.
 
 ---
 
@@ -61,6 +69,8 @@ A Decision Log entry should be able to answer:
 7. What evidence or source reference was used?
 8. What limits, uncertainty, or conditions remained?
 9. Which Responsibility Event Stream event, if any, links to this decision?
+
+These questions are review prompts, not a schema definition.
 
 ---
 
@@ -85,7 +95,7 @@ They do not by themselves prove responsibility acceptance.
 
 This Tranche 1.1 file does not adopt a full Decision Log schema.
 
-It proposes minimum governance elements that any later Decision Log schema or implementation must preserve if adopted by separate Human Owner approval.
+It proposes minimum governance elements that any later Decision Log schema or implementation should preserve if adopted by separate Human Owner approval.
 
 ---
 
