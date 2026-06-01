@@ -4,7 +4,8 @@
 **Canonical status:** Non-canonical  
 **Input basis:** External conceptual input from Peter Cranstone plus RABA internal synthesis  
 **Related external input:** [`../reviews/peter-cranstone-receiving-boundary-reliance-layer.md`](../reviews/peter-cranstone-receiving-boundary-reliance-layer.md)  
-**Related directions:** Recursive Evidence Boundary, Source Log / Decision Log bridge, local admissibility, consequence boundary, Responsibility Event Stream, replayable governance
+**Related directions:** Recursive Evidence Boundary, Source Log / Decision Log bridge, local admissibility, consequence boundary, Responsibility Event Stream, replayable governance  
+**Related integration note:** [`consequence-transition-control-layer.md`](consequence-transition-control-layer.md)
 
 > This note is not approved architecture.  
 > It proposes a possible control loop for receiving-boundary transitions.  
