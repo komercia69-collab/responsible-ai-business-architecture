@@ -25,7 +25,8 @@ External reviews may include:
 - non-canonical consolidation and classification reviews;
 - transfer summaries for project handoff;
 - multi-AI review syntheses;
-- canonicalization packs for Human Owner review.
+- canonicalization packs for Human Owner review;
+- readiness packs for future PR-ready canonicalization work.
 
 ## Current Reviews
 
@@ -38,6 +39,8 @@ External reviews may include:
 - [`raba-consolidation-transfer-summary.md`](raba-consolidation-transfer-summary.md) — non-canonical transfer summary for handing off the current consolidation state to reviewers, AI collaborators, or project participants.
 - [`raba-consolidation-multi-ai-review-synthesis.md`](raba-consolidation-multi-ai-review-synthesis.md) — non-canonical synthesis of Claude, Perplexity, and Gemini reviews of the consolidation phase and its next governance controls.
 - [`raba-minimum-core-canonicalization-pack.md`](raba-minimum-core-canonicalization-pack.md) — non-canonical review package for the proposed first-core set: Action Boundary, Decision Log, and Responsibility Event Stream.
+- [`raba-minimum-core-multi-ai-review-synthesis.md`](raba-minimum-core-multi-ai-review-synthesis.md) — non-canonical synthesis of Claude, Perplexity, and Gemini reviews of the proposed minimum core and its readiness gaps.
+- [`raba-core-tranche-1-1-readiness-pack.md`](raba-core-tranche-1-1-readiness-pack.md) — non-canonical readiness pack for Tranche 1.1: Action Classes, Consequential Action Definition, Action Boundary, Decision Log, and Responsibility Event Stream schema-stub review.
 
 ## Current Market Input Takeaway
 
