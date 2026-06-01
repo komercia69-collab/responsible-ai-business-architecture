@@ -13,19 +13,21 @@
 
 ## 1. Purpose
 
-RABA requires a clear threshold for when AI-supported activity becomes responsibility-relevant.
+This candidate proposes a clear threshold for reviewing when AI-supported activity becomes responsibility-relevant.
 
-Tranche 1.1 defines this threshold at the level of consequential action.
+Tranche 1.1 proposes this threshold at the level of consequential action.
 
-RABA does not need to decide whether a system is a “true AI agent” before it can govern responsibility.
+This candidate does not require RABA to decide whether a system is a “true AI agent” before it can govern responsibility.
 
-RABA needs to identify when AI-supported output may materially affect a person, organization, workflow state, obligation, entitlement, compliance status, or business outcome.
+Instead, it proposes that RABA should identify when AI-supported output may materially affect a person, organization, workflow state, obligation, entitlement, compliance status, or business outcome.
 
 ---
 
 ## 2. Candidate definition
 
 A consequential action is an AI-supported action, recommendation, decision, workflow change, external communication, approval, refusal, transaction, commitment, or escalation that may materially affect a person, customer, employee, obligation, entitlement, operational state, compliance status, or business outcome.
+
+This definition is a candidate statement for review, not adopted canon.
 
 ---
 
@@ -42,6 +44,8 @@ Example:
 Case A — AI summarizes a contract for human decision = not automatically consequential.
 Case B — AI summarizes a contract and pre-fills a signature field / changes workflow state = consequential.
 ```
+
+This boundary test is a candidate review aid, not implementation guidance.
 
 ---
 
@@ -67,7 +71,7 @@ It does not replace the consequential-action definition.
 
 A consequential action does not mean AI is prohibited.
 
-It means the action must be handled through explicit authority, admissibility, responsibility, and record logic before it proceeds.
+As a candidate governance implication, it means the action should be handled through explicit authority, admissibility, responsibility, and record logic before it proceeds.
 
 This connects directly to:
 
