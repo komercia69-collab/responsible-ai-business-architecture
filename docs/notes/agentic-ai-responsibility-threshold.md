@@ -3,7 +3,8 @@
 **Status:** Working Note  
 **Canonical status:** Non-canonical  
 **Input type:** External market signal / LinkedIn discussion observation  
-**Related directions:** AI Role Profile, Action Boundary, Responsibility Event Stream, Governed Bypass, Human Response Window, Decision Log reconstruction
+**Related directions:** AI Role Profile, Action Boundary, Responsibility Event Stream, Governed Bypass, Human Response Window, Decision Log reconstruction  
+**Related integration note:** [`consequence-transition-control-layer.md`](consequence-transition-control-layer.md)
 
 > This note is not approved architecture.  
 > It preserves a market-facing distinction for review: not every LLM-powered workflow is agentic AI, but responsibility concerns increase when AI-supported behavior starts to plan, use tools, update workflow state, coordinate agents, or create consequences.  
