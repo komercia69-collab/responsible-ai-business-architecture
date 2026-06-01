@@ -55,6 +55,18 @@ A concept belongs in RABA only if it helps answer at least one of these question
 
 If a concept does not connect to consequence, authority, admissibility, responsibility, or replay, it should not be treated as core RABA architecture.
 
+### 2.1 Scope Guard Test
+
+A new concept passes the scope guard only if it can answer these three questions:
+
+1. **Boundary:** What specific responsibility boundary or consequence transition does this concept sharpen?
+2. **Decision:** Who must decide, approve, refuse, limit, or escalate at that boundary?
+3. **Record:** What must be recorded for responsibility, replay, correction, or audit?
+
+If the answer to all three is weak, speculative, or dependent on another new concept, the concept should not be added as a new note.
+
+It may be captured as a comment, review input, or deferred question instead.
+
 ---
 
 ## 3. Level 1 — RABA Core
@@ -75,6 +87,24 @@ Core principle:
 Consequential action requires authority, admissibility, decision record, and replay.
 ```
 
+### 3.1 Minimum Core Question
+
+Before canonicalization, the Human Owner should explicitly answer:
+
+```text
+If RABA could only canonicalize three core concepts first, which three would they be?
+```
+
+This question prevents the core from solidifying by accumulation rather than by decision.
+
+No answer is adopted by this note.
+
+### 3.2 Human Response Window caution
+
+If Human Response Window is later treated as candidate core, its canonicalization review must include cognitive-friction safeguards against passive approval and rubber-stamp behavior.
+
+A timer alone must not be treated as proof of human understanding.
+
 ---
 
 ## 4. Level 2 — Boundary Patterns
@@ -94,12 +124,24 @@ Current boundary-pattern working notes include:
 - **Reliance Boundary Control Loop** — external evidence becomes local reliance only after a receiving-boundary decision;
 - **Agentic AI Responsibility Threshold** — agentic risk begins when AI output becomes workflow state change.
 
-Shared pattern:
+### 4.1 Consequence Transition Principle
+
+Boundary patterns share a non-canonical organizing principle:
 
 ```text
 The dangerous moment is not only generation.
 The dangerous moment is transition into consequence.
 ```
+
+Working name:
+
+```text
+Consequence Transition Principle
+```
+
+This principle is an organizing label only.
+
+It is not canonical architecture unless separately reviewed and approved.
 
 ---
 
@@ -124,9 +166,64 @@ Implementation and market references may inform RABA.
 They must not silently become RABA canon.
 ```
 
+### 5.1 Silent Canonicalization Drift Trigger
+
+Repeated operational use of a non-canonical concept should trigger Human Owner review.
+
+Working trigger:
+
+```text
+If a non-canonical implementation or market-facing concept is repeatedly used as a basis for architecture, workflow design, or public positioning, pause and request Human Owner review.
+```
+
+This trigger does not canonicalize the concept.
+
+It prevents de facto canon from forming through repetition.
+
 ---
 
-## 6. Concept map
+## 6. Classification criteria
+
+Current working classification criteria:
+
+| Layer | Primary question | Typical output |
+|---|---|---|
+| Core | What is required for RABA to preserve explicit responsibility? | Canonical candidate architecture |
+| Boundary Pattern | Which transition changes responsibility conditions? | Non-canonical pattern / candidate architecture |
+| Implementation / Market-Facing Extension | How can RABA be explained, tested, mapped, or implemented? | Workshop aid, stress test, observability idea, role profile |
+| External Input / Review Aid | What external signal or critique should be preserved for evaluation? | Review note, external input, synthesis, checklist |
+| Navigation / Scope Guard | How do we prevent drift and keep the project readable? | Index, concept map, transfer summary |
+
+These criteria are non-canonical and may be revised.
+
+---
+
+## 7. Candidate label purpose table
+
+The following labels are not approved as canonical event families, schemas, or architecture components.
+
+They are preserved only to keep context for future review.
+
+| Candidate label | What it was trying to capture | Current status |
+|---|---|---|
+| `incoming_claim` | External proof entering a new domain as a claim requiring local admissibility | Candidate label only |
+| `reliance_boundary` | Receiving-boundary transition from external evidence to local reliance | Candidate label only |
+| `agentic_ai` | Mode where AI plans, uses tools, or coordinates workflow beyond answer generation | Candidate label only |
+| `agent_boundary` | Boundary where agentic behavior approaches consequence-capable action | Candidate label only |
+| `workflow_state_change` | AI output becoming a change in task or business workflow state | Candidate label only |
+| `responsibility_observability` | Visibility into responsibility transitions, not just technical events | Candidate label only |
+| `observability_layer` | Possible implementation layer for monitoring responsibility behavior | Candidate label only |
+| `responsibility_dashboard` | Possible UI/reporting surface for responsibility events and decision replay | Candidate label only |
+
+No Responsibility Event Stream schema change has been made.
+
+No Decision Log schema change has been made.
+
+No single canonical schema source file has been confirmed yet.
+
+---
+
+## 8. Concept map
 
 The current working map can be summarized as:
 
@@ -152,7 +249,7 @@ It does not approve any specific schema.
 
 ---
 
-## 7. What RABA is not
+## 9. What RABA is not
 
 RABA should not become:
 
@@ -169,7 +266,7 @@ RABA may reference these areas only when they clarify responsibility boundaries 
 
 ---
 
-## 8. Current consolidation rule
+## 10. Current consolidation rule
 
 Until the concept map is stable, new notes should be added cautiously.
 
@@ -190,7 +287,29 @@ Do not expand the concept space unless the new concept sharpens a responsibility
 
 ---
 
-## 9. Status of current working concepts
+## 11. Canonicalization Pack Exit Rule
+
+Consolidation is not the destination.
+
+Canonicalization should begin only when the Human Owner explicitly selects a concrete Canonicalization Pack for review.
+
+A Canonicalization Pack should identify:
+
+- target concept or file;
+- proposed canonical scope;
+- required schema impact, if any;
+- required UI or workflow impact, if any;
+- Decision Log impact;
+- Responsibility Event Stream impact;
+- risks of adoption;
+- risks of rejection;
+- unresolved Human Owner questions.
+
+No AI collaborator may start canonicalization merely because multiple AI systems agree.
+
+---
+
+## 12. Status of current working concepts
 
 Current status overview:
 
@@ -207,7 +326,7 @@ Final architectural approval belongs to the Human Owner.
 
 ---
 
-## 10. Governance boundary
+## 13. Governance boundary
 
 This note is:
 
