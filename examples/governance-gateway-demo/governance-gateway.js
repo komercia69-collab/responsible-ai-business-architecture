@@ -62,13 +62,21 @@ function evaluateAction(action) {
   }
 
   if (action.actionType === 'offer_refund') {
-    if (Number(action.amount) > policy.maxRefundWithManagerApproval) {
+    const refundAmount = Number(action.amount);
+
+    if (!Number.isFinite(refundAmount)) {
+      return createDecision(action, Decision.BLOCK, [
+        `Refund amount '${action.amount}' is invalid or missing.`
+      ]);
+    }
+
+    if (refundAmount > policy.maxRefundWithManagerApproval) {
       return createDecision(action, Decision.ESCALATE, [
         `Refund amount ${action.amount} exceeds manager approval threshold ${policy.maxRefundWithManagerApproval}.`
       ]);
     }
 
-    if (Number(action.amount) > policy.maxAutonomousRefundAmount) {
+    if (refundAmount > policy.maxAutonomousRefundAmount) {
       return createDecision(action, Decision.REQUIRE_APPROVAL, [
         `Refund amount ${action.amount} exceeds autonomous threshold ${policy.maxAutonomousRefundAmount}.`
       ]);
