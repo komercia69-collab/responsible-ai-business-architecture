@@ -53,21 +53,38 @@ Recommended protection settings:
 
 ---
 
-## 4. Pull request classes
+## 4. CODEOWNERS review boundary
 
-### 4.1 Editorial PR
+Required CODEOWNERS review should be treated as repository change-control evidence, not as final project or architectural approval.
+
+A CODEOWNERS approval may support merge readiness, but it does not replace explicit Human Owner confirmation where that confirmation is required.
+
+This is especially important for:
+
+- canon adoption;
+- governance rule changes;
+- access-control changes;
+- public-positioning changes;
+- schema or event-family adoption;
+- pilot, vendor, referral, or commercial commitments.
+
+---
+
+## 5. Pull request classes
+
+### 5.1 Editorial PR
 
 Minor wording, spelling, formatting, or link cleanup.
 
 May be reviewed quickly, but still should not bypass protected branch rules.
 
-### 4.2 Review / working-note PR
+### 5.2 Review / working-note PR
 
 Adds or updates non-canonical review, notes, synthesis, or external input.
 
 Must clearly state non-canonical status.
 
-### 4.3 Candidate architecture PR
+### 5.3 Candidate architecture PR
 
 Proposes candidate architecture material.
 
@@ -80,19 +97,19 @@ Must clearly state:
 - no implementation guidance unless explicitly approved;
 - final architectural approval remains with the Human Owner.
 
-### 4.4 Canonicalization PR
+### 5.4 Canonicalization PR
 
 Proposes material for canonical adoption.
 
 Requires explicit Human Owner confirmation before merge.
 
-### 4.5 Governance / access-control PR
+### 5.5 Governance / access-control PR
 
 Changes repository authority, access-control, CODEOWNERS, branch protection expectations, or governance documents.
 
 Requires explicit Human Owner confirmation before merge.
 
-### 4.6 Public-positioning / commercial PR
+### 5.6 Public-positioning / commercial PR
 
 Changes public claims, pilot language, vendor references, commercial commitments, or partnership positioning.
 
@@ -100,7 +117,7 @@ Requires explicit Human Owner confirmation before merge.
 
 ---
 
-## 5. Merge restrictions
+## 6. Merge restrictions
 
 The following must not be merged without Human Owner confirmation:
 
@@ -116,7 +133,7 @@ The following must not be merged without Human Owner confirmation:
 
 ---
 
-## 6. Decision Log expectations
+## 7. Decision Log expectations
 
 A Decision Log entry should be created or updated when a change:
 
@@ -131,7 +148,7 @@ A Decision Log entry must distinguish authorization to prepare work from final a
 
 ---
 
-## 7. AI collaborator boundary
+## 8. AI collaborator boundary
 
 AI collaborators may draft, prepare, review, summarize, and recommend.
 
@@ -146,7 +163,7 @@ AI collaborators must not:
 
 ---
 
-## 8. Emergency boundary
+## 9. Emergency boundary
 
 Emergency technical fixes may be proposed quickly, but should still preserve:
 
@@ -157,7 +174,7 @@ Emergency technical fixes may be proposed quickly, but should still preserve:
 
 ---
 
-## 9. Non-removal boundary
+## 10. Non-removal boundary
 
 This policy candidate does not remove contributors or change live permissions by itself.
 
@@ -165,7 +182,7 @@ Contributor access changes require a separate Human Owner decision.
 
 ---
 
-## 10. Final authority
+## 11. Final authority
 
 Final project authority remains with the Human Owner.
 
