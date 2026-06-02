@@ -215,7 +215,71 @@ It records how the decision object was reshaped before approval.
 
 ---
 
-## 8. Relation to Decision Space Preservation
+## 8. Interim solution: compression plus decision-space decompression
+
+A stronger interim solution is not to treat AI-generated decision packets as sufficient for governed bypass.
+
+A decision packet may still guide the human toward an AI-shaped conclusion.
+
+The problem is that compressed information can become a polished monolith. When the human receives only this monolith, the human may lose freedom of judgment because the framing, priorities, risk interpretation, and recommended path are already embedded in the structure.
+
+Therefore, Governed Bypass should include two movements:
+
+```text
+1. AI compression for speed.
+2. AI decompression into decision space for human judgment.
+```
+
+The first movement reduces information chaos.
+
+The second movement reopens the compressed monolith into a usable field of choice.
+
+Working formulation:
+
+```text
+AI may compress information for speed,
+but before human responsibility is exercised,
+it should decompress the compressed decision object into a visible decision space.
+```
+
+Governed Bypass should therefore not mean:
+
+```text
+AI prepares one polished recommendation for fast approval.
+```
+
+It should mean:
+
+```text
+AI signals that a human decision is required,
+compresses the information field,
+then reopens that compressed field into alternatives, uncertainties, consequences, counter-frames, and responsibility boundaries.
+```
+
+This preserves speed without collapsing human choice.
+
+---
+
+## 9. Decision-space decompression components
+
+A decompressed decision space may include:
+
+1. **Decision signal** — why a human decision is required.
+2. **Compressed facts** — what is known in short form.
+3. **Framing disclosure** — how AI framed the situation.
+4. **What was compressed or omitted** — what may have been deprioritized.
+5. **Alternative decision options** — realistic options, not only one recommended path.
+6. **Consequences of each option** — what each path may cause.
+7. **Counter-frame** — how the situation looks if the AI framing is wrong.
+8. **Unknowns and uncertainty** — what remains unverified.
+9. **Minimum human check** — what the responsible person should inspect directly.
+10. **Responsibility boundary** — what AI cannot decide instead of the human.
+
+This structure turns AI output from a decision monolith into a field where human judgment can operate.
+
+---
+
+## 10. Relation to Decision Space Preservation
 
 Decision Space Preservation means that AI assistance should not collapse the human decision space into one polished recommendation.
 
@@ -225,15 +289,30 @@ AI may compress information, but it should not close interpretation.
 
 AI may recommend, but it should preserve room for human rejection, redirection, and reframing.
 
+The interim solution strengthens this:
+
+```text
+AI compression creates speed.
+AI decompression preserves human judgment.
+Governed Bypass must contain both.
+```
+
 Working formulation:
 
 ```text
 AI should compress information for human use without collapsing the human decision space.
 ```
 
+Stronger formulation:
+
+```text
+The purpose of AI support is not to prepare a decision for approval,
+but to prepare a decision space for responsible human judgment.
+```
+
 ---
 
-## 9. Relation to Active Evidence Interlock
+## 11. Relation to Active Evidence Interlock
 
 Active Evidence Interlock asks whether the human interacted with the original evidence needed to make approval meaningful.
 
@@ -243,22 +322,31 @@ The responsible feedback channel adds a complementary question:
 Could the human reshape the AI-structured decision object after interacting with evidence?
 ```
 
+The decompression layer adds a further question:
+
+```text
+Did the human receive a decision space, or only an AI-shaped decision monolith?
+```
+
 This matters because evidence contact alone may not be enough.
 
 The human must also have a channel to feed evidence-based corrections back into the AI-prepared object.
 
 ---
 
-## 10. Relation to Authority Residency Check
+## 12. Relation to Authority Residency Check
 
 Authority Residency Check asks where authority actually resides.
 
 A responsible feedback channel helps demonstrate authority residency by showing that the accountable human role did not merely consume or approve an AI product, but actively influenced the formation of the decision object.
 
+A decompressed decision space may further protect authority residency by showing that the accountable human had access to alternatives, uncertainties, consequences, and counter-frames before deciding.
+
 A stronger authority trace may therefore include:
 
 ```text
 AI proposal
+→ decision-space decompression
 → human challenge / correction
 → revised decision object
 → evidence contact
@@ -272,7 +360,7 @@ But it provides stronger evidence than approval alone.
 
 ---
 
-## 11. RABA self-application
+## 13. RABA self-application
 
 This note is directly relevant to the RABA project itself.
 
@@ -293,10 +381,11 @@ But it also creates risk:
 - the Human Owner may receive a polished package instead of a real decision space;
 - direction may be shaped by AI synthesis before Human Owner decision.
 
-Therefore, RABA self-application should preserve a responsible feedback channel:
+Therefore, RABA self-application should preserve a responsible feedback channel and decision-space decompression:
 
 ```text
 Ben synthesis
+→ decision-space map / alternatives / counter-frame
 → Human Owner challenge / correction / intuition / framing
 → revised working note or PR plan
 → explicit confirmation
@@ -307,13 +396,14 @@ This is already visible in the current workflow, where Human Owner insights resh
 
 ---
 
-## 12. Possible control pattern
+## 14. Possible control pattern
 
 A future RABA control pattern may combine:
 
 ```text
 AI Information Compression Layer
 + Structured Information Monolith
++ Decision-Space Decompression
 + Responsible Feedback Channel
 + Decision Space Preservation
 + Authority Residency Check
@@ -330,6 +420,10 @@ What decision object was created?
 ```
 
 ```text
+Was the compressed object reopened into decision space?
+```
+
+```text
 Could the human reshape the object?
 ```
 
@@ -343,7 +437,7 @@ Where does authority actually reside?
 
 ---
 
-## 13. Working formulations
+## 15. Working formulations
 
 ```text
 AI should not only compress information for human consumption.
@@ -360,12 +454,22 @@ Responsible feedback turns an AI-prepared monolith into a human-shaped decision 
 ```
 
 ```text
-A responsible system is not only defined by how it acts, but by how it receives, compresses, attributes, reshapes, and transforms incoming information into accountable action.
+AI compression creates speed.
+AI decompression preserves human judgment.
+Governed Bypass must contain both.
+```
+
+```text
+Governed Bypass should reduce search time without reducing decision plurality.
+```
+
+```text
+A responsible system is not only defined by how it acts, but by how it receives, compresses, attributes, reshapes, decompresses, and transforms incoming information into accountable action.
 ```
 
 ---
 
-## 14. Open questions
+## 16. Open questions
 
 1. Should Responsible Feedback Channel become part of Authority Residency Check?
 2. Should AI-prepared decision objects record how human feedback changed them?
@@ -375,10 +479,14 @@ A responsible system is not only defined by how it acts, but by how it receives,
 6. How can human feedback be integrated without creating excessive bureaucracy?
 7. Should RABA define a standard decision object formation trace?
 8. Can feedback integration reduce authority drift more effectively than approval gates alone?
+9. How can AI decompress a decision monolith without creating too much cognitive load?
+10. What is the minimum viable decision-space map for Governed Bypass?
+11. When is a recommendation helpful, and when does it collapse decision plurality?
+12. How can RABA distinguish fast responsible choice from fast confirmation of AI framing?
 
 ---
 
-## 15. Current recommendation
+## 17. Current recommendation
 
 Do not adopt this concept into canon immediately.
 
@@ -386,6 +494,7 @@ Recommended next step:
 
 ```text
 Use this note as a non-canonical solution-resource layer for the authority-preserving AI autonomy problem field.
+Continue investigating whether decision-space decompression can become a practical Governed Bypass control pattern.
 ```
 
 This note should remain a working note until reviewed and explicitly accepted by the Human Owner.
