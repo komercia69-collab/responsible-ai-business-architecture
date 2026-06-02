@@ -34,6 +34,14 @@ Can we still demonstrate where authority actually resides?
 
 This note treats Davorin’s contribution as a high-value external discussion input and explores how it connects to RABA.
 
+After the initial RABA reconstruction was shared back in the discussion, Davorin confirmed that the reconstruction reflected his intended point and clarified the concern further:
+
+```text
+Replayability and traceability may remain intact while authority gradually migrates through accumulated operational dependency.
+```
+
+He also clarified that authority residence should be treated as a separate governance question rather than merely a replay question.
+
 ---
 
 ## 2. Problem statement
@@ -71,6 +79,8 @@ Actual authority may gradually move toward:
 - a reviewer who no longer meaningfully reviews;
 - an operational dependency that becomes difficult to challenge.
 
+This means authority residence is not only an audit or replay concern. It is a separate governance concern: the organization must be able to demonstrate not only how a decision can be reconstructed, but where decision authority actually resides.
+
 ---
 
 ## 3. Why valid replay is not enough
@@ -106,6 +116,8 @@ The real center of decision formation shifted away from the human role.
 
 In that situation, responsibility is still visible, but authority may no longer be meaningfully located where governance claims it is.
 
+Therefore, replayability and traceability should not be treated as sufficient proof of authority residence.
+
 ---
 
 ## 4. Relationship to existing RABA concepts
@@ -122,6 +134,8 @@ It should also help demonstrate whether the approving authority remained real.
 ```
 
 This suggests that future Responsibility Event Stream models may need to capture not only decision events, but also authority residency indicators.
+
+However, Authority Residency Check should not be collapsed into replay alone. Responsibility Event Stream may show what happened; Authority Residency Check asks whether decision authority still resides where governance intended it to reside.
 
 ---
 
@@ -334,6 +348,12 @@ Alternative formulation:
 RABA must preserve not only decision traceability, but authority residency.
 ```
 
+Clarified formulation:
+
+```text
+Authority residence is a separate governance question, not merely a replay question.
+```
+
 ---
 
 ## 10. Open questions
@@ -345,6 +365,7 @@ RABA must preserve not only decision traceability, but authority residency.
 5. How can RABA distinguish genuine human approval from routine confirmation?
 6. What minimum evidence is needed to show that Human Owner authority remained actually exercised?
 7. Should RABA self-application include periodic Authority Residency Reviews?
+8. Should Authority Residency Check remain separate from replay / audit controls?
 
 ---
 
