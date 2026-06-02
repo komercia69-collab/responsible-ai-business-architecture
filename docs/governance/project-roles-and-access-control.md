@@ -133,7 +133,27 @@ An Observer may read, follow, and discuss the project but does not modify reposi
 
 ---
 
-## 6. Protected areas
+## 6. CODEOWNERS boundary
+
+CODEOWNERS review is a repository control mechanism.
+
+It helps protect sensitive files and route changes through the correct review path.
+
+CODEOWNERS review does not by itself mean:
+
+- RABA architecture canon adoption;
+- final architectural approval;
+- Human Owner approval;
+- schema adoption;
+- event-family adoption;
+- public positioning approval;
+- pilot, vendor, referral, or commercial commitment.
+
+Final project authority remains with the Human Owner.
+
+---
+
+## 7. Protected areas
 
 The following areas are governance-critical:
 
@@ -153,7 +173,7 @@ Changes to these areas should require Human Owner-controlled review.
 
 ---
 
-## 7. Non-removal boundary
+## 8. Non-removal boundary
 
 This policy candidate does not remove contributors or change live permissions by itself.
 
@@ -161,7 +181,7 @@ Contributor access changes require a separate Human Owner decision.
 
 ---
 
-## 8. Decision boundary
+## 9. Decision boundary
 
 This document is a repository governance protection candidate.
 
