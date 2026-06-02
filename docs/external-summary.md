@@ -153,7 +153,7 @@ Start with:
 
 - `docs/architecture/human-ai-operational-coordination-stack.md`
 - `docs/concepts/ai-governance-gateway.md`
-- `docs/concepts/governance-nervous-system.md`
+- `architecture/governance-nervous-system.md`
 
 ---
 
