@@ -65,10 +65,12 @@ Any future use of the landing page in README, LinkedIn posts, presentations, out
 
 ## Related governance context
 
-This reference should be reviewed together with:
+This reference should be reviewed together with existing repository-governance documents:
 
 - `docs/external-summary.md`
-- `docs/governance/external-accountability-review-loop.md`
-- `docs/governance/external-reviewer-instructions.md`
+- `docs/governance/project-roles-and-access-control.md`
+- `docs/governance/repository-change-control.md`
 
-The External Accountability Review Loop is intended to help check whether public-facing materials overstate maturity, adoption, product readiness, compliance guarantees, or commercial commitments.
+External-accountability review materials are still draft until merged. They should not be referenced from public-facing pages as active guidance until those files exist on `main`.
+
+The purpose of this boundary is to help check whether public-facing materials overstate maturity, adoption, product readiness, compliance guarantees, or commercial commitments.
