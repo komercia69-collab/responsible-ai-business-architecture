@@ -1,17 +1,39 @@
-# Responsible AI Business Architecture
-# Governance-critical files should require explicit review.
+# RABA repository ownership
+#
+# Purpose:
+# - require Human Owner-controlled review for repository changes;
+# - protect core, governance, decision-log, review, and configuration files;
+# - prevent silent architectural or repository-control changes.
+#
+# This file does not adopt RABA architecture canon.
+# Final project authority remains with the Human Owner.
 
-# Default owner
+# Default owner for all repository files.
 * @komercia69-collab
 
-# Governance and security layers
-/docs/ @komercia69-collab
+# Core architecture candidates and future canonical materials.
+/docs/core/ @komercia69-collab
+
+# Decision trail and authorization records.
+/docs/decision-log/ @komercia69-collab
+
+# Governance and repository workflow control.
+/docs/governance/ @komercia69-collab
+/.github/ @komercia69-collab
+/.github/CODEOWNERS @komercia69-collab
+/.github/workflows/ @komercia69-collab
+SECURITY.md @komercia69-collab
+
+# Review materials and non-canonical working areas.
+/docs/reviews/ @komercia69-collab
+/docs/notes/ @komercia69-collab
+/inquiries/ @komercia69-collab
+
+# Existing governance-relevant project areas.
 /frameworks/ @komercia69-collab
 /assets/diagrams/ @komercia69-collab
 /demo/ @komercia69-collab
 /portal/ @komercia69-collab
 
-# Security and workflows
-SECURITY.md @komercia69-collab
-/.github/ @komercia69-collab
-/.github/workflows/ @komercia69-collab
+# Public-facing entry points.
+/README.md @komercia69-collab
