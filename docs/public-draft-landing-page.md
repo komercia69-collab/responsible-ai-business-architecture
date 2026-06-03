@@ -20,25 +20,29 @@ A short public-facing draft overview of RABA is available here:
 
 ## Contributor attribution
 
-The current public draft landing page was authored and technically implemented by Liliana.
+The current public draft landing page was authored and technically implemented by Liliana Toiunda.
 
 Suggested role attribution:
 
 ```text
-Liliana — Landing Page Author / Technical Implementer
+Liliana Toiunda — Landing Page Author / Technical Implementer
 ```
+
+LinkedIn:
+
+- [Liliana Toiunda](https://www.linkedin.com/in/liliana-toiunda)
 
 Alternative project-facing attribution:
 
 ```text
-Liliana — Public Communication Contributor, Landing Page
+Liliana Toiunda — Public Communication Contributor, Landing Page
 ```
 
 This attribution recognizes the public-facing presentation and technical implementation contribution.
 
 It does not transfer project authority, canon approval authority, public-positioning authority, repository governance authority, or commercial commitment authority.
 
-If Liliana later requests a specific public name, profile link, portfolio link, or attribution format, this section can be updated after Human Owner confirmation.
+If Liliana later requests a different public name, profile link, portfolio link, or attribution format, this section can be updated after Human Owner confirmation.
 
 ---
 
