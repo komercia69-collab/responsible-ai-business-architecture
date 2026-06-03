@@ -99,18 +99,23 @@ Every consequential AI-supported action should be tied to a named role or accoun
 
 ### Step 4 — Determine approval state
 
-Select the current state:
+Select the current state.
 
-| Approval state | Meaning | Selected? |
+Use the uppercase value when writing a schema-compatible Decision Log entry.
+
+| Approval state value | Practical meaning | Selected? |
 |---|---|---|
-| Draft | AI or human is preparing the action |  |
-| Recommend | AI recommends, but cannot execute |  |
-| Approval Required | Human confirmation is required before execution |  |
-| Authorized | The action has valid approval |  |
-| Executed | The action has been carried out |  |
-| Escalate | Higher authority or specialist review is required |  |
-| Block | The action must not proceed |  |
-| Revoked | Prior authorization is no longer valid |  |
+| `DRAFT` | AI or human is preparing the action |  |
+| `RECOMMEND` | AI recommends, but cannot execute |  |
+| `REAPPROVAL_REQUIRED` | Fresh human confirmation is required before execution |  |
+| `AUTHORIZED` | The action has valid approval |  |
+| `EXECUTED` | The action has been carried out |  |
+| `ESCALATE` | Higher authority or specialist review is required |  |
+| `BLOCKED` | The action must not proceed |  |
+| `REJECTED` | The action was reviewed and rejected |  |
+| `FAILED` | The action failed during execution or verification |  |
+| `REVOKED` | Prior authorization is no longer valid |  |
+| `EXPIRED` | Prior authorization or evidence is no longer valid due to time or context |  |
 
 State reason:
 
@@ -184,18 +189,24 @@ Unknown
 
 Choose the correct route:
 
-| Route | Use when | Selected? |
+| Route | Use when | Possible schema-compatible approval state |
 |---|---|---|
-| Fast Path | Low consequence, clear policy, clear owner, reversible, no boundary issue |  |
-| Require Approval | Consequential action needs named human confirmation |  |
-| Escalate | Higher authority, specialist review, unclear ownership or unclear evidence |  |
-| Block | Action is forbidden, unsupported, unsafe, unauthorized or outside policy |  |
-| Reapproval Required | Prior approval became stale due to scope, evidence or authority change |  |
+| Fast Path | Low consequence, clear policy, clear owner, reversible, no boundary issue | `AUTHORIZED` or `EXECUTED`, depending on whether execution already occurred |
+| Require Approval | Consequential action needs named human confirmation | `REAPPROVAL_REQUIRED`, `RECOMMEND`, or `ESCALATE`, depending on policy |
+| Escalate | Higher authority, specialist review, unclear ownership or unclear evidence | `ESCALATE` |
+| Block | Action is forbidden, unsupported, unsafe, unauthorized or outside policy | `BLOCKED` |
+| Reapproval Required | Prior approval became stale due to scope, evidence or authority change | `REAPPROVAL_REQUIRED` |
 
 Routing decision:
 
 ```text
 This workflow should route to: ______________________________________
+```
+
+Schema-compatible approval state:
+
+```text
+Use approval_state: _________________________________________________
 ```
 
 Reason:
@@ -208,13 +219,24 @@ Because: ____________________________________________________________
 
 ### Step 9 — Define Decision Log minimum record
 
-At minimum, record:
+For a schema-compatible Decision Log entry, include at least the required fields from `schemas/decision-log-entry.schema.json`:
 
-| Decision Log field | Value |
+| Required schema field | Value |
 |---|---|
-| Proposed action |  |
-| Action boundary |  |
-| Approval state |  |
+| `decision_log_id` |  |
+| `timestamp` |  |
+| `workflow_id` |  |
+| `action_id` |  |
+| `agent_id` |  |
+| `action_type` |  |
+| `action_boundary` |  |
+| `approval_state` |  |
+| `outcome` |  |
+
+Additional recommended responsibility context:
+
+| Additional field | Value |
+|---|---|
 | Responsible owner / role |  |
 | Evidence used |  |
 | Confirmation timestamp |  |
@@ -223,6 +245,8 @@ At minimum, record:
 | Escalation reason, if any |  |
 | Reversibility profile |  |
 | Human responsibility that remains |  |
+| Policy reference / threshold rule |  |
+| Technical trace or external reference |  |
 
 Minimum principle:
 
@@ -282,7 +306,7 @@ Action boundary:
 The boundary is crossed when the refund offer is sent or the refund is initiated.
 
 Approval state:
-Approval Required.
+REAPPROVAL_REQUIRED.
 
 Responsible owner:
 Customer Support Manager.
@@ -294,7 +318,7 @@ Reason:
 Refund amount exceeds autonomous threshold.
 
 What must be logged:
-Proposed refund, customer case, evidence, threshold rule, approving manager, confirmation time, reversibility profile.
+decision_log_id, timestamp, workflow_id, action_id, agent_id, action_type, action_boundary, approval_state, outcome, proposed refund, customer case, evidence, threshold rule, approving manager, confirmation time, reversibility profile.
 
 What remains human responsibility:
 Final refund approval, scope validation, customer impact, corrective duty.
@@ -314,13 +338,13 @@ It helps identify whether the workflow has visible responsibility structure.
 A workflow is more RABA-ready when:
 
 - the action boundary is clear;
-- the approval state is explicit;
+- the approval state is explicit and schema-compatible;
 - a responsible owner is named;
 - evidence is reviewable and admissible;
 - confirmation is fresh;
 - reversibility is understood;
 - routing is explainable;
-- the Decision Log captures business accountability;
+- the Decision Log captures the required schema fields and business accountability context;
 - human responsibility remains visible.
 
 A workflow is not RABA-ready when AI can create consequences while responsibility is implicit, stale, fragmented or hidden inside technical logs.
