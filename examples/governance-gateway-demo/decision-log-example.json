@@ -67,7 +67,7 @@
     "agent": "customer-support-agent",
     "decision": "ESCALATE",
     "reasons": [
-      "Refund amount 600 exceeds manager approval threshold 250."
+      "Refund amount 750 exceeds manager approval threshold 250."
     ],
     "policyId": "customer-support-governance-policy-v1",
     "timestamp": "2026-05-17T00:00:00.000Z",
@@ -76,11 +76,11 @@
       "agent": "customer-support-agent",
       "actionType": "offer_refund",
       "executionMode": "execute",
-      "amount": 600,
+      "amount": 750,
       "customerImpact": true,
       "reversible": true,
       "category": "refund",
-      "description": "Offer a refund of 600 EUR after repeated customer complaints."
+      "description": "Offer a refund of 750 EUR after repeated customer complaints."
     }
   },
   {

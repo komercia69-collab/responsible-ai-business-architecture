@@ -22,6 +22,8 @@ ALLOW / BLOCK / REQUIRE_APPROVAL / ESCALATE
 Decision log
 ```
 
+This demo is the executable companion to the clarity-layer refund scenario used in `docs/raba-in-one-example.md`.
+
 ---
 
 ## Scenario
@@ -36,6 +38,29 @@ A customer support AI agent wants to perform or recommend actions such as:
 - send a legal or medical statement.
 
 The Governance Gateway decides whether the action is allowed, blocked, requires human approval, or must be escalated.
+
+The clearest demo path is the high-refund action:
+
+```text
+AI proposed action:
+Offer a €750 refund to a customer.
+
+Policy result:
+Refund exceeds manager approval threshold.
+
+Gateway decision:
+ESCALATE
+```
+
+This shows RABA's practical pattern:
+
+```text
+AI proposal
+→ Action Boundary
+→ Governance Gateway
+→ Escalate / Require Approval / Block / Allow
+→ Decision Log
+```
 
 ---
 
@@ -60,6 +85,20 @@ node examples/governance-gateway-demo/governance-gateway.js
 ```
 
 No external dependencies are required.
+
+Expected output includes:
+
+```text
+action-003: REQUIRE_APPROVAL
+action-004: ESCALATE
+action-006: BLOCK
+```
+
+The demo writes an example decision log to:
+
+```text
+examples/governance-gateway-demo/decision-log-example.json
+```
 
 ---
 
@@ -92,8 +131,8 @@ This demo shows how abstract governance concepts become operational checks.
 | AI Governance Gateway | Central function evaluates policy before action proceeds |
 | Runtime Governance | Each action is evaluated at runtime |
 | Human Approval Point | Certain actions return `REQUIRE_APPROVAL` |
-| Corrective Governance | High-risk or irreversible actions return `ESCALATE` |
-| Governance Nervous System | Decisions are logged with reasons and timestamps |
+| Escalation Point | High-refund, high-risk or irreversible actions return `ESCALATE` |
+| Decision Log | Decisions are logged with reasons, policy id, timestamp and original action |
 
 ---
 
@@ -108,7 +147,7 @@ This demo shows how abstract governance concepts become operational checks.
 
 ---
 
-## Example
+## Example: refund requiring approval
 
 Input action:
 
@@ -145,6 +184,55 @@ Reason:
 
 ```text
 Refund exceeds autonomous threshold and requires human approval.
+```
+
+---
+
+## Example: refund requiring escalation
+
+Input action:
+
+```json
+{
+  "id": "action-004",
+  "agent": "customer-support-agent",
+  "actionType": "offer_refund",
+  "executionMode": "execute",
+  "amount": 750,
+  "customerImpact": true,
+  "reversible": true,
+  "category": "refund",
+  "description": "Offer a refund of 750 EUR after repeated customer complaints."
+}
+```
+
+Policy rule:
+
+```json
+{
+  "maxAutonomousRefundAmount": 50,
+  "maxRefundWithManagerApproval": 250
+}
+```
+
+Gateway decision:
+
+```text
+ESCALATE
+```
+
+Reason:
+
+```text
+Refund exceeds manager approval threshold and requires higher-level review.
+```
+
+RABA interpretation:
+
+```text
+The AI may recommend the refund.
+The AI must not create the customer-facing consequence by itself.
+The workflow routes to the responsible human authority before execution.
 ```
 
 ---
