@@ -388,7 +388,7 @@ This area preserves deferred commercial concepts without activating a commercial
 - [`../concepts/policy-integrity.md`](../concepts/policy-integrity.md)
 - [`docs/policy-integrity-self-assessment-one-page.md`](policy-integrity-self-assessment-one-page.md)
 - [`docs/policy-integrity-self-assessment.md`](policy-integrity-self-assessment.md)
-- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md)
+- [`../examples/policy-integrity-assessments/customer-support-agentic-bi.md`](../examples/policy-integrity-assessments/customer-support-agentic-bi.md)
 - [`docs/audit-integrity-breach-response.md`](audit-integrity-breach-response.md)
 - [`docs/recovery-protocol.md`](recovery-protocol.md)
 - [`docs/recovery-decision-record.md`](recovery-decision-record.md)
