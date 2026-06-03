@@ -2,7 +2,7 @@
 
 ## One-Line Summary
 
-Responsible AI Business Architecture is an open-source socio-technical architecture framework for helping organizations integrate AI agents, automation and decision intelligence without losing human responsibility, operational visibility and governability.
+Responsible AI Business Architecture is an evolving open-source socio-technical architecture initiative for exploring how organizations can integrate AI agents, automation and decision intelligence without losing human responsibility, operational visibility and governability.
 
 > AI may be probabilistic. Responsibility must not be.
 
@@ -20,7 +20,7 @@ This landing page is a public draft / non-canonical overview. It is not RABA can
 
 ## What Problem This Project Addresses
 
-AI is moving from assistance to execution.
+AI is moving from assistance toward execution.
 
 Organizations are beginning to use AI systems not only to generate text or analyze data, but also to:
 
@@ -88,9 +88,13 @@ It may be many semi-autonomous systems making local decisions faster than organi
 
 ---
 
-## What the Project Provides
+## What the Project Currently Offers
 
-Responsible AI Business Architecture provides reusable orientation material, concepts, examples and early prototypes for designing responsible AI-enabled operations.
+Responsible AI Business Architecture currently offers reusable orientation material, discussion drafts, concepts, examples and early prototypes for thinking about responsible AI-enabled operations.
+
+These materials are intended for review, learning, experimentation and careful adaptation.
+
+They should not be treated as finished products, certified methods, implementation guarantees or compliance guarantees.
 
 Current project components include:
 
@@ -104,8 +108,8 @@ Current project components include:
 - Agent Development Kit Governance Mapping;
 - Failure Patterns for AI-native environments;
 - Human-AI Coordination Room prototype;
-- Minimal Human-AI Governance Pilot format;
-- concrete use cases for governed AI-assisted workflows.
+- Minimal Human-AI Governance pilot discussion format;
+- concrete use cases for governed AI-assisted workflow analysis.
 
 ---
 
@@ -122,7 +126,7 @@ This project may be useful for:
 - operations leaders;
 - product builders;
 - researchers in human-AI interaction and AI governance;
-- organizations preparing AI-assisted workflow pilots.
+- organizations exploring whether an AI-assisted workflow is ready for governance review.
 
 ---
 
@@ -148,6 +152,8 @@ Start with:
 
 - `offers/minimal-human-ai-governance-pilot.md`
 - `use-cases/customer-support-agentic-bi-governance.md`
+
+These materials are practical discussion and scoping aids. They do not create an active pilot, product commitment, vendor relationship or commercial offer by themselves.
 
 ### For agent builders
 
@@ -219,51 +225,4 @@ The project asks:
 
 The project is an evolving open-source research and architecture initiative.
 
-It already includes:
-
-- conceptual architecture;
-- practical entry paths;
-- pilot format;
-- concrete use case;
-- prototype interface;
-- governance mapping for agent development kits;
-- failure patterns;
-- README-based Project Hub.
-
-It is not a finished doctrine.
-
-It is a structured discussion and development space for building better Human-AI Operational Coordination.
-
----
-
-## Collaboration Invitation
-
-This project invites collaboration from people who see the same emerging challenge:
-
-> AI systems are becoming operational participants.
->
-> Human responsibility must remain designed, visible and actionable.
-
-Useful contributions may include:
-
-- real workflow examples;
-- failure patterns;
-- governance controls;
-- interface ideas;
-- pilot scenarios;
-- agent architecture reviews;
-- diagrams;
-- discussion prompts;
-- practical implementation feedback.
-
----
-
-## Core Principle
-
-> Governance must scale faster than autonomy.
-
-> The human-AI interface must evolve faster than the AI systems it coordinates.
-
-> Architecture and prototype must co-evolve faster than agent autonomy.
-
-> Start with one workflow. Map the boundary. Design the gateway. Preserve responsibility.
+It is not RABA canon by itself, not a product commitment, not a pilot commitment, not a commercial offer, not a compliance guarantee and not a replacement for legal, privacy, security, product-liability or conformity-assessment review.
