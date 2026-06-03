@@ -37,11 +37,11 @@
     "agent": "customer-support-agent",
     "actionType": "offer_refund",
     "executionMode": "execute",
-    "amount": 600,
+    "amount": 750,
     "customerImpact": true,
     "reversible": true,
     "category": "refund",
-    "description": "Offer a refund of 600 EUR after repeated customer complaints."
+    "description": "Offer a refund of 750 EUR after repeated customer complaints."
   },
   {
     "id": "action-005",
