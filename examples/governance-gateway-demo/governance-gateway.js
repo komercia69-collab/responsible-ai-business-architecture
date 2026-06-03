@@ -28,6 +28,14 @@ function createDecision(action, decision, reasons) {
   };
 }
 
+function hasMissingRefundAmount(action) {
+  return (
+    action.amount === null ||
+    action.amount === undefined ||
+    (typeof action.amount === 'string' && action.amount.trim() === '')
+  );
+}
+
 function evaluateAction(action) {
   const reasons = [];
 
@@ -62,11 +70,17 @@ function evaluateAction(action) {
   }
 
   if (action.actionType === 'offer_refund') {
+    if (hasMissingRefundAmount(action)) {
+      return createDecision(action, Decision.BLOCK, [
+        'Refund amount is missing.'
+      ]);
+    }
+
     const refundAmount = Number(action.amount);
 
     if (!Number.isFinite(refundAmount)) {
       return createDecision(action, Decision.BLOCK, [
-        `Refund amount '${action.amount}' is invalid or missing.`
+        `Refund amount '${action.amount}' is invalid.`
       ]);
     }
 
@@ -128,5 +142,6 @@ if (require.main === module) {
 
 module.exports = {
   Decision,
-  evaluateAction
+  evaluateAction,
+  hasMissingRefundAmount
 };
