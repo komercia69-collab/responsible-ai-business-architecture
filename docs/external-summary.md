@@ -8,6 +8,16 @@ Responsible AI Business Architecture is an open-source socio-technical architect
 
 ---
 
+## Public Draft Landing Page
+
+A short public-facing draft overview is available here:
+
+- [RABA Landing Page](https://raba-landing.vercel.app/)
+
+This landing page is a public draft / non-canonical overview. It is not RABA canon, not a product commitment, not a pilot commitment, and not a commercial offer.
+
+---
+
 ## What Problem This Project Addresses
 
 AI is moving from assistance to execution.
@@ -153,7 +163,7 @@ Start with:
 
 - `docs/architecture/human-ai-operational-coordination-stack.md`
 - `docs/concepts/ai-governance-gateway.md`
-- `docs/concepts/governance-nervous-system.md`
+- `architecture/governance-nervous-system.md`
 
 ---
 
