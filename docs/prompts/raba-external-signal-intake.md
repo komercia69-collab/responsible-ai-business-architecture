@@ -52,7 +52,7 @@ Expanded rule:
 
 ```text
 Perplexity / Comet = source access and first summary.
-Ben = RABA boundary review and repository integration.
+Ben = RABA boundary review, repository placement recommendation, and file-level change preparation.
 Human Owner = final decision and approval authority.
 ```
 
@@ -62,6 +62,7 @@ This means:
 - Perplexity should add issue comments first, not repository files or pull requests, unless the Human Owner explicitly asks;
 - Ben reviews the summary for RABA boundaries, wording risk, and repository placement;
 - Ben must distinguish external signal, RABA interpretation, possible mapping, and canon;
+- Ben may recommend repository placement, but must not treat placement as approval, adoption, or canonicalization;
 - Human Owner decides whether any issue, note, PR, outreach, mapping, merge, or public reference should proceed.
 
 This rule preserves governed useful speed without transferring authority to any AI assistant.
