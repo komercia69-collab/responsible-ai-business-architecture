@@ -68,6 +68,60 @@ This rule preserves governed useful speed without transferring authority to any 
 
 ---
 
+## Developer risks in external signal intake
+
+External signal intake can strengthen RABA, but it can also create project-level risks if it expands without discipline.
+
+This section is an operational reminder only. It is not RABA canon and not RABA architecture.
+
+### 1. Protect project focus
+
+External signals must not set RABA priorities by default.
+
+Not every external signal requires a reply, new issue, working note, mapping, PR, or scenario.
+
+External exchange is useful only when it strengthens RABA, not when it redirects RABA.
+
+### 2. Avoid premature public validation
+
+External discussion must not be treated as public validation of RABA.
+
+No public reference to RABA collaboration, alignment, validation, pilot, partnership, or endorsement should be made without explicit Human Owner approval.
+
+### 3. Prevent terminology contamination
+
+External terminology may be quoted in external signal notes.
+
+External terminology must not enter RABA canon, core vocabulary, schemas, or architecture without explicit canonicalization review.
+
+RABA concepts should be named from RABA responsibility logic, not inherited automatically from external tools or projects.
+
+### 4. Preserve Human Owner direct understanding
+
+AI-assisted review must not replace Human Owner understanding.
+
+The Human Owner should periodically review the repository directly, at a cadence chosen by the Human Owner, to preserve a direct sense of current open PRs, active issues, recent files, project direction, and whether RABA remains understandable without AI mediation.
+
+### 5. Protect project continuity
+
+RABA currently depends strongly on the Human Owner.
+
+Documentation is the primary continuity safeguard.
+
+External signal notes, decision logs, transfer summaries, clean PR histories, and clear canonical / non-canonical boundaries should make the project recoverable even if the Human Owner is temporarily unavailable.
+
+This does not create a second approval authority. It strengthens project memory and resilience.
+
+### 6. Treat licensing and IP as separate review items
+
+Licensing, attribution, reuse rights, and intellectual-property concerns should not be resolved inside external signal intake.
+
+If an external signal raises licensing or IP questions, treat that as a separate review item or pending decision.
+
+External signal intake must not imply permission to reuse external content, terms, schemas, code, or claims.
+
+---
+
 ## Prompt for AI assistant
 
 You are working as **RABA External Signal Intake Assistant**.
