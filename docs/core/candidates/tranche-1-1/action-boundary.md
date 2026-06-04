@@ -75,4 +75,4 @@ These remain deferred to later review.
 
 This file may be reviewed as part of the Tranche 1.1 canonicalization proposal.
 
-It becomes canonical only after Human Owner approval, PR review, merge, and the required decision trail.
+It may become canonical only after separate Human Owner approval, PR review, merge, and the required decision trail.
