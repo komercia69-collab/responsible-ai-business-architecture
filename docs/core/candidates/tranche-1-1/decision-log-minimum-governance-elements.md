@@ -17,7 +17,7 @@ A RABA Decision Log is a governance record, not a generic audit log.
 
 A technical audit log may show that an event happened.
 
-A RABA Decision Log should show why consequential AI-supported use was allowed, limited, refused, escalated, or blocked, under whose responsibility, and within what scope.
+A RABA Decision Log should show why consequential AI-supported use was allowed, limited, refused, escalated, or blocked, under whose authority, under whose accepted responsibility, and within what scope.
 
 ---
 
@@ -76,4 +76,4 @@ They do not by themselves prove responsibility acceptance.
 
 This file may be reviewed as part of the Tranche 1.1 canonicalization proposal.
 
-It becomes canonical only after Human Owner approval, PR review, merge, and the required decision trail.
+It may become canonical only after separate Human Owner approval, PR review, merge, and the required decision trail.
