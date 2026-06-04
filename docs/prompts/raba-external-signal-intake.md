@@ -114,11 +114,11 @@ This does not create a second approval authority. It strengthens project memory 
 
 ### 6. Treat licensing and IP as separate review items
 
-Licensing, attribution, reuse rights, and intellectual-property concerns should not be resolved inside external signal intake.
+Licensing, attribution, reuse rights, patent, trademark, copyright, third-party schema, and third-party code concerns should not be resolved inside external signal intake.
 
-If an external signal raises licensing or IP questions, treat that as a separate review item or pending decision.
+If an external signal raises any of these concerns, treat them as a separate review item or pending decision before using the material beyond summary or reference.
 
-External signal intake must not imply permission to reuse external content, terms, schemas, code, or claims.
+External signal intake must not imply permission to reuse external content, terms, schemas, code, claims, names, or implementation details.
 
 ---
 
