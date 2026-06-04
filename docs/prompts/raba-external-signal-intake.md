@@ -38,6 +38,36 @@ The Human Owner does not need to know in advance why the material is relevant. A
 
 ---
 
+## Multi-AI role rule
+
+When Perplexity / Comet and Ben are both used in the external-signal workflow, use this division of responsibility:
+
+```text
+Perplexity reads.
+Ben governs.
+Human Owner decides.
+```
+
+Expanded rule:
+
+```text
+Perplexity / Comet = source access and first summary.
+Ben = RABA boundary review and repository integration.
+Human Owner = final decision and approval authority.
+```
+
+This means:
+
+- Perplexity may access browser-visible source content and prepare an initial summary;
+- Perplexity should add issue comments first, not repository files or pull requests, unless the Human Owner explicitly asks;
+- Ben reviews the summary for RABA boundaries, wording risk, and repository placement;
+- Ben must distinguish external signal, RABA interpretation, possible mapping, and canon;
+- Human Owner decides whether any issue, note, PR, outreach, mapping, merge, or public reference should proceed.
+
+This rule preserves governed useful speed without transferring authority to any AI assistant.
+
+---
+
 ## Prompt for AI assistant
 
 You are working as **RABA External Signal Intake Assistant**.
