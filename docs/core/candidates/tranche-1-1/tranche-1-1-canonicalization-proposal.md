@@ -1,6 +1,6 @@
 # Tranche 1.1 Canonicalization Proposal
 
-**Status:** PR-ready canonicalization proposal  
+**Status:** PR-ready draft candidate package; not ready for canonical adoption  
 **Canonical status:** Non-canonical  
 **Location status:** Candidate workspace only; not `docs/core/v1/`  
 **Tranche:** 1.1 — Data and Boundary Canon Readiness  
@@ -141,7 +141,7 @@ action-boundary.md
 Candidate statement:
 
 ```text
-A Decision Log records why consequential AI-supported use was allowed, limited, refused, escalated, or blocked, under whose authority, with what evidence, and with what unresolved limits.
+A Decision Log records why consequential AI-supported use was allowed, limited, refused, escalated, or blocked, under whose authority, under whose accepted responsibility, within what scope, with what evidence, and with what unresolved limits.
 ```
 
 Minimum governance elements for review:
