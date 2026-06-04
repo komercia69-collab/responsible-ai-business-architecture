@@ -15,7 +15,9 @@
 
 ## 1. Purpose
 
-This package prepares a PR-ready canonicalization proposal for Tranche 1.1.
+This package prepares a PR-ready draft candidate package for Tranche 1.1.
+
+PR-ready does not mean ready for merge, ready for review, or ready for canonical adoption.
 
 It translates verified Tranche 1.1 review materials into a candidate core package that can be reviewed before any future canonical adoption.
 
