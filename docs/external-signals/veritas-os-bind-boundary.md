@@ -16,7 +16,9 @@
 
 This note is a lightweight pointer to the external signal captured in **issue #95**.
 
-Issue #95 remains the primary intake record for source-access context, browser-session notes, and the original external-signal review.
+Issue #95 is the historical primary intake record for source-access context, browser-session notes, and the original external-signal review.
+
+The issue may be closed as completed while still remaining the historical source-of-record for this external signal.
 
 This file does not duplicate the full intake discussion. It only preserves the possible RABA relevance for later review.
 
@@ -40,7 +42,7 @@ These points are treated as source-reported claims, not independently verified R
 
 ## Possible RABA relevance
 
-VERITAS OS may suggest a possible external implementation parallel to several RABA concerns:
+VERITAS OS may suggest a possible external conceptual or implementation-adjacent parallel to several RABA concerns:
 
 | External signal | Possible RABA parallel | Boundary |
 | --- | --- | --- |
@@ -50,6 +52,8 @@ VERITAS OS may suggest a possible external implementation parallel to several RA
 | Replayable evidence | Decision Log / Responsibility Event Stream | Do not assume field-level mapping |
 
 This is a possible conceptual parallel only.
+
+The table records possible review parallels only; it does not assert technical equivalence, schema compatibility, validation, or architectural alignment.
 
 It must not be described as validation, confirmation, implementation, adoption, or alignment of RABA.
 
@@ -61,7 +65,7 @@ The source reportedly includes an invitation for design partners or PoC explorat
 
 RABA does **not** respond to that invitation through this note.
 
-Any outreach to Takeshi Fujishita, PoC discussion, design-partner conversation, collaboration framing, or public reference requires a separate Human Owner decision.
+Any outreach, PoC discussion, design-partner conversation, collaboration framing, or public reference requires a separate Human Owner decision.
 
 ---
 
@@ -73,5 +77,5 @@ Do not canonicalize.
 Do not adopt terminology.
 Do not create mapping yet.
 Do not treat as validation.
-Use issue #95 as the primary intake record.
+Use issue #95 as the historical primary intake record.
 ```
