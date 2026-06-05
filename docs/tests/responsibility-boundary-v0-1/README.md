@@ -10,6 +10,18 @@
 
 ---
 
+## Start here — manual test
+
+To manually reproduce the current supplier-payment test, use these files in order:
+
+1. [`manual-test-walkthrough.md`](./manual-test-walkthrough.md) — step-by-step instructions showing where to find each answer.
+2. [`manual-test-answer-sheet.md`](./manual-test-answer-sheet.md) — worksheet for recording evidence, decisions, and missing information.
+3. [`completed-test-example.md`](./completed-test-example.md) — filled example showing the expected current-scenario result and the limits of what the documentation proves.
+
+If an answer cannot be found, record it as a test-pack gap rather than guessing.
+
+---
+
 ## Test objective
 
 This package tests whether RABA can consistently determine what should happen when a human approval was valid for one reference frame, but an AI agent attempts execution after that reference frame has changed.
@@ -38,6 +50,12 @@ It also tests whether the procedural conditions for informed and voluntary human
 ---
 
 ## Files
+
+### Manual test material
+
+- [`manual-test-walkthrough.md`](./manual-test-walkthrough.md)
+- [`manual-test-answer-sheet.md`](./manual-test-answer-sheet.md)
+- [`completed-test-example.md`](./completed-test-example.md)
 
 ### Core test artifact
 
@@ -117,4 +135,4 @@ The synthesis records which recommendations were accepted for refinement, preser
 
 ## Current boundary
 
-This is the first experimental RABA test artifact. It is intended to expose ambiguity, missing fields, conflicting concepts, dependency failures, and responsibility gaps. A failed test is useful evidence for improving RABA; it is not proof that RABA is validated or implemented.
+This is the first experimental RABA test artifact. It is intended to expose ambiguity, missing fields, conflicting concepts, dependency failures, responsibility gaps, and usability gaps. A failed or incomplete manual test is useful evidence for improving RABA; it is not proof that RABA is validated or implemented.
