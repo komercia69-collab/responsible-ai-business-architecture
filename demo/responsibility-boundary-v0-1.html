@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RABA Responsibility Boundary Demo v0.1</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#667085;--line:#d7deea;--blue:#2563eb;--green:#16845b;--yellow:#b7791f;--red:#c53030;--purple:#6941c6;--dark:#182230}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.45}.wrap{max-width:1180px;margin:0 auto;padding:24px}.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:18px;box-shadow:0 5px 18px rgba(20,30,55,.05)}h1{margin:0 0 8px;font-size:2rem}h2{margin:0 0 12px;font-size:1.3rem}h3{margin:0 0 8px;font-size:1.05rem}p{margin:7px 0}.small{font-size:.9rem;color:var(--muted)}.badge{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;font-size:.78rem;font-weight:700;background:#eef2f7;color:#344054;margin-right:6px}.badge.noncanon{background:#fff4e5;color:#9a5b00}.badge.active{background:#e7f0ff;color:#174ea6}.badge.transfer{background:#f1eaff;color:#5b32a3}.badge.block{background:#feecec;color:#9f1d1d}.badge.ok{background:#e7f7ef;color:#146b48}.field{position:sticky;top:8px;z-index:5;background:linear-gradient(90deg,#172554,#312e81);color:#fff;border-radius:14px;padding:14px 18px;margin-bottom:18px;box-shadow:0 8px 22px rgba(30,41,100,.22)}.field strong{display:block;font-size:1rem}.field-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:9px}.field-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:9px;padding:8px;font-size:.82rem}.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:9px;padding:10px 16px;font-weight:700;cursor:pointer;background:var(--dark);color:#fff}.btn.secondary{background:#fff;color:var(--dark);border:1px solid var(--line)}.btn:disabled{opacity:.45;cursor:not-allowed}.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.scenario{border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;background:#fff}.scenario.selected{border:2px solid var(--blue);background:#f5f9ff}.flow{display:grid;grid-template-columns:repeat(8,minmax(105px,1fr));gap:8px;overflow-x:auto;padding:6px 2px 14px}.stage{min-height:138px;border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff;cursor:pointer;position:relative}.stage::after{content:"→";position:absolute;right:-9px;top:52px;color:#98a2b3;font-weight:800}.stage:last-child::after{display:none}.stage.current{border:3px solid var(--blue);padding:9px;background:#f5f9ff}.stage.done{border-color:#9fd6be;background:#f5fbf8}.stage.blocked{border-color:#e7a4a4;background:#fff6f6}.stage .num{font-size:.75rem;color:var(--muted);font-weight:700}.stage .title{font-weight:800;margin:5px 0}.stage .event{font-size:.8rem;color:var(--muted)}.marker{margin-top:8px;padding:5px 7px;border-radius:7px;font-size:.72rem;font-weight:800;background:#eef2f7}.marker.active{background:#e7f0ff;color:#174ea6}.marker.transfer{background:#f1eaff;color:#5b32a3}.marker.block{background:#feecec;color:#9f1d1d}.marker.observe{background:#e7f7ef;color:#146b48}.detail-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:16px}.box{border:1px solid var(--line);border-radius:12px;padding:15px;background:#fbfcfe}.facts{display:grid;grid-template-columns:1fr 1fr;gap:8px}.fact{border-left:4px solid var(--blue);background:#f5f8ff;padding:9px 10px;border-radius:6px;font-size:.88rem}.responsibility{border-left:4px solid var(--purple);background:#f8f5ff;padding:11px;border-radius:7px;margin:8px 0}.question{border-left:4px solid var(--yellow);background:#fff9e9;padding:11px;border-radius:7px;margin-top:10px}.decision{font-size:1.4rem;font-weight:900;padding:15px;border-radius:11px;text-align:center;margin-top:12px}.decision.allow{background:#e7f7ef;color:#146b48}.decision.block{background:#feecec;color:#9f1d1d}.decision.resolve{background:#fff4df;color:#905600}.legend{display:flex;gap:12px;flex-wrap:wrap}.legend span{font-size:.82rem}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px}.timeline{border-left:3px solid var(--line);margin-left:8px;padding-left:16px}.log{margin:9px 0;padding:9px;border:1px solid var(--line);border-radius:8px;background:#fff}.log strong{display:block}.hidden{display:none}@media(max-width:900px){.scenario-grid,.detail-grid{grid-template-columns:1fr}.field-grid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:repeat(8,150px)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="panel">
+    <span class="badge noncanon">Non-canonical interactive test prototype</span>
+    <span class="badge">No real execution</span>
+    <h1>RABA: где в потоке информации активируется ответственность?</h1>
+    <p>Информация движется по процессу. Ответственность существует постоянно, но в определённых точках она активируется, меняет владельца или блокирует продолжение.</p>
+    <p class="small">Цель демо — показать логику первого тестового образца понятнее, чем набор документов. Демо не является валидацией, финансовой инструкцией или каноном RABA.</p>
+  </section>
+
+  <div class="field" aria-label="Постоянное поле ответственности">
+    <strong>Постоянное поле ответственности действует на всех этапах</strong>
+    <div class="field-grid">
+      <div class="field-item"><b>Текущий владелец</b><br><span id="fieldOwner">Владелец процесса</span></div>
+      <div class="field-item"><b>Состояние одобрения</b><br><span id="fieldApproval">Ещё не выдано</span></div>
+      <div class="field-item"><b>Допустимость</b><br><span id="fieldAdmissibility">Подготовка</span></div>
+      <div class="field-item"><b>Следующее обязательное действие</b><br><span id="fieldNext">Определить мандат</span></div>
+    </div>
+  </div>
+
+  <section class="panel">
+    <h2>1. Выберите сценарий</h2>
+    <div class="scenario-grid" id="scenarioGrid"></div>
+    <div class="controls">
+      <button class="btn" id="startBtn">Начать поток</button>
+      <button class="btn secondary" id="resetBtn">Сбросить</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>2. Поток информации и точки ответственности</h2>
+    <div class="legend">
+      <span><i class="dot" style="background:#2563eb"></i>ответственность активирована</span>
+      <span><i class="dot" style="background:#6941c6"></i>ответственность передана</span>
+      <span><i class="dot" style="background:#c53030"></i>действие заблокировано</span>
+      <span><i class="dot" style="background:#16845b"></i>наблюдение последствий</span>
+    </div>
+    <div class="flow" id="flow"></div>
+    <div class="controls">
+      <button class="btn secondary" id="prevBtn">← Предыдущий этап</button>
+      <button class="btn" id="nextBtn">Следующий этап →</button>
+    </div>
+  </section>
+
+  <section class="panel detail-grid">
+    <div>
+      <h2 id="detailTitle">Выберите сценарий и начните поток</h2>
+      <div class="box">
+        <h3>Что происходит</h3>
+        <p id="detailEvent" class="small">Демо покажет события шаг за шагом.</p>
+        <div class="facts" id="facts"></div>
+      </div>
+      <div class="box" style="margin-top:12px">
+        <h3>Почему здесь важна ответственность</h3>
+        <div class="responsibility" id="responsibilityText">Ответственность существует до начала действия и должна быть назначена заранее.</div>
+        <div class="question" id="questionText">Кто имеет право принять следующее решение и на каком основании?</div>
+      </div>
+    </div>
+    <div>
+      <h2>Текущее состояние</h2>
+      <div class="box">
+        <p><b>Ответственность сейчас:</b> <span id="currentResponsibility">не активирована</span></p>
+        <p><b>За что:</b> <span id="currentDuty">—</span></p>
+        <p><b>Переходит далее:</b> <span id="nextOwner">—</span></p>
+        <p><b>Если владелец отсутствует:</b> <span id="missingOwner">не определено</span></p>
+        <div class="decision resolve" id="decisionBox">ПОДГОТОВКА</div>
+      </div>
+      <div class="box" style="margin-top:12px">
+        <h3>Ключевое различие</h3>
+        <p id="distinction">Технический сигнал ещё не является разрешением действовать.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>3. Журнал ответственности</h2>
+    <p class="small">Журнал показывает не только события, но и то, кто обязан был принять решение на каждом значимом переходе.</p>
+    <div class="timeline" id="log"></div>
+  </section>
+</div>
+<script>
+const scenarioData = {
+  material: {
+    name: 'Существенное изменение',
+    desc: 'Изменён банковский счёт и добавлен новый поставщик. Ожидается BLOCK + reauthorization.',
+    final: 'BLOCK_ENTIRE_BATCH',
+    finalClass: 'block'
+  },
+  nonmaterial: {
+    name: 'Несущественное изменение',
+    desc: 'Изменено только форматирование IBAN без смены фактического получателя.',
+    final: 'ALLOW_WITHIN_APPROVED_SCOPE',
+    finalClass: 'allow'
+  },
+  dependency: {
+    name: 'Отсутствует маршрут ответственности',
+    desc: 'Изменение существенно, но routing policy или владелец не разрешимы.',
+    final: 'BLOCK_UNTIL_DEPENDENCY_RESOLVED',
+    finalClass: 'resolve'
+  }
+};
+
+const baseStages = [
+  {title:'Мандат',event:'Определяется задача, scope и полномочия.',marker:'Ответственность назначена',kind:'active',owner:'Владелец процесса и политики',duty:'Задать допустимые границы и владельцев решений.',next:'Финансовый менеджер',missing:'Процесс не должен запускаться без владельца.',approval:'Ещё не выдано',admissibility:'Подготовка',nextAction:'Зафиксировать мандат',question:'Кто разрешил процесс и в каких границах?',distinction:'Цель и полномочия должны существовать до получения сигналов.',facts:['Scope: supplier set A','Лимит: €50 000','Цель: monthly settlement','Окно: same business day']},
+  {title:'Одобрение S0',event:'Финансовый менеджер одобряет пакет в точном состоянии S0.',marker:'Ответственность активирована',kind:'active',owner:'Финансовый менеджер',duty:'Одобрить конкретный scope и reference frame.',next:'Система наблюдения',missing:'Без действующего approver одобрение отсутствует.',approval:'VALID для S0',admissibility:'ALLOW в пределах S0',nextAction:'Наблюдать изменения',question:'Что именно было одобрено?',distinction:'Одобряется конкретное состояние, а не абстрактная задача.',facts:['Reference frame: S0','Hash: test_hash_S0','Supplier set: A','Acknowledgement связан с S0']},
+  {title:'Новый сигнал',event:'В систему поступают обновлённые данные поставщика.',marker:'Ответственность за evidence',kind:'active',owner:'Владелец данных / evidence capture',duty:'Зафиксировать происхождение, целостность и конкретный diff.',next:'Оценщик существенности',missing:'Недостаток evidence должен стать видимым.',approval:'VALID для S0',admissibility:'Ожидает оценки',nextAction:'Построить S0→S1 diff',question:'Что изменилось технически?',distinction:'Обнаружение изменения не определяет его допустимость.',facts:[]},
+  {title:'Интерпретация',event:'Разница между S0 и S1 оценивается относительно approved scope.',marker:'Ответственность за materiality',kind:'active',owner:'Responsibility boundary control',duty:'Оценить существенность по заранее утверждённой политике.',next:'Governance route',missing:'Исполняющий агент не может быть единственным судьёй.',approval:'Зависит от materiality',admissibility:'Ожидает оценки',nextAction:'Записать materiality basis',question:'Затронута ли граница одобрения?',distinction:'Hash доказывает различие; materiality assessment объясняет его значение.',facts:[]},
+  {title:'Предложение AI',event:'AI предлагает продолжить workflow.',marker:'Предложение, не разрешение',kind:'transfer',owner:'AI-агент как автор предложения',duty:'Показать предложение и доказательства без самовыдачи разрешения.',next:'Владелец admissibility route',missing:'Если маршрут не разрешим, действие блокируется.',approval:'Проверяется',admissibility:'Не определена окончательно',nextAction:'Проверить допустимость',question:'Может ли AI сам разрешить своё действие?',distinction:'Качество предложения не равно праву на исполнение.',facts:['AI says: normal data refresh','Human reauthorization: absent']},
+  {title:'Допустимость',event:'Система определяет ALLOW, BLOCK или ESCALATE.',marker:'Ответственность блокирует или разрешает',kind:'block',owner:'Владелец правила допустимости и маршрута',duty:'Применить утверждённый маршрут и scope решения.',next:'Human decision owner или executor',missing:'Missing dependency не может молча дать ALLOW.',approval:'STALE или VALID',admissibility:'Решение формируется',nextAction:'Исполнить route',question:'Какое действие сейчас допустимо?',distinction:'Техническая возможность исполнения не означает организационную допустимость.',facts:[]},
+  {title:'Человеческое решение',event:'Ответственный человек получает diff, evidence и варианты решения.',marker:'Ответственность передана человеку',kind:'transfer',owner:'Назначенный human decision owner',duty:'Принять, отклонить, запросить evidence или эскалировать.',next:'Executor после допустимого решения',missing:'Должен использоваться утверждённый fallback route.',approval:'Новая только для точного S1',admissibility:'Зависит от решения',nextAction:'Записать решение',question:'Созданы ли условия для информированного решения?',distinction:'Система может доказать показ условий, но не внутреннее понимание человека.',facts:['Concrete diff shown','Evidence accessible','Refuse / escalate available','Acknowledgement bound to current state']},
+  {title:'Исполнение и последствия',event:'Исполнение сравнивается с одобренным состоянием; последствия наблюдаются.',marker:'Ответственность за результат',kind:'observe',owner:'Executor + incident/recovery owner',duty:'Исполнить точно одобренное состояние и наблюдать последствия.',next:'Independent review / learning owner',missing:'Технический success не завершает ответственность.',approval:'Связано с execution snapshot',admissibility:'Проверяется после исполнения',nextAction:'Сравнить approved vs executed vs outcome',question:'Совпало ли исполнение с одобренным состоянием и возник ли вред?',distinction:'Технический успех не равен ответственному завершению.',facts:['Execution snapshot','Outcome observation','Harm signal','Recovery / review if needed']}
+];
+
+let selectedScenario='material';let current=-1;let logs=[];
+const grid=document.getElementById('scenarioGrid');
+Object.entries(scenarioData).forEach(([key,s])=>{const el=document.createElement('div');el.className='scenario'+(key===selectedScenario?' selected':'');el.dataset.key=key;const h=document.createElement('h3');h.textContent=s.name;const p=document.createElement('p');p.className='small';p.textContent=s.desc;el.append(h,p);el.onclick=()=>selectScenario(key);grid.appendChild(el)});
+
+function selectScenario(key){selectedScenario=key;current=-1;logs=[];document.querySelectorAll('.scenario').forEach(x=>x.classList.toggle('selected',x.dataset.key===key));renderFlow();renderEmpty();renderLog()}
+function scenarioFacts(stageIndex){if(stageIndex===2){if(selectedScenario==='material')return ['Bank account: A1 → A2','New supplier: supplier B','Amount remains below limit','Origin: internal supplier system'];if(selectedScenario==='nonmaterial')return ['IBAN spacing normalized','Actual recipient unchanged','No supplier added','Origin: internal normalization'];return ['Bank account: A1 → A2','Routing policy: unresolved','Escalation owner: unresolved','Origin: internal supplier system']}if(stageIndex===3){if(selectedScenario==='material')return ['materiality: material','basis: supplier scope + destination changed','cumulative state: boundary exceeded'];if(selectedScenario==='nonmaterial')return ['materiality: non_material','basis: formatting only','recipient identity unchanged'];return ['materiality: material','routing dependency: missing','owner resolution: missing']}if(stageIndex===5){const s=scenarioData[selectedScenario];return ['Decision: '+s.final,selectedScenario==='material'?'Approval S0 becomes stale':selectedScenario==='nonmaterial'?'Approval S0 remains valid':'Missing dependency is visible','Decision scope is explicit']}return baseStages[stageIndex].facts}
+function stateFor(i){const b={...baseStages[i]};if(i===5){const s=scenarioData[selectedScenario];b.admissibility=s.final;b.nextAction=selectedScenario==='material'?'Route to reauthorization + independent review':selectedScenario==='nonmaterial'?'Continue only within approved scope':'Resolve routing policy and owner';b.approval=selectedScenario==='nonmaterial'?'VALID для S0':'STALE / unresolved';b.owner=selectedScenario==='dependency'?'Не разрешён — dependency missing':'Владелец утверждённого admissibility route';b.kind=selectedScenario==='nonmaterial'?'observe':'block';b.marker=selectedScenario==='nonmaterial'?'Ответственность разрешает в пределах scope':'Ответственность блокирует продолжение'}if(i===6&&selectedScenario==='nonmaterial'){b.event='Новое человеческое решение не требуется; событие остаётся в журнале.';b.owner='Approval owner остаётся назначенным';b.duty='Сохранить доказательства non-material assessment.';b.next='Executor';b.approval='VALID для S0';b.admissibility='ALLOW_WITHIN_APPROVED_SCOPE';b.nextAction='Продолжить в неизменённом scope'}if(i===6&&selectedScenario==='dependency'){b.event='Человеческое решение не маршрутизируется, пока owner и policy не разрешены.';b.owner='Responsibility unresolved';b.duty='Разрешить policy/owner dependency.';b.next='Approved fallback route';b.approval='STALE';b.admissibility='BLOCK_UNTIL_DEPENDENCY_RESOLVED';b.nextAction='Resolve dependency'}return b}
+function renderFlow(){const flow=document.getElementById('flow');flow.replaceChildren();baseStages.forEach((_,i)=>{const s=stateFor(i);const el=document.createElement('div');el.className='stage'+(i===current?' current':'')+(i<current?' done':'')+(i===5&&current>=5&&selectedScenario!=='nonmaterial'?' blocked':'');el.onclick=()=>{current=i;addLog(i);renderAll()};const num=document.createElement('div');num.className='num';num.textContent='ЭТАП '+(i+1);const title=document.createElement('div');title.className='title';title.textContent=s.title;const event=document.createElement('div');event.className='event';event.textContent=s.event;const marker=document.createElement('div');marker.className='marker '+s.kind;marker.textContent=s.marker;el.append(num,title,event,marker);flow.appendChild(el)})}
+function renderEmpty(){document.getElementById('detailTitle').textContent='Выберите сценарий и начните поток';document.getElementById('detailEvent').textContent='Демо покажет события шаг за шагом.';document.getElementById('facts').replaceChildren();document.getElementById('responsibilityText').textContent='Ответственность существует до начала действия и должна быть назначена заранее.';document.getElementById('questionText').textContent='Кто имеет право принять следующее решение и на каком основании?';document.getElementById('decisionBox').textContent='ПОДГОТОВКА';document.getElementById('decisionBox').className='decision resolve'}
+function renderDetail(){if(current<0)return renderEmpty();const s=stateFor(current);document.getElementById('detailTitle').textContent=(current+1)+'. '+s.title;document.getElementById('detailEvent').textContent=s.event;const facts=document.getElementById('facts');facts.replaceChildren();scenarioFacts(current).forEach(t=>{const d=document.createElement('div');d.className='fact';d.textContent=t;facts.appendChild(d)});document.getElementById('responsibilityText').textContent=s.marker+': '+s.owner+' обязан '+s.duty.toLowerCase();document.getElementById('questionText').textContent=s.question;document.getElementById('currentResponsibility').textContent=s.owner;document.getElementById('currentDuty').textContent=s.duty;document.getElementById('nextOwner').textContent=s.next;document.getElementById('missingOwner').textContent=s.missing;document.getElementById('distinction').textContent=s.distinction;const box=document.getElementById('decisionBox');box.textContent=current===5?scenarioData[selectedScenario].final:s.admissibility;box.className='decision '+(current===5?scenarioData[selectedScenario].finalClass:(s.admissibility.includes('ALLOW')?'allow':s.admissibility.includes('BLOCK')||s.admissibility.includes('STALE')?'block':'resolve'));document.getElementById('fieldOwner').textContent=s.owner;document.getElementById('fieldApproval').textContent=s.approval;document.getElementById('fieldAdmissibility').textContent=s.admissibility;document.getElementById('fieldNext').textContent=s.nextAction}
+function addLog(i){if(logs.includes(i))return;logs.push(i)}
+function renderLog(){const root=document.getElementById('log');root.replaceChildren();if(!logs.length){const p=document.createElement('p');p.className='small';p.textContent='Журнал появится после начала потока.';root.appendChild(p);return}logs.sort((a,b)=>a-b).forEach(i=>{const s=stateFor(i);const el=document.createElement('div');el.className='log';const strong=document.createElement('strong');strong.textContent='Этап '+(i+1)+': '+s.title;const p=document.createElement('p');p.textContent=s.marker+' — '+s.owner+'. Следующее действие: '+s.nextAction+'.';el.append(strong,p);root.appendChild(el)})}
+function renderAll(){renderFlow();renderDetail();renderLog();document.getElementById('prevBtn').disabled=current<=0;document.getElementById('nextBtn').disabled=current>=baseStages.length-1}
+document.getElementById('startBtn').onclick=()=>{current=0;addLog(0);renderAll()};document.getElementById('resetBtn').onclick=()=>selectScenario(selectedScenario);document.getElementById('prevBtn').onclick=()=>{if(current>0){current--;addLog(current);renderAll()}};document.getElementById('nextBtn').onclick=()=>{if(current<baseStages.length-1){current++;addLog(current);renderAll()}};
+renderFlow();renderEmpty();renderLog();document.getElementById('prevBtn').disabled=true;
+</script>
+</body>
+</html>
