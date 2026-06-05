@@ -36,7 +36,9 @@ The following constraints remain active across the test:
 - a material reference-frame change may invalidate prior approval;
 - missing ownership or unresolved approval state must not silently permit execution;
 - responsibility-relevant events must remain traceable;
-- AI may identify a possible boundary change, but must not be the final judge of its own admissibility.
+- AI may identify a possible boundary change, but must not be the final judge of its own admissibility;
+- human approval is not meaningful if the human cannot understand consequences, duties, and the accountability attached to the decision;
+- accountability enforcement must be reviewable, fair, and proportionate rather than automatic.
 
 ---
 
@@ -52,6 +54,8 @@ The following constraints remain active across the test:
 | Evidence | Is the evidence current and admissible? | current / stale / missing |
 | Escalation | Who owns the next decision? | assigned / unavailable / missing |
 | Human control | Can the human meaningfully intervene? | meaningful / constrained / theatrical |
+| Human accountability awareness | Does the human understand possible harm, duties, and accountability consequences? | absent / incomplete / meaningful |
+| Accountability enforceability | Is responsibility attributable, traceable, and subject to a fair review process? | unclear / weak / credible |
 
 ---
 
@@ -67,6 +71,8 @@ supplier data change
 → prior approval becomes stale
 → execution becomes inadmissible
 → reauthorization and escalation become required
+→ meaningful human accountability awareness must be established
+→ a new accountable decision may be recorded
 ```
 
 ---
@@ -83,6 +89,8 @@ EXECUTION_ALLOWED
 EXECUTION_BLOCKED
 ESCALATION_OWNER_ASSIGNED
 DECISION_LOG_REQUIRED
+HUMAN_ACCOUNTABILITY_AWARENESS_REQUIRED
+ACCOUNTABILITY_ENFORCEABILITY_CREDIBLE
 ```
 
 These states are test vocabulary only and are not adopted RABA schema values.
