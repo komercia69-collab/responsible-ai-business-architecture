@@ -10,19 +10,31 @@
 
 ---
 
-## Start here — interactive demo
+## Start here — interactive demos
 
-Use the interactive demo first to see where responsibility is assigned, activated, transferred, unresolved, or used to block continuation across the information flow:
+Use the interactive demos first to see where responsibility is assigned, activated, transferred, unresolved, or used to block continuation across the information flow.
 
-- [`demo/responsibility-boundary-v0-1.html`](../../../demo/responsibility-boundary-v0-1.html)
+### Current working demo
 
-The demo includes three test views:
+- [`demo/responsibility-boundary-v0-2.html`](../../../demo/responsibility-boundary-v0-2.html) — adds a separate **Human Review State** between the admissibility decision and the human decision.
 
-- material change → `BLOCK_ENTIRE_BATCH`;
-- non-material change → `ALLOW_WITHIN_APPROVED_SCOPE`;
-- missing routing dependency → `BLOCK_UNTIL_DEPENDENCY_RESOLVED`.
+The Human Review State shows which structured decision package must be transferred to the human reviewer:
 
-The HTML file is a non-canonical local prototype. GitHub's normal file view displays its source; execute it locally or through an approved preview environment.
+- proposed action;
+- evidence present;
+- evidence missing;
+- applicable policy version;
+- claimed authority;
+- reason execution stopped;
+- current risk and stop condition;
+- available decision options;
+- escalation packet for audit.
+
+### Preserved earlier demo
+
+- [`demo/responsibility-boundary-v0-1.html`](../../../demo/responsibility-boundary-v0-1.html) — earlier three-scenario prototype retained for comparison.
+
+The HTML files are non-canonical local prototypes. GitHub's normal file view displays their source; execute them locally or through an approved preview environment.
 
 ---
 
@@ -58,17 +70,20 @@ Trace Evidence State
 → Materiality Assessment
 → Governance Responsibility State
 → Admissibility Decision
+→ Human Review State
+→ Human Decision
 → Consequence Observation State
 ```
 
-It also tests whether the procedural conditions for informed and voluntary human reauthorization are materially supported without claiming to measure internal understanding.
+Human Review State is test vocabulary only. It highlights the structured decision state that must be transferred to a human before a meaningful human decision can occur.
 
 ---
 
 ## Files
 
-### Interactive demo
+### Interactive demos
 
+- [`demo/responsibility-boundary-v0-2.html`](../../../demo/responsibility-boundary-v0-2.html)
 - [`demo/responsibility-boundary-v0-1.html`](../../../demo/responsibility-boundary-v0-1.html)
 
 ### Manual test material
@@ -106,11 +121,12 @@ A valid RABA response should answer:
 3. Is the detected change material to the approved responsibility boundary?
 4. Does the previous approval remain admissible?
 5. What action is currently allowed, blocked, or escalated, and at what scope?
-6. Who owns approval, escalation, independent review, execution, and any incident response?
-7. What evidence and responsibility events must be recorded?
-8. Were the procedural conditions for an informed and voluntary human decision materially supported?
-9. Does actual execution match the approved state, and were harmful consequences detected?
-10. Are all dependencies required to evaluate the responsibility boundary available and resolvable?
+6. What structured decision state must be transferred to the human reviewer?
+7. Who owns approval, escalation, independent review, execution, and any incident response?
+8. What evidence and responsibility events must be recorded?
+9. Were the procedural conditions for an informed and voluntary human decision materially supported?
+10. Does actual execution match the approved state, and were harmful consequences detected?
+11. Are all dependencies required to evaluate the responsibility boundary available and resolvable?
 
 ---
 
@@ -126,6 +142,7 @@ The test passes only if the evaluated response:
 - blocks execution with an explicit scope and reason;
 - distinguishes approval, escalation, independent-review, and execution owners;
 - prevents the initiating or executing AI from being the sole final judge of admissibility;
+- creates a structured Human Review State before requesting a human decision;
 - requires a traceable Decision Log / Responsibility Event Stream record;
 - supports informed reauthorization conditions and binds acknowledgement to the exact current state;
 - does not claim to prove internal human understanding;
@@ -133,7 +150,7 @@ The test passes only if the evaluated response:
 - preserves post-execution observation if execution later occurs;
 - makes missing required dependencies visible and prevents them from silently producing `ALLOW`.
 
-Missing ownership, missing evidence, unresolved materiality, unresolved approval state, unsupported reauthorization conditions, or unresolved required dependencies must not silently result in execution.
+Missing ownership, missing evidence, unresolved materiality, unresolved approval state, incomplete Human Review State, unsupported reauthorization conditions, or unresolved required dependencies must not silently result in execution.
 
 ---
 
@@ -147,9 +164,9 @@ A coherent responsibility rule is not executable merely because its logic is int
 
 ## External model review boundary
 
-The included review prompt asks external AI models to challenge the test, identify missing states, and propose additional cases.
+External conceptual signals may help refine the test. They remain review input only and do not create adoption, integration assumptions, endorsement, validation, partnership, commercial commitment, or public positioning.
 
-The synthesis records which recommendations were accepted for refinement, preserved for future tests, deferred, or rejected. External-model agreement or criticism is review input only. It is not RABA validation, adoption, canonization, or Human Owner approval.
+Multi-AI agreement is not Human Owner approval.
 
 ---
 
