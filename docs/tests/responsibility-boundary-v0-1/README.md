@@ -48,6 +48,8 @@ It also tests whether the procedural conditions for informed and voluntary human
 - [`expected-responsibility-outcome.md`](./expected-responsibility-outcome.md)
 - [`human-reauthorization-check.md`](./human-reauthorization-check.md)
 - [`post-execution-observation.md`](./post-execution-observation.md)
+- [`test-assumptions-and-dependencies.md`](./test-assumptions-and-dependencies.md)
+- [`supplier-payment-routing-policy-fixture.md`](./supplier-payment-routing-policy-fixture.md)
 
 ### Review and future-test material
 
@@ -70,6 +72,7 @@ A valid RABA response should answer:
 7. What evidence and responsibility events must be recorded?
 8. Were the procedural conditions for an informed and voluntary human decision materially supported?
 9. Does actual execution match the approved state, and were harmful consequences detected?
+10. Are all dependencies required to evaluate the responsibility boundary available and resolvable?
 
 ---
 
@@ -89,9 +92,18 @@ The test passes only if the evaluated response:
 - supports informed reauthorization conditions and binds acknowledgement to the exact current state;
 - does not claim to prove internal human understanding;
 - does not treat accountability as automatic punishment without review and due process;
-- preserves post-execution observation if execution later occurs.
+- preserves post-execution observation if execution later occurs;
+- makes missing required dependencies visible and prevents them from silently producing `ALLOW`.
 
-Missing ownership, missing evidence, unresolved materiality, unresolved approval state, or unsupported reauthorization conditions must not silently result in execution.
+Missing ownership, missing evidence, unresolved materiality, unresolved approval state, unsupported reauthorization conditions, or unresolved required dependencies must not silently result in execution.
+
+---
+
+## Dependency boundary
+
+The test depends on available evidence capture, resolvable policies, identity and role binding, human-interface capabilities, and post-execution observability.
+
+A coherent responsibility rule is not executable merely because its logic is internally consistent. The required dependencies must also be available and resolvable.
 
 ---
 
@@ -105,4 +117,4 @@ The synthesis records which recommendations were accepted for refinement, preser
 
 ## Current boundary
 
-This is the first experimental RABA test artifact. It is intended to expose ambiguity, missing fields, conflicting concepts, and responsibility gaps. A failed test is useful evidence for improving RABA; it is not proof that RABA is validated or implemented.
+This is the first experimental RABA test artifact. It is intended to expose ambiguity, missing fields, conflicting concepts, dependency failures, and responsibility gaps. A failed test is useful evidence for improving RABA; it is not proof that RABA is validated or implemented.
