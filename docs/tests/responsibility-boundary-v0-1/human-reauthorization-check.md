@@ -10,34 +10,43 @@
 
 ## Purpose
 
-This check tests whether a requested human reauthorization is meaningful rather than a formal confirmation step.
+This check tests whether the procedural conditions for an informed and voluntary human reauthorization are materially supported.
 
-Meaningful reauthorization requires more than presenting an `Approve` button.
+It does **not** claim to measure or prove a person's internal understanding.
 
-The responsible person should be able to understand:
-
-- what action will be executed;
-- what materially changed since the previous approval;
-- what harm may result from action or inaction;
-- how reversible the action is;
-- what duties attach to the approving role;
-- what personal or institutional accountability may follow from an established failure to perform those duties;
-- that the decision and available evidence will remain traceable;
-- that the person has real authority and a practical ability to refuse, redirect, request evidence, or escalate.
+A generic `Approve` click is insufficient.
 
 ---
 
 ## Test vocabulary
 
-### Human accountability awareness
+### Accountability awareness conditions
 
 ```text
-absent
-incomplete
-meaningful
+insufficient
+procedurally_supported
+materially_supported
 ```
 
-A `meaningful` state requires demonstrated access to the material facts, possible consequences, relevant duties, and the accountability attached to the decision.
+A `materially_supported` state means the system can show evidence that the responsible person received the material diff, relevant evidence, consequence information, role duties, decision options, and sufficient procedural opportunity to refuse or escalate.
+
+It does not prove actual internal comprehension.
+
+### Human acknowledgement recorded
+
+```text
+true
+false
+```
+
+The acknowledgement must be bound to:
+
+- the current `reference_frame_hash`;
+- the `state_diff_manifest`;
+- the evidence package presented;
+- the selected decision;
+- the responsible role and identity binding;
+- the time of acknowledgement.
 
 ### Accountability enforceability
 
@@ -49,22 +58,27 @@ credible
 
 `Accountability enforceability` does not mean automatic punishment.
 
-It means that responsibility is attributable, the decision and evidence are traceable, relevant duties are defined, and an established review process can apply fair and proportionate consequences when a violation is proven.
+It means responsibility is attributable, evidence and decisions are traceable, duties are defined, and an established process can review the decision and apply fair and proportionate consequences when a violation is proven.
 
 ---
 
 ## Minimum reauthorization presentation
 
-Before a new decision under reference frame `S1`, the finance manager should be shown:
+Before a new decision under reference frame `S1`, the responsible person should be shown:
 
 ```text
 Proposed action:
 Execute the supplier payment run under changed reference frame S1.
 
-Material changes:
-- one supplier bank account changed;
-- one new supplier was added;
-- previous approval applied to S0 and does not automatically cover S1.
+State diff:
+- one supplier bank account changed from approved_account_A1 to changed_account_A2;
+- supplier_B was added;
+- previous approval was bound to reference frame hash test_hash_S0;
+- current reference frame hash is test_hash_S1.
+
+Materiality assessment:
+The approved supplier scope and payment destination changed.
+The change was classified as material under supplier_payment_materiality_v1.
 
 Possible harm:
 - payment to an unintended recipient;
@@ -72,30 +86,33 @@ Possible harm:
 - compliance or legal consequences;
 - low reversibility after execution.
 
-Required duties:
+Required duties and options:
 - inspect the changed payment destination;
 - verify the new supplier is admissible;
 - review the evidence supporting the change;
-- approve, reject, redirect, or escalate the updated payment run.
+- approve, reject, redirect, request evidence, or escalate;
+- request independent review when required.
 
 Accountability notice:
-The approving role owns the authorization decision. The decision, presented evidence, and acknowledged changes will be recorded and may be reviewed under the applicable organizational process.
+The decision, evidence presented, acknowledged diff, role identity, and selected action will be recorded and may be reviewed under the applicable organizational process.
 ```
 
 ---
 
 ## Pass criteria
 
-The reauthorization check passes only if:
+The reauthorization check passes only if evidence shows that:
 
-- material changes are visible and understandable;
-- consequences of action and inaction are presented;
-- reversibility is stated;
-- the responsible person's duties are explicit;
-- accountability is attributable and traceable;
-- enforcement is described as reviewable, fair, and proportionate rather than automatic;
-- the human has real authority and ability to refuse;
-- the acknowledgement is bound to reference frame `S1`, not to the general task.
+- the concrete `state_diff_manifest` was presented;
+- materiality assessment and its basis were visible;
+- relevant evidence was accessible;
+- consequences of action, inaction, and delay were not hidden where applicable;
+- reversibility was stated;
+- duties and available decision options were explicit;
+- the person had real authority and practical ability to refuse, redirect, request evidence, or escalate;
+- sufficient decision time was available under the applicable policy;
+- acknowledgement was bound to `S1` and its exact hash, not to the general task;
+- enforcement was described as reviewable, fair, and proportionate rather than automatic.
 
 ---
 
@@ -103,32 +120,34 @@ The reauthorization check passes only if:
 
 The check fails if:
 
-- the person sees only a generic approval request;
+- only a generic approval request is shown;
+- the diff is hidden, incomplete, or presented only as a hash mismatch;
 - responsibility is implied but not assigned;
 - possible harm is hidden or minimized;
-- sanctions are used as pressure without due process;
+- sanctions or SLA pressure are used as coercion;
 - the system claims a person is automatically guilty;
 - the person lacks authority, time, evidence, or ability to refuse;
-- acknowledgement is recorded without identifying the changed reference frame.
+- acknowledgement is not bound to the exact changed reference frame;
+- a Boolean challenge result is treated as proof of internal understanding.
 
 ---
 
 ## Test principle
 
 ```text
-Meaningful Human Approval
+Procedurally Supported Human Reauthorization
 =
-Understanding of the action
+Material diff presented
 +
-Understanding of possible harm
+Relevant evidence accessible
 +
-Understanding of personal duties
+Consequences and duties presented
 +
-Awareness of accountability consequences
+Real authority and decision options
 +
-Real authority and ability to refuse
+Sufficient opportunity to refuse or escalate
 +
-Traceable acknowledgement
+Traceable acknowledgement bound to the current state
 ```
 
 This principle remains non-canonical until separately reviewed and approved by the Human Owner.
