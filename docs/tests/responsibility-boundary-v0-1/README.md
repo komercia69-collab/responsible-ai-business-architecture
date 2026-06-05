@@ -10,7 +10,23 @@
 
 ---
 
-## Start here — manual test
+## Start here — interactive demo
+
+Use the interactive demo first to see where responsibility is assigned, activated, transferred, unresolved, or used to block continuation across the information flow:
+
+- [`demo/responsibility-boundary-v0-1.html`](../../../demo/responsibility-boundary-v0-1.html)
+
+The demo includes three test views:
+
+- material change → `BLOCK_ENTIRE_BATCH`;
+- non-material change → `ALLOW_WITHIN_APPROVED_SCOPE`;
+- missing routing dependency → `BLOCK_UNTIL_DEPENDENCY_RESOLVED`.
+
+The HTML file is a non-canonical local prototype. GitHub's normal file view displays its source; execute it locally or through an approved preview environment.
+
+---
+
+## Manual test
 
 To manually reproduce the current supplier-payment test, use these files in order:
 
@@ -50,6 +66,10 @@ It also tests whether the procedural conditions for informed and voluntary human
 ---
 
 ## Files
+
+### Interactive demo
+
+- [`demo/responsibility-boundary-v0-1.html`](../../../demo/responsibility-boundary-v0-1.html)
 
 ### Manual test material
 
@@ -135,4 +155,4 @@ The synthesis records which recommendations were accepted for refinement, preser
 
 ## Current boundary
 
-This is the first experimental RABA test artifact. It is intended to expose ambiguity, missing fields, conflicting concepts, dependency failures, responsibility gaps, and usability gaps. A failed or incomplete manual test is useful evidence for improving RABA; it is not proof that RABA is validated or implemented.
+This is the first experimental RABA test artifact. It is intended to expose ambiguity, missing fields, conflicting concepts, dependency failures, responsibility gaps, and usability gaps. A failed or incomplete demo or manual test is useful evidence for improving RABA; it is not proof that RABA is validated or implemented.
