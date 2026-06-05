@@ -70,6 +70,15 @@ function resetUI(){
   q('approval').textContent='не выдано';
   q('admissibility').textContent='подготовка';
   q('nextAction').textContent='определить мандат';
+  q('stateOwner').textContent='—';
+  q('duty').textContent='—';
+  q('nextOwner').textContent='—';
+  q('missing').textContent='—';
+  q('decision').textContent='ПОДГОТОВКА';
+  q('decision').className='decision resolve';
+  q('distinction').textContent='Технический сигнал ещё не является разрешением действовать.';
+  q('prev').disabled=true;
+  q('next').disabled=false;
   // PATCH: hide stage indicator and HRS message
   q('stind').className='stind';
   q('hrsmsg').className='hrsmsg';
