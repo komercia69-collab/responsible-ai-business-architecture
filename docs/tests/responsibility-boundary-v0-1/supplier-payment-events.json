@@ -5,9 +5,16 @@
     "event_type": "human_approval_recorded",
     "actor": "finance_manager",
     "reference_frame_id": "S0",
+    "reference_frame_hash": "test_hash_S0",
+    "approval_subject": "supplier_payment_batch",
+    "approval_scope": {
+      "supplier_set": "approved_vendor_set_A",
+      "maximum_payment_amount_eur": 50000,
+      "approval_purpose": "routine_monthly_supplier_settlement"
+    },
     "responsibility_effect": {
       "approval_state": "APPROVAL_VALID",
-      "execution_state": "EXECUTION_ALLOWED_WITHIN_APPROVED_SCOPE"
+      "execution_admissibility": "ALLOW_WITHIN_UNCHANGED_SCOPE"
     }
   },
   {
@@ -15,21 +22,48 @@
     "timestamp": "11:30",
     "event_type": "supplier_file_updated",
     "actor": "internal_supplier_system",
+    "origin_of_change": "internal_system",
+    "change_provenance": "supplier_master_data_feed",
+    "change_classification": [
+      "bank_details_change",
+      "new_party_added"
+    ],
     "previous_reference_frame_id": "S0",
+    "previous_reference_frame_hash": "test_hash_S0",
     "new_reference_frame_id": "S1",
-    "reference_frame_diff": {
-      "supplier_bank_account_changed": true,
-      "new_supplier_added": true,
+    "new_reference_frame_hash": "test_hash_S1",
+    "state_diff_manifest": {
+      "supplier_bank_account_changed": {
+        "old": "approved_account_A1",
+        "new": "changed_account_A2"
+      },
+      "new_supplier_added": {
+        "old": null,
+        "new": "supplier_B"
+      },
       "total_amount_remains_below_approved_limit": true
     },
-    "responsibility_effect_to_evaluate": [
-      "reference_frame_changed",
-      "approval_may_be_stale",
-      "reauthorization_may_be_required"
+    "change_history_since_approval": [
+      "bank_details_change",
+      "new_party_added"
     ]
   },
   {
     "event_index": 3,
+    "timestamp": "11:30:30",
+    "event_type": "materiality_assessment_recorded",
+    "assessment_actor": "responsibility_boundary_control",
+    "assessment_policy_id": "supplier_payment_materiality_v1",
+    "materiality_state": "material",
+    "materiality_basis": [
+      "approved_supplier_scope_changed",
+      "approved_payment_destination_changed"
+    ],
+    "cumulative_change_state": "boundary_exceeded",
+    "independent_review_required": true
+  },
+  {
+    "event_index": 4,
     "timestamp": "11:31",
     "event_type": "agent_continues_workflow",
     "actor": "supplier_payment_agent",
@@ -42,12 +76,24 @@
     ]
   },
   {
-    "event_index": 4,
+    "event_index": 5,
     "timestamp": "12:00",
     "event_type": "final_execution_attempted",
     "actor": "supplier_payment_agent",
     "reference_frame_id": "S1",
+    "reference_frame_hash": "test_hash_S1",
     "human_reauthorization_present": false,
     "requested_action": "execute_supplier_payment_run"
+  },
+  {
+    "event_index": 6,
+    "timestamp": "12:00:01",
+    "event_type": "admissibility_decision_recorded",
+    "decision": "BLOCK_ENTIRE_BATCH",
+    "block_scope": "entire_batch",
+    "routing_policy_id": "supplier_payment_change_route_v1",
+    "escalation_owner": "finance_manager",
+    "independent_review_owner": "treasury_or_compliance_role",
+    "reason": "Material reference-frame change exceeded approved supplier and payment-destination scope"
   }
 ]
