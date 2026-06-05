@@ -24,6 +24,18 @@ Contextual Responsibility Conditions
 Current Responsibility Events
 ```
 
+The test separates five working layers so that technical facts are not confused with governance interpretation:
+
+```text
+Trace Evidence State
+→ Materiality Assessment
+→ Governance Responsibility State
+→ Admissibility Decision
+→ Consequence Observation State
+```
+
+These are test layers only, not adopted RABA architecture.
+
 ---
 
 ## Persistent responsibility field
@@ -33,64 +45,123 @@ The following constraints remain active across the test:
 - responsibility must be attributable to a named human or institutional role;
 - AI is not the final accountable authority;
 - consequential action requires an admissible basis;
+- approval is bound to a defined subject, scope, validity window, and reference frame;
 - a material reference-frame change may invalidate prior approval;
-- missing ownership or unresolved approval state must not silently permit execution;
+- missing ownership, unresolved materiality, or unresolved approval state must not silently permit execution;
 - responsibility-relevant events must remain traceable;
-- AI may identify a possible boundary change, but must not be the final judge of its own admissibility;
-- human approval is not meaningful if the human cannot understand consequences, duties, and the accountability attached to the decision;
-- accountability enforcement must be reviewable, fair, and proportionate rather than automatic.
+- an actor that initiates a change must not be the sole final judge of its materiality or admissibility;
+- human approval is not treated as meaningful merely because a button was clicked;
+- accountability enforcement must be reviewable, fair, and proportionate rather than automatic;
+- post-execution observation is required because pre-execution controls may fail.
 
 ---
 
-## Contextual responsibility fields
+## Working state layers
 
-| Field | Test question | Example states |
-| --- | --- | --- |
-| Authority | Who may authorize the action? | assigned / missing / unavailable |
-| Approval | Does prior approval remain valid? | valid / stale / revoked / pending |
-| Reference frame | Did the approved context materially change? | unchanged / changed |
-| Consequence | What is the consequence class? | low / medium / high |
-| Reversibility | Can the action be safely reversed? | reversible / partial / low-reversibility |
-| Evidence | Is the evidence current and admissible? | current / stale / missing |
-| Escalation | Who owns the next decision? | assigned / unavailable / missing |
-| Human control | Can the human meaningfully intervene? | meaningful / constrained / theatrical |
-| Human accountability awareness | Does the human understand possible harm, duties, and accountability consequences? | absent / incomplete / meaningful |
-| Accountability enforceability | Is responsibility attributable, traceable, and subject to a fair review process? | unclear / weak / credible |
+### Trace Evidence State
+
+Records what can be technically observed or verified:
+
+- `approval_subject`;
+- `approval_scope`;
+- `approval_validity_window`;
+- `reference_frame_hash`;
+- `state_diff_manifest`;
+- `origin_of_change`;
+- `change_classification`;
+- `change_provenance`;
+- `identity_and_role_binding`;
+- `authority_basis`;
+- `delegation_state`;
+- `change_history_since_approval`;
+- `human_acknowledgement_recorded`.
+
+### Materiality Assessment
+
+Interprets whether detected changes affect the approved responsibility boundary:
+
+```text
+materiality_state:
+- non_material
+- potentially_material
+- material
+- unknown
+```
+
+The assessment should record:
+
+- `materiality_basis`;
+- `assessment_actor`;
+- `assessment_policy_id`;
+- `cumulative_change_state`.
+
+A materiality assessment is itself a responsibility-relevant event.
+
+### Governance Responsibility State
+
+Records the current governance interpretation:
+
+- `approval_state`;
+- `execution_admissibility`;
+- `block_scope`;
+- `approval_owner`;
+- `escalation_owner`;
+- `independent_review_owner`;
+- `execution_owner`;
+- `routing_policy_id`;
+- `independent_review_required`;
+- `accountability_awareness_conditions`;
+- `accountability_enforceability`.
+
+### Admissibility Decision
+
+Working outcomes include:
+
+```text
+ALLOW
+ALLOW_WITHIN_UNCHANGED_SCOPE
+BLOCK_AFFECTED_ITEM
+BLOCK_AFFECTED_SUBSET
+BLOCK_ENTIRE_BATCH
+ESCALATE
+REQUEST_REAUTHORIZATION
+REQUEST_INDEPENDENT_REVIEW
+REQUEST_EVIDENCE
+```
+
+### Consequence Observation State
+
+Minimum post-execution fields:
+
+- `execution_snapshot`;
+- `execution_matches_approved_state`;
+- `harm_detected`;
+- `recovery_required`;
+- `incident_owner`;
+- `post_execution_review_required`.
 
 ---
 
 ## Responsibility field transition
 
-A Responsibility Field Transition occurs when a responsibility-relevant event changes one or more contextual fields.
+A Responsibility Field Transition occurs when a responsibility-relevant event changes one or more working layers.
 
 For this test:
 
 ```text
 supplier data change
-→ reference frame changes
+→ trace evidence records S0-to-S1 differences
+→ materiality assessment identifies a material scope change
 → prior approval becomes stale
 → execution becomes inadmissible
-→ reauthorization and escalation become required
-→ meaningful human accountability awareness must be established
+→ predetermined escalation and reauthorization are required
+→ conditions for an informed human decision must be materially supported
 → a new accountable decision may be recorded
+→ actual execution and consequences must remain observable
 ```
 
 ---
 
-## Expected output states
+## Test boundary
 
-This test uses the following working states:
-
-```text
-APPROVAL_VALID
-APPROVAL_STALE
-REAUTHORIZATION_REQUIRED
-EXECUTION_ALLOWED
-EXECUTION_BLOCKED
-ESCALATION_OWNER_ASSIGNED
-DECISION_LOG_REQUIRED
-HUMAN_ACCOUNTABILITY_AWARENESS_REQUIRED
-ACCOUNTABILITY_ENFORCEABILITY_CREDIBLE
-```
-
-These states are test vocabulary only and are not adopted RABA schema values.
+The fields and outcomes in this document are experimental test vocabulary only. They are not adopted schema values, legal classifications, implementation requirements, or canonical RABA concepts.
