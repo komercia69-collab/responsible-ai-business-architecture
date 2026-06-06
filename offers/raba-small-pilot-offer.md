@@ -1,13 +1,14 @@
 # RABA Small Pilot Offer
 
-**Status:** Draft — External Validation Offer  
+**Status:** Draft — External Feedback / Pilot Exploration Offer  
 **Purpose:** Test RABA against real or planned AI-assisted workflows  
 **Audience:** AI consultants, workflow owners, governance teams, product builders, compliance-oriented organizations  
-**Canonical status:** Non-canonical offer draft. This document does not define accepted RABA architecture.
+**Canonical status:** Non-canonical offer draft. This document does not define accepted RABA architecture.  
+**Boundary:** This offer does not validate RABA, create a commercial commitment, or imply a live pilot relationship.
 
 ## Short Description
 
-RABA offers a small structured validation pilot for one AI-assisted workflow.
+RABA offers a small structured feedback and pilot-exploration review for one AI-assisted workflow.
 
 The goal is not to sell software access or request system integration.
 
@@ -96,18 +97,18 @@ An anonymized workflow description is sufficient.
 
 ## Possible Formats
 
-### No-Fee Validation Pilot
+### No-Fee Pilot Exploration Review
 
 For selected early reviewers or strategic collaborators.
 
 Purpose:
 
-- validate RABA concepts;
+- test RABA concepts against realistic workflow examples;
 - receive structured feedback;
 - test whether the framework is useful in real workflows;
 - improve public documentation.
 
-### Paid Small Pilot
+### Paid Small Pilot Review
 
 For organizations or consultants who want a structured review deliverable.
 
@@ -167,7 +168,7 @@ Governed speed is useful only when responsibility remains visible, reviewable, a
 
 AI can prepare.  
 AI can recommend.  
-AI can challenge.  
+AI can challenge.
 
 But responsibility must remain assigned, recorded, and governed.
 
@@ -196,7 +197,7 @@ For one workflow, I would prepare a lightweight governance review:
 
 The goal is to identify where AI preparation ends, where human responsibility begins, and what should be recorded before execution or approval.
 
-At this stage, I am open to both no-fee validation pilots and small paid pilots, depending on the context.
+At this stage, I am open to both no-fee pilot exploration reviews and small paid pilot reviews, depending on the context.
 
 Would you be open to testing this on one AI-assisted workflow?
 ```
