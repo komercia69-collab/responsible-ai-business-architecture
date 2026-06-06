@@ -1,6 +1,6 @@
-# External Validation Outreach Drafts
+# External Feedback Outreach Drafts
 
-This document contains draft messages for the first RABA external validation sprint.
+This document contains draft messages for the first RABA external feedback sprint.
 
 These are not sales messages.
 
@@ -51,7 +51,7 @@ It does not replace the AI stack.
 
 It makes responsibility visible when AI-supported output moves toward business action.
 
-I am currently validating this architecture with practitioners in AI platforms, governance, risk, compliance, security and agentic workflows.
+I am currently seeking critical feedback on this architecture from practitioners in AI platforms, governance, risk, compliance, security and agentic workflows.
 
 GitHub: https://github.com/komercia69-collab/responsible-ai-business-architecture
 
