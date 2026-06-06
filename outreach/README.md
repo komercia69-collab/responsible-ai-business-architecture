@@ -95,7 +95,7 @@ Best use:
 
 - direct message;
 - first pilot discussion;
-- serious paid/no-fee validation offer;
+- serious paid/no-fee pilot exploration or feedback offer;
 - response to consultants, product teams, or workflow owners.
 
 Related RABA ideas:
