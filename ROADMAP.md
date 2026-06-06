@@ -18,7 +18,7 @@ Goal: create a clear public foundation for the project.
 
 ## Phase 2 — Practical Tools
 
-Goal: provide simple tools that consultants, CTOs, DPOs, transformation leaders, and pilot partners can use to evaluate AI opportunities and risks.
+Goal: provide simple tools that consultants, CTOs, DPOs, transformation leaders, and prospective pilot participants can use to evaluate AI opportunities and risks.
 
 Current documents:
 
@@ -57,7 +57,7 @@ Planned patterns:
 
 ## Phase 4 — Productization and Participation
 
-Goal: turn the framework into a practical entry point for reviewers, pilot partners, implementation partners, and strategic partners.
+Goal: turn the framework into a practical entry point for reviewers and prospective pilot, implementation, or strategic partners.
 
 Current documents:
 
@@ -111,9 +111,9 @@ Planned documents:
 - [ ] Deterministic responsibility zones
 - [ ] Responsibility boundaries in AI-supported organizations
 
-## Phase 7 — Feedback and Real-World Validation
+## Phase 7 — External Feedback and Practical Review
 
-Goal: collect external feedback and improve the framework through practical review and pilot discussions.
+Goal: collect external feedback and improve the framework through practical review and pilot-exploration discussions.
 
 Potential feedback sources:
 
@@ -124,9 +124,9 @@ Potential feedback sources:
 - business owners
 - transformation managers
 - legal and compliance professionals
-- implementation partners
-- pilot partner organizations
-- strategic and investor partners
+- prospective implementation partners
+- prospective pilot participant organizations
+- prospective strategic and investor partners
 
 Planned actions:
 
@@ -137,9 +137,9 @@ Planned actions:
 - [x] Create pilot partner call offer
 - [x] Create discovery session offer
 - [ ] Invite review from people working with business processes, AI, compliance, and architecture
-- [ ] Invite pilot partners to test the framework on real business processes
+- [ ] Invite prospective pilot participants to test the framework on real or planned business processes
 - [ ] Collect structured feedback and convert it into issues or roadmap items
-- [ ] Produce first real-world anonymized pilot review
+- [ ] Produce first anonymized pilot-exploration review
 
 ## Phase 8 — Public Release and Scaling
 
@@ -154,8 +154,8 @@ Before broader public release:
 - [ ] add more practical examples
 - [ ] prepare a concise executive summary
 - [ ] create a visual one-page overview of the framework
-- [ ] define reviewer / pilot partner / implementation partner intake process
-- [ ] define strategic partner and investor communication package
+- [ ] define reviewer / prospective pilot participant / prospective implementation partner intake process
+- [ ] define prospective strategic partner and investor communication package
 
 ## Current Product Path
 
@@ -165,7 +165,7 @@ Lead Magnet
 → Mini-Workshop / Discovery Session
 → Responsible AI Pilot Canvas
 → AI Pilot Decision Report
-→ Pilot Partner / Implementation Partner / Scaling Discussion
+→ Pilot Exploration / Implementation Discussion / Scaling Discussion
 ```
 
 ## Current Strategic Goal
@@ -173,6 +173,6 @@ Lead Magnet
 The current goal is to create value and attract:
 
 - people who can review and improve the framework;
-- organizations that can provide real pilot environments;
-- implementation partners who can turn the framework into real workflows;
-- strategic or investor partners who can help productize and scale the approach.
+- organizations that can provide real or planned pilot environments;
+- prospective implementation partners who could help turn the framework into real workflows;
+- prospective strategic or investor partners who could help productize and scale the approach.

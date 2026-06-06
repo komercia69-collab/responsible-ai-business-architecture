@@ -29,11 +29,11 @@ This page is for:
 - organizations considering AI adoption;
 - CTOs and system architects;
 - DPOs, compliance and risk professionals;
-- AI consultants and implementation partners;
+- AI consultants and prospective implementation partners;
 - business owners and operations leaders;
 - teams looking for a safe first AI pilot;
-- pilot partners willing to test the framework on a real process;
-- investors or partners interested in responsible AI implementation and scaling.
+- prospective pilot participants willing to test the framework on a real or planned process;
+- prospective investors or partners interested in responsible AI implementation and scaling.
 
 ## The Product Path
 
@@ -175,7 +175,7 @@ For teams, use:
 
 ## For Organizations That May Provide a Pilot Environment
 
-If you have a real business process where AI could help, this project can help structure a safe pilot.
+If you have a real or planned business process where AI could help, this project can help structure a safer pilot exploration.
 
 Start with:
 
@@ -225,7 +225,7 @@ It can help implementation teams define:
 - human oversight workflows;
 - pilot success metrics.
 
-Implementation partners can contribute:
+Prospective implementation partners can contribute:
 
 - pilot architectures;
 - technical examples;
@@ -250,7 +250,7 @@ Start with:
 
 These tools help a team move from a vague AI idea to a clearer pilot candidate, responsibility model, and next action.
 
-## For Investors and Scaling Partners
+## For Prospective Investors and Scaling Partners
 
 This project addresses a growing need:
 
@@ -263,7 +263,7 @@ Potential value areas include:
 - business process diagnosis;
 - compliance-by-design support;
 - AI governance tooling;
-- implementation partner ecosystem;
+- possible future implementation-partner ecosystem;
 - training and certification materials in the future;
 - scalable templates for small and medium-sized businesses.
 

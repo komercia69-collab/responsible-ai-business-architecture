@@ -24,7 +24,7 @@ There are four main ways to participate:
 
 1. Review the framework.
 2. Provide a real pilot environment.
-3. Help implement or validate the approach.
+3. Help implement or test the approach.
 4. Support productization and scaling.
 
 ---
@@ -81,9 +81,9 @@ Then open an issue or discussion with feedback.
 
 ---
 
-## 2. Pilot Partners
+## 2. Prospective Pilot Participants
 
-Pilot partners bring a real business process that can be evaluated using the framework.
+Prospective pilot participants bring a real or planned business process that can be evaluated using the framework.
 
 ### Good Fit For
 
@@ -119,9 +119,9 @@ Examples:
 - weekly report drafting;
 - document summarization.
 
-### What Pilot Partners Gain
+### What Prospective Pilot Participants Gain
 
-Pilot partners may gain:
+Prospective pilot participants may gain:
 
 - structured review of one AI idea;
 - clearer understanding of risks and controls;
@@ -143,9 +143,9 @@ Or open an issue using:
 
 ---
 
-## 3. Implementation Partners
+## 3. Prospective Implementation Partners
 
-Implementation partners help translate the framework into real workflows, systems, integrations, pilots, and technical templates.
+Prospective implementation partners could help translate the framework into real workflows, systems, integrations, pilots, and technical templates.
 
 ### Good Fit For
 
@@ -158,7 +158,7 @@ Implementation partners help translate the framework into real workflows, system
 - AI product builders;
 - governance tooling teams.
 
-### How Implementation Partners Can Help
+### How Prospective Implementation Partners Can Help
 
 You can contribute:
 
@@ -172,9 +172,9 @@ You can contribute:
 - integration patterns;
 - lessons learned from real deployments.
 
-### What Implementation Partners Gain
+### What Prospective Implementation Partners Gain
 
-Implementation partners may gain:
+Prospective implementation partners may gain:
 
 - clearer discovery methodology;
 - better client scoping tools;
@@ -195,9 +195,9 @@ Then propose an implementation example or pilot architecture.
 
 ---
 
-## 4. Strategic and Investor Partners
+## 4. Prospective Strategic and Investor Partners
 
-Strategic and investor partners help explore how the framework could become a scalable product, methodology, service, training program, or software-supported assessment system.
+Prospective strategic and investor partners could help explore how the framework might become a scalable product, methodology, service, training program, or software-supported assessment system.
 
 ### Good Fit For
 
@@ -207,9 +207,9 @@ Strategic and investor partners help explore how the framework could become a sc
 - consulting networks;
 - SME digitalization programs;
 - training providers;
-- implementation ecosystems;
+- future implementation ecosystems;
 - public innovation programs;
-- strategic partners in AI adoption.
+- prospective strategic partners in AI adoption.
 
 ### Potential Scaling Directions
 
@@ -220,19 +220,19 @@ The framework could develop into:
 - consultant toolkit;
 - training and certification materials;
 - governance and audit templates;
-- partner implementation methodology;
+- possible future partner implementation methodology;
 - software tool for AI pilot scoring;
 - permission boundary mapping tool;
 - confirmation gate design toolkit;
 - SME-focused responsible AI adoption package.
 
-### What Strategic Partners Gain
+### What Prospective Strategic Partners Gain
 
-Strategic partners may gain:
+Prospective strategic partners may gain:
 
 - early access to a structured responsible AI methodology;
 - opportunity to shape product direction;
-- potential pilot and market validation;
+- potential pilot feedback and early market signals;
 - collaboration on scalable services or tools;
 - insight into real-world AI adoption needs.
 
@@ -245,7 +245,7 @@ Review:
 - [AI Pilot Decision Report](templates/ai-pilot-decision-report.md)
 - [Framework Flow](diagrams/framework-flow.md)
 
-Then start a discussion about validation, pilots, or productization.
+Then start a discussion about feedback, pilot exploration, or future productization.
 
 ---
 
@@ -276,8 +276,8 @@ The most useful next contributions are:
 - examples from small and medium-sized businesses;
 - implementation architecture suggestions;
 - review of risk and compliance language;
-- pilot partners willing to test the mini-workshop;
-- partners interested in productizing the framework.
+- prospective pilot participants willing to test the mini-workshop;
+- prospective partners interested in future productization of the framework.
 
 ## Important Boundaries
 
@@ -291,4 +291,4 @@ It helps organizations ask better questions and design safer pilots before makin
 
 > Responsible AI becomes valuable when it can be tested in real processes without losing human responsibility.
 
-Participation helps turn the framework from a concept into a practical, validated, and scalable methodology.
+Participation helps turn the framework from a concept into a practical, feedback-tested, and scalable methodology.
