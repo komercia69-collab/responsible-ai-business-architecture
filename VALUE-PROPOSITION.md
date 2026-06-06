@@ -104,9 +104,9 @@ Business owners and operations leaders can use the framework to:
 
 The framework helps business leaders avoid wasting money on AI tools before understanding the process problem.
 
-## Value for Implementation Partners
+## Value for Prospective Implementation Partners
 
-Implementation partners can use the framework to:
+Organizations considering an implementation-partner role could use the framework to:
 
 - receive clearer business requirements;
 - define responsible AI workflows;
@@ -117,13 +117,13 @@ Implementation partners can use the framework to:
 
 ### Practical Benefit
 
-The framework can make AI implementation projects easier to scope, explain, govern, and scale.
+The framework could make AI implementation projects easier to scope, explain, govern, and scale.
 
 ## Value for Organizations Offering Pilot Environments
 
-A company, nonprofit, institution, or team can offer a real process for testing the framework.
+A company, nonprofit, institution, or team can offer a real or planned process for testing the framework.
 
-They gain:
+They may gain:
 
 - a structured review of their AI idea;
 - clearer understanding of process risk;
@@ -144,9 +144,9 @@ Good candidates include:
 - document review;
 - operations coordination.
 
-## Value for Investors and Scaling Partners
+## Value for Prospective Investors and Scaling Partners
 
-Investors and strategic partners can evaluate the project as a possible foundation for:
+Prospective investors and strategic partners could evaluate the project as a possible foundation for:
 
 - AI readiness assessment tools;
 - responsible AI implementation methodology;
@@ -154,7 +154,7 @@ Investors and strategic partners can evaluate the project as a possible foundati
 - training programs;
 - governance templates;
 - SME-focused AI adoption services;
-- implementation partner ecosystem;
+- possible future implementation-partner ecosystem;
 - future software tools for process diagnosis, permission mapping, and confirmation gates.
 
 ### Strategic Opportunity
@@ -171,10 +171,10 @@ Useful participants include:
 
 - people who can review the concept;
 - people who can provide real use cases;
-- people who can implement pilots;
-- people who can validate compliance and governance needs;
+- people who can help explore pilot design;
+- people who can review compliance and governance needs;
 - people who can help package the framework for teams;
-- people who can invest in productization and scaling.
+- people who can support future productization and scaling.
 
 ## What Participants Can Gain
 
@@ -184,7 +184,7 @@ Participants may gain:
 - practical tools for their own organizations or clients;
 - early influence on the framework direction;
 - structured AI adoption language;
-- potential implementation collaboration;
+- potential future implementation collaboration;
 - potential consulting, training, or product opportunities.
 
 ## Key Message
