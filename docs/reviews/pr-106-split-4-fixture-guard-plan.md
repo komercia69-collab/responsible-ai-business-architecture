@@ -5,17 +5,15 @@
 **Related PR:** #106 — Draft: Add Responsibility Boundary Test Pack v0.1  
 **Related review summary:** `docs/reviews/pr-106-source-file-review-summary.md`  
 **Related split plan:** `docs/reviews/pr-106-refinement-split-plan.md`  
-**Purpose:** Define safe guardrails before moving PR #106 fixture files into a Split 4 PR.
+**Purpose:** Define safety boundaries before moving PR #106 fixture files into a Split 4 PR.
 
-This document does not create RABA canon.
+This document is a planning artifact only.
 
 It does not move fixture files.
 
-It does not approve JSON fixtures as schemas.
+It does not approve fixture files.
 
-It does not approve event fixtures as Responsibility Event Stream material.
-
-It does not approve routing fixtures as organizational policy architecture.
+It does not create RABA canon, schema adoption, API adoption, Responsibility Event Stream adoption, Decision Log adoption, policy architecture adoption, implementation guidance, conformance evidence, certification evidence, validation evidence, pilot commitment, partnership claim, or commercial commitment.
 
 Final architectural approval remains with the Human Owner.
 
@@ -23,9 +21,9 @@ Final architectural approval remains with the Human Owner.
 
 ## 1. Executive summary
 
-Split 4 is the highest-risk #106 split so far because fixture files can easily be misread as implementation artifacts.
+Split 4 is higher risk than the already-merged documentation and review splits because fixture files can look like implementation artifacts.
 
-The three candidate fixture files are:
+Candidate files:
 
 ```text
 docs/tests/responsibility-boundary-v0-1/supplier-payment-input.json
@@ -33,267 +31,160 @@ docs/tests/responsibility-boundary-v0-1/supplier-payment-events.json
 docs/tests/responsibility-boundary-v0-1/supplier-payment-routing-policy-fixture.md
 ```
 
-The main risks are:
+The main risk is that readers may treat these fixtures as adopted schemas, API payloads, event families, Decision Log formats, policy configuration files, conformance traces, implementation requirements, or validation evidence.
 
-- JSON fixture → mistaken for schema or API payload;
-- event fixture → mistaken for Responsibility Event Stream event family;
-- routing policy fixture → mistaken for adopted policy architecture;
-- field names → mistaken for Decision Log / RES / implementation fields;
-- state labels → mistaken for canonical runtime states;
-- routing IDs → mistaken for production configuration keys.
-
-Recommended approach:
+Recommended current action:
 
 ```text
-Create Split 4 only after adding explicit fixture-only guards.
-Keep fixture files non-canonical.
-Do not include Responsibility Field model.
-Do not claim schema, RES, API, policy, conformance, or implementation adoption.
+Do not move Split 4 fixtures until explicit fixture guards are defined and Human Owner confirms the fixture split.
 ```
 
 ---
 
-## 2. Candidate files and risk profile
+## 2. Candidate files and risks
 
-| Candidate file | Purpose | Main value | Main risk | Recommended handling |
-|---|---|---|---|---|
-| `supplier-payment-input.json` | Captures the approved S0 input state and changed S1 facts for the draft fixture | Makes the test reproducible | May be read as schema/API payload | Include only with strong fixture metadata and README warning |
-| `supplier-payment-events.json` | Captures a draft event-like trace for the fixture | Shows evidence → materiality → admissibility sequence | May be read as Responsibility Event Stream event family | Highest guard requirement; consider metadata wrapper |
-| `supplier-payment-routing-policy-fixture.md` | Captures scenario-specific routing assumptions | Prevents AI from inventing authority route | May be read as adopted routing policy | Include only with fixture-ID and policy-non-adoption warnings |
+| File | Intended use | Primary drift risk | Handling |
+|---|---|---|---|
+| `supplier-payment-input.json` | Draft test input | Schema / API payload adoption | Include only with explicit fixture-only guard |
+| `supplier-payment-events.json` | Draft event-like trace | RES event-family / conformance trace adoption | Highest caution; may need wrapper metadata |
+| `supplier-payment-routing-policy-fixture.md` | Draft routing fixture | Adopted policy / org-policy implication | Keep wording fixture-specific |
 
 ---
 
-## 3. Global fixture guard
+## 3. Required global fixture guard
 
-Every Split 4 PR should include the following guard in its PR body and supporting documentation:
+Any Split 4 PR should state:
 
 ```text
-These fixtures exist only to make the current draft responsibility-boundary test reproducible.
-They are not adopted schemas, logging formats, event families, API payloads,
-Decision Log formats, Responsibility Event Stream formats, policy configurations,
-implementation references, conformance traces, certification evidence, or production examples.
+These fixture files exist only to make the current draft test reproducible.
+They are not adopted schemas, API payloads, logging formats, Decision Log formats,
+Responsibility Event Stream event families, policy configuration files,
+implementation requirements, conformance traces, certification evidence,
+validation evidence, or production examples.
 ```
 
 ---
 
 ## 4. JSON fixture guard
 
-For `supplier-payment-input.json`, the guard should state:
+For JSON fixture files, the surrounding PR body or Markdown context should state:
 
 ```text
-This JSON file is a draft fixture payload only.
-Its keys, values, labels, and structure are not adopted RABA schema fields,
-API fields, configuration keys, runtime states, or implementation requirements.
+This JSON is a draft test fixture only.
+Field names, values, object structure, status labels, IDs, and event names
+are not adopted RABA schema fields, API fields, Decision Log fields,
+Responsibility Event Stream fields, runtime states, or implementation requirements.
 ```
 
-Risky values should be avoided or softened where they imply production verification.
-
-For example, instead of implying real verification:
-
-```json
-"identity_and_role_binding": "verified"
-```
-
-prefer fixture-only wording such as:
-
-```json
-"identity_and_role_binding": "represented_as_verified_for_test"
-```
-
-This avoids implying that the fixture proves real identity infrastructure.
+If the JSON file cannot carry comments, the guard must remain in nearby Markdown and the PR body.
 
 ---
 
 ## 5. Event fixture guard
 
-For `supplier-payment-events.json`, the guard should be stronger:
+For `supplier-payment-events.json`, the guard must be especially strong:
 
 ```text
-Event names in this file are draft fixture labels only.
+Event names in this fixture are draft test labels only.
 They are not Responsibility Event Stream event types,
 not an adopted event family,
 not a logging schema,
+not a Decision Log format,
 not an implementation payload,
-not a conformance trace,
-and not evidence that RABA has adopted a runtime event model.
+and not a conformance trace.
 ```
 
-Recommended structural option:
-
-```json
-{
-  "test_status": "non-canonical",
-  "fixture_type": "draft_event_fixture_not_schema",
-  "schema_status": "not_schema",
-  "res_status": "not_res_event_family",
-  "implementation_status": "not_implementation_payload",
-  "events": []
-}
-```
-
-This wrapper is safer than a bare event array because it keeps the fixture boundary visible inside the file.
-
-However, changing the fixture shape should require Human Owner confirmation because it changes how the original #106 fixture is represented.
+Any structural wrapping of the event JSON must require separate Human Owner confirmation because it changes the fixture shape.
 
 ---
 
 ## 6. Routing fixture guard
 
-For `supplier-payment-routing-policy-fixture.md`, the guard should state:
+For `supplier-payment-routing-policy-fixture.md`, use fixture-specific language:
 
 ```text
-The routing_policy_id is a draft fixture identifier only.
-It is not an adopted RABA policy identifier, organizational policy identifier,
-configuration key, workflow rule, implementation route, or production control.
+The routing policy in this file is a draft fixture only.
+It is not adopted RABA policy architecture, organizational policy,
+configuration guidance, escalation policy, legal guidance,
+or implementation requirement.
 ```
 
-Also prefer:
+Avoid wording such as:
 
 ```text
-For this fixture, the route should preserve...
+RABA routes...
 ```
 
-instead of:
+Prefer:
 
 ```text
-The route should preserve...
-```
-
-This keeps the requirement scenario-specific.
-
----
-
-## 7. Required wording changes before Split 4
-
-### 7.1 `supplier-payment-input.json`
-
-Required:
-
-- add visible metadata if structurally safe;
-- ensure all verification-like labels are fixture-only;
-- avoid production-sounding identity or policy assertions.
-
-Possible metadata:
-
-```json
-"fixture_status": "non-canonical_test_fixture",
-"schema_status": "not_schema",
-"implementation_status": "not_implementation_payload"
-```
-
-### 7.2 `supplier-payment-events.json`
-
-Required:
-
-- avoid bare event array if possible;
-- add top-level metadata wrapper;
-- clearly identify event names as draft labels only;
-- prevent RES/event-family interpretation.
-
-Possible metadata:
-
-```json
-"res_status": "not_res_event_family",
-"event_names_status": "draft_fixture_labels_only"
-```
-
-### 7.3 `supplier-payment-routing-policy-fixture.md`
-
-Required:
-
-- clarify `routing_policy_id` is fixture-only;
-- clarify roles are scenario-specific;
-- clarify no organizational policy or implementation configuration is adopted;
-- keep fallback behavior scenario-specific.
-
----
-
-## 8. What Split 4 should not include
-
-Split 4 should not include:
-
-- `responsibility-field-model.md`;
-- demos;
-- external model review prompt;
-- adversarial synthesis;
-- candidate test backlog;
-- additional schemas;
-- Decision Log templates;
-- Responsibility Event Stream templates;
-- implementation examples;
-- product/UI material.
-
-Reason:
-
-Split 4 should remain narrowly scoped to fixture reproducibility.
-
----
-
-## 9. PR body requirements for Split 4
-
-The future Split 4 PR body should explicitly say:
-
-```text
-This PR adds fixture files only.
-A fixture is not a schema.
-A fixture is not an API contract.
-A fixture is not a Responsibility Event Stream event family.
-A fixture is not a Decision Log format.
-A fixture is not a policy configuration.
-A fixture is not implementation guidance.
-A fixture is not conformance or certification evidence.
-```
-
-It should also say:
-
-```text
-This PR does not create RABA canon.
-Final architectural approval remains with the Human Owner.
+For this fixture, the draft route is...
 ```
 
 ---
 
-## 10. Recommended Split 4 sequence
+## 7. Labels requiring caution
 
-Recommended sequence:
+Labels such as `APPROVAL_VALID`, `ALLOW`, `BLOCK`, `ESCALATE`, `REQUEST_EVIDENCE`, `material`, `stale`, `credible`, `verified`, `success`, and `executed` must be treated as draft fixture labels only.
 
-```text
-1. Merge this fixture guard plan as non-canonical planning material.
-2. Create Split 4 branch from current main.
-3. Add fixture files only.
-4. Apply fixture metadata / guards.
-5. Open Draft PR.
-6. Review scope and boundary.
-7. Only after Human Owner confirmation, move Ready / merge.
-```
-
-Do not start Split 4 file movement before this guard plan is reviewed.
+They are not canonical RABA runtime states, schema values, API values, Decision Log values, Responsibility Event Stream values, policy outputs, or conformance labels.
 
 ---
 
-## 11. Human Owner decisions needed
+## 8. Recommended Split 4 PR structure
+
+The future Split 4 PR should include:
+
+1. PR body with explicit fixture-only boundaries.
+2. The three candidate fixture files only.
+3. No demos.
+4. No Responsibility Field model.
+5. No external review material.
+6. No candidate backlog.
+7. No canon or architecture claims.
+
+Recommended title:
+
+```text
+Draft: Add PR 106 split 4 fixture materials
+```
+
+Recommended status:
+
+```text
+Draft first. Review before Ready. Merge only after explicit Human Owner confirmation.
+```
+
+---
+
+## 9. Human Owner decisions required
 
 Human Owner confirmation is required before:
 
 - creating the actual Split 4 fixture PR;
-- changing the shape of `supplier-payment-events.json` from bare array to metadata wrapper;
-- changing fixture field labels that may affect downstream examples;
+- changing JSON fixture structure;
+- wrapping event JSON in metadata;
+- renaming or softening fixture values;
+- moving event-like traces into main;
 - treating any fixture as schema material;
-- treating any event fixture as RES material;
-- treating routing fixture as policy architecture;
-- using fixture material in public positioning, demos, pilots, or external validation.
+- treating any fixture as Responsibility Event Stream material;
+- using fixture files in external demos, public claims, pilot discussions, or implementation discussions.
 
 ---
 
-## 12. Current recommendation
+## 10. Recommended next best step
 
-Recommended decision:
+After this guard plan is reviewed and merged as non-canonical planning material, request Human Owner confirmation for the actual Split 4 fixture PR.
+
+Initial Split 4 should remain narrow:
 
 ```text
-Merge this guard plan first.
-Then create Split 4 with only the three fixture files and strong fixture-only metadata.
-Keep Responsibility Field model parked.
+supplier-payment-input.json
+supplier-payment-events.json
+supplier-payment-routing-policy-fixture.md
 ```
+
+No additional files should be included unless separately confirmed.
 
 ---
 
@@ -301,27 +192,27 @@ Keep Responsibility Field model parked.
 
 Files changed:
 
-- this guard plan only.
+- this fixture guard planning document only.
 
 What was added:
 
-- fixture risk profile;
-- JSON fixture guard;
-- event fixture / RES guard;
-- routing fixture / policy-adoption guard;
-- required wording changes;
-- Split 4 PR body requirements;
+- candidate Split 4 fixture scope;
+- anti-schema guard;
+- anti-event-family guard;
+- routing-policy fixture guard;
+- label caution note;
+- recommended Split 4 PR structure;
 - Human Owner decision queue.
 
 What was strengthened:
 
-- protection against schema adoption drift;
+- protection against JSON schema adoption drift;
 - protection against Responsibility Event Stream event-family drift;
-- protection against policy-adoption drift;
-- separation between planning and fixture movement.
+- protection against routing policy adoption drift;
+- protection against conformance / validation interpretation.
 
 Next best step:
 
-- review this guard plan;
-- if safe, merge it as non-canonical planning material;
-- then create the actual Split 4 fixture PR only after Human Owner confirmation.
+- open a Draft PR for this guard plan;
+- review and merge it as non-canonical planning material if safe;
+- only then request Human Owner confirmation for the actual Split 4 fixture PR.
