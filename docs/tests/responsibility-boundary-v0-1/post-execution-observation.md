@@ -2,35 +2,34 @@
 
 **Status:** Test Check Draft  
 **Canonical status:** Non-canonical  
-**Use:** Responsibility Boundary Test Pack v0.1 governance check  
+**Use:** Responsibility Boundary Test Pack v0.1  
 
-This check is draft test vocabulary only.
-
-It does not define an implementation, rollback engine, incident-response standard, monitoring architecture, learning-loop design, enforcement mechanism, accepted RABA control, conformance criterion, certification criterion, or production requirement.
-
-Final architectural approval remains with the Human Owner.
+> This check does not define an implementation, rollback engine, incident-response standard, or adopted RABA control.
 
 ---
 
 ## Purpose
 
-This check tests whether responsibility remains reviewable after technical execution.
+Pre-execution controls may fail, and a valid approval does not guarantee that execution matches the approved state or produces an acceptable outcome.
 
-It protects against the false assumption that:
-
-```text
-technical success = responsible completion
-```
-
-Pre-execution controls may fail.
-
-A valid approval does not guarantee that execution matches the approved state or produces an acceptable outcome.
+The responsibility field therefore remains active after execution.
 
 ---
 
-## Core review question
+## Minimum observations
 
-If execution later occurs, can a reviewer compare:
+Where execution eventually occurs after admissible reauthorization, the test should record:
+
+```text
+execution_snapshot
+execution_matches_approved_state
+harm_detected
+recovery_required
+incident_owner
+post_execution_review_required
+```
+
+The minimum comparison is:
 
 ```text
 approved snapshot
@@ -40,113 +39,69 @@ vs
 actual observed outcome
 ```
 
-and determine whether the executed action matched the admissible state?
+---
+
+## Expected outcomes
+
+### Execution matches the approved state and no harm is detected
+
+```text
+execution_matches_approved_state: true
+harm_detected: false
+post_execution_review_required: false
+```
+
+The execution event and outcome still remain traceable.
+
+### Execution differs from the approved state
+
+```text
+execution_matches_approved_state: false
+harm_detected: unknown or true
+recovery_required: evaluate
+post_execution_review_required: true
+```
+
+The mismatch must not be treated as successful completion merely because the executor returned a technical success status.
+
+### Harm is detected despite matching the approved state
+
+```text
+execution_matches_approved_state: true
+harm_detected: true
+recovery_required: evaluate
+post_execution_review_required: true
+```
+
+This state shows that correct procedural execution can still produce harmful consequences and may require policy or responsibility-field revision.
 
 ---
 
-## Required observation conditions
+## Pass criteria
 
-For the fictional supplier-payment fixture, post-execution observation is procedurally supported only if the system can preserve or reconstruct:
+The post-execution check passes only if:
 
-- the approved reference frame;
-- the execution reference frame;
-- the execution snapshot;
-- execution actor and tool context;
-- outcome signal;
-- mismatch signal;
-- harm or consequence signal where available;
-- recovery or containment route where required;
-- review owner;
-- evidence preservation state.
-
-These are draft test labels only.
-
-They are not adopted schema fields, Decision Log fields, Responsibility Event Stream fields, incident-management fields, API fields, monitoring fields, or implementation requirements.
-
----
-
-## Technical success boundary
-
-A technical status such as:
-
-```text
-success
-```
-
-or:
-
-```text
-executed
-```
-
-is not sufficient evidence of responsible completion.
-
-The draft test expects a reviewer to ask:
-
-- Did execution match the approved state?
-- Did execution occur under the expected reference frame?
-- Did new evidence appear after execution?
-- Was any harm or mismatch detected?
-- Was an incident or review owner assigned if needed?
-- Was evidence preserved for reconstruction?
-
----
-
-## Expected draft observation outcomes
-
-The following draft observation labels may be useful in future fixtures:
-
-```text
-EXECUTION_MATCHES_APPROVED_STATE
-EXECUTION_DIFFERS_FROM_APPROVED_STATE
-OUTCOME_OBSERVATION_REQUIRED
-RECOVERY_OR_REVIEW_REQUIRED
-INCOMPLETE_DUE_TO_MISSING_OBSERVATION
-```
-
-These labels are draft test vocabulary only.
-
-They are not canonical RABA runtime states, schemas, RES values, incident states, enforcement states, or implementation requirements.
+- actual execution can be compared with the approved snapshot;
+- technical success is distinguished from responsible completion;
+- detected mismatch or harm receives a named incident owner;
+- evidence is preserved for independent review;
+- recovery need is explicitly evaluated;
+- lessons may inform future controls without allowing the system to silently rewrite its own responsibility boundaries.
 
 ---
 
 ## Failure signals
 
-The check should fail within the draft fixture if:
+The check fails if:
 
-- the process ends at a technical `success` status;
-- no execution snapshot is preserved;
-- execution is not compared with the approved state;
-- harmful consequences are detected but no owner is assigned;
+- the process ends when the executor returns `success`;
+- actual execution is not compared with the approved state;
+- harm or mismatch is detected without an assigned incident owner;
 - evidence is lost or overwritten;
-- the learning loop silently updates future authority boundaries without accountable approval;
-- post-execution mismatch is treated as irrelevant because approval existed earlier.
-
----
-
-## Learning-loop boundary
-
-Observed outcomes may support future review and system improvement.
-
-They must not silently rewrite:
-
-- approval boundaries;
-- authority routes;
-- admissibility rules;
-- escalation ownership;
-- consequence classes;
-- responsibility allocation.
-
-Any such change requires accountable governance review and, where appropriate, Human Owner approval.
+- policy or autonomy boundaries are automatically changed without accountable approval.
 
 ---
 
 ## Boundary
 
-For this test, responsibility observation remains active after execution.
-
-This statement is a draft test principle only.
-
-It does not adopt a Responsibility Field model, incident-response model, monitoring architecture, enforcement mechanism, or product requirement.
-
-This check does not create canon.
+This document introduces only a minimal post-execution test layer. Detailed rollback, recovery, incident management, and learning-loop behavior remain future test and implementation questions.

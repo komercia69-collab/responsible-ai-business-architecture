@@ -4,13 +4,7 @@
 **Canonical status:** Non-canonical  
 **Use:** Responsibility Boundary Test Pack v0.1  
 
-This document records the conditions required for the draft test logic to be evaluated.
-
-It does not define implementation requirements, production dependencies, adopted RABA architecture, runtime states, schema fields, or organizational policy.
-
-The current test assumes these dependencies exist.
-
-It does not claim that these capabilities already exist in RABA, in any implementation, or in any organization.
+> This document records the conditions required for the test logic to be evaluated. It does not define implementation requirements or adopted RABA architecture.
 
 ---
 
@@ -18,13 +12,13 @@ It does not claim that these capabilities already exist in RABA, in any implemen
 
 A coherent responsibility rule is not executable unless the required evidence, policy, identity, routing, interface, and observation dependencies are available.
 
-This document makes those assumptions explicit and defines expected draft-test behavior when a required dependency is missing.
+The current test assumes these dependencies exist. This document makes those assumptions explicit and defines the expected failure behavior when a required dependency is missing.
 
 ---
 
 ## Required evidence infrastructure
 
-The draft test assumes that a system can:
+The test assumes that the system can:
 
 - capture the approved state before execution;
 - bind approval to a specific `reference_frame_hash`;
@@ -35,11 +29,9 @@ The draft test assumes that a system can:
 - preserve an ordered change history since approval;
 - capture the actual execution snapshot if execution later occurs.
 
-A hash mismatch provides technical evidence that the captured states differ.
+A hash mismatch proves that the captured states differ.
 
-It does not prove that the difference is material, harmful, inadmissible, or responsibility-changing.
-
-Materiality requires a separate assessment against the approved scope, authority context, risk context, and policy.
+It does not prove that the difference is material, harmful, or inadmissible. Materiality requires a separate assessment against the approved scope and policy.
 
 If no admissible approved-state snapshot exists, approval validity cannot be reliably established.
 
@@ -47,7 +39,7 @@ If no admissible approved-state snapshot exists, approval validity cannot be rel
 
 ## Required policy dependencies
 
-The draft test assumes that the following test policies or fixtures are resolvable:
+The test assumes that the following approved test policies or fixtures are resolvable:
 
 - a materiality-assessment policy;
 - an escalation-routing policy;
@@ -56,11 +48,9 @@ The draft test assumes that the following test policies or fixtures are resolvab
 - fallback behavior for missing or unavailable owners;
 - post-execution review triggers.
 
+The current supplier-payment routing fixture is documented in [`supplier-payment-routing-policy-fixture.md`](./supplier-payment-routing-policy-fixture.md).
+
 A policy identifier without resolvable content is not sufficient evidence for an admissibility decision.
-
-Policy references in this test are conceptual review targets only.
-
-They are not adopted RABA policy architecture, organizational policy, configuration keys, or implementation requirements.
 
 ---
 
@@ -78,15 +68,11 @@ This test does not decide whether the function is implemented by a policy engine
 
 The chosen implementation and authority model remain future design and Human Owner decisions.
 
-`responsibility_boundary_control` is a draft test label only.
-
-It is not an adopted RABA component, runtime actor, API role, or implementation requirement.
-
 ---
 
 ## Required identity and role resolution
 
-The draft test assumes that a system can resolve and verify:
+The test assumes that the system can resolve and verify:
 
 - the identity of each actor;
 - the current role bound to that identity;
@@ -97,13 +83,11 @@ The draft test assumes that a system can resolve and verify:
 
 A role label without current identity and authority binding is insufficient.
 
-These assumptions do not claim that such identity infrastructure is currently implemented.
-
 ---
 
 ## Required human-interface capabilities
 
-The draft test assumes that the responsible person can be provided with:
+The test assumes that the responsible person can be provided with:
 
 - the concrete material diff;
 - relevant evidence and provenance;
@@ -121,7 +105,7 @@ It cannot prove a person's internal understanding.
 
 ## Required post-execution observability
 
-If execution later occurs, the draft test assumes that a system can:
+If execution later occurs, the test assumes that the system can:
 
 - capture the actual execution snapshot;
 - compare execution with the approved state;
@@ -131,8 +115,6 @@ If execution later occurs, the draft test assumes that a system can:
 
 A technical executor status of `success` is not sufficient evidence of responsible completion.
 
-These observation assumptions do not define rollback, recovery, incident management, or learning-loop implementation.
-
 ---
 
 ## Missing-dependency behavior
@@ -141,7 +123,7 @@ A missing required dependency must be visible and recorded.
 
 It must not silently produce `ALLOW` for a consequential action.
 
-Working draft test outcomes may include:
+Working test outcomes may include:
 
 ```text
 REQUEST_EVIDENCE
@@ -152,23 +134,10 @@ ESCALATE
 BLOCK_UNTIL_DEPENDENCY_RESOLVED
 ```
 
-These working outcomes are draft test labels only.
-
-They are not canonical RABA runtime states, schema values, Decision Log values, Responsibility Event Stream values, API values, or implementation requirements.
-
-The exact outcome depends on consequence class, approved policy, available fallback route, and Human Owner-approved governance design.
+The exact outcome depends on consequence class, approved policy, and available fallback route.
 
 ---
 
 ## Test boundary
 
-These assumptions identify what the first draft test needs in order to function.
-
-They do not claim that:
-
-- these capabilities already exist;
-- a specific implementation is required;
-- the listed dependencies are complete for production use;
-- any schema has been adopted;
-- any runtime state model has been adopted;
-- any Decision Log or Responsibility Event Stream format has been adopted.
+These assumptions identify what the first test needs in order to function. They do not claim that these capabilities already exist, that a specific implementation is required, or that the listed dependencies are complete for production use.

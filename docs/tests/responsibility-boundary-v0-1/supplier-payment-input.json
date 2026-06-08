@@ -1,0 +1,40 @@
+{
+  "test_status": "non-canonical",
+  "scenario_id": "supplier-payment-reference-frame-change-v0-1",
+  "trace_evidence_state": {
+    "approval_subject": "supplier_payment_batch",
+    "approval_scope": {
+      "supplier_set": "approved_vendor_set_A",
+      "maximum_payment_amount_eur": 50000,
+      "approval_purpose": "routine_monthly_supplier_settlement",
+      "reference_frame_id": "S0"
+    },
+    "approval_validity_window": "same_business_day",
+    "reference_frame_hash": "test_hash_S0",
+    "identity_and_role_binding": "verified",
+    "authority_basis": "finance_policy_v1",
+    "delegation_state": "active",
+    "change_history_since_approval": [],
+    "human_acknowledgement_recorded": true
+  },
+  "governance_responsibility_state": {
+    "approval_state": "APPROVAL_VALID",
+    "execution_admissibility": "ALLOW_WITHIN_UNCHANGED_SCOPE",
+    "consequence_class": "high",
+    "reversibility_profile": "low-reversibility",
+    "approval_owner": "finance_manager",
+    "escalation_owner": "finance_manager",
+    "independent_review_owner": "treasury_or_compliance_role",
+    "execution_owner": "supplier_payment_agent",
+    "routing_policy_id": "supplier_payment_change_route_v1",
+    "independent_review_required": false,
+    "accountability_awareness_conditions": "materially_supported",
+    "accountability_enforceability": "credible"
+  },
+  "allowed_action_scope": {
+    "action": "execute_supplier_payment_run",
+    "supplier_scope": "approved_vendor_set_A",
+    "maximum_payment_amount_eur": 50000,
+    "reference_frame_id": "S0"
+  }
+}
