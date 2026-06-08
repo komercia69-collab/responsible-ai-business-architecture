@@ -1,215 +1,247 @@
-# Manual Test Walkthrough — Responsibility Boundary v0.1
+# Manual Test Walkthrough — Supplier Payment Scenario
 
 **Status:** Manual Test Guide Draft  
 **Canonical status:** Non-canonical  
-**Use:** Responsibility Boundary Test Pack v0.1 manual review aid  
+**Use:** Responsibility Boundary Test Pack v0.1  
 
-This walkthrough is a draft manual-review aid.
-
-It is not an adopted RABA behavior definition, conformance test, certification checklist, implementation requirement, Decision Log format, Responsibility Event Stream format, schema, runtime state model, legal standard, financial control procedure, or validation claim.
-
-It exists only to help reviewers reason through the fictional supplier-payment fixture introduced in the core test-pack documentation.
+> This guide helps an independent reviewer manually reproduce the current test. It does not define adopted RABA behavior or implementation requirements.
 
 ---
 
-## Review purpose
+## Goal
 
-The walkthrough helps a reviewer reconstruct whether the original human approval remains admissible after the approved reference frame changes.
+Use the files in this test pack to determine whether the supplier-payment execution should be allowed, blocked, or escalated after the approved reference frame changes from `S0` to `S1`.
 
-The core question is:
+Record answers in [`manual-test-answer-sheet.md`](./manual-test-answer-sheet.md).
+
+A filled example is available in [`completed-test-example.md`](./completed-test-example.md).
+
+---
+
+## Step 1 — Identify what was approved
+
+Open [`supplier-payment-input.json`](./supplier-payment-input.json).
+
+Find and record:
+
+- `approval_subject`;
+- `approval_scope`;
+- `approval_validity_window`;
+- approved `reference_frame_id`;
+- approved `reference_frame_hash`;
+- `approval_owner`;
+- initial `execution_admissibility`.
+
+Question:
 
 ```text
-Was the action approved in the same reference frame in which execution is now attempted?
+What exact action, supplier scope, amount limit, purpose, time window, and reference frame did the original approval cover?
 ```
 
-The walkthrough should be used together with:
-
-- `README.md`;
-- `supplier-payment-scenario.md`;
-- `test-assumptions-and-dependencies.md`;
-- `expected-responsibility-outcome.md`.
+Do not continue if the approved scope or approved-state snapshot cannot be identified.
 
 ---
 
-## Step 1 — Identify the approved state
+## Step 2 — Identify what changed
 
-Record what was approved under `S0`.
+Open [`supplier-payment-events.json`](./supplier-payment-events.json).
 
-Check whether the approval is bound to:
+Find the `supplier_file_updated` event.
 
-- approval subject;
-- approval scope;
-- validity window;
-- reference frame;
-- authority basis;
-- approval owner;
-- evidence snapshot.
+Record:
 
-If these are missing, record the gap.
+- `origin_of_change`;
+- `change_provenance`;
+- `change_classification`;
+- previous and new reference-frame identifiers and hashes;
+- every entry in `state_diff_manifest`.
 
-Do not infer missing approval scope from workflow convenience or AI confidence.
+Question:
 
----
+```text
+What concrete differences exist between S0 and S1?
+```
 
-## Step 2 — Identify the changed state
+Important distinction:
 
-Record what changed between `S0` and `S1`.
+```text
+hash mismatch = evidence that captured states differ
+state_diff_manifest = evidence of what differs
+```
 
-For the current fixture, the changes are:
-
-- supplier bank account changed;
-- new supplier added;
-- amount remains below limit;
-- no new human approval was obtained;
-- AI treated the update as normal data refresh.
-
-A changed hash or technical diff may provide evidence that captured states differ.
-
-It does not by itself prove materiality, responsibility transfer, approval invalidity, or execution inadmissibility.
+A hash mismatch alone does not prove materiality.
 
 ---
 
-## Step 3 — Check dependency completeness
+## Step 3 — Evaluate test dependencies
 
-Before reaching an admissibility decision, check whether required dependencies are available:
+Open [`test-assumptions-and-dependencies.md`](./test-assumptions-and-dependencies.md).
 
-- approved-state snapshot;
-- current-state snapshot;
-- concrete diff;
-- materiality policy;
-- identity and role binding;
-- escalation route;
-- fallback owner rules;
-- human reauthorization conditions;
+Check whether the scenario provides enough information to evaluate:
+
+- approved-state capture;
+- current-state capture;
+- concrete diff generation;
+- materiality policy resolution;
+- actor identity and authority binding;
+- routing policy resolution;
+- owner resolution;
+- human-interface capability;
 - post-execution observation capability.
 
-If a required dependency is missing, record it as a test gap.
-
-A missing required dependency must not silently produce `ALLOW` for a consequential action.
-
----
-
-## Step 4 — Assess materiality separately
-
-Ask whether the S0-to-S1 change affects:
-
-- approved subject;
-- approved scope;
-- payment destination;
-- supplier set;
-- consequence class;
-- reversibility;
-- authority basis;
-- need for independent review.
-
-The initiating or executing AI agent must not be the sole final materiality judge.
-
-Materiality assessment must be distinguishable from technical evidence capture.
-
----
-
-## Step 5 — Determine approval status
-
-Ask whether the original approval still covers the current proposed execution.
-
-For this fixture, the draft test hypothesis is:
+Question:
 
 ```text
-Approval for S0 is stale for S1.
+Is any dependency required for the responsibility-boundary decision missing or unresolved?
 ```
 
-This is fixture-specific.
-
-Different facts, policies, scopes, reversibility, owner rules, or approved fallback routes may produce a different outcome.
+A missing required dependency must not silently produce `ALLOW`.
 
 ---
 
-## Step 6 — Determine admissibility route
+## Step 4 — Review the materiality assessment
 
-Ask who must receive the decision package.
+Return to [`supplier-payment-events.json`](./supplier-payment-events.json) and find `materiality_assessment_recorded`.
 
-The reviewer should identify:
+Record:
 
-- approval owner;
-- escalation owner;
-- independent review owner where applicable;
-- execution owner;
-- fallback route if the responsible owner is unavailable or conflicted.
+- `assessment_actor`;
+- `assessment_policy_id`;
+- `materiality_state`;
+- `materiality_basis`;
+- `cumulative_change_state`;
+- whether independent review is required.
 
-The AI may follow an approved route.
+Then compare the materiality basis with the approval scope from Step 1 and the diff from Step 2.
 
-The AI must not invent, replace, or silently bypass the authority route at the moment of conflict.
+Question:
+
+```text
+Does the evidence support the recorded conclusion that the approved responsibility boundary was materially crossed?
+```
+
+The initiating or executing agent must not be the sole final materiality judge.
 
 ---
 
-## Step 7 — Check human reauthorization conditions
+## Step 5 — Determine the governance responsibility state
 
-If reauthorization is required, check whether the responsible person receives:
+Open [`expected-responsibility-outcome.md`](./expected-responsibility-outcome.md).
 
-- concrete S0-to-S1 diff;
+Record the expected:
+
+- `approval_state`;
+- `execution_admissibility`;
+- `block_scope`;
+- `approval_owner`;
+- `escalation_owner`;
+- `independent_review_owner`;
+- `execution_owner`;
+- `routing_policy_id`.
+
+Question:
+
+```text
+Given the approved scope and material change, does the previous approval remain admissible for execution under S1?
+```
+
+---
+
+## Step 6 — Verify the escalation route
+
+Open [`supplier-payment-routing-policy-fixture.md`](./supplier-payment-routing-policy-fixture.md).
+
+Check:
+
+- whether the trigger conditions apply;
+- whether the named owners match the expected outcome;
+- whether independent review is required;
+- what happens if a required owner is unavailable or unresolved;
+- whether the AI is prevented from inventing or bypassing the authority route.
+
+Question:
+
+```text
+Is the next decision routed through a predetermined and resolvable responsibility path?
+```
+
+---
+
+## Step 7 — Verify the human reauthorization conditions
+
+Open [`human-reauthorization-check.md`](./human-reauthorization-check.md).
+
+Determine whether a future reauthorization request would provide:
+
+- the concrete diff;
 - relevant evidence and provenance;
-- materiality basis;
-- consequence and reversibility context;
-- role duties;
-- decision options;
-- ability to reject, request evidence, request independent review, or escalate;
+- materiality assessment and basis;
+- consequences and reversibility;
+- duties and decision options;
+- real ability to refuse, request evidence, request independent review, or escalate;
 - acknowledgement bound to the exact current state.
 
-The system may provide evidence that these procedural conditions were supported.
+Question:
+
+```text
+Are the procedural conditions for an informed and voluntary decision materially supported?
+```
 
 Do not claim that the person's internal understanding has been proven.
 
-A generic approve button is insufficient.
-
 ---
 
-## Step 8 — Draft fixture-specific expected decision
+## Step 8 — Determine the admissibility decision
 
-For this fixture only, the draft expected decision is:
+Use the evidence and conclusions from Steps 1–7.
+
+For the current scenario, compare your answer with the `admissibility_decision_recorded` event in [`supplier-payment-events.json`](./supplier-payment-events.json).
+
+Expected current-scenario decision:
 
 ```text
 BLOCK_ENTIRE_BATCH
 ```
 
-Reason:
+Question:
 
-- original approval was bound to `S0`;
-- current execution attempt occurs under `S1`;
-- supplier/payment reference-frame facts changed;
-- no new admissible human reauthorization exists;
-- AI is not the final admissibility authority.
-
-This is not a universal RABA rule.
-
-Different facts, policies, scopes, reversibility, or authority conditions may produce a different admissibility outcome.
+```text
+Is the decision supported by the evidence, materiality assessment, approval scope, routing policy, and resolved dependencies?
+```
 
 ---
 
-## Step 9 — Record the review path
+## Step 9 — Check logging requirements
 
-A later reviewer should be able to reconstruct:
+Open [`expected-responsibility-outcome.md`](./expected-responsibility-outcome.md).
 
-- what was approved;
-- what changed;
-- what evidence existed;
-- what evidence was missing;
-- how materiality was assessed;
-- who owned admissibility routing;
-- whether reauthorization was required;
-- what decision was made;
-- what uncertainty remained.
+Verify that the required Decision Log / Responsibility Event Stream can record:
 
-Decision Log and Responsibility Event Stream references in this walkthrough are conceptual review targets only.
+- original approval and approved state;
+- concrete S0-to-S1 diff;
+- change origin and provenance;
+- materiality assessment;
+- attempted continuation and execution;
+- admissibility decision and block scope;
+- responsibility owners and route;
+- later human decision when available;
+- actual execution and observed consequences if execution later occurs.
 
-They are not adopted schemas, event-family requirements, minimum record definitions, API formats, or implementation requirements.
+Question:
+
+```text
+Could a later reviewer reconstruct why the action was blocked, escalated, allowed, or executed?
+```
 
 ---
 
-## Step 10 — Preserve post-execution boundary
+## Step 10 — Check the post-execution boundary
 
-If execution later occurs, the review does not end at technical success.
+Open [`post-execution-observation.md`](./post-execution-observation.md).
 
-The reviewer should check whether the system can compare:
+For the current blocked scenario, record that no execution has yet occurred.
+
+Then verify that, if execution later occurs after valid reauthorization, the system must compare:
 
 ```text
 approved snapshot
@@ -219,28 +251,26 @@ vs
 actual observed outcome
 ```
 
-A technical executor status of `success` is not sufficient evidence of responsible completion.
-
----
-
-## Review result labels
-
-Any result labels used with this walkthrough are draft test labels only.
-
-They are not canonical RABA runtime states, schema values, conformance outcomes, or certification outcomes.
-
-Suggested labels:
+Question:
 
 ```text
-PASS_WITHIN_DRAFT_FIXTURE
-FAIL_WITHIN_DRAFT_FIXTURE
-INCOMPLETE_DUE_TO_MISSING_INFORMATION
+Does responsibility observation remain active after technical execution?
 ```
 
 ---
 
-## Boundary
+## Completion rule
 
-This walkthrough helps reviewers reason about one fictional fixture.
+The manual test is complete only when the reviewer can state:
 
-It does not approve architecture, implementation, schema, runtime behavior, policy, enforcement, public positioning, validation, partnership, pilot activity, vendor activity, or commercial commitments.
+1. what was approved;
+2. what changed;
+3. which dependencies were available or missing;
+4. why the change was or was not material;
+5. whether prior approval remained valid;
+6. which action became admissible or inadmissible;
+7. who owns the next decision;
+8. what must be logged;
+9. what must be observed after later execution.
+
+If an answer cannot be found, record it as a test-pack gap rather than guessing.

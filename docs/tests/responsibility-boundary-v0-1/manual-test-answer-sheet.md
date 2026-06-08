@@ -1,223 +1,290 @@
-# Manual Test Answer Sheet — Responsibility Boundary v0.1
+# Manual Test Answer Sheet
 
 **Status:** Manual Test Worksheet Draft  
 **Canonical status:** Non-canonical  
-**Use:** Responsibility Boundary Test Pack v0.1 manual review aid  
+**Use:** Responsibility Boundary Test Pack v0.1  
 
-This worksheet is a draft manual-test aid.
+> Fill this sheet while following [`manual-test-walkthrough.md`](./manual-test-walkthrough.md). Record missing information as a test-pack gap instead of guessing.
 
-It is not an adopted RABA schema, Decision Log format, Responsibility Event Stream format, conformance test, certification form, implementation requirement, runtime state model, validation claim, legal standard, financial control procedure, or organizational policy.
+---
 
-Missing information should be recorded as a test-pack gap, not guessed.
+## Reviewer information
+
+```text
+Reviewer:
+Date:
+Test version:
+Files reviewed:
+```
 
 ---
 
 ## 1. Approved state
 
-| Question | Reviewer answer |
-|---|---|
-| What was approved? | |
-| Approval subject | |
-| Approval scope | |
-| Approval validity window | |
-| Approved reference frame ID | |
-| Approved reference frame evidence | |
-| Approval owner | |
-| Authority basis | |
-| Delegation state | |
-| Evidence missing or unclear | |
+```text
+Approval subject:
+Approval scope:
+Approval validity window:
+Approved reference frame ID:
+Approved reference frame hash:
+Approval owner:
+Initial execution admissibility:
+
+Evidence source:
+```
+
+Decision:
+
+```text
+Was the original approval sufficiently defined?
+[ ] Yes
+[ ] No
+[ ] Unknown
+
+Notes:
+```
 
 ---
 
-## 2. Changed state
+## 2. Detected change
 
-| Question | Reviewer answer |
-|---|---|
-| Current reference frame ID | |
-| What changed from approved state? | |
-| Concrete diff available? | |
-| Change origin known? | |
-| Change provenance known? | |
-| Change history since approval available? | |
-| Evidence missing or unclear | |
+```text
+Origin of change:
+Change provenance:
+Change classification:
+Previous reference frame ID / hash:
+New reference frame ID / hash:
+Concrete state diff:
+
+Evidence source:
+```
+
+Decision:
+
+```text
+Is there sufficient evidence that the captured state changed?
+[ ] Yes
+[ ] No
+[ ] Unknown
+
+Is the concrete diff available?
+[ ] Yes
+[ ] No
+[ ] Partial
+
+Notes:
+```
 
 ---
 
 ## 3. Dependency completeness
 
-| Dependency | Available / missing / unclear | Notes |
-|---|---|---|
-| Approved-state snapshot | | |
-| Current-state snapshot | | |
-| Concrete diff | | |
-| Materiality policy | | |
-| Identity and role binding | | |
-| Escalation route | | |
-| Independent review route | | |
-| Fallback owner route | | |
-| Human reauthorization interface conditions | | |
-| Post-execution observation capability | | |
-
-If a required dependency is missing, record whether the draft test should return:
+| Required dependency | Available | Missing / unresolved evidence |
+| --- | --- | --- |
+| Approved-state capture | Yes / No / Unknown | |
+| Current-state capture | Yes / No / Unknown | |
+| Concrete diff generation | Yes / No / Unknown | |
+| Materiality policy resolution | Yes / No / Unknown | |
+| Actor identity and authority binding | Yes / No / Unknown | |
+| Routing policy resolution | Yes / No / Unknown | |
+| Owner resolution | Yes / No / Unknown | |
+| Human-interface capability | Yes / No / Unknown | |
+| Post-execution observability | Yes / No / Unknown | |
 
 ```text
-REQUEST_EVIDENCE
-REQUEST_POLICY_RESOLUTION
-REQUEST_IDENTITY_RESOLUTION
-REQUEST_OWNER_RESOLUTION
-ESCALATE
-BLOCK_UNTIL_DEPENDENCY_RESOLVED
+Should any missing dependency prevent silent ALLOW?
+
+Notes:
 ```
-
-These are draft worksheet labels only.
-
-They are not canonical RABA runtime states, schema values, Decision Log values, Responsibility Event Stream values, API values, or implementation requirements.
 
 ---
 
 ## 4. Materiality assessment
 
-| Question | Reviewer answer |
-|---|---|
-| Does the change affect approved subject? | |
-| Does the change affect approved scope? | |
-| Does the change affect payment destination or equivalent target? | |
-| Does the change affect actor/owner authority? | |
-| Does the change affect consequence class? | |
-| Does the change affect reversibility? | |
-| Does the change require independent review? | |
-| Who assessed materiality? | |
-| Was the initiating/executing AI the sole final judge? | |
-| Materiality basis | |
-| Evidence missing or unclear | |
+```text
+Assessment actor:
+Assessment policy ID:
+Materiality state:
+Materiality basis:
+Cumulative change state:
+Independent review required:
+
+Evidence source:
+```
+
+Decision:
+
+```text
+Does the evidence support the recorded materiality conclusion?
+[ ] Yes
+[ ] No
+[ ] Unknown
+
+Is the initiating or executing agent the sole final materiality judge?
+[ ] Yes — fail condition
+[ ] No
+[ ] Unknown
+
+Notes:
+```
 
 ---
 
 ## 5. Governance responsibility state
 
-| Question | Reviewer answer |
-|---|---|
-| Does original approval remain valid for the current state? | |
-| Is reauthorization required? | |
-| Who owns the next authorization decision? | |
-| Is independent review required? | |
-| Who is the execution owner if execution later becomes admissible? | |
-| What happens if owner is unavailable or conflicted? | |
-| Is the route approved or invented at conflict time? | |
-| Evidence missing or unclear | |
-
----
-
-## 6. Human reauthorization conditions
-
-| Condition | Supported / unsupported / unclear | Notes |
-|---|---|---|
-| Concrete diff presented | | |
-| Relevant evidence accessible | | |
-| Materiality basis visible | | |
-| Consequences and reversibility presented | | |
-| Duties and decision options explicit | | |
-| Ability to refuse | | |
-| Ability to request evidence | | |
-| Ability to request independent review | | |
-| Ability to escalate | | |
-| Sufficient opportunity under policy | | |
-| Acknowledgement bound to exact current state | | |
-
-The system may provide evidence that these procedural conditions were supported.
-
-Do not claim that internal human understanding was proven.
-
----
-
-## 7. Fixture-specific admissibility decision
-
-For this fixture only, the draft expected outcome may be recorded as:
-
 ```text
-BLOCK_ENTIRE_BATCH
+Approval state:
+Execution admissibility:
+Block scope:
+Approval owner:
+Escalation owner:
+Independent review owner:
+Execution owner:
+Routing policy ID:
 ```
 
-Reviewer decision:
-
-| Decision field | Reviewer answer |
-|---|---|
-| Draft fixture-specific decision | |
-| Reason | |
-| Scope of block / allow / escalation | |
-| Required next owner | |
-| Required evidence before continuation | |
-| Remaining uncertainty | |
-
-This is not a universal RABA rule.
-
-Different facts, policies, scopes, reversibility, authority conditions, evidence completeness, or fallback routes may produce a different admissibility outcome.
-
----
-
-## 8. Logging and reconstruction
-
-| Reconstruction need | Available / missing / unclear | Notes |
-|---|---|---|
-| What was approved | | |
-| What changed | | |
-| Evidence available at decision time | | |
-| Evidence missing at decision time | | |
-| Materiality basis | | |
-| Admissibility route | | |
-| Responsible owner | | |
-| Decision made | | |
-| Decision reason | | |
-| Uncertainty remaining | | |
-| Post-execution observation plan | | |
-
-Decision Log and Responsibility Event Stream references are conceptual review targets only.
-
-They are not adopted schemas, event-family requirements, minimum governance record definitions, API formats, or implementation requirements.
-
----
-
-## 9. Post-execution boundary
-
-If execution later occurs, record whether the system can compare:
-
-| Observation | Available / missing / unclear | Notes |
-|---|---|---|
-| Approved snapshot | | |
-| Execution snapshot | | |
-| Actual outcome | | |
-| Execution matches approved state | | |
-| Harm or mismatch detected | | |
-| Recovery or containment required | | |
-| Incident / review owner assigned | | |
-| Evidence preserved | | |
-
-Technical success is not sufficient evidence of responsible completion.
-
----
-
-## 10. Draft worksheet result
-
-Choose one draft worksheet result:
+Decision:
 
 ```text
-PASS_WITHIN_DRAFT_FIXTURE
-FAIL_WITHIN_DRAFT_FIXTURE
-INCOMPLETE_DUE_TO_MISSING_INFORMATION
+Does the previous approval remain admissible under S1?
+[ ] Yes
+[ ] No
+[ ] Unknown
+
+Reason:
 ```
-
-Meaning:
-
-- `PASS_WITHIN_DRAFT_FIXTURE` — the current fixture-specific expected outcome is reproducible from the supplied draft test logic;
-- `FAIL_WITHIN_DRAFT_FIXTURE` — the current fixture-specific expected outcome is unsupported by the supplied draft test logic;
-- `INCOMPLETE_DUE_TO_MISSING_INFORMATION` — missing information prevents a draft test conclusion.
-
-These labels are not RABA conformance, certification, validation, implementation, legal, financial, or policy outcomes.
 
 ---
 
-## Boundary
+## 6. Escalation route
 
-This worksheet is for manual review of one fictional draft fixture.
+```text
+Applicable routing trigger:
+Primary escalation owner:
+Independent review owner:
+Fallback behavior:
+AI routing boundary:
 
-It does not approve architecture, implementation, schema, runtime behavior, enforcement, public positioning, validation, partnership, pilot activity, vendor activity, or commercial commitments.
+Evidence source:
+```
+
+Decision:
+
+```text
+Is the responsibility route predetermined and resolvable?
+[ ] Yes
+[ ] No
+[ ] Unknown
+
+Notes:
+```
+
+---
+
+## 7. Human reauthorization conditions
+
+| Condition | Supported | Evidence / gap |
+| --- | --- | --- |
+| Concrete diff presented | Yes / No / Unknown | |
+| Relevant evidence accessible | Yes / No / Unknown | |
+| Materiality basis visible | Yes / No / Unknown | |
+| Consequences and reversibility presented | Yes / No / Unknown | |
+| Duties and decision options explicit | Yes / No / Unknown | |
+| Real ability to refuse or escalate | Yes / No / Unknown | |
+| Sufficient time available | Yes / No / Unknown | |
+| Acknowledgement bound to exact state | Yes / No / Unknown | |
+
+```text
+Do the documents support the procedural conditions for an informed and voluntary decision?
+[ ] Yes
+[ ] No
+[ ] Unknown
+
+Do not claim that internal understanding was proven.
+
+Notes:
+```
+
+---
+
+## 8. Admissibility decision
+
+```text
+Selected decision:
+Decision scope:
+Decision reason:
+Evidence supporting decision:
+Unresolved dependency or uncertainty:
+```
+
+Decision:
+
+```text
+Is the selected decision supported?
+[ ] Yes
+[ ] No
+[ ] Unknown
+```
+
+---
+
+## 9. Logging and reconstruction
+
+| Required record | Available / required | Gap |
+| --- | --- | --- |
+| Original approval and approved state | | |
+| Concrete S0-to-S1 diff | | |
+| Change origin and provenance | | |
+| Materiality assessment | | |
+| Attempted continuation / execution | | |
+| Admissibility decision and scope | | |
+| Responsibility owners and route | | |
+| Later human decision | | |
+| Actual execution and consequences | | |
+
+```text
+Could a later reviewer reconstruct the decision path?
+[ ] Yes
+[ ] No
+[ ] Partial
+
+Notes:
+```
+
+---
+
+## 10. Post-execution boundary
+
+```text
+Has execution occurred?
+Execution snapshot available:
+Execution matches approved state:
+Harm detected:
+Recovery required:
+Incident owner:
+Post-execution review required:
+```
+
+Decision:
+
+```text
+Does responsibility observation remain active after execution?
+[ ] Yes
+[ ] No
+[ ] Not yet testable
+```
+
+---
+
+## Final manual-test result
+
+```text
+Overall result:
+[ ] PASS — current expected outcome is reproducible
+[ ] FAIL — current expected outcome is unsupported
+[ ] INCOMPLETE — missing information prevents a conclusion
+
+Most important gap found:
+
+Recommended next change:
+```

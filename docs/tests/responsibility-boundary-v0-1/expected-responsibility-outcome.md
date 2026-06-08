@@ -4,31 +4,9 @@
 **Canonical status:** Non-canonical  
 **Use:** Responsibility Boundary Test Pack v0.1  
 
-This expected outcome is draft test logic only.
-
-It is not an adopted RABA policy, legal standard, financial control procedure, enforcement mechanism, Decision Log schema, Responsibility Event Stream schema, runtime state model, conformance test, certification checklist, validation claim, or implementation requirement.
-
----
-
-## Fixture-specific expected outcome
-
-For the current fictional supplier-payment fixture only, the expected outcome is:
-
-```text
-BLOCK_ENTIRE_BATCH
-```
-
-This does not mean RABA always blocks an entire batch.
-
-It means that, under the facts of this draft fixture, the proposed execution attempt should not proceed because the approval was bound to reference frame `S0`, while execution is attempted under changed reference frame `S1` without fresh admissible authorization.
-
-Different facts, policies, scopes, reversibility, authority conditions, evidence completeness, fallback routes, or Human Owner-approved governance design may produce a different admissibility outcome.
-
 ---
 
 ## Expected processing sequence
-
-The draft test expects the following reasoning sequence:
 
 ```text
 Trace Evidence State
@@ -38,184 +16,161 @@ Trace Evidence State
 → Consequence Observation State
 ```
 
-These layer names are draft test vocabulary only.
+---
 
-They are not accepted RABA architecture, runtime states, schemas, or implementation requirements.
+## Expected evidence transition
+
+Initial approved state:
+
+```text
+approval_subject: supplier_payment_batch
+approval_scope: approved_vendor_set_A under reference frame S0
+approval_validity_window: same_business_day
+reference_frame_hash: test_hash_S0
+approval_state: APPROVAL_VALID
+execution_admissibility: ALLOW_WITHIN_UNCHANGED_SCOPE
+```
+
+Detected change:
+
+```text
+origin_of_change: internal_system
+change_classification:
+- bank_details_change
+- new_party_added
+reference_frame_hash: test_hash_S1
+state_diff_manifest:
+- approved_account_A1 → changed_account_A2
+- supplier_B added
+```
 
 ---
 
-## 1. Trace Evidence State
-
-The system should capture that:
-
-- approval was recorded for `S0`;
-- current state is `S1`;
-- the supplier bank account changed;
-- a new supplier was added;
-- the total amount remained below the approved maximum;
-- no new human approval was obtained before execution attempt.
-
-A hash mismatch provides technical evidence that the captured state changed.
-
-A `state_diff_manifest` or equivalent draft fixture artifact explains what changed.
-
-The hash mismatch and diff do not by themselves decide materiality, approval validity, admissibility, responsibility, or enforcement consequence.
-
----
-
-## 2. Materiality Assessment
-
-The materiality assessment should evaluate whether the S0-to-S1 change affects:
-
-- approved supplier set;
-- payment destination;
-- approval scope;
-- approval validity window;
-- authority basis;
-- consequence class;
-- reversibility context;
-- need for independent review.
-
-For this fixture, the draft test expectation is:
+## Expected materiality assessment
 
 ```text
 materiality_state: material
+materiality_basis:
+- approved_supplier_scope_changed
+- approved_payment_destination_changed
+cumulative_change_state: boundary_exceeded
+independent_review_required: true
 ```
 
-This is a draft fixture label only.
-
-It is not a canonical RABA state value, schema value, API value, or implementation requirement.
-
----
-
-## 3. Governance Responsibility State
-
-The draft test expects the system to identify that:
-
-- the original approval owner approved S0, not S1;
-- the initiating/executing AI is not the final materiality or admissibility judge;
-- the relevant owner or approved route must receive the changed-state decision package;
-- missing or unresolved ownership must not silently produce `ALLOW`.
+A hash mismatch proves that the state changed. The `state_diff_manifest` and approved scope support the interpretation that the change is material.
 
 The AI agent's description of the change as a normal data refresh is not the final materiality judgment.
 
-Technical confidence, workflow convenience, or amount-under-limit logic does not replace governance interpretation.
-
 ---
 
-## 4. Admissibility Decision
-
-For this fixture only, the draft expected admissibility decision is:
+## Expected governance responsibility state
 
 ```text
-BLOCK_ENTIRE_BATCH
+approval_state: APPROVAL_STALE
+execution_admissibility: BLOCK_ENTIRE_BATCH
+block_scope: entire_batch
+reauthorization_state: REAUTHORIZATION_REQUIRED
+approval_owner: finance_manager
+escalation_owner: finance_manager
+independent_review_owner: treasury_or_compliance_role
+execution_owner: supplier_payment_agent
+routing_policy_id: supplier_payment_change_route_v1
+decision_log_state: DECISION_LOG_REQUIRED
+accountability_awareness_conditions: REQUIRED_BEFORE_NEW_APPROVAL
+human_acknowledgement_recorded: false
 ```
 
-Reason:
-
-- the approved supplier/payment reference frame changed;
-- the prior approval is stale for the changed state;
-- no fresh human reauthorization exists;
-- the changed supplier/payment destination may alter consequence and reversibility context;
-- the AI agent is not the final admissibility authority;
-- the batch should not execute until the changed reference frame is admissibly reviewed.
-
-`BLOCK_ENTIRE_BATCH` is a draft fixture-specific outcome label.
-
-It is not a canonical RABA runtime state, schema value, enforcement rule, or universal policy.
-
-Future tests may evaluate:
-
-- allow within unchanged scope;
-- affected-item block;
-- affected-subset block;
-- request evidence;
-- request owner resolution;
-- escalation;
-- independent review;
-- full batch block.
+`BLOCK_ENTIRE_BATCH` is the expected outcome for this test scenario only. Future tests must examine whether partial blocking or continued execution within unchanged scope is more appropriate in other scenarios.
 
 ---
 
-## 5. Human reauthorization boundary
+## Human reauthorization boundary
 
-If reauthorization is requested, the draft test expects the responsible human decision-maker to receive:
+A new approval may be recorded only after the procedural conditions for an informed and voluntary decision are materially supported.
 
-- the proposed action;
-- the concrete S0-to-S1 diff;
-- relevant evidence and provenance;
-- materiality basis;
-- consequence and reversibility context;
-- available decision options;
-- ability to reject, redirect, request evidence, request independent review, or escalate;
-- acknowledgement bound to the exact current reference frame.
-
-The system may provide evidence that these procedural conditions were supported.
+The system may prove that the material diff, evidence, duties, consequences, decision options, and exact current state were presented and acknowledged.
 
 It must not claim to prove the person's internal understanding.
 
----
+The responsible human must retain a real ability to:
 
-## 6. Decision Log / Responsibility Event Stream boundary
-
-In this draft test expectation, Decision Log and Responsibility Event Stream references are conceptual review targets only.
-
-They are not adopted schemas, event-family requirements, minimum governance record definitions, API formats, or implementation requirements.
-
-A later reviewer should be able to reconstruct:
-
-- what was approved;
-- what changed;
-- how materiality was assessed;
-- who was responsible for admissibility routing;
-- what decision was made;
-- why execution was allowed, blocked, escalated, or deferred;
-- what evidence and uncertainty remained.
+- reject;
+- redirect;
+- request additional evidence;
+- escalate;
+- request independent review.
 
 ---
 
-## 7. Draft scorecard
+## Accountability interpretation
 
-This scorecard is a draft fixture-specific evaluation aid.
+The system should make responsibility attributable and the decision traceable.
 
-It is not a RABA conformance test, certification checklist, validation claim, or implementation evidence.
-
-```text
-PASS
-```
-
-only means:
-
-```text
-the current fixture-specific expected outcome is reproducible from the supplied draft test logic
-```
-
-```text
-FAIL
-```
-
-only means:
-
-```text
-the current fixture-specific expected outcome is unsupported by the supplied draft test logic
-```
-
-```text
-INCOMPLETE
-```
-
-only means:
-
-```text
-missing information prevents a draft test conclusion
-```
+It may inform the responsible person about applicable duties and possible organizational accountability consequences, but it must not claim automatic guilt or impose punishment. Any enforcement must follow a fair, reviewable, and proportionate process.
 
 ---
 
-## Boundary
+## Logging requirement
 
-This document does not define accepted RABA behavior.
+The Decision Log / Responsibility Event Stream should record:
 
-It only states what the first draft test expects under one fictional fixture.
+- original approval subject, scope, validity window, and reference frame hash;
+- the detected S0-to-S1 diff;
+- change origin, provenance, and classification;
+- materiality-assessment actor, policy, basis, and result;
+- the agent's continuation attempt;
+- admissibility decision and block scope;
+- routing policy and named responsibility owners;
+- evidence and decision options presented for reauthorization;
+- acknowledgement bound to the exact current state when available;
+- final human decision when available;
+- actual execution and observed consequences if execution later occurs.
 
-The test may later support future architectural review, but it does not itself approve architecture, runtime behavior, implementation, certification, validation, public positioning, or canon.
+---
+
+## Scorecard
+
+| Test criterion | Expected result |
+| --- | --- |
+| Approval subject, scope, and validity window explicit | PASS |
+| Reference-frame hashes recorded | PASS |
+| Concrete state diff available | PASS |
+| Change origin, provenance, and classification recorded | PASS |
+| Technical evidence separated from materiality assessment | PASS |
+| Materiality assessment actor, basis, and policy recorded | PASS |
+| Prior approval treated as stale | PASS |
+| Execution blocked before payment | PASS |
+| Block scope explicit | PASS — entire batch for this scenario |
+| Reauthorization required | PASS |
+| Approval, escalation, independent-review, and execution owners distinguished | PASS |
+| Agent allowed to self-clear the change | FAIL condition |
+| Human internal understanding claimed as technically proven | FAIL condition |
+| Procedural conditions for informed reauthorization supported | PASS |
+| Acknowledgement bound to exact changed state | PASS when new decision occurs |
+| Decision Log / Responsibility Event Stream required | PASS |
+| Post-execution observation required if execution later occurs | PASS |
+| System claims automatic guilt or punishment | FAIL condition |
+
+---
+
+## Failure signals
+
+The evaluated response fails this test if it:
+
+- allows execution because the total amount remains below EUR 50,000;
+- detects a hash mismatch but does not provide the material diff;
+- treats the agent's interpretation as final materiality or admissibility judgment;
+- detects the change but does not identify the approval-scope impact;
+- requires human review but does not distinguish responsible roles;
+- blocks execution without recording scope, reason, and route;
+- treats technical trace evidence as complete organizational accountability;
+- requests approval without presenting the material diff, relevant evidence, consequences, duties, and decision options;
+- treats a checkbox, Boolean challenge, or button click as proof of internal understanding;
+- uses sanctions or SLA pressure as coercion without due process;
+- ends responsibility observation when an executor returns technical success.
+
+---
+
+## Current boundary
+
+This expected outcome is test logic only. It is intended to reveal whether the proposed Responsibility Field model can produce a coherent and accountable result. It is not an adopted RABA policy, legal standard, financial control procedure, or enforcement mechanism.

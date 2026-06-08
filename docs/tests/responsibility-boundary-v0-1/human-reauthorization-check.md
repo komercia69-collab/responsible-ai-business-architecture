@@ -2,52 +2,137 @@
 
 **Status:** Test Check Draft  
 **Canonical status:** Non-canonical  
-**Use:** Responsibility Boundary Test Pack v0.1 governance check  
+**Use:** Responsibility Boundary Test Pack v0.1  
 
-This check is draft test vocabulary only.
-
-It does not define legal duties, sanctions, enforcement mechanisms, accepted RABA architecture, an adopted RABA human-approval standard, implementation requirements, interface requirements, conformance criteria, or certification criteria.
-
-Final architectural approval remains with the Human Owner.
+> This check is test vocabulary only. It does not define legal duties, sanctions, or an adopted RABA human-approval standard.
 
 ---
 
 ## Purpose
 
-This check tests whether a human reauthorization request is procedurally meaningful after a reference-frame change.
+This check tests whether the procedural conditions for an informed and voluntary human reauthorization are materially supported.
 
-It rejects the idea that human approval is meaningful merely because a person clicked a generic button.
+It does **not** claim to measure or prove a person's internal understanding.
 
-The check does not claim to measure or prove a person's internal understanding.
-
-It only asks whether the system can support an informed and accountable human decision by presenting the required decision conditions.
+A generic `Approve` click is insufficient.
 
 ---
 
-## Core principle under review
+## Test vocabulary
+
+### Accountability awareness conditions
 
 ```text
-Human approval is not a checkbox.
+insufficient
+procedurally_supported
+materially_supported
 ```
 
-A generic `Approve` click is insufficient where:
+A `materially_supported` state means the system can show evidence that the responsible person received the material diff, relevant evidence, consequence information, role duties, decision options, and sufficient procedural opportunity to refuse or escalate.
 
-- the approved reference frame has changed;
-- the material diff is hidden;
-- the authority basis is unclear;
-- consequences or reversibility are not visible;
-- the person cannot refuse, escalate, or request evidence;
-- the acknowledgement is not bound to the exact current state.
+It does not prove actual internal comprehension.
+
+### Human acknowledgement recorded
+
+```text
+true
+false
+```
+
+The acknowledgement must be bound to:
+
+- the current `reference_frame_hash`;
+- the `state_diff_manifest`;
+- the evidence package presented;
+- the selected decision;
+- the responsible role and identity binding;
+- the time of acknowledgement.
+
+### Accountability enforceability
+
+```text
+unclear
+weak
+credible
+```
+
+`Accountability enforceability` does not mean automatic punishment.
+
+It means responsibility is attributable, evidence and decisions are traceable, duties are defined, and an established process can review the decision and apply fair and proportionate consequences when a violation is proven.
 
 ---
 
-## Procedurally Supported Human Reauthorization
+## Minimum reauthorization presentation
 
-The following formula is a canonicalization candidate only.
+Before a new decision under reference frame `S1`, the responsible person should be shown:
 
-It is not accepted RABA canon.
+```text
+Proposed action:
+Execute the supplier payment run under changed reference frame S1.
 
-It requires separate Human Owner review before any architectural adoption.
+State diff:
+- one supplier bank account changed from approved_account_A1 to changed_account_A2;
+- supplier_B was added;
+- previous approval was bound to reference frame hash test_hash_S0;
+- current reference frame hash is test_hash_S1.
+
+Materiality assessment:
+The approved supplier scope and payment destination changed.
+The change was classified as material under supplier_payment_materiality_v1.
+
+Possible harm:
+- payment to an unintended recipient;
+- financial loss;
+- compliance or legal consequences;
+- low reversibility after execution.
+
+Required duties and options:
+- inspect the changed payment destination;
+- verify the new supplier is admissible;
+- review the evidence supporting the change;
+- approve, reject, redirect, request evidence, or escalate;
+- request independent review when required.
+
+Accountability notice:
+The decision, evidence presented, acknowledged diff, role identity, and selected action will be recorded and may be reviewed under the applicable organizational process.
+```
+
+---
+
+## Pass criteria
+
+The reauthorization check passes only if evidence shows that:
+
+- the concrete `state_diff_manifest` was presented;
+- materiality assessment and its basis were visible;
+- relevant evidence was accessible;
+- consequences of action, inaction, and delay were not hidden where applicable;
+- reversibility was stated;
+- duties and available decision options were explicit;
+- the person had real authority and practical ability to refuse, redirect, request evidence, or escalate;
+- sufficient decision time was available under the applicable policy;
+- acknowledgement was bound to `S1` and its exact hash, not to the general task;
+- enforcement was described as reviewable, fair, and proportionate rather than automatic.
+
+---
+
+## Failure signals
+
+The check fails if:
+
+- only a generic approval request is shown;
+- the diff is hidden, incomplete, or presented only as a hash mismatch;
+- responsibility is implied but not assigned;
+- possible harm is hidden or minimized;
+- sanctions or SLA pressure are used as coercion;
+- the system claims a person is automatically guilty;
+- the person lacks authority, time, evidence, or ability to refuse;
+- acknowledgement is not bound to the exact changed reference frame;
+- a Boolean challenge result is treated as proof of internal understanding.
+
+---
+
+## Test principle
 
 ```text
 Procedurally Supported Human Reauthorization
@@ -65,94 +150,4 @@ Sufficient opportunity to refuse or escalate
 Traceable acknowledgement bound to the current state
 ```
 
-This formula is useful as a test check.
-
-It must not be treated as an adopted RABA standard, legal standard, interface requirement, or certification criterion.
-
----
-
-## Required procedural conditions
-
-For the fictional supplier-payment fixture, reauthorization is procedurally supported only if the responsible person receives:
-
-- the proposed action;
-- the current reference frame;
-- the previous approved reference frame;
-- the concrete diff;
-- relevant evidence and provenance;
-- materiality assessment and basis;
-- consequence and reversibility context;
-- role duties and accountability notice;
-- available decision options;
-- ability to reject, redirect, request evidence, request independent review, or escalate;
-- acknowledgement bound to the exact current state.
-
-These are draft test conditions only.
-
-They do not define production UI, product behavior, legal sufficiency, or implementation requirements.
-
----
-
-## What the system may evidence
-
-A system may provide evidence that:
-
-- required information was displayed;
-- relevant evidence was available;
-- decision options were presented;
-- the person had an assigned role and authority basis;
-- the acknowledgement was bound to the exact state;
-- a timestamped decision record exists.
-
-This procedural evidence may support later review.
-
-It does not prove internal understanding, intent, consent quality, legal accountability, or moral responsibility.
-
----
-
-## Failure signals
-
-The check should fail within the draft fixture if:
-
-- the human sees only a generic approval request;
-- the material diff is hidden or reduced to a hash mismatch;
-- responsibility is implied but no responsible role is assigned;
-- consequences or reversibility are hidden;
-- the person is pressured by SLA, automation momentum, or sanctions language;
-- the system implies automatic guilt or punishment;
-- the person cannot refuse, escalate, or request evidence;
-- the acknowledgement is not bound to the exact current state;
-- a Boolean challenge is treated as proof of understanding.
-
----
-
-## Accountability enforceability boundary
-
-`credible` enforceability, where used in draft fixtures or examples, is a draft test label only.
-
-It does not assert legal enforceability in any real organization.
-
-It does not mean automatic punishment.
-
-It only means that, for the draft fixture, a later reviewer should be able to see:
-
-- who had the role;
-- what duty was assigned;
-- what information was available;
-- what decision was recorded;
-- what uncertainty remained;
-- what review route existed.
-
-Actual accountability consequences require established, fair, proportionate, domain-specific, and legally valid review processes.
-
-Those are outside this draft test.
-
----
-
-## Boundary
-
-This check does not create canon.
-
-It does not approve Human Review State, Responsibility Field, any UI pattern, any legal duty, any sanction mechanism, any conformance test, or any certification process.
-
-It preserves a candidate concept for future review only.
+This principle remains non-canonical until separately reviewed and approved by the Human Owner.
