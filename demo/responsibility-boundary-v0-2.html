@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,117 +7,34 @@
 <style>
 :root{--bg:#f4f7fb;--card:#fff;--line:#d7deea;--text:#172033;--muted:#667085;--blue:#2563eb;--purple:#6941c6;--red:#c53030;--green:#16845b;--amber:#a15c00}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.45}.wrap{max-width:1180px;margin:auto;padding:22px}.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 5px 18px rgba(20,30,55,.05)}h1,h2,h3{margin-top:0}.small{color:var(--muted);font-size:.9rem}.badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#fff3df;color:#8a5200;font-size:.78rem;font-weight:800}.field{position:sticky;top:6px;z-index:5;background:linear-gradient(90deg,#172554,#312e81);color:#fff;border-radius:14px;padding:14px 16px;margin-bottom:16px}.fieldgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}.fieldgrid div{background:rgba(255,255,255,.1);border-radius:8px;padding:8px;font-size:.82rem}.flow{display:grid;grid-template-columns:repeat(9,minmax(125px,1fr));gap:8px;overflow-x:auto;padding-bottom:10px}.stage{border:1px solid var(--line);border-radius:11px;padding:10px;background:#fff;cursor:pointer;min-height:150px}.stage.current{border:3px solid var(--blue);padding:8px;background:#f5f9ff}.stage.done{background:#f4fbf7;border-color:#9fd6be}.stage.blocked{background:#fff5f5;border-color:#e6a0a0}.num{font-size:.72rem;color:var(--muted);font-weight:800}.title{font-weight:850;margin:5px 0}.event{font-size:.8rem;color:var(--muted)}.marker{margin-top:8px;padding:5px 7px;border-radius:7px;font-size:.72rem;font-weight:800}.active{background:#e7f0ff;color:#174ea6}.transfer{background:#f1eaff;color:#5b32a3}.block{background:#feecec;color:#9f1d1d}.observe{background:#e7f7ef;color:#146b48}.review{background:#fff1d6;color:#845000}.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.box{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcfe;margin-bottom:12px}.facts,.packet{display:grid;grid-template-columns:1fr 1fr;gap:8px}.item{border-left:4px solid var(--blue);padding:9px;background:#f4f8ff;border-radius:6px;font-size:.86rem}.packet .item{border-left-color:var(--amber);background:#fffaf0}.decision{padding:14px;border-radius:10px;font-weight:900;text-align:center;font-size:1.15rem}.decision.block{background:#feecec;color:#9f1d1d}.decision.allow{background:#e7f7ef;color:#146b48}.decision.resolve{background:#fff3df;color:#8a5200}.controls{display:flex;gap:9px;flex-wrap:wrap}.btn{border:0;border-radius:9px;padding:10px 15px;font-weight:800;background:#182230;color:#fff;cursor:pointer}.btn.alt{background:#fff;color:#182230;border:1px solid var(--line)}.log{border-left:3px solid var(--line);padding-left:14px}.entry{padding:8px;border:1px solid var(--line);border-radius:8px;margin:8px 0;background:#fff}@media(max-width:900px){.fieldgrid,.grid,.facts,.packet{grid-template-columns:1fr 1fr}.flow{grid-template-columns:repeat(9,150px)}}@media(max-width:600px){.fieldgrid,.grid,.facts,.packet{grid-template-columns:1fr}}
-/* PATCH v0.2.1 — usability additions */
-.stind{background:linear-gradient(90deg,#1d4ed8,#5b21b6);color:#fff;border-radius:10px;padding:9px 14px;margin-bottom:10px;font-size:.88rem;display:none;align-items:center;gap:10px}
-.stind.vis{display:flex}
-.stind-bar{flex:1;height:4px;background:rgba(255,255,255,.25);border-radius:2px;min-width:60px}
-.stind-fill{height:100%;background:#fff;border-radius:2px;transition:width .35s}
-.stage.hrs{border:2px solid var(--purple)!important;background:#f5f3ff!important}
-.stage.hrs.current{border:3px solid var(--purple)!important;background:#ede9fe!important;box-shadow:0 0 0 4px rgba(105,65,198,.13)}
-.stage.hrs.done{border-color:#a78bfa!important;background:#f5f3ff!important;opacity:.8}
-.hrsmsg{display:none;background:#f5f3ff;border:1.5px solid var(--purple);border-radius:10px;padding:12px 16px;margin:10px 0 6px;color:#4c1d95;font-size:.9rem}
-.hrsmsg.vis{display:block}
-.hrsmsg strong{color:#6941c6}
-.hrsmsg .arr{margin-top:7px;font-weight:800;font-size:.92rem;color:#6941c6}
-.restrow{text-align:center;padding:14px 0 8px}
+.stind{background:linear-gradient(90deg,#1d4ed8,#5b21b6);color:#fff;border-radius:10px;padding:9px 14px;margin-bottom:10px;font-size:.88rem;display:none;align-items:center;gap:10px}.stind.vis{display:flex}.stind-bar{flex:1;height:4px;background:rgba(255,255,255,.25);border-radius:2px;min-width:60px}.stind-fill{height:100%;background:#fff;border-radius:2px;transition:width .35s}.stage.hrs{border:2px solid var(--purple)!important;background:#f5f3ff!important}.stage.hrs.current{border:3px solid var(--purple)!important;background:#ede9fe!important;box-shadow:0 0 0 4px rgba(105,65,198,.13)}.stage.hrs.done{border-color:#a78bfa!important;background:#f5f3ff!important;opacity:.8}.hrsmsg{display:none;background:#f5f3ff;border:1.5px solid var(--purple);border-radius:10px;padding:12px 16px;margin:10px 0 6px;color:#4c1d95;font-size:.9rem}.hrsmsg.vis{display:block}.hrsmsg strong{color:#6941c6}.hrsmsg .arr{margin-top:7px;font-weight:800;font-size:.92rem;color:#6941c6}.restrow{text-align:center;padding:14px 0 8px}
 </style>
 </head>
 <body><div class="wrap">
-<section class="panel"><span class="badge">Non-canonical interactive test prototype v0.2</span><h1>RABA: поток ответственности и Human Review State</h1><p>Human review — не присутствие человека и не checkbox. Перед человеческим решением система должна сформировать правильное состояние решения и передать его назначенному владельцу.</p><p class="small">Внешние концептуальные сигналы используются только как review input. Демо не означает adoption, integration, endorsement или validation.</p></section>
-<div class="field"><strong>Постоянное поле ответственности</strong><div class="fieldgrid"><div><b>Текущий владелец</b><br><span id="owner">Владелец процесса</span></div><div><b>Approval state</b><br><span id="approval">не выдано</span></div><div><b>Admissibility</b><br><span id="admissibility">подготовка</span></div><div><b>Следующее действие</b><br><span id="nextAction">определить мандат</span></div></div></div>
-<section class="panel"><h2>Поток информации</h2><div id="stind" class="stind"><span id="stind-txt"></span><div class="stind-bar"><div class="stind-fill" id="stind-fill"></div></div></div><div id="flow" class="flow"></div><div id="hrsmsg" class="hrsmsg"><strong>Human Review State сформирован.</strong><br>Теперь ответственность может быть содержательно передана человеку.<div class="arr">Human Review State &nbsp;→&nbsp; Human Decision</div></div><div class="controls"><button id="prev" class="btn alt">← Назад</button><button id="next" class="btn">Далее →</button><button id="reset" class="btn alt">Сбросить</button></div></section>
-<section class="panel grid"><div><h2 id="heading">Начните поток</h2><div class="box"><h3>Что происходит</h3><p id="event" class="small">Нажмите «Далее».</p><div id="facts" class="facts"></div></div><div class="box"><h3>Почему здесь активируется ответственность</h3><p id="why">Ответственность должна быть назначена до запуска действия.</p></div><div id="packetBox" class="box" style="display:none"><h3>Human Review State — пакет решения</h3><p class="small">Человек получает не просьбу «подтвердить», а структурированное состояние решения.</p><div id="packet" class="packet"></div></div></div><div><h2>Текущее состояние</h2><div class="box"><p><b>Ответственный:</b> <span id="stateOwner">—</span></p><p><b>Обязанность:</b> <span id="duty">—</span></p><p><b>Следующий владелец:</b> <span id="nextOwner">—</span></p><p><b>При отсутствии владельца:</b> <span id="missing">—</span></p><div id="decision" class="decision resolve">ПОДГОТОВКА</div></div><div class="box"><h3>Ключевое различие</h3><p id="distinction">Технический сигнал ещё не является разрешением действовать.</p></div></div></section>
-<section class="panel"><h2>Журнал ответственности</h2><div id="log" class="log"></div></section>
-<div class="restrow"><button id="restart" class="btn alt">↺ Начать сначала</button></div>
+<section class="panel"><span class="badge">Non-canonical interactive test prototype v0.2</span><h1>RABA: Responsibility Flow and Human Review State</h1><p>Human review is not mere human presence and not a checkbox. Before a human decision, the system must assemble the correct decision state and transfer it to the assigned decision owner.</p><p class="small">External conceptual signals are used only as review input. This demo does not imply adoption, integration, endorsement, or validation.</p></section>
+<div class="field"><strong>Persistent Responsibility Field</strong><div class="fieldgrid"><div><b>Current owner</b><br><span id="owner">Process owner</span></div><div><b>Approval State</b><br><span id="approval">not issued</span></div><div><b>Admissibility</b><br><span id="admissibility">preparation</span></div><div><b>Next required action</b><br><span id="nextAction">define mandate</span></div></div></div>
+<section class="panel"><h2>Information Flow</h2><div id="stind" class="stind"><span id="stind-txt"></span><div class="stind-bar"><div class="stind-fill" id="stind-fill"></div></div></div><div id="flow" class="flow"></div><div id="hrsmsg" class="hrsmsg"><strong>Human Review State has been assembled.</strong><br>Responsibility can now be meaningfully transferred to the human decision owner.<div class="arr">Human Review State &nbsp;→&nbsp; Human Decision</div></div><div class="controls"><button id="prev" class="btn alt">← Back</button><button id="next" class="btn">Next →</button><button id="reset" class="btn alt">Reset</button></div></section>
+<section class="panel grid"><div><h2 id="heading">Start the flow</h2><div class="box"><h3>What happens</h3><p id="event" class="small">Click “Next”.</p><div id="facts" class="facts"></div></div><div class="box"><h3>Why responsibility is activated here</h3><p id="why">Responsibility must be assigned before an action starts.</p></div><div id="packetBox" class="box" style="display:none"><h3>Human Review State — decision package</h3><p class="small">The human does not receive a request to “confirm”; the human receives a structured decision state.</p><div id="packet" class="packet"></div></div></div><div><h2>Current state</h2><div class="box"><p><b>Responsible owner:</b> <span id="stateOwner">—</span></p><p><b>Duty:</b> <span id="duty">—</span></p><p><b>Next owner:</b> <span id="nextOwner">—</span></p><p><b>If owner is missing:</b> <span id="missing">—</span></p><div id="decision" class="decision resolve">PREPARATION</div></div><div class="box"><h3>Key distinction</h3><p id="distinction">A technical signal is not yet permission to act.</p></div></div></section>
+<section class="panel"><h2>Responsibility Log</h2><div id="log" class="log"></div></section>
+<div class="restrow"><button id="restart" class="btn alt">↺ Start again</button></div>
 </div>
 <script>
 const stages=[
-{t:'Мандат',e:'Определяются задача, scope, политика и владельцы.',m:'Ответственность назначена',k:'active',o:'Владелец процесса и политики',d:'Задать допустимые границы и маршрут решений.',n:'Финансовый менеджер',x:'Процесс не запускается.',a:'не выдано',ad:'ПОДГОТОВКА',na:'зафиксировать мандат',w:'Полномочия должны существовать до первого действия.',f:['Supplier set A','Лимит €50 000','Цель: monthly settlement','Окно: same business day']},
-{t:'Одобрение S0',e:'Финансовый менеджер одобряет точное состояние S0.',m:'Ответственность активирована',k:'active',o:'Финансовый менеджер',d:'Одобрить конкретный scope и reference frame.',n:'Система наблюдения',x:'Без approver одобрение отсутствует.',a:'VALID для S0',ad:'ALLOW в S0',na:'наблюдать изменения',w:'Одобряется состояние, а не абстрактная задача.',f:['Reference frame S0','Hash test_hash_S0','Supplier set A','Acknowledgement связан с S0']},
-{t:'Новый сигнал',e:'Приходят обновлённые данные поставщика.',m:'Ответственность за evidence',k:'active',o:'Владелец evidence capture',d:'Зафиксировать происхождение, целостность и diff.',n:'Оценщик существенности',x:'Недостаток evidence становится видимым.',a:'VALID для S0',ad:'ОЖИДАЕТ ОЦЕНКИ',na:'построить S0→S1 diff',w:'Обнаружение изменения не решает вопрос допустимости.',f:['Account A1 → A2','Добавлен supplier B','Сумма ниже лимита','Origin: internal system']},
-{t:'Оценка существенности',e:'Diff оценивается относительно approved scope.',m:'Ответственность за materiality',k:'active',o:'Responsibility boundary control',d:'Применить заранее утверждённую materiality policy.',n:'Admissibility route',x:'Исполняющий AI не может быть единственным судьёй.',a:'STALE candidate',ad:'MATERIAL',na:'записать basis',w:'Hash доказывает различие; assessment объясняет значение.',f:['Materiality: material','Scope changed','Destination changed','Independent review required']},
-{t:'Предложение AI',e:'AI предлагает продолжить платёж.',m:'Предложение, не разрешение',k:'transfer',o:'AI как автор предложения',d:'Представить предложение и evidence.',n:'Владелец admissibility route',x:'Missing route блокирует продолжение.',a:'STALE candidate',ad:'НЕ РАЗРЕШЕНО AI',na:'проверить допустимость',w:'AI может предложить действие, но не выдать себе полномочие.',f:['AI: normal data refresh','Human reauthorization absent']},
-{t:'Решение о допустимости',e:'Система фиксирует BLOCK и маршрут эскалации.',m:'Ответственность блокирует действие',k:'block',o:'Владелец правила допустимости',d:'Применить утверждённый route и scope.',n:'Human Review State',x:'Missing dependency не даёт ALLOW.',a:'STALE',ad:'BLOCK_ENTIRE_BATCH',na:'сформировать review state',w:'Эскалация — самостоятельное управляемое решение.',f:['Stop condition active','Block scope: entire batch','Routing policy selected','Independent review required']},
-{t:'Human Review State',e:'До участия человека формируется пакет правильного состояния решения.',m:'Ответственность за готовность решения',k:'review',o:'Владелец подготовки escalation packet',d:'Передать человеку полное, понятное и проверяемое состояние.',n:'Назначенный human decision owner',x:'Неполный пакет не должен превращаться в checkbox review.',a:'STALE',ad:'HOLD / ESCALATE',na:'передать decision state',w:'Главный вопрос: получил ли человек правильное состояние решения?',f:['Decision state assembled','Evidence present + missing','Policy + authority visible','Options remain available'],p:['Предлагаемое действие','Представленные доказательства','Отсутствующие доказательства','Применимая версия политики','Заявленное полномочие','Причина остановки исполнения','Текущее состояние риска','Активное stop condition','Доступные варианты решения','Escalation packet для аудита']},
-{t:'Человеческое решение',e:'Назначенный человек управляет действием на основе review state.',m:'Ответственность передана человеку',k:'transfer',o:'Human decision owner',d:'Отклонить, запросить evidence, эскалировать или переодобрить S1.',n:'Executor после допустимого решения',x:'Используется утверждённый fallback route.',a:'Новая только для S1',ad:'ЗАВИСИТ ОТ РЕШЕНИЯ',na:'записать решение',w:'Участие человека недостаточно без authority, context и права отказа.',f:['Reject available','Request evidence available','Escalate available','Acknowledgement bound to S1']},
-{t:'Исполнение и последствия',e:'Исполнение сравнивается с одобренным состоянием; последствия наблюдаются.',m:'Ответственность за результат',k:'observe',o:'Executor + incident owner',d:'Исполнить точное состояние и наблюдать последствия.',n:'Independent review / learning owner',x:'Technical success не завершает ответственность.',a:'связано с snapshot',ad:'POST-EXECUTION CHECK',na:'сравнить approved / executed / outcome',w:'Технический успех не равен ответственному завершению.',f:['Execution snapshot','Outcome observation','Harm signal','Recovery / review']}
+{t:'Mandate',e:'The task, approved scope, policy, and owners are defined.',m:'Responsibility assigned',k:'active',o:'Process and policy owner',d:'Define admissible boundaries and the decision route.',n:'Finance manager',x:'The process must not start.',a:'not issued',ad:'PREPARATION',na:'record mandate',w:'Authority must exist before the first action.',f:['Supplier set A','Limit €50,000','Purpose: monthly settlement','Window: same business day']},
+{t:'Approval S0',e:'The finance manager approves the exact S0 state.',m:'Responsibility activated',k:'active',o:'Finance manager',d:'Approve a specific scope and reference frame.',n:'Monitoring system',x:'Without an approver, approval is absent.',a:'VALID for S0',ad:'ALLOW within S0',na:'monitor changes',w:'Approval applies to a state, not to an abstract task.',f:['Reference frame S0','Hash test_hash_S0','Supplier set A','Acknowledgement bound to S0']},
+{t:'New signal',e:'Updated supplier data arrives.',m:'Evidence Capture responsibility',k:'active',o:'Evidence Capture owner',d:'Record origin, integrity, and S0→S1 diff.',n:'Materiality assessor',x:'Evidence gaps become visible.',a:'VALID for S0',ad:'PENDING ASSESSMENT',na:'build S0→S1 diff',w:'Detecting a change does not decide admissibility.',f:['Account A1 → A2','Supplier B added','Amount below limit','Origin: internal system']},
+{t:'Materiality assessment',e:'The diff is assessed against the approved scope.',m:'Materiality responsibility',k:'active',o:'Responsibility boundary controller',d:'Apply the pre-approved materiality policy.',n:'Admissibility route owner',x:'The executing AI cannot be the sole judge.',a:'STALE candidate',ad:'MATERIAL',na:'record basis',w:'A hash proves difference; assessment explains significance.',f:['Materiality: material','Scope changed','Destination changed','Independent review required']},
+{t:'AI proposal',e:'The AI proposes continuing the payment.',m:'Proposal, not permission',k:'transfer',o:'AI as proposal author',d:'Present the proposed action and evidence.',n:'Admissibility route owner',x:'Missing route blocks continuation.',a:'STALE candidate',ad:'NOT AI-AUTHORIZED',na:'check admissibility',w:'AI may propose an action, but it cannot grant itself authority.',f:['AI: normal data refresh','Human reauthorization absent']},
+{t:'Admissibility decision',e:'The system records BLOCK and the escalation route.',m:'Responsibility blocks action',k:'block',o:'Admissibility rule owner',d:'Apply the approved route and scope.',n:'Human Review State',x:'A missing dependency cannot produce ALLOW.',a:'STALE',ad:'BLOCK_ENTIRE_BATCH',na:'assemble review state',w:'Escalation is a separate governed decision.',f:['Stop condition active','Block scope: entire batch','Routing policy selected','Independent review required']},
+{t:'Human Review State',e:'Before the human acts, the correct decision state is assembled.',m:'Decision-readiness responsibility',k:'review',o:'Escalation packet preparation owner',d:'Transfer a complete, understandable, and reviewable decision state.',n:'Assigned human decision owner',x:'An incomplete packet must not become checkbox review.',a:'STALE',ad:'HOLD / ESCALATE',na:'transfer decision state',w:'The key question is whether the human received the right decision state.',f:['Decision state assembled','Evidence present + missing','Policy + authority visible','Options remain available'],p:['Proposed action','Evidence presented','Evidence missing','Applicable policy version','Claimed authority','Reason execution stopped','Current risk state','Active stop condition','Available decision options','Escalation packet for audit']},
+{t:'Human decision',e:'The assigned human decision owner decides: reauthorize, reject, or escalate.',m:'Human accountability activated',k:'transfer',o:'Assigned human decision owner',d:'Make a decision with real authority and recorded context.',n:'Execution owner or escalation owner',x:'No decision means no execution.',a:'REAUTHORIZATION REQUIRED',ad:'WAITING FOR HUMAN DECISION',na:'record decision',w:'Human involvement is meaningful only when authority, context, and options are real.',f:['Options: reauthorize / reject / escalate','Decision Log required','Responsibility owner explicit','Audit context preserved']},
+{t:'Execution and consequences',e:'Execution remains blocked unless valid reauthorization is issued.',m:'Consequence observation',k:'observe',o:'Outcome and audit owner',d:'Observe consequences and preserve the responsibility trail.',n:'Decision Log / Responsibility Event Stream',x:'Silent execution becomes an accountability failure.',a:'FINAL: BLOCK unless reauthorized',ad:'BLOCK / ESCALATE',na:'capture outcome',w:'A decision is not complete until the consequence trail is observable.',f:['Outcome recorded','Responsibility Event Stream updated','Decision Log updated','No silent execution']}
 ];
-let i=-1,seen=[];const q=id=>document.getElementById(id);
-function renderFlow(){
-  q('flow').innerHTML='';
-  stages.forEach((s,j)=>{
-    const e=document.createElement('div');
-    // PATCH: always add 'hrs' class to stage index 6 (Human Review State)
-    e.className='stage'+(j===6?' hrs':'')+(j===i?' current':'')+(j<i?' done':'')+(j===5&&i>=5?' blocked':'');
-    e.innerHTML='<div class="num">ЭТАП '+(j+1)+'</div><div class="title">'+s.t+'</div><div class="event">'+s.e+'</div><div class="marker '+s.k+'">'+s.m+'</div>';
-    e.onclick=()=>{i=j;add(j);render()};
-    q('flow').appendChild(e);
-  });
-  // PATCH: auto-scroll active card to centre of visible area
-  const cur=q('flow').querySelector('.current');
-  if(cur) cur.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-}
-function add(j){if(!seen.includes(j))seen.push(j)}
-function resetUI(){
-  i=-1;seen=[];renderFlow();
-  q('heading').textContent='Начните поток';
-  q('event').textContent='Нажмите «Далее».';
-  q('facts').innerHTML='';
-  q('packetBox').style.display='none';
-  q('log').innerHTML='';
-  // PATCH: reset owner field to initial values
-  q('owner').textContent='Владелец процесса';
-  q('approval').textContent='не выдано';
-  q('admissibility').textContent='подготовка';
-  q('nextAction').textContent='определить мандат';
-  q('stateOwner').textContent='—';
-  q('duty').textContent='—';
-  q('nextOwner').textContent='—';
-  q('missing').textContent='—';
-  q('decision').textContent='ПОДГОТОВКА';
-  q('decision').className='decision resolve';
-  q('distinction').textContent='Технический сигнал ещё не является разрешением действовать.';
-  q('prev').disabled=true;
-  q('next').disabled=false;
-  // PATCH: hide stage indicator and HRS message
-  q('stind').className='stind';
-  q('hrsmsg').className='hrsmsg';
-}
-function render(){
-  renderFlow();
-  if(i<0)return;
-  const s=stages[i];
-  q('heading').textContent=(i+1)+'. '+s.t;
-  q('event').textContent=s.e;
-  q('facts').innerHTML=s.f.map(x=>'<div class="item">'+x+'</div>').join('');
-  q('why').textContent=s.m+': '+s.o+' обязан '+s.d.toLowerCase();
-  q('owner').textContent=s.o;
-  q('approval').textContent=s.a;
-  q('admissibility').textContent=s.ad;
-  q('nextAction').textContent=s.na;
-  q('stateOwner').textContent=s.o;
-  q('duty').textContent=s.d;
-  q('nextOwner').textContent=s.n;
-  q('missing').textContent=s.x;
-  q('distinction').textContent=s.w;
-  q('decision').textContent=s.ad;
-  q('decision').className='decision '+(s.ad.includes('ALLOW')?'allow':s.ad.includes('BLOCK')?'block':'resolve');
-  q('packetBox').style.display=s.p?'block':'none';
-  q('packet').innerHTML=s.p?s.p.map(x=>'<div class="item">'+x+'</div>').join(''):'';
-  q('log').innerHTML=seen.sort((a,b)=>a-b).map(j=>'<div class="entry"><b>Этап '+(j+1)+': '+stages[j].t+'</b><br>'+stages[j].m+' — '+stages[j].o+'.</div>').join('');
-  q('prev').disabled=i<=0;
-  q('next').disabled=i>=stages.length-1;
-  // PATCH: update stage indicator
-  q('stind').className='stind vis';
-  q('stind-txt').textContent='Текущий этап: '+(i+1)+' из '+stages.length+' — '+s.t;
-  q('stind-fill').style.width=Math.round((i+1)/stages.length*100)+'%';
-  // PATCH: show HRS transition message only on stage 7 (index 6)
-  q('hrsmsg').className='hrsmsg'+(i===6?' vis':'');
-}
-q('next').onclick=()=>{if(i<stages.length-1){i++;add(i);render()}};
-q('prev').onclick=()=>{if(i>0){i--;add(i);render()}};
-q('reset').onclick=resetUI;
-// PATCH: restart button — full reset + scroll to top
-q('restart').onclick=()=>{resetUI();window.scrollTo({top:0,behavior:'smooth'})};
-renderFlow();q('prev').disabled=true;
-</script></body></html>
+let i=-1;
+const flow=document.getElementById('flow'),log=document.getElementById('log');
+function render(){flow.innerHTML='';stages.forEach((s,idx)=>{const div=document.createElement('div');div.className='stage '+(idx<i?'done ':'')+(idx===i?'current ':'')+(s.k==='block'&&idx<=i?'blocked ':'')+(s.t==='Human Review State'?'hrs ':'');div.innerHTML='<div class="num">Stage '+(idx+1)+'</div><div class="title">'+s.t+'</div><div class="event">'+s.e+'</div><div class="marker '+s.k+'">'+s.m+'</div>';div.onclick=()=>{i=idx;render()};flow.appendChild(div)});updateDetail();}
+function updateDetail(){const s=stages[i];document.getElementById('stind').classList.toggle('vis',i>=0);document.getElementById('stind-txt').textContent=i>=0?'Stage '+(i+1)+' of '+stages.length+': '+s.t:'';document.getElementById('stind-fill').style.width=i>=0?((i+1)/stages.length*100)+'%':'0%';document.getElementById('hrsmsg').classList.toggle('vis',s&&s.t==='Human Review State');if(!s){return}document.getElementById('heading').textContent=s.t;document.getElementById('event').textContent=s.e;document.getElementById('why').textContent=s.w;document.getElementById('owner').textContent=s.o;document.getElementById('approval').textContent=s.a;document.getElementById('admissibility').textContent=s.ad;document.getElementById('nextAction').textContent=s.na;document.getElementById('stateOwner').textContent=s.o;document.getElementById('duty').textContent=s.d;document.getElementById('nextOwner').textContent=s.n;document.getElementById('missing').textContent=s.x;document.getElementById('distinction').textContent=s.w;document.getElementById('facts').innerHTML=s.f.map(x=>'<div class="item">'+x+'</div>').join('');document.getElementById('packetBox').style.display=s.p?'block':'none';document.getElementById('packet').innerHTML=s.p?s.p.map(x=>'<div class="item">'+x+'</div>').join(''):'';const dec=document.getElementById('decision');dec.className='decision '+(s.k==='block'?'block':s.k==='observe'?'allow':'resolve');dec.textContent=s.ad;log.innerHTML=stages.slice(0,i+1).map((x,idx)=>'<div class="entry"><strong>'+ (idx+1)+'. '+x.t+'</strong>'+x.m+' — owner: '+x.o+'</div>').join('');}
+document.getElementById('next').onclick=()=>{if(i<stages.length-1){i++;render()}};document.getElementById('prev').onclick=()=>{if(i>0){i--;render()}};function reset(){i=-1;flow.innerHTML='';log.innerHTML='';render();document.getElementById('heading').textContent='Start the flow';document.getElementById('event').textContent='Click “Next”.'}document.getElementById('reset').onclick=reset;document.getElementById('restart').onclick=reset;render();
+</script>
+</body>
+</html>
