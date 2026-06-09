@@ -18,7 +18,7 @@
 
 ## Purpose
 
-This note records a corrected external DecisionAssure trace sample for later RABA review.
+This note records an updated externally provided DecisionAssure trace sample for later RABA review.
 
 The sample was provided as a cascading survivability trace with explicit `reference_frame_diff` and `control_objective_id` fields.
 
@@ -47,7 +47,7 @@ The two new fields highlighted by the external reviewer are:
 
 ---
 
-## Observed trace locations
+## Reported trace locations
 
 The external reviewer stated that the fields are visible in:
 
@@ -67,9 +67,9 @@ These identifiers are recorded as external DecisionAssure examples only. RABA do
 
 ---
 
-## Layer separation confirmed by external reviewer
+## Layer separation stated by external reviewer
 
-The external reviewer explicitly confirmed the intended separation:
+The external reviewer stated the intended separation:
 
 ```text
 DecisionAssure = step-level technical signals / evidence.
