@@ -1,7 +1,8 @@
 # RABA Tranche 1.1 Responsibility Event Stream stub
 # Status: canonicalization candidate
 # Canonical status: non-canonical
-# Not a schema adoption. Not an event-family adoption. Not implementation guidance.
+# Review artifact only. Not a schema adoption. Not an event-family adoption. Not implementation guidance.
+# Not for runtime use, integration use, serialization, or data-contract use without separate Human Owner confirmation.
 
 status: canonicalization_candidate
 canonical_status: non_canonical
@@ -62,9 +63,9 @@ candidate_fields_under_review_not_required:
 
 silent_adoption_warning: >
   This stub is not an adopted schema, not an event family, not a serialization
-  format, not a data contract, and not an implementation requirement. It must
-  not be used as an implementation reference without separate Human Owner
-  confirmation.
+  format, not a data contract, not an integration reference, and not an
+  implementation requirement. It must not be used as an implementation reference
+  without separate Human Owner confirmation.
 
 governance_boundary: >
   This file is candidate review material only. It is intentionally placed under
