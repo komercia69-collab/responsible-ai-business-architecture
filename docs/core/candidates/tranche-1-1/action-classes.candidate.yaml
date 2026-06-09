@@ -1,7 +1,8 @@
 # RABA Tranche 1.1 candidate action classes
 # Status: canonicalization candidate
 # Canonical status: non-canonical
-# Not a schema adoption. Not an event-family adoption. Not implementation guidance.
+# Review artifact only. Not a schema adoption. Not an event-family adoption. Not implementation guidance.
+# Not for runtime use, integration use, serialization, or data-contract use without separate Human Owner confirmation.
 
 status: canonicalization_candidate
 canonical_status: non_canonical
@@ -56,4 +57,6 @@ classes:
 
 governance_boundary: >
   These action classes are candidate review material only. They are not canonical,
-  not a machine-readable schema adoption, and not authorization for runtime enforcement.
+  not a machine-readable schema adoption, not an event-family adoption, not a data
+  contract, not a serialization format, not an integration reference, and not
+  authorization for runtime enforcement.
