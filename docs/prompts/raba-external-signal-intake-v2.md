@@ -36,7 +36,7 @@ Never claim:
 **Date:**  
 **Link:**  
 **Use status:**  
-**Topic / title:**  
+**Topic / title:**
 
 ## Short Summary
 
@@ -94,10 +94,12 @@ Choose one:
 - internal comparison only;
 - safe for private comparison;
 - not safe for public use yet;
-- public use possible only with attribution and Ben wording check;
+- public-use candidate only: requires attribution, Ben wording check, and explicit Human Owner approval before any public use;
 - park;
 - convert later into non-canonical working note;
 - compare later with existing issue / PR / note.
+
+Public-use handling is never automatic. Ben may recommend or prepare wording, but the Human Owner must explicitly approve any public use, public positioning, attribution wording, or external-facing claim.
 
 If link, author, or source is incomplete, mark:
 
