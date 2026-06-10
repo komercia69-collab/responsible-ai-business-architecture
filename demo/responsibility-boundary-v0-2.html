@@ -32,9 +32,76 @@ const stages=[
 ];
 let i=-1;
 const flow=document.getElementById('flow'),log=document.getElementById('log');
-function render(){flow.innerHTML='';stages.forEach((s,idx)=>{const div=document.createElement('div');div.className='stage '+(idx<i?'done ':'')+(idx===i?'current ':'')+(s.k==='block'&&idx<=i?'blocked ':'')+(s.t==='Human Review State'?'hrs ':'');div.innerHTML='<div class="num">Stage '+(idx+1)+'</div><div class="title">'+s.t+'</div><div class="event">'+s.e+'</div><div class="marker '+s.k+'">'+s.m+'</div>';div.onclick=()=>{i=idx;render()};flow.appendChild(div)});updateDetail();}
-function updateDetail(){const s=stages[i];document.getElementById('stind').classList.toggle('vis',i>=0);document.getElementById('stind-txt').textContent=i>=0?'Stage '+(i+1)+' of '+stages.length+': '+s.t:'';document.getElementById('stind-fill').style.width=i>=0?((i+1)/stages.length*100)+'%':'0%';document.getElementById('hrsmsg').classList.toggle('vis',s&&s.t==='Human Review State');if(!s){return}document.getElementById('heading').textContent=s.t;document.getElementById('event').textContent=s.e;document.getElementById('why').textContent=s.w;document.getElementById('owner').textContent=s.o;document.getElementById('approval').textContent=s.a;document.getElementById('admissibility').textContent=s.ad;document.getElementById('nextAction').textContent=s.na;document.getElementById('stateOwner').textContent=s.o;document.getElementById('duty').textContent=s.d;document.getElementById('nextOwner').textContent=s.n;document.getElementById('missing').textContent=s.x;document.getElementById('distinction').textContent=s.w;document.getElementById('facts').innerHTML=s.f.map(x=>'<div class="item">'+x+'</div>').join('');document.getElementById('packetBox').style.display=s.p?'block':'none';document.getElementById('packet').innerHTML=s.p?s.p.map(x=>'<div class="item">'+x+'</div>').join(''):'';const dec=document.getElementById('decision');dec.className='decision '+(s.k==='block'?'block':s.k==='observe'?'allow':'resolve');dec.textContent=s.ad;log.innerHTML=stages.slice(0,i+1).map((x,idx)=>'<div class="entry"><strong>'+ (idx+1)+'. '+x.t+'</strong>'+x.m+' — owner: '+x.o+'</div>').join('');}
-document.getElementById('next').onclick=()=>{if(i<stages.length-1){i++;render()}};document.getElementById('prev').onclick=()=>{if(i>0){i--;render()}};function reset(){i=-1;flow.innerHTML='';log.innerHTML='';render();document.getElementById('heading').textContent='Start the flow';document.getElementById('event').textContent='Click “Next”.'}document.getElementById('reset').onclick=reset;document.getElementById('restart').onclick=reset;render();
+function render(){
+  flow.innerHTML='';
+  stages.forEach((s,idx)=>{
+    const div=document.createElement('div');
+    div.className='stage '+(idx<i?'done ':'')+(idx===i?'current ':'')+(s.k==='block'&&idx<=i?'blocked ':'')+(s.t==='Human Review State'?'hrs ':'');
+    div.innerHTML='<div class="num">Stage '+(idx+1)+'</div><div class="title">'+s.t+'</div><div class="event">'+s.e+'</div><div class="marker '+s.k+'">'+s.m+'</div>';
+    div.onclick=()=>{i=idx;render()};
+    flow.appendChild(div);
+  });
+  updateDetail();
+}
+function setText(id,value){document.getElementById(id).textContent=value;}
+function clearStageDetails(){
+  document.getElementById('stind').classList.remove('vis');
+  setText('stind-txt','');
+  document.getElementById('stind-fill').style.width='0%';
+  document.getElementById('hrsmsg').classList.remove('vis');
+  setText('heading','Start the flow');
+  setText('event','Click “Next”.');
+  setText('why','Responsibility must be assigned before an action starts.');
+  setText('owner','Process owner');
+  setText('approval','not issued');
+  setText('admissibility','preparation');
+  setText('nextAction','define mandate');
+  setText('stateOwner','—');
+  setText('duty','—');
+  setText('nextOwner','—');
+  setText('missing','—');
+  setText('distinction','A technical signal is not yet permission to act.');
+  document.getElementById('facts').innerHTML='';
+  document.getElementById('packetBox').style.display='none';
+  document.getElementById('packet').innerHTML='';
+  const dec=document.getElementById('decision');
+  dec.className='decision resolve';
+  dec.textContent='PREPARATION';
+  log.innerHTML='';
+}
+function updateDetail(){
+  const s=stages[i];
+  if(!s){clearStageDetails();return;}
+  document.getElementById('stind').classList.add('vis');
+  setText('stind-txt','Stage '+(i+1)+' of '+stages.length+': '+s.t);
+  document.getElementById('stind-fill').style.width=((i+1)/stages.length*100)+'%';
+  document.getElementById('hrsmsg').classList.toggle('vis',s.t==='Human Review State');
+  setText('heading',s.t);
+  setText('event',s.e);
+  setText('why',s.w);
+  setText('owner',s.o);
+  setText('approval',s.a);
+  setText('admissibility',s.ad);
+  setText('nextAction',s.na);
+  setText('stateOwner',s.o);
+  setText('duty',s.d);
+  setText('nextOwner',s.n);
+  setText('missing',s.x);
+  setText('distinction',s.w);
+  document.getElementById('facts').innerHTML=s.f.map(x=>'<div class="item">'+x+'</div>').join('');
+  document.getElementById('packetBox').style.display=s.p?'block':'none';
+  document.getElementById('packet').innerHTML=s.p?s.p.map(x=>'<div class="item">'+x+'</div>').join(''):'';
+  const dec=document.getElementById('decision');
+  dec.className='decision '+(s.k==='block'?'block':s.k==='observe'?'allow':'resolve');
+  dec.textContent=s.ad;
+  log.innerHTML=stages.slice(0,i+1).map((x,idx)=>'<div class="entry"><strong>'+ (idx+1)+'. '+x.t+'</strong>'+x.m+' — owner: '+x.o+'</div>').join('');
+}
+document.getElementById('next').onclick=()=>{if(i<stages.length-1){i++;render()}};
+document.getElementById('prev').onclick=()=>{if(i>0){i--;render()}};
+function reset(){i=-1;flow.innerHTML='';render();}
+document.getElementById('reset').onclick=reset;
+document.getElementById('restart').onclick=()=>{reset();window.scrollTo({top:0,behavior:'smooth'})};
+render();
 </script>
 </body>
 </html>
