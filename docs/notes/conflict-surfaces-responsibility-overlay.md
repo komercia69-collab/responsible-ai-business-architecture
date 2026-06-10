@@ -9,6 +9,21 @@
 > It does not define a schema.  
 > It does not create runtime implementation guidance.  
 > It does not authorize AI control over safety-critical systems.  
+> It is not a deployment architecture, runtime enforcement design, safety architecture, event-family proposal, or Industry 4.0 readiness claim.  
+> It does not define production controls for field systems, SCADA, PLCs, OT environments, service meshes, agent meshes, or AI-agent runtimes.  
+> Any production use involving safety-critical systems, operational technology, customer-impacting workflows, legal/financial consequences, or irreversible actions requires separate domain-specific safety, security, compliance, legal, and operational review.  
+
+---
+
+## Implementation-adjacent boundary
+
+This note uses industrial, service, integration, and agent-system examples only as a conceptual mapping lens.
+
+It does not define how such systems should be deployed, integrated, automated, monitored, certified, or controlled in production.
+
+The presence of terms such as Field / IIoT, SCADA, PLC, MES, MOM, microservices, service mesh, agent mesh, MCP, or AI agents does not mean that RABA adopts those layers as canonical architecture or implementation guidance.
+
+Any future work that moves from conceptual comparison toward runtime behavior, safety claims, field-system interaction, remediation logic, tool permissions, event schemas, or deployment patterns requires separate review and explicit Human Owner confirmation.
 
 ---
 
@@ -77,6 +92,12 @@ AI agents may observe normalized operational events.
 They must not directly control safety-critical field equipment unless a separately governed safety architecture explicitly authorizes it.
 ```
 
+For avoidance of doubt, this note does not authorize AI control over field devices, SCADA systems, PLCs, safety systems, or operational technology.
+
+Observation, classification, recommendation, simulation, and evidence preparation must remain distinct from command authority.
+
+Command authority requires separately governed safety architecture, explicit human / organizational accountability, and domain-specific operational approval outside this note.
+
 ### M1 — MES / MOM to ERP / WMS boundary
 
 Potential conflicts:
@@ -118,6 +139,12 @@ Potential conflicts:
 RABA boundary:
 
 AI ops agents may recommend or execute bounded remediation only where rollback, blast radius, and ownership are defined.
+
+“Bounded remediation” is used here as a conceptual category only.
+
+This note does not define remediation playbooks, automation thresholds, rollback logic, blast-radius limits, production permissions, runtime enforcement mechanisms, or operational approval paths.
+
+Any future remediation model would require separate non-canonical review and explicit Human Owner confirmation before implementation-oriented documentation is created.
 
 ### A1 — Agent mesh / tool boundary
 
@@ -164,6 +191,14 @@ Indicates deterministic technical control such as PLC logic, database transactio
 Indicates the degree to which an AI agent may observe, classify, recommend, simulate, or execute bounded actions.
 
 Agent autonomy is not human responsibility.
+
+Agent operational autonomy describes permitted action scope.
+
+It does not create AI responsibility, legal responsibility, moral responsibility, business ownership, or final admissibility authority.
+
+Responsibility remains human / organizational.
+
+A system may evaluate, route, block, recommend, or escalate, but it must not become the accountable owner of the consequence.
 
 ---
 
@@ -213,6 +248,18 @@ Possible mapping:
 
 ---
 
+## Relationship to prototype planning
+
+Related prototype-planning work does not advance this note toward canon, implementation guidance, ready-for-review status, or merge readiness.
+
+A future Responsibility Review Panel extension may use this note as conceptual input only after separate review.
+
+Prototype planning does not reduce the need for separate risk review of this working note.
+
+This note must not be treated as a UI specification, runtime workflow, product design, or implementation plan.
+
+---
+
 ## 8. What this note does not do
 
 This note does not:
@@ -225,7 +272,22 @@ This note does not:
 - create safety claims;
 - create Industry 4.0 certification claims;
 - replace OT, SRE, security, compliance, legal, or safety engineering;
-- move any concept into canon.
+- move any concept into canon;
+- define a canonical RABA table, checklist, CSV, weighting model, routing state, trigger list, or event taxonomy;
+- make any example table, future template, candidate event name, or routing state canonical;
+- create a production configuration model;
+- create a runtime permission model;
+- claim Industry 4.0 readiness;
+- claim industrial safety readiness;
+- claim certification readiness;
+- claim operational technology deployment readiness;
+- claim regulatory or compliance readiness;
+- claim vendor, platform, or infrastructure validation;
+- create public positioning around industrial AI governance readiness.
+
+Any future table, template, checklist, CSV, trigger list, event name, routing state, or weighting model derived from this note must be treated as example-only unless separately reviewed and explicitly accepted by the Human Owner.
+
+Nothing in this note creates a canonical RABA schema, event family, runtime state model, permission model, or implementation template.
 
 ---
 
@@ -267,3 +329,7 @@ Not implementation guidance.
 Conflict surfaces help RABA identify where responsibility, authority, automation, and AI-agent action may become unclear across system and organizational boundaries.
 
 The useful RABA move is not to make AI responsible, but to make the human authority, system constraints, permitted agent autonomy, escalation route, and evidence trail visible at every consequential boundary.
+
+This remains a working note only.
+
+It may inform future RABA discussion, but it does not authorize canonical adoption, implementation work, runtime enforcement, schema creation, safety claims, certification claims, or public positioning.
