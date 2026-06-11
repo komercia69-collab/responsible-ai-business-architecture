@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RABA Working Architecture Map</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg:      #07090c;
+    --surface: #0f1117;
+    --border:  #1c2030;
+    --text:    #c8cdd8;
+    --dim:     #3e4557;
+    --mid:     #7a8296;
+    --accent:  #4d9fff;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+    padding: 32px 24px 64px;
+  }
+
+  .header {
+    max-width: 960px;
+    margin: 0 auto 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+  }
+  .badge {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #f5a623;
+    border: 1px solid #f5a623;
+    padding: 2px 8px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .sub {
+    font-size: 11px;
+    font-family: var(--mono);
+    letter-spacing: .04em;
+    line-height: 2;
+  }
+  .sub span {
+    display: inline-block;
+    margin-right: 20px;
+    color: var(--mid);
+  }
+
+  .zoom-toolbar {
+    width: calc(100vw - 48px);
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: flex-end;
+  }
+  .zoom-toolbar button {
+    background: var(--surface);
+    color: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+    line-height: 1;
+  }
+  .zoom-toolbar button:hover  { border-color: var(--accent); color: var(--accent); }
+  .zoom-toolbar button.step   { min-width: 30px; font-size: 16px; padding: 3px 10px; }
+  .zoom-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--mid);
+    min-width: 38px;
+    text-align: center;
+    letter-spacing: .04em;
+  }
+  .zoom-sep {
+    width: 1px;
+    height: 16px;
+    background: var(--border);
+    margin: 0 2px;
+  }
+
+  .hint {
+    width: calc(100vw - 48px);
+    margin: 0 auto 8px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: .04em;
+  }
+
+  .diagram-wrap {
+    width: calc(100vw - 48px);
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: auto;
+    min-height: 78vh;
+    max-height: 82vh;
+    padding: 20px;
+  }
+
+  #diagram-content {
+    display: inline-block;
+    min-width: max-content;
+  }
+
+  .mermaid {
+    display: block;
+  }
+  .mermaid svg {
+    background: transparent !important;
+    max-width: none !important;
+    height: auto !important;
+  }
+
+  .legend {
+    max-width: 960px;
+    margin: 20px auto 0;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--mid);
+    line-height: 1.9;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,.02);
+  }
+  .legend strong {
+    color: var(--text);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .footer {
+    max-width: 960px;
+    margin: 20px auto 0;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--dim);
+    letter-spacing: .06em;
+    line-height: 1.9;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">Non-canonical · Working Architecture Map · Discussion Draft</div>
+  <h1>RABA — Responsible AI Business Architecture</h1>
+  <div class="sub">
+    <span>AI may be probabilistic. Responsibility must not be.</span>
+    <span>Signals route responsibility. Signals do not replace responsibility.</span><br>
+    <span>Runtime signals may trigger governance review.</span>
+    <span>Runtime signals must not become governance authority.</span>
+  </div>
+</div>
+
+<div class="zoom-toolbar">
+  <button class="step" onclick="zoomOut()" title="Zoom out (Ctrl / Cmd −)">−</button>
+  <span class="zoom-label" id="zoom-label">60%</span>
+  <button class="step" onclick="zoomIn()"  title="Zoom in (Ctrl / Cmd +)">+</button>
+  <div class="zoom-sep"></div>
+  <button onclick="setZoom(0.4)"  title="Overview">40%</button>
+  <button onclick="setZoom(0.6)"  title="Default">60%</button>
+  <button onclick="setZoom(1.0)"  title="Full size">100%</button>
+  <div class="zoom-sep"></div>
+  <button onclick="resetScroll()" title="Scroll to top-left">↖ Reset scroll</button>
+</div>
+
+<div class="hint">
+  Scroll to navigate · Use − / + or preset buttons to zoom · Ctrl / Cmd + scroll also works · Discussion draft — not a canonical document
+</div>
+
+<div class="diagram-wrap" id="diagram-wrap">
+  <div id="diagram-content">
+    <div class="mermaid">
+flowchart TD
+
+START["RABA\nResponsible AI Business Architecture"]
+
+PRINCIPLES["Core principles\nSignals route responsibility. Signals do not replace responsibility.\nRuntime signals may trigger governance review.\nRuntime signals must not become governance authority."]
+
+START --> PRINCIPLES
+
+subgraph CORE["1. Working Architecture Core [working core]"]
+AB["Action Boundary"]
+AS["Approval State"]
+DL["Decision Log"]
+RES["Responsibility Event Stream"]
+GG["Governance Gateway"]
+HA["Human Accountability"]
+AD["Admissibility Boundary"]
+RMI["Responsibility Management Interface"]
+end
+
+subgraph RESPONSIBILITY["2. Responsibility and Approval Layer [working core / non-canonical layer]"]
+OWNER["Human / Organizational Owner"]
+AP["Approval Path"]
+JD["Justification Duty"]
+EO["Escalation Ownership"]
+CO["Consequence Ownership"]
+end
+
+subgraph RUNTIME["3. Runtime / Boundary Layer [non-canonical layer]"]
+RBS["Runtime Boundary Signals"]
+PF["Provider Failure Boundary Trigger"]
+VGS["Validation-Governance Separation Boundary"]
+COST["Runtime AI Cost Boundary Signal"]
+RAC["Resource-Access Control Boundary"]
+CBTM["Consequence Boundary Trigger Matrix"]
+end
+
+subgraph EVIDENCE["4. Evidence / Trace / Binding Layer [non-canonical layer]"]
+RBE["Responsibility Binding Event"]
+CIC["Content → Integrity → Completeness"]
+NBA["No binding, no action"]
+EC["Evidence Chain"]
+RDR["Reviewable Decision Record"]
+BC["Broken Chain / Visible Gap"]
+end
+
+subgraph OPS["5. Operational Control Layer [operational layer]"]
+OCB["Operational Control Board"]
+PICB["PR / Issue Control Board"]
+CP["Canonicalization Pipeline"]
+DLQ["Decision Log Queue"]
+RPR["Risk / Problem Register"]
+ESR["External Signals Register"]
+end
+
+subgraph EXT["6. External Signal Intake Layer [external signal]"]
+REG["Runtime Economic Governance Signal"]
+GBOS["Governance Build Order Signal"]
+QGR["Queryable Governance Records"]
+VAB["Verification vs Accountability Boundary"]
+TEA["Trust / Evidence / Auditability Signals"]
+APA["Agent Payment Autonomy Signal"]
+end
+
+subgraph FUTURE["7. Possible Implementation Directions [not approved]"]
+WR["Workflow Routing"]
+RRP["Runtime Review Packet"]
+ASV["Approval State Visualization"]
+RMIUI["Responsibility Management Interface UI"]
+ASUP["Auditability Support"]
+IOS["Integration with Operational Systems"]
+end
+
+PRINCIPLES --> CORE
+CORE --> RESPONSIBILITY
+CORE --> RUNTIME
+CORE --> EVIDENCE
+CORE --> OPS
+RUNTIME --> FUTURE
+EVIDENCE --> FUTURE
+RESPONSIBILITY --> FUTURE
+
+OWNER --> AP
+AP --> JD
+JD --> EO
+EO --> CO
+
+EXT --> ESR
+ESR --> RUNTIME
+ESR --> EVIDENCE
+ESR --> OCB
+
+RBS --> PF
+RBS --> VGS
+RBS --> COST
+RBS --> RAC
+RBS --> CBTM
+
+RBE --> CIC
+CIC --> NBA
+RBE --> EC
+EC --> RDR
+RDR --> BC
+
+OPS --> OCB
+OCB --> PICB
+OCB --> CP
+OCB --> DLQ
+OCB --> RPR
+OCB --> ESR
+
+%% Possible future implementation flow — not approved roadmap
+WR --> RRP
+RRP --> ASV
+ASV --> RMIUI
+RMIUI --> ASUP
+ASUP --> IOS
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <strong>Status legend</strong>
+  [working core] ≠ final canon &nbsp;·&nbsp;
+  [non-canonical layer] ≠ accepted architecture &nbsp;·&nbsp;
+  [external signal] ≠ validation / adoption / partnership<br>
+  [operational layer] = project-control layer, not runtime enforcement &nbsp;·&nbsp;
+  [not approved] ≠ product roadmap &nbsp;·&nbsp;
+  All layers shown here are working visualization elements under Human Owner review.
+</div>
+
+<div class="footer">
+  RABA · Responsible AI Business Architecture · Working Architecture Map · Non-canonical discussion draft<br>
+  This diagram is a working visualization of current project-control understanding. It does not constitute canonical architecture, schema, implementation guidance, or product roadmap.<br>
+  Human Owner confirmation required before any canonical claim. Multi-AI agreement is not approval.<br>
+  Final architectural approval remains with the Human Owner.
+</div>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    themeVariables: {
+      darkMode:            true,
+      background:          '#0f1117',
+      primaryColor:        '#1a2540',
+      primaryTextColor:    '#c8cdd8',
+      primaryBorderColor:  '#2e3a55',
+      lineColor:           '#4d9fff',
+      secondaryColor:      '#1a2030',
+      tertiaryColor:       '#0f1825',
+      edgeLabelBackground: '#0f1117',
+      clusterBkg:          '#111825',
+      clusterBorder:       '#2a3348',
+      titleColor:          '#c8cdd8',
+      nodeTextColor:       '#c8cdd8',
+      fontFamily:          'IBM Plex Mono, monospace',
+      fontSize:            '14px'
+    },
+    flowchart: {
+      htmlLabels:  true,
+      useMaxWidth: false,
+      curve:       'basis',
+      padding:     28,
+      nodeSpacing: 52,
+      rankSpacing: 70
+    }
+  });
+</script>
+
+<script>
+  const ZOOM_MIN     = 0.15;
+  const ZOOM_MAX     = 2.0;
+  const ZOOM_STEP    = 0.1;
+  const ZOOM_DEFAULT = 0.6;
+
+  let zoom = ZOOM_DEFAULT;
+
+  function applyZoom() {
+    const el = document.getElementById('diagram-content');
+    if (!el) return;
+    el.style.zoom = zoom;
+    document.getElementById('zoom-label').textContent = Math.round(zoom * 100) + '%';
+  }
+
+  function setZoom(val) {
+    zoom = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, parseFloat(val.toFixed(2))));
+    applyZoom();
+  }
+
+  function zoomIn()  { setZoom(zoom + ZOOM_STEP); }
+  function zoomOut() { setZoom(zoom - ZOOM_STEP); }
+
+  function resetScroll() {
+    const w = document.getElementById('diagram-wrap');
+    if (w) { w.scrollLeft = 0; w.scrollTop = 0; }
+  }
+
+  document.getElementById('diagram-wrap').addEventListener('wheel', function(e) {
+    if (!e.ctrlKey && !e.metaKey) return;
+    e.preventDefault();
+    setZoom(e.deltaY < 0 ? zoom + 0.05 : zoom - 0.05);
+  }, { passive: false });
+
+  document.addEventListener('keydown', function(e) {
+    if (!e.ctrlKey && !e.metaKey) return;
+    if (e.key === '=' || e.key === '+') { e.preventDefault(); zoomIn(); }
+    if (e.key === '-')                  { e.preventDefault(); zoomOut(); }
+    if (e.key === '0')                  { e.preventDefault(); setZoom(ZOOM_DEFAULT); }
+  });
+
+  window.addEventListener('load', function() {
+    setTimeout(applyZoom, 700);
+  });
+</script>
+
+</body>
+</html>
