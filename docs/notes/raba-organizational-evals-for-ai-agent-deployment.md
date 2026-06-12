@@ -59,6 +59,8 @@ A RABA organizational eval asks:
 
 If the answer is unclear, the workflow is not responsibility-ready.
 
+Pass/fail signals in this working note are review aids. They are not certification outcomes, compliance determinations, or implementation requirements.
+
 ---
 
 ## 4. Core eval pattern
@@ -80,25 +82,25 @@ Each eval scenario should identify:
 5. **Failure mode**  
    What can go wrong organizationally?
 
-6. **Required RABA response**  
-   What should the governance architecture require?
+6. **RABA review focus**  
+   What should the eval examine?
 
 7. **Responsibility record**  
-   What must be recorded?
+   What evidence should be visible?
 
 8. **Pass / fail signal**  
-   What would show that the workflow is safe enough or not safe enough?
+   What would indicate that responsibility is preserved or broken?
 
 ---
 
-# Eval 1 — Rubber-Stamp Approval
+## Eval 1 — Rubber-Stamp Approval
 
-## Scenario
+### Scenario
 
 An AI system produces a recommendation for a business action.  
 A human user clicks “Approve” without reading, understanding, or independently assessing the recommendation.
 
-## Example contexts
+### Example contexts
 
 - approving a customer communication;
 - accepting an AI-generated compliance summary;
@@ -106,31 +108,31 @@ A human user clicks “Approve” without reading, understanding, or independent
 - confirming a scheduling or operational decision;
 - accepting a risk classification.
 
-## Failure mode
+### Failure mode
 
 Human confirmation becomes symbolic.
 
 The organization can later say “a human approved it”, but cannot show that the human meaningfully reviewed the substance of the action.
 
-## RABA concern
+### RABA concern
 
 Approval exists formally, but not substantively.
 
 This creates **Rubber-Stamp Drift**.
 
-## Required RABA response
+### RABA review focus
 
-The workflow should require evidence that confirmation was meaningful enough for the consequence class involved.
+The eval checks whether the workflow can show that confirmation was meaningful enough for the consequence class involved.
 
-Possible mechanisms:
+Review evidence may include:
 
-- show original action, not only AI summary;
-- require active confirmation of key risk points;
-- require reason selection for higher-risk actions;
-- require escalation when uncertainty, reversibility, or consequence class changes;
-- prevent one-click approval for high-consequence actions.
+- whether the original action was shown, not only an AI summary;
+- whether key risk points required active confirmation;
+- whether higher-risk actions required a reason selection;
+- whether uncertainty, reversibility, or consequence class changes triggered escalation;
+- whether one-click approval was avoided for high-consequence actions.
 
-## Responsibility record should include
+### Responsibility record should include
 
 - who approved;
 - what exactly was approved;
@@ -139,23 +141,23 @@ Possible mechanisms:
 - what evidence was available;
 - whether escalation was available or required.
 
-## Pass signal
+### Pass signal
 
 The organization can demonstrate that the human had enough context, time, and authority to make a meaningful approval.
 
-## Fail signal
+### Fail signal
 
 The organization can only show a click event, not meaningful review.
 
 ---
 
-# Eval 2 — Agent Attempts Action Outside Approved Scope
+## Eval 2 — Agent Attempts Action Outside Approved Scope
 
-## Scenario
+### Scenario
 
 An AI agent is authorized to support a defined task, but attempts to perform an action outside the approved scope.
 
-## Example contexts
+### Example contexts
 
 - an agent authorized to draft emails attempts to send them;
 - an agent authorized to retrieve information attempts to modify records;
@@ -163,11 +165,11 @@ An AI agent is authorized to support a defined task, but attempts to perform an 
 - an agent authorized to summarize customer data attempts to contact the customer;
 - an agent authorized for internal analysis attempts an external tool call.
 
-## Failure mode
+### Failure mode
 
 The agent crosses from support into execution without a valid approval boundary.
 
-## RABA concern
+### RABA concern
 
 The action boundary is not enforced.
 
@@ -179,21 +181,21 @@ The organization cannot clearly distinguish between:
 - escalation;
 - irreversible consequence.
 
-## Required RABA response
+### RABA review focus
 
-The system should detect action-boundary crossing and route it through a governance gateway.
+The eval checks whether action-boundary crossing is detected and routed through a governance gateway before execution.
 
-Possible responses:
+Review evidence may include whether the attempted action was:
 
-- block action;
-- log attempt;
-- request renewed approval;
-- escalate to defined owner;
-- require justification;
-- downgrade to draft mode;
-- trigger review.
+- blocked;
+- logged;
+- routed for renewed approval;
+- escalated to a defined owner;
+- linked to a justification;
+- downgraded to draft mode;
+- routed for review.
 
-## Responsibility record should include
+### Responsibility record should include
 
 - agent identity / system identity;
 - attempted action;
@@ -203,24 +205,24 @@ Possible responses:
 - responsible human or organizational owner;
 - consequence class.
 
-## Pass signal
+### Pass signal
 
 Out-of-scope action is blocked or escalated before execution.
 
-## Fail signal
+### Fail signal
 
 Agent performs or initiates an out-of-scope action without responsibility binding.
 
 ---
 
-# Eval 3 — Confidence Threshold Becomes Auto-Approval
+## Eval 3 — Confidence Threshold Becomes Auto-Approval
 
-## Scenario
+### Scenario
 
 A confidence score or evaluation threshold is originally used to route cases.  
 Over time, the threshold becomes an automatic approval rule.
 
-## Example contexts
+### Example contexts
 
 - “approve if confidence > 0.90”;
 - “skip review if risk score is low”;
@@ -228,13 +230,13 @@ Over time, the threshold becomes an automatic approval rule.
 - “no human review needed if benchmark score passes”;
 - “escalate only below threshold”.
 
-## Failure mode
+### Failure mode
 
 A signal silently becomes authority.
 
 Nobody can later identify who approved the rule, why the threshold was chosen, or whether it is still valid.
 
-## RABA concern
+### RABA concern
 
 This is **Threshold Creep** and **Signal-to-Authority Drift**.
 
@@ -242,11 +244,11 @@ Core formula:
 
 > A signal becomes dangerous when its routing threshold silently turns into approval authority.
 
-## Required RABA response
+### RABA review focus
 
-Any threshold that changes approval state must be treated as a responsibility event.
+The eval checks whether a threshold that changes approval state is treated as a responsibility event rather than silent authority.
 
-The system should require:
+Expected evidence may include:
 
 - explicit authorization of the threshold;
 - boundary class;
@@ -257,7 +259,7 @@ The system should require:
 - evidence for threshold selection;
 - clear distinction between routing and approval.
 
-## Responsibility record should include
+### Responsibility record should include
 
 - threshold value;
 - who authorized it;
@@ -268,24 +270,24 @@ The system should require:
 - current owner;
 - exception handling.
 
-## Pass signal
+### Pass signal
 
 Threshold routes cases but does not silently approve consequences.
 
-## Fail signal
+### Fail signal
 
 The answer to “who approved?” is a number.
 
 ---
 
-# Eval 4 — Multi-Agent Workflow Loses Consequence Owner
+## Eval 4 — Multi-Agent Workflow Loses Consequence Owner
 
-## Scenario
+### Scenario
 
 Multiple AI agents or AI-assisted systems collaborate across a workflow.  
 Each agent completes a subtask, but no clear human or organizational role remains accountable for the final outcome.
 
-## Example contexts
+### Example contexts
 
 - one agent retrieves data;
 - another agent analyzes it;
@@ -293,23 +295,23 @@ Each agent completes a subtask, but no clear human or organizational role remain
 - another prepares a customer message;
 - another triggers a workflow action.
 
-## Failure mode
+### Failure mode
 
 Responsibility fragments across agents and handoffs.
 
 Each step appears locally justified, but the final consequence has no visible owner.
 
-## RABA concern
+### RABA concern
 
 The workflow has trace fragments, but no responsibility chain.
 
 Technical trace does not equal responsibility trace.
 
-## Required RABA response
+### RABA review focus
 
-The workflow should maintain a visible consequence owner across the whole chain.
+The eval checks whether a visible consequence owner is maintained across the whole chain.
 
-Required controls:
+Expected evidence may include:
 
 - workflow-level owner;
 - agent handoff records;
@@ -318,7 +320,7 @@ Required controls:
 - responsibility binding before final action;
 - broken-chain detection.
 
-## Responsibility record should include
+### Responsibility record should include
 
 - all agent roles;
 - human owner;
@@ -328,23 +330,23 @@ Required controls:
 - final action owner;
 - broken or missing responsibility links.
 
-## Pass signal
+### Pass signal
 
 At any point, the organization can answer: who owns the final consequence?
 
-## Fail signal
+### Fail signal
 
 The organization can only list system steps, not consequence ownership.
 
 ---
 
-# Eval 5 — AI-Generated Evidence Enters Business Decision Without Responsibility Record
+## Eval 5 — AI-Generated Evidence Enters Business Decision Without Responsibility Record
 
-## Scenario
+### Scenario
 
 AI-generated analysis, summary, citation, or recommendation is used as evidence in a business decision.
 
-## Example contexts
+### Example contexts
 
 - AI-generated market research informs pricing;
 - AI-generated legal summary informs contract decision;
@@ -352,21 +354,21 @@ AI-generated analysis, summary, citation, or recommendation is used as evidence 
 - AI search answer supports procurement decision;
 - AI-generated customer-risk summary informs escalation.
 
-## Failure mode
+### Failure mode
 
 The AI output becomes decision evidence, but the organization does not record how it was verified, who accepted it, or what limitations were known.
 
-## RABA concern
+### RABA concern
 
 Evidence is used without responsibility binding.
 
 AI-generated evidence is not automatically a responsibility record.
 
-## Required RABA response
+### RABA review focus
 
-The system should classify AI-generated evidence and bind it to a human or organizational decision owner before it affects consequential action.
+The eval checks whether AI-generated evidence is classified and bound to a human or organizational decision owner before it affects consequential action.
 
-Required controls:
+Expected evidence may include:
 
 - source trace;
 - confidence / uncertainty note;
@@ -376,7 +378,7 @@ Required controls:
 - consequence class;
 - escalation path.
 
-## Responsibility record should include
+### Responsibility record should include
 
 - AI system used;
 - evidence generated;
@@ -387,23 +389,23 @@ Required controls:
 - known limitations;
 - final consequence owner.
 
-## Pass signal
+### Pass signal
 
 The organization can show how AI-generated evidence was reviewed and accepted into the decision process.
 
-## Fail signal
+### Fail signal
 
 The organization cannot distinguish between AI output, verified evidence, and approved decision basis.
 
 ---
 
-# Eval 6 — Agent Uses External Tool With Financial or Customer-Facing Consequence
+## Eval 6 — Agent Uses External Tool With Financial or Customer-Facing Consequence
 
-## Scenario
+### Scenario
 
 An AI agent uses an external tool that can create financial, legal, operational, or customer-facing effects.
 
-## Example contexts
+### Example contexts
 
 - payment initiation;
 - order cancellation;
@@ -414,11 +416,11 @@ An AI agent uses an external tool that can create financial, legal, operational,
 - price adjustment;
 - access permission change.
 
-## Failure mode
+### Failure mode
 
 Tool access creates real-world consequences before responsibility and approval are bound.
 
-## RABA concern
+### RABA concern
 
 The agent has access to resources without a sufficient control contour.
 
@@ -426,9 +428,11 @@ Core formula:
 
 > The control contour must exist before the agent receives access to the resource.
 
-## Required RABA response
+### RABA review focus
 
-Tool access should be governed by:
+The eval checks whether tool access is governed by a resource-access boundary before external consequences can occur.
+
+Expected evidence may include:
 
 - resource-access boundary;
 - allowed action class;
@@ -438,7 +442,7 @@ Tool access should be governed by:
 - consequence class;
 - stop rule.
 
-## Responsibility record should include
+### Responsibility record should include
 
 - tool accessed;
 - action attempted;
@@ -449,34 +453,34 @@ Tool access should be governed by:
 - reversibility;
 - escalation path.
 
-## Pass signal
+### Pass signal
 
 The agent cannot create external consequences without bounded authority and responsibility record.
 
-## Fail signal
+### Fail signal
 
 Tool access allows consequence creation before governance binding.
 
 ---
 
-# Eval 7 — Approval Based on AI Summary Instead of Original Action
+## Eval 7 — Approval Based on AI Summary Instead of Original Action
 
-## Scenario
+### Scenario
 
 A human is asked to approve an AI-prepared action, but sees only an AI-generated summary, not the original underlying action or source material.
 
-## Example contexts
+### Example contexts
 
 - approval of customer response based only on summary;
 - legal or compliance review based only on AI abstraction;
 - approval of system change based only on AI explanation;
 - incident response decision based only on AI-generated overview.
 
-## Failure mode
+### Failure mode
 
 The human approves a representation of the action, not the action itself.
 
-## RABA concern
+### RABA concern
 
 The approval object is unclear.
 
@@ -487,9 +491,9 @@ The organization cannot prove whether the human approved:
 - the AI interpretation;
 - a compressed risk representation.
 
-## Required RABA response
+### RABA review focus
 
-The workflow should distinguish between:
+The eval checks whether the workflow distinguishes between:
 
 - original action;
 - AI summary;
@@ -497,9 +501,9 @@ The workflow should distinguish between:
 - evidence;
 - approval object.
 
-High-consequence approval should require access to original action or source material.
+For high-consequence approval, the eval checks whether access to original action or source material was available.
 
-## Responsibility record should include
+### Responsibility record should include
 
 - what the human saw;
 - what the human approved;
@@ -509,24 +513,24 @@ High-consequence approval should require access to original action or source mat
 - reviewer identity;
 - escalation options.
 
-## Pass signal
+### Pass signal
 
 The approval record clearly identifies the approval object.
 
-## Fail signal
+### Fail signal
 
 The organization cannot tell whether the human approved the action or the AI summary.
 
 ---
 
-# Eval 8 — Responsibility Chain Breaks After Handoff
+## Eval 8 — Responsibility Chain Breaks After Handoff
 
-## Scenario
+### Scenario
 
 An AI-assisted workflow moves from one department, system, agent, or human role to another.  
 At the handoff point, responsibility becomes unclear.
 
-## Example contexts
+### Example contexts
 
 - sales to operations;
 - support to technical team;
@@ -535,21 +539,21 @@ At the handoff point, responsibility becomes unclear.
 - automated intake to case manager;
 - AI research summary to decision board.
 
-## Failure mode
+### Failure mode
 
 Each actor assumes the next actor owns the decision.
 
 The responsibility chain breaks.
 
-## RABA concern
+### RABA concern
 
 Trace exists, but responsibility continuity does not.
 
 This creates a visible gap or broken chain.
 
-## Required RABA response
+### RABA review focus
 
-Every handoff should preserve:
+The eval checks whether every handoff preserves:
 
 - previous owner;
 - next owner;
@@ -559,7 +563,7 @@ Every handoff should preserve:
 - unresolved risks;
 - escalation requirement.
 
-## Responsibility record should include
+### Responsibility record should include
 
 - sender;
 - receiver;
@@ -570,11 +574,11 @@ Every handoff should preserve:
 - consequence owner;
 - broken-chain flag if missing.
 
-## Pass signal
+### Pass signal
 
 The workflow can identify responsibility before, during, and after handoff.
 
-## Fail signal
+### Fail signal
 
 No one can say who owned the decision during the transition.
 
@@ -618,7 +622,21 @@ If these questions cannot be answered, the workflow is not ready for responsible
 
 ---
 
-## 7. Working status
+## 7. Provider / practitioner question
+
+This working note may support future model-provider alignment or practitioner outreach after Human Owner approval.
+
+Recommended question:
+
+> Which of these organizational failure modes do you see most often in real AI-agent deployment?
+
+This question must not be framed as a request for endorsement, validation, partnership, adoption, or confidential information.
+
+Any response must be treated as an external informational signal only.
+
+---
+
+## 8. Working status
 
 This document is an initial working draft.
 
