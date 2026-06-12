@@ -3,7 +3,7 @@
 **Status:** Transfer Summary  
 **Canonical status:** Non-canonical  
 **Purpose:** Context handoff for reviewers / AI collaborators / project participants  
-**Current phase:** Consolidation after scope guard and notes classification; updated with provider / external-signal / capability-frontier draft pack status
+**Current phase:** Consolidation after scope guard and notes classification; updated with provider / external-signal / capability-frontier draft pack status and RABA Interface Simulation findings
 
 > This file is a transfer summary only.  
 > It is authoritative only as a snapshot of the current handoff state.  
@@ -130,10 +130,11 @@ External Inputs / Review Aids
   → Provider Signal Translation Rule
   → Capability Frontier Update Map
 
-Navigation / Scope Guard
+Navigation / Scope Guard / Operational Interface
   → RABA Concept Map and Scope Guard
   → RABA Notes Classification Review
   → Operational Control Board for Provider Artifact Pack
+  → RABA Interface Simulation v0.1
 ```
 
 ---
@@ -239,6 +240,9 @@ They are preserved only to keep context for future review:
 | `responsibility_dashboard` | Possible UI/reporting surface for responsibility events and decision replay | Candidate label only |
 | `capability_frontier_update_map` | Tracking changing AI capability developments and mapping them to RABA boundaries | Working note only / non-canonical |
 | `provider_signal_translation_rule` | Translating provider / external signals into vendor-independent responsibility patterns | Working note only / non-canonical |
+| `raba_interface_simulation` | Simulating visible responsibility controls for Human Owner / AI collaboration | Working note only / non-canonical |
+| `read_only_verification_boundary` | Requiring verification actions to use read-only operations only | Interface requirement candidate / non-canonical |
+| `trust_through_visible_risk` | Supporting justified trust by making hidden AI-related risks visible and controllable | Working idea / non-canonical |
 
 Candidate events inside working notes remain candidate-only.
 
@@ -253,6 +257,8 @@ No implementation commitment has been made.
 No provider-facing positioning has been approved.
 
 No outreach has been approved.
+
+No claim has been made that RABA guarantees trust or eliminates AI error.
 
 ---
 
@@ -355,14 +361,111 @@ Human Owner confirmation is required before any status movement.
 
 ---
 
-## 12. Current recommendation
+## 12. RABA Interface Simulation update
+
+A new non-canonical working note now records lessons from simulating a RABA responsibility interface inside the Human Owner / AI collaborator workflow:
+
+```text
+docs/notes/raba-interface-simulation-v0-1.md
+```
+
+Status:
+
+```text
+Working Note
+Non-canonical
+Not UI specification approval
+Not implementation requirement
+Not product roadmap
+Not public positioning approval
+Not outreach approval
+Not provider-facing positioning
+Not commercial claim
+```
+
+The interface simulation captures the working idea that RABA should make responsibility visible during the workflow, not only after the fact.
+
+Two new lines were added to the simulation and should be tracked as operational interface findings:
+
+### Read-only Verification Boundary
+
+Core rule:
+
+```text
+Verification must be read-only.
+```
+
+Russian formulation:
+
+```text
+Проверка должна выполняться только read-only действием.
+Нельзя использовать create, update, delete, merge, ready-for-review,
+label changes, or other state-changing operations as a way to verify repository state.
+```
+
+Operational meaning:
+
+```text
+Tool consequence class must control the permission boundary.
+A read-only intention does not make a write-capable tool safe.
+```
+
+Current status:
+
+```text
+Interface requirement candidate
+Non-canonical
+Not schema
+Not implementation approval
+```
+
+### Trust Through Visible Risk
+
+Core rule:
+
+```text
+RABA does not create trust by hiding uncertainty.
+RABA creates trust by exposing risk, boundaries, permissions,
+and responsibility transitions in a human-understandable way.
+```
+
+Russian formulation:
+
+```text
+RABA не создаёт доверие тем, что скрывает неопределённость.
+RABA создаёт доверие тем, что показывает риски, границы,
+разрешения и переходы ответственности понятным для человека языком.
+```
+
+Operational meaning:
+
+```text
+RABA does not remove risk.
+RABA turns hidden risk into visible, classifiable, reviewable,
+and controllable risk.
+```
+
+Current status:
+
+```text
+Working idea
+Non-canonical
+Not a guarantee of trust
+Not a claim that RABA eliminates AI error
+```
+
+These findings should inform future RABA Interface Requirements work but do not create canon, schema, implementation approval, product roadmap, public positioning, outreach approval, or provider-facing use.
+
+---
+
+## 13. Current recommendation
 
 Current recommendation:
 
 ```text
 Keep all current notes as non-canonical working material for now.
 Do not promote any note to canon yet.
-Use the concept map, classification review, and operational control boards to guide future consolidation.
+Use the concept map, classification review, operational control boards, and RABA Interface Simulation to guide future consolidation.
 Keep PR #143–#148 parked as Draft unless the Human Owner explicitly confirms a status change.
 ```
 
@@ -371,11 +474,12 @@ Reason:
 ```text
 The project needs consolidation before canonicalization.
 The provider / external-signal / capability-frontier pack is useful, but it is not approved architecture.
+The RABA Interface Simulation is useful, but it is not approved UI specification or implementation roadmap.
 ```
 
 ---
 
-## 13. Canonicalization Pack Exit Rule
+## 14. Canonicalization Pack Exit Rule
 
 Consolidation is not the destination.
 
@@ -397,7 +501,7 @@ No AI collaborator may start canonicalization merely because multiple AI systems
 
 ---
 
-## 14. Recommended next work
+## 15. Recommended next work
 
 Recommended next steps:
 
@@ -411,10 +515,12 @@ Recommended next steps:
 8. Do not adopt event families without separate Human Owner confirmation.
 9. Treat repeated operational use of non-canonical concepts as a trigger for Human Owner review.
 10. Do not start outreach or provider-facing use based on the artifact pack without explicit Human Owner confirmation.
+11. Prepare a separate non-canonical RABA Interface Requirements checklist only after Human Owner confirmation.
+12. Track Read-only Verification Boundary and Trust Through Visible Risk as interface findings, not canon.
 
 ---
 
-## 15. Message for incoming collaborators
+## 16. Message for incoming collaborators
 
 Short handoff message:
 
@@ -422,13 +528,14 @@ Short handoff message:
 RABA is currently in a consolidation phase.
 The project is not trying to cover every AI governance topic.
 Its scope is the responsibility boundary where AI-supported outputs, evidence, plans, or workflow changes become consequential business actions.
-Recent work added several non-canonical boundary-pattern notes and a Draft provider / external-signal / capability-frontier pack (#143–#148), but no architecture has been adopted.
-Please treat all new notes and PRs as working material unless a separate Human Owner decision says otherwise.
+Recent work added several non-canonical boundary-pattern notes, a Draft provider / external-signal / capability-frontier pack (#143–#148), and a non-canonical RABA Interface Simulation v0.1.
+The interface simulation added two operational findings: Read-only Verification Boundary and Trust Through Visible Risk.
+Please treat all new notes, interface findings, and PRs as working material unless a separate Human Owner decision says otherwise.
 ```
 
 ---
 
-## 16. Governance boundary
+## 17. Governance boundary
 
 This transfer summary is:
 
@@ -444,6 +551,11 @@ This transfer summary is:
 - not merge approval;
 - not outreach approval;
 - not provider-facing positioning approval;
+- not UI specification approval;
+- not implementation approval;
+- not product-roadmap approval;
+- not a claim that RABA guarantees trust;
+- not a claim that RABA eliminates AI error;
 - not endorsement, validation, adoption, partnership, commercial, compliance, certification, or product-roadmap claim.
 
 Final architectural approval belongs to the Human Owner.
