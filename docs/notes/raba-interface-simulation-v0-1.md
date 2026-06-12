@@ -248,7 +248,92 @@ This distinction should be visible in the interface.
 
 ---
 
-## 10. Problems discovered
+## 10. Repository State Baseline and Drift Control
+
+The simulation identified that repository risk is not limited to changes made during AI work.
+
+External changes may occur:
+
+- before the AI starts a session;
+- during AI work;
+- after AI finishes a session;
+- between two transfer summaries;
+- after a public link is shared;
+- through issues, comments, PRs, commits, branch changes, or public-facing edits.
+
+Therefore the AI must not rely only on memory, chat summaries, or previous transfer summaries.
+
+Core rule:
+
+```text
+AI memory ≠ repository truth.
+Chat summary ≠ repository truth.
+Previous approved state ≠ current repository state.
+Detected repository change ≠ approved repository change.
+```
+
+Russian formulation:
+
+```text
+Память ИИ не равна состоянию GitHub.
+Резюме чата не равно состоянию GitHub.
+Вчерашнее подтверждённое состояние не равно сегодняшнему состоянию проекта.
+Обнаруженное изменение не равно одобренное изменение.
+```
+
+Before consequential GitHub actions, the interface should perform a Repository State Baseline check:
+
+```text
+Last known approved state:
+commit SHA / date / transfer summary / control board
+
+Current state:
+commit SHA / branch / PR landscape / issue landscape / recent commits
+
+State comparison:
+unchanged / changed / unknown
+
+Change source:
+Human Owner / trusted collaborator / external contributor / bot / unknown
+
+Action permission:
+read-only / inspect-only / write allowed / blocked pending review
+```
+
+If drift is detected, the workflow should move into inspect-only mode:
+
+```text
+If repository state changed outside the approved action boundary:
+- stop write actions;
+- inspect only;
+- compare state;
+- classify source and risk;
+- report to Human Owner;
+- wait for decision.
+```
+
+This is especially important after public exposure, such as sharing a repository or project link on LinkedIn.
+
+External attention may produce useful signals, but it may also introduce:
+
+- accidental edits;
+- unauthorized claims;
+- spam or promotional comments;
+- public-positioning contamination;
+- implied validation or partnership language;
+- changes that appear to be project-approved merely because they exist in GitHub.
+
+Repository presence is not approval.
+
+Commit existence is not canon.
+
+External contribution is not endorsement.
+
+Merged text is not architectural approval unless a Human Owner decision exists.
+
+---
+
+## 11. Problems discovered
 
 ### Problem 1 — Language comprehension
 
@@ -335,9 +420,19 @@ Interface requirement:
 Unexpected repository artifact should become a responsibility incident requiring Human Owner cleanup approval.
 ```
 
+### Problem 8 — Repository state drift outside AI working time
+
+The project may change before or after AI work, not only during it.
+
+Interface requirement:
+
+```text
+Before consequential actions, compare current repository state with the last known approved baseline.
+```
+
 ---
 
-## 11. Responsibility trace requirements
+## 12. Responsibility trace requirements
 
 A meaningful RABA interface should create a trace for significant transitions.
 
@@ -353,6 +448,7 @@ Trace should include:
 - canon impact;
 - public-use impact;
 - outreach impact;
+- repository baseline / current state comparison, if relevant;
 - risk note;
 - execution result.
 
@@ -383,7 +479,7 @@ File created as Working Note / Non-canonical
 
 ---
 
-## 12. Interface requirements v0.1
+## 13. Interface requirements v0.1
 
 The simulation suggests the first requirements for a real RABA Interface:
 
@@ -402,10 +498,15 @@ The simulation suggests the first requirements for a real RABA Interface:
 13. Separate external signal from validation.
 14. Separate capability update pressure from architecture update.
 15. Record meaningful responsibility transitions.
+16. Check repository state baseline before consequential GitHub actions.
+17. Detect repository drift before, during, and after AI work.
+18. Treat detected repository change as not approved until reviewed.
+19. Enter inspect-only mode when repository state drift is detected.
+20. Classify external contributors, bots, unknown sources, and public-exposure changes.
 
 ---
 
-## 13. What this note does not do
+## 14. What this note does not do
 
 This note does not:
 
@@ -424,7 +525,7 @@ This note does not:
 
 ---
 
-## 14. Suggested future work
+## 15. Suggested future work
 
 Possible next steps, each requiring separate Human Owner confirmation if they involve GitHub writes or status changes:
 
@@ -435,11 +536,13 @@ Possible next steps, each requiring separate Human Owner confirmation if they in
 5. Define escalation rules for ambiguous user commands.
 6. Define language-accessibility requirements for Human Owner confirmation.
 7. Define an incident pattern for accidental repository changes.
-8. Add this note to a future operational control board.
+8. Define Repository State Baseline and Drift Control as a separate working note.
+9. Define public exposure controls for LinkedIn / public repository attention.
+10. Add this note to a future operational control board.
 
 ---
 
-## 15. Working status
+## 16. Working status
 
 This is a working note.
 
