@@ -19,7 +19,7 @@ The purpose is not to treat external attention as validation.
 
 A provider signal is not evidence that RABA is correct.
 
-The purpose is to preserve RABA independence while still learning from external signals about real AI-agent deployment, tool use, oversight, auditability, escalation, and responsibility failure modes.
+The purpose is to preserve RABA independence while still learning from external signals about real AI-agent deployment, tool use, oversight, auditability, escalation, capability-frontier pressure, and responsibility failure modes.
 
 Core rule:
 
@@ -87,6 +87,8 @@ This rule may apply to signals from:
 
 This rule is especially relevant to model-provider alignment work, but it is not limited to model providers.
 
+It may also support capability-frontier handling when a signal from a provider, practitioner, standard, regulation, incident report, or deployment pattern needs translation into a vendor-independent RABA responsibility pattern.
+
 ---
 
 ## 4. Translation principle
@@ -137,6 +139,7 @@ Provider / practitioner signals may inform questions such as:
 - Which workflow transitions require escalation?
 - Which provider safety features map to RABA responsibility boundaries?
 - Which provider concepts should not be imported into RABA terminology?
+- Which capability-frontier signals create new responsibility boundary pressure?
 
 Provider signals may help clarify:
 
@@ -152,6 +155,7 @@ Provider signals may help clarify:
 - Runtime Boundary Signals;
 - Organizational Evals;
 - External Signal Intake;
+- Capability Frontier Update Map;
 - Decision Log.
 
 ---
@@ -173,6 +177,7 @@ A provider signal must not imply:
 - implementation guidance;
 - compliance guidance;
 - RABA correctness;
+- automatic RABA update;
 - RABA canon.
 
 A useful signal remains non-canonical unless a separate Human Owner-approved canonicalization process changes its status.
@@ -217,8 +222,6 @@ Do not overstate.
 Do not infer support.
 
 Do not infer partnership.
-
-Do not infer validation.
 
 Do not infer that the signal proves RABA correctness.
 
@@ -270,7 +273,8 @@ Check for:
 - premature canonicalization;
 - compliance interpretation risk;
 - implementation guidance risk;
-- commercial / partnership inference.
+- commercial / partnership inference;
+- automatic-update drift.
 
 ### Step 8 — Decision Log linkage
 
@@ -395,7 +399,10 @@ This rule relates to the current linked draft pack:
 - **PR #146 — Operational Control Board for Provider Artifact Pack**  
   Tracks the operational status and control boundaries for the draft pack.
 
-This rule does not change the status of #143, #144, #145, or #146.
+- **PR #148 — RABA Capability Frontier Update Map**  
+  Uses this translation rule as part of the capability-frontier handling chain before any signal affects RABA wording, terminology, architecture, public positioning, outreach, provider-facing use, or canon.
+
+This rule does not change the status of #143, #144, #145, #146, or #148.
 
 This rule does not authorize public use, outreach, ready-for-review, merge, or canonicalization of those PRs.
 
@@ -415,7 +422,8 @@ Human Owner decision is required before:
 8. creating any provider-facing claim;
 9. making any endorsement, validation, partnership, adoption, commercial, compliance, or certification claim;
 10. introducing a new RABA term based on provider terminology;
-11. using private or unclear-source material outside internal review.
+11. using private or unclear-source material outside internal review;
+12. allowing a provider / external / capability-frontier signal to update RABA wording, architecture, terminology, or public positioning.
 
 ---
 
@@ -430,6 +438,7 @@ Safe wording:
 - “Provider capability signals do not become RABA authority.”
 - “This signal does not prove RABA correctness.”
 - “Provider terminology is mapped to RABA boundaries before any terminology change is considered.”
+- “Capability-frontier signals may create boundary pressure, but they do not automatically update RABA.”
 
 Avoid wording:
 
@@ -442,6 +451,7 @@ Avoid wording:
 - “This confirms market adoption.”
 - “This is provider-approved governance.”
 - “This provider term should become RABA terminology.”
+- “This capability signal updates RABA automatically.”
 
 ---
 
@@ -461,6 +471,8 @@ Avoid wording:
 | Correctness inference | External signal is treated as proof RABA is correct | Require independent RABA review and Human Owner decision |
 | Private-source leakage | Private or unclear-source material enters public-facing text | Require source-boundary check and Human Owner review |
 | Decision-record gap | Status-affecting translation remains informal | Link to Decision Log, Decision Log Queue, issue, or review note |
+| Automatic-update drift | Provider / external / capability-frontier signal silently changes RABA wording or architecture | Preserve no automatic update rule and Human Owner decision |
+| Capability-readiness confusion | New capability is treated as organizational readiness | Preserve capability vs governance distinction |
 
 ---
 
