@@ -68,6 +68,8 @@ External attention does not become validation.
 
 AI capability growth may create new responsibility pressure, but it must pass through RABA governance handling before it affects RABA documents or architecture.
 
+No capability signal automatically updates RABA wording, architecture, terminology, public positioning, outreach posture, provider-facing use, or canon.
+
 Required handling chain:
 
 ```text
@@ -83,7 +85,54 @@ This means that RABA may learn from the frontier, but the frontier does not gove
 
 ---
 
-## 4. Relationship to current draft PR pack
+## 4. Capability vs governance distinction
+
+New AI capability is not the same as organizational readiness to use that capability responsibly.
+
+A provider may release a new agent, tool-use feature, memory feature, multimodal feature, evaluation result, or deployment pattern.
+
+That capability may increase what an AI system can do.
+
+It does not automatically answer:
+
+- who may approve its use;
+- which action classes are allowed;
+- which consequences are acceptable;
+- which evidence may be relied on;
+- which human role remains accountable;
+- which escalation path is required;
+- which responsibility record must exist;
+- whether the organization is ready to use the capability responsibly.
+
+RABA tracks the governance pressure created by new capability, not the capability as authority.
+
+Working formula:
+
+> Capability expansion is not governance readiness.
+
+---
+
+## 5. Recency and source-quality rule
+
+Capability-frontier tracking can become noisy.
+
+Signals should be prioritized by:
+
+- recency;
+- source quality;
+- public shareability;
+- relevance to RABA boundaries;
+- clarity of source and context;
+- evidence of real deployment relevance;
+- risk of public-use, endorsement, validation, adoption, partnership, compliance, or implementation overreach.
+
+A recent signal from a weak or unclear source should not outweigh a clearer, more authoritative, more shareable signal.
+
+A public provider announcement may be useful, but it still requires RABA translation before it affects RABA wording, architecture, terminology, outreach, or canon.
+
+---
+
+## 6. Relationship to current draft PR pack
 
 This working note depends on the current non-canonical draft pack:
 
@@ -102,11 +151,14 @@ This working note depends on the current non-canonical draft pack:
 - **PR #147 — Provider Signal Translation Rule**  
   Defines how provider / external signals may be translated into vendor-independent responsibility patterns without becoming provider authority, correctness proof, endorsement, validation, partnership, adoption, public-use approval, outreach approval, or canon.
 
-This note does not change the status of #143, #144, #145, #146, or #147.
+- **PR #148 — Capability Frontier Update Map**  
+  Proposed related working note for tracking changing AI capability developments and mapping them to RABA responsibility boundaries.
+
+This note does not change the status of #143, #144, #145, #146, #147, or #148.
 
 ---
 
-## 5. Tracked capability areas
+## 7. Tracked capability areas
 
 | Capability area | What to monitor | Primary RABA boundary affected | Typical RABA question |
 |---|---|---|---|
@@ -126,7 +178,7 @@ This note does not change the status of #143, #144, #145, #146, or #147.
 
 ---
 
-## 6. Boundary mapping checklist
+## 8. Boundary mapping checklist
 
 Each capability signal should be mapped to one or more RABA boundaries:
 
@@ -153,7 +205,7 @@ If a signal cannot be mapped to an existing RABA boundary, it should be recorded
 
 ---
 
-## 7. Update cadence
+## 9. Update cadence
 
 This map should support a recurring review cycle.
 
@@ -170,7 +222,7 @@ This cadence is a working suggestion, not an obligation and not canon.
 
 ---
 
-## 8. Capability signal intake rules
+## 10. Capability signal intake rules
 
 A capability signal should be logged before it is used to update RABA documents.
 
@@ -186,6 +238,8 @@ Minimum intake fields:
 - possible responsibility pattern;
 - what the signal may inform;
 - what the signal must not imply;
+- recency / freshness assessment;
+- source-quality assessment;
 - whether Decision Log Queue review is needed;
 - whether Human Owner decision is needed.
 
@@ -193,7 +247,7 @@ A signal must not be used to make public, commercial, partnership, endorsement, 
 
 ---
 
-## 9. Translation requirements
+## 11. Translation requirements
 
 Any status-affecting provider / external signal should pass through the Provider Signal Translation Rule before it affects:
 
@@ -212,16 +266,17 @@ Required translation questions:
 
 1. What does the signal actually say?
 2. What source and shareability boundary applies?
-3. Which provider terms require terminology quarantine?
-4. Which RABA boundary is affected?
-5. What vendor-independent responsibility pattern can be extracted?
-6. What must the signal not imply?
-7. Does this create a Decision Log Queue item?
-8. Does this require Human Owner decision?
+3. How recent and source-reliable is the signal?
+4. Which provider terms require terminology quarantine?
+5. Which RABA boundary is affected?
+6. What vendor-independent responsibility pattern can be extracted?
+7. What must the signal not imply?
+8. Does this create a Decision Log Queue item?
+9. Does this require Human Owner decision?
 
 ---
 
-## 10. Drift controls
+## 12. Drift controls
 
 | Drift risk | Description | Control |
 |---|---|---|
@@ -235,10 +290,13 @@ Required translation questions:
 | Canon drift | Useful signal becomes canon without review | Canonicalization pipeline and Human Owner decision |
 | Compliance drift | Regulatory signal becomes compliance claim | Compliance boundary review |
 | Implementation drift | Capability signal becomes implementation guidance | Non-implementation boundary |
+| Source-noise drift | Weak, stale, or unclear signals create false urgency | Recency and source-quality rule |
+| Capability-governance confusion | New technical capability is treated as organizational readiness | Capability vs governance distinction |
+| Automatic-update drift | Capability signal silently changes RABA wording or architecture | No automatic update rule and Human Owner decision |
 
 ---
 
-## 11. Decision Log Queue triggers
+## 13. Decision Log Queue triggers
 
 A capability signal should be added to the Decision Log Queue if it may affect:
 
@@ -260,7 +318,7 @@ A capability signal should be added to the Decision Log Queue if it may affect:
 
 ---
 
-## 12. Human Owner decision points
+## 14. Human Owner decision points
 
 Human Owner decision is required before:
 
@@ -272,11 +330,12 @@ Human Owner decision is required before:
 6. moving any related PR to ready-for-review;
 7. merging any related PR;
 8. presenting the capability map as accepted architecture;
-9. making any endorsement, validation, partnership, adoption, commercial, compliance, or certification claim.
+9. making any endorsement, validation, partnership, adoption, commercial, compliance, or certification claim;
+10. allowing a capability signal to update RABA wording, architecture, terminology, or public positioning.
 
 ---
 
-## 13. Safe wording
+## 15. Safe wording
 
 Safe wording:
 
@@ -285,6 +344,8 @@ Safe wording:
 - “This signal is logged as external informational input.”
 - “This signal does not approve, validate, endorse, or canonize RABA.”
 - “Provider language is translated into vendor-independent responsibility patterns.”
+- “Capability expansion is not governance readiness.”
+- “No capability signal automatically updates RABA wording, architecture, terminology, public position, or canon.”
 - “Human Owner review is required before public use or canonicalization.”
 
 Avoid wording:
@@ -296,10 +357,12 @@ Avoid wording:
 - “This provider roadmap approves our direction.”
 - “This standard certifies RABA.”
 - “This external response creates adoption.”
+- “This capability means the organization is ready.”
+- “This signal updates RABA automatically.”
 
 ---
 
-## 14. Current working package status
+## 16. Current working package status
 
 Current related PRs:
 
@@ -309,13 +372,14 @@ PR #144 — Draft / non-canonical / not merged
 PR #145 — Draft / non-canonical / not merged
 PR #146 — Draft / non-canonical / not merged
 PR #147 — Draft / non-canonical / not merged
+PR #148 — Draft / non-canonical / not merged
 ```
 
-This note should be treated as a possible next draft addition to that package, but it does not approve movement of any existing PR.
+This note is the proposed PR #148 addition to that package, but it does not approve movement of any existing PR.
 
 ---
 
-## 15. Working status
+## 17. Working status
 
 This is a working note.
 
