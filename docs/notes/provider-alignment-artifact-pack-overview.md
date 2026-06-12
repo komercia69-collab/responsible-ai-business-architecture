@@ -3,7 +3,7 @@
 **Status:** Working Note  
 **Nature:** Non-canonical  
 **Purpose:** Operational overview linking the organizational evals artifact and the provider / external signals log template  
-**Not:** canon, outreach approval, public-use approval, provider endorsement, validation claim, partnership claim, adoption claim, compliance guidance, implementation guidance, or product roadmap
+**Not:** canon, outreach approval, public-use approval, provider endorsement, validation claim, partnership claim, adoption claim, compliance guidance, implementation guidance, approved initiative, campaign, product roadmap, or provider-facing program
 
 ---
 
@@ -11,11 +11,15 @@
 
 This working note explains how two draft RABA artifacts fit together as an artifact-first provider-alignment pack.
 
+The term **artifact pack** means a draft operational grouping only. It does not mean an approved initiative, campaign, roadmap, outreach program, provider-facing program, or public landing page.
+
 The pack exists to support careful future discussion with practitioners, researchers, AI providers, standards bodies, and related organizations without asking for endorsement, validation, partnership, adoption, funding, or confidential information.
 
 This note does not authorize outreach.
 
 This note does not authorize public use of external signals.
+
+This note does not authorize public linking as a provider-facing landing page.
 
 This note does not create canon.
 
@@ -24,6 +28,8 @@ Final architectural approval remains with the Human Owner.
 ---
 
 ## 2. Artifact pair
+
+This overview links draft artifacts only. It does not supersede their own status blocks, PR descriptions, review comments, or Human Owner decision requirements.
 
 ### Artifact A — Organizational Evals for AI-Agent Deployment
 
@@ -76,7 +82,17 @@ This template does not authorize outreach, public claims, public use of unclear-
 
 ---
 
-## 3. Why these artifacts belong together
+## 3. Dependency note
+
+This overview depends on the continuing draft content and status of PR #143 and PR #144.
+
+If either PR changes, is revised, is closed, is merged, or receives new Human Owner guidance, this overview must be reviewed and updated before it is used for any operational planning.
+
+This overview must not be treated as more authoritative than the underlying artifacts it links.
+
+---
+
+## 4. Why these artifacts belong together
 
 The organizational evals artifact creates useful questions.
 
@@ -97,7 +113,7 @@ This prevents a common governance failure:
 
 ---
 
-## 4. Operating principles
+## 5. Operating principles
 
 ### Artifact first
 
@@ -121,7 +137,7 @@ No provider, practitioner, researcher, regulator, standard, or external AI revie
 
 ---
 
-## 5. Safe use sequence
+## 6. Safe use sequence
 
 This sequence is not approved outreach. It is a working control model.
 
@@ -138,7 +154,7 @@ This sequence is not approved outreach. It is a working control model.
 
 ---
 
-## 6. What this pack may support later
+## 7. What this pack may support later
 
 After separate Human Owner approval, this artifact pair may support:
 
@@ -164,7 +180,7 @@ It must not be used to claim:
 
 ---
 
-## 7. Relationship to RABA canon
+## 8. Relationship to RABA canon
 
 This artifact pack is non-canonical.
 
@@ -180,7 +196,7 @@ Only the Human Owner can approve canonicalization.
 
 ---
 
-## 8. Human Owner decisions needed
+## 9. Human Owner decisions needed
 
 Before this artifact pack is used externally, the Human Owner must decide:
 
@@ -192,10 +208,11 @@ Before this artifact pack is used externally, the Human Owner must decide:
 6. Which channels are allowed.
 7. Whether received signals may be recorded publicly, privately, or only internally.
 8. Whether any signal may become a canonicalization candidate.
+9. Whether this overview may be referenced outside the repository.
 
 ---
 
-## 9. Current recommendation
+## 10. Current recommendation
 
 Keep the artifact pack in Draft state.
 
@@ -205,6 +222,8 @@ Do not merge.
 
 Do not use for outreach yet.
 
+Do not use this overview as a public landing page.
+
 Recommended next operational step:
 
 - review PR #143 and PR #144 together as a paired draft pack;
@@ -213,7 +232,7 @@ Recommended next operational step:
 
 ---
 
-## 10. Change boundary
+## 11. Change boundary
 
 This note only links and explains two draft artifacts.
 
@@ -224,5 +243,7 @@ It does not create canon.
 It does not authorize external action.
 
 It does not treat multi-AI agreement, external feedback, provider response, or merged non-canonical notes as approval.
+
+It does not turn draft artifacts into an approved program, roadmap, public campaign, provider-facing package, or outreach plan.
 
 Final architectural approval remains with the Human Owner.
