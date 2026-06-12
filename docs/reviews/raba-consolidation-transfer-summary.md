@@ -3,7 +3,7 @@
 **Status:** Transfer Summary  
 **Canonical status:** Non-canonical  
 **Purpose:** Context handoff for reviewers / AI collaborators / project participants  
-**Current phase:** Consolidation after scope guard and notes classification; updated with provider / external-signal / capability-frontier draft pack status and RABA Interface Simulation findings
+**Current phase:** Consolidation after scope guard and notes classification; updated with provider / external-signal / capability-frontier draft pack status, RABA Interface Simulation findings, and AI Collaborator Operating Instruction
 
 > This file is a transfer summary only.  
 > It is authoritative only as a snapshot of the current handoff state.  
@@ -135,6 +135,7 @@ Navigation / Scope Guard / Operational Interface
   → RABA Notes Classification Review
   → Operational Control Board for Provider Artifact Pack
   → RABA Interface Simulation v0.1
+  → RABA AI Collaborator Operating Instruction
 ```
 
 ---
@@ -243,6 +244,7 @@ They are preserved only to keep context for future review:
 | `raba_interface_simulation` | Simulating visible responsibility controls for Human Owner / AI collaboration | Working note only / non-canonical |
 | `read_only_verification_boundary` | Requiring verification actions to use read-only operations only | Interface requirement candidate / non-canonical |
 | `trust_through_visible_risk` | Supporting justified trust by making hidden AI-related risks visible and controllable | Working idea / non-canonical |
+| `ai_collaborator_operating_instruction` | Operational instruction for AI collaborators working under RABA boundaries | Operational instruction draft / non-canonical |
 
 Candidate events inside working notes remain candidate-only.
 
@@ -258,22 +260,25 @@ No provider-facing positioning has been approved.
 
 No outreach has been approved.
 
+No AI collaborator instruction has been made canonical.
+
 No claim has been made that RABA guarantees trust or eliminates AI error.
 
 ---
 
-## 10. Files recently added for consolidation
+## 10. Files recently added for consolidation / operational control
 
-Recently added consolidation files:
+Recently added consolidation and operational-control files:
 
 ```text
 docs/notes/raba-concept-map.md
 docs/reviews/raba-notes-classification-review.md
 docs/reviews/raba-consolidation-transfer-summary.md
 docs/reviews/raba-consolidation-multi-ai-review-synthesis.md
+docs/project-management/raba-ai-collaborator-operating-instruction.md
 ```
 
-Their purpose is navigation, classification, review synthesis, and context transfer.
+Their purpose is navigation, classification, review synthesis, context transfer, and operational discipline for AI collaborators.
 
 They are not canonical architecture.
 
@@ -458,14 +463,79 @@ These findings should inform future RABA Interface Requirements work but do not 
 
 ---
 
-## 13. Current recommendation
+## 13. AI Collaborator Operating Instruction
+
+A new non-canonical operational instruction was added:
+
+```text
+docs/project-management/raba-ai-collaborator-operating-instruction.md
+```
+
+Status:
+
+```text
+Operational Instruction Draft
+Non-canonical
+Not RABA canon
+Not architecture approval
+Not implementation approval
+Not public positioning approval
+Not outreach approval
+Not provider-facing approval
+Not product roadmap
+```
+
+Purpose:
+
+```text
+Define how an AI collaborator should operate when assisting the Human Owner in the RABA project,
+so that AI support remains useful while responsibility boundaries stay visible.
+```
+
+Core operating principle:
+
+```text
+The AI may assist.
+The Human Owner decides.
+RABA makes the boundary visible.
+```
+
+Russian formulation:
+
+```text
+ИИ может помогать.
+Human Owner принимает решение.
+RABA делает границу ответственности видимой.
+```
+
+The instruction captures operational rules for:
+
+- RABA-state before meaningful action;
+- action-class classification;
+- Human Owner confirmation;
+- human-understandable control;
+- read-only verification;
+- repository state baseline and drift control;
+- trust through visible risk;
+- status label preservation;
+- external signal handling;
+- tool-use incident response;
+- summary after approved GitHub changes.
+
+This file is intended to support AI collaborator discipline.
+
+It does not create canon, architecture approval, implementation approval, public positioning approval, outreach approval, provider-facing use, or PR status movement.
+
+---
+
+## 14. Current recommendation
 
 Current recommendation:
 
 ```text
 Keep all current notes as non-canonical working material for now.
 Do not promote any note to canon yet.
-Use the concept map, classification review, operational control boards, and RABA Interface Simulation to guide future consolidation.
+Use the concept map, classification review, operational control boards, RABA Interface Simulation, and AI Collaborator Operating Instruction to guide future consolidation.
 Keep PR #143–#148 parked as Draft unless the Human Owner explicitly confirms a status change.
 ```
 
@@ -475,11 +545,12 @@ Reason:
 The project needs consolidation before canonicalization.
 The provider / external-signal / capability-frontier pack is useful, but it is not approved architecture.
 The RABA Interface Simulation is useful, but it is not approved UI specification or implementation roadmap.
+The AI Collaborator Operating Instruction is useful operational discipline, but it is not canon.
 ```
 
 ---
 
-## 14. Canonicalization Pack Exit Rule
+## 15. Canonicalization Pack Exit Rule
 
 Consolidation is not the destination.
 
@@ -501,7 +572,7 @@ No AI collaborator may start canonicalization merely because multiple AI systems
 
 ---
 
-## 15. Recommended next work
+## 16. Recommended next work
 
 Recommended next steps:
 
@@ -517,10 +588,12 @@ Recommended next steps:
 10. Do not start outreach or provider-facing use based on the artifact pack without explicit Human Owner confirmation.
 11. Prepare a separate non-canonical RABA Interface Requirements checklist only after Human Owner confirmation.
 12. Track Read-only Verification Boundary and Trust Through Visible Risk as interface findings, not canon.
+13. Use the AI Collaborator Operating Instruction as working operational discipline for future AI-assisted GitHub work.
+14. Consider a short “Ben RABA Mode” instruction for ChatGPT settings, separate from canon.
 
 ---
 
-## 16. Message for incoming collaborators
+## 17. Message for incoming collaborators
 
 Short handoff message:
 
@@ -528,14 +601,15 @@ Short handoff message:
 RABA is currently in a consolidation phase.
 The project is not trying to cover every AI governance topic.
 Its scope is the responsibility boundary where AI-supported outputs, evidence, plans, or workflow changes become consequential business actions.
-Recent work added several non-canonical boundary-pattern notes, a Draft provider / external-signal / capability-frontier pack (#143–#148), and a non-canonical RABA Interface Simulation v0.1.
+Recent work added several non-canonical boundary-pattern notes, a Draft provider / external-signal / capability-frontier pack (#143–#148), a non-canonical RABA Interface Simulation v0.1, and a non-canonical AI Collaborator Operating Instruction.
 The interface simulation added two operational findings: Read-only Verification Boundary and Trust Through Visible Risk.
-Please treat all new notes, interface findings, and PRs as working material unless a separate Human Owner decision says otherwise.
+The AI Collaborator Operating Instruction records how AI collaborators should preserve Human Owner control, read-only verification, status boundaries, and visible-risk discipline.
+Please treat all new notes, interface findings, operational instructions, and PRs as working material unless a separate Human Owner decision says otherwise.
 ```
 
 ---
 
-## 17. Governance boundary
+## 18. Governance boundary
 
 This transfer summary is:
 
@@ -554,6 +628,7 @@ This transfer summary is:
 - not UI specification approval;
 - not implementation approval;
 - not product-roadmap approval;
+- not AI collaborator instruction canonization;
 - not a claim that RABA guarantees trust;
 - not a claim that RABA eliminates AI error;
 - not endorsement, validation, adoption, partnership, commercial, compliance, certification, or product-roadmap claim.
