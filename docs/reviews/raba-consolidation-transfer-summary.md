@@ -3,14 +3,14 @@
 **Status:** Transfer Summary  
 **Canonical status:** Non-canonical  
 **Purpose:** Context handoff for reviewers / AI collaborators / project participants  
-**Current phase:** Consolidation after scope guard and notes classification  
+**Current phase:** Consolidation after scope guard and notes classification; updated with provider / external-signal / capability-frontier draft pack status
 
 > This file is a transfer summary only.  
 > It is authoritative only as a snapshot of the current handoff state.  
 > It is not authoritative as RABA architecture.  
 > It does not approve, reject, canonicalize, or implement any RABA concept.  
 > Canonical status must be determined through accepted documents and explicit Human Owner decisions.  
-> Human Owner confirmation is required before any architectural adoption, schema change, event-family adoption, file reorganization, or public positioning change.
+> Human Owner confirmation is required before any architectural adoption, schema change, event-family adoption, file reorganization, public positioning change, ready-for-review movement, merge, outreach, or provider-facing use.
 
 ---
 
@@ -126,10 +126,14 @@ External Inputs / Review Aids
   → Amber RAG market review
   → Peter Cranstone receiving-boundary input
   → Reliance Boundary canonicalization checklist
+  → Provider / External Signals Log Template
+  → Provider Signal Translation Rule
+  → Capability Frontier Update Map
 
 Navigation / Scope Guard
   → RABA Concept Map and Scope Guard
   → RABA Notes Classification Review
+  → Operational Control Board for Provider Artifact Pack
 ```
 
 ---
@@ -233,6 +237,8 @@ They are preserved only to keep context for future review:
 | `responsibility_observability` | Visibility into responsibility transitions, not just technical events | Candidate label only |
 | `observability_layer` | Possible implementation layer for monitoring responsibility behavior | Candidate label only |
 | `responsibility_dashboard` | Possible UI/reporting surface for responsibility events and decision replay | Candidate label only |
+| `capability_frontier_update_map` | Tracking changing AI capability developments and mapping them to RABA boundaries | Working note only / non-canonical |
+| `provider_signal_translation_rule` | Translating provider / external signals into vendor-independent responsibility patterns | Working note only / non-canonical |
 
 Candidate events inside working notes remain candidate-only.
 
@@ -243,6 +249,10 @@ No Decision Log schema change has been made.
 No single canonical schema source file has been confirmed yet.
 
 No implementation commitment has been made.
+
+No provider-facing positioning has been approved.
+
+No outreach has been approved.
 
 ---
 
@@ -263,25 +273,109 @@ They are not canonical architecture.
 
 ---
 
-## 11. Current recommendation
+## 11. Provider / external-signal / capability-frontier draft pack
+
+After PR #143–#148 and the hygiene patch, the following linked Draft / non-canonical package exists:
+
+| PR | File / artifact | Current status | Canonical status | Operational note |
+|---|---|---|---|---|
+| PR #143 | `docs/notes/raba-organizational-evals-for-ai-agent-deployment.md` | Draft / open / not merged | Non-canonical | Organizational eval scenarios for responsible AI-agent deployment |
+| PR #144 | `docs/templates/provider-signals-log-template.md` | Draft / open / not merged | Non-canonical | External signal intake template; hygiene patch added recency, source-quality, capability area, Decision Log Queue review, Human Owner decision, and no automatic update boundary |
+| PR #145 | `docs/notes/provider-alignment-artifact-pack-overview.md` | Draft / open / not merged | Non-canonical | Draft artifact-pack overview linking #143 and #144 |
+| PR #146 | `docs/project-management/raba-operational-control-board-2026-06-12.md` | Draft / open / not merged | Non-canonical | Current operational control board for #143–#148 |
+| PR #147 | `docs/notes/provider-signal-translation-rule.md` | Draft / open / not merged | Non-canonical | Translation rule; hygiene patch synced it with #148 and added capability-frontier / no automatic update controls |
+| PR #148 | `docs/notes/raba-capability-frontier-update-map.md` | Draft / open / not merged | Non-canonical | Capability-frontier radar for tracking changing AI capabilities and mapping them to RABA responsibility boundaries |
+
+This package is internally aligned as a Draft / non-canonical working pack.
+
+Final controlled review after the hygiene patch found no blocking issues.
+
+Review threads for #143–#148 were empty at the time of this transfer update.
+
+### Core working direction
+
+```text
+RABA should not govern yesterday's AI.
+RABA must stay current with capability development without becoming vendor-dependent.
+```
+
+Russian working formulation:
+
+```text
+RABA должна актуализироваться под меняющиеся разработки ИИ,
+но не становиться зависимой от провайдеров, трендов или внешнего одобрения.
+```
+
+### Current handling chain
+
+```text
+Capability signal
+→ External Signal Log
+→ Provider Signal Translation Rule
+→ RABA boundary mapping
+→ Decision Log Queue if status-affecting
+→ Human Owner decision
+```
+
+### Key preserved rules
+
+```text
+External input may inform RABA.
+External input must not approve RABA.
+```
+
+```text
+RABA does not adopt provider governance.
+RABA translates provider signals into vendor-independent responsibility patterns.
+```
+
+```text
+Capability expansion is not governance readiness.
+```
+
+```text
+No provider / external / capability-frontier signal automatically updates
+RABA wording, terminology, architecture, public positioning,
+outreach posture, provider-facing use, or canon.
+```
+
+### Current blocked actions for #143–#148
+
+Do not:
+
+- mark ready-for-review;
+- merge;
+- canonize;
+- use publicly;
+- start outreach;
+- use for provider-facing positioning;
+- claim endorsement, validation, adoption, partnership, commercial interest, compliance readiness, certification, or product roadmap status.
+
+Human Owner confirmation is required before any status movement.
+
+---
+
+## 12. Current recommendation
 
 Current recommendation:
 
 ```text
 Keep all current notes as non-canonical working material for now.
 Do not promote any note to canon yet.
-Use the concept map and classification review to guide future consolidation.
+Use the concept map, classification review, and operational control boards to guide future consolidation.
+Keep PR #143–#148 parked as Draft unless the Human Owner explicitly confirms a status change.
 ```
 
 Reason:
 
 ```text
 The project needs consolidation before canonicalization.
+The provider / external-signal / capability-frontier pack is useful, but it is not approved architecture.
 ```
 
 ---
 
-## 12. Canonicalization Pack Exit Rule
+## 13. Canonicalization Pack Exit Rule
 
 Consolidation is not the destination.
 
@@ -303,21 +397,24 @@ No AI collaborator may start canonicalization merely because multiple AI systems
 
 ---
 
-## 13. Recommended next work
+## 14. Recommended next work
 
 Recommended next steps:
 
 1. Avoid adding new concepts unless they sharpen a responsibility boundary.
 2. Review whether the Core layer is small and stable enough.
 3. Identify duplicated concepts across Boundary Patterns.
-4. Prepare canonicalization reviews only after consolidation.
-5. Do not update public README until Human Owner confirms public positioning.
-6. Do not adopt event families without separate Human Owner confirmation.
-7. Treat repeated operational use of non-canonical concepts as a trigger for Human Owner review.
+4. Keep PR #143–#148 Draft / parked until explicit Human Owner decision.
+5. Use PR #146 as current control board for the provider / external-signal / capability-frontier pack.
+6. Prepare canonicalization reviews only after consolidation.
+7. Do not update public README until Human Owner confirms public positioning.
+8. Do not adopt event families without separate Human Owner confirmation.
+9. Treat repeated operational use of non-canonical concepts as a trigger for Human Owner review.
+10. Do not start outreach or provider-facing use based on the artifact pack without explicit Human Owner confirmation.
 
 ---
 
-## 14. Message for incoming collaborators
+## 15. Message for incoming collaborators
 
 Short handoff message:
 
@@ -325,13 +422,13 @@ Short handoff message:
 RABA is currently in a consolidation phase.
 The project is not trying to cover every AI governance topic.
 Its scope is the responsibility boundary where AI-supported outputs, evidence, plans, or workflow changes become consequential business actions.
-Recent work added several non-canonical boundary-pattern notes, but no architecture has been adopted.
-Please treat all new notes as working material unless a separate Human Owner decision says otherwise.
+Recent work added several non-canonical boundary-pattern notes and a Draft provider / external-signal / capability-frontier pack (#143–#148), but no architecture has been adopted.
+Please treat all new notes and PRs as working material unless a separate Human Owner decision says otherwise.
 ```
 
 ---
 
-## 15. Governance boundary
+## 16. Governance boundary
 
 This transfer summary is:
 
@@ -342,6 +439,11 @@ This transfer summary is:
 - not a Decision Log entry;
 - not a schema change;
 - not a file reorganization decision;
-- not public positioning approval.
+- not public positioning approval;
+- not ready-for-review approval;
+- not merge approval;
+- not outreach approval;
+- not provider-facing positioning approval;
+- not endorsement, validation, adoption, partnership, commercial, compliance, certification, or product-roadmap claim.
 
 Final architectural approval belongs to the Human Owner.
