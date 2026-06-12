@@ -1,9 +1,10 @@
-# RABA Provider Signals Log Template
+# RABA Provider / External Signals Log Template
 
 **Status:** Working Template  
 **Nature:** Non-canonical  
 **Purpose:** Template for recording external informational signals from AI providers, practitioners, researchers, standards bodies, regulators, or related organizations  
-**Not:** canon, endorsement record, validation record, partnership record, adoption claim, certification claim, compliance evidence, or outreach approval
+**Alias:** Provider Signals Log Template / External Signals Log Template  
+**Not:** canon, endorsement record, validation record, partnership record, adoption claim, certification claim, compliance evidence, outreach approval, or public-use approval
 
 ---
 
@@ -11,7 +12,7 @@
 
 This template defines a disciplined way to record external informational signals that may inform RABA working notes, reviews, or future canonicalization candidates.
 
-The purpose is to prevent external input from being misread as approval, endorsement, validation, partnership, adoption, certification, or canon.
+The purpose is to prevent external input from being misread as approval, endorsement, validation, partnership, adoption, certification, compliance evidence, public-use permission, or canon.
 
 RABA may listen to external signals.
 
@@ -51,13 +52,40 @@ This template is especially relevant to model-provider alignment work, but it is
 Every entry created from this template must preserve the following boundary:
 
 > This entry is an external informational signal only.  
-> It does not imply endorsement, validation, partnership, adoption, certification, approval, or canon.
+> It does not imply endorsement, validation, partnership, adoption, certification, approval, public-use permission, or canon.
 
 If this boundary cannot be preserved, the signal should not be entered as a usable RABA signal until reviewed by the Human Owner.
 
 ---
 
-## 4. Entry status options
+## 4. Project protection rules
+
+The following rules protect RABA from endorsement drift, vendor capture, premature canonicalization, and public-positioning errors.
+
+1. **No external signal approves RABA.**  
+   External input may inform RABA, but only the Human Owner can approve architectural status changes.
+
+2. **No source becomes governance authority.**  
+   A provider, practitioner, researcher, regulator, or standard may provide useful input, but the source does not become a RABA decision authority.
+
+3. **No unclear-source material becomes public without review.**  
+   Material with unclear shareability must not be quoted, paraphrased publicly, linked, or used for public positioning without Human Owner review.
+
+4. **No signal becomes canon by usefulness.**  
+   A useful signal remains non-canonical unless a separate Human Owner-approved canonicalization process changes its status.
+
+5. **No outreach is authorized by logging.**  
+   Recording a signal does not authorize follow-up, public engagement, provider-facing outreach, partnership language, or commercial claims.
+
+6. **No public claim without public-use review.**  
+   Before a signal appears in public-facing material, the public-use rule in this template must be satisfied.
+
+7. **No commercial or partnership inference.**  
+   Any contact, response, comment, or shared resource must not be framed as commercial interest, adoption, validation, endorsement, or partnership.
+
+---
+
+## 5. Entry status options
 
 Use one of the following statuses:
 
@@ -65,7 +93,7 @@ Use one of the following statuses:
 - External informational signal
 - Public-source signal
 - Shareable clarification
-- Private / non-shareable signal
+- Non-shareable signal
 - Requires source verification
 - Requires Human Owner review
 - Working-note input
@@ -77,9 +105,11 @@ Status must not be confused with acceptance into canon.
 
 A signal can be useful and still remain non-canonical.
 
+**Canonicalization candidate** does not mean canon. It only means Human Owner review may be requested for possible future canonicalization.
+
 ---
 
-## 5. Provider Signals Log entry
+## 6. Provider / External Signals Log entry
 
 Copy the following structure for each signal.
 
@@ -91,7 +121,10 @@ Copy the following structure for each signal.
 **Recorded by:**  
 **Status:** Draft signal / External informational signal / Requires verification / etc.  
 **Canonical status:** Non-canonical  
-**Shareability:** Public / Shareable / Private / Non-shareable / Unknown  
+**Shareability:** Public / Shareable / Non-shareable / Unknown  
+**Source permission / citation boundary:** Quote allowed / Paraphrase only / Link only / Internal summary only / Do not use publicly / Unknown  
+**Direct quote allowed:** Yes / No / Unknown  
+**Public use allowed:** Yes / No / Requires Human Owner approval / Unknown  
 
 ---
 
@@ -103,6 +136,7 @@ Copy the following structure for each signal.
 **Source link or reference:**  
 **Source type:** Public artifact / direct response / comment / presentation / report / policy statement / research paper / other  
 **Verification status:** Verified / Unverified / Needs checking  
+**Source permission notes:**  
 
 ---
 
@@ -112,7 +146,8 @@ Briefly summarize the signal in neutral language.
 
 Do not overstate.  
 Do not interpret a response as endorsement.  
-Do not infer partnership or adoption.
+Do not infer partnership or adoption.  
+Do not quote wording unless direct quote permission is explicit.
 
 **Signal summary:**  
 
@@ -174,6 +209,8 @@ This signal does not imply:
 - provider approval;
 - provider certification;
 - commercial relationship;
+- outreach approval;
+- public-use approval;
 - implementation guidance;
 - compliance guidance;
 - RABA canon.
@@ -190,7 +227,8 @@ Identify any risks:
 - vendor capture risk;
 - terminology contamination risk;
 - source verification risk;
-- confidentiality / shareability risk;
+- shareability risk;
+- quotation / citation risk;
 - public positioning risk;
 - premature canonicalization risk;
 - sales / marketing routing risk;
@@ -221,7 +259,20 @@ How should RABA handle this signal?
 
 ---
 
-## 8. Follow-up
+## 8. Link-back / usage trace
+
+If this signal informs a future RABA document, issue, pull request, review, decision log entry, or public post, record the link here.
+
+**Used in file(s):**  
+**Used in issue(s):**  
+**Used in PR(s):**  
+**Used in decision log entry:**  
+**Used in public-facing material:** Yes / No / Unknown  
+**Usage notes:**  
+
+---
+
+## 9. Follow-up
 
 **Follow-up needed:** Yes / No  
 **Follow-up owner:**  
@@ -230,7 +281,7 @@ How should RABA handle this signal?
 
 ---
 
-## 9. Final entry boundary
+## 10. Final entry boundary
 
 This entry remains an external informational signal unless and until the Human Owner explicitly approves a different status.
 
@@ -239,7 +290,7 @@ Final architectural approval remains with the Human Owner.
 
 ---
 
-## 6. Minimal compact table format
+## 7. Minimal compact table format
 
 For quick operational tracking, the signal may also be recorded in a compact table:
 
@@ -251,15 +302,19 @@ For quick operational tracking, the signal may also be recorded in a compact tab
 | Source / channel |  |
 | Signal summary |  |
 | RABA area informed |  |
-| Shareability | Public / Shareable / Private / Unknown |
+| Shareability | Public / Shareable / Non-shareable / Unknown |
+| Source permission / citation boundary | Quote allowed / Paraphrase only / Link only / Internal summary only / Do not use publicly / Unknown |
+| Direct quote allowed | Yes / No / Unknown |
+| Public use allowed | Yes / No / Requires Human Owner approval / Unknown |
 | Status | External informational signal |
 | Does not imply | No endorsement / no validation / no partnership / no adoption / no canon |
+| Link-back / used in | File / issue / PR / decision log / public material |
 | Human Owner decision needed | Yes / No |
 | Next action |  |
 
 ---
 
-## 7. Safe wording examples
+## 8. Safe wording examples
 
 Use wording such as:
 
@@ -268,6 +323,7 @@ Use wording such as:
 - “This signal may help clarify how practitioners think about agent action boundaries.”
 - “No endorsement, validation, partnership, adoption, or canon is implied.”
 - “Further Human Owner review is required before any canonicalization.”
+- “This source is cited only as an external signal, not as RABA authority.”
 
 Avoid wording such as:
 
@@ -278,24 +334,30 @@ Avoid wording such as:
 - “This confirms RABA is correct.”
 - “This makes the concept canonical.”
 - “This proves market adoption.”
+- “This gives RABA authority.”
+- “This authorizes outreach.”
+- “This can now be used publicly.”
 
 ---
 
-## 8. Public-use rule
+## 9. Public-use rule
 
 Before referencing an external signal publicly, verify:
 
 1. Is the source public or explicitly shareable?
-2. Does the wording avoid endorsement or partnership implications?
-3. Is the signal clearly labeled as non-canonical?
-4. Does the Human Owner approve public use?
-5. Is the signal separated from RABA canon?
+2. Does the source permission / citation boundary allow the intended use?
+3. Is direct quotation allowed, or should the signal only be paraphrased?
+4. Does the wording avoid endorsement, validation, adoption, partnership, authority, or public-approval implications?
+5. Is the signal clearly labeled as non-canonical?
+6. Does the Human Owner approve public use?
+7. Is the signal separated from RABA canon?
+8. Is there a link-back record showing where the signal was used?
 
 If any answer is unclear, do not use the signal publicly.
 
 ---
 
-## 9. Working status
+## 10. Working status
 
 This template is a working operational template.
 
@@ -304,6 +366,8 @@ It does not define canon.
 It does not authorize outreach.
 
 It does not authorize public claims.
+
+It does not authorize public use of unclear-source material.
 
 It does not create provider endorsement, validation, partnership, adoption, or certification.
 
