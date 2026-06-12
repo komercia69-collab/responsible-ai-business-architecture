@@ -17,6 +17,8 @@ The purpose is not to seek provider approval.
 
 The purpose is not to treat external attention as validation.
 
+A provider signal is not evidence that RABA is correct.
+
 The purpose is to preserve RABA independence while still learning from external signals about real AI-agent deployment, tool use, oversight, auditability, escalation, and responsibility failure modes.
 
 Core rule:
@@ -97,15 +99,27 @@ A provider signal may pass through a translation process:
 external signal
 → source and shareability check
 → neutral summary
+→ terminology quarantine
 → RABA boundary mapping
 → responsibility pattern extraction
 → risk review
+→ Decision Log / Decision Log Queue linkage if status-affecting
 → Human Owner decision if status change is needed
 ```
 
 The output of translation is not provider governance.
 
 The output is a RABA-relevant working interpretation that may inform a working note, issue, review, decision queue, or future canonicalization candidate.
+
+### Terminology quarantine
+
+Provider terminology must not be imported directly into RABA as RABA terminology.
+
+Provider terms should first be mapped to existing RABA terms and boundaries.
+
+A new RABA term should be introduced only if the existing RABA vocabulary cannot accurately express the translated responsibility pattern.
+
+Any new terminology candidate remains non-canonical until separately reviewed and approved by the Human Owner.
 
 ---
 
@@ -158,6 +172,7 @@ A provider signal must not imply:
 - outreach approval;
 - implementation guidance;
 - compliance guidance;
+- RABA correctness;
 - RABA canon.
 
 A useful signal remains non-canonical unless a separate Human Owner-approved canonicalization process changes its status.
@@ -189,6 +204,10 @@ Before using the signal, identify:
 - whether direct quotation is allowed;
 - whether public use requires Human Owner approval.
 
+Private or unclear-source signals must not be used publicly.
+
+Private or unclear-source signals must not be paraphrased into public-facing RABA material unless the Human Owner explicitly approves the use and the source-boundary check permits it.
+
 ### Step 3 — Neutral summary
 
 Summarize what the signal says in neutral language.
@@ -201,7 +220,17 @@ Do not infer partnership.
 
 Do not infer validation.
 
-### Step 4 — RABA boundary mapping
+Do not infer that the signal proves RABA correctness.
+
+### Step 4 — Terminology quarantine
+
+Identify provider-specific terminology.
+
+Map provider-specific terminology to existing RABA terms before introducing any new RABA term.
+
+If a new term appears necessary, treat it as a terminology candidate, not canon.
+
+### Step 5 — RABA boundary mapping
 
 Map the signal to one or more RABA boundaries:
 
@@ -215,7 +244,7 @@ Map the signal to one or more RABA boundaries:
 - responsibility boundary;
 - public-use boundary.
 
-### Step 5 — Responsibility pattern extraction
+### Step 6 — Responsibility pattern extraction
 
 Extract a vendor-independent responsibility pattern.
 
@@ -229,7 +258,7 @@ RABA translation:
 Tool access is not responsibility. A resource-access boundary must bind allowed action class, approval state, consequence class, reversibility, and escalation owner before external consequence can occur.
 ```
 
-### Step 6 — Risk review
+### Step 7 — Risk review
 
 Check for:
 
@@ -243,7 +272,19 @@ Check for:
 - implementation guidance risk;
 - commercial / partnership inference.
 
-### Step 7 — Handling decision
+### Step 8 — Decision Log linkage
+
+If a translated signal may affect status, wording, public positioning, canonicalization, outreach, or architecture, it should be linked to one of the following:
+
+- Decision Log entry;
+- Decision Log Queue item;
+- issue;
+- review note;
+- working-note follow-up.
+
+A translation that affects RABA status must not remain only as informal discussion.
+
+### Step 9 — Handling decision
 
 Choose handling status:
 
@@ -257,7 +298,7 @@ Choose handling status:
 - reject / archive;
 - requires Human Owner decision.
 
-### Step 8 — Human Owner review
+### Step 10 — Human Owner review
 
 Human Owner review is required before:
 
@@ -302,7 +343,7 @@ RABA translation:
 
 Boundary:
 
-This does not imply certification, compliance readiness, or canon.
+This does not imply certification, compliance readiness, RABA correctness, or canon.
 
 ---
 
@@ -372,7 +413,9 @@ Human Owner decision is required before:
 6. moving this note toward ready-for-review;
 7. merging this note as a non-canonical working note;
 8. creating any provider-facing claim;
-9. making any endorsement, validation, partnership, adoption, commercial, compliance, or certification claim.
+9. making any endorsement, validation, partnership, adoption, commercial, compliance, or certification claim;
+10. introducing a new RABA term based on provider terminology;
+11. using private or unclear-source material outside internal review.
 
 ---
 
@@ -385,6 +428,8 @@ Safe wording:
 - “No endorsement, validation, partnership, adoption, or canon is implied.”
 - “Human Owner review is required before public use or canonicalization.”
 - “Provider capability signals do not become RABA authority.”
+- “This signal does not prove RABA correctness.”
+- “Provider terminology is mapped to RABA boundaries before any terminology change is considered.”
 
 Avoid wording:
 
@@ -396,6 +441,7 @@ Avoid wording:
 - “This authorizes outreach.”
 - “This confirms market adoption.”
 - “This is provider-approved governance.”
+- “This provider term should become RABA terminology.”
 
 ---
 
@@ -412,6 +458,9 @@ Avoid wording:
 | Compliance overreach | Signal is treated as compliance guidance | Preserve non-compliance boundary |
 | Implementation overreach | Signal is treated as implementation instruction | Preserve non-implementation boundary |
 | Partnership inference | Contact is framed as relationship | Block partnership/adoption/validation language |
+| Correctness inference | External signal is treated as proof RABA is correct | Require independent RABA review and Human Owner decision |
+| Private-source leakage | Private or unclear-source material enters public-facing text | Require source-boundary check and Human Owner review |
+| Decision-record gap | Status-affecting translation remains informal | Link to Decision Log, Decision Log Queue, issue, or review note |
 
 ---
 
