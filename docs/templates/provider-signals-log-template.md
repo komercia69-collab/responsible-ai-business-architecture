@@ -45,6 +45,8 @@ This template may be used for signals from:
 
 This template is especially relevant to model-provider alignment work, but it is not limited to model providers.
 
+Capability-frontier signals may also use this template when they require source, recency, source-quality, shareability, citation-boundary, or Human Owner decision tracking.
+
 ---
 
 ## 3. Mandatory boundary statement
@@ -82,6 +84,9 @@ The following rules protect RABA from endorsement drift, vendor capture, prematu
 
 7. **No commercial or partnership inference.**  
    Any contact, response, comment, or shared resource must not be framed as commercial interest, adoption, validation, endorsement, or partnership.
+
+8. **No frontier signal creates automatic update pressure.**  
+   A recent or high-profile capability signal may create review pressure, but it does not automatically update RABA wording, terminology, architecture, public positioning, outreach posture, provider-facing use, or canon.
 
 ---
 
@@ -125,6 +130,11 @@ Copy the following structure for each signal.
 **Source permission / citation boundary:** Quote allowed / Paraphrase only / Link only / Internal summary only / Do not use publicly / Unknown  
 **Direct quote allowed:** Yes / No / Unknown  
 **Public use allowed:** Yes / No / Requires Human Owner approval / Unknown  
+**Recency / freshness assessment:** Current / Recent / Historical / Stale / Unknown  
+**Source-quality assessment:** Primary source / credible secondary source / practitioner signal / unclear source / weak source / unknown  
+**Capability area, if applicable:** AI agents / tool use / memory / multimodal / evals / enterprise deployment / runtime monitoring / incident / standards / regulation / other / not applicable  
+**Decision Log Queue review needed:** Yes / No / Unknown  
+**Human Owner decision needed:** Yes / No / Unknown
 
 ---
 
@@ -136,7 +146,7 @@ Copy the following structure for each signal.
 **Source link or reference:**  
 **Source type:** Public artifact / direct response / comment / presentation / report / policy statement / research paper / other  
 **Verification status:** Verified / Unverified / Needs checking  
-**Source permission notes:**  
+**Source permission notes:**
 
 ---
 
@@ -170,6 +180,7 @@ Select all that apply:
 - Provider Signal Translation Rule
 - Organizational Evals
 - External Signal Intake
+- Capability Frontier Update Map
 - Decision Log
 - Other:
 
@@ -190,7 +201,9 @@ Examples:
 - enterprise deployment patterns;
 - evidence traceability;
 - responsibility record requirements;
-- failure modes in real workflows.
+- failure modes in real workflows;
+- capability-frontier boundary pressure;
+- whether a Decision Log Queue item may be needed.
 
 **May inform:**  
 
@@ -213,6 +226,7 @@ This signal does not imply:
 - public-use approval;
 - implementation guidance;
 - compliance guidance;
+- automatic RABA update;
 - RABA canon.
 
 Additional boundary notes:
@@ -227,12 +241,16 @@ Identify any risks:
 - vendor capture risk;
 - terminology contamination risk;
 - source verification risk;
+- source freshness / recency risk;
+- source-quality risk;
 - shareability risk;
 - quotation / citation risk;
 - public positioning risk;
 - premature canonicalization risk;
 - sales / marketing routing risk;
-- legal / compliance interpretation risk.
+- legal / compliance interpretation risk;
+- capability-readiness confusion risk;
+- automatic-update drift risk.
 
 **Risk notes:**  
 
@@ -302,12 +320,16 @@ For quick operational tracking, the signal may also be recorded in a compact tab
 | Source / channel |  |
 | Signal summary |  |
 | RABA area informed |  |
+| Capability area, if applicable | AI agents / tool use / memory / multimodal / evals / enterprise deployment / runtime monitoring / incident / standards / regulation / other / not applicable |
+| Recency / freshness assessment | Current / Recent / Historical / Stale / Unknown |
+| Source-quality assessment | Primary source / credible secondary source / practitioner signal / unclear source / weak source / unknown |
 | Shareability | Public / Shareable / Non-shareable / Unknown |
 | Source permission / citation boundary | Quote allowed / Paraphrase only / Link only / Internal summary only / Do not use publicly / Unknown |
 | Direct quote allowed | Yes / No / Unknown |
 | Public use allowed | Yes / No / Requires Human Owner approval / Unknown |
 | Status | External informational signal |
-| Does not imply | No endorsement / no validation / no partnership / no adoption / no canon |
+| Does not imply | No endorsement / no validation / no partnership / no adoption / no automatic update / no canon |
+| Decision Log Queue review needed | Yes / No / Unknown |
 | Link-back / used in | File / issue / PR / decision log / public material |
 | Human Owner decision needed | Yes / No |
 | Next action |  |
@@ -321,7 +343,8 @@ Use wording such as:
 - “This public source may inform RABA as an external signal.”
 - “This response is recorded as non-canonical informational input.”
 - “This signal may help clarify how practitioners think about agent action boundaries.”
-- “No endorsement, validation, partnership, adoption, or canon is implied.”
+- “This signal may indicate capability-frontier boundary pressure.”
+- “No endorsement, validation, partnership, adoption, automatic update, or canon is implied.”
 - “Further Human Owner review is required before any canonicalization.”
 - “This source is cited only as an external signal, not as RABA authority.”
 
@@ -337,6 +360,7 @@ Avoid wording such as:
 - “This gives RABA authority.”
 - “This authorizes outreach.”
 - “This can now be used publicly.”
+- “This capability updates RABA automatically.”
 
 ---
 
@@ -347,7 +371,7 @@ Before referencing an external signal publicly, verify:
 1. Is the source public or explicitly shareable?
 2. Does the source permission / citation boundary allow the intended use?
 3. Is direct quotation allowed, or should the signal only be paraphrased?
-4. Does the wording avoid endorsement, validation, adoption, partnership, authority, or public-approval implications?
+4. Does the wording avoid endorsement, validation, adoption, partnership, authority, automatic-update, or public-approval implications?
 5. Is the signal clearly labeled as non-canonical?
 6. Does the Human Owner approve public use?
 7. Is the signal separated from RABA canon?
@@ -370,5 +394,7 @@ It does not authorize public claims.
 It does not authorize public use of unclear-source material.
 
 It does not create provider endorsement, validation, partnership, adoption, or certification.
+
+It does not authorize automatic RABA updates from provider, external, or capability-frontier signals.
 
 Final architectural approval remains with the Human Owner.
