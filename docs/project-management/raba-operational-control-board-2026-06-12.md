@@ -9,9 +9,11 @@
 
 ## 1. Executive Summary
 
-This operational control board records the current state of three linked draft PRs related to RABA model-provider / practitioner alignment work.
+This operational control board records the current state of three linked draft PRs related to RABA model-provider / practitioner alignment work, plus this board's own PR.
 
-The three PRs form a **linked non-canonical draft artifact pack** only.
+PR #143, PR #144, and PR #145 form a **linked non-canonical draft artifact pack** only.
+
+PR #146 tracks the operational status and control boundaries for that pack.
 
 They do not create canon.
 
@@ -54,10 +56,11 @@ Related working formula:
 | PR #143 | Organizational Evals for AI-Agent Deployment | Draft / open / not merged | Non-canonical | Draft artifact A | Ready-for-review, merge, canon, public use, outreach |
 | PR #144 | Provider / External Signals Log Template | Draft / open / not merged | Non-canonical | Draft artifact B | Ready-for-review, merge, canon, public use, outreach |
 | PR #145 | Provider Alignment Artifact Pack Overview | Draft / open / not merged | Non-canonical | Draft overview linking #143 and #144 | Ready-for-review, merge, canon, public use, outreach, public landing page use |
+| PR #146 | Operational Control Board for Provider Artifact Pack | Draft / open / not merged | Non-canonical | Draft control board for #143 / #144 / #145 | Ready-for-review, merge, canon, public use, outreach, provider-facing use |
 
 ### Control rule
 
-PR #143, PR #144, and PR #145 must remain blocked from ready-for-review, merge, public use, provider-facing use, and outreach unless the Human Owner explicitly confirms the next status change.
+PR #143, PR #144, PR #145, and PR #146 must remain blocked from ready-for-review, merge, public use, provider-facing use, and outreach unless the Human Owner explicitly confirms the next status change.
 
 ---
 
@@ -73,6 +76,9 @@ The current linked draft artifact pack consists of:
 
 3. **PR #145 — Provider Alignment Artifact Pack Overview**  
    Links #143 and #144 as a draft operational grouping and preserves the boundary that this is not an approved initiative, roadmap, public campaign, provider-facing package, outreach program, or canon.
+
+4. **PR #146 — Operational Control Board for Provider Artifact Pack**  
+   Tracks the operational status, blocked actions, decision queue, and risk register for #143 / #144 / #145.
 
 ### Pack boundary
 
@@ -102,6 +108,7 @@ It does not mean:
 | Organizational Evals | Draft working note | Not canonicalized | Yes, before merge or canon |
 | Provider / External Signals Log Template | Draft working template | Not canonicalized | Yes, before merge or canon |
 | Provider Alignment Artifact Pack Overview | Draft working note | Not canonicalized | Yes, before merge or external reference |
+| Operational Control Board for Provider Artifact Pack | Draft working operational note | Not canonicalized | Yes, before merge or external reference |
 
 ### Canonicalization rule
 
@@ -139,7 +146,8 @@ External signal handling requirements:
 | 2026-06-12 | PR #144 received protection / hygiene patch and second review | Draft remains blocked |
 | 2026-06-12 | PR #145 opened as Draft | Non-canonical draft overview |
 | 2026-06-12 | PR #145 received boundary patch and second review | Draft remains blocked |
-| 2026-06-12 | Operational control board updated | This note |
+| 2026-06-12 | PR #146 opened as Draft | Non-canonical operational control board |
+| 2026-06-12 | Operational control board updated to self-track PR #146 | This note |
 
 ---
 
@@ -150,13 +158,15 @@ Human Owner decisions needed before further movement:
 1. Should PR #143 remain Draft, be revised, or later become a merged non-canonical working note?
 2. Should PR #144 remain Draft, be revised, or later become a merged non-canonical working template?
 3. Should PR #145 remain Draft, be revised, or later become a merged non-canonical operational overview?
-4. May any of #143, #144, or #145 be referenced publicly?
-5. May any practitioner or provider outreach begin?
-6. Which exact question may be asked first?
-7. Which channels are allowed?
-8. May any external signal be recorded publicly, privately, or only internally?
-9. May any signal become a canonicalization candidate?
-10. May the overview in #145 be referenced outside the repository?
+4. Should PR #146 remain Draft, be revised, or later become a merged non-canonical operational control note?
+5. May any of #143, #144, #145, or #146 be referenced publicly?
+6. May any practitioner or provider outreach begin?
+7. Which exact question may be asked first?
+8. Which channels are allowed?
+9. May any external signal be recorded publicly, privately, or only internally?
+10. May any signal become a canonicalization candidate?
+11. May the overview in #145 be referenced outside the repository?
+12. May this operational control board be referenced outside the repository?
 
 ---
 
@@ -173,12 +183,13 @@ Human Owner decisions needed before further movement:
 | Compliance interpretation risk | Evals may be misread as compliance guidance | Preserve not-compliance-guidance language |
 | Implementation guidance risk | Evals may be misread as implementation requirements | Preserve eval-oriented language |
 | Authority-transfer risk | Provider or external expert may be treated as RABA authority | External input may inform, not approve |
+| Control-board drift | This board may be mistaken for approval rather than project control | Keep PR #146 Draft and preserve final boundary |
 
 ---
 
 ## 10. Recommended Next Best Step
 
-Keep PR #143, PR #144, and PR #145 in Draft.
+Keep PR #143, PR #144, PR #145, and PR #146 in Draft.
 
 Do not mark ready-for-review.
 
@@ -190,7 +201,7 @@ Do not use for outreach.
 
 Next operational action:
 
-- review the three PRs together as a linked non-canonical draft artifact pack;
+- review the four PRs together as a linked non-canonical draft artifact/control pack;
 - identify whether any further wording hygiene is needed;
 - only after explicit Human Owner confirmation, decide whether any PR should move toward ready-for-review or remain parked.
 
@@ -204,8 +215,9 @@ Next operational action:
 
 ### What was added
 
-- operational board entry for PR #143, PR #144, and PR #145;
+- operational board entry for PR #143, PR #144, PR #145, and PR #146;
 - linked draft artifact pack status;
+- self-tracking control-board status;
 - blocked-action table;
 - canonicalization pipeline;
 - external signal handling requirements;
@@ -220,11 +232,12 @@ Next operational action:
 - protection against vendor capture;
 - protection against premature public use;
 - protection against outreach drift;
+- protection against control-board drift;
 - Human Owner decision authority.
 
 ### Next best step
 
-Keep the artifact pack parked as Draft and perform only controlled review until the Human Owner explicitly confirms the next status change.
+Keep the artifact pack and control board parked as Draft and perform only controlled review until the Human Owner explicitly confirms the next status change.
 
 ---
 
