@@ -333,7 +333,198 @@ Merged text is not architectural approval unless a Human Owner decision exists.
 
 ---
 
-## 11. Problems discovered
+## 11. Read-only Verification Boundary
+
+The simulation revealed a separate safety boundary around verification actions.
+
+Verification must be treated as its own action class.
+
+A verification action is intended to check repository state, file existence, PR status, branch state, or project consistency.
+
+Because verification is not intended to change the project, it must use read-only operations only.
+
+Core rule:
+
+```text
+Verification must be read-only.
+```
+
+Russian formulation:
+
+```text
+Проверка должна выполняться только read-only действием.
+Нельзя использовать create, update, delete, merge, ready-for-review,
+label changes, or other state-changing operations as a way to verify repository state.
+```
+
+Incorrect patterns:
+
+```text
+Using delete to check whether a file exists.
+Using create to test whether writing works.
+Using update to check whether a file is current.
+Using status-changing actions to inspect workflow state.
+```
+
+Correct patterns:
+
+```text
+fetch
+search
+list
+compare
+read metadata
+get status
+inspect diff
+```
+
+If an AI collaborator uses a write, delete, or status-changing tool for verification, RABA should classify this as a tool-use boundary violation.
+
+Required response:
+
+```text
+Stop workflow.
+Do not continue with further write actions.
+Classify the incident.
+Report to Human Owner.
+If repository state changed, request explicit cleanup confirmation.
+Update interface requirements if the incident reveals a missing control.
+```
+
+This boundary is especially important because an action may be low-intent but high-consequence.
+
+The intent may be "only checking," but the tool may still change repository state.
+
+Therefore RABA must classify both:
+
+```text
+user intention
+```
+
+and:
+
+```text
+tool consequence class
+```
+
+The tool consequence class must control the permission boundary.
+
+A read-only intention does not make a write-capable tool safe.
+
+---
+
+## 12. Trust Through Visible Risk
+
+The simulation revealed that RABA can create a more tangible and responsible form of human trust in AI.
+
+This is not blind trust.
+
+RABA should not imply that AI is always correct, safe, or reliable.
+
+Instead, RABA supports justified trust by making hidden risks visible before consequential action.
+
+Core rule:
+
+```text
+RABA does not create trust by hiding uncertainty.
+RABA creates trust by exposing risk, boundaries, permissions,
+and responsibility transitions in a human-understandable way.
+```
+
+Russian formulation:
+
+```text
+RABA не создаёт доверие тем, что скрывает неопределённость.
+RABA создаёт доверие тем, что показывает риски, границы,
+разрешения и переходы ответственности понятным для человека языком.
+```
+
+Problem:
+
+```text
+Humans may consciously accept that AI can be wrong,
+but without an interface they often do not see which hidden risks
+should be checked before action.
+```
+
+Russian formulation:
+
+```text
+Человек может понимать, что ИИ ошибается,
+но без RABA он часто не видит,
+какие именно скрытые риски нужно проверить.
+```
+
+RABA makes visible:
+
+```text
+AI recommendation ≠ Human Owner decision
+External signal ≠ validation
+Repository presence ≠ approval
+Commit existence ≠ canon
+Provider language ≠ RABA terminology
+Capability expansion ≠ governance readiness
+Read-only intention ≠ safe tool action
+Detected change ≠ approved change
+```
+
+Value:
+
+```text
+RABA does not remove risk.
+RABA turns hidden risk into visible, classifiable, reviewable,
+and controllable risk.
+```
+
+Russian formulation:
+
+```text
+RABA не устраняет риск полностью.
+RABA превращает скрытый риск в видимый риск,
+который можно назвать, оценить, заблокировать,
+проверить, передать Human Owner и записать в trace.
+```
+
+This creates a more mature form of trust:
+
+```text
+I do not trust AI because it cannot be wrong.
+I trust the RABA-governed process because it shows
+where AI may be wrong, what is blocked,
+what must be checked, and where the Human Owner decides.
+```
+
+Russian formulation:
+
+```text
+Я доверяю не потому, что ИИ не может ошибиться.
+Я доверяю процессу, потому что он показывает,
+где ИИ может ошибиться,
+что заблокировано,
+что нужно проверить,
+и где решение остаётся за человеком.
+```
+
+This should be treated as a working idea only.
+
+It is not a claim that RABA guarantees trust.
+
+Safer formulation:
+
+```text
+RABA supports justified, visible, and controlled trust in human-AI workflows.
+```
+
+Russian formulation:
+
+```text
+RABA поддерживает обоснованное, видимое и управляемое доверие
+в работе человека и ИИ.
+```
+
+---
+
+## 13. Problems discovered
 
 ### Problem 1 — Language comprehension
 
@@ -430,9 +621,29 @@ Interface requirement:
 Before consequential actions, compare current repository state with the last known approved baseline.
 ```
 
+### Problem 9 — Unsafe verification action
+
+A tool action may be intended as verification but still have write, delete, or status-changing consequences.
+
+Interface requirement:
+
+```text
+Verification must be read-only, and tool consequence class must override user intention.
+```
+
+### Problem 10 — Hidden risk and trust illusion
+
+Humans may know that AI can be wrong, but they may not see the hidden risk categories created by AI-assisted workflows.
+
+Interface requirement:
+
+```text
+Trust should be supported by visible risk, visible boundaries, visible permissions, and visible responsibility transitions.
+```
+
 ---
 
-## 12. Responsibility trace requirements
+## 14. Responsibility trace requirements
 
 A meaningful RABA interface should create a trace for significant transitions.
 
@@ -449,6 +660,8 @@ Trace should include:
 - public-use impact;
 - outreach impact;
 - repository baseline / current state comparison, if relevant;
+- verification method and whether it was read-only, if relevant;
+- visible-risk note, if relevant;
 - risk note;
 - execution result.
 
@@ -479,7 +692,7 @@ File created as Working Note / Non-canonical
 
 ---
 
-## 13. Interface requirements v0.1
+## 15. Interface requirements v0.1
 
 The simulation suggests the first requirements for a real RABA Interface:
 
@@ -503,10 +716,15 @@ The simulation suggests the first requirements for a real RABA Interface:
 18. Treat detected repository change as not approved until reviewed.
 19. Enter inspect-only mode when repository state drift is detected.
 20. Classify external contributors, bots, unknown sources, and public-exposure changes.
+21. Enforce read-only verification.
+22. Classify tool consequence class separately from user intention.
+23. Treat unsafe verification as a tool-use boundary violation.
+24. Make hidden AI-related risk visible before consequential action.
+25. Support justified, visible, and controlled trust rather than blind trust.
 
 ---
 
-## 14. What this note does not do
+## 16. What this note does not do
 
 This note does not:
 
@@ -521,11 +739,13 @@ This note does not:
 - make RABA Interface canonical;
 - create a schema change;
 - create a Responsibility Event Stream event family;
-- change any PR status.
+- change any PR status;
+- claim that RABA guarantees trust;
+- claim that RABA eliminates AI error.
 
 ---
 
-## 15. Suggested future work
+## 17. Suggested future work
 
 Possible next steps, each requiring separate Human Owner confirmation if they involve GitHub writes or status changes:
 
@@ -538,11 +758,13 @@ Possible next steps, each requiring separate Human Owner confirmation if they in
 7. Define an incident pattern for accidental repository changes.
 8. Define Repository State Baseline and Drift Control as a separate working note.
 9. Define public exposure controls for LinkedIn / public repository attention.
-10. Add this note to a future operational control board.
+10. Define Read-only Verification Boundary as a separate working note or checklist.
+11. Define Trust Through Visible Risk as a separate working note.
+12. Add this note to a future operational control board.
 
 ---
 
-## 16. Working status
+## 18. Working status
 
 This is a working note.
 
