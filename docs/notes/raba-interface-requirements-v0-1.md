@@ -1,15 +1,15 @@
-# RABA Interface Requirements v0.1
+# RABA Interface Requirement Candidates v0.1
 
 **Status:** Working Note Draft  
 **Canonical status:** Non-canonical  
-**Material type:** Interface requirement candidate / review aid / operational control material  
+**Material type:** Interface requirement candidates / review aid / operational control material  
 **Maturity:** Exploratory / pre-implementation  
 
 **Approval status:**  
 Not approved as RABA canon, UI specification, implementation plan, product roadmap, public positioning, outreach material, provider-facing material, commercial claim, validation claim, adoption claim, partnership claim, certification claim, compliance guidance, or legal guidance.
 
 **Purpose:**  
-This draft captures repeated interface-related requirements discovered during Human Owner / AI collaborator work.
+This draft captures repeated interface-related requirement candidates discovered during Human Owner / AI collaborator work.
 
 It does not define a final RABA Interface.
 
@@ -33,9 +33,48 @@ It must not be read as approved specification, approved roadmap, or canonical ar
 
 ---
 
+## 0. Safety-hardening Before Any Further Status Movement
+
+This document is a requirement-candidate working note only.
+
+It does not approve:
+
+- interface design;
+- implementation;
+- product roadmap;
+- workflow state machine;
+- schema fields;
+- public positioning;
+- provider-facing use;
+- commercial use;
+- adoption claim;
+- validation claim;
+- partnership claim;
+- compliance claim;
+- certification claim;
+- canonical RABA architecture.
+
+Additional safety boundaries:
+
+```text
+candidate requirement ≠ approved requirement
+candidate interface behavior ≠ approved interface design
+candidate trace field ≠ approved schema field
+candidate permission label ≠ approved workflow state machine
+review aid ≠ canon
+Draft PR ≠ ready-for-review
+Draft PR ≠ merge approval
+```
+
+Any movement from this note into implementation guidance, interface specification, schema definition, public material, provider-facing material, or canon requires explicit Human Owner confirmation.
+
+This file update does not approve ready-for-review, merge, canon, public positioning, outreach, provider-facing use, commercial use, adoption, validation, partnership, compliance, certification, or product-roadmap claims.
+
+---
+
 ## 1. Purpose
 
-The purpose of this working note draft is to capture the first structured requirements for a possible RABA Interface.
+The purpose of this working note draft is to capture the first structured requirement candidates for a possible RABA Interface.
 
 The RABA Interface is not only a visual dashboard.
 
@@ -90,7 +129,7 @@ It covers:
 - visible risk;
 - material status visibility;
 - responsibility trace requirements;
-- separation between current AI collaborator operating rules and future RABA Interface requirements.
+- separation between current AI collaborator operating rules and future RABA Interface requirement candidates.
 
 This note does not approve implementation.
 
@@ -119,7 +158,7 @@ They mean only:
 
 ```text
 This behavior has appeared repeatedly enough in RABA workflow
-to be worth reviewing as a possible interface requirement.
+to be worth reviewing as a possible interface requirement candidate.
 ```
 
 The following interpretations are explicitly blocked:
@@ -154,13 +193,13 @@ They represent two different layers:
 AI Collaborator Operating Instruction
 = how Ben / AI collaborator should work now.
 
-RABA Interface Requirements
+RABA Interface Requirement Candidates
 = what a future RABA Interface may need to show, enforce, or record.
 ```
 
 The operating instruction is current operational discipline for AI collaborators.
 
-The interface requirements are possible future interface requirements.
+The interface requirement candidates are possible future interface requirements.
 
 Repeated operational rules may later inform interface design, but repetition does not automatically make them canon.
 
@@ -243,6 +282,15 @@ This table is not an approved interface specification.
 
 It is a candidate classification model for review.
 
+Required boundary:
+
+```text
+action-class table = review aid
+action-class table ≠ canonical taxonomy
+action-class table ≠ approved control model
+action-class table ≠ final RABA action classification
+```
+
 ---
 
 ## 7. Permission State Visibility
@@ -265,6 +313,14 @@ Core rule candidate:
 
 ```text
 Confirmation for one action does not authorize a higher-level action.
+```
+
+Required boundary:
+
+```text
+candidate permission label ≠ approved workflow state machine
+candidate permission label ≠ implementation rule
+candidate permission label ≠ runtime control authorization
 ```
 
 Examples:
@@ -520,6 +576,16 @@ Safer trust formulation:
 RABA supports justified, visible, and controlled trust in human-AI workflows.
 ```
 
+Required boundary:
+
+```text
+trust language = internal working formulation
+trust language ≠ public positioning
+trust language ≠ validation claim
+trust language ≠ adoption claim
+trust language ≠ product claim
+```
+
 This should not be used as a public claim without separate Human Owner approval.
 
 It is not a claim that RABA guarantees trust.
@@ -716,32 +782,39 @@ Trace may include:
 - risk note;
 - execution result.
 
+Trace field boundary:
+
+```text
+candidate trace field ≠ approved schema field
+interface trace visibility ≠ approved Responsibility Event Stream schema
+```
+
 Example trace:
 
 ```text
 Responsibility Event:
-Create RABA Interface Requirements v0.1 working note draft
+Update RABA Interface Requirement Candidates v0.1 working note draft
 
 Action class:
 Repository write
 
 Approval:
-Explicit Human Owner confirmation for this file only
+Explicit Human Owner confirmation for this file-level safety-hardening update only
 
 Boundary:
-No PR
 No ready-for-review
 No merge
 No canon
 No public use
 No outreach
 No provider-facing use
+No commercial, adoption, validation, partnership, compliance, certification, or product-roadmap claim
 
 Canonical impact:
 None
 
 Execution result:
-File added as Working Note Draft / Non-canonical
+File updated as Working Note Draft / Non-canonical / requirement candidates
 ```
 
 ---
@@ -755,7 +828,7 @@ Operational Rule Layer:
 Rules for how Ben / AI collaborator must operate now.
 
 Interface Requirement Layer:
-Requirements that a future RABA Interface may need to show, enforce, or record.
+Requirement candidates that a future RABA Interface may need to show, enforce, or record.
 ```
 
 Examples:
@@ -784,7 +857,7 @@ It does not move any RABA concept from working material into canon.
 
 It does not move any PR from Draft to ready-for-review.
 
-It does not authorize any repository write beyond the explicitly confirmed creation of this single working note draft.
+It does not authorize any repository write beyond the explicitly confirmed file-level safety-hardening update in PR #149.
 
 It does not authorize any external communication.
 
@@ -822,11 +895,11 @@ This note does not:
 
 ## 19. Open Human Owner Review Questions
 
-Before this outline becomes a PR, public-facing artifact, implementation reference, or canonicalization candidate, the Human Owner should decide:
+Before this outline becomes a public-facing artifact, implementation reference, ready-for-review PR, merge candidate, or canonicalization candidate, the Human Owner should decide:
 
 1. Should this remain under `docs/notes/`, move under `docs/project-management/`, or later move to a future `docs/interface/`?
 2. Should it be connected to `Responsibility Event Stream` now or later?
-3. Should `Read-only Verification Boundary` become a separate note or remain inside interface requirements?
+3. Should `Read-only Verification Boundary` become a separate note or remain inside interface requirement candidates?
 4. Should `Trust Through Visible Risk` stay as a working idea or become part of RABA principles later?
 5. Should this remain Russian-first internally, English-first in repository text, or bilingual?
 6. Should this be reviewed before any new public-facing RABA wording?
@@ -837,6 +910,8 @@ Before this outline becomes a PR, public-facing artifact, implementation referen
 11. Should brand phrase candidates be tracked in a separate Brand / Public Positioning Queue?
 12. Should the interface requirement layer eventually be mapped to Responsibility Event Stream fields?
 13. Should the interface requirement layer eventually be mapped to Decision Log fields?
+14. Should Read-only Verification Boundary later become a separate working note?
+15. Should trace requirements later move into a separate Responsibility Event Stream mapping review?
 
 ---
 
@@ -846,11 +921,12 @@ Recommended next step:
 
 ```text
 Keep this working note draft in internal review.
-Do not open a PR unless the Human Owner explicitly confirms that specific action.
+Do not mark PR #149 ready-for-review unless the Human Owner explicitly confirms that specific action.
+Do not merge.
 Do not use it as canon.
 Do not use it as public positioning.
 Do not use it as provider-facing material.
-Use it only to identify repeated interface requirements that may deserve later structured review.
+Use it only to identify repeated interface requirement candidates that may deserve later structured review.
 ```
 
 Current GitHub status:
@@ -858,7 +934,7 @@ Current GitHub status:
 ```text
 Working Note Draft
 Non-canonical
-Interface requirement candidate
+Interface requirement candidates
 Exploratory / pre-implementation
 Not canon
 Not UI specification approval
@@ -870,4 +946,4 @@ Not provider-facing use
 Not commercial claim
 ```
 
-Any PR, ready-for-review, merge, canonicalization, public use, outreach, or provider-facing use requires separate explicit Human Owner confirmation.
+Any ready-for-review, merge, canonicalization, public use, outreach, provider-facing use, commercial use, adoption, validation, partnership, compliance, certification, or product-roadmap claim requires separate explicit Human Owner confirmation.
