@@ -1,0 +1,73 @@
+# RABA Tranche 1.1 Responsibility Event Stream stub
+# Status: canonicalization candidate
+# Canonical status: non-canonical
+# Review artifact only. Not a schema adoption. Not an event-family adoption. Not implementation guidance.
+# Not for runtime use, integration use, serialization, or data-contract use without separate Human Owner confirmation.
+
+status: canonicalization_candidate
+canonical_status: non_canonical
+tranche: "1.1"
+purpose: "Minimal candidate Responsibility Event Stream root event stub for Human Owner review"
+
+candidate_root_event_type: boundary_transition_event
+
+required_stub_fields_for_review:
+  event_id:
+    description: "Candidate unique identifier for the responsibility-relevant event."
+    status: candidate_only
+
+  event_type:
+    description: "Candidate event type. For this stub, expected to reference boundary_transition_event only as a candidate root event type."
+    status: candidate_only
+
+  action_boundary_triggered:
+    description: "Candidate boolean marker indicating that Action Boundary handling was triggered or proposed."
+    status: candidate_only
+
+  decision_log_reference:
+    description: "Candidate reference to a Decision Log entry when such an entry exists or is required. Nullable during review."
+    status: candidate_only
+
+  timestamp:
+    description: "Candidate timestamp of the responsibility-relevant transition."
+    status: candidate_only
+
+candidate_fields_under_review_not_required:
+  action_class:
+    description: "Candidate reference to Action Classes once reviewed. Not required by this stub."
+    status: under_review
+
+  responsibility_owner:
+    description: "Candidate role or human owner reference. Not required by this stub."
+    status: under_review
+
+  boundary_status:
+    description: "Candidate status of boundary handling. Not required by this stub."
+    status: under_review
+
+  source_ref:
+    description: "Candidate source or evidence reference. Not required by this stub."
+    status: under_review
+
+  consequence_class:
+    description: "Candidate consequence grouping. Not required by this stub."
+    status: under_review
+
+  authority_status:
+    description: "Candidate authority-state marker. Not required by this stub."
+    status: under_review
+
+  replay_ref:
+    description: "Candidate replay artifact or trace reference. Not required by this stub."
+    status: under_review
+
+silent_adoption_warning: >
+  This stub is not an adopted schema, not an event family, not a serialization
+  format, not a data contract, not an integration reference, and not an
+  implementation requirement. It must not be used as an implementation reference
+  without separate Human Owner confirmation.
+
+governance_boundary: >
+  This file is candidate review material only. It is intentionally placed under
+  docs/core/candidates/tranche-1-1/ rather than docs/core/v1/. Canonical adoption
+  requires a separate decision trail and Human Owner approval.
