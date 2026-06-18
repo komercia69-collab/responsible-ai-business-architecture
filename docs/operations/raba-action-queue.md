@@ -91,7 +91,7 @@ A task may be visible in this queue and still remain blocked until explicit Huma
 
 | ID | Priority | Status | Type | Item | Why it matters | Next step | Owner | Confirmation needed |
 |---|---|---|---|---|---|---|---|---|
-| AQ-001 | P1 | Blocked | Access / GitHub | Diagnose Claude Code GitHub write access | Claude Code can read the repository but cannot push; this blocks normal Claude-based repo execution. The goal is not to make Claude equal to Ben, but to define whether Claude should be a bounded repo worker while Ben remains RABA architect, integration specialist, and GitHub operator after Human Owner confirmation. | Define the Ben / Claude GitHub execution boundary, then check Claude GitHub integration permissions and write scopes only if bounded write access is still desired | Human Owner + Ben | No write action unless permissions are changed |
+| AQ-001 | P1 | Done | Access / GitHub | Define Claude Code GitHub access boundary | Human Owner decided that Claude should remain a read-only and local patch/diff worker for the current RABA workflow. Claude may read, analyze, prepare patches, suggest changes, and support review. Claude may not push directly, create PRs, change labels, request reviewers, mark ready-for-review, merge, canonicalize, or make public/provider-facing/validation/compliance/adoption claims. Ben remains RABA architect, integration specialist, and GitHub operator after explicit Human Owner confirmation. | Use Claude as bounded repo worker; revisit Claude write access only through a separate Human Owner decision | Human Owner + Ben | No Claude GitHub write access unless separately approved |
 | AQ-002 | P1 | Planned | Review | Review PR #154 | PR #154 is created, verified, and remains a non-canonical wording cleanup candidate awaiting Human Owner review | Human Owner reviews PR content and decides next gate | Human Owner | Yes before ready-for-review or merge |
 | AQ-003 | P2 | Captured | Claude workflow | Create multi-AI execution roles note | Clarifies the roles of Human Owner, Ben / ChatGPT, Claude Code, and GitHub to prevent authority drift | Draft `raba-multi-ai-execution-roles.md` as working note | Ben | Yes before GitHub create |
 | AQ-004 | P2 | Captured | Operational control | Maintain this RABA Action Queue | Prevents important but non-urgent work from being lost | Update queue after major work sessions | Ben | Yes before GitHub update |
@@ -113,7 +113,7 @@ A task may be visible in this queue and still remain blocked until explicit Huma
 5. Priority does not authorize execution.
 6. AI may recommend priority changes, but Human Owner decides.
 7. Items involving GitHub write actions require explicit Human Owner confirmation.
-8. Items involving ready-for-review, merge, canonicalization, public positioning, outreach, provider-facing use, commercial claims, adoption claims, validation claims, compliance claims, certification claims, or product-roadmap claims require explicit Human Owner confirmation.
+8. Items involving ready-for-review, merge, canonicalization, public positioning, outreach, provider-facing use, commercial claims, adoption claims, validation claims, compliance claims, or product-roadmap claims require explicit Human Owner confirmation.
 9. Completed items should remain visible long enough to preserve accountability, then may be moved to a completed section or operational log.
 10. This queue should reduce hidden work, not create bureaucracy.
 
