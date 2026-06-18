@@ -187,9 +187,9 @@ Human remains accountable.
 
 ---
 
-## Validated Multi-AI Workflow
+## Multi-AI Workflow — Internal Working Session
 
-The Comet workspace was validated on 2026-05-22 through three working cycles:
+The Comet workspace was confirmed operational on 2026-05-22 through three working cycles:
 
 1. README self-governance section review.
 2. Doc Vault → GitHub Decision Log workflow.
