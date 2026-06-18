@@ -2,7 +2,7 @@
 
 - Source: ChatGPT, Human owner
 - Decision: accept
-- Canon Impact: Defines the next project phase as external validation rather than further concept expansion. The sprint tests whether external readers understand the RABA problem, Layer 6 positioning, minimal pilot shape, and practical value.
+- Canon Impact: Defines the next project phase as external reader testing and feedback collection, rather than further concept expansion. The sprint tests whether external readers understand the RABA problem, Layer 6 positioning, minimal pilot shape, and practical value.
 - Repo Impact:
   - `docs/external-validation-sprint.md`
   - `docs/pilot-partner-intake.md`
@@ -17,7 +17,7 @@
 
 ## Sprint Goal
 
-Validate whether external readers can understand within 5–10 minutes:
+Test whether external readers can understand within 5–10 minutes:
 
 ```text
 what problem RABA solves
