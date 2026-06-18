@@ -186,7 +186,7 @@ Human Owner confirmation is required before updating this queue file.
 
 Current active focus:
 
-1. PR #154 remains Draft and non-canonical.
+1. PR #154 has been merged as non-canonical wording cleanup.
 2. Claude Code GitHub write access remains unresolved.
 3. Action Queue resource is being introduced as operational control material.
 4. Multi-AI execution roles note remains a planned working note.
