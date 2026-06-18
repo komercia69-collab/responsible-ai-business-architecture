@@ -100,6 +100,7 @@ A task may be visible in this queue and still remain blocked until explicit Huma
 | AQ-007 | P3 | Captured | Operational control | Update RABA operational plan | Several PRs and external-signal items are active; the control board may need refresh | Produce updated operational plan when queue grows | Ben | Yes before GitHub update |
 | AQ-008 | P3 | Captured | Governance hygiene | Review overclaiming language beyond PR #154 | Similar validation / readiness wording may exist elsewhere | Run read-only scan later | Ben / Claude Code | Yes before any edits |
 | AQ-009 | P4 | Captured | Canonicalization candidate | Evaluate whether Action Queue should become a standard RABA governance artifact | This queue may itself become part of RABA operating architecture later | Revisit after several sessions of use | Human Owner + Ben | Yes before canonicalization |
+| AQ-010 | P2 | Captured | Cleanup | Verify final newline before PR #155 ready-for-review or merge | Patch output did not show a newline error, but final newline hygiene should be checked before any status transition | Re-check file ending before ready-for-review / merge gate | Ben | Yes before GitHub update or PR status change |
 
 ---
 
