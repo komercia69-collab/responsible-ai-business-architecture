@@ -119,6 +119,69 @@ A task may be visible in this queue and still remain blocked until explicit Huma
 
 ---
 
+## Approved Task Workflow
+
+Human Owner approved the following standing workflow for working with queued RABA tasks.
+
+This is an operational procedure for this queue.
+
+It does not override Human Owner confirmation requirements.
+
+It does not authorize GitHub write actions, ready-for-review, merge, canonicalization, public positioning, outreach, provider-facing use, commercial claims, adoption claims, validation claims, compliance claims, certification claims, or product-roadmap claims.
+
+### Standard Cycle
+
+```text
+Capture → Triage → Select → Execute → Verify → Update Queue
+```
+
+### Step Definitions
+
+1. Capture — preserve the task, risk, idea, or future action so it is not lost.
+2. Triage — assign priority, status, type, owner, and next step.
+3. Select — choose the next work item according to priority and current constraints.
+4. Execute — perform only the action that has been explicitly authorized.
+5. Verify — check the result through read-only verification.
+6. Update Queue — update the item status, next step, or completion state.
+
+### Session Selection Rule
+
+At the start of a RABA work session, review the queue in this order:
+
+```text
+P0 first → then P1 → then selected P2
+```
+
+Default session limit:
+
+```text
+one P1 item + one selected P2 item
+```
+
+This limit may be changed by the Human Owner, but the default is intended to prevent scope expansion.
+
+### Session Opening Checklist
+
+1. Are there any P0 blockers?
+2. Which P1 item is the best next step?
+3. Which items are blocked?
+4. Which single action should be executed now?
+5. Which non-urgent items should be captured for later?
+
+### Standing Capture Rule
+
+When a non-urgent but important task appears during discussion, Ben should propose a queue entry with:
+
+```text
+ID / Priority / Status / Type / Item / Why it matters / Next step / Owner / Confirmation needed
+```
+
+The entry is not added to GitHub automatically.
+
+Human Owner confirmation is required before updating this queue file.
+
+---
+
 ## Current Control Snapshot
 
 Current active focus:
