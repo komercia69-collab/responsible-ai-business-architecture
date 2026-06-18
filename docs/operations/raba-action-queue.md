@@ -101,6 +101,7 @@ A task may be visible in this queue and still remain blocked until explicit Huma
 | AQ-008 | P3 | Captured | Governance hygiene | Review overclaiming language beyond PR #154 | Similar validation / readiness wording may exist elsewhere | Run read-only scan later | Ben / Claude Code | Yes before any edits |
 | AQ-009 | P4 | Captured | Canonicalization candidate | Evaluate whether Action Queue should become a standard RABA governance artifact | This queue may itself become part of RABA operating architecture later | Revisit after several sessions of use | Human Owner + Ben | Yes before canonicalization |
 | AQ-010 | P2 | Captured | Cleanup | Verify final newline before PR #155 ready-for-review or merge | Patch output did not show a newline error, but final newline hygiene should be checked before any status transition | Re-check file ending before ready-for-review / merge gate | Ben | Yes before GitHub update or PR status change |
+| AQ-011 | P2 | Captured | Claude workflow / Governance hygiene | Add RABA governance guardrails to Claude project instructions | Claude Code should consistently preserve RABA authority boundaries across sessions: Human Owner decides; AI recommendation is not approval; verification is read-only; no merge without explicit confirmation; no canonicalization without Human Owner approval. | Decide whether these rules belong in Claude account instructions, CLAUDE.md, or both | Human Owner + Ben | Yes before GitHub create/update or CLAUDE.md creation |
 
 ---
 
