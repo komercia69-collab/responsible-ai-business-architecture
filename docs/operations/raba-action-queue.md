@@ -194,10 +194,12 @@ Human Owner confirmation is required before updating this queue file.
 Current active focus:
 
 1. PR #154 has been merged as non-canonical wording cleanup.
-2. Claude Code GitHub write access remains unresolved.
-3. Action Queue resource is being introduced as operational control material.
-4. Multi-AI execution roles note remains a planned working note.
-5. No item in this queue is canon unless separately approved and canonicalized by the Human Owner.
+2. Claude Code GitHub write access remains unresolved and not approved.
+3. Action Queue resource is being introduced as non-canonical operational control material.
+4. PR #156 exists as an open, not-merged, non-canonical working note for multi-AI execution roles.
+5. AQ-015 preserves the cancelled-action / status-only rule as a future governance hardening item.
+6. AQ-017 preserves the RABA Responsibility Terminal / Responsibility Management Interface as a controlled exploration line.
+7. No item in this queue is canon unless separately approved and canonicalized by the Human Owner.
 
 ---
 
