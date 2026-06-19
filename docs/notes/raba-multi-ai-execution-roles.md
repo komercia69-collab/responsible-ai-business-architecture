@@ -4,6 +4,7 @@ Status: Working Note
 Canonical Status: Non-canonical  
 Decision Status: Not a Decision Log  
 Authority Status: Does not approve, canonicalize, merge, or authorize action  
+Execution Status: No execution authority granted  
 Related Queue Item: AQ-003  
 Owner: Human Owner  
 Maintainer: Ben / ChatGPT, under Human Owner confirmation
@@ -42,6 +43,8 @@ AI systems do not canonicalize.
 
 AI systems do not create authority through agreement with each other.
 
+Agreement between multiple AI agents may support review, comparison, or refinement, but it does not constitute Human Owner approval, architectural acceptance, or canonicalization.
+
 GitHub stores repository state, but repository presence alone does not create approval or canon.
 
 ```text
@@ -51,6 +54,20 @@ Multi-AI agreement is not approval.
 GitHub presence is not approval.
 Commit existence is not canon.
 ```
+
+---
+
+## Role Does Not Equal Authority
+
+An AI role describes what the agent may assist with.
+
+It does not automatically grant authority to execute, approve, merge, canonicalize, publish, or represent RABA externally.
+
+A role may clarify support responsibility.
+
+A role must not be treated as delegated decision authority unless the Human Owner explicitly confirms that exact authority for that exact action.
+
+Technical capability, repository access, branch access, tool access, AI confidence, or multi-AI agreement must not be used as substitutes for Human Owner confirmation.
 
 ---
 
@@ -438,6 +455,24 @@ The workflow must stop for explicit Human Owner confirmation before:
 
 ---
 
+## Blocked Transitions Without Human Owner Confirmation
+
+This working note does not authorize the following transitions.
+
+The following remain blocked unless the Human Owner gives explicit confirmation for that exact action:
+
+* moving this note toward canonical status;
+* treating this note as a canonicalization candidate;
+* marking this PR or related PRs ready-for-review;
+* merging this PR or related PRs;
+* requesting reviewers or changing labels;
+* using this note for public positioning;
+* using this note as provider-facing, commercial, partnership, adoption, validation, compliance, certification, or product-roadmap material.
+
+A blocked transition must not be executed indirectly through wording cleanup, file organization, PR metadata changes, or multi-AI agreement.
+
+---
+
 ## Verification Rule
 
 Verification must be read-only.
@@ -489,6 +524,12 @@ They are not secondary.
 They are separated from this role map to keep the main document readable while preserving the full operational importance of each mechanism.
 
 All companion notes remain non-canonical unless separately reviewed and canonicalized by the Human Owner.
+
+Related operational control material:
+
+* `docs/operations/raba-action-queue.md`
+
+This note may generate follow-up Action Queue items, but the Action Queue does not make this note canonical.
 
 Planned companion working notes:
 
@@ -570,6 +611,20 @@ This note may later be reviewed as a canonicalization candidate, but it is not c
 
 ---
 
+## Open Review Questions
+
+The following questions are review aids only.
+
+They do not move this note toward canon, ready-for-review, merge, or implementation.
+
+1. Which AI execution roles are safe as advisory-only roles?
+2. Which roles require Human Owner approval before activation?
+3. Which role boundaries should be represented in a future Responsibility Management Interface?
+4. Which role transitions require a Decision Card before further use?
+5. Which companion mechanisms should remain separate working notes rather than being absorbed into this role map?
+
+---
+
 ## Key Formulas
 
 ```text
@@ -577,6 +632,7 @@ Human Owner decides.
 Human Owner confirmation requires understandable context.
 AI recommendation is not approval.
 Multi-AI agreement is not approval.
+Role does not equal authority.
 Technical access does not equal permission.
 Claude access does not equal authority.
 Ben GitHub capability does not equal automatic authority.
