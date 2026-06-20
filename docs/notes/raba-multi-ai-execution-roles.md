@@ -35,7 +35,7 @@ It does not approve merge, ready-for-review, canonicalization, public positionin
 
 RABA allows multiple AI systems to assist the project, but final authority remains with the Human Owner.
 
-AI systems may recommend, draft, review, analyze, prepare diffs, and support execution.
+AI systems may recommend, draft, review, analyze, prepare diffs, and support preparation for human-authorized execution.
 
 AI systems do not approve.
 
