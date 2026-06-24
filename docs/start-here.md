@@ -64,15 +64,15 @@ RABA is organized around questions such as:
 
 ## Current working areas
 
-RABA is a live working project. Some areas are more mature than others. Not everything in the repository is canon.
+RABA is an active working project. Some areas are more mature than others. Not everything in the repository is canon.
 
-Current working areas include:
+Current non-canonical working areas and review candidates include:
 
 | Area | Status |
 |---|---|
 | Human Accountable Release | Working concept / non-canonical unless explicitly marked otherwise |
 | AI-prepared information status | Working inquiry / non-canonical |
-| Responsibility trace | Working concept / canonicalization candidate in related areas |
+| Responsibility trace | Working concept / related to open canonicalization candidates |
 | Decision field integrity | Working concept / non-canonical |
 | Agentic AI execution boundaries | Working inquiry / non-canonical |
 | Responsibility Observability | Canonicalization candidate / review queue |
