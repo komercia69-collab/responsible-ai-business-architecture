@@ -33,6 +33,10 @@ Verification level:
 - [ ] Level 3 — Decision basis / high consequence
 - [ ] Level 4 — External / provider-facing / difficult-to-reverse
 
+> Note: If Level 0 or Level 1 is selected, you may delete the text fields below to keep the PR clean.
+>
+> For Level 2–4 or any canon, public, provider-facing, partner-facing, commercial, validation, adoption, compliance, certification, or roadmap claim, keep the fields and provide explicit text.
+
 Critical claims requiring human review:
 
 > Required for Level 2–4.
