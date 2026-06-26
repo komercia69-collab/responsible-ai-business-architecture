@@ -1,10 +1,12 @@
 # RABA Small Pilot Offer
 
-**Status:** Draft — External Feedback / Pilot Exploration Offer  
+**Status:** Commercial-sensitive offer draft / Non-canonical  
 **Purpose:** Test RABA against real or planned AI-assisted workflows  
 **Audience:** AI consultants, workflow owners, governance teams, product builders, compliance-oriented organizations  
 **Canonical status:** Non-canonical offer draft. This document does not define accepted RABA architecture.  
-**Boundary:** This offer does not validate RABA, create a commercial commitment, or imply a live pilot relationship.
+**Offer-layer role:** Commercial-sensitive supporting draft, not the primary partner-facing entry point  
+**Primary entry point:** [`../docs/partner-engagement.md`](../docs/partner-engagement.md)  
+**Boundary:** Do not use externally without explicit Human Owner confirmation. This offer does not validate RABA, create a commercial commitment, prove adoption, or imply a live pilot relationship.
 
 ## Short Description
 
