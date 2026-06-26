@@ -1,5 +1,11 @@
 # Pilot Partner Call
 
+**Status:** Supporting / Legacy invitation draft  
+**Canonical status:** Non-canonical  
+**Offer-layer role:** Supporting invitation draft, not the primary partner-facing entry point  
+**Primary entry point:** [`../docs/partner-engagement.md`](../docs/partner-engagement.md)  
+**Boundary:** Do not use this file as the primary external entry point without explicit Human Owner confirmation. This document does not create a pilot relationship, partnership, validation claim, adoption claim, or commercial commitment.
+
 > A practical invitation for organizations that want to explore Human–AI Operational Coordination in one real workflow.
 
 ## Why This Exists
@@ -206,6 +212,7 @@ Preferred format:
 
 ## Related Project Materials
 
+- [`../docs/partner-engagement.md`](../docs/partner-engagement.md) — primary partner-facing entry point
 - [`minimal-human-ai-governance-pilot.md`](minimal-human-ai-governance-pilot.md) — detailed pilot format
 - [`../docs/this-project-in-3-minutes.md`](../docs/this-project-in-3-minutes.md) — short project overview
 - [`../docs/start-here-by-role.md`](../docs/start-here-by-role.md) — role-based entry paths
