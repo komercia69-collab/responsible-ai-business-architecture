@@ -1,5 +1,11 @@
 # Partner Engagement
 
+**Status:** Primary partner-facing entry draft  
+**Canonical status:** Non-canonical  
+**Offer-layer role:** Primary entry point for partner-engagement discussions  
+**Boundary:** This page does not create a pilot relationship, commercial commitment, validation claim, compliance claim, or adoption claim.  
+**Human Rationale:** The Human Owner wants to clarify the offer-layer because several files could appear to be equal external entry points and create partner confusion. The intended primary entry page is `docs/partner-engagement.md`; other offer files should have limited roles such as detailed format, supporting draft, or commercial-sensitive draft. This is not RABA canonicalization or a public commercial claim; it is cleanup of non-canonical partner-facing material.
+
 > A one-page entry point for organizations that want to explore a controlled Human-AI Governance Pilot.
 
 ## Who This Is For
@@ -105,12 +111,15 @@ It is an exploratory governance architecture and workflow review process.
 
 ## How to Start
 
-Start with one of these:
+Use this page as the primary entry point.
 
-- read [`../offers/pilot-partner-call.md`](../offers/pilot-partner-call.md);
-- review the detailed pilot format in [`../offers/minimal-human-ai-governance-pilot.md`](../offers/minimal-human-ai-governance-pilot.md);
-- compare your workflow with [`../use-cases/customer-support-agentic-bi-governance.md`](../use-cases/customer-support-agentic-bi-governance.md);
-- use [`share-this-project.md`](share-this-project.md) to introduce the project to another person or team.
+For more detail, the supporting materials are:
+
+- [`../offers/minimal-human-ai-governance-pilot.md`](../offers/minimal-human-ai-governance-pilot.md) — detailed pilot format;
+- [`../offers/pilot-partner-call.md`](../offers/pilot-partner-call.md) — supporting / legacy invitation draft;
+- [`../offers/raba-small-pilot-offer.md`](../offers/raba-small-pilot-offer.md) — commercial-sensitive offer draft; do not use externally without Human Owner confirmation;
+- [`../use-cases/customer-support-agentic-bi-governance.md`](../use-cases/customer-support-agentic-bi-governance.md) — example workflow;
+- [`share-this-project.md`](share-this-project.md) — introduction text for sharing the project.
 
 A useful first message:
 
