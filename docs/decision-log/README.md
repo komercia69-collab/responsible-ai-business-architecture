@@ -88,9 +88,11 @@ Level 2–4 material requires explicit text. AI-generated summaries, source maps
 
 ---
 
-## AI Instruction
+## AI Directive
 
-When ChatGPT, Gemini, Claude, Comet, or another AI system prepares a Decision Log entry, it must include Block 5 Verification Status when the decision crosses a consequence boundary, even if `docs/decision-log-schema.md` has not yet been extended.
+When preparing new Decision Log entries, ChatGPT and other AI tools must include Block 5 fields for all Level 2–4 decisions and any canon, GitHub state, public/provider-facing, partner-facing, commercial, validation, adoption, compliance, certification, or roadmap-related decision.
+
+This directive applies even if `docs/decision-log-schema.md` has not yet been extended.
 
 AI-generated verification summaries are review aids only. They do not replace Human Rationale.
 
