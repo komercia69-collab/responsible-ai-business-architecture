@@ -1,6 +1,6 @@
 # Tranche 1.1 Canonicalization Proposal
 
-**Status:** Draft candidate package for PR review; not ready-for-review; not ready for canonical adoption  
+**Status:** Ready-for-review candidate package; not merge-approved; not ready for canonical adoption  
 **Canonical status:** Non-canonical  
 **Location status:** Candidate workspace only; not `docs/core/v1/`  
 **Tranche:** 1.1 — Data and Boundary Canon Readiness  
@@ -250,10 +250,10 @@ This proposal does not authorize:
 
 Human Owner confirmation authorized preparation of this candidate package only.
 
+Ready-for-review status is not final approval, merge approval, or canonical adoption.
+
 Final architectural approval belongs to the Human Owner.
 
 Multi-AI agreement is not final approval.
-
-PR review preparation is not final approval and does not mean ready-for-review.
 
 Merge requires separate Human Owner confirmation.
