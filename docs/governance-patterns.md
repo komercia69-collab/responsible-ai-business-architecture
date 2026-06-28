@@ -298,6 +298,61 @@ Monitors:
 
 ---
 
+# 11. Governance Wording Guardrail
+
+## Purpose
+
+Prevent preparation language from being misread as authorization, adoption, or external readiness.
+
+## Pattern Structure
+
+Governance documents should treat status-signaling words as controlled wording when they appear in candidate, draft, or review material.
+
+Controlled wording includes:
+
+- ready;
+- approved;
+- adopted;
+- validated;
+- canonical;
+- implementation;
+- runtime;
+- compliance;
+- audit-ready;
+- provider-ready;
+- commercial-ready;
+- pilot-ready.
+
+When such wording is necessary, it should be paired with an explicit boundary statement.
+
+Example:
+
+```text
+Prepared for review only; not approved, not adopted, not canonical.
+```
+
+## Recommended Usage
+
+Use this guardrail in:
+
+- candidate packages;
+- decision logs;
+- PR descriptions;
+- review summaries;
+- canonicalization proposals;
+- implementation-adjacent notes.
+
+## Prevents
+
+- silent approval assumptions;
+- draft-readiness confusion;
+- repository presence being misread as canon;
+- commit existence being misread as approval;
+- review agreement being misread as Human Owner confirmation;
+- public, provider, commercial, compliance, validation, certification, or audit-readiness claims being created by wording drift.
+
+---
+
 # Pattern Selection Guidance
 
 Organizations should select governance patterns based on:
