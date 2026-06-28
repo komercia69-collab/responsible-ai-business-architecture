@@ -1,13 +1,15 @@
 # RABA Tranche 1.1 Responsibility Event Stream stub
 # Status: canonicalization candidate
 # Canonical status: non-canonical
-# Review artifact only. Not a schema adoption. Not an event-family adoption. Not implementation guidance.
+# Review inventory only.
+# Not an adopted schema, canonical event model, event family, runtime contract, data contract, compliance artifact, public standard, public-positioning claim, or implementation guide.
 # Not for runtime use, integration use, serialization, or data-contract use without separate Human Owner confirmation.
+# This candidate creates no validation, adoption, compliance, certification, audit-readiness, provider, partnership, pilot, commercial, public-standard, or public-positioning claim.
 
 status: canonicalization_candidate
 canonical_status: non_canonical
 tranche: "1.1"
-purpose: "Minimal candidate Responsibility Event Stream root event stub for Human Owner review"
+purpose: "Minimal candidate Responsibility Event Stream root event stub for review of responsibility-relevant transitions in consequential context"
 
 candidate_root_event_type: boundary_transition_event
 
@@ -21,11 +23,11 @@ required_stub_fields_for_review:
     status: candidate_only
 
   action_boundary_triggered:
-    description: "Candidate boolean marker indicating that Action Boundary handling was triggered or proposed."
+    description: "Candidate marker that Action Boundary handling was triggered or proposed; event emission does not authorize action."
     status: candidate_only
 
   decision_log_reference:
-    description: "Candidate reference to a Decision Log entry when such an entry exists or is required. Nullable during review."
+    description: "Candidate reference to a Decision Log entry when such an entry exists or is required. Nullable during review. This reference supports governance traceability but does not replace Decision Log reasoning."
     status: candidate_only
 
   timestamp:
@@ -37,8 +39,24 @@ candidate_fields_under_review_not_required:
     description: "Candidate reference to Action Classes once reviewed. Not required by this stub."
     status: under_review
 
+  boundary_trigger_type:
+    description: "Candidate trigger vocabulary under review: reliance, routing, ranking, prioritization, recording_as_rationale_or_basis, escalation, de_escalation, commitment_preparation, or material_decision_field_shaping. Not an enum adoption."
+    status: under_review
+
   responsibility_owner:
     description: "Candidate role or human owner reference. Not required by this stub."
+    status: under_review
+
+  responsibility_trace:
+    description: "Candidate trace for who proposed, who reviewed, who authorized, and who accepted responsibility. Not required by this stub."
+    status: under_review
+
+  ai_prepared_material:
+    description: "Candidate reference or summary of AI-prepared material where relevant. Not required by this stub."
+    status: under_review
+
+  human_confirmed_rationale:
+    description: "Candidate reference or summary of human-confirmed rationale where relevant. Not required by this stub."
     status: under_review
 
   boundary_status:
@@ -50,11 +68,19 @@ candidate_fields_under_review_not_required:
     status: under_review
 
   consequence_class:
-    description: "Candidate consequence grouping. Not required by this stub."
+    description: "Candidate consequence class or grouping. Not required by this stub."
+    status: under_review
+
+  uncertainty_remaining:
+    description: "Candidate uncertainty, limits, or unresolved conditions remaining after review. Not required by this stub."
+    status: under_review
+
+  admissibility_rationale:
+    description: "Candidate reference or summary of governance reasoning for why action was admissible, limited, refused, escalated, de-escalated, or blocked. Not required by this stub and not a substitute for a Decision Log."
     status: under_review
 
   authority_status:
-    description: "Candidate authority-state marker. Not required by this stub."
+    description: "Candidate Human Owner or human governance authority-state marker. Not required by this stub."
     status: under_review
 
   replay_ref:
@@ -62,12 +88,21 @@ candidate_fields_under_review_not_required:
     status: under_review
 
 silent_adoption_warning: >
-  This stub is not an adopted schema, not an event family, not a serialization
-  format, not a data contract, not an integration reference, and not an
+  This stub is not an adopted schema, not a canonical event model, not an event family,
+  not a serialization format, not a data contract, not an integration reference,
+  not a runtime contract, not a compliance artifact, not a public standard, and not an
   implementation requirement. It must not be used as an implementation reference
   without separate Human Owner confirmation.
 
 governance_boundary: >
   This file is candidate review material only. It is intentionally placed under
   docs/core/candidates/tranche-1-1/ rather than docs/core/v1/. Canonical adoption
-  requires a separate decision trail and Human Owner approval.
+  requires a separate decision trail and Human Owner approval. Event emission does
+  not approve or authorize action. AI review, AI confidence, or AI consensus does not
+  close a governance gate and does not remove required Human Owner or human governance
+  review.
+
+claims_boundary: >
+  This candidate creates no validation, adoption, compliance, certification,
+  audit-readiness, public-standard, public-positioning, provider, partnership,
+  pilot, or commercial claim.
