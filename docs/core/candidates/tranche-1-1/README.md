@@ -15,9 +15,9 @@
 
 ## 1. Purpose
 
-This package prepares a draft candidate package for PR review in Tranche 1.1.
+This package is a ready-for-review candidate package for Tranche 1.1.
 
-Draft PR review preparation does not mean ready-for-review, ready for merge, or ready for canonical adoption.
+Ready-for-review status does not mean ready for merge, canonical adoption, schema adoption, event-family adoption, implementation guidance, runtime enforcement, public positioning changes, pilot claims, or commercial commitments.
 
 It translates verified Tranche 1.1 review materials into a candidate core package that can be reviewed before any future canonical adoption.
 
@@ -96,7 +96,7 @@ This package contains:
 
 ## 5. Review rule
 
-This package may support a future canonicalization PR review.
+This package may support current or future canonicalization PR review.
 
 It does not by itself authorize:
 
