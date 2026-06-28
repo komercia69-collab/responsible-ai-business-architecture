@@ -1,10 +1,10 @@
-# Decision Log — Tranche 1.1 PR-Ready Canonicalization Proposal Preparation
+# Decision Log — Tranche 1.1 Draft PR Review Preparation
 
 **Status:** Decision Log entry  
 **Canonical status:** Records preparation authorization only; does not adopt canon  
 **Date:** 2026-06-01  
 **Human Owner:** Oleksandr / Александр  
-**Scope:** Preparation of PR-ready canonicalization proposal files for Tranche 1.1
+**Scope:** Preparation of draft PR review proposal files for Tranche 1.1
 
 ---
 
@@ -13,10 +13,10 @@
 The Human Owner confirmed:
 
 ```text
-Подтверждаю. Разрешаю создать branch и подготовить PR-ready proposal files under docs/core/candidates/tranche-1-1/, plus Decision Log entry during preparation. Не создавать docs/core/v1 и не принимать canon.
+Подтверждаю. Разрешаю создать branch и подготовить draft PR review proposal files under docs/core/candidates/tranche-1-1/, plus Decision Log entry during preparation. Не создавать docs/core/v1 и не принимать canon.
 ```
 
-This decision authorizes preparation of a PR-ready canonicalization proposal only.
+This decision authorizes preparation of a draft PR review canonicalization proposal only.
 
 ---
 
@@ -61,7 +61,7 @@ Oleksandr / Александр
 Scope of responsibility:
 
 ```text
-Authorize preparation of a PR-ready canonicalization proposal for Tranche 1.1 under docs/core/candidates/tranche-1-1/ only.
+Authorize preparation of a draft PR review canonicalization proposal for Tranche 1.1 under docs/core/candidates/tranche-1-1/ only.
 ```
 
 Timestamp of acceptance:
