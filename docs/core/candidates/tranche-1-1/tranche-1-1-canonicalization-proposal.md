@@ -86,14 +86,21 @@ They are not adopted by this proposal.
 Candidate statement:
 
 ```text
-A consequential action is an AI-supported action, recommendation, decision, workflow change, external communication, approval, refusal, transaction, commitment, or escalation that may materially affect a person, customer, employee, obligation, entitlement, operational state, compliance status, or business outcome.
+A consequential action is an AI-supported action, recommendation, decision, workflow change, external communication, approval, refusal, transaction, commitment, escalation, de-escalation, routing, ranking, prioritization, recording of rationale, or decision-field shaping that may materially affect a person, customer, employee, obligation, entitlement, operational state, compliance-related status, or business outcome.
+
+AI output, recommendation, evidence, or planning is not consequential merely because it exists.
+
+It may become consequential when, in a consequential context, it is used, relied on, routed, ranked, recorded, escalated, de-escalated, used to prepare a commitment, or used to materially shape a decision field.
 ```
 
 Boundary test:
 
 ```text
 AI prepares information for human review = not automatically consequential.
+AI-supported output is used or relied on in a consequential context = potentially consequential.
 AI output directly changes workflow state = consequential.
+
+Decision-field shaping may be responsibility-triggering even without a technical workflow-state change.
 ```
 
 Candidate source:
@@ -108,6 +115,10 @@ Candidate statement:
 
 ```text
 Action Classes provide a flat candidate taxonomy for classifying AI-supported activity according to governance response, not technical implementation detail.
+
+Candidate action classes describe responsibility-relevant categories for review; classification does not by itself make AI-supported output consequential and does not authorize action.
+
+Decision-field shaping is treated as a boundary condition across classes, not as a standalone action class in this tranche.
 ```
 
 Candidate source:
@@ -121,7 +132,9 @@ action-classes.candidate.yaml
 Candidate statement:
 
 ```text
-An Action Boundary is the point at which AI-supported output, recommendation, evidence, or plan approaches a consequential business action and therefore requires explicit authority, admissibility, responsibility, and record handling.
+An Action Boundary is the point at which AI-supported output, recommendation, evidence, or planning moves from preparation or review aid toward consequential use and therefore requires explicit authority, admissibility, responsibility, and record handling.
+
+The boundary may be approached or crossed when, in a consequential context, AI-supported output is relied on, routed, ranked, recorded, escalated, de-escalated, used to prepare a commitment, or materially shapes a decision field.
 ```
 
 Boundary constraint:
@@ -141,7 +154,9 @@ action-boundary.md
 Candidate statement:
 
 ```text
-A Decision Log records why consequential AI-supported use was allowed, limited, refused, escalated, or blocked, under whose authority, under whose accepted responsibility, within what scope, with what evidence, and with what unresolved limits.
+A Decision Log records governance handling when AI-supported output is used in a consequential context. It should show why consequential AI-supported use was allowed, limited, refused, escalated, de-escalated, or blocked, under whose authority, under whose accepted responsibility, within what scope, what was AI-prepared, what was human-confirmed, and what uncertainty remained.
+
+A Decision Log records governance handling; it does not itself authorize action.
 ```
 
 Minimum governance elements for review:
@@ -170,6 +185,10 @@ Candidate statement:
 
 ```text
 Responsibility Event Stream may be referenced in Tranche 1.1 only as a minimal stub for responsibility-relevant boundary transitions.
+
+Event emission records a responsibility-relevant transition or proposal; it does not approve or authorize action.
+
+The stub may reference trigger type, Decision Log reference, AI-prepared material, human-confirmed rationale, responsibility trace, consequence class, uncertainty remaining, and admissibility rationale as candidate fields under review only.
 ```
 
 Candidate root event type for review:
