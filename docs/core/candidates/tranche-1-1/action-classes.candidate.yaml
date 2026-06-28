@@ -14,14 +14,33 @@ review_rule: >
   the same escalation path, and the same confirmation requirement,
   they should be merged.
 
+classification_boundary: >
+  These candidate action classes describe responsibility-relevant categories for review.
+  Classification does not by itself make an AI-supported output consequential and does not
+  authorize action. Consequentiality depends on use in a consequential context, boundary
+  conditions, and required human governance.
+
+candidate_boundary_conditions_under_review:
+  decision_field_shaping: "Candidate boundary condition across classes; not a standalone action class in this tranche."
+  trigger_vocabulary:
+    - reliance
+    - routing
+    - ranking
+    - prioritization
+    - recording_as_rationale_or_basis
+    - escalation
+    - de_escalation
+    - commitment_preparation
+    - material_decision_field_shaping
+
 classes:
   - id: READ_ONLY
     description: "AI-supported access, retrieval, summarization, or display that does not by itself change workflow state or create an external consequence."
-    default_boundary_note: "Not automatically consequential, but may become relevant if relied upon for action."
+    default_boundary_note: "Not automatically consequential, but may become responsibility-relevant if relied on in a consequential context."
 
   - id: INTERNAL_RECOMMENDATION
     description: "AI-supported recommendation, ranking, draft, or analysis intended for internal human review before action."
-    default_boundary_note: "Not automatically consequential unless it becomes a decision, workflow change, external communication, or commitment."
+    default_boundary_note: "Internal recommendation is not consequential merely because it exists; it may become boundary-relevant when, in a consequential context, it is relied on, routed, ranked, recorded, escalated, de-escalated, used to prepare a commitment, or used to materially shape a decision field."
 
   - id: WORKFLOW_STATE_CHANGE
     description: "AI-supported creation, update, routing, status change, or progression of a workflow item."
@@ -48,12 +67,16 @@ classes:
     default_boundary_note: "Consequential because it may affect accountability, compliance status, or organizational liability."
 
   - id: ESCALATION_OR_HANDOFF
-    description: "AI-supported transfer of responsibility, escalation to a role, or handoff to another system, team, or domain."
-    default_boundary_note: "Potentially consequential because responsibility ownership or decision authority may shift."
+    description: "AI-supported transfer of responsibility, escalation, de-escalation, routing, or handoff to another system, team, or domain."
+    default_boundary_note: "Potentially consequential because responsibility ownership, reviewer attention, or decision authority may shift."
 
   - id: UNCLASSIFIED_CONSEQUENTIAL_ACTION
     description: "Fallback candidate class for actions that appear consequential but do not fit the current taxonomy."
     default_boundary_note: "Must trigger review; not a license to avoid later classification."
+
+human_authority_boundary: >
+  Classifying an action does not authorize it. AI review, AI confidence, or AI consensus
+  does not close a governance gate and does not remove Human Owner or human governance review.
 
 governance_boundary: >
   These action classes are candidate review material only. They are not canonical,
