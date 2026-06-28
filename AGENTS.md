@@ -12,6 +12,8 @@ Canonicalization: Blocked until explicit Human Owner confirmation
 
 This file guides AI coding agents and repository assistants. It does not approve architecture, canonicalize concepts, authorize public positioning, or replace Human Owner judgment.
 
+This file is binding operational instruction for repository agents, but it is not RABA architectural canon unless separately approved by the Human Owner.
+
 ## Project Identity
 
 This repository is **Responsible AI Business Architecture**.
@@ -35,6 +37,8 @@ Core principle:
 9. Useful output is not automatically authorized output.
 10. Final architectural approval belongs to the Human Owner.
 
+GitHub is the storage location for accepted canon, but GitHub presence alone does not make content canonical.
+
 ## Default Operating Mode
 
 Default to read-only verification unless the Human Owner explicitly authorizes a specific write action.
@@ -57,6 +61,8 @@ Before any meaningful RABA action, state or internally apply:
 - blocked actions;
 - risk;
 - responsibility trace.
+
+For routine read-only navigation or summarization, keep this lightweight. For governance-relevant or state-changing work, make the control boundary explicit.
 
 ## Status Distinctions
 
@@ -116,7 +122,7 @@ Use this sequence when possible:
 
 1. identify one concrete improvement;
 2. verify repository state read-only;
-3. draft the proposed change in chat or a clearly bounded branch;
+3. draft the proposed change in chat, or in an explicitly authorized branch/worktree;
 4. keep the change focused on one file or one tightly scoped package;
 5. avoid broad rewrites;
 6. explain the risk if changed;
@@ -225,6 +231,8 @@ AI must not be the final judge of:
 - whether a term is canon;
 - whether a PR is ready for review;
 - whether a branch should be merged.
+
+AI review, AI consensus, or AI-generated confidence must not be used to decide that Human Owner review is unnecessary.
 
 Human governance must decide.
 
