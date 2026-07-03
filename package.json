@@ -1,0 +1,23 @@
+{
+  "name": "raba-geg-mock-prototype",
+  "version": "0.1.0",
+  "description": "RABA Governed Execution Gateway — mock-only prototype",
+  "private": true,
+  "scripts": {
+    "demo:readonly": "tsx src/cli/demo.ts examples/scenarios/safe-readonly.json examples/policies/sandbox-readonly.yaml",
+    "demo:data-entry": "tsx src/cli/demo.ts examples/scenarios/data-entry-stop-before-submit.json examples/policies/limited-data-entry.yaml",
+    "demo:blocked": "tsx src/cli/demo.ts examples/scenarios/blocked-high-risk.json examples/policies/blocked-high-risk.yaml",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "yaml": "^2.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  }
+}

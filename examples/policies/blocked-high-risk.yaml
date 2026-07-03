@@ -1,0 +1,39 @@
+# NON-CANONICAL — example policy for mock prototype only
+# This file is not approved, not validated, not production-ready.
+# Human Owner decision required before any real use.
+
+id: blocked-high-risk-v1
+status: example
+canonical_status: non_canonical
+autonomy_mode: limited_autonomy
+
+allowed_task_classes:
+  - read_only_inspection
+
+blocked_action_types:
+  - delete
+  - run_command
+  - upload
+
+confirmation_required:
+  consequence_classes:
+    - data_entry
+    - external_submission
+    - configuration_change
+    - credential_or_secret_handling
+    - file_or_record_deletion
+    - payment_or_financial_action
+    - public_or_provider_facing_action
+    - unknown
+  reversibility:
+    - irreversible
+    - unknown
+    - partially_reversible
+
+limits:
+  max_steps: 20
+
+environment_scope:
+  allowed_targets:
+    - mock://blocked-payment-screen
+  blocked_targets: []

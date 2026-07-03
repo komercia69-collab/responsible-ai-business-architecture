@@ -1,0 +1,20 @@
+{
+  "name": "safe-readonly",
+  "description": "Read-only inspection scenario: open report, read screen, scroll. All actions expected to be allowed.",
+  "actions": [
+    {
+      "type": "open_url",
+      "target": "mock://readonly-report",
+      "metadata": { "reason": "open report for inspection" }
+    },
+    {
+      "type": "read_screen",
+      "target": "mock://readonly-report"
+    },
+    {
+      "type": "scroll",
+      "target": "mock://readonly-report",
+      "metadata": { "direction": "down", "amount": 300 }
+    }
+  ]
+}
