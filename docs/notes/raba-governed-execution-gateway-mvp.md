@@ -231,6 +231,17 @@ environment_scope:
     - government-portal
 ```
 
+Policy YAML files must include an explicit non-canonical header comment. Example:
+
+```yaml
+# status: candidate_prototype
+# canonical_status: non_canonical
+# This policy file is not canonical RABA policy.
+# It is a review-only example for local prototype use only.
+```
+
+This comment must appear at the top of every policy YAML file created for the prototype. Policy YAML files must not be shared, published, or used outside the local prototype without separate Human Owner authorization.
+
 ### 5.2 Consequence Boundary Classifier
 
 Classifies proposed actions into consequence classes:
@@ -394,6 +405,61 @@ password=secret123 → password=[MASKED]
 api_key=abc123 → api_key=[MASKED]
 ```
 
+### 5.8 Human Confirmation Router
+
+Routes decisions that require Human Owner confirmation before execution may proceed.
+
+Responsibilities:
+
+- receive a `require_confirmation` decision from the Action Filter;
+- surface the proposed action, consequence class, reversibility, and reason codes to the Human Owner;
+- wait for explicit Human Owner response before allowing or rejecting execution;
+- record the confirmation or rejection in the audit log;
+- never infer confirmation from timeout, silence, or AI agreement.
+
+Required confirmation log entry:
+
+```json
+{
+  "confirmation_event": "human_confirmation_received",
+  "decision": "confirmed",
+  "confirmed_by": "human_owner",
+  "session_id": "session-001",
+  "action_type": "submit",
+  "timestamp": "ISO_TIMESTAMP"
+}
+```
+
+For MVP, confirmation may be simulated via CLI prompt.
+The router must never auto-confirm.
+
+### 5.9 Mock Execution Provider
+
+Simulates a GUI execution agent (UI-TARS) for the MVP.
+
+Responsibilities:
+
+- emit a pre-defined sequence of proposed actions from a scenario file;
+- pass each proposed action to the Governed Execution Gateway;
+- receive the gateway decision and log the simulated execution result;
+- not control any real screen, browser, OS, or external system.
+
+The mock provider must be isolated from the RABA policy core so that it can later be replaced by a real UI-TARS adapter without modifying any policy, consequence, reversibility, autonomy, or session logic.
+
+Interface contract:
+
+```text
+Input:  proposed action (JSON)
+Output: gateway decision + reason codes
+```
+
+The mock provider must label every output as simulated:
+
+```text
+[MOCK] Action: submit → Decision: require_confirmation
+[MOCK] Simulated execution: not_executed_pending_confirmation
+```
+
 ## 6. Demo Scenarios
 
 ### Scenario A — Safe read-only navigation
@@ -509,6 +575,9 @@ The MVP is acceptable as a prototype only if:
 13. It includes tests.
 14. It does not connect to real UI-TARS or real GUI automation.
 15. It clearly states non-canonical, review-only status.
+16. The RABA policy core (policy, consequence, reversibility, autonomy, session, gateway) is fully separable from the mock execution provider. Replacing the mock provider with a real adapter must require zero changes to policy core files.
+17. The CLI demo output labels every result as mock/simulated. No result may be printed without a [MOCK] or [SIMULATED] prefix.
+18. When the kill switch is triggered mid-sequence, the session stops immediately, no further actions are proposed or executed, the partial sequence is written to the audit log with status killed, and the session summary is produced before exit.
 ```
 
 ## 8. Tests
@@ -649,7 +718,13 @@ Before real UI-TARS integration:
 3. Approve no credentials.
 4. Approve no production systems.
 5. Approve kill switch and audit controls.
+6. Complete a separate risk re-evaluation before any real UI-TARS adapter is connected.
 ```
+
+Note: mock prototype success does not constitute risk re-evaluation for real execution.
+A real adapter introduces real-system side effects, real credential exposure risk, and real
+irreversible action risk that are not present in mock execution. A separate, scoped risk
+review must be authorized and completed by the Human Owner before any real adapter work begins.
 
 ## 13. Open Questions
 
