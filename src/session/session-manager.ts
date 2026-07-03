@@ -44,6 +44,14 @@ export function recordStep(
   return updated;
 }
 
+export function setPendingConfirmation(session: Session): Session {
+  return { ...session, status: 'pending_confirmation' };
+}
+
+export function setBlocked(session: Session): Session {
+  return { ...session, status: 'blocked' };
+}
+
 export function killSession(session: Session, reason: string): Session {
   return { ...session, status: 'killed', kill_reason: reason };
 }

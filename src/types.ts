@@ -47,7 +47,8 @@ export type SessionStatus =
   | 'completed'
   | 'blocked'
   | 'killed'
-  | 'failed';
+  | 'failed'
+  | 'pending_confirmation';
 
 export interface ProposedAction {
   type: ActionType;

@@ -6,7 +6,7 @@ import type {
   ScenarioResult,
 } from '../../types';
 import { filterAction } from '../../gateway/action-filter';
-import { recordStep, summarizeSession } from '../../session/session-manager';
+import { recordStep, setPendingConfirmation, setBlocked, summarizeSession } from '../../session/session-manager';
 import { writeAuditLog } from '../../telemetry/audit-log';
 
 function simulateExecution(decision: string, actionType: string): string {
@@ -69,7 +69,13 @@ export function runScenario(
     results.push({ action, decision, simulated_execution_result: simResult });
     currentSession = recordStep(currentSession, action, decision);
 
-    if (decision.decision === 'block' || decision.decision === 'require_confirmation') {
+    if (decision.decision === 'require_confirmation') {
+      currentSession = setPendingConfirmation(currentSession);
+      console.log(`[MOCK] Sequence stopped: ${decision.decision} on action type=${action.type}`);
+      break;
+    }
+    if (decision.decision === 'block') {
+      currentSession = setBlocked(currentSession);
       console.log(`[MOCK] Sequence stopped: ${decision.decision} on action type=${action.type}`);
       break;
     }

@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   createSession,
   recordStep,
+  setPendingConfirmation,
   killSession,
   summarizeSession,
 } from '../src/session/session-manager';
@@ -82,5 +83,14 @@ describe('session-manager', () => {
     const session = createSession('bp-test', policy);
     const summary = summarizeSession(session);
     expect(summary.ended_at).toBeTruthy();
+  });
+
+  it('setPendingConfirmation sets status to pending_confirmation', () => {
+    const policy = makePolicy();
+    const session = createSession('bp-test', policy);
+    const updated = setPendingConfirmation(session);
+    expect(updated.status).toBe('pending_confirmation');
+    // original is not mutated
+    expect(session.status).toBe('active');
   });
 });

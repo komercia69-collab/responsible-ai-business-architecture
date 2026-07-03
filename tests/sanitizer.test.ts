@@ -62,4 +62,41 @@ describe('sanitizer', () => {
     expect(result.proposed_action.value).toBe('[MASKED]');
     expect(entry.proposed_action.value).toBe('hunter2');
   });
+
+  // Patch B — value content detection tests
+  it('masks value on neutral target when value contains api_key=', () => {
+    const action: ProposedAction = { type: 'type', target: 'notes', value: 'api_key=xyz' };
+    const result = sanitizeAction(action);
+    expect(result.value).toBe('[MASKED]');
+  });
+
+  it('masks value on neutral target when value contains token=', () => {
+    const action: ProposedAction = { type: 'type', target: 'notes', value: 'token=abc123' };
+    const result = sanitizeAction(action);
+    expect(result.value).toBe('[MASKED]');
+  });
+
+  it('masks value on neutral target when value is a 16-digit card number', () => {
+    const action: ProposedAction = { type: 'type', target: 'notes', value: '4111111111111111' };
+    const result = sanitizeAction(action);
+    expect(result.value).toBe('[MASKED]');
+  });
+
+  it('masks metadata value when metadata value contains password=', () => {
+    const action: ProposedAction = {
+      type: 'type',
+      target: 'notes',
+      value: 'safe text',
+      metadata: { note: 'password=secret123', label: 'ordinary text' },
+    };
+    const result = sanitizeAction(action);
+    expect(result.metadata?.['note']).toBe('[MASKED]');
+    expect(result.metadata?.['label']).toBe('ordinary text');
+  });
+
+  it('does not mask non-sensitive text on neutral target', () => {
+    const action: ProposedAction = { type: 'type', target: 'notes', value: 'Hello world' };
+    const result = sanitizeAction(action);
+    expect(result.value).toBe('Hello world');
+  });
 });

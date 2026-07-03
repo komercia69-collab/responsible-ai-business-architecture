@@ -40,6 +40,8 @@ describe('scenarios end-to-end', () => {
     expect(result.results[3].decision.decision).toBe('require_confirmation');
     // sequence stopped after 4 steps
     expect(result.session_summary.step_count).toBe(4);
+    // Patch A: session status must be pending_confirmation after HITL stop
+    expect(result.session_summary.status).toBe('pending_confirmation');
   });
 
   it('blocked-high-risk: first action blocks, sequence stops', () => {
@@ -53,6 +55,8 @@ describe('scenarios end-to-end', () => {
     expect(result.results).toHaveLength(1);
     expect(result.results[0].decision.decision).toBe('block');
     expect(result.session_summary.step_count).toBe(1);
+    // Patch A: session status must not be active after a block stop
+    expect(result.session_summary.status).not.toBe('active');
   });
 
   it('scenario name is preserved in result', () => {
