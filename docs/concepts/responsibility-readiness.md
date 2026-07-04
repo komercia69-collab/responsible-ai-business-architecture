@@ -142,6 +142,24 @@ It means that technical readiness and responsibility readiness should be evaluat
 - Risk Absorption Capacity
 - Responsibility Management Interface
 
+## Related existing note
+
+This concept candidate should be read alongside:
+
+- [`AI Readiness Dimensions`](../ai-readiness-dimensions.md)
+
+The relationship is complementary:
+
+```text
+AI Readiness Dimensions:
+Broad readiness dimensions for evaluating AI initiatives.
+
+Responsibility Readiness:
+A focused concept separating technical data readiness from organizational readiness to act responsibly on AI-supported conclusions.
+```
+
+This concept does not replace the broader AI readiness dimensions.
+
 ## Open questions
 
 1. Should responsibility readiness become a formal RABA assessment category?

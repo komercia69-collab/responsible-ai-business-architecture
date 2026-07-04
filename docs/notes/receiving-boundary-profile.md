@@ -128,6 +128,24 @@ This note does not mean:
 - Consequence Boundary
 - Responsibility Management Interface
 
+## Related existing note
+
+This working note should be read alongside:
+
+- [`Reliance Boundary Control Loop`](./reliance-boundary-control-loop.md)
+
+The relationship is complementary:
+
+```text
+Reliance Boundary Control Loop:
+How external evidence or proof becomes locally admissible reliance before consequential use.
+
+Receiving Boundary Profile:
+How AI-prepared material receives a permitted use-status inside the receiving process.
+```
+
+This note does not replace the existing reliance-boundary work.
+
 ## Open questions
 
 1. Which receiving statuses should become stable RABA terms?

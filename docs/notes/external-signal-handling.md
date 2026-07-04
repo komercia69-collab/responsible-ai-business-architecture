@@ -168,6 +168,24 @@ Drive or inbox capture does not authorize repository changes.
 - Risk / Problem Register
 - Operational Control Material
 
+## Related existing prompt
+
+This working note should be read alongside:
+
+- [`RABA External Signal Intake Prompt v2`](../prompts/raba-external-signal-intake-v2.md)
+
+The relationship is complementary:
+
+```text
+External Signal Intake Prompt:
+Operational prompt for reviewing a specific external item.
+
+External Signal Handling:
+General governance note for preserving external signals without overclaiming validation, adoption, endorsement, partnership, or canon.
+```
+
+This note does not replace the intake prompt.
+
 ## Open questions
 
 1. Which signal types deserve a stable RABA schema?
