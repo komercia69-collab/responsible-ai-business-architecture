@@ -32,13 +32,13 @@ On 2026-07-04, PR #75 was returned from non-draft / ready-for-review state to dr
 
 A subsequent scoped correction updated the PR #75 body to remove a misleading ready-for-review confirmation claim.
 
-The reason was not rejection of PR #75 content. The reason was governance consistency.
+The reason was not rejection of PR #75 content. The reason was governance consistency at the time of action.
 
-A read-only clarification review found that PR #75 was marked ready-for-review, but the PR body claim that the Human Owner had confirmed moving PR #75 to ready-for-review could not be independently verified through a merged Decision Log entry on `main`.
+A read-only clarification review found that PR #75 was marked ready-for-review, but no merged Decision Log record could be found at that time to independently verify that authorization. Based on that finding, the safer RABA action was taken: return PR #75 to draft.
 
-The Human Owner stated that there was no confidence that the prior ready-for-review authorization had been explicit enough.
+A later consistency check found that commit `85a40db` on `main` does provide a merged Decision Log record (`docs/decision-log/2026-07/2026-07-04-pr-75-ready-for-review-confirmation.md`), confirming a prior Human Owner authorization for PR #75 ready-for-review for human review only. See section 3a for the full chronology correction.
 
-Therefore, the safer RABA action was to return PR #75 to draft pending explicit Human Owner review and to correct the PR body so it no longer carried an unsupported ready-for-review confirmation claim.
+The current safe operational state remains draft. The return-to-draft action occurred before commit `85a40db` was discovered. The Human Owner must make a renewed explicit decision before PR #75 may be returned to ready-for-review.
 
 ## 2. Decision
 
@@ -53,10 +53,10 @@ not approved
 not ready-for-review
 not merge-authorized
 not canon
-awaiting explicit Human Owner review
+awaiting renewed explicit Human Owner decision
 ```
 
-The prior ready-for-review state of PR #75 is not currently accepted as an independently verified Human Owner decision.
+Commit `85a40db` on main records prior Human Owner authorization for PR #75 ready-for-review for human review only. However, a later Human Owner-scoped action returned PR #75 to draft. The current operational state is draft, and renewed explicit Human Owner confirmation is required before any ready-for-review transition.
 
 Future movement of PR #75 requires a new explicit, scoped Human Owner confirmation.
 
@@ -74,17 +74,22 @@ canonicalize any PR #75 content
 
 RABA requires that Human Owner approval be explicit, scoped, and independently traceable.
 
-The read-only clarification review found:
+The read-only clarification review found at the time of action:
 
 ```text
 PR #75 body claim:
 "Human Owner confirmed moving this PR to ready-for-review only."
 
-Verification result:
-No merged Decision Log entry on main independently supports that specific ready-for-review authorization.
+Initial verification result (at time of read-only review):
+No merged Decision Log record was found on main at that time.
+
+Later consistency check finding:
+Commit 85a40db on main exists and added:
+docs/decision-log/2026-07/2026-07-04-pr-75-ready-for-review-confirmation.md
+That record confirms Human Owner authorization for ready-for-review for human review only.
 ```
 
-The only decision-log file that appeared to reference PR #75 preparation existed on the PR branch itself, not on `main`.
+At the time of the initial review, the only decision-log file that appeared to reference PR #75 preparation existed on the PR branch itself, not on `main`. Commit `85a40db` was subsequently found on main, providing the independent record. See section 3a.
 
 Under RABA governance rules:
 
@@ -96,7 +101,27 @@ Ready-for-review ≠ merge authorization
 Canonicalization candidate ≠ canon
 ```
 
-Because the prior authorization could not be independently verified, keeping PR #75 in ready-for-review state would create a governance inconsistency.
+Because no merged record was found during the initial review, keeping PR #75 in ready-for-review state appeared to create a governance inconsistency. With commit `85a40db` now known, the inconsistency is understood as a chronological ordering issue: the authorization existed but was not found before the return-to-draft action was taken.
+
+## 3a. Chronology Correction — Commit 85a40db
+
+A later read-only consistency check found that `main` contains commit `85a40db`:
+
+```text
+85a40db — Record PR #75 ready-for-review confirmation
+```
+
+That commit added:
+
+```text
+docs/decision-log/2026-07/2026-07-04-pr-75-ready-for-review-confirmation.md
+```
+
+This means a merged Decision Log record on `main` does exist for the earlier PR #75 ready-for-review authorization. The record confirms ready-for-review for human review only. It does not authorize merge, canon, canonicalization, or adoption of PR #75 content.
+
+The later return-to-draft action remains the current operational state unless and until the Human Owner explicitly confirms a renewed ready-for-review action.
+
+This Decision Candidate therefore records the later return-to-draft and body-correction sequence in chronological context. It does not invalidate the earlier authorization record, reject PR #75 content, authorize ready-for-review, authorize merge, or authorize canon.
 
 ## 4. Action 1 — Return PR #75 to Draft
 
@@ -128,7 +153,7 @@ The PR body still contained the old claim:
 Human Owner confirmed moving this PR to ready-for-review only.
 ```
 
-This claim was misleading after the PR had been returned to draft and after the prior authorization could not be independently verified on `main`.
+This claim was misleading after the PR had been returned to draft. A prior merged Decision Log record existed on main (commit `85a40db`), but had not yet been found at the time of the body correction.
 
 A second scoped Human Owner authorization was given to perform one action only:
 
@@ -136,11 +161,7 @@ A second scoped Human Owner authorization was given to perform one action only:
 Correct PR #75 body to remove the misleading ready-for-review claim.
 ```
 
-Claude Code replaced the old claim in the `## Decision boundary` section with the following governance note:
-
-```text
-PR #75 was returned to draft on 2026-07-04 because the prior ready-for-review authorization could not be independently verified through a merged Decision Log entry on main. PR #75 remains a non-canonical canonicalization candidate draft pending explicit Human Owner review. This does not reject PR #75 content, authorize merge, authorize canon, or authorize ready-for-review.
-```
+Claude Code replaced the old claim in the `## Decision boundary` section. A subsequent body correction was later made to reflect the full chronology after commit `85a40db` was discovered.
 
 Post-action verification confirmed:
 
@@ -149,10 +170,10 @@ PR #75 remained open.
 PR #75 remained draft.
 PR #75 remained unmerged.
 The old misleading claim was absent.
-The corrected governance note was present.
+A corrected governance note was present.
 ```
 
-No other PR body content was intentionally changed beyond the authorized sentence replacement.
+No other PR body content was intentionally changed beyond the authorized replacements.
 
 ## 6. Actions Not Taken
 
@@ -171,7 +192,6 @@ no PR comment
 no label change
 no reviewers requested
 no issue created
-no Decision Log update
 no operational overview update
 no canon action
 ```
@@ -195,18 +215,15 @@ PR #75 should be closed
 PR #75 should never become ready-for-review
 PR #75 should never be merged
 Tranche 1.1 is rejected
+the prior ready-for-review authorization was invalid
 ```
 
-The decision only means:
+The decision records that:
 
 ```text
-PR #75 must not remain ready-for-review unless the Human Owner confirmation is explicit, scoped, and independently recorded.
-```
-
-And:
-
-```text
-PR #75 body must not contain a misleading unsupported ready-for-review confirmation claim.
+The return-to-draft was a cautious, correct governance action at the time it was taken.
+A prior merged Decision Log record (commit 85a40db) confirms the earlier ready-for-review authorization.
+The current state is draft pending renewed Human Owner decision.
 ```
 
 ## 8. Current Status of PR #75
@@ -224,14 +241,18 @@ not approved
 not ready-for-review
 not merge-authorized
 not canon
-blocked pending explicit Human Owner review
+blocked pending renewed explicit Human Owner decision
 ```
 
 Merge remains blocked.
 
 Canonicalization remains blocked.
 
-Ready-for-review remains blocked until a new explicit Human Owner confirmation is given.
+Ready-for-review remains blocked until a renewed explicit Human Owner confirmation is given.
+
+Prior authorization record: exists on main via commit `85a40db`.
+
+Current operational state: draft, as set by later Human Owner-scoped action.
 
 ## 9. Remaining Issues
 
@@ -245,6 +266,8 @@ The following issues remain unresolved:
 5. The creation of docs/core/candidates/ on main has not been authorized.
 6. No part of PR #75 has been canonicalized.
 7. This decision candidate has not been merged and is not canon.
+8. Commit 85a40db proves prior ready-for-review authorization existed, but the Human Owner
+   must make a renewed decision about the current PR #75 state.
 ```
 
 ## 10. Future Required Decisions
@@ -252,13 +275,14 @@ The following issues remain unresolved:
 Before further movement, the Human Owner must decide:
 
 ```text
-1. Should PR #75 remain draft?
+1. Should PR #75 remain draft or be returned to ready-for-review?
 2. Should PR #75 be rebased or synced with current main?
 3. Should PR #75 be split, revised, or kept as one candidate package?
 4. Should PR #75 later be marked ready-for-review?
 5. Should PR #75 ever be merged as non-canonical candidate material?
 6. Should any part of PR #75 become a canonicalization candidate?
 7. Should any part of PR #75 become canon?
+8. Should this Decision Candidate (PR #168) be merged or revised further?
 ```
 
 Each of the following requires separate explicit Human Owner confirmation:
@@ -269,6 +293,7 @@ syncing or rebasing PR #75
 merging PR #75
 canonicalizing any PR #75 content
 creating docs/core/ or docs/core/candidates/ on main
+merging PR #168
 ```
 
 ## 11. Required Human Owner Phrases
@@ -307,13 +332,20 @@ No such confirmation is granted by this decision candidate.
 
 ## 12. RABA Rule Reinforced
 
-This event reinforces a core RABA governance rule:
+This event reinforces core RABA governance rules:
 
 ```text
-If an approval cannot be independently verified, the system must move toward the safer governance state.
+If an approval cannot be found during a review, the system must move toward the safer governance state.
 ```
 
-For PR #75, the safer governance state is:
+And:
+
+```text
+When new evidence changes the factual basis of a governance action,
+the record must be corrected to reflect the full chronology.
+```
+
+For PR #75, the safer governance state at the time of the initial review was:
 
 ```text
 draft
@@ -322,10 +354,13 @@ not merge-authorized
 not canon
 ```
 
+With commit `85a40db` now known, the record is corrected: a prior authorization existed. The current state remains draft pending renewed Human Owner decision.
+
 A related operational rule is also reinforced:
 
 ```text
-If a PR body contains an unsupported approval claim, the claim must be corrected or clearly bounded so it cannot be mistaken for Human Owner authorization.
+If a PR body contains a misleading approval claim, the claim must be corrected or clearly bounded
+so it cannot be mistaken for Human Owner authorization.
 ```
 
 ## 13. Recommended Next Best Step
@@ -333,14 +368,17 @@ If a PR body contains an unsupported approval claim, the claim must be corrected
 Recommended next step:
 
 ```text
-Review this Decision Log candidate before merge.
+Human Owner decides whether to:
+1. Return PR #75 to ready-for-review (using gate phrase above), or
+2. Keep PR #75 as draft for further review, or
+3. Merge or revise this Decision Candidate (PR #168).
 ```
 
-After that, a separate operational overview refresh may be prepared to reflect:
+A separate operational overview refresh may also be prepared to reflect:
 
 ```text
-PR #75 returned to draft.
-PR #75 body corrected.
+PR #75 returned to draft then chronology corrected.
+PR #75 body corrected twice.
 Issue #167 created for GEG review queue.
 PR #164, #165, and #166 remain strong drafts.
 PR #163 remains draft pending separate review.
