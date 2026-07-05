@@ -1,0 +1,534 @@
+# Operational Grounding Addendum
+
+Status: Working Note  
+Canonical status: Non-canonical  
+Source type: Review input / operational control draft  
+Related area: Responsibility Viability Under AI-Driven Pressure  
+Approval status: Not approved as RABA canon  
+Validation status: Not validation  
+Endorsement status: Not endorsement  
+Adoption status: Not adoption  
+SAI alignment status: No claim  
+Commercial / compliance / certification status: No claim  
+
+## 1. Purpose
+
+This working note translates responsibility viability concepts into operational governance signals.
+
+It is intended to help RABA detect when human responsibility may no longer be practically executable under AI-driven operational speed, without granting AI additional autonomy and without allowing AI to infer hidden human mental states.
+
+This note is non-canonical. It does not approve, validate, adopt, or implement any RABA architecture.
+
+## 2. Governance Boundary
+
+The following RABA rules apply:
+
+- AI recommendation does not equal approval.
+- External signal does not equal validation.
+- Discussion input does not equal canon.
+- GitHub presence does not equal approval.
+- Manual Human Owner action does not equal architectural approval.
+- Multi-AI agreement does not equal canon.
+- Final architectural approval belongs to the Human Owner.
+
+This note must not be used to claim that:
+
+- RABA adopts AnnA;
+- RABA implements AnnA;
+- RABA is based on AnnA;
+- RABA is aligned with SAI;
+- AnnA or SAI validates RABA;
+- responsibility viability concepts are RABA canon.
+
+## 3. Core Safety Constraint
+
+Detection of Responsibility Saturation, Responsibility Overload, or Responsibility Viability Drift must never become a justification for expanding AI autonomy.
+
+If local human responsibility capacity appears exhausted, the system must not respond by bypassing the human.
+
+Allowed responses are limited to:
+
+- Halt;
+- Throttle;
+- queue for explicitly bounded later human review;
+- escalate to explicitly defined Human Owner decision;
+- mark the action as blocked;
+- record displaced or deferred pressure in the Decision Log;
+- enter a defined Recovery Protocol.
+
+Forbidden response:
+
+> The human is overloaded, therefore AI may proceed autonomously.
+
+## 4. AI Paternalism Risk
+
+AI Paternalism Risk occurs when an AI system begins to infer the human's cognitive, emotional, or operational capacity and uses that inference to change the distribution of authority.
+
+This is prohibited in RABA.
+
+RABA may detect operational workflow signals such as:
+
+- response time;
+- batch size;
+- review queue size;
+- action complexity;
+- number of unresolved decisions;
+- missing human edits;
+- repeated approvals without questions;
+- correction burden accumulation.
+
+RABA must not infer hidden mental states such as:
+
+- fatigue;
+- competence;
+- willingness;
+- attention;
+- stress;
+- approval;
+- emotional readiness.
+
+The system may say:
+
+> The minimum response window was not met.
+
+The system must not say:
+
+> The Human Owner is too tired, so AI should continue.
+
+## 5. AI-Closed Loop Prohibition
+
+A closed AI oversight loop appears when AI:
+
+1. generates or routes work;
+2. evaluates human capacity;
+3. decides that the human is overloaded;
+4. changes the workflow;
+5. expands its own execution authority.
+
+This is prohibited.
+
+Responsibility capacity must be governed by Human Owner-defined parameters, not by autonomous AI interpretation.
+
+The AI may surface signals.
+
+The AI may recommend slowing down.
+
+The AI may mark a boundary condition.
+
+The AI may not unilaterally replace human responsibility with AI execution.
+
+## 6. Human-Set Capacity Limits
+
+Responsibility Capacity should be defined through explicit, configurable limits set by the Human Owner or by a canonical RABA governance rule.
+
+Candidate limits:
+
+- minimum response window;
+- maximum number of AI-proposed changes per review batch;
+- maximum unresolved decisions per governance cycle;
+- maximum number of consecutive approvals without human edits;
+- minimum required review time for high-consequence changes;
+- required manual explanation for irreversible or high-impact actions;
+- maximum number of pending correction obligations;
+- maximum number of downstream deferred risks;
+- maximum number of simultaneous architecture initiatives;
+- maximum number of unreviewed AI-generated artifacts.
+
+These limits are operational boundaries.
+
+They are not AI guesses about human mental state.
+
+## 7. Operational Indicators
+
+The following indicators may suggest Responsibility Saturation or Responsibility Viability Drift.
+
+They are not proof by themselves.
+
+They are review triggers.
+
+### 7.1 Human Response Window Indicators
+
+- approval occurs below the minimum response time;
+- high-complexity action receives near-instant approval;
+- repeated approvals occur without visible review time;
+- review window is shorter than the complexity class requires.
+
+Candidate tag:
+
+`Human_Response_Window_Below_Minimum`
+
+### 7.2 Rubber-Stamping Indicators
+
+- repeated approvals with no edits;
+- repeated approvals with no questions;
+- repeated approvals with no rejection or delay;
+- approval pattern remains constant while complexity increases;
+- several items are approved in bulk without item-level reasoning.
+
+Candidate tag:
+
+`Possible_Rubber_Stamping`
+
+### 7.3 Correction Burden Indicators
+
+- AI-generated work repeatedly requires later human correction;
+- unresolved issues return as rework;
+- downstream teams receive unclear or unstable decisions;
+- the Human Owner becomes the final cleanup layer for accumulated AI output.
+
+Candidate tag:
+
+`Correction_Burden_Drift`
+
+### 7.4 Downstream Pressure Indicators
+
+- risk is moved to a later phase without resolution;
+- task is marked complete while unresolved pressure remains;
+- decision is deferred without an owner;
+- governance gate passes while backlog, retries, or overload increase elsewhere.
+
+Candidate tags:
+
+`Pressure_Displaced`  
+`Deferred_Responsibility`
+
+### 7.5 Responsibility Overload Indicators
+
+- too many pending decisions are assigned to one human actor;
+- review queue exceeds Human Owner-defined limits;
+- multiple high-consequence actions require approval in the same narrow time window;
+- unresolved correction obligations accumulate faster than they are closed.
+
+Candidate tag:
+
+`Responsibility_Overloaded`
+
+## 8. Anti-Gaming Note
+
+Operational metrics are valid only as failure-detection triggers.
+
+They are not proof of meaningful review.
+
+Meeting a minimum time threshold does not prove that the Human Owner understood the issue.
+
+Waiting long enough before clicking approve does not restore responsibility capacity.
+
+Reducing visible queue size does not prove that pressure was resolved.
+
+A clean audit trail does not prove that responsibility was executable.
+
+Therefore:
+
+> Metrics may trigger concern, but metric compliance must not be treated as proof of responsibility viability.
+
+This prevents Governance Capture through metric gaming.
+
+## 9. State Trigger Candidate
+
+To reduce glossary inflation, RABA may group several overlapping conditions under one machine-readable state:
+
+`State: Responsibility_Overloaded`
+
+This state may be triggered by:
+
+- capacity limit exceeded;
+- minimum response window violated;
+- correction burden above threshold;
+- unresolved downstream pressure above threshold;
+- too many pending high-consequence decisions;
+- repeated rubber-stamping indicators;
+- excessive batch size;
+- bulk-approval behavior;
+- too many concurrent architecture initiatives.
+
+This state does not mean the AI may act instead of the human.
+
+It means the process must slow, stop, defer, or enter Recovery.
+
+## 10. Throttle Definition
+
+In RABA, Throttle means controlled reduction of operational speed and cognitive load.
+
+Throttle does not mean hidden backlog growth.
+
+Throttle does not mean AI continues producing unresolved work under the hood.
+
+Throttle may include:
+
+### 10.1 Reducing `batch_size`
+
+AI must reduce the number of proposed changes presented at once.
+
+Examples:
+
+- from 20 proposed changes to 3;
+- from full-file rewrites to one section at a time;
+- from architecture package to single decision unit.
+
+### 10.2 Freezing New Architecture Initiatives
+
+AI must not introduce new conceptual directions while unresolved high-consequence decisions remain open.
+
+### 10.3 Limiting Parallel Threads
+
+AI must not expand the number of simultaneous workstreams if Human Owner review capacity is already exceeded.
+
+### 10.4 Requiring Item-Level Review
+
+Bulk approval is not allowed for overloaded states.
+
+Each item must have its own review path, decision, or explicit deferral.
+
+### 10.5 Converting Generation into Summarization
+
+AI may stop producing new proposals and instead summarize:
+
+- what is pending;
+- what is blocked;
+- what needs Human Owner decision;
+- what pressure has been displaced;
+- what can be safely deferred.
+
+### 10.6 Marking Non-Urgent Items as Deferred
+
+Low-priority items may be moved into a bounded backlog with explicit owner, status, and review condition.
+
+### 10.7 Blocking High-Consequence Changes
+
+High-consequence actions remain blocked until responsibility becomes executable again.
+
+## 11. Halt Definition
+
+Halt means the workflow stops for the affected action class.
+
+Halt does not necessarily stop all assistance.
+
+During Halt, AI may still provide:
+
+- read-only summaries;
+- risk maps;
+- pending decision lists;
+- clarification drafts;
+- recovery checklists;
+- non-executing review aids.
+
+During Halt, AI must not:
+
+- create new GitHub changes;
+- expand the scope;
+- introduce new architecture;
+- move PRs or issues forward;
+- perform ready-for-review;
+- merge;
+- canonicalize;
+- make public, provider-facing, commercial, adoption, validation, compliance, or certification claims.
+
+## 12. Queue and Delay Boundary
+
+Queue and Delay is allowed only if the backlog is bounded and visible.
+
+Queue and Delay becomes unsafe when it hides pressure.
+
+A deferred queue must record:
+
+- owner;
+- reason for deferral;
+- consequence class;
+- pressure source;
+- review condition;
+- expiry or re-evaluation trigger;
+- whether pressure was resolved or displaced.
+
+Forbidden pattern:
+
+> AI continues generating decisions into a hidden backlog while the Human Owner sees only a simplified flow.
+
+Allowed pattern:
+
+> AI stops generating new unresolved decisions and creates a visible bounded review queue.
+
+## 13. Recovery Protocol
+
+Recovery is the controlled process for leaving `State: Responsibility_Overloaded`.
+
+Recovery must not be achieved by simply approving all pending items.
+
+Recovery must not be achieved by clearing the queue without item-level status.
+
+Recovery must not be achieved by AI deciding that capacity has returned.
+
+Recovery requires an explicit Human Owner action or a predefined governance condition.
+
+Candidate Recovery steps:
+
+### 13.1 Freeze Expansion
+
+No new architecture initiatives, claims, or high-consequence changes are introduced during Recovery.
+
+### 13.2 Inventory Pending Pressure
+
+AI prepares a read-only list of:
+
+- pending decisions;
+- blocked items;
+- deferred responsibility;
+- displaced pressure;
+- correction obligations;
+- unresolved high-consequence actions.
+
+### 13.3 Classify Each Item
+
+Each item receives one of the following statuses:
+
+- proceed;
+- defer;
+- split;
+- reject;
+- archive;
+- needs external review;
+- needs Human Owner decision;
+- blocked.
+
+### 13.4 Reduce Batch Size
+
+Items are reviewed in small batches.
+
+Default candidate limit:
+
+`batch_size <= 3`
+
+### 13.5 Require Item-Level Reasoning
+
+For high-consequence items, Human Owner approval should include a short reason or selected decision category.
+
+Examples:
+
+- approved because scope is non-canonical;
+- deferred because review capacity exceeded;
+- blocked because GitHub action requires explicit confirmation;
+- rejected because external signal is not RABA-relevant.
+
+### 13.6 Record Recovery Decision
+
+The Decision Log may record:
+
+`Recovery_Started`  
+`Recovery_Completed`  
+`Recovery_Reset_By_Human_Owner`  
+`Bulk_Approval_Rejected`  
+`Pressure_Displaced`  
+`Deferred_Responsibility`
+
+### 13.7 Resume Only by Class
+
+Recovery should restore workflow class by class.
+
+Example:
+
+- chat-only analysis may resume;
+- GitHub write actions remain blocked;
+- canonicalization remains blocked;
+- public positioning remains blocked.
+
+## 14. Bulk-Approval Protection
+
+Bulk approval is unsafe during `State: Responsibility_Overloaded`.
+
+Bulk approval may indicate that the Human Owner is trying to remove friction rather than exercise responsibility.
+
+During overload recovery:
+
+- no multi-item approval for high-consequence actions;
+- no approve all for architecture changes;
+- no merge everything;
+- no make all suggested changes without file-level or item-level scope;
+- no approval by silence;
+- no approval inferred from urgency.
+
+Allowed:
+
+- Approve item 1 only.
+- Defer items 2 and 3.
+- Reject this branch.
+- Prepare GitHub-ready Markdown only; do not commit.
+- Create file X after this explicit confirmation.
+
+## 15. Decision Log Additions
+
+RABA may later add the following non-canonical Decision Log attributes:
+
+`Pressure_Displaced: true | false`
+
+Indicates that unresolved pressure was moved downstream instead of resolved.
+
+`Deferred_Responsibility: true | false`
+
+Indicates that responsibility was delayed, queued, or transferred without final resolution.
+
+`Responsibility_Overloaded: true | false`
+
+Indicates that local responsibility capacity was exceeded according to Human Owner-defined limits.
+
+`Human_Response_Window_Below_Minimum: true | false`
+
+Indicates that the response or approval window was too short for the action's complexity or consequence class.
+
+`Correction_Burden_Drift: true | false`
+
+Indicates that unresolved AI-generated burden is repeatedly returning to the human or another downstream actor for correction.
+
+`Possible_Rubber_Stamping: true | false`
+
+Indicates that approval behavior may be formal rather than meaningfully review-based.
+
+`Recovery_Required: true | false`
+
+Indicates that the workflow cannot safely continue until Recovery Protocol is completed.
+
+## 16. Additional RABA Review Questions
+
+The following questions may be used in future review:
+
+1. Is responsibility capacity defined by Human Owner-set limits, or is AI attempting to infer it?
+2. Has AI detected overload in a way that could expand its own autonomy?
+3. If responsibility overload is detected, does the system Halt or Throttle, or does it Bypass?
+4. Was unresolved pressure resolved, or only moved downstream?
+5. Is the Decision Log recording displaced pressure and deferred responsibility?
+6. Is the human still exercising responsibility, or only serving as a formal approval endpoint?
+7. Has the governance mechanism become captured by its own workflow, metrics, or continuity?
+8. Is visible failure preserved, or is it being converted into process success?
+9. Are correction obligations accumulating faster than they are closed?
+10. Does the event record show why responsibility remained executable?
+11. Is Throttle reducing real workload, or merely hiding work in a backlog?
+12. Is Recovery possible without bulk approval?
+13. Does the system resume by action class, or does one reset reopen everything?
+14. Are metrics being used only as triggers, or falsely treated as proof of meaningful review?
+
+## 17. Relationship to Future Work
+
+This note may later inform, but does not modify:
+
+- Responsibility Viability Drift;
+- Human Response Window;
+- Correction Obligation;
+- Governance Gateway;
+- Governed Bypass;
+- Operational Momentum;
+- Responsibility Event Topology;
+- Consequence Boundary Trigger Matrix;
+- Decision Log attributes;
+- external signal handling.
+
+Any such integration requires explicit Human Owner approval.
+
+## 18. Non-Claims
+
+This operational addendum does not make AnnA part of RABA canon.
+
+It does not claim SAI alignment.
+
+It does not claim that RABA adopts AnnA.
+
+It uses AnnA only as external conceptual input for reviewing pressure, capacity, saturation, capture, and visible failure.
+
+Final architectural approval belongs to the Human Owner.
