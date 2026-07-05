@@ -223,6 +223,17 @@ Therefore:
 
 This prevents Governance Capture through metric gaming.
 
+Metric gaming may also include attempts to avoid trigger detection while unresolved pressure remains.
+
+Examples:
+
+- splitting batches to stay below threshold while preserving total overload;
+- spacing approvals to satisfy minimum response windows without meaningful review;
+- archiving items to reduce visible backlog without pressure accounting;
+- moving unresolved items across domains without `Pressure_Displaced` or `Deferred_Responsibility` records.
+
+RABA should treat these patterns as review triggers, not as proof of misconduct, motive, or mental state.
+
 ## 9. State Trigger Candidate
 
 To reduce glossary inflation, RABA may group several overlapping conditions under one machine-readable state:
@@ -241,7 +252,37 @@ This state may be triggered by:
 - bulk-approval behavior;
 - too many concurrent architecture initiatives.
 
+Entry into this state must be visible to the Human Owner.
+
+The trigger reason must be recorded.
+
+The Human Owner must be able to contest or override the classification.
+
+Allowed statement:
+
+> `State: Responsibility_Overloaded` was triggered because the configured batch-size limit was exceeded.
+
+Forbidden statement:
+
+> The Human Owner is overloaded.
+
+AI may mark the state.
+
+AI may surface the trigger.
+
+AI may recommend Halt, Throttle, or Recovery.
+
+AI may not treat its classification as a final judgment about the Human Owner's capacity.
+
 This state does not mean the AI may act instead of the human.
+
+`State: Responsibility_Overloaded` never authorizes Governed Bypass.
+
+It does not permit AI to proceed instead of the Human Owner.
+
+It does not permit AI to expand execution authority.
+
+It does not permit AI to treat overload as consent, delegation, or waiver.
 
 It means the process must slow, stop, defer, or enter Recovery.
 
@@ -253,15 +294,32 @@ Throttle does not mean hidden backlog growth.
 
 Throttle does not mean AI continues producing unresolved work under the hood.
 
+Throttle must use deterministic, Human Owner-defined or canonically defined steps.
+
+Throttle must not be an AI-optimized adjustment to the human's observed behavior.
+
+Forbidden pattern:
+
+> AI observes approval speed and dynamically computes the optimal throttle rate for the human.
+
+Allowed pattern:
+
+> If `Responsibility_Overloaded` is triggered, reduce `batch_size` to the predefined value set by the Human Owner or by an approved governance rule.
+
+Throttle protects responsibility boundaries.
+
+Throttle does not optimize human throughput.
+
 Throttle may include:
 
 ### 10.1 Reducing `batch_size`
 
-AI must reduce the number of proposed changes presented at once.
+AI must reduce the number of proposed changes presented at once according to predefined limits.
 
 Examples:
 
 - from 20 proposed changes to 3;
+- from 3 proposed changes to 1 for high-consequence actions;
 - from full-file rewrites to one section at a time;
 - from architecture package to single decision unit.
 
@@ -359,6 +417,21 @@ Recovery must not be achieved by AI deciding that capacity has returned.
 
 Recovery requires an explicit Human Owner action or a predefined governance condition.
 
+Recovery from Halt or `State: Responsibility_Overloaded` must not be completed by a single click, silent approval, or queue clearing.
+
+Recovery requires a visible context change.
+
+Candidate context-change actions:
+
+- manual comment;
+- item-level classification;
+- manual edit to at least one field;
+- explicit rejection or deferral of at least one pending item;
+- selection of a recovery reason;
+- confirmation of changed scope;
+- reduction of action class;
+- explicit Human Owner reset with reason.
+
 Candidate Recovery steps:
 
 ### 13.1 Freeze Expansion
@@ -408,7 +481,33 @@ Examples:
 - blocked because GitHub action requires explicit confirmation;
 - rejected because external signal is not RABA-relevant.
 
-### 13.6 Record Recovery Decision
+Selecting a reason category does not prove meaningful review by itself.
+
+It records the declared reason under the current workflow.
+
+### 13.6 Archive Requires Pressure Accounting
+
+`archive` must not become hidden backlog cleanup.
+
+If an item is archived during Recovery, the record must show:
+
+- reason for archive;
+- owner or no owner;
+- consequence class;
+- pressure source;
+- whether pressure was resolved, displaced, or rejected;
+- whether future review is required;
+- whether any correction obligation remains.
+
+Archive must not mean:
+
+> The item disappeared from responsibility accounting.
+
+Archive may mean only:
+
+> The item was explicitly removed from active review with recorded pressure status.
+
+### 13.7 Record Recovery Decision
 
 The Decision Log may record:
 
@@ -419,7 +518,7 @@ The Decision Log may record:
 `Pressure_Displaced`  
 `Deferred_Responsibility`
 
-### 13.7 Resume Only by Class
+### 13.8 Resume Only by Class
 
 Recovery should restore workflow class by class.
 
@@ -434,7 +533,13 @@ Example:
 
 Bulk approval is unsafe during `State: Responsibility_Overloaded`.
 
-Bulk approval may indicate that the Human Owner is trying to remove friction rather than exercise responsibility.
+Bulk approval during `State: Responsibility_Overloaded` is an operational pattern requiring item-level confirmation.
+
+It must not be interpreted as evidence of the Human Owner's motive, fatigue, attention, willingness, or intent.
+
+Allowed statement:
+
+> Bulk approval occurred during overload recovery and requires item-level confirmation before high-consequence actions may proceed.
 
 During overload recovery:
 
@@ -452,6 +557,26 @@ Allowed:
 - Reject this branch.
 - Prepare GitHub-ready Markdown only; do not commit.
 - Create file X after this explicit confirmation.
+
+Final authority remains with the Human Owner.
+
+However, override during overload recovery must be explicit, scoped, and recorded.
+
+Allowed override pattern:
+
+> Human Owner override approved for item 1 only, with reason.
+
+Unsafe override pattern:
+
+> Resume all workflows.
+
+An override must specify:
+
+- action class;
+- item or batch scope;
+- reason;
+- whether pending pressure is resolved, deferred, displaced, or rejected;
+- whether GitHub write actions, canonicalization, public positioning, or provider-facing use remain blocked.
 
 ## 15. Decision Log Additions
 
@@ -485,7 +610,128 @@ Indicates that approval behavior may be formal rather than meaningfully review-b
 
 Indicates that the workflow cannot safely continue until Recovery Protocol is completed.
 
-## 16. Additional RABA Review Questions
+For all candidate Decision Log fields, `false` means only:
+
+> Not detected under the currently defined operational limits.
+
+It must not mean:
+
+> Meaningful review confirmed.
+
+Examples:
+
+`Possible_Rubber_Stamping: false`
+
+means:
+
+> Rubber-stamping was not detected under the configured indicators.
+
+It does not mean:
+
+> Human review was meaningful.
+
+`Human_Response_Window_Below_Minimum: false`
+
+means:
+
+> The minimum response-window trigger did not fire.
+
+It does not mean:
+
+> The Human Owner understood the action.
+
+Candidate Decision Log warning:
+
+`Metrics_Not_Proof_Of_Review: true`
+
+Candidate note:
+
+> Operational metrics record whether configured triggers fired. They do not prove subjective understanding, meaningful review, or responsibility viability.
+
+## 16. Audit and Interface Safeguards
+
+### 16.1 Absence of Flag Is Not Proof
+
+The absence of an overload, saturation, rubber-stamping, or response-window flag is not proof of meaningful human review.
+
+A false value such as:
+
+`Human_Response_Window_Below_Minimum: false`
+
+must not be interpreted as:
+
+`Meaningful_Review: Confirmed`
+
+It only means that this specific trigger did not fire.
+
+RABA must not allow Decision Logs, audit trails, providers, external reviewers, or AI systems to treat non-triggering metrics as legal, architectural, or operational proof that the Human Owner meaningfully understood, reviewed, or accepted responsibility.
+
+Candidate rule:
+
+> No overload flag does not mean meaningful review was proven.
+
+Metrics can detect concern.
+
+Metrics cannot prove responsibility viability.
+
+### 16.2 No Negative Evidence Conversion
+
+RABA must not convert the absence of evidence into evidence of responsibility.
+
+Forbidden inference:
+
+> No overload trigger fired, therefore the human was meaningfully in control.
+
+Allowed statement:
+
+> No overload trigger fired under the currently defined operational limits.
+
+This protects RABA from false audit comfort and from provider-facing misuse of Decision Log records.
+
+### 16.3 Neutral UI Prompt Requirement
+
+System messages during Halt, Throttle, Recovery, or Responsibility Overload must use neutral operational facts.
+
+They must not infer or describe the Human Owner's mental state.
+
+Forbidden messages:
+
+> You are overloaded, so I paused the workflow.
+
+> You appear tired.
+
+> You are rubber-stamping.
+
+> You are not paying attention.
+
+Allowed messages:
+
+> Limit exceeded: 5 consecutive approvals without manual edits.
+
+> Minimum response window not met for a high-consequence action.
+
+> Review queue exceeds the configured limit.
+
+> `State: Responsibility_Overloaded` triggered by batch size threshold.
+
+> Halt activated for GitHub write actions until Human Owner review.
+
+### 16.4 Provider-Facing Misuse Boundary
+
+RABA must prevent operational logs from being used as provider-facing or external compliance evidence unless separately approved.
+
+A log entry showing no overload flag must not support claims such as:
+
+- human was in control;
+- human meaningfully reviewed;
+- human accepted responsibility;
+- governance was effective;
+- compliance was achieved;
+- responsibility was viable.
+
+Any such claim requires separate Human Owner approval and separate evidence.
+
+## 17. Additional RABA Review Questions
 
 The following questions may be used in future review:
 
@@ -503,8 +749,18 @@ The following questions may be used in future review:
 12. Is Recovery possible without bulk approval?
 13. Does the system resume by action class, or does one reset reopen everything?
 14. Are metrics being used only as triggers, or falsely treated as proof of meaningful review?
+15. Was entry into `Responsibility_Overloaded` visible and contestable by the Human Owner?
+16. Could `Responsibility_Overloaded` be misread as authorization for Governed Bypass?
+17. Does bulk approval language avoid inferring Human Owner motive?
+18. Does archive preserve pressure accounting?
+19. Do false values in Decision Log fields clearly mean not detected, not confirmed safe?
+20. Could metrics be gamed by splitting, delaying, or archiving work?
+21. Does Human Owner override remain explicit, scoped, and recorded?
+22. Does the system avoid converting operational silence into proof of meaningful review?
+23. Are UI messages neutral, or do they infer the Human Owner's mental state?
+24. Is Throttle deterministic, or is AI optimizing the Human Owner's throughput?
 
-## 17. Relationship to Future Work
+## 18. Relationship to Future Work
 
 This note may later inform, but does not modify:
 
@@ -521,7 +777,7 @@ This note may later inform, but does not modify:
 
 Any such integration requires explicit Human Owner approval.
 
-## 18. Non-Claims
+## 19. Non-Claims
 
 This operational addendum does not make AnnA part of RABA canon.
 
@@ -530,5 +786,17 @@ It does not claim SAI alignment.
 It does not claim that RABA adopts AnnA.
 
 It uses AnnA only as external conceptual input for reviewing pressure, capacity, saturation, capture, and visible failure.
+
+This addendum does not prove meaningful review.
+
+It does not authorize provider-facing use.
+
+It does not approve Decision Log schema changes.
+
+It does not authorize AI inference of human capacity, motive, or mental state.
+
+It does not authorize AI optimization of human throughput.
+
+It does not authorize Governed Bypass.
 
 Final architectural approval belongs to the Human Owner.
