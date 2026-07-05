@@ -138,6 +138,20 @@ These limits are operational boundaries.
 
 They are not AI guesses about human mental state.
 
+### 6.1 No Unconfirmed Default Capacity Limits
+
+Throttle, Halt, or Recovery triggers must not rely on unconfirmed default capacity values.
+
+Capacity limits must be explicitly set, confirmed, or approved by the Human Owner or by a canonical governance rule before they may be used as operational trigger thresholds.
+
+Forbidden pattern:
+
+> Default threshold silently activates Halt or Throttle.
+
+Allowed pattern:
+
+> Human Owner-confirmed threshold activates Halt or Throttle.
+
 ## 7. Operational Indicators
 
 The following indicators may suggest Responsibility Saturation or Responsibility Viability Drift.
@@ -258,6 +272,19 @@ The trigger reason must be recorded.
 
 The Human Owner must be able to contest or override the classification.
 
+If the Human Owner contests or overrides `State: Responsibility_Overloaded`, the contestation or override must itself be recorded.
+
+The record should include:
+
+- timestamp;
+- triggering condition;
+- Human Owner action;
+- reason;
+- affected action class;
+- whether the state was upheld, modified, or dismissed.
+
+Contestation must not be silent.
+
 Allowed statement:
 
 > `State: Responsibility_Overloaded` was triggered because the configured batch-size limit was exceeded.
@@ -275,6 +302,8 @@ AI may recommend Halt, Throttle, or Recovery.
 AI may not treat its classification as a final judgment about the Human Owner's capacity.
 
 This state does not mean the AI may act instead of the human.
+
+For this working note, `Governed Bypass` means a pattern where AI proceeds with consequential action in place of a required human decision, review, or authorization.
 
 `State: Responsibility_Overloaded` never authorizes Governed Bypass.
 
@@ -421,6 +450,8 @@ Recovery from Halt or `State: Responsibility_Overloaded` must not be completed b
 
 Recovery requires a visible context change.
 
+Recovery must include at least one visible context-change action.
+
 Candidate context-change actions:
 
 - manual comment;
@@ -431,6 +462,8 @@ Candidate context-change actions:
 - confirmation of changed scope;
 - reduction of action class;
 - explicit Human Owner reset with reason.
+
+Recovery must not begin or complete through passive waiting, queue clearing, or one-click resume.
 
 Candidate Recovery steps:
 
@@ -731,6 +764,24 @@ A log entry showing no overload flag must not support claims such as:
 
 Any such claim requires separate Human Owner approval and separate evidence.
 
+### 16.5 Operational Log Transmission Boundary
+
+Operational logs produced under this framework must not be transmitted, cited, exported, or used externally without separate Human Owner approval.
+
+This includes use for:
+
+- provider-facing review;
+- public positioning;
+- compliance evidence;
+- certification evidence;
+- adoption claims;
+- validation claims;
+- commercial claims.
+
+Operational logs should carry a warning:
+
+> Operational metrics are review triggers only. They do not prove meaningful review, human control, compliance, or responsibility viability.
+
 ## 17. Additional RABA Review Questions
 
 The following questions may be used in future review:
@@ -759,6 +810,11 @@ The following questions may be used in future review:
 22. Does the system avoid converting operational silence into proof of meaningful review?
 23. Are UI messages neutral, or do they infer the Human Owner's mental state?
 24. Is Throttle deterministic, or is AI optimizing the Human Owner's throughput?
+25. Are default capacity limits explicitly confirmed before they can trigger Halt, Throttle, or Recovery?
+26. Is contestation or override of `Responsibility_Overloaded` recorded with reason, action class, and outcome?
+27. Does Recovery require at least one visible context-change action?
+28. Is `Governed Bypass` defined clearly enough to avoid misinterpretation?
+29. Are operational logs prevented from external transmission, citation, export, or provider-facing use without separate Human Owner approval?
 
 ## 18. Relationship to Future Work
 
@@ -798,5 +854,7 @@ It does not authorize AI inference of human capacity, motive, or mental state.
 It does not authorize AI optimization of human throughput.
 
 It does not authorize Governed Bypass.
+
+It does not authorize external transmission, citation, export, or provider-facing use of operational logs.
 
 Final architectural approval belongs to the Human Owner.
