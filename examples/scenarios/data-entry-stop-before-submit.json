@@ -1,0 +1,25 @@
+{
+  "name": "data-entry-stop-before-submit",
+  "description": "Data entry scenario: open form, type two fields, attempt submit. Submit requires confirmation; sequence stops.",
+  "actions": [
+    {
+      "type": "open_url",
+      "target": "mock://sandbox-form",
+      "metadata": { "reason": "open sandbox form for data entry" }
+    },
+    {
+      "type": "type",
+      "target": "name-field",
+      "value": "Test User"
+    },
+    {
+      "type": "type",
+      "target": "note-field",
+      "value": "This is a mock note."
+    },
+    {
+      "type": "submit",
+      "target": "submit-button"
+    }
+  ]
+}
