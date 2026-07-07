@@ -1,4 +1,4 @@
-# Autonomy Management Coverage Map — Verified Table v0.2
+# Autonomy Management Coverage Map — Verified Table v0.3
 
 Status: Working Note  
 Canonical status: Non-canonical  
@@ -11,7 +11,10 @@ SAI alignment status: No claim
 Commercial / compliance / certification status: No claim  
 
 Verified against: `main` @ `85a40db3938622d6b496a9af8988a4aa705129aa`  
-PR-specific verification: PR #171 `pull/171/head`  
+Repository artifact added on `main`: `9afb7862cf0c2a11408f4dba2b1aaf7081d51dd1`  
+PR-specific original verification: PR #171 `pull/171/head` before later PR update  
+PR-specific re-verification: PR #171 `docs/notes/operational-grounding-addendum.md` @ `61d97628b0deed300661ce024bf07c9c193ad56b`  
+Rows re-verified against PR #171 @ `61d97628b0deed300661ce024bf07c9c193ad56b`: 9–11, 14  
 Verification method: read-only source inspection of referenced files and PR draft content  
 
 ## 0. Boundary
@@ -54,6 +57,18 @@ Scope: source existence, relevant sections, and whether the stated lever is docu
 A separate review input reported sampled verification of rows 3, 5, 12, 18, 21, and 23 against `main @ 85a40db`.
 
 This review input is useful, but it is not Human Owner approval and does not create canon.
+
+### Re-verification update for v0.3
+
+Rows 9–11 and 14 were re-verified against PR #171 head `61d97628b0deed300661ce024bf07c9c193ad56b` after the PR source changed.
+
+This re-verification updates the coverage notes for the changed PR source.
+
+It does not approve PR #171.
+
+It does not move PR #171 out of draft.
+
+It does not make PR #171 canon.
 
 ### Not verified
 
@@ -128,7 +143,7 @@ This prevents mixing two different questions:
 - `draft` — currently only present in draft / PR / working note form.
 - `not-applicable` — not an operational control.
 
-## 4. Verified Coverage Table v0.2
+## 4. Verified Coverage Table v0.3
 
 | # | Lever | Dim | Source path / section | Source status | Coverage type | Coverage status | Operational status | Review trigger | Verification note |
 |---|---|---:|---|---|---|---|---|---|---|
@@ -140,12 +155,12 @@ This prevents mixing two different questions:
 | 6 | One approval = one action in stated scope | 2, 7 | `docs/approval-state-specification.md`; candidate support from `concepts/active-confirmation-phrase-interlock.md` | draft / discussion-draft | partial rule | partial | unknown | on authority-note decision | Critical partial: direct formula not verified; scoped authorization, expiration, reapproval, action parameters, and unchanged scope are verified. |
 | 7 | Reversibility as controllability dimension | 3 | `docs/operational-controllability-model.md` § Reversibility | merged, non-canonical unless canonicalization record verified | definition | covered | unknown | on model change | Verified: reversibility = ability to stop, contain, or reverse operational outcomes. |
 | 8 | Remediation Scale Gap | 3 | `concepts/governed-speed-safety-controls.md` §§ 2, 5, 6, 9 | merged, non-canonical unless canonicalization record verified | definition + rule | covered | unknown | on reversibility-classification decision | Verified: one-case reversibility does not imply mass operational reversibility. |
-| 9 | Halt / Throttle / Queue & Delay / Recovery | 4 | PR #171 `docs/notes/operational-grounding-addendum.md` §§ 9–13 | draft-PR / working-note / non-canonical | procedure | covered | draft | on PR #171 decision | Verified: Halt, Throttle, Queue & Delay, and Recovery are documented; source remains draft and non-canonical. |
-| 10 | Human-set capacity limits | 4 | PR #171 addendum § 6 | draft-PR / working-note / non-canonical | rule | covered | draft | on PR #171 decision | Verified: limits must be Human Owner-set or canonical; no unconfirmed default triggers. |
-| 11 | No hidden backlog / bounded visible queue | 4, 5 | PR #171 addendum § 12 | draft-PR / working-note / non-canonical | rule | covered | draft | on PR #171 decision | Verified: queue must be bounded and visible; hidden backlog forbidden. |
+| 9 | Halt / Throttle / Queue & Delay / Recovery | 4 | PR #171 `docs/notes/operational-grounding-addendum.md` §§ 9–13 | draft-PR / working-note / non-canonical | procedure | covered | draft | on PR #171 decision | Verified against PR #171 @ `61d97628b0deed300661ce024bf07c9c193ad56b`: Halt, Throttle, Queue & Delay, and Recovery are explicitly defined and strengthened; source remains draft / non-canonical. |
+| 10 | Human-set capacity limits | 4 | PR #171 addendum § 6 | draft-PR / working-note / non-canonical | rule | covered | draft | on PR #171 decision | Verified against PR #171 @ `61d97628b0deed300661ce024bf07c9c193ad56b`: capacity limits must be Human Owner-set or canonical; unconfirmed default capacity thresholds must not activate Halt, Throttle, or Recovery. |
+| 11 | No hidden backlog / bounded visible queue | 4, 5 | PR #171 addendum § 12 | draft-PR / working-note / non-canonical | rule | covered | draft | on PR #171 decision | Verified against PR #171 @ `61d97628b0deed300661ce024bf07c9c193ad56b`: bounded visible queue is required; hidden backlog and hidden pressure are explicitly forbidden; deferred queue must record owner, pressure source, review condition, expiry / re-evaluation trigger, and pressure status. |
 | 12 | Decision Log accountability trace | 5 | `docs/decision-log-schema.md` | draft — core schema | procedure | covered | unknown | on schema change | Verified: records who authorized, under which state, reason, outcome, scope, and expiration if applicable. |
 | 13 | Governed Bypass trace fields | 5 | `docs/notes/decision-log-governed-bypass-extension.md` | working-note / non-canonical | definition | covered | unknown | on canonicalization decision | Verified: preserves why preparation was allowed while consequence remained forbidden; source remains non-canonical. |
-| 14 | Metrics are triggers, not proof of meaningful review | 5 | PR #171 addendum §§ 8, 15, 16 | draft-PR / working-note / non-canonical | rule | covered | draft | on PR #171 decision | Verified: metrics are triggers only; false values are not proof of meaningful review. |
+| 14 | Metrics are triggers, not proof of meaningful review | 5 | PR #171 addendum §§ 8, 15, 16 | draft-PR / working-note / non-canonical | rule | covered | draft | on PR #171 decision | Verified against PR #171 @ `61d97628b0deed300661ce024bf07c9c193ad56b`: metrics are failure-detection triggers only; §§ 8, 15, and the new § 16 Audit and Interface Safeguards prohibit treating metric compliance, false values, absence of flags, or operational logs as proof of meaningful review, responsibility viability, human control, compliance, or provider-facing evidence. |
 | 15 | Evidence Neutrality / Bypass Bias protection | 6 | `concepts/governed-speed-safety-controls.md` § 3 | merged, non-canonical unless canonicalization record verified | rule + brief structure | covered | unknown | on influence-neutrality decision | Verified: bypass brief must separate facts, AI interpretation, uncertainty, pro/con evidence, alternatives, consequences, and remediation; no manipulative tone/framing. |
 | 16 | Invisible AI influence pattern | 6 | `patterns/invisible-ai-influence.md` | pattern / merged, non-canonical unless canonicalization record verified | definition | covered | unknown | on pattern change | Verified: AI influence can shape decisions without autonomous execution. |
 | 17 | Emergency authority revocation / Stop Switch S1–S5 | 7 | `governance/ai-stop-switch-protocol.md` | merged, non-canonical unless canonicalization record verified | procedure | covered | unknown | on protocol change | Verified: S1–S5 stop levels, permission revocation, workflow suspension, human-only fallback, recovery with human approval. |
@@ -155,7 +170,7 @@ This prevents mixing two different questions:
 | 21 | Normal-mode permission expiry / re-authorization | 7 | `docs/approval-state-specification.md` §§ Planned extended states, Re-approval path, Gateway checks, Minimal implementation guidance | draft — core specification | partial rule / state model | partial | unknown | on authority-note decision | Verified: `EXPIRED`, `REAPPROVAL_REQUIRED`, expiration mechanism, and re-approval detection exist; TTL / standing authorization policy remains open. |
 | 22 | Influence neutrality as general autonomy dimension | 6 | `concepts/governed-speed-safety-controls.md`; `patterns/invisible-ai-influence.md` | concept / pattern / merged, non-canonical unless canonicalization record verified | rule + pattern | partial | unknown | on influence-neutrality decision | Verified for bypass briefs and invisible influence; not yet verified as general autonomy-management layer. |
 | 23 | Machine-readable reversibility class per action class | 1, 3 | `concepts/responsibility-throughput-model.md` §§ 4, 7, 15 | suggested schema / rule candidate / merged, non-canonical unless canonicalization record verified | suggested schema | partial | unknown | on reversibility-classification decision | Verified: real-world reversibility class per action class is proposed; accepted machine-readable schema not verified. |
-| 24 | This coverage map itself | — | this chat draft only | chat-only working draft | index | partial | not-applicable | on map elevation decision | No repository file found at time of drafting; map remains non-canonical unless separately elevated by Human Owner decision. |
+| 24 | Coverage map artifact | — | `docs/notes/autonomy-management-coverage-map.md` | merged, non-canonical unless canonicalization record verified | index / review aid | covered as working-note artifact | not-applicable | on map update | Verified: this coverage map now exists in the repository as a Working Note / Non-canonical artifact; repository presence closes the artifact gap but does not create canon, validation, adoption, implementation, or approval. |
 
 ## 5. Verified Strengths
 
@@ -183,7 +198,7 @@ It can be represented as an index layer connecting existing RABA materials.
 
 ## 6. Narrowed Gaps
 
-Verification narrowed the gaps; none of the original gaps is fully closed.
+Verification narrowed the gaps. Most original gaps remain narrowed rather than fully closed, except the coverage-map artifact gap, which is now closed as a repository artifact only.
 
 ### 6.1 Standing Authorization / TTL Policy Gap
 
@@ -241,21 +256,60 @@ This gap is narrowed, not closed.
 
 ### 6.5 Coverage Map Artifact Gap
 
-This map was originally chat-only.
+This gap is closed as a repository artifact, not elevated as canon.
 
-If preserved in GitHub, it must remain:
+The coverage map now exists at:
 
-- Working Note;
-- Non-canonical;
-- Index / review aid;
-- Not implementation guidance;
-- Not validation;
-- Not adoption;
-- Not compliance claim.
+```text
+docs/notes/autonomy-management-coverage-map.md
+```
+
+Current source status:
+
+```text
+merged, non-canonical unless canonicalization record verified
+```
+
+Current coverage status:
+
+```text
+covered as working-note artifact
+```
+
+This means the artifact is preserved and visible in the repository.
+
+It does not mean the artifact is:
+
+- canon;
+- implemented;
+- approved as architecture;
+- operationally active;
+- validated;
+- adopted;
+- provider-facing;
+- compliance-ready;
+- certification-ready;
+- commercially approved.
+
+Boundary:
+
+```text
+GitHub presence does not equal canon.
+Commit existence does not equal approval.
+Merged non-canonical text remains non-canonical unless separately canonicalized.
+```
 
 ## 7. Maintenance Rule
 
 This coverage map must be maintained as a verified index, not as a self-updating proof.
+
+The v0.3 maintenance update was triggered by the map's own rule: source changes trigger review, and affected rows must be rechecked before their coverage or source status changes.
+
+Rows 9–11 and 14 were rechecked against PR #171 head:
+
+```text
+61d97628b0deed300661ce024bf07c9c193ad56b
+```
 
 ### 7.1 Status upgrades
 
@@ -319,7 +373,6 @@ This verified table does not:
 - approve any document for canonicalization;
 - approve PR #171;
 - merge anything;
-- change repository state beyond creation of this non-canonical working note when explicitly confirmed by the Human Owner;
 - prove implementation;
 - prove operational readiness;
 - prove governance readiness;
@@ -330,6 +383,8 @@ This verified table does not:
 - authorize certification claims;
 - authorize adoption or validation claims;
 - grant AI any new permission.
+
+This v0.3 maintenance update changes only the non-canonical working note that preserves the coverage index.
 
 ## 9. Recommended Human Owner Decision Frame
 
