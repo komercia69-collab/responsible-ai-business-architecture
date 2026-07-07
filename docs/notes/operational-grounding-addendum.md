@@ -40,6 +40,31 @@ This note must not be used to claim that:
 - AnnA or SAI validates RABA;
 - responsibility viability concepts are RABA canon.
 
+## 2.1 Runtime Boundary
+
+This working note defines review concepts and governance language only.
+
+It does not implement:
+
+- runtime enforcement;
+- automation;
+- UI behavior;
+- workflow execution;
+- logging infrastructure;
+- schema migration;
+- tests;
+- permission changes;
+- GitHub workflow changes;
+- AI autonomy changes.
+
+Documented control does not equal implemented control.
+
+Any implementation requires separate design, separate approval, and explicit Human Owner confirmation.
+
+This note may describe what RABA should prevent, require, block, or record in governance terms.
+
+It must not be treated as proof that any such mechanism already exists in runtime, product behavior, repository automation, provider-facing process, compliance process, or operational infrastructure.
+
 ## 3. Core Safety Constraint
 
 Detection of Responsibility Saturation, Responsibility Overload, or Responsibility Viability Drift must never become a justification for expanding AI autonomy.
