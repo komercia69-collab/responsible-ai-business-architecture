@@ -283,6 +283,8 @@ The record should include:
 - affected action class;
 - whether the state was upheld, modified, or dismissed.
 
+For contestation or override recording, use the Unified Override / Contestation Record structure in §14.1.
+
 Contestation must not be silent.
 
 Allowed statement:
@@ -445,6 +447,40 @@ Recovery must not be achieved by clearing the queue without item-level status.
 Recovery must not be achieved by AI deciding that capacity has returned.
 
 Recovery requires an explicit Human Owner action or a predefined governance condition.
+
+### 13.0 Recovery Initiation and Completion Boundary
+
+Recovery may be initiated by either:
+
+1. an explicit Human Owner action; or
+2. a predefined governance condition that has been explicitly approved by the Human Owner or by a canonical governance rule.
+
+However, Recovery must not be completed silently.
+
+If Recovery is initiated by a predefined governance condition, completion still requires at least one visible context-change record.
+
+A visible context-change record may include:
+
+- Human Owner confirmation;
+- item-level classification;
+- explicit deferral;
+- explicit rejection;
+- scope reduction;
+- action-class reduction;
+- recovery reason selection;
+- recorded pressure accounting;
+- another approved recovery record.
+
+A predefined governance condition may start Recovery.
+
+It must not silently complete Recovery.
+
+Boundary rule:
+
+```text
+Predefined condition may initiate Recovery.
+Visible context-change record is required to complete Recovery.
+```
 
 Recovery from Halt or `State: Responsibility_Overloaded` must not be completed by a single click, silent approval, or queue clearing.
 
@@ -610,6 +646,34 @@ An override must specify:
 - reason;
 - whether pending pressure is resolved, deferred, displaced, or rejected;
 - whether GitHub write actions, canonicalization, public positioning, or provider-facing use remain blocked.
+
+### 14.1 Unified Override / Contestation Record
+
+Any contestation, override, or recovery override related to `State: Responsibility_Overloaded` should use a unified record structure.
+
+The record should include:
+
+- timestamp;
+- triggering condition;
+- action class;
+- affected item or batch scope;
+- Human Owner action;
+- reason;
+- whether the state was upheld, modified, dismissed, or overridden;
+- whether pending pressure was resolved, deferred, displaced, or rejected;
+- whether GitHub write actions remain blocked;
+- whether canonicalization remains blocked;
+- whether public positioning remains blocked;
+- whether provider-facing use remains blocked;
+- whether commercial, adoption, validation, compliance, or certification use remains blocked.
+
+This unified record prevents competing override formats from emerging in later Decision Log schema work.
+
+Cross-reference rule:
+
+```text
+For contestation, override, or recovery override recording, use the Unified Override / Contestation Record structure.
+```
 
 ## 15. Decision Log Additions
 
