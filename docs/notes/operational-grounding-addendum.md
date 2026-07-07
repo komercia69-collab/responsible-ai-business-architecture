@@ -745,6 +745,14 @@ Candidate note:
 
 > Operational metrics record whether configured triggers fired. They do not prove subjective understanding, meaningful review, or responsibility viability.
 
+These candidate attributes are review examples only.
+
+They do not define, modify, or require any accepted Decision Log schema, event schema, implementation field, storage model, audit format, API field, UI field, repository workflow, or compliance record.
+
+Their presence in this working note does not authorize schema migration.
+
+Any Decision Log schema change requires separate design, separate review, and explicit Human Owner approval.
+
 ## 16. Audit and Interface Safeguards
 
 ### 16.1 Absence of Flag Is Not Proof
