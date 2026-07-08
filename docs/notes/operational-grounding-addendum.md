@@ -344,6 +344,9 @@ It means the process must slow, stop, defer, or enter Recovery.
 
 ## 10. Throttle Definition
 
+The requirements in this section are phrased as governance requirements only.
+They do not describe implemented runtime behavior.
+
 In RABA, Throttle means controlled reduction of operational speed and cognitive load.
 
 Throttle does not mean hidden backlog growth.
@@ -560,9 +563,12 @@ Each item receives one of the following statuses:
 
 Items are reviewed in small batches.
 
-Default candidate limit:
+Illustrative example value:
 
 `batch_size <= 3`
+
+This value is an example only.
+It requires explicit Human Owner confirmation under §6.1 before it may be used as an operational trigger threshold.
 
 ### 13.5 Require Item-Level Reasoning
 
