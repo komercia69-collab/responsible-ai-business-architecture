@@ -40,6 +40,8 @@ This note must not be used to claim that:
 - AnnA or SAI validates RABA;
 - responsibility viability concepts are RABA canon.
 
+For this working note, AnnA refers to an external conceptual signal source only. It is not adopted as RABA architecture.
+
 ## 2.1 Runtime Boundary
 
 This working note defines review concepts and governance language only.
@@ -416,6 +418,9 @@ High-consequence actions remain blocked until responsibility becomes executable 
 
 ## 11. Halt Definition
 
+The requirements in this section are phrased as governance requirements only.
+They do not describe implemented runtime behavior.
+
 Halt means the workflow stops for the affected action class.
 
 Halt does not necessarily stop all assistance.
@@ -441,6 +446,9 @@ During Halt, AI must not:
 - make public, provider-facing, commercial, adoption, validation, compliance, or certification claims.
 
 ## 12. Queue and Delay Boundary
+
+The requirements in this section are phrased as governance requirements only.
+They do not describe implemented runtime behavior.
 
 Queue and Delay is allowed only if the backlog is bounded and visible.
 
@@ -516,7 +524,7 @@ Recovery requires a visible context change.
 
 Recovery must include at least one visible context-change action.
 
-Candidate context-change actions:
+Required context-change actions (at least one must be present):
 
 - manual comment;
 - item-level classification;
