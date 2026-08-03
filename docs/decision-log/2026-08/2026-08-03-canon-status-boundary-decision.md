@@ -4,7 +4,7 @@
 - Decision title: RABA Canonicality Requires an Explicit Human Owner Decision Recorded in a Traceable Status/Decision Record
 - Human Owner: Oleksandr / Александр
 - Decision date: 2026-08-03
-**Decision status:** Human Owner wording decision and the accuracy of this Decision Log record were explicitly confirmed in conversation. This is an accepted Decision Log record, locally committed but not pushed or merged. Repository presence, commit, push, PR creation, or merge do not by themselves establish Canon. Canon requires a separate explicit Human Owner decision recorded in a traceable status or decision record.
+- **Decision status:** Human Owner wording decision and the accuracy of this Decision Log record were explicitly confirmed in conversation. This is an accepted Decision Log record, locally committed but not pushed or merged. Repository presence, commit, push, PR creation, or merge do not by themselves establish Canon. Canon requires a separate explicit Human Owner decision recorded in a traceable status or decision record.
 
 ---
 
@@ -48,9 +48,9 @@ This decision does not:
 
 ## Implementation Status
 
-**Initial local implementation commit `4f504640b9597d792c05e8c620ba2bee6015df0f`** exists on branch `docs/canon-status-boundary-alignment`; no push, PR, or merge performed.
-Branch creation and the local commit were separately authorized by the Human Owner. Push, PR creation, merge, canonicalization, and any further repository implementation remain subject to separate scoped Human Owner confirmation.
-This is an accepted Decision Log record of the confirmed decision. The Human Owner explicitly approved the accuracy of the record before the local commit. Repository presence, commit, push, PR creation, or merge do not by themselves establish Canon.
+- **Initial local implementation commit `4f504640b9597d792c05e8c620ba2bee6015df0f`** exists on branch `docs/canon-status-boundary-alignment`; no push, PR, or merge performed.
+- Branch creation and the local commit were separately authorized by the Human Owner. Push, PR creation, merge, canonicalization, and any further repository implementation remain subject to separate scoped Human Owner confirmation.
+- This is an accepted Decision Log record of the confirmed decision. The Human Owner explicitly approved the accuracy of this Decision Log record. Repository presence, commit, push, PR creation, or merge do not by themselves establish Canon.
 
 ---
 
