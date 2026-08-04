@@ -369,7 +369,7 @@ Major architectural changes are not merged directly from raw model output. Inste
 
 In this project, the **Integrator** is the working integration role that compares recommendations and prepares repository changes. The **human owner remains the final accountable decision maker** for what becomes Canon.
 
-The controlled workspace is practical, not abstract: it may include ChatGPT, Claude, Gemini, Comet/browser tabs, GitHub, templates, and Decision Log files. The accepted Canon is the project state stored in GitHub.
+The controlled workspace is practical, not abstract: it may include ChatGPT, Claude, Gemini, Comet/browser tabs, GitHub, templates, and Decision Log files. GitHub is the storage location for accepted Canon; see "Canon and Decision Log" below for what actually establishes Canon.
 
 ### Multi-model governance process
 
@@ -401,8 +401,15 @@ The controlled workspace is practical, not abstract: it may include ChatGPT, Cla
 
 RABA maintains two governance artifacts for its own evolution:
 
-- **Canon** — the accepted project state stored in GitHub.
+- **Canon** — material for which the Human Owner has made and recorded an explicit canonicalization decision in a traceable status/decision record.
 - **Decision Log** — a traceable record explaining why significant recommendations were accepted, partially accepted, deferred, or rejected.
+
+GitHub is the storage location for accepted Canon, but GitHub itself does not establish Canon:
+
+- Repository presence does not establish Canon.
+- Commit existence does not establish Canon.
+- Merge, including merged non-canonical text, does not establish Canon.
+- Canon is established only by an explicit Human Owner decision recorded in a traceable status/decision record (see [`docs/decision-log/README.md`](docs/decision-log/README.md), [`AGENTS.md`](AGENTS.md), and the specific [`2026-08-03 Canon and Status/Boundary Alignment Decision`](docs/decision-log/2026-08/2026-08-03-canon-status-boundary-decision.md)).
 
 Any major architectural change should be explainable through the Decision Log.
 
