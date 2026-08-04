@@ -54,6 +54,15 @@ This decision does not:
 
 ---
 
+## Subsequent Status Update
+
+- On 2026-08-04, following separate scoped Human Owner confirmations, branch `docs/canon-status-boundary-alignment` was pushed to `origin` at commit `f623ac4ab216be9bbd2a860264c43b58e69ab5a7`.
+- Draft PR #172 was subsequently created from that branch into `main`.
+- The PR remains Draft. Ready-for-review, merge, and canonicalization have not been authorized.
+- These subsequent repository actions do not alter the decision recorded above and do not establish Canon.
+
+---
+
 ## Traceability
 
 - Originating conversation: local read-only repository analysis identifying a Canon/status wording conflict between README.md, docs/project-status.md, AGENTS.md, and docs/decision-log/README.md.

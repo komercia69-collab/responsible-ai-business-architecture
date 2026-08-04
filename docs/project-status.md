@@ -4,7 +4,7 @@ Responsible AI Business Architecture has moved from concept-level framing into a
 
 This status page is a consolidation checkpoint. It shows what is currently stable, what is being made testable, and which ideas are intentionally deferred.
 
-> **Canon note:** Terms used on this page — *operationally stable*, *operational core*, *core artifact*, *completed artifact*, *stable*, *completed* — describe working role or degree of completion. They do not by themselves establish Canon. Canon is established only by an explicit Human Owner decision recorded in a traceable status/decision record (see [`decision-log/README.md`](decision-log/README.md) and [`../AGENTS.md`](../AGENTS.md)). This note does not change the canonical status of any document referenced below.
+> **Canon note:** Terms used on this page — *operationally stable*, *operational core*, *core artifact*, *completed artifact*, *stable*, *completed* — describe working role or degree of completion. They do not by themselves establish Canon. Canon is established only by an explicit Human Owner decision recorded in a traceable status/decision record (see [`decision-log/README.md`](decision-log/README.md), [`../AGENTS.md`](../AGENTS.md), and the specific [`2026-08-03 Canon and Status/Boundary Alignment Decision`](decision-log/2026-08/2026-08-03-canon-status-boundary-decision.md)). This note does not change the canonical status of any document referenced below.
 
 ---
 

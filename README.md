@@ -409,7 +409,7 @@ GitHub is the storage location for accepted Canon, but GitHub itself does not es
 - Repository presence does not establish Canon.
 - Commit existence does not establish Canon.
 - Merge, including merged non-canonical text, does not establish Canon.
-- Canon is established only by an explicit Human Owner decision recorded in a traceable status/decision record (see [`docs/decision-log/README.md`](docs/decision-log/README.md) and [`AGENTS.md`](AGENTS.md)).
+- Canon is established only by an explicit Human Owner decision recorded in a traceable status/decision record (see [`docs/decision-log/README.md`](docs/decision-log/README.md), [`AGENTS.md`](AGENTS.md), and the specific [`2026-08-03 Canon and Status/Boundary Alignment Decision`](docs/decision-log/2026-08/2026-08-03-canon-status-boundary-decision.md)).
 
 Any major architectural change should be explainable through the Decision Log.
 
