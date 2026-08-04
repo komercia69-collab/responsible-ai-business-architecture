@@ -4,7 +4,7 @@
 - **Decision title:** RABA Commercial Activity Requires Explicit Integrity and Capacity Controls
 - **Human Owner:** Oleksandr / Александр
 - **Decision date:** 2026-08-04
-- **Decision status:** Human Owner substantive decision confirmed; local repository implementation authorized only as unstaged drafts; non-canonical.
+- **Decision status:** Human Owner substantive decision and package acceptance confirmed; repository implementation progressed through separately authorized staging, commit, push, and Draft PR creation; non-canonical.
 
 ---
 
@@ -115,32 +115,63 @@ This decision does not:
 - authorize publication of client cases;
 - change existing RABA Canon;
 - canonicalize the two operational controls;
-- authorize staging, commit, push, PR creation, merge, or repository publication.
+- by itself authorize staging, commit, push, PR creation, ready-for-review, merge, repository publication, or canonicalization; each such repository action requires a separate explicit Human Owner authorization.
 
 ---
 
-## Implementation Authorization
+## Repository Implementation Chronology
 
-The Human Owner authorized only:
+The substantive commercial-integrity decision did not by itself authorize repository implementation.
 
-- creation of a new local branch `governance/commercial-integrity-controls` from a read-only verified current `main`;
-- creation of exactly three local unstaged files:
-  - `docs/governance/commercial-integrity/raba-commercial-non-negotiables-v0.1.md`;
-  - `docs/governance/commercial-integrity/raba-client-acceptance-and-capacity-gate-v0.1.md`;
-  - `docs/decision-log/2026-08/2026-08-04-commercial-integrity-controls-decision.md`;
-- local read-only review of those drafts.
+Each repository action below was separately and explicitly authorized by the Human Owner:
 
-The following remain blocked:
+1. **Local preparation**
+   - creation of the local branch `governance/commercial-integrity-controls`;
+   - creation of exactly three local unstaged files;
+   - local read-only review;
+   - outcome: `local three-file review clean`.
 
-- staging;
-- commit;
-- push;
-- PR creation;
-- modification of existing files;
+2. **Substantive package acceptance**
+   - the Human Owner accepted the three-file package as operational control material;
+   - status remained non-canonical.
+
+3. **Staging**
+   - staging of exactly the three approved files was separately authorized;
+   - outcome: `staging clean`.
+
+4. **Commit**
+   - one commit containing exactly the three approved files was separately authorized;
+   - commit: `51e91765ca8341926210c5b8ee8f35338f83f377`;
+   - commit message: `docs: add RABA commercial integrity controls`;
+   - no existing file was modified.
+
+5. **Push**
+   - push of commit `51e91765ca8341926210c5b8ee8f35338f83f377` to `origin/governance/commercial-integrity-controls` was separately authorized;
+   - outcome: `push clean`.
+
+6. **Draft PR creation**
+   - creation of a Draft PR from `governance/commercial-integrity-controls` into `main` was separately authorized;
+   - Draft PR: `#173`;
+   - PR status: `draft PR / accepted operational control material / non-canonical`.
+
+These completed repository actions do not establish Canon and do not authorize commercial activity.
+
+The following remain blocked without separate explicit Human Owner confirmation:
+
+- modification of the two operational-control documents;
+- additional repository files or scope;
+- staging of this corrective patch;
+- corrective commit;
+- corrective push;
+- PR metadata changes;
+- PR comments or review responses;
+- ready-for-review transition;
 - merge;
 - canonicalization;
 - outreach;
-- public or commercial claims.
+- client acceptance;
+- public or provider-facing positioning;
+- compliance, certification, validation, assurance, adoption, partnership, or roadmap claims.
 
 ---
 
@@ -153,12 +184,18 @@ The following remain blocked:
   - commercial Non-Negotiables cannot be silently waived;
   - client feedback remains an external signal;
   - commercial activity does not itself modify RABA Canon;
-  - outreach, client acceptance, public claims, merge, and canonicalization remain separately blocked.
+  - outreach, client acceptance, public claims, merge, and canonicalization remain separately blocked;
+  - staging, commit, push, and Draft PR creation occurred only after separate explicit Human Owner authorizations;
+  - completed repository actions do not establish Canon or authorize commercial activity;
+  - ready-for-review, merge, and canonicalization remain separately blocked.
 - **Sources Checked by Human:**
   - the Human Owner's commercial-readiness discussion;
   - the Human Owner's concern about commercial-interest capture and income-driven drift;
   - the Human Owner's explicit approval to create the two operational controls;
-  - the Human Owner's scoped repository authorization for three local unstaged files only.
+  - the Human Owner's scoped repository authorization for three local unstaged files only;
+  - the Human Owner's subsequent substantive acceptance of the three-file package;
+  - the Human Owner's separate authorizations for staging, commit, command-scoped Git identity, push, and Draft PR #173 creation;
+  - the verified commit, remote-branch, and Draft PR facts.
 - **Sources Extracted for Human Review:**
   - `docs/governance/repository-change-control.md`;
   - existing RABA authority and Canon boundaries;
@@ -175,18 +212,21 @@ The following remain blocked:
 - **Human Rationale:**
   - The Human Owner determined that RABA must establish commercial-integrity and capacity controls before sales activity creates practical pressure. The controls are intended to preserve family sustainability, research continuity, honest claims, independent judgment, explicit authority boundaries, and separation between commercial demand and RABA Canon.
 - **What Remains Blocked:**
+  - modification of the two operational-control documents;
+  - additional repository files or scope;
+  - staging of this corrective patch;
+  - corrective commit;
+  - corrective push;
+  - PR metadata changes;
+  - PR comments or review responses;
+  - ready-for-review transition;
+  - merge;
+  - canonicalization;
   - outreach;
   - acceptance of any client;
-  - public consulting claims;
-  - compliance, certification, assurance, validation, adoption, readiness, or partnership claims;
-  - use of client data without a separate handling protocol;
-  - modification of existing repository files;
-  - staging;
-  - commit;
-  - push;
-  - PR creation;
-  - merge;
-  - canonicalization.
+  - public or provider-facing consulting claims;
+  - compliance, certification, assurance, validation, adoption, readiness, partnership, or roadmap claims;
+  - use of client data without a separate handling protocol.
 
 ---
 
@@ -198,6 +238,11 @@ The following remain blocked:
 - Related operational controls:
   - `../../governance/commercial-integrity/raba-commercial-non-negotiables-v0.1.md`
   - `../../governance/commercial-integrity/raba-client-acceptance-and-capacity-gate-v0.1.md`
+- Repository branch: `governance/commercial-integrity-controls`.
+- Implementation commit: `51e91765ca8341926210c5b8ee8f35338f83f377`.
+- Draft PR: `#173`.
+- Repository chronology: local preparation, substantive acceptance, staging, commit, push, and Draft PR creation were each separately authorized by the Human Owner.
+- Independent AI review finding: `AIR-173-01` — Decision Log chronology required alignment with the separately authorized repository actions.
 
 ---
 
