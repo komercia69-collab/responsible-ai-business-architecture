@@ -154,15 +154,24 @@ Each repository action below was separately and explicitly authorized by the Hum
    - Draft PR: `#173`;
    - PR status: `draft PR / accepted operational control material / non-canonical`.
 
+7. **Corrective chronology alignment**
+   - independent AI review finding `AIR-173-01` identified stale repository-action chronology;
+   - correction of the Decision Log was separately authorized by the Human Owner;
+   - staging of exactly the corrected Decision Log was separately authorized and completed;
+   - corrective commit `1b0369335734fb4601887c2479bfc57ad8289253` was separately authorized and created;
+   - corrective push to `origin/governance/commercial-integrity-controls` was separately authorized and completed;
+   - outcome: `AIR-173-01 corrected and pushed`.
+
 These completed repository actions do not establish Canon and do not authorize commercial activity.
 
 The following remain blocked without separate explicit Human Owner confirmation:
 
 - modification of the two operational-control documents;
 - additional repository files or scope;
-- staging of this corrective patch;
-- corrective commit;
-- corrective push;
+- future modification of repository files;
+- future staging;
+- future commits;
+- future pushes;
 - PR metadata changes;
 - PR comments or review responses;
 - ready-for-review transition;
@@ -187,7 +196,9 @@ The following remain blocked without separate explicit Human Owner confirmation:
   - outreach, client acceptance, public claims, merge, and canonicalization remain separately blocked;
   - staging, commit, push, and Draft PR creation occurred only after separate explicit Human Owner authorizations;
   - completed repository actions do not establish Canon or authorize commercial activity;
-  - ready-for-review, merge, and canonicalization remain separately blocked.
+  - ready-for-review, merge, and canonicalization remain separately blocked;
+  - corrective staging, corrective commit, and corrective push for `AIR-173-01` occurred only after separate explicit Human Owner authorizations;
+  - corrective commit and push do not establish Canon, ready-for-review status, merge authorization, or commercial authorization.
 - **Sources Checked by Human:**
   - the Human Owner's commercial-readiness discussion;
   - the Human Owner's concern about commercial-interest capture and income-driven drift;
@@ -195,7 +206,9 @@ The following remain blocked without separate explicit Human Owner confirmation:
   - the Human Owner's scoped repository authorization for three local unstaged files only;
   - the Human Owner's subsequent substantive acceptance of the three-file package;
   - the Human Owner's separate authorizations for staging, commit, command-scoped Git identity, push, and Draft PR #173 creation;
-  - the verified commit, remote-branch, and Draft PR facts.
+  - the verified commit, remote-branch, and Draft PR facts;
+  - the Human Owner's separate authorizations for the `AIR-173-01` Decision Log correction, staging, corrective commit, and corrective push;
+  - verified corrective commit `1b0369335734fb4601887c2479bfc57ad8289253` and matching remote branch state.
 - **Sources Extracted for Human Review:**
   - `docs/governance/repository-change-control.md`;
   - existing RABA authority and Canon boundaries;
@@ -214,9 +227,10 @@ The following remain blocked without separate explicit Human Owner confirmation:
 - **What Remains Blocked:**
   - modification of the two operational-control documents;
   - additional repository files or scope;
-  - staging of this corrective patch;
-  - corrective commit;
-  - corrective push;
+  - future modification of the Decision Log or other repository files;
+  - future staging;
+  - future commits;
+  - future pushes;
   - PR metadata changes;
   - PR comments or review responses;
   - ready-for-review transition;
@@ -243,6 +257,11 @@ The following remain blocked without separate explicit Human Owner confirmation:
 - Draft PR: `#173`.
 - Repository chronology: local preparation, substantive acceptance, staging, commit, push, and Draft PR creation were each separately authorized by the Human Owner.
 - Independent AI review finding: `AIR-173-01` — Decision Log chronology required alignment with the separately authorized repository actions.
+- Corrective commit: `1b0369335734fb4601887c2479bfc57ad8289253`.
+- Corrective push: completed to `origin/governance/commercial-integrity-controls`.
+- `AIR-173-01` status: corrected and pushed.
+- Follow-up review finding: `AIR-173-02` — Decision Log required alignment with its own separately authorized corrective lifecycle.
+- PR metadata finding: `AIR-173-03` — stale PR scope metadata was corrected separately in the PR body.
 
 ---
 
