@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RABA Lite — AI Workflow Responsibility Check</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color-scheme: light dark; }
+    body { margin: 0; background: #f5f7fa; color: #111827; }
+    main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+    h1 { margin-bottom: 8px; }
+    .sub { color: #4b5563; margin-bottom: 24px; }
+    .card { background: #fff; border: 1px solid #d1d5db; border-radius: 14px; padding: 20px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+    label { display: block; font-weight: 650; margin-bottom: 8px; }
+    input[type=text], textarea, select { width: 100%; box-sizing: border-box; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 9px; background: #fff; color: #111827; }
+    textarea { min-height: 88px; resize: vertical; }
+    .choices { display: flex; gap: 12px; flex-wrap: wrap; }
+    .choices label { font-weight: 500; margin: 0; }
+    button { border: 0; border-radius: 10px; padding: 12px 18px; font-weight: 700; cursor: pointer; background: #111827; color: white; }
+    button.secondary { background: #e5e7eb; color: #111827; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+    .result { display: none; }
+    .result h2 { margin-top: 0; }
+    .group { border-left: 5px solid #9ca3af; padding-left: 14px; margin: 18px 0; }
+    .good { border-color: #16a34a; }
+    .warn { border-color: #f59e0b; }
+    .risk { border-color: #dc2626; }
+    .unknown { border-color: #6b7280; }
+    ul { padding-left: 20px; }
+    .note { font-size: .94rem; color: #4b5563; }
+    .feedback { margin-top: 28px; padding-top: 18px; border-top: 1px solid #e5e7eb; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #111827; color: #f9fafb; }
+      .card { background: #1f2937; border-color: #374151; }
+      .sub, .note { color: #cbd5e1; }
+      input[type=text], textarea, select { background: #111827; color: #f9fafb; border-color: #4b5563; }
+      button.secondary { background: #374151; color: #f9fafb; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>RABA Lite</h1>
+  <p class="sub">A short responsibility check for one real AI-assisted workflow. Your answers stay in your browser and are not sent or stored.</p>
+
+  <div class="card">
+    <label for="process">1. What is the workflow or process?</label>
+    <input id="process" type="text" placeholder="Example: customer email handling in CRM" />
+  </div>
+
+  <div class="card">
+    <label for="airole">2. What does AI do in this process?</label>
+    <textarea id="airole" placeholder="Example: reads the request, drafts a response and proposes a CRM update"></textarea>
+  </div>
+
+  <div class="card">
+    <label>3. Can AI create a real-world consequence?</label>
+    <div class="choices">
+      <label><input type="radio" name="q3" value="yes"> Yes</label>
+      <label><input type="radio" name="q3" value="no"> No</label>
+      <label><input type="radio" name="q3" value="unknown"> Not sure</label>
+    </div>
+    <p class="note">Examples: sending a message, changing a CRM record, triggering a payment, affecting production, access, a customer or an employee.</p>
+  </div>
+
+  <div class="card">
+    <label>4. Is a responsible human role clearly named?</label>
+    <div class="choices">
+      <label><input type="radio" name="q4" value="yes"> Yes</label>
+      <label><input type="radio" name="q4" value="no"> No</label>
+      <label><input type="radio" name="q4" value="unknown"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>5. Is it clear who is allowed to approve the consequential action?</label>
+    <div class="choices">
+      <label><input type="radio" name="q5" value="yes"> Yes</label>
+      <label><input type="radio" name="q5" value="no"> No</label>
+      <label><input type="radio" name="q5" value="unknown"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>6. Can the responsible person see the relevant source data before approving?</label>
+    <div class="choices">
+      <label><input type="radio" name="q6" value="yes"> Yes</label>
+      <label><input type="radio" name="q6" value="no"> No</label>
+      <label><input type="radio" name="q6" value="unknown"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>7. Can AI execute the action before a human review where review is required?</label>
+    <div class="choices">
+      <label><input type="radio" name="q7" value="yes"> Yes</label>
+      <label><input type="radio" name="q7" value="no"> No</label>
+      <label><input type="radio" name="q7" value="unknown"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>8. Can important facts, scope or authority change after approval?</label>
+    <div class="choices">
+      <label><input type="radio" name="q8" value="yes"> Yes</label>
+      <label><input type="radio" name="q8" value="no"> No</label>
+      <label><input type="radio" name="q8" value="unknown"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>9. If they change, is fresh approval required before execution continues?</label>
+    <div class="choices">
+      <label><input type="radio" name="q9" value="yes"> Yes</label>
+      <label><input type="radio" name="q9" value="no"> No</label>
+      <label><input type="radio" name="q9" value="unknown"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>10. Can the action be reversed or corrected?</label>
+    <div class="choices">
+      <label><input type="radio" name="q10" value="yes"> Yes</label>
+      <label><input type="radio" name="q10" value="no"> No</label>
+      <label><input type="radio" name="q10" value="unknown"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>11. Can someone later reconstruct what AI proposed, what evidence was available, what the human saw and who approved?</label>
+    <div class="choices">
+      <label><input type="radio" name="q11" value="yes"> Yes</label>
+      <label><input type="radio" name="q11" value="no"> No</label>
+      <label><input type="radio" name="q11" value="unknown"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>12. If the system can no longer establish that execution remains allowed, what happens?</label>
+    <select id="q12">
+      <option value="">Choose one</option>
+      <option value="stop">Execution stops or is isolated for review</option>
+      <option value="continue">Execution continues</option>
+      <option value="unknown">Not defined / not sure</option>
+    </select>
+  </div>
+
+  <div class="actions">
+    <button id="evaluate">Get result</button>
+    <button id="reset" class="secondary" type="button">Reset</button>
+  </div>
+
+  <section id="result" class="card result" aria-live="polite">
+    <h2>Your result</h2>
+    <p id="summary"></p>
+
+    <div class="group good"><h3>What is already clear</h3><ul id="good"></ul></div>
+    <div class="group risk"><h3>What needs attention</h3><ul id="risk"></ul></div>
+    <div class="group unknown"><h3>What is still unknown</h3><ul id="unknown"></ul></div>
+    <div class="group warn"><h3>First actions to consider</h3><ol id="actions"></ol></div>
+
+    <p class="note"><strong>Important:</strong> This is an experimental responsibility check. It is not a certification, safety assessment, legal opinion, compliance determination or proof that a workflow is production-ready.</p>
+
+    <div class="feedback">
+      <h3>Help us test whether this is useful</h3>
+      <p class="note">Please answer these for yourself or send them back to the person who shared this tool with you:</p>
+      <ul>
+        <li>Was anything in the result new or useful?</li>
+        <li>Was anything unclear or obviously wrong?</li>
+        <li>Would you change anything in the workflow after this check?</li>
+        <li>Would you use this check again on another process?</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<script>
+  const val = name => document.querySelector(`input[name="${name}"]:checked`)?.value || 'unknown';
+  const add = (arr, text) => { if (!arr.includes(text)) arr.push(text); };
+
+  function renderList(id, items, emptyText) {
+    const el = document.getElementById(id);
+    el.innerHTML = '';
+    const rows = items.length ? items : [emptyText];
+    rows.forEach(text => { const li = document.createElement('li'); li.textContent = text; el.appendChild(li); });
+  }
+
+  document.getElementById('evaluate').addEventListener('click', () => {
+    const process = document.getElementById('process').value.trim() || 'Unnamed workflow';
+    const q3 = val('q3'), q4 = val('q4'), q5 = val('q5'), q6 = val('q6'), q7 = val('q7'), q8 = val('q8'), q9 = val('q9'), q10 = val('q10'), q11 = val('q11');
+    const q12 = document.getElementById('q12').value || 'unknown';
+
+    const good = [], risk = [], unknown = [], actions = [];
+
+    if (q4 === 'yes') add(good, 'A responsible human role is named.');
+    if (q5 === 'yes') add(good, 'Approval authority is defined.');
+    if (q6 === 'yes') add(good, 'The responsible person can see relevant source data before approval.');
+    if (q7 === 'no') add(good, 'AI cannot bypass required human review before execution.');
+    if (q9 === 'yes') add(good, 'Changed conditions require fresh approval.');
+    if (q10 === 'yes') add(good, 'The action can be reversed or corrected.');
+    if (q11 === 'yes') add(good, 'The decision path can be reconstructed later.');
+    if (q12 === 'stop') add(good, 'Execution stops or is isolated when continued admissibility cannot be established.');
+
+    if (q3 === 'yes' && q4 === 'no') { add(risk, 'AI can affect the real world, but no responsible human role is clearly named.'); add(actions, 'Name the role that owns the workflow and remains responsible for consequential outcomes.'); }
+    if (q3 === 'yes' && q5 === 'no') { add(risk, 'A consequential action exists, but approval authority is unclear.'); add(actions, 'Define who is allowed to approve each consequential action class.'); }
+    if (q6 === 'no') { add(risk, 'A human may approve without seeing the relevant source data.'); add(actions, 'Show the decision-maker the source data or evidence needed for meaningful review.'); }
+    if (q7 === 'yes') { add(risk, 'AI may execute before required human review.'); add(actions, 'Separate recommendation from execution and enforce the required approval before action.'); }
+    if (q8 === 'yes' && q9 === 'no') { add(risk, 'Approval may remain active even after important facts, scope or authority change.'); add(actions, 'Require fresh approval when the action scope, evidence or responsible authority changes.'); }
+    if (q10 === 'no') { add(risk, 'The action may be irreversible or hard to correct.'); add(actions, 'Use stronger review or escalation before irreversible actions.'); }
+    if (q11 === 'no') { add(risk, 'The decision cannot be reliably reconstructed later.'); add(actions, 'Preserve the AI proposal, relevant evidence, human review and approval record.'); }
+    if (q12 === 'continue') { add(risk, 'Execution may continue even when the system cannot establish that it remains allowed.'); add(actions, 'Define a safe stop, isolation or review path when continued admissibility is uncertain.'); }
+
+    const qs = [q3,q4,q5,q6,q7,q8,q9,q10,q11,q12];
+    if (q3 === 'unknown') add(unknown, 'Whether AI can create a real-world consequence is not clear.');
+    if (q4 === 'unknown') add(unknown, 'The responsible human role is not yet clear.');
+    if (q5 === 'unknown') add(unknown, 'Approval authority is not yet clear.');
+    if (q6 === 'unknown') add(unknown, 'It is not known what source data the approver can see.');
+    if (q7 === 'unknown') add(unknown, 'It is not known whether AI can execute before required human review.');
+    if (q8 === 'unknown') add(unknown, 'It is not known whether material conditions can change after approval.');
+    if (q9 === 'unknown') add(unknown, 'Fresh-approval rules are not yet clear.');
+    if (q10 === 'unknown') add(unknown, 'Reversibility is not yet clear.');
+    if (q11 === 'unknown') add(unknown, 'Reconstruction and auditability are not yet clear.');
+    if (q12 === 'unknown') add(unknown, 'The stop/review behavior under uncertainty is not defined.');
+
+    if (!actions.length) add(actions, 'Keep the current boundaries explicit and test them on a real exception or failure case.');
+    if (unknown.length) add(actions, 'Resolve the unknown items before increasing AI autonomy in this workflow.');
+
+    const answered = qs.filter(v => v !== 'unknown').length;
+    document.getElementById('summary').textContent = `${process}: ${risk.length} attention point(s), ${unknown.length} unknown(s), ${good.length} clear control(s). This is not a safety score; it is a structured view of responsibility gaps.`;
+    renderList('good', good, 'No clear controls were identified from the answers given.');
+    renderList('risk', risk, 'No immediate responsibility gap was triggered by the selected answers.');
+    renderList('unknown', unknown, 'No unresolved items were identified from the selected answers.');
+    renderList('actions', actions, 'No action suggested.');
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('reset').addEventListener('click', () => {
+    document.querySelectorAll('input[type="text"], textarea').forEach(el => el.value = '');
+    document.querySelectorAll('input[type="radio"]').forEach(el => el.checked = false);
+    document.getElementById('q12').value = '';
+    document.getElementById('result').style.display = 'none';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
