@@ -264,21 +264,15 @@ They help protect the framework from semantic expansion outrunning topology stab
 
 ---
 
-## For Pilot Partners
+## Exploring Pilot-Related Working Materials
 
-If your organization is exploring AI in a real workflow, the recommended first step is narrow:
+The repository contains pilot-related and practical-scenario materials that can be reviewed as non-canonical research and design artifacts.
 
-1. Choose one AI-assisted workflow.
-2. Map where AI output becomes operational action.
-3. Identify approval and escalation points.
-4. Define what should be logged before autonomy increases.
-5. Test the workflow with RABA approval states and decision logs.
-6. Use [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md) for a first 12-question check of governance drift risk.
-7. Review [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-agentic-bi.md) to see a completed sample assessment.
-8. Review [`examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md) to see a constructed but realistically plausible example of how governance drift can appear under business pressure.
-9. Use [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md) for a deeper workflow-level assessment before expanding autonomy.
+These materials may help readers examine how RABA questions could be applied to bounded workflow scenarios, including action boundaries, approval and escalation points, decision logging, policy integrity and governance drift.
 
-Start with [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md), [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-agentic-bi.md), [`examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
+They should not be treated as an invitation to adopt RABA, evidence of validation, a deployment recommendation, a partnership offer or a commercial commitment.
+
+Relevant working artifacts include [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md), [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-agentic-bi.md), [`examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), and [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md). Check the status and boundaries of each artifact before relying on it.
 
 ---
 
@@ -296,7 +290,7 @@ For a detailed file-by-file navigation map, see [`docs/repository-map.md`](docs/
 | **Open Problems & Sources** | [`inquiries/README.md`](inquiries/README.md), [`inquiries/open-problems-index.md`](inquiries/open-problems-index.md) | Track unresolved questions, legal and standards sources, research notes, external inputs and resolution attempts |
 | **Security & Threat Mapping** | [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md), [`docs/failure-patterns/README.md`](docs/failure-patterns/README.md) | Connect security risks to responsibility failures and governance controls |
 | **Proof Layer** | [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md), [`starter-kit/example-output.md`](starter-kit/example-output.md), [`docs/diagrams/governance-gateway-flow.md`](docs/diagrams/governance-gateway-flow.md) | Run and understand a minimal Governance Gateway example |
-| **Pilots & Use Cases** | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md), [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-agentic-bi.md), [`examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`pilots/customer-communication-pilot.md`](pilots/customer-communication-pilot.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow and assess governance drift risk before scaling autonomy |
+| **Pilots & Use Cases** | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md), [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`pilots/customer-communication-pilot.md`](pilots/customer-communication-pilot.md), [`use-cases/customer-support-agentic-bi-governance.md`](use-cases/customer-support-agentic-bi-governance.md) | Apply the framework to one real AI-assisted workflow and assess governance drift risk before scaling autonomy |
 | **Standards & Positioning** | [`docs/standards-alignment.md`](docs/standards-alignment.md), [`docs/external-summary.md`](docs/external-summary.md), [`PROJECT-VALUE.md`](PROJECT-VALUE.md) | Position RABA relative to existing governance and risk frameworks |
 | **Project Direction** | [`docs/project-intent.md`](docs/project-intent.md), [`docs/project-development-tracks.md`](docs/project-development-tracks.md), [`whitepaper/governable-autonomy-whitepaper-v2.md`](whitepaper/governable-autonomy-whitepaper-v2.md) | Understand why the project exists and how it may evolve |
 
