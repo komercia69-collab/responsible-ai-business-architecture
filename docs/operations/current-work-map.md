@@ -3,7 +3,7 @@
 **Status:** Operational control material  
 **Canonical status:** Non-canonical  
 **Purpose:** Help visitors and contributors understand current RABA work areas and their status  
-**Approval status:** Human Owner review required before README linking, PR readiness, public positioning, canonicalization, or merge
+**Approval status:** Merged into `main` as non-canonical operational control material. Further authority or status changes, including canonicalization, require explicit Human Owner confirmation.
 
 ---
 
@@ -68,7 +68,7 @@ Common statuses include:
 | Bounded Research and Evidence Frames | Working research practice / non-canonical | How can competing approaches be tested without silently adding assumptions or manufacturing consensus? |
 | External Signal Handling | Operational practice / non-canonical | How should external expertise inform research without becoming validation, adoption or authority? |
 | Public Surface / Claim Discipline | Operational control / non-canonical | How can the project show real depth without overstating maturity, validation, compliance, adoption or commercial readiness? |
-| Start Here / Visitor Path | Draft PR / public-facing clarity candidate | How can a visitor understand RABA and its statuses without mistaking repository activity for architectural approval? |
+| Start Here / Visitor Path | Merged non-canonical public-facing clarity layer | How can a visitor understand RABA and its statuses without mistaking repository activity for architectural approval? |
 
 ---
 
@@ -92,11 +92,12 @@ No area should be silently deleted, promoted, canonicalized, or reclassified thr
 | Artifact | Status | Notes |
 |---|---|---|
 | Issue #158 | Operational control issue | Umbrella for safer public-entry work. |
-| PR #159 | Draft / non-canonical | Existing public-entry candidate; not ready for merge. |
-| `docs/start-here.md` | Public-facing clarity draft | Explains RABA, status boundaries and reading perspectives. |
-| `docs/operations/current-work-map.md` | Operational control material | Shows active, supporting and deferred work without implying canon or validation. |
+| PR #159 | Merged / non-canonical | Added `Start Here` and `Current Work Map` to `main`; merge did not canonicalize them. |
+| PR #174 | Ready for review / non-canonical / not merged | README public-front-door correction candidate. |
+| `docs/start-here.md` | Merged non-canonical public-facing clarity material | Explains RABA, status boundaries and reading perspectives. |
+| `docs/operations/current-work-map.md` | Merged non-canonical operational control material | Shows active, supporting and deferred work without implying canon or validation. |
 
-No README linking or public-positioning approval is created by this map.
+This map records repository state only. It does not itself authorize merge, canonicalization, additional public positioning, or any other authority change.
 
 ---
 
@@ -159,22 +160,9 @@ Examples of useful current questions include:
 
 ## What this map does not authorize
 
-This map does not authorize:
+This map is operational control material. It does not itself authorize repository changes, status transitions, canonicalization, implementation guidance, provider-facing use, public claims, validation, adoption, partnership, compliance, certification, commercial use, product-roadmap claims, or any other authority change.
 
-- README changes;
-- ready-for-review;
-- merge;
-- canonicalization;
-- implementation guidance;
-- provider-facing claims;
-- validation claims;
-- adoption claims;
-- partnership claims;
-- compliance or certification claims;
-- commercial claims;
-- product-roadmap claims.
-
-Human Owner confirmation remains required for those actions.
+Human Owner confirmation remains required wherever the applicable RABA governance boundary requires it.
 
 ---
 
