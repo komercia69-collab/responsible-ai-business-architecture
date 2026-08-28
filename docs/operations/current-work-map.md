@@ -99,7 +99,6 @@ No area should be silently deleted, promoted, canonicalized, or reclassified thr
 
 This map records repository state only. It does not itself authorize merge, canonicalization, additional public positioning, or any other authority change.
 
-
 ---
 
 ## High-attention boundaries
