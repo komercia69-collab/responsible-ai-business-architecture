@@ -2,19 +2,15 @@
 
 > **AI may be probabilistic. Responsibility must not be.**
 
-Responsible AI Business Architecture (RABA) is an open-source responsibility architecture for AI-assisted and AI-agentic business workflows.
+Responsible AI Business Architecture (RABA) is an evolving research project exploring how organizations can keep human responsibility and authority clear when AI participates in decisions and execution.
 
 RABA focuses on one practical problem:
 
 > AI systems are becoming able to propose, route or execute real business actions faster than organizations are defining who is accountable for those actions.
 
-RABA helps teams make AI-supported actions:
+RABA investigates how responsibility, governing authority and decision meaning can remain connected from a human decision through AI-supported interpretation and execution to resulting actions and consequences.
 
-- bounded before execution;
-- routed by consequence and authority;
-- approved or escalated when needed;
-- logged as business decisions, not only technical events;
-- auditable without transferring responsibility to AI.
+**New to RABA? Start with [`docs/start-here.md`](docs/start-here.md).**
 
 In short:
 
@@ -34,16 +30,14 @@ RABA protects **governed useful speed**: AI can help work move faster, while res
 
 ---
 
-## Try the project in 5 minutes
+## Explore RABA in 5 minutes
 
 Start here if you are new:
 
-1. [`docs/raba-clarity-map.md`](docs/raba-clarity-map.md) — understand the project and its layers.
-2. [`docs/raba-in-one-example.md`](docs/raba-in-one-example.md) — see RABA on one concrete refund workflow.
-3. [`docs/raba-lite-15-minute-check.md`](docs/raba-lite-15-minute-check.md) — apply RABA to one AI workflow.
-4. [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) — run the minimal executable Governance Gateway proof layer.
-
-> Merge note: these clarity-layer links depend on the clarity sprint PR sequence and should be merged only after the related files are present on `main`.
+1. [`docs/start-here.md`](docs/start-here.md) — understand what RABA is investigating and how repository statuses should be read.
+2. [`docs/raba-clarity-map.md`](docs/raba-clarity-map.md) — explore the project and its layers.
+3. [`docs/raba-in-one-example.md`](docs/raba-in-one-example.md) — see RABA questions through one concrete refund workflow.
+4. [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) — explore a minimal executable Governance Gateway demonstration.
 
 ---
 
@@ -98,9 +92,7 @@ It is not:
 - a replacement for product liability analysis;
 - a replacement for sector-specific regulation.
 
-RABA is designed to integrate with these functions by making responsibility, authority, human confirmation, traceability, escalation and execution boundaries visible inside AI-assisted workflows.
-
-RABA supports compliance readiness.
+RABA explores how responsibility architecture may complement compliance, risk, legal, privacy and assurance functions by making responsibility, authority, human confirmation, traceability, escalation and execution boundaries more visible inside AI-assisted workflows.
 
 RABA does not certify compliance.
 
@@ -108,9 +100,11 @@ RABA does not certify compliance.
 
 ---
 
-## Core RABA Concepts
+## Selected RABA Concepts and Working Architecture
 
-RABA is currently organized around nine core concepts.
+RABA contains several established and developing concepts.
+
+Their presence in this repository does not by itself establish canonical status. Check the status of the relevant artifact before treating a concept as RABA canon.
 
 | Core concept | Start here | What it defines |
 |---|---|---|
@@ -141,13 +135,15 @@ governance concept → operational interface → implementation pattern
 | Designing products, workflows, approvals or business operations | [`concepts/responsibility-management-interface.md`](concepts/responsibility-management-interface.md), [`concepts/responsibility-throughput-model.md`](concepts/responsibility-throughput-model.md), [`concepts/speed-protection-principle.md`](concepts/speed-protection-principle.md) | See how responsibility can become visible and manageable without turning governance into a universal bottleneck |
 | Building AI runtime, observability, policy, audit or event-driven infrastructure | [`docs/governance-gateway-implementation.md`](docs/governance-gateway-implementation.md), [`implementation/responsibility-event-stream.md`](implementation/responsibility-event-stream.md), [`examples/governance-gateway-demo/README.md`](examples/governance-gateway-demo/README.md) | Explore how responsibility states become policy checks, decisions, events and audit trails |
 | Working with MCP, tools or agentic execution | [`architecture/raba-mcp-governance-layer.md`](architecture/raba-mcp-governance-layer.md), [`security/mcp-responsibility-threat-map.md`](security/mcp-responsibility-threat-map.md), [`concepts/agent-identity-and-authority.md`](concepts/agent-identity-and-authority.md) | Map tool execution, non-human identity, permissions and MCP security risks to responsibility architecture |
-| Reviewing regulatory alignment | [`docs/mapping/eu-ai-act-raba-mapping.md`](docs/mapping/eu-ai-act-raba-mapping.md), [`docs/mapping/nist-ai-rmf-raba-mapping.md`](docs/mapping/nist-ai-rmf-raba-mapping.md), [`checklists/responsibility-architecture-review.md`](checklists/responsibility-architecture-review.md) | Understand how RABA supports compliance readiness without replacing legal, privacy, security or conformity assessment functions |
+| Reviewing regulatory alignment | [`docs/mapping/eu-ai-act-raba-mapping.md`](docs/mapping/eu-ai-act-raba-mapping.md), [`docs/mapping/nist-ai-rmf-raba-mapping.md`](docs/mapping/nist-ai-rmf-raba-mapping.md), [`checklists/responsibility-architecture-review.md`](checklists/responsibility-architecture-review.md) | Explore how RABA may relate to regulatory and risk-management frameworks without replacing legal, privacy, security or conformity assessment functions |
 | Investigating open problems or external inputs | [`inquiries/README.md`](inquiries/README.md), [`inquiries/open-problems-index.md`](inquiries/open-problems-index.md) | Review unresolved questions, legal and standards sources, research notes, external inputs and resolution attempts |
-| Exploring a pilot | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md), [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-agentic-bi.md), [`examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md) | Apply RABA to one real workflow and assess whether governed speed is protected from policy drift |
+| Exploring practical scenarios or pilot-related working material | [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md), [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-agentic-bi.md), [`examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md), [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md) | Review non-canonical examples and pilot-related drafts without treating them as adoption, validation, partnership or commercial offers |
 
 ---
 
-## Ready to Use Today
+## Available to Explore Today
+
+The materials below include working concepts, drafts, examples, mappings and implementation-oriented artifacts. Availability in the repository does not imply canon, validation, deployment readiness or recommended operational use.
 
 - [`docs/raba-clarity-map.md`](docs/raba-clarity-map.md) — plain-language project orientation map.
 - [`docs/raba-in-one-example.md`](docs/raba-in-one-example.md) — one concrete refund workflow showing RABA as a living pattern.
@@ -183,9 +179,11 @@ governance concept → operational interface → implementation pattern
 
 ---
 
-## RABA Architecture: Three Levels
+## Working Architecture View: Three Levels
 
-RABA now has a minimal structure from governance principle to runtime implementation.
+The repository contains a working three-level view connecting governance principles, architecture and implementation-oriented patterns.
+
+This view is useful for navigation and research, but it is not by itself RABA canon.
 
 ### Level 1 — Principles
 
@@ -266,21 +264,15 @@ They help protect the framework from semantic expansion outrunning topology stab
 
 ---
 
-## For Pilot Partners
+## Exploring Pilot-Related Working Materials
 
-If your organization is exploring AI in a real workflow, the recommended first step is narrow:
+The repository contains pilot-related and practical-scenario materials that can be reviewed as non-canonical research and design artifacts.
 
-1. Choose one AI-assisted workflow.
-2. Map where AI output becomes operational action.
-3. Identify approval and escalation points.
-4. Define what should be logged before autonomy increases.
-5. Test the workflow with RABA approval states and decision logs.
-6. Use [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md) for a first 12-question check of governance drift risk.
-7. Review [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-agentic-bi.md) to see a completed sample assessment.
-8. Review [`examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md) to see a constructed but realistically plausible example of how governance drift can appear under business pressure.
-9. Use [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md) for a deeper workflow-level assessment before expanding autonomy.
+These materials may help readers examine how RABA questions could be applied to bounded workflow scenarios, including action boundaries, approval and escalation points, decision logging, policy integrity and governance drift.
 
-Start with [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md), [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-agentic-bi.md), [`examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), or [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md).
+They should not be treated as an invitation to adopt RABA, evidence of validation, a deployment recommendation, a partnership offer or a commercial commitment.
+
+Relevant working artifacts include [`docs/pilot-readiness-pack.md`](docs/pilot-readiness-pack.md), [`docs/pilot-partner-talk-track.md`](docs/pilot-partner-talk-track.md), [`docs/partner-engagement.md`](docs/partner-engagement.md), [`docs/policy-integrity-self-assessment-one-page.md`](docs/policy-integrity-self-assessment-one-page.md), [`examples/policy-integrity-assessments/customer-support-agentic-bi.md`](examples/policy-integrity-assessments/customer-support-agentic-bi.md), [`examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md`](examples/policy-integrity-assessments/customer-support-governance-drift-scenario.md), [`docs/policy-integrity-self-assessment.md`](docs/policy-integrity-self-assessment.md), and [`offers/minimal-human-ai-governance-pilot.md`](offers/minimal-human-ai-governance-pilot.md). Check the status and boundaries of each artifact before relying on it.
 
 ---
 
@@ -369,7 +361,7 @@ Major architectural changes are not merged directly from raw model output. Inste
 
 In this project, the **Integrator** is the working integration role that compares recommendations and prepares repository changes. The **human owner remains the final accountable decision maker** for what becomes Canon.
 
-The controlled workspace is practical, not abstract: it may include ChatGPT, Claude, Gemini, Comet/browser tabs, GitHub, templates, and Decision Log files. The accepted Canon is the project state stored in GitHub.
+The controlled workspace is practical, not abstract: it may include ChatGPT, Claude, Gemini, Comet/browser tabs, GitHub, templates, and Decision Log files. GitHub stores RABA materials at different statuses. Repository presence or merge does not by itself make material canon. Canon requires separate explicit Human Owner canonicalization.
 
 ### Multi-model governance process
 
@@ -395,13 +387,13 @@ The controlled workspace is practical, not abstract: it may include ChatGPT, Cla
    Significant decisions are summarized in a Decision Card before or during repository updates.
 
 7. **Codification**
-   Only accepted changes are merged into the project Canon and recorded in the Decision Log.
+   Approved repository changes may be merged while remaining non-canonical. Canonicalization is a separate Human Owner decision and should be recorded through the appropriate decision trace.
 
 ### Canon and Decision Log
 
 RABA maintains two governance artifacts for its own evolution:
 
-- **Canon** — the accepted project state stored in GitHub.
+- **Canon** — material explicitly canonicalized by the Human Owner; repository presence or merge alone does not establish this status.
 - **Decision Log** — a traceable record explaining why significant recommendations were accepted, partially accepted, deferred, or rejected.
 
 Any major architectural change should be explainable through the Decision Log.
@@ -422,8 +414,8 @@ Expert input
 → Triage
 → Governance Fit Check
 → Decision Card
-→ Canon update
-→ Decision Log
+→ authorized repository change
+→ Decision Log / status trace
 ```
 
 This is intentional dogfooding.
