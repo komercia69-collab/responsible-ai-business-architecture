@@ -9,24 +9,19 @@
 
 ## What is RABA?
 
-**Responsible AI Business Architecture (RABA)** is an evolving research and architecture project concerned with responsibility in AI-assisted and AI-agentic organizational workflows.
+**Responsible AI Business Architecture (RABA)** is an evolving research project about how organizations can keep human responsibility and authority clear when AI participates in decisions and execution.
 
-RABA investigates a practical problem:
-
-> When AI prepares information, shapes decisions, interprets instructions, adapts execution, or acts through tools, how can authorised human meaning and responsibility remain continuous through to actual action and consequence?
+It asks what must remain connected from the original human decision through AI-supported interpretation and execution to the resulting action and consequence.
 
 The project is not only concerned with whether an AI output is accurate.
 
 It examines questions such as:
 
-- what decision or authority originally governs an action;
 - what the AI is actually authorised to change;
-- where autonomous adaptation remains execution;
-- where a change becomes materially significant;
-- when a new human decision or authorisation is required;
-- how responsibility remains reconstructable across transitions;
-- what happens when an error has propagated beyond its original source;
-- how systems can support useful AI autonomy without silently transferring authority to AI.
+- when autonomous adjustment becomes a new decision;
+- when new human approval or authorisation is required;
+- how responsibility can be reconstructed across transitions;
+- what happens when an error has already propagated downstream.
 
 RABA is actively developing these questions. Not every concept, document, diagram, prototype, or repository artifact is canon.
 
@@ -106,7 +101,7 @@ Current public-facing working areas may include:
 
 The exact status of individual concepts should be checked in the relevant artifact.
 
-For a more detailed non-canonical view of active work, see the proposed:
+For readers who want a more detailed view of current research areas and their status, see the proposed:
 
 `docs/operations/current-work-map.md`
 
