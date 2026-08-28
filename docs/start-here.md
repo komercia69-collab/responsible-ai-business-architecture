@@ -2,85 +2,113 @@
 
 **Status:** Public-facing clarity draft  
 **Canonical status:** Non-canonical  
-**Purpose:** Help new visitors understand how to read and engage with RABA  
+**Purpose:** Help new visitors understand what RABA is investigating, how to read the repository, and how to engage without confusing activity with approval  
 **Approval status:** Human Owner review required before PR readiness, README linking, public positioning, canonicalization, or merge
 
 ---
 
 ## What is RABA?
 
-**Responsible AI Business Architecture (RABA)** is a working architecture for thinking about responsible AI integration in real business, organizational, and agentic AI workflows.
+**Responsible AI Business Architecture (RABA)** is an evolving research and architecture project concerned with responsibility in AI-assisted and AI-agentic organizational workflows.
 
-RABA focuses on a simple but difficult question:
+RABA investigates a practical problem:
 
-> When AI helps prepare, shape, recommend, or execute action, how do humans, organizations, and systems preserve responsibility?
+> When AI prepares information, shapes decisions, interprets instructions, adapts execution, or acts through tools, how can authorised human meaning and responsibility remain continuous through to actual action and consequence?
 
-RABA is not only about what AI can do.  
-It is about where decision boundaries are, who carries authority, what evidence is required, when escalation is needed, and how responsibility remains visible.
+The project is not only concerned with whether an AI output is accurate.
+
+It examines questions such as:
+
+- what decision or authority originally governs an action;
+- what the AI is actually authorised to change;
+- where autonomous adaptation remains execution;
+- where a change becomes materially significant;
+- when a new human decision or authorisation is required;
+- how responsibility remains reconstructable across transitions;
+- what happens when an error has propagated beyond its original source;
+- how systems can support useful AI autonomy without silently transferring authority to AI.
+
+RABA is actively developing these questions. Not every concept, document, diagram, prototype, or repository artifact is canon.
 
 ---
 
 ## Why this project exists
 
-AI is increasingly able to:
+AI systems increasingly participate in longer organizational chains.
 
-- prepare summaries;
-- analyze documents;
+They may:
+
+- prepare or transform information;
 - recommend decisions;
-- generate code;
-- coordinate workflows;
-- support agents;
-- prepare execution;
-- influence what a human sees before approval.
+- influence what a human sees before deciding;
+- interpret policies or instructions;
+- choose tools and execution routes;
+- coordinate tasks across agents or systems;
+- update workflow state;
+- prepare or execute actions;
+- create effects that influence later human or automated decisions.
 
-This creates a new governance problem.
+A human may still appear somewhere in the loop while important parts of the decision environment, execution trajectory, or downstream consequence have already been shaped elsewhere.
 
-A human may still click "approve," but the decision field may already have been shaped by AI.
+This creates responsibility problems that cannot always be solved by adding another approval button.
 
-RABA explores how organizations can avoid hidden responsibility gaps, such as:
+RABA investigates gaps such as:
 
-- AI recommendation being treated as human decision;
-- approval being treated as responsible authorization;
-- AI-prepared information entering official decision chains without status;
-- multi-agent agreement being mistaken for validation;
-- human oversight becoming theater;
-- execution happening without a clear responsibility trace.
+- AI recommendation being mistaken for human decision;
+- human approval being mistaken for sufficient authorisation;
+- AI-prepared information entering decision chains without a clear status;
+- locally correct steps producing an outcome that no longer corresponds to the authorised decision;
+- autonomous adaptation changing materially significant content without renewed authority;
+- source correction occurring while downstream reliance remains uncorrected;
+- technical event logs existing without reconstruction of the governing basis;
+- multi-AI agreement being mistaken for validation;
+- external feedback being mistaken for adoption or endorsement;
+- human oversight existing formally without meaningful visibility, competence, or ability to intervene.
 
 ---
 
-## Core RABA questions
+## Current RABA questions
 
-RABA is organized around questions such as:
+Current work includes questions such as:
 
-- When does human approval become responsible authorization?
-- What status should AI-prepared information have before official decision use?
-- How should AI-agent execution be stopped, limited, deferred, or released?
-- What counts as a responsibility trace?
-- When does AI assistance become decision-field construction?
-- How can systems make authority, evidence, escalation, and accountability visible?
-- How can humans become prepared for responsibility-aware AI decision-making?
+- How should an authorised human decision remain connected to its later interpretation, execution and consequence?
+- What constitutes a sufficient governing basis for the next action or transition?
+- When does a change remain an autonomous adjustment of method, and when does it require renewed human authority?
+- What makes a transition materially significant?
+- Can every local step be correct while the final action is inconsistent with the governing decision?
+- How should responsibility remain reconstructable across human, AI, tool and organizational transitions?
+- When is correction of the original source insufficient because the information or effect has already propagated?
+- How should recovery differ from local correction?
+- What evidence is necessary before an AI-supported result can legitimately be relied upon?
+- How can organizations preserve useful autonomy without allowing hidden authority expansion?
+
+These are active research questions, not a declaration that RABA already has a universally validated answer.
 
 ---
 
 ## Current working areas
 
-RABA is an active working project. Some areas are more mature than others. Not everything in the repository is canon.
+RABA contains several active and historical work streams.
 
-Current non-canonical working areas and review candidates include:
+Current public-facing working areas may include:
 
-| Area | Status |
-|---|---|
-| Human Accountable Release | Working concept / non-canonical unless explicitly marked otherwise |
-| AI-prepared information status | Working inquiry / non-canonical |
-| Responsibility trace | Working concept / related to open canonicalization candidates |
-| Decision field integrity | Working concept / non-canonical |
-| Agentic AI execution boundaries | Working inquiry / non-canonical |
-| Responsibility Observability | Canonicalization candidate / review queue |
-| Responsibility Binding Event | Concept tracking |
-| External signal handling | Operational practice / non-canonical unless merged into canon |
-| Multi-AI execution roles | Working note / non-canonical |
-| Provider signal translation | Working note / non-canonical |
-| Responsibility-aware AI decision training | Working inquiry / course candidate |
+- responsibility continuity;
+- governing basis and decision-to-action continuity;
+- autonomy and transition boundaries;
+- material change and admissibility;
+- responsibility reconstruction;
+- correction, propagation and recovery;
+- AI-prepared information and decision-field integrity;
+- responsibility observability under renewed review;
+- bounded research and evidence-frame design;
+- external-signal handling;
+- public-claim and status discipline.
+
+The exact status of individual concepts should be checked in the relevant artifact.
+
+For a more detailed non-canonical view of active work, see the proposed:
+
+`docs/operations/current-work-map.md`
 
 ---
 
@@ -88,91 +116,89 @@ Current non-canonical working areas and review candidates include:
 
 RABA uses explicit status boundaries.
 
-Before treating any document as authoritative, check its status.
+Before treating any repository artifact as authoritative, check its status.
 
 Common statuses include:
 
-- **Draft** — early text or proposed material.
+- **Draft** — early or proposed material.
 - **Working note** — useful working material, not canon.
-- **Review aid** — material prepared to help evaluation or discussion.
-- **External signal** — input from outside RABA, not validation or adoption.
-- **Operational control material** — coordination material for project work.
-- **Canonicalization candidate** — material that may be reviewed for canon, but is not canon yet.
-- **Merged non-canonical** — present in the repository, but not automatically canon.
-- **Canon** — accepted RABA architecture only when explicitly approved by the Human Owner and marked as such.
+- **Review aid** — material prepared to support evaluation or discussion.
+- **External signal** — outside input recorded for comparison; not validation or adoption.
+- **Operational control material** — project-control or workflow coordination material.
+- **Canonicalization candidate** — material that may be reviewed for canon but is not canon.
+- **Merged non-canonical** — present in the repository but not automatically canon.
+- **Canon** — RABA architecture explicitly approved by the Human Owner and explicitly marked as canon.
 
-Repository presence does not mean approval.  
-A merged document does not automatically become canon.  
-External feedback does not mean validation.  
-Multi-AI agreement does not mean Human Owner approval.
+Important boundaries:
+
+> Repository presence does not mean approval.  
+> Commit existence does not mean canon.  
+> Merge does not automatically mean canon.  
+> External feedback does not mean validation.  
+> Multi-AI agreement does not mean Human Owner approval.
+
+Final architectural approval remains with the Human Owner.
 
 ---
 
-## Suggested reading paths
+## Suggested reading perspectives
 
-### For AI governance readers
+### For business and process readers
 
-Start with materials about:
+Look for work concerning:
 
-- responsibility boundaries;
-- human accountable release;
-- validation vs governance;
-- responsibility observability;
-- external signal handling.
+- decision-to-action continuity;
+- organizational authority;
+- business-process transitions;
+- consequences and downstream reliance;
+- correction and recovery.
 
-### For business architects
+### For AI governance, legal, risk and assurance readers
 
-Start with materials about:
+Look for work concerning:
 
-- decision chains;
-- operational accountability;
-- approval boundaries;
-- responsibility trace;
-- AI-supported organizational workflows.
+- governing basis;
+- admissibility;
+- authority boundaries;
+- evidence requirements;
+- responsibility reconstruction;
+- external-signal and validation boundaries.
 
-### For technical architects
+### For technical and agentic-AI readers
 
-Start with materials about:
+Look for work concerning:
 
-- AI-agent execution boundaries;
-- runtime governance;
-- observability;
-- tool and provider failure;
-- multi-agent coordination.
+- autonomous execution;
+- transition boundaries;
+- material change;
+- tool execution;
+- escalation and stopping conditions;
+- responsibility-relevant traces.
 
-### For risk, compliance, and review readers
+### For researchers and external contributors
 
-Start with materials about:
+Open questions, bounded scenarios, critique and counterexamples are particularly useful.
 
-- what RABA is not;
-- non-canonical status rules;
-- external signal intake;
-- public-facing wording hygiene;
-- responsibility trace and evidence boundaries.
+Agreement is not required.
 
-### For external contributors
-
-Start with open issues, working notes, and inquiry documents.  
-The safest way to contribute is to ask questions, challenge assumptions, share use cases, or identify unclear wording.
+A well-formed challenge may be more valuable than consensus.
 
 ---
 
 ## How to engage
 
-You can help develop the topic by:
+Useful contributions include:
 
 - asking a governance question;
-- reviewing a working note;
-- suggesting a real use case;
-- challenging a concept;
-- identifying a responsibility gap;
-- sharing an external signal;
-- proposing a failure scenario;
-- testing whether the wording is understandable for your role;
-- suggesting clearer language.
+- challenging a working distinction;
+- providing a bounded operational scenario;
+- identifying an unclear transition or authority boundary;
+- proposing a counterexample;
+- reviewing whether an evidence frame is sufficient;
+- identifying public wording that overstates maturity;
+- sharing an external professional perspective for comparison.
 
-Useful feedback does not need to agree with RABA.  
-A well-formed challenge may be more valuable than agreement.
+External input remains external input unless its status is changed through the appropriate Human Owner decision process.
 
 ---
 
@@ -188,9 +214,8 @@ However:
 - GitHub activity is not Human Owner approval;
 - public interest is not partnership;
 - use-case discussion is not commercial commitment;
+- independent review is not certification;
 - AI recommendation is not final architectural approval.
-
-Final architectural approval remains with the Human Owner.
 
 ---
 
@@ -202,34 +227,43 @@ RABA is not:
 - a certification scheme;
 - a compliance guarantee;
 - a finished standard;
-- a vendor framework;
-- a claim that AI can replace human responsibility;
-- a claim that human approval is always enough;
 - a validated industrial methodology;
-- an adoption-ready product.
+- an adoption-ready product;
+- a claim that AI can replace human responsibility;
+- a claim that human presence alone guarantees responsible control;
+- proof of enterprise deployment;
+- proof of commercial readiness.
 
-RABA is a responsibility architecture project that develops concepts, boundaries, and operational patterns for responsible AI-assisted and agentic workflows.
+RABA is an evolving responsibility-architecture research project using working concepts, bounded tests, external challenge, operational cases and explicit status control to investigate these problems.
 
 ---
 
 ## Current public-entry improvement track
 
-This page is part of the public-entry improvement track opened in:
+This page belongs to the public-entry improvement track recorded in:
 
-```text
-Issue #158 — Improve public entry path for RABA visitors and contributors
-```
+`Issue #158 — Improve public entry path for RABA visitors and contributors`
 
-The purpose is to help visitors understand the project without creating false maturity, validation, adoption, or canon signals.
+This draft does not authorize:
+
+- README changes;
+- PR readiness;
+- merge;
+- canonicalization;
+- validation claims;
+- adoption claims;
+- partnership claims;
+- compliance or certification claims;
+- commercial or product-roadmap claims.
 
 ---
 
 ## Short summary
 
-RABA explores how responsibility can remain visible and governable when AI prepares information, shapes decisions, recommends action, or supports execution.
+RABA investigates how responsibility, authority and authorised meaning can remain connected while AI participates in organizational decisions and execution.
 
-The project is open to thoughtful feedback, but careful about status.
+The project deliberately distinguishes research activity from approval and architectural maturity.
 
 > AI may assist.  
 > Human Owner decides.  
-> Responsibility must remain visible.
+> Responsibility must remain visible and reconstructable.
