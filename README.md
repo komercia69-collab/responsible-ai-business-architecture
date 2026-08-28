@@ -367,7 +367,7 @@ Major architectural changes are not merged directly from raw model output. Inste
 
 In this project, the **Integrator** is the working integration role that compares recommendations and prepares repository changes. The **human owner remains the final accountable decision maker** for what becomes Canon.
 
-The controlled workspace is practical, not abstract: it may include ChatGPT, Claude, Gemini, Comet/browser tabs, GitHub, templates, and Decision Log files. The accepted Canon is the project state stored in GitHub.
+The controlled workspace is practical, not abstract: it may include ChatGPT, Claude, Gemini, Comet/browser tabs, GitHub, templates, and Decision Log files. GitHub stores RABA materials at different statuses. Repository presence or merge does not by itself make material canon. Canon requires separate explicit Human Owner canonicalization.
 
 ### Multi-model governance process
 
@@ -393,13 +393,13 @@ The controlled workspace is practical, not abstract: it may include ChatGPT, Cla
    Significant decisions are summarized in a Decision Card before or during repository updates.
 
 7. **Codification**
-   Only accepted changes are merged into the project Canon and recorded in the Decision Log.
+   Approved repository changes may be merged while remaining non-canonical. Canonicalization is a separate Human Owner decision and should be recorded through the appropriate decision trace.
 
 ### Canon and Decision Log
 
 RABA maintains two governance artifacts for its own evolution:
 
-- **Canon** — the accepted project state stored in GitHub.
+- **Canon** — material explicitly canonicalized by the Human Owner; repository presence or merge alone does not establish this status.
 - **Decision Log** — a traceable record explaining why significant recommendations were accepted, partially accepted, deferred, or rejected.
 
 Any major architectural change should be explainable through the Decision Log.
@@ -420,8 +420,8 @@ Expert input
 → Triage
 → Governance Fit Check
 → Decision Card
-→ Canon update
-→ Decision Log
+→ authorized repository change
+→ Decision Log / status trace
 ```
 
 This is intentional dogfooding.
