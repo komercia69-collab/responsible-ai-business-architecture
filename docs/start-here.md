@@ -1,9 +1,9 @@
 # Start Here
 
-**Status:** Public-facing clarity draft  
+**Status:** Merged non-canonical public-facing clarity material  
 **Canonical status:** Non-canonical  
 **Purpose:** Help new visitors understand what RABA is investigating, how to read the repository, and how to engage without confusing activity with approval  
-**Approval status:** Human Owner review required before PR readiness, README linking, public positioning, canonicalization, or merge
+**Approval status:** Merged into `main` as non-canonical material. Further authority or status changes, including canonicalization, require explicit Human Owner confirmation.
 
 ---
 
@@ -239,17 +239,7 @@ This page belongs to the public-entry improvement track recorded in:
 
 `Issue #158 — Improve public entry path for RABA visitors and contributors`
 
-This draft does not authorize:
-
-- README changes;
-- PR readiness;
-- merge;
-- canonicalization;
-- validation claims;
-- adoption claims;
-- partnership claims;
-- compliance or certification claims;
-- commercial or product-roadmap claims.
+This material records and supports the public-entry improvement track but does not itself authorize further repository, status, public-positioning, canonicalization, or other authority changes. Such actions require the appropriate explicit Human Owner confirmation.
 
 ---
 
