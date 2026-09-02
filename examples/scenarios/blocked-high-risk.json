@@ -1,0 +1,19 @@
+{
+  "name": "blocked-high-risk",
+  "description": "High-risk scenario: open payment screen (classified as payment_or_financial_action). First action blocks; sequence stops.",
+  "actions": [
+    {
+      "type": "open_url",
+      "target": "mock://blocked-payment-screen"
+    },
+    {
+      "type": "type",
+      "target": "card-number",
+      "value": "4111111111111111"
+    },
+    {
+      "type": "submit",
+      "target": "pay-button"
+    }
+  ]
+}

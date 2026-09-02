@@ -1,0 +1,38 @@
+# NON-CANONICAL — example policy for mock prototype only
+# This file is not approved, not validated, not production-ready.
+# Human Owner decision required before any real use.
+
+id: sandbox-readonly-v1
+status: example
+canonical_status: non_canonical
+autonomy_mode: sandbox_autonomy_only
+
+allowed_task_classes:
+  - read_only_inspection
+
+blocked_action_types:
+  - submit
+  - delete
+  - run_command
+  - upload
+  - download
+
+confirmation_required:
+  consequence_classes:
+    - external_submission
+    - configuration_change
+    - credential_or_secret_handling
+    - file_or_record_deletion
+    - payment_or_financial_action
+    - public_or_provider_facing_action
+  reversibility:
+    - irreversible
+    - unknown
+
+limits:
+  max_steps: 20
+
+environment_scope:
+  allowed_targets:
+    - mock://readonly-report
+  blocked_targets: []
