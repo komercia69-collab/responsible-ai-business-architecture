@@ -1,0 +1,85 @@
+# RABA Tranche 1.1 candidate action classes
+# Status: canonicalization candidate
+# Canonical status: non-canonical
+# Review artifact only. Not a schema adoption. Not an event-family adoption. Not implementation guidance.
+# Not for runtime use, integration use, serialization, or data-contract use without separate Human Owner confirmation.
+
+status: canonicalization_candidate
+canonical_status: non_canonical
+tranche: "1.1"
+purpose: "Flat candidate action-class taxonomy for Human Owner review"
+
+review_rule: >
+  If two action classes trigger the same Decision Log requirement,
+  the same escalation path, and the same confirmation requirement,
+  they should be merged.
+
+classification_boundary: >
+  These candidate action classes describe responsibility-relevant categories for review.
+  Classification does not by itself make an AI-supported output consequential and does not
+  authorize action. Consequentiality depends on use in a consequential context, boundary
+  conditions, and required human governance.
+
+candidate_boundary_conditions_under_review:
+  decision_field_shaping: "Candidate boundary condition across classes; not a standalone action class in this tranche."
+  trigger_vocabulary:
+    - reliance
+    - routing
+    - ranking
+    - prioritization
+    - recording_as_rationale_or_basis
+    - escalation
+    - de_escalation
+    - commitment_preparation
+    - material_decision_field_shaping
+
+classes:
+  - id: READ_ONLY
+    description: "AI-supported access, retrieval, summarization, or display that does not by itself change workflow state or create an external consequence."
+    default_boundary_note: "Not automatically consequential, but may become responsibility-relevant if relied on in a consequential context."
+
+  - id: INTERNAL_RECOMMENDATION
+    description: "AI-supported recommendation, ranking, draft, or analysis intended for internal human review before action."
+    default_boundary_note: "Internal recommendation is not consequential merely because it exists; it may become boundary-relevant when, in a consequential context, it is relied on, routed, ranked, recorded, escalated, de-escalated, used to prepare a commitment, or used to materially shape a decision field."
+
+  - id: WORKFLOW_STATE_CHANGE
+    description: "AI-supported creation, update, routing, status change, or progression of a workflow item."
+    default_boundary_note: "Potentially consequential because AI output changes operational state."
+
+  - id: DATA_MUTATION
+    description: "AI-supported creation, modification, deletion, enrichment, or correction of data records."
+    default_boundary_note: "Potentially consequential depending on data domain, authority, and downstream use."
+
+  - id: EXTERNAL_COMMUNICATION
+    description: "AI-supported message, notice, claim, explanation, instruction, or content sent outside the responsible organization or workflow owner."
+    default_boundary_note: "Potentially consequential because it may affect recipients, commitments, or expectations."
+
+  - id: EXTERNAL_TRANSACTION
+    description: "AI-supported payment, order, transfer, booking, filing, submission, or other transaction with external effect."
+    default_boundary_note: "Usually consequential because it may create obligation, entitlement, cost, or external state change."
+
+  - id: APPROVAL_OR_DENIAL
+    description: "AI-supported approval, rejection, eligibility decision, access decision, claim decision, or authorization decision."
+    default_boundary_note: "Consequential when it affects rights, access, benefits, obligations, or business outcome."
+
+  - id: COMPLIANCE_SIGN_OFF
+    description: "AI-supported certification, compliance conclusion, risk acceptance, regulatory assertion, or formal sign-off."
+    default_boundary_note: "Consequential because it may affect accountability, compliance status, or organizational liability."
+
+  - id: ESCALATION_OR_HANDOFF
+    description: "AI-supported transfer of responsibility, escalation, de-escalation, routing, or handoff to another system, team, or domain."
+    default_boundary_note: "Potentially consequential because responsibility ownership, reviewer attention, or decision authority may shift."
+
+  - id: UNCLASSIFIED_CONSEQUENTIAL_ACTION
+    description: "Fallback candidate class for actions that appear consequential but do not fit the current taxonomy."
+    default_boundary_note: "Must trigger review; not a license to avoid later classification."
+
+human_authority_boundary: >
+  Classifying an action does not authorize it. AI review, AI confidence, or AI consensus
+  does not close a governance gate and does not remove Human Owner or human governance review.
+
+governance_boundary: >
+  These action classes are candidate review material only. They are not canonical,
+  not a machine-readable schema adoption, not an event-family adoption, not a data
+  contract, not a serialization format, not an integration reference, and not
+  authorization for runtime enforcement.
