@@ -4,7 +4,7 @@
 - Decision title: RABA Canonicality Requires an Explicit Human Owner Decision Recorded in a Traceable Status/Decision Record
 - Human Owner: Oleksandr / Александр
 - Decision date: 2026-08-03
-- **Decision status:** Human Owner wording decision and the accuracy of this Decision Log record were explicitly confirmed in conversation. This is an accepted Decision Log record, locally committed but not pushed or merged. Repository presence, commit, push, PR creation, or merge do not by themselves establish Canon. Canon requires a separate explicit Human Owner decision recorded in a traceable status or decision record.
+- **Decision status:** Human Owner wording decision and the accuracy of this Decision Log record were explicitly confirmed in conversation. This is an accepted Decision Log record in PR #172, currently Ready for review / non-canonical / unmerged. Repository presence, commit, push, PR creation, merge, repeated use, or public visibility do not by themselves establish Canon. Canon requires a separate explicit Human Owner decision recorded in a traceable status or decision record.
 
 ---
 
@@ -46,20 +46,73 @@ This decision does not:
 
 ---
 
-## Implementation Status
+## Status History
 
-- **Initial local implementation commit `4f504640b9597d792c05e8c620ba2bee6015df0f`** exists on branch `docs/canon-status-boundary-alignment`; no push, PR, or merge performed.
-- Branch creation and the local commit were separately authorized by the Human Owner. Push, PR creation, merge, canonicalization, and any further repository implementation remain subject to separate scoped Human Owner confirmation.
-- This is an accepted Decision Log record of the confirmed decision. The Human Owner explicitly approved the accuracy of this Decision Log record. Repository presence, commit, push, PR creation, or merge do not by themselves establish Canon.
+### Initial status — 2026-08-03
+
+The Decision Log record was confirmed by the Human Owner and committed locally.
+
+At that time:
+- no push had occurred;
+- no PR had been created;
+- no merge had occurred;
+- no canonicalization had occurred.
+
+### Subsequent repository status — 2026-08-04
+
+Following separate scoped Human Owner confirmations:
+- branch `docs/canon-status-boundary-alignment` was pushed;
+- PR #172 was created;
+- the material remained non-canonical.
+
+These repository actions did not establish Canon.
+
+### Current status — 2026-09-06
+
+PR #172 is Ready for review / non-canonical / unmerged.
+
+The original Canon/status-boundary decision remains unchanged.
+
+Merge remains blocked pending separate Human Owner confirmation.
+
+Canonicalization remains blocked pending a separate explicit Human Owner decision.
 
 ---
 
-## Subsequent Status Update
+## Block 5 Verification
 
-- On 2026-08-04, following separate scoped Human Owner confirmations, branch `docs/canon-status-boundary-alignment` was pushed to `origin` at commit `f623ac4ab216be9bbd2a860264c43b58e69ab5a7`.
-- Draft PR #172 was subsequently created from that branch into `main`.
-- The PR remains Draft. Ready-for-review, merge, and canonicalization have not been authorized.
-- These subsequent repository actions do not alter the decision recorded above and do not establish Canon.
+- Block 5 Verification Level: 2
+
+- Critical Claims Checked:
+  - Canon requires an explicit Human Owner canonicalization decision.
+  - Repository presence does not establish Canon.
+  - Commit existence does not establish Canon.
+  - Merge does not establish Canon.
+  - PR #172 is currently Ready for review / non-canonical / unmerged.
+  - Merge and canonicalization remain separately blocked pending Human Owner confirmation.
+
+- Sources Checked by Human:
+  - Human Owner source conversation confirming the Canon/status boundary.
+
+- Sources Extracted for Human Review:
+  - `README.md`
+  - `docs/decision-log/README.md`
+  - `AGENTS.md`
+  - `docs/project-status.md`
+  - PR #172 current state and review threads
+
+- Remaining Uncertainty:
+  - None identified regarding the confirmed Canon/status boundary.
+  - Merge and canonicalization remain separate future decisions.
+
+- Human Rationale:
+  - Repository state and canonical status must remain separate so that commit, PR, merge, repeated use, or public visibility cannot silently create architectural authority.
+
+- What Remains Blocked:
+  - Merge of PR #172.
+  - Canonicalization of this Decision Log record or any changed file.
+  - Any broader repository alignment outside the bounded scope of this PR.
+  - Public/provider/commercial/validation/compliance/certification claims.
 
 ---
 
