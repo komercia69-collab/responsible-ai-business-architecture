@@ -93,7 +93,7 @@ No area should be silently deleted, promoted, canonicalized, or reclassified thr
 |---|---|---|
 | Issue #158 | Operational control issue | Umbrella for safer public-entry work. |
 | PR #159 | Merged / non-canonical | Added `Start Here` and `Current Work Map` to `main`; merge did not canonicalize them. |
-| PR #174 | Ready for review / non-canonical / not merged | README public-front-door correction candidate. |
+| PR #174 | Merged / non-canonical | Added the README public-front-door correction to `main`; merge did not canonicalize it. |
 | `docs/start-here.md` | Merged non-canonical public-facing clarity material | Explains RABA, status boundaries and reading perspectives. |
 | `docs/operations/current-work-map.md` | Merged non-canonical operational control material | Shows active, supporting and deferred work without implying canon or validation. |
 

@@ -101,7 +101,7 @@ Current public-facing working areas may include:
 
 The exact status of individual concepts should be checked in the relevant artifact.
 
-For readers who want a more detailed view of current research areas and their status, see the proposed:
+For readers who want a more detailed view of current research areas and their status, see:
 
 `docs/operations/current-work-map.md`
 
